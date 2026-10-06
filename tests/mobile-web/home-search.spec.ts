@@ -1,3 +1,4 @@
+import { installMobileBoardFixtures } from './mobile-board-fixtures';
 import { test, expect } from '@playwright/test';
 import fixture from './fixtures/route-detail.json' with { type: 'json' };
 
@@ -5,7 +6,8 @@ test('Today route search opens by keyboard, clears queries, and opens a result',
   await page.addInitScript(() => localStorage.setItem('paddletoday:welcome-completed:v1', '1'));
   await page.route('**/api/**', (route) => route.fulfill({ status: 503, json: { error: 'offline' } }));
   await page.route('**/api/rivers/rice-creek-peltier-to-long-lake.json', (route) => route.fulfill({ json: fixture }));
-  await page.route('**/api/rivers/{summary,explore}.json', (route) => route.fulfill({ json: { rivers: [{
+  const fulfillMobile = await installMobileBoardFixtures(page);
+  await page.route('**/api/mobile/{summary,explore}.json**', (route) => fulfillMobile(route, { json: { rivers: [{
     ...fixture.result, summary: { cardText: 'Local QA fixture', shortExplanation: 'Conditions withheld', rawSignalLine: '', gaugeNow: '', confidenceText: '', freshnessText: '', primaryFactor: '', secondaryFactor: '' },
   }] } }));
   await page.route('**/gallery/**', (route) => route.abort());
@@ -36,7 +38,8 @@ test('Today searches accented names and keeps other rivers after grouping many m
       name: index < 22 ? 'Rivière' : 'Rivière du nord', reach: `Access ${index}` },
     summary: { shortExplanation: 'QA', gaugeNow: 'QA' },
   }));
-  await page.route('**/api/rivers/{summary,explore}.json', route => route.fulfill({ json: { rivers } }));
+  const fulfillMobile = await installMobileBoardFixtures(page);
+  await page.route('**/api/mobile/{summary,explore}.json**', route => fulfillMobile(route, { json: { rivers } }));
   await page.goto('/');
   await page.getByRole('button', { name: 'Search for a river or route', exact: true }).click();
   const dialog = page.getByRole('dialog');

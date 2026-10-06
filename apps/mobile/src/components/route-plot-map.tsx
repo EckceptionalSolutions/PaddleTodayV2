@@ -1,9 +1,12 @@
 import type { default as NativeMapView } from 'react-native-maps';
+import { useIsFocused } from '@react-navigation/native';
 import { distanceMiles } from '@paddletoday/api-contract';
 import { forwardRef, memo, useCallback, useEffect, useImperativeHandle, useMemo, useRef, useState } from 'react';
 import { FlatList, Modal, Platform, Pressable, StyleSheet, Text, View, useWindowDimensions } from 'react-native';
 import { clusterFocusRegion, isMapCluster, mapViewportPoints, mapScoreLayout, type MapViewport } from '../lib/map-viewport';
 import { colors, radius, spacing } from '../theme/tokens';
+import { androidMarkerImage, androidUserMarkerImage } from '../lib/android-map-marker-images';
+import { mapMarkerBatch } from '../lib/map-marker-batch';
 import {
   finiteSpanCoordinates,
   getBounds,
@@ -130,6 +133,7 @@ export const RoutePlotMap = forwardRef<RoutePlotMapHandle, {
     userLocation && Number.isFinite(userLocation.latitude) && Number.isFinite(userLocation.longitude)
   );
   const nativeUserLocation = hasUserLocation ? userLocation : null;
+  const nativeUserImage = androidUserMarkerImage();
   const [regionDelta, setRegionDelta] = useState<MapViewport>(initialRegion);
   const { width: windowWidth } = useWindowDimensions();
   const [mapWidth, setMapWidth] = useState(windowWidth);
@@ -150,6 +154,23 @@ export const RoutePlotMap = forwardRef<RoutePlotMapHandle, {
     }
     return viewportPoints;
   }, [clusterMarkers, selectedId, selectedPoint, viewportPoints]);
+  const isFocused = useIsFocused();
+  const [nativeReady, setNativeReady] = useState(false);
+  const [nativeMarkerLimit, setNativeMarkerLimit] = useState(0);
+  useEffect(() => {
+    if (Platform.OS !== 'android' || !nativeReady || !isFocused || nativeMarkerLimit >= renderedMarkerPoints.length) return;
+    // Let the SDK attach its surface first, then yield between small marker
+    // commits. A nationwide view must not monopolize the Android UI thread.
+    const frame = requestAnimationFrame(() => setNativeMarkerLimit(limit => Math.min(limit + 32, renderedMarkerPoints.length)));
+    return () => cancelAnimationFrame(frame);
+  }, [isFocused, nativeReady, nativeMarkerLimit, renderedMarkerPoints.length]);
+  const scheduledMarkerPoints = useMemo(() => Platform.OS === 'android'
+    ? mapMarkerBatch(renderedMarkerPoints, nativeMarkerLimit, selectedId) : renderedMarkerPoints,
+  [renderedMarkerPoints, nativeMarkerLimit, selectedId]);
+  const handleNativeMapReady = useCallback(() => {
+    if (Platform.OS === 'android') setNativeReady(true);
+    onReady?.();
+  }, [onReady]);
   const showScoreMarkers = shouldShowScoreMarkers(regionDelta.latitudeDelta, visiblePoints.length);
   const selectPointRef = useRef(selectPoint);
   selectPointRef.current = selectPoint;
@@ -317,7 +338,7 @@ export const RoutePlotMap = forwardRef<RoutePlotMapHandle, {
           zoomEnabled={interactive}
           style={[styles.nativeMap, { height }]}
           initialRegion={initialRegion}
-          onMapReady={onReady}
+          onMapReady={handleNativeMapReady}
           moveOnMarkerPress={false}
           // Region-based screen placement assumes a north-up, flat map.
           rotateEnabled={interactive && !declutterScores}
@@ -349,11 +370,13 @@ export const RoutePlotMap = forwardRef<RoutePlotMapHandle, {
               title={nativeUserLocation.label ?? 'Current location'}
               accessibilityLabel={nativeUserLocation.label ?? 'Current location'}
               accessible
+              image={nativeUserImage}
+              tracksViewChanges={Platform.OS !== 'android'}
               zIndex={999}
             >
-              <View style={styles.nativeUserMarker} accessible={false} importantForAccessibility="no-hide-descendants" accessibilityElementsHidden>
+              {nativeUserImage === undefined ? <View style={styles.nativeUserMarker} accessible={false} importantForAccessibility="no-hide-descendants" accessibilityElementsHidden>
                 <View style={styles.nativeUserMarkerDot} />
-              </View>
+              </View> : null}
             </Marker>
           ) : null}
 
@@ -381,7 +404,7 @@ export const RoutePlotMap = forwardRef<RoutePlotMapHandle, {
             />
           ) : null)}
 
-          {renderedMarkerPoints.map((point) => {
+          {scheduledMarkerPoints.map((point) => {
             const selected = point.id === selectedId;
             const dimmed = dimUnselectedMarkers && Boolean(selectedId && !selected);
             const showScore = scoreLayout ? scoreLayout.scoreIds.has(point.id) : isMapCluster(point) || selected || showScoreMarkers;
@@ -544,15 +567,44 @@ const NativeScoreMarker = memo(function NativeScoreMarker({
   showScore: boolean;
   onSelect: (point: RoutePlotPoint) => void;
 }) {
-  const [tracking, setTracking] = useState(true);
+  const markerRef = useRef<import('react-native-maps').MapMarker | null>(null);
+  const image = Platform.OS === 'android' && !selected
+    ? androidMarkerImage(point.rating, showScore ? markerTextForPoint(point) : 'dot') : undefined;
+  const [tracking, setTracking] = useState(Platform.OS !== 'android');
   useEffect(() => {
+    if (Platform.OS === 'android') {
+      if (image !== undefined) return;
+      // Fabric layout snapshots the initial view. Refresh a changed badge once
+      // after its children commit instead of redrawing it every 40ms for 450ms.
+      let second = 0;
+      const first = requestAnimationFrame(() => {
+        second = requestAnimationFrame(() => markerRef.current?.redraw());
+      });
+      return () => { cancelAnimationFrame(first); cancelAnimationFrame(second); };
+    }
     setTracking(true);
     const timeout = setTimeout(() => setTracking(false), 450);
     return () => clearTimeout(timeout);
-  }, [selected, dimmed, showScore, point.score, point.rating, point.markerLabel]);
+  }, [image, selected, dimmed, showScore, point.score, point.rating, point.markerLabel]);
   const Marker = getNativeMaps()!.Marker;
+  // Reuse SDK images for ordinary Android dots and score badges. A selected
+  // marker and unusual labels retain the custom view and selection border.
+  if (image !== undefined) {
+    return <Marker
+      coordinate={{ latitude: point.latitude, longitude: point.longitude }}
+      {...nativeMarkerLabelsForPoint(point, false, Platform.OS)}
+      image={image}
+      opacity={dimmed ? 0.58 : 1}
+      anchor={{ x: 0.5, y: 0.5 }}
+      tracksViewChanges={false}
+      onPress={() => onSelect(point)}
+      zIndex={showScore ? 3 : 1}
+      accessible accessibilityRole="button" accessibilityState={{ selected: false }}
+    />;
+  }
   return (
     <Marker
+      ref={markerRef}
       coordinate={{ latitude: point.latitude, longitude: point.longitude }}
       {...nativeMarkerLabelsForPoint(point, selected, Platform.OS)}
       onPress={() => onSelect(point)}

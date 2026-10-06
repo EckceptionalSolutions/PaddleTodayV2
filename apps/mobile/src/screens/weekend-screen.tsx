@@ -7,10 +7,12 @@ import {
 } from '@paddletoday/api-contract';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import { useRouter } from 'expo-router';
-import { useEffect, useMemo, useRef, useState } from 'react';
+import { useIsFocused } from '@react-navigation/native';
+import { memo, useEffect, useMemo, useRef, useState } from 'react';
 import { Platform, Pressable, RefreshControl, ScrollView, StyleSheet, Text, useWindowDimensions, View } from 'react-native';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import { useWeekendSummaryQuery } from '../api/queries';
+import { useBoardQueryState } from '../hooks/use-board-query-state';
 import { AppErrorState, AppLoadingState, AppRefreshNotice } from '../components/app-state';
 import { RoutePlotMap, type RoutePlotPoint, type RouteSpanCoordinate } from '../components/route-plot-map';
 import { SectionCard } from '../components/section-card';
@@ -54,18 +56,35 @@ const DEFAULT_WEEKEND_DISTANCE_LIMIT = 300;
 const WEEKEND_DISTANCE_STORAGE_KEY = 'paddletoday:weekend-distance-limit:v1';
 
 export default function WeekendScreen() {
+  const isFocused = useIsFocused();
+  const { location } = useStoredLocation();
+  const [distanceLimit, setDistanceLimit] = useState<number | null>(DEFAULT_WEEKEND_DISTANCE_LIMIT);
+  const [distanceHydrated, setDistanceHydrated] = useState(false);
+  const weekendQuery = useWeekendSummaryQuery(isFocused && distanceHydrated, location && distanceLimit !== null
+    ? { latitude: location.latitude, longitude: location.longitude, radiusMiles: distanceLimit }
+    : {});
+  const board = useBoardQueryState(weekendQuery);
+  return <WeekendContent weekendQuery={board} distanceLimit={distanceLimit} setDistanceLimit={setDistanceLimit}
+    distanceHydrated={distanceHydrated} setDistanceHydrated={setDistanceHydrated} />;
+}
+
+const WeekendContent = memo(function WeekendContent({ weekendQuery, distanceLimit, setDistanceLimit, distanceHydrated, setDistanceHydrated }: {
+  weekendQuery: ReturnType<typeof useBoardQueryState<ReturnType<typeof useWeekendSummaryQuery>>>;
+  distanceLimit: number | null;
+  setDistanceLimit: (value: number | null) => void;
+  distanceHydrated: boolean;
+  setDistanceHydrated: (value: boolean) => void;
+}) {
   const { width: windowWidth } = useWindowDimensions();
   const compactHeader = windowWidth < 360;
   const router = useRouter();
   const insets = useSafeAreaInsets();
   const bottomContentInset = androidBottomInset(insets.bottom);
-  const weekendQuery = useWeekendSummaryQuery();
-  const isStale = weekendQuery.data?.snapshotStatus === 'stale';
   const { location, status, requestLocation, clearLocation, searchLocations, selectPlanningLocation, cancelLocationRequest } = useStoredLocation();
   const [locationSearchOpen, setLocationSearchOpen] = useState(false);
   const [mapInteractive, setMapInteractive] = useState(false);
   const { isSaved, toggleSavedRiver } = useSavedRivers();
-  const [distanceLimit, setDistanceLimit] = useState<number | null>(DEFAULT_WEEKEND_DISTANCE_LIMIT);
+  const isStale = weekendQuery.data?.snapshotStatus === 'stale';
   const [distanceSaveError, setDistanceSaveError] = useState(false);
   const distanceChanged = useRef(false);
   const distanceWriteQueue = useRef(Promise.resolve());
@@ -76,42 +95,55 @@ export default function WeekendScreen() {
     () => rankWeekendRoutes(weekendQuery.data?.rivers ?? [], location),
     [weekendQuery.data?.rivers, location]
   );
-  const inRangeRivers = location ? rivers.filter((river) => isWithinDistanceLimit(river, distanceLimit)) : rivers;
-  const outOfRangeRivers = location && distanceLimit !== null
-    ? rivers.filter((river) => !isWithinDistanceLimit(river, distanceLimit))
-    : [];
-  const topPicks = inRangeRivers.filter(isCleanWeekendRoute).slice(0, 5);
-  const expandedPicks = topPicks.length === 0 ? outOfRangeRivers.filter(isCleanWeekendRoute).slice(0, 4) : [];
-  const nearbyWatch = topPicks.length === 0
-    ? inRangeRivers.filter((river) => river.weekend.rating === 'Fair').slice(0, 5)
-    : [];
-  const featured = topPicks[0] ?? nearbyWatch[0] ?? expandedPicks[0] ?? inRangeRivers[0] ?? rivers[0];
-  const hasWeekendPlan = topPicks.length > 0;
-  const topPickSlugs = slugSet(topPicks);
-  const lowerCommitment = inRangeRivers
-    .filter((river) => !topPickSlugs.has(river.river.slug))
-    .filter(isLowerCommitmentRoute)
-    .slice(0, 4);
-  const primaryPlanSlugs = slugSet([...topPicks, ...lowerCommitment]);
-  const campingFriendlyRoutes = inRangeRivers
-    .filter((river) => !primaryPlanSlugs.has(river.river.slug))
-    .filter(hasWeekendCampingSupport)
-    .slice(0, 4);
-  const campingPicks = inRangeRivers.filter(hasWeekendCampingSupport).slice(0, 4);
+  const {
+    inRangeRivers, topPicks, expandedPicks, nearbyWatch, featured, hasWeekendPlan,
+    lowerCommitment, campingFriendlyRoutes, campingPicks, watchList, skipList, allWeekendRoutes,
+    paddleCount, watchCount, skipCount,
+  } = useMemo(() => {
+    const inRangeRivers = location ? rivers.filter((river) => isWithinDistanceLimit(river, distanceLimit)) : rivers;
+    const outOfRangeRivers = location && distanceLimit !== null
+      ? rivers.filter((river) => !isWithinDistanceLimit(river, distanceLimit))
+      : [];
+    const topPicks = inRangeRivers.filter(isCleanWeekendRoute).slice(0, 5);
+    const expandedPicks = topPicks.length === 0 ? outOfRangeRivers.filter(isCleanWeekendRoute).slice(0, 4) : [];
+    const nearbyWatch = topPicks.length === 0
+      ? inRangeRivers.filter((river) => river.weekend.rating === 'Fair').slice(0, 5)
+      : [];
+    const featured = topPicks[0] ?? nearbyWatch[0] ?? expandedPicks[0] ?? inRangeRivers[0] ?? rivers[0];
+    const hasWeekendPlan = topPicks.length > 0;
+    const topPickSlugs = slugSet(topPicks);
+    const lowerCommitment = inRangeRivers
+      .filter((river) => !topPickSlugs.has(river.river.slug))
+      .filter(isLowerCommitmentRoute)
+      .slice(0, 4);
+    const primaryPlanSlugs = slugSet([...topPicks, ...lowerCommitment]);
+    const campingFriendlyRoutes = inRangeRivers
+      .filter((river) => !primaryPlanSlugs.has(river.river.slug))
+      .filter(hasWeekendCampingSupport)
+      .slice(0, 4);
+    const campingPicks = inRangeRivers.filter(hasWeekendCampingSupport).slice(0, 4);
+    const shownSlugs = slugSet([...topPicks, ...lowerCommitment, ...campingFriendlyRoutes, ...nearbyWatch]);
+    const watchList = inRangeRivers
+      .filter((river) => !shownSlugs.has(river.river.slug))
+      .filter((river) => river.weekend.rating === 'Fair')
+      .slice(0, 5);
+    const skipList = inRangeRivers
+      .filter((river) => river.weekend.rating === 'No-go')
+      .slice(0, 5);
+    const allWeekendRoutes = uniqueWeekendRoutes([
+      ...topPicks, ...lowerCommitment, ...nearbyWatch, ...expandedPicks,
+      ...campingFriendlyRoutes, ...watchList, ...skipList,
+    ]);
+    return {
+      inRangeRivers, topPicks, expandedPicks, nearbyWatch, featured, hasWeekendPlan,
+      lowerCommitment, campingFriendlyRoutes, campingPicks, watchList, skipList, allWeekendRoutes,
+      paddleCount: inRangeRivers.filter((river) => river.weekend.rating === 'Strong' || river.weekend.rating === 'Good').length,
+      watchCount: inRangeRivers.filter((river) => river.weekend.rating === 'Fair').length,
+      skipCount: inRangeRivers.filter((river) => river.weekend.rating === 'No-go').length,
+    };
+  }, [rivers, location, distanceLimit]);
   const visibleCampingRoutes = weekendFilter === 'camping' ? campingPicks : campingFriendlyRoutes;
-  const shownSlugs = slugSet([...topPicks, ...lowerCommitment, ...campingFriendlyRoutes, ...nearbyWatch]);
-  const watchList = inRangeRivers
-    .filter((river) => !shownSlugs.has(river.river.slug))
-    .filter((river) => river.weekend.rating === 'Fair')
-    .slice(0, 5);
-  const skipList = inRangeRivers
-    .filter((river) => river.weekend.rating === 'No-go')
-    .slice(0, 5);
-  const allWeekendRoutes = uniqueWeekendRoutes([
-    ...topPicks, ...lowerCommitment, ...nearbyWatch, ...expandedPicks,
-    ...campingFriendlyRoutes, ...watchList, ...skipList,
-  ]);
-  const weekendMapRoutes = uniqueWeekendRoutes(
+  const weekendMapRoutes = useMemo(() => uniqueWeekendRoutes(
     weekendFilter === 'day-trips'
       ? [...topPicks, ...lowerCommitment, ...expandedPicks]
       : weekendFilter === 'camping'
@@ -119,9 +151,9 @@ export default function WeekendScreen() {
         : weekendFilter === 'rechecks'
           ? [...(!hasWeekendPlan ? nearbyWatch : []), ...watchList]
           : allWeekendRoutes
-  );
-  const weekendMapPoints = weekendRouteMapPoints(weekendMapRoutes, isStale);
-  const weekendMapSpans = weekendMapPoints.flatMap((point) => point.spanSegments ?? []);
+  ), [weekendFilter, topPicks, lowerCommitment, expandedPicks, campingPicks, hasWeekendPlan, nearbyWatch, watchList, allWeekendRoutes]);
+  const weekendMapPoints = useMemo(() => weekendRouteMapPoints(weekendMapRoutes, isStale), [weekendMapRoutes, isStale]);
+  const weekendMapSpans = useMemo(() => weekendMapPoints.flatMap((point) => point.spanSegments ?? []), [weekendMapPoints]);
   const locationLabel = location?.label ?? null;
 
   useEffect(() => {
@@ -129,7 +161,8 @@ export default function WeekendScreen() {
     void AsyncStorage.getItem(WEEKEND_DISTANCE_STORAGE_KEY).then(raw => {
       const parsed = parseDistanceLimit(raw);
       if (active && !distanceChanged.current && parsed !== undefined) setDistanceLimit(parsed);
-    }).catch(() => { /* Keep the default without overwriting the stored preference. */ });
+    }).catch(() => { /* Keep the default without overwriting the stored preference. */ })
+      .finally(() => { if (active) setDistanceHydrated(true); });
     return () => { active = false; distanceWriteVersion.current++; };
   }, []);
 
@@ -147,7 +180,7 @@ export default function WeekendScreen() {
     });
   }
 
-  if (weekendQuery.isPending && !weekendQuery.data) {
+  if (status === 'loading' || (distanceHydrated && weekendQuery.isPending && !weekendQuery.data)) {
     return (
       <AppLoadingState title="Loading weekend routes" body="Checking the weekend outlook." />
     );
@@ -234,9 +267,9 @@ export default function WeekendScreen() {
 
           <Text style={styles.heroFreshness}>Forecast totals · {inRangeRivers.length} routes {location && distanceLimit !== null ? 'within your selected range' : 'nationwide'}. The shortlist below contains selected options.</Text>
           <View style={styles.snapshotRow}>
-            <SnapshotStat label="Paddle" value={inRangeRivers.filter((river) => river.weekend.rating === 'Strong' || river.weekend.rating === 'Good').length} tone={styles.snapshotStrong} />
-            <SnapshotStat label="Watch" value={inRangeRivers.filter((river) => river.weekend.rating === 'Fair').length} tone={styles.snapshotWatch} />
-            <SnapshotStat label="Skip" value={inRangeRivers.filter((river) => river.weekend.rating === 'No-go').length} tone={styles.snapshotNoGo} />
+            <SnapshotStat label="Paddle" value={paddleCount} tone={styles.snapshotStrong} />
+            <SnapshotStat label="Watch" value={watchCount} tone={styles.snapshotWatch} />
+            <SnapshotStat label="Skip" value={skipCount} tone={styles.snapshotNoGo} />
           </View>
 
           {!hasWeekendPlan && featured ? (
@@ -440,7 +473,7 @@ export default function WeekendScreen() {
     );
   }
 
-}
+});
 
 function WeekendLocationStrip({
   locationLabel,

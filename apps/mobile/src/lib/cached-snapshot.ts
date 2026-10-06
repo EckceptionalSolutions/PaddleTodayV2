@@ -82,17 +82,22 @@ export function currentExploreSnapshot(response: ExploreCatalogResponse, now: nu
     generatedAt: response.generatedAt ?? '',
     snapshotStatus: response.snapshotStatus === 'stale' ? 'stale' : undefined,
   }, now, online);
-  return {
-    ...response,
-    snapshotStatus: response.generatedAt && projected.snapshotStatus === 'stale' ? 'stale' : response.snapshotStatus,
-    rivers: projected.rivers.map((item, index) => {
-      const original = response.rivers[index];
-      if (original.river.scoreEligibility !== 'planning') return item;
-      // Planning records have no score timestamp to expire. Preserve their
-      // explanation while keeping them out of current-condition calls.
-      return { ...(online ? original : item), readiness: { ...original.readiness, status: 'withheld', label: 'Withheld' } };
-    }),
-  };
+  const snapshotStatus = response.generatedAt && projected.snapshotStatus === 'stale' ? 'stale' : response.snapshotStatus;
+  const rivers = projected.rivers.map<RiverSummaryApiItem>((item, index) => {
+    const original = response.rivers[index];
+    if (original.river.scoreEligibility !== 'planning') return item;
+    // Planning records have no score timestamp to expire. Preserve their
+    // explanation while keeping them out of current-condition calls.
+    const current = online ? original : item;
+    if (current.readiness.status === 'withheld' && current.readiness.label === 'Withheld'
+      && current.readiness.reason === original.readiness.reason) return current;
+    return { ...current, readiness: { ...original.readiness, status: 'withheld', label: 'Withheld' } };
+  });
+  // Keep the catalog identity while its displayed conditions are unchanged.
+  // Otherwise every clock tick deep-compares thousands of route records and
+  // rebuilds search/filter/map inputs even for a fresh snapshot.
+  return snapshotStatus === response.snapshotStatus && rivers.every((item, index) => item === response.rivers[index])
+    ? response : { ...response, snapshotStatus, rivers };
 }
 export function currentWeekendSnapshot(response: WeekendSummaryResponse, now: number, online = true): WeekendSummaryResponse {
   if (!response.rivers.length) return response;

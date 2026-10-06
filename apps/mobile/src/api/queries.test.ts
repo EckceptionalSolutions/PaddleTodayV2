@@ -5,8 +5,9 @@ import { afterEach, describe, expect, it, vi } from 'vitest';
 import { apiClient } from './client';
 import { exploreCatalogQueryOptions, riverDetailQueryOptions, riverQueryKeys } from './queries';
 
-vi.mock('./client', () => ({ apiClient: { getRiverDetail: vi.fn(), getExplore: vi.fn(), getSummary: vi.fn() } }));
+vi.mock('./client', () => ({ apiClient: { getRiverDetail: vi.fn(), getExplore: vi.fn(), getSummary: vi.fn(), getMobileCatalog: vi.fn(), getMobileExplore: vi.fn() } }));
 vi.mock('../hooks/use-online-status', () => ({ useOnlineStatus: () => true }));
+vi.mock('../hooks/use-stored-location', () => ({ useStoredLocation: () => ({ location: null, status: 'idle' }) }));
 
 const clients: QueryClient[] = [];
 function client() {
@@ -28,12 +29,18 @@ afterEach(() => {
 
 describe('Explore-to-detail request lifecycle', () => {
   it('shares the full catalog between discovery consumers instead of requesting the score feed', async () => {
-    const catalog = { generatedAt: null, rivers: [{ river: { slug: 'erie-canal-fairport-bushnells-basin', scoreEligibility: 'planning' } }] };
-    vi.mocked(apiClient.getExplore).mockResolvedValue(catalog as Awaited<ReturnType<typeof apiClient.getExplore>>);
+    const river = { slug: 'erie-canal-fairport-bushnells-basin', scoreEligibility: 'planning' };
+    const catalog = { catalogRevision: 'test', rivers: [river] };
+    const conditions = { catalogRevision: 'test', generatedAt: null, rivers: [{ slug: river.slug, summary: { shortExplanation: 'Planning route' } }] };
+    vi.mocked(apiClient.getMobileCatalog).mockResolvedValue(catalog as Awaited<ReturnType<typeof apiClient.getMobileCatalog>>);
+    vi.mocked(apiClient.getMobileExplore).mockResolvedValue(conditions as Awaited<ReturnType<typeof apiClient.getMobileExplore>>);
     const queryClient = client();
-    expect(await queryClient.fetchQuery(exploreCatalogQueryOptions())).toEqual(catalog);
-    expect(await queryClient.fetchQuery(exploreCatalogQueryOptions())).toEqual(catalog);
-    expect(apiClient.getExplore).toHaveBeenCalledTimes(1);
+    const response = await queryClient.fetchQuery(exploreCatalogQueryOptions(queryClient));
+    expect(response.rivers[0].river).toEqual(river);
+    expect(await queryClient.fetchQuery(exploreCatalogQueryOptions(queryClient))).toEqual(response);
+    expect(apiClient.getMobileExplore).toHaveBeenCalledTimes(1);
+    expect(apiClient.getMobileCatalog).toHaveBeenCalledTimes(1);
+    expect(apiClient.getExplore).not.toHaveBeenCalled();
     expect(apiClient.getSummary).not.toHaveBeenCalled();
   });
   it('joins an in-flight preview request and reuses fresh data on a second visit', async () => {

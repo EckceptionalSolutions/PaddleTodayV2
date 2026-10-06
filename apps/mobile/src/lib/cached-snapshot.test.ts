@@ -20,6 +20,21 @@ function summary(): RiverSummaryResponse {
 }
 
 describe('display freshness of cached snapshots', () => {
+  it('reuses a fresh Explore catalog with already-withheld planning routes across clock ticks', () => {
+    const source = summary();
+    const planning = { ...source.rivers[0], river: { ...source.rivers[0].river, scoreEligibility: 'planning' as const },
+      readiness: { status: 'withheld' as const, label: 'Withheld' as const, reason: 'Check local sources.' } };
+    const catalog = { ...source, snapshotStatus: 'fresh', rivers: [...source.rivers, planning],
+      coverage: { catalogRevision: 'test', publicRoutes: 2, scoredRoutes: 1, planningRoutes: 1, missingScores: 0, missingScoreStates: [] } } as ExploreCatalogResponse;
+    expect(currentExploreSnapshot(catalog, capturedAt)).toBe(catalog);
+    expect(currentExploreSnapshot(catalog, capturedAt + 60_000)).toBe(catalog);
+    const offline = currentExploreSnapshot(catalog, capturedAt, false);
+    expect(offline).not.toBe(catalog);
+    expect(offline.rivers[0].readiness.status).toBe('withheld');
+    expect(offline.rivers[1].liveData.overall).toBe('offline');
+    expect(currentExploreSnapshot(catalog, capturedAt + SNAPSHOT_MAX_AGE_MS + 1).snapshotStatus).toBe('stale');
+    expect(currentExploreSnapshot(catalog, capturedAt)).toBe(catalog);
+  });
   it('immediately marks a fresh cached route offline without changing its stored response', () => {
     const source = detail();
     const result = currentDetailSnapshot(source, capturedAt, false);

@@ -1,3 +1,4 @@
+import { installMobileBoardFixtures } from './mobile-board-fixtures';
 import { test, expect } from '@playwright/test';
 
 test('Weekend location supports keyboard retry, pending feedback, and clearing', async ({ page }) => {
@@ -14,7 +15,8 @@ test('Weekend location supports keyboard retry, pending feedback, and clearing',
       } as GeolocationPosition) : failure({ code: 2, message: 'QA unavailable' } as GeolocationPositionError);
     } });
   });
-  await page.route('**/api/**', (route) => route.fulfill({ json: { rivers: [] } }));
+  const fulfillMobile = await installMobileBoardFixtures(page);
+  await page.route('**/api/mobile/weekend.json**', route => fulfillMobile(route, { json: { rivers: [] } }));
   await page.goto('/weekend');
   const use = page.getByRole('button', { name: 'Use location for weekend routes', exact: true });
   await use.press('Space');
@@ -44,7 +46,8 @@ test('Weekend can plan from a city after GPS permission is denied', async ({ pag
     localStorage.setItem('paddletoday:welcome-completed:v1', '1');
     Object.defineProperty(navigator.permissions, 'query', { configurable: true, value: async () => ({ state: 'denied' }) });
   });
-  await page.route('**/api/**', route => route.fulfill({ json: { rivers: [] } }));
+  const fulfillMobile = await installMobileBoardFixtures(page);
+  await page.route('**/api/mobile/weekend.json**', route => fulfillMobile(route, { json: { rivers: [] } }));
   await page.route('https://geocoding-api.open-meteo.com/**', route => route.fulfill({ json: { results: [
     { latitude: 45.1, longitude: -93.2, name: 'Circle Pines', admin1: 'Minnesota' },
   ] } }));

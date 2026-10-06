@@ -1,4 +1,5 @@
 import { test, expect, type Route } from '@playwright/test';
+import { installMobileBoardFixtures } from './mobile-board-fixtures';
 
 for (const path of ['/', '/explore', '/weekend']) {
   test(`cached routes remain usable while retrying a failed refresh on ${path}`, async ({ page }) => {
@@ -9,8 +10,9 @@ for (const path of ['/', '/explore', '/weekend']) {
     let retryRequests = 0;
     const queryKey = path === '/weekend' ? 'weekend-summary'
       : path === '/explore' ? 'river-explore-catalog' : 'river-summary';
-    const endpoint = path === '/weekend' ? '**/api/weekend/summary.json'
-      : path === '/explore' ? '**/api/rivers/explore.json' : '**/api/rivers/summary.json';
+    const fulfillMobile = await installMobileBoardFixtures(page);
+    const endpoint = path === '/weekend' ? '**/api/mobile/weekend.json**'
+      : path === '/explore' ? '**/api/mobile/explore.json**' : '**/api/mobile/summary.json**';
     await page.route(endpoint, async (route) => {
       if (mode === 'pending') {
         retryRequests += 1;
@@ -18,7 +20,7 @@ for (const path of ['/', '/explore', '/weekend']) {
       } else if (mode === 'offline') {
         await route.fulfill({ status: 503, json: { error: 'offline' } });
       } else {
-        await route.fulfill({ json: { rivers: [] } });
+        await fulfillMobile(route, { json: { rivers: [] } });
       }
     });
     await page.goto(path);
@@ -58,7 +60,7 @@ for (const path of ['/', '/explore', '/weekend']) {
       await expect(retry).toHaveAttribute('aria-busy', 'true');
     }
     expect(retryRequests).toBe(1);
-    await pending!.fulfill({ json: { rivers: [] } });
+    await fulfillMobile(pending!, { json: { rivers: [] } });
     await expect(page.getByText('Could not refresh', { exact: true })).toBeHidden();
   });
 }

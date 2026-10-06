@@ -1,3 +1,4 @@
+import { installMobileBoardFixtures } from './mobile-board-fixtures';
 import { test, expect } from '@playwright/test';
 
 test('eligible automatic feedback still opens and can be dismissed without sending anything', async ({ page }) => {
@@ -14,6 +15,8 @@ test('eligible automatic feedback still opens and can be dismissed without sendi
     if (route.request().method() !== 'GET') submissions++;
     return route.fulfill({ json: { rivers: [] } });
   });
+  const fulfillMobile = await installMobileBoardFixtures(page);
+  await page.route('**/api/mobile/{summary,explore,weekend}.json**', route => fulfillMobile(route, { json: { rivers: [] } }));
   await page.goto('/');
   const dialog = page.getByRole('dialog');
   await expect(dialog.getByText('A quick question', { exact: true })).toBeVisible();
@@ -55,6 +58,8 @@ test('a store-link completion cannot close a newly opened private-feedback form'
     };
   });
   await page.route('**/api/**', (route) => route.fulfill({ json: { rivers: [] } }));
+  const fulfillMobile = await installMobileBoardFixtures(page);
+  await page.route('**/api/mobile/{summary,explore,weekend}.json**', route => fulfillMobile(route, { json: { rivers: [] } }));
   await page.goto('/');
   const dialog = page.getByRole('dialog');
   await dialog.getByRole('button', { name: 'Rate PaddleToday in the app store', exact: true }).click();
@@ -78,6 +83,8 @@ test('a failed store-review link leaves the feedback sheet open for retry', asyn
     };
   });
   await page.route('**/api/**', (route) => route.fulfill({ json: { rivers: [] } }));
+  const fulfillMobile = await installMobileBoardFixtures(page);
+  await page.route('**/api/mobile/{summary,explore,weekend}.json**', route => fulfillMobile(route, { json: { rivers: [] } }));
   await page.goto('/');
   const dialog = page.getByRole('dialog');
   await dialog.getByRole('button', { name: 'Rate PaddleToday in the app store', exact: true }).press('Space');
@@ -99,6 +106,8 @@ test('feedback retains message and email after failure and closes normally after
     }));
   });
   await page.route('**/api/**', route => route.fulfill({ json: { rivers: [] } }));
+  const fulfillMobile = await installMobileBoardFixtures(page);
+  await page.route('**/api/mobile/{summary,explore,weekend}.json**', route => fulfillMobile(route, { json: { rivers: [] } }));
   let pending: import('@playwright/test').Route | null = null;
   let submissions = 0;
   await page.route('**/api/feedback', route => { pending = route; submissions++; });

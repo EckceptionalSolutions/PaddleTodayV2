@@ -1,3 +1,4 @@
+import { installMobileBoardFixtures } from './mobile-board-fixtures';
 import { test, expect } from '@playwright/test';
 import fixture from './fixtures/route-detail.json' with { type: 'json' };
 
@@ -5,7 +6,8 @@ const key = 'paddletoday:board-preferences';
 test.beforeEach(async ({ page }) => {
   await page.addInitScript(() => localStorage.setItem('paddletoday:welcome-completed:v1', '1'));
   await page.route('**/api/**', route => route.fulfill({ status: 503, json: { error: 'offline' } }));
-  await page.route('**/api/rivers/{summary,explore}.json', route => route.fulfill({ json: { rivers: [{
+  const fulfillMobile = await installMobileBoardFixtures(page);
+  await page.route('**/api/mobile/{summary,explore}.json**', route => fulfillMobile(route, { json: { rivers: [{
     ...fixture.result, summary: { gaugeNow: 'QA', shortExplanation: 'QA' },
     liveData: { overall: 'stale', summary: 'QA' },
   }] } }));

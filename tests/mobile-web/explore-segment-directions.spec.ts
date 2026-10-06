@@ -1,3 +1,4 @@
+import { installMobileBoardFixtures } from './mobile-board-fixtures';
 import { test, expect } from '@playwright/test';
 import fixture from './fixtures/route-detail.json' with { type: 'json' };
 
@@ -12,7 +13,8 @@ test('shortened Explore route directions target the selected launch', async ({ p
     window.open = ((url: string | URL) => { state.openedDirections.push(String(url)); return null; }) as typeof window.open;
   });
   await page.route('**/api/**', (route) => route.fulfill({ status: 503, json: { error: 'offline' } }));
-  await page.route('**/api/rivers/{summary,explore}.json', (route) => route.fulfill({ json: { rivers: [{
+  const fulfillMobile = await installMobileBoardFixtures(page);
+  await page.route('**/api/mobile/{summary,explore}.json**', (route) => fulfillMobile(route, { json: { rivers: [{
     ...fixture.result,
     score: 80, rating: 'Good',
     river: { ...fixture.result.river, difficulty: 'easy', distanceLabel: '13 mi', estimatedPaddleTime: '6 hours',

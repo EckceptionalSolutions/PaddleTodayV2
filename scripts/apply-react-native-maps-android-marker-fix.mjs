@@ -79,6 +79,9 @@ export function applyMarkerSnapshotFix(input) {
     }
     source = source.replace(before, after);
   }
+  // createDrawable already draws into its reusable bitmap below. Building the
+  // deprecated View drawing cache draws the same React subtree a second time.
+  source = source.replace('    this.buildDrawingCache();\n', '');
   return source;
 }
 

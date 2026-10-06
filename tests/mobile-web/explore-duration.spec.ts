@@ -1,3 +1,4 @@
+import { installMobileBoardFixtures } from './mobile-board-fixtures';
 import { test, expect } from '@playwright/test';
 import fixture from './fixtures/route-detail.json' with { type: 'json' };
 
@@ -9,7 +10,8 @@ test('Full day excludes minute-based and mixed-unit short routes', async ({ page
     ['day-route', 'Day Creek', '5 to 7 hours'],
   ];
   await page.route('**/api/**', (route) => route.fulfill({ status: 503, json: { error: 'offline' } }));
-  await page.route('**/api/rivers/{summary,explore}.json', (route) => route.fulfill({ json: { rivers: examples.map(([slug, name, estimatedPaddleTime]) => ({
+  const fulfillMobile = await installMobileBoardFixtures(page);
+  await page.route('**/api/mobile/{summary,explore}.json**', (route) => fulfillMobile(route, { json: { rivers: examples.map(([slug, name, estimatedPaddleTime]) => ({
     ...fixture.result, score: 80, rating: 'Good',
     river: { ...fixture.result.river, slug, riverId: slug, name, estimatedPaddleTime, difficulty: 'easy', logistics: { campingClassification: 'none' } },
     summary: { gaugeNow: 'Check source', shortExplanation: 'QA fixture.' },

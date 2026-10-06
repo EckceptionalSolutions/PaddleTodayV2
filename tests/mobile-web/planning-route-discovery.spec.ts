@@ -1,3 +1,4 @@
+import { installMobileBoardFixtures } from './mobile-board-fixtures';
 import { test, expect } from '@playwright/test';
 import fixture from './fixtures/route-detail.json' with { type: 'json' };
 
@@ -7,8 +8,9 @@ test('Home search and Explore discover planning routes absent from the scored su
   const scored = { ...fixture.result, summary: { gaugeNow: 'Check source', shortExplanation: 'QA fixture.' } };
   const planning = { ...scored, river: { ...scored.river, name: 'Erie Canal', slug: 'erie-canal-fairport', riverId: 'erie-canal', reach: 'Fairport', state: 'NY', scoreEligibility: 'planning' },
     readiness: { status: 'withheld', label: 'Withheld', reason: 'Planning route; check local sources.' } };
-  await page.route('**/api/rivers/summary.json', route => route.fulfill({ json: { rivers: [scored] } }));
-  await page.route('**/api/rivers/explore.json', route => route.fulfill({ json: { generatedAt: null, snapshotStatus: 'unavailable', rivers: [scored, planning] } }));
+  const fulfillMobile = await installMobileBoardFixtures(page);
+  await page.route('**/api/mobile/summary.json**', route => fulfillMobile(route, { json: { rivers: [scored] } }));
+  await page.route('**/api/mobile/explore.json**', route => fulfillMobile(route, { json: { generatedAt: null, snapshotStatus: 'unavailable', rivers: [scored, planning] } }));
   await page.goto('/');
   await expect(page.getByText('Erie Canal', { exact: true })).toHaveCount(0);
   await page.getByRole('button', { name: 'Search for a river or route', exact: true }).click();

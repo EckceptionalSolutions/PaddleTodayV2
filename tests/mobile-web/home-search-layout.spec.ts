@@ -1,3 +1,4 @@
+import { installMobileBoardFixtures } from './mobile-board-fixtures';
 import { test, expect } from '@playwright/test';
 import fixture from './fixtures/route-detail.json' with { type: 'json' };
 
@@ -7,7 +8,8 @@ test('Today search keeps close, full route names and empty-result actions reacha
   const name = 'Long northern branch of the wandering river';
   const reach = 'Historic county park landing to the downstream nature preserve';
   await page.route('**/api/**', route => route.fulfill({ status: 503, json: { error: 'offline' } }));
-  await page.route('**/api/rivers/{summary,explore}.json', route => route.fulfill({ json: { rivers: [{ ...fixture.result,
+  const fulfillMobile = await installMobileBoardFixtures(page);
+  await page.route('**/api/mobile/{summary,explore}.json**', route => fulfillMobile(route, { json: { rivers: [{ ...fixture.result,
     river: { ...fixture.result.river, name, reach },
     summary: { shortExplanation: 'QA', gaugeNow: 'QA' },
   }] } }));

@@ -8,8 +8,10 @@ const subscribe = (listener: () => void) => onlineManager.subscribe(() => listen
 const snapshot = () => onlineManager.isOnline();
 const serverSnapshot = () => true;
 
-export function useOnlineStatus() {
-  return useSyncExternalStore(subscribe, snapshot, serverSnapshot);
+const skipSubscription = () => () => {};
+
+export function useOnlineStatus(enabled = true) {
+  return useSyncExternalStore(enabled ? subscribe : skipSubscription, snapshot, serverSnapshot);
 }
 
 // A retry must check the device again rather than reuse a paused query's

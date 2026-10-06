@@ -1,3 +1,4 @@
+import { installMobileBoardFixtures } from './mobile-board-fixtures';
 import { test, expect } from '@playwright/test';
 import fixture from './fixtures/route-detail.json' with { type: 'json' };
 
@@ -17,10 +18,12 @@ for (const stale of [false, true]) {
     }));
     await page.addInitScript(routes => {
       localStorage.setItem('paddletoday:welcome-completed:v1', '1');
+      localStorage.setItem('paddletoday:account-backup-invitation-dismissed:v1', '1');
       localStorage.setItem('paddletoday:saved-rivers', JSON.stringify(routes.map(route => ({ ...route, savedAt: '2026-09-08T12:00:00Z' }))));
     }, routes.map(route => ({ slug: route.river.slug, name: route.river.name, reach: route.river.reach })));
     await page.route('**/api/**', route => route.fulfill({ status: 503, json: { error: 'offline' } }));
-    await page.route('**/api/rivers/{summary,explore}.json', route => route.fulfill({ json: { generatedAt, rivers: routes } }));
+    const fulfillMobile = await installMobileBoardFixtures(page);
+    await page.route('**/api/mobile/{summary,explore}.json**', route => fulfillMobile(route, { json: { generatedAt, rivers: routes } }));
     let detailRequests = 0;
     await page.route('**/api/rivers/saved-compare-1.json', route => {
       detailRequests++;

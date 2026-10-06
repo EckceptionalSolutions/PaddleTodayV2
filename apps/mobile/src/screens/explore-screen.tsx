@@ -90,7 +90,6 @@ export default function ExploreScreen() {
   const params = useLocalSearchParams<{ intent?: string; intentKey?: string; reset?: string; state?: string; transientIntent?: string }>();
   const insets = useSafeAreaInsets();
   const { height: windowHeight } = useWindowDimensions();
-  const summaryQuery = useExploreCatalogQuery();
   const { location, status, requestLocation } = useStoredLocation();
   const { isSaved, toggleSavedRiver } = useSavedRivers();
   const [filtersOpen, setFiltersOpen] = useState(false);
@@ -99,6 +98,7 @@ export default function ExploreScreen() {
   const preferenceWriteVersion = useRef(0);
   const [preferenceSaveError, setPreferenceSaveError] = useState(false);
   const { filters, query: searchQuery, setFilters: applyFilters, setQuery: updateSearchQuery, applySearch } = useExploreSearch(defaultFilters);
+  const [nationwide, setNationwide] = useState(false);
   const setFilters = useCallback((update: SetStateAction<ExploreFilters>) => {
     preferencesChanged.current = true;
     applyFilters(update);
@@ -127,16 +127,23 @@ export default function ExploreScreen() {
   const requestedIntentKey = requestedIntent ? `${requestedIntent}:${params.intentKey ?? 'initial'}:${locationReady ? 'location' : 'no-location'}` : null;
   const requestedResetKey = requestedReset ? `reset:${params.intentKey ?? 'initial'}` : null;
   const requestedStateKey = requestedState ? `state:${requestedState}:${params.intentKey ?? 'initial'}` : null;
+  const scopeForFilters = (value: ExploreFilters) => value.query.trim() || nationwide ? {}
+    : value.state ? { state: value.state }
+    : location ? { latitude: location.latitude, longitude: location.longitude, radiusMiles: 300 }
+    : {};
+  const discoveryScope = scopeForFilters(filters);
+  const navigationFiltersApplied = requestedIntent ? appliedIntentRef.current === requestedIntentKey
+    : requestedReset ? appliedResetRef.current === requestedResetKey
+    : requestedState ? appliedStateRef.current === requestedStateKey : true;
+  const summaryQuery = useExploreCatalogQuery(isFocused && status !== 'loading' && preferencesHydrated && navigationFiltersApplied, discoveryScope);
+  const draftMatchesLoadedScope = JSON.stringify(scopeForFilters(draftFilters)) === JSON.stringify(discoveryScope);
 
   const rivers = summaryQuery.data?.rivers ?? [];
-  const routeCounts = useMemo(() => buildRouteGroupMeta(rivers), [rivers]);
+  const routeCounts = useMemo(() => summaryQuery.data?.groupCounts
+    ? new Map(Object.entries(summaryQuery.data.groupCounts)) : buildRouteGroupMeta(rivers), [rivers, summaryQuery.data?.groupCounts]);
   const states = useMemo(
-    () => [...new Set(rivers.map((river) => river.river.state))].sort(),
-    [rivers]
-  );
-  const nearestSupportedState = useMemo(
-    () => nearestStateForLocation(rivers, location),
-    [rivers, location]
+    () => summaryQuery.data?.states ?? [...new Set(rivers.map((river) => river.river.state))].sort(),
+    [rivers, summaryQuery.data?.states]
   );
   const results = useMemo(
     () => applyExploreFilters(rivers, filters, location),
@@ -197,10 +204,10 @@ export default function ExploreScreen() {
       return {
         ...current,
         sort: 'nearest',
-        state: nearestSupportedState ?? current.state,
+        state: current.state,
       };
     });
-  }, [location, nearestSupportedState, preferencesHydrated, requestedIntent, requestedReset]);
+  }, [location, preferencesHydrated, requestedIntent, requestedReset]);
 
   useEffect(() => {
     if (!preferencesHydrated || !requestedResetKey || appliedResetRef.current === requestedResetKey) {
@@ -280,7 +287,7 @@ export default function ExploreScreen() {
     }
   }, [results, selectedSlug]);
 
-  if (summaryQuery.isPending && !summaryQuery.data) {
+  if (status === 'loading' || (preferencesHydrated && navigationFiltersApplied && summaryQuery.isPending && !summaryQuery.data)) {
     return (
       <AppLoadingState title="Loading explore map" body="Loading routes and filters." />
     );
@@ -300,7 +307,7 @@ export default function ExploreScreen() {
   const filterModal = (
     <ExploreFilterSheet
       visible={filtersOpen}
-      matchCount={draftResults.length}
+      matchCount={draftMatchesLoadedScope ? draftResults.length : null}
       filters={draftFilters}
       states={states}
       locationReady={Boolean(location)}
@@ -323,8 +330,13 @@ export default function ExploreScreen() {
   return (
     <>
       <FullScreenExploreMap
-        preferenceNotice={preferenceSaveError ? <AppButton label="Filters not saved · Retry" accessibilityLabel="Retry saving Explore filters"
-          hint="Your filters are applied, but could not be saved on this device." variant="secondary" onPress={savePreferences} /> : null}
+        preferenceNotice={<>
+          {summaryQuery.data?.scope?.kind === 'nearby' ? <AppButton label="Within 300 mi · Search nationwide" variant="secondary"
+            onPress={() => { setNationwide(true); setFilters(current => ({ ...current, state: '' })); }} /> : nationwide && location ? <AppButton label="Show nearby routes" variant="secondary"
+              onPress={() => { setNationwide(false); setFilters(current => ({ ...current, state: '', query: '' })); }} /> : null}
+          {preferenceSaveError ? <AppButton label="Filters not saved · Retry" accessibilityLabel="Retry saving Explore filters"
+            hint="Your filters are applied, but could not be saved on this device." variant="secondary" onPress={savePreferences} /> : null}
+        </>}
         callRecovery={callRecovery}
         activeFilterCount={activeFilterCount}
         filters={filters}
@@ -520,8 +532,8 @@ function FullScreenExploreMap({
   // which can visibly cut across bends instead of following the river.
   const selectedGeometryQuery = useRiverGeometryQuery(selectedSlug ?? '', isFocused && viewMode === 'map');
   const points = useMemo(
-    () => buildExploreMapPoints(results, routeCounts, results, true),
-    [routeCounts, results]
+    () => viewMode === 'map' ? buildExploreMapPoints(results, routeCounts, results, true) : [],
+    [routeCounts, results, viewMode]
   );
   const matchingRiverCount = useMemo(() => dedupeExploreRoutes(results).length, [results]);
   const selectedMapPointId = useMemo(
@@ -987,6 +999,21 @@ function applyExploreFilters(
   } as const;
 
   const sortedResults = rivers
+    // Reject routes outside the requested state/call/search before building
+    // their access-point combinations. Most catalog routes are out of scope
+    // for a local map, and segment summaries can be quadratic in access points.
+    .filter((river) => {
+      if (query && !searchBlob(river).includes(query)) return false;
+      if (filters.state && river.river.state !== filters.state) return false;
+      if (!difficultyMatches(river.river.difficulty, filters.difficulty)) return false;
+      if (!routeTypeMatches(river.river.routeType, filters.routeType)) return false;
+      if (!statusMatches(river.rating, river.readiness.status, filters.status)) return false;
+      if (filters.rating !== 'any' && river.rating !== filters.rating) return false;
+      if (!campingMatches(river.river.logistics?.campingClassification, filters.camping)) return false;
+      if (filters.paddleTime === 'full-day'
+        && !paddleTimeMatches(river.river.estimatedPaddleTime, filters.paddleTime, river.river.logistics?.campingClassification)) return false;
+      return true;
+    })
     .map((river) => {
       const miles = location
         ? distanceMiles(location.latitude, location.longitude, river.river.latitude, river.river.longitude)
@@ -995,26 +1022,18 @@ function applyExploreFilters(
         ...river,
         distanceMiles: miles,
         travelLabel: miles === null ? null : formatTravelTime(estimateDriveMinutes(miles)),
-        selectedSegment: selectRouteSegment(river, segmentFilters),
-        segmentSummary: routeSegmentSummary(river.river),
       };
     })
     .filter((river) => {
-      if (query && !searchBlob(river).includes(query)) return false;
-      if (filters.state && river.river.state !== filters.state) return false;
-      if (!difficultyMatches(river.river.difficulty, filters.difficulty)) return false;
-      if (!routeTypeMatches(river.river.routeType, filters.routeType)) return false;
-      if (!statusMatches(river.rating, river.readiness.status, filters.status)) return false;
-      if (filters.rating !== 'any' && river.rating !== filters.rating) return false;
-      if (filters.paddleTime === 'full-day') {
-        if (!paddleTimeMatches(river.river.estimatedPaddleTime, filters.paddleTime, river.river.logistics?.campingClassification)) return false;
-      } else if (!routeMatchesPaddleFilters(river, segmentFilters)) {
-        return false;
-      }
-      if (!campingMatches(river.river.logistics?.campingClassification, filters.camping)) return false;
       if (distanceLimit !== null && (river.distanceMiles === null || river.distanceMiles > distanceLimit)) return false;
+      if (filters.paddleTime !== 'full-day' && !routeMatchesPaddleFilters(river, segmentFilters)) return false;
       return true;
     })
+    .map((river) => ({
+      ...river,
+      selectedSegment: selectRouteSegment(river, segmentFilters),
+      segmentSummary: routeSegmentSummary(river.river),
+    }))
     .sort((left, right) => compareExploreRivers(left, right, filters.sort));
 
   return sortedResults;
@@ -1022,25 +1041,6 @@ function applyExploreFilters(
 
 function segmentEndpointLabel(segment: RouteSegment | null) {
   return segment ? `${segment.putIn.name} → ${segment.takeOut.name}` : '';
-}
-
-function nearestStateForLocation(
-  rivers: RiverSummaryApiItem[],
-  location: { latitude: number; longitude: number } | null
-) {
-  if (!location || rivers.length === 0) {
-    return null;
-  }
-
-  const nearest = rivers
-    .map((river) => ({
-      state: river.river.state,
-      miles: distanceMiles(location.latitude, location.longitude, river.river.latitude, river.river.longitude),
-    }))
-    .filter((candidate) => candidate.state && Number.isFinite(candidate.miles))
-    .sort((left, right) => left.miles - right.miles)[0];
-
-  return nearest?.state ?? null;
 }
 
 function compareExploreRivers(left: ExploreRiver, right: ExploreRiver, sort: ExploreFilters['sort']) {

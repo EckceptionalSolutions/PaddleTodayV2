@@ -1,3 +1,4 @@
+import { installMobileBoardFixtures } from './mobile-board-fixtures';
 import { test, expect } from '@playwright/test';
 import fixture from './fixtures/route-detail.json' with { type: 'json' };
 
@@ -13,13 +14,15 @@ test('Saved search matches local notes and areas while retaining comparison sele
   }));
   await page.addInitScript(records => {
     localStorage.setItem('paddletoday:welcome-completed:v1', '1');
+    localStorage.setItem('paddletoday:account-backup-invitation-dismissed:v1', '1');
     localStorage.setItem('paddletoday:saved-rivers', JSON.stringify(records));
   }, [...routes.map((route, index) => ({ slug: route.river.slug, name: route.river.name, reach: route.river.reach,
     notes: index ? 'Easy parking by bridge' : 'Quiet picnic stop', savedAt: generatedAt })),
     { slug: 'offline-route', name: 'Hidden Brook', reach: 'Old mill', notes: 'Bring the blue boat', savedAt: generatedAt }]);
   let requests = 0;
   await page.route('**/api/**', route => { requests++; return route.fulfill({ status: 503, json: { error: 'offline' } }); });
-  await page.route('**/api/rivers/{summary,explore}.json', route => { requests++; return route.fulfill({ json: { generatedAt, rivers: routes } }); });
+  const fulfillMobile = await installMobileBoardFixtures(page);
+  await page.route('**/api/mobile/{summary,explore}.json**', route => { requests++; return fulfillMobile(route, { json: { generatedAt, rivers: routes } }); });
   await page.goto('/saved');
   const search = page.getByRole('textbox', { name: 'Search saved routes', exact: true });
   await expect(page.getByRole('button', { name: 'Compare saved routes', exact: true })).toBeVisible();

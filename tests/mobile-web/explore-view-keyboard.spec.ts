@@ -1,8 +1,11 @@
+import { installMobileBoardFixtures } from './mobile-board-fixtures';
 import { test, expect } from '@playwright/test';
 
 test('Explore view tabs retain keyboard focus across the layout change', async ({ page }) => {
   await page.addInitScript(() => localStorage.setItem('paddletoday:welcome-completed:v1', '1'));
   await page.route('**/api/**', (route) => route.fulfill({ json: { rivers: [] } }));
+  const fulfillMobile = await installMobileBoardFixtures(page);
+  await page.route('**/api/mobile/{summary,explore,weekend}.json**', route => fulfillMobile(route, { json: { rivers: [] } }));
   await page.goto('/explore');
   const tabs = page.getByRole('tablist', { name: 'Explore view', exact: true });
   const map = tabs.getByRole('tab', { name: 'map view', exact: true });

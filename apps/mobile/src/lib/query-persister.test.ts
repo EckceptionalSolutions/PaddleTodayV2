@@ -10,10 +10,10 @@ vi.mock('@react-native-async-storage/async-storage', () => ({ default: storage }
 vi.mock('expo-file-system/legacy', () => files);
 vi.mock('react-native', () => ({ Platform: { OS: 'android' } }));
 vi.mock('./observability', () => ({ captureAppException: vi.fn() }));
-import { createRouteQueryPersister, serializeRouteCache } from './query-persister';
+import { createRouteCacheSerializer, createRouteQueryPersister, serializeRouteCache } from './query-persister';
 import { QUERY_CACHE_FILE_NAME, QUERY_CACHE_STORAGE_KEY } from './query-cache';
 
-function client(queries: { key: string; timestamp: number; data?: string }[]): PersistedClient {
+function client(queries: { key: string; timestamp: number; data?: unknown }[]): PersistedClient {
   return { timestamp: 1, buster: 'test', clientState: { mutations: [], queries: queries.map((query, index) => ({
     queryKey: [query.key, index], queryHash: String(index),
     state: {
@@ -27,6 +27,54 @@ beforeEach(() => { vi.resetAllMocks(); vi.useFakeTimers(); });
 afterEach(() => vi.useRealTimers());
 
 describe('bounded file query persistence', () => {
+  it('does not repeatedly serialize unchanged metadata that cannot fit alongside the boards', () => {
+    let visits = 0;
+    const metadata = { toJSON: () => { visits++; return 'c'.repeat(6_000_000); } };
+    const source = client([
+      { key: 'river-summary', timestamp: 1, data: 'a'.repeat(2_000_000) },
+      { key: 'weekend-summary', timestamp: 2, data: 'b'.repeat(2_000_000) },
+      { key: 'mobile-route-catalog', timestamp: 3, data: metadata },
+    ]);
+    const serialize = createRouteCacheSerializer();
+    serialize(source);
+    serialize(source);
+    expect(visits).toBe(1);
+    source.clientState.queries = source.clientState.queries.filter(query => query.queryKey[0] === 'mobile-route-catalog');
+    const next = JSON.parse(serialize(source));
+    expect(next.clientState.queries[0].state.data).toHaveLength(6_000_000);
+    expect(visits).toBe(2);
+  });
+  it('prioritizes both current boards when a newer catalog would crowd them out', () => {
+    const result = serializeRouteCache(client([
+      { key: 'river-summary', timestamp: 1, data: 'a'.repeat(2_000_000) },
+      { key: 'weekend-summary', timestamp: 2, data: 'b'.repeat(2_000_000) },
+      { key: 'mobile-route-catalog', timestamp: 3, data: 'c'.repeat(6_000_000) },
+    ]));
+    expect(JSON.parse(result).clientState.queries.map((query: { queryKey: string[] }) => query.queryKey[0])).toEqual(['weekend-summary', 'river-summary']);
+    expect(Buffer.byteLength(result, 'utf8')).toBeLessThanOrEqual(8 * 1024 * 1024);
+  });
+  it('retains updated query state while reusing an unchanged snapshot', () => {
+    const serialize = createRouteCacheSerializer();
+    const source = client([{ key: 'river-summary', timestamp: 1, data: '🌊"\\\n' }]);
+    const first = JSON.parse(serialize(source));
+    source.timestamp = 2;
+    source.clientState.queries[0].state.fetchStatus = 'fetching';
+    const next = JSON.parse(serialize(source));
+    expect(next.timestamp).toBe(2);
+    expect(next.clientState.queries[0].state.fetchStatus).toBe('fetching');
+    expect(next.clientState.queries[0].state.data).toEqual(first.clientState.queries[0].state.data);
+    source.clientState.queries[0].state.data = { corrected: true };
+    expect(JSON.parse(serialize(source)).clientState.queries[0].state.data).toEqual({ corrected: true });
+  });
+  it('stores both mobile boards and reusable metadata within the same byte budget', () => {
+    const result = serializeRouteCache(client([
+      { key: 'river-summary', timestamp: 1, data: 'a'.repeat(2_000_000) },
+      { key: 'weekend-summary', timestamp: 2, data: 'b'.repeat(2_000_000) },
+      { key: 'mobile-route-catalog', timestamp: 3, data: 'c'.repeat(1_000_000) },
+    ]));
+    expect(Buffer.byteLength(result, 'utf8')).toBeLessThanOrEqual(8 * 1024 * 1024);
+    expect(JSON.parse(result).clientState.queries).toHaveLength(3);
+  });
   it('limits recent public queries and excludes private records', () => {
     const source = client(Array.from({ length: 25 }, (_, timestamp) => ({ key: 'river-detail', timestamp })));
     source.clientState.queries.push(...client([{ key: 'account', timestamp: 30 }]).clientState.queries);

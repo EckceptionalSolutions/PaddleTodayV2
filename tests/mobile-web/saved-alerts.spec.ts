@@ -1,9 +1,11 @@
+import { installMobileBoardFixtures } from './mobile-board-fixtures';
 import { test, expect } from '@playwright/test';
 import fixture from './fixtures/route-detail.json' with { type: 'json' };
 
 test('saved alerts show both independent phone thresholds and distinguish email records', async ({ page }) => {
   await page.addInitScript(() => {
     localStorage.setItem('paddletoday:welcome-completed:v1', '1');
+    localStorage.setItem('paddletoday:account-backup-invitation-dismissed:v1', '1');
     const slug = 'rice-creek-peltier-to-long-lake';
     localStorage.setItem('paddletoday:saved-rivers', JSON.stringify([{ slug, name: 'Rice Creek', reach: 'Peltier to Long Lake', savedAt: '2026-09-06T12:00:00Z' }]));
     localStorage.setItem('paddletoday:alert-preferences', JSON.stringify({ email: 'qa@example.test', routeAlerts: [
@@ -13,7 +15,8 @@ test('saved alerts show both independent phone thresholds and distinguish email 
     ] }));
   });
   await page.route('**/api/**', route => route.fulfill({ status: 503, json: { error: 'offline' } }));
-  await page.route('**/api/rivers/{summary,explore}.json', route => route.fulfill({ json: { rivers: [{ ...fixture.result,
+  const fulfillMobile = await installMobileBoardFixtures(page);
+  await page.route('**/api/mobile/{summary,explore}.json**', route => fulfillMobile(route, { json: { rivers: [{ ...fixture.result,
     summary: { gaugeNow: 'QA', shortExplanation: 'Stored QA fixture' }, liveData: { overall: 'stale', summary: 'QA' },
   }] } }));
   await page.goto('/saved?tab=alerts');
@@ -34,6 +37,7 @@ test('saved alerts show both independent phone thresholds and distinguish email 
 test('saved alert controls identify their route and retain the current selection when setup is unavailable', async ({ page }) => {
   await page.addInitScript(() => {
     localStorage.setItem('paddletoday:welcome-completed:v1', '1');
+    localStorage.setItem('paddletoday:account-backup-invitation-dismissed:v1', '1');
     localStorage.setItem('paddletoday:saved-rivers', JSON.stringify([{
       slug: 'rice-creek-peltier-to-long-lake', name: 'Rice Creek', reach: 'Peltier to Long Lake',
       savedAt: '2026-09-06T12:00:00.000Z',
@@ -47,7 +51,8 @@ test('saved alert controls identify their route and retain the current selection
     if (route.request().method() === 'POST') submissions += 1;
     return route.fulfill({ status: 503, json: { error: 'offline' } });
   });
-  await page.route('**/api/rivers/{summary,explore}.json', (route) => route.fulfill({ json: { rivers: [{
+  const fulfillMobile = await installMobileBoardFixtures(page);
+  await page.route('**/api/mobile/{summary,explore}.json**', (route) => fulfillMobile(route, { json: { rivers: [{
     ...fixture.result,
     summary: { gaugeNow: 'Check source', shortExplanation: 'Local QA fixture: conditions are not current.' },
     liveData: { overall: 'stale', summary: 'Local QA fixture: check current conditions.' },

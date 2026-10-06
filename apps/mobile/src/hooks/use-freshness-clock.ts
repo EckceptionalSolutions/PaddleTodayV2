@@ -29,6 +29,8 @@ const serverSnapshot = () => initialTime;
 
 // Query staleTime schedules revalidation; it does not expire an old response
 // after failed requests. Recheck displayed freshness while a screen stays open.
-export function useFreshnessClock() {
-  return useSyncExternalStore(subscribe, snapshot, serverSnapshot);
+const skipSubscription = () => () => {};
+
+export function useFreshnessClock(enabled = true) {
+  return useSyncExternalStore(enabled ? subscribe : skipSubscription, snapshot, serverSnapshot);
 }

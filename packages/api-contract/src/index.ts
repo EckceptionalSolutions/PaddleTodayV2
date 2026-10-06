@@ -496,6 +496,9 @@ export interface LiveDataStatus {
 }
 
 export interface ExploreCatalogResponse {
+  scope?: import('./mobile-discovery').MobileScopeMetadata;
+  states?: string[];
+  groupCounts?: Record<string, number>;
   requestId: string;
   generatedAt: string | null;
   snapshotStatus: string;
@@ -766,6 +769,9 @@ export interface RiverHistoryApiResult {
 export type SnapshotStatus = 'live' | 'fresh' | 'stale';
 
 export interface SnapshotResponseMetadata {
+  scope?: import('./mobile-discovery').MobileScopeMetadata;
+  states?: string[];
+  groupCounts?: Record<string, number>;
   snapshotStatus?: SnapshotStatus;
   snapshotAgeSeconds?: number;
 }
@@ -983,3 +989,4 @@ export * from './account-sync';
 export * from './shared-trip-plan';
 export * from './trips';
 export * from './trip-notes';
+export * from './mobile-discovery';

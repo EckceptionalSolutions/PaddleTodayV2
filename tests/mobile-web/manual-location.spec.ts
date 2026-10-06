@@ -1,9 +1,11 @@
+import { installMobileBoardFixtures } from './mobile-board-fixtures';
 import { test, expect, type Route } from '@playwright/test';
 
 test('manual location search cancels cleanly, preserves failed queries, and retries', async ({ page }) => {
   await page.addInitScript(() => localStorage.setItem('paddletoday:welcome-completed:v1', '1'));
   await page.route('**/api/**', (route) => route.fulfill({ status: 503, json: { error: 'offline' } }));
-  await page.route('**/api/rivers/{summary,explore}.json', (route) => route.fulfill({ json: { rivers: [] } }));
+  const fulfillMobile = await installMobileBoardFixtures(page);
+  await page.route('**/api/mobile/{summary,explore}.json**', (route) => fulfillMobile(route, { json: { rivers: [] } }));
   const requests: Route[] = [];
   await page.route('https://geocoding-api.open-meteo.com/**', (route) => { requests.push(route); });
   await page.goto('/');

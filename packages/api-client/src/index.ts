@@ -24,6 +24,11 @@ import type {
   WeekendSummaryResponse,
   AccountSyncRequest,
   AccountSyncSnapshot,
+  MobileRouteScope,
+  MobileRouteCatalogResponse,
+  MobileSummaryResponse,
+  MobileExploreResponse,
+  MobileWeekendResponse,
 } from '@paddletoday/api-contract';
 
 export class PaddleTodayApiError extends Error {
@@ -56,6 +61,10 @@ export interface RiverHistoryRequestOptions extends RequestOptions {
 }
 
 export interface PaddleTodayApiClient {
+  getMobileCatalog(scope?: MobileRouteScope, options?: RequestOptions): Promise<MobileRouteCatalogResponse>;
+  getMobileSummary(scope?: MobileRouteScope, options?: RequestOptions): Promise<MobileSummaryResponse>;
+  getMobileExplore(scope?: MobileRouteScope, options?: RequestOptions): Promise<MobileExploreResponse>;
+  getMobileWeekend(scope?: MobileRouteScope, options?: RequestOptions): Promise<MobileWeekendResponse>;
   getExplore(options?: RequestOptions): Promise<ExploreCatalogResponse>;
   getCatalog(options?: RequestOptions): Promise<RiverCatalogResponse>;
   getSummary(options?: RequestOptions): Promise<RiverSummaryResponse>;
@@ -167,6 +176,18 @@ export function createPaddleTodayApiClient(args: {
   }
 
   return {
+    getMobileCatalog(scope, options) {
+      return requestJson<MobileRouteCatalogResponse>(mobileDiscoveryPath('catalog', scope), options);
+    },
+    getMobileSummary(scope, options) {
+      return requestJson<MobileSummaryResponse>(mobileDiscoveryPath('summary', scope), options);
+    },
+    getMobileExplore(scope, options) {
+      return requestJson<MobileExploreResponse>(mobileDiscoveryPath('explore', scope), options);
+    },
+    getMobileWeekend(scope, options) {
+      return requestJson<MobileWeekendResponse>(mobileDiscoveryPath('weekend', scope), options);
+    },
     getCatalog(options) {
       return requestJson<RiverCatalogResponse>('/api/rivers/catalog.json', options);
     },
@@ -278,6 +299,19 @@ export function createPaddleTodayApiClient(args: {
       });
     },
   };
+}
+
+function mobileDiscoveryPath(kind: string, scope: MobileRouteScope = {}) {
+  const params = new URLSearchParams();
+  if (scope.latitude !== undefined) params.set('latitude', String(scope.latitude));
+  if (scope.longitude !== undefined) params.set('longitude', String(scope.longitude));
+  if (scope.radiusMiles !== undefined) params.set('radiusMiles', String(scope.radiusMiles));
+  if (scope.state) params.set('state', scope.state);
+  if (scope.slugs !== undefined) params.set('slugs', [...new Set(scope.slugs)].sort().join(','));
+  // React Native's URLSearchParams does not implement the newer size getter.
+  // Test the serialized query so native nearby and empty saved scopes survive.
+  const query = params.toString();
+  return `/api/mobile/${kind}.json${query ? `?${query}` : ''}`;
 }
 
 function createRequestTimeout(timeoutMs: number | undefined, externalSignal: AbortSignal | undefined) {

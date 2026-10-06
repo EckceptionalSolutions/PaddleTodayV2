@@ -1,3 +1,4 @@
+import { installMobileBoardFixtures } from './mobile-board-fixtures';
 import { test, expect } from '@playwright/test';
 import fixture from './fixtures/route-detail.json' with { type: 'json' };
 
@@ -8,10 +9,11 @@ test('expired weekend scores are historical until a fresh response arrives', asy
   let fresh = false;
   let requests = 0;
   await page.route('**/api/**', route => route.fulfill({ status: 503, json: { error: 'offline' } }));
-  await page.route('**/api/weekend/summary.json', route => {
+  const fulfillMobile = await installMobileBoardFixtures(page);
+  await page.route('**/api/mobile/weekend.json**', route => {
     requests++;
     const generatedAt = fresh ? now.toISOString() : '2030-06-15T09:00:00Z';
-    return route.fulfill({ json: { generatedAt, rivers: [{
+    return fulfillMobile(route, { json: { generatedAt, rivers: [{
       river: { ...fixture.result.river, name: 'QA Weekend Route', difficulty: 'easy' },
       generatedAt,
       current: { score: 95, rating: 'Strong' },
