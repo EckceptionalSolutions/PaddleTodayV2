@@ -28,7 +28,7 @@ for (const sitemap of sitemapFiles) {
 }
 const paths = new Set<string>();
 const titles = new Map<string, string[]>();
-const routeLinks = new Map<string, string>();
+const routeLinks = new Map<string, Set<string>>();
 for (const value of urls) {
   const url = new URL(value);
   if (url.origin !== origin || url.search || url.hash) errors.push(`Noncanonical sitemap URL: ${value}`);
@@ -51,7 +51,11 @@ for (const value of urls) {
     const target = new URL(href, value);
     if (target.origin !== origin) continue;
     if (target.pathname === '/request-river/' && target.search) errors.push(`Crawlable form prefill on ${url.pathname}`);
-    if (target.pathname.startsWith('/rivers/')) routeLinks.set(target.pathname, url.pathname);
+    if (target.pathname.startsWith('/rivers/')) {
+      const referrers = routeLinks.get(target.pathname) || new Set<string>();
+      referrers.add(url.pathname);
+      routeLinks.set(target.pathname, referrers);
+    }
   }
 }
 for (const [title, pages] of titles) {
@@ -63,11 +67,17 @@ const expected = [
   ...listRiverGroups().filter((group) => group.routeCount > 1).map((group) => `/rivers/by-river/${group.riverId}/`),
 ];
 for (const pathname of expected) if (!paths.has(pathname)) errors.push(`Published route/hub absent from sitemap: ${pathname}`);
-for (const [pathname, source] of routeLinks) {
+for (const [pathname, sources] of routeLinks) {
   const destination = redirects.get(pathname.replace(/\/$/, '')) || pathname;
   const normalized = destination.endsWith('/') ? destination : `${destination}/`;
   try { await access(fileFor(normalized)); }
-  catch { errors.push(`Broken route link ${pathname} from ${source}`); }
+  catch { errors.push(`Broken route link ${pathname} from ${[...sources].join(', ')}`); }
+}
+const unlinkedPublicPages = expected.filter((pathname) =>
+  ![...(routeLinks.get(pathname) || [])].some((source) => source !== pathname)
+);
+for (const pathname of unlinkedPublicPages) {
+  errors.push(`Public route/hub has no incoming internal link from another sitemap page: ${pathname}`);
 }
 for (const pathname of [...utilityPaths, '/404.html']) {
   if (paths.has(pathname)) errors.push(`Utility page in sitemap: ${pathname}`);
@@ -89,7 +99,12 @@ const sampleStatus = samples.map((slug) => ({
   slug,
   status: paths.has(`/rivers/${slug}/`) ? 'published-in-build' : WITHHELD_ROUTE_SLUGS.has(slug) ? 'withheld-for-coordinate-review' : inventory.has(slug) ? 'not-public-in-current-catalog' : 'absent-from-current-catalog',
 }));
-const report = { generatedAt: new Date().toISOString(), origin, pages: urls.length, publishedRoutes: routes.length, checkedRouteLinks: routeLinks.size, sampleStatus, errors, warnings };
+const report = {
+  generatedAt: new Date().toISOString(), origin, pages: urls.length, publishedRoutes: routes.length,
+  checkedRouteLinks: routeLinks.size,
+  internallyLinkedPublicPages: expected.length - unlinkedPublicPages.length,
+  unlinkedPublicPages, sampleStatus, errors, warnings,
+};
 await mkdir('.local/seo-2026-09-20', { recursive: true });
 await writeFile('.local/seo-2026-09-20/build-indexability.json', JSON.stringify(report, null, 2) + '\n');
 console.log(JSON.stringify(report, null, 2));
