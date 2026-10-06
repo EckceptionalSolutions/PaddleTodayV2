@@ -2,7 +2,7 @@ import { createServer, type IncomingMessage } from 'node:http';
 import { resolve } from 'node:path';
 import { sendEmpty, sendJson } from './http';
 import { createRequestId, parseRequestUrl, readArgValue, shouldLogRequest } from './server-runtime';
-import { resolvePublicAssetFile, resolveStaticFile, resolveNotFoundPage, sendStatic } from './static-route';
+import { loadStaticCompressionManifest, resolvePublicAssetFile, resolveStaticFile, resolveNotFoundPage, sendStatic } from './static-route';
 import {
   handleHealth,
   handleReady,
@@ -51,6 +51,7 @@ import { handleTrips, isTripsPath } from './routes/trips';
 const host = process.env.CANOE_API_HOST || '0.0.0.0';
 const staticDirArg = readArgValue('--static');
 const staticDir = staticDirArg ? resolve(process.cwd(), staticDirArg) : null;
+const staticCompression = loadStaticCompressionManifest(staticDir);
 const publicDir = resolve(process.cwd(), 'public');
 const port = Number(
   readArgValue('--port') || process.env.CANOE_API_PORT || process.env.PORT || (staticDir ? 4321 : 4322)
@@ -216,10 +217,10 @@ const server = createServer(async (request, response) => {
     if (staticDir) {
       const staticFile = resolveStaticFile(requestUrl.pathname, staticDir);
       if (staticFile) {
-        return sendStatic(response, staticFile, includeBody);
+        return sendStatic(response, staticFile, includeBody, 200, staticCompression.get(staticFile));
       }
       const notFoundPage = resolveNotFoundPage(requestUrl.pathname, request.headers.accept, staticDir);
-      if (notFoundPage) return sendStatic(response, notFoundPage, includeBody, 404);
+      if (notFoundPage) return sendStatic(response, notFoundPage, includeBody, 404, staticCompression.get(notFoundPage));
     }
 
     return sendJson(response, 404, { requestId, error: 'not_found' }, includeBody);

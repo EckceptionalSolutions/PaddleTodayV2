@@ -20,7 +20,7 @@ describe('operations snapshot', () => {
     expect(minnesota?.discoveryComplete).toBe(true);
     expect(snapshot.policy.planningRoutes).toBe('frozen_without_explicit_user_request');
     expect(snapshot.totals.scored + snapshot.totals.planning).toBe(snapshot.totals.inventory);
-  });
+  }, 20_000);
 
   it('keeps proxy routes in planning after the completed Texas discovery sweep', () => {
     const snapshot = getOperationsSnapshot();

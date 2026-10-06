@@ -12,7 +12,7 @@ vi.mock('node:fs', async (importOriginal) => ({
 
 afterEach(() => vi.restoreAllMocks());
 
-function transfer() {
+function transfer(decompress = false) {
   const source = new PassThrough();
   const chunks: Buffer[] = [];
   const target = Object.assign(new Writable({
@@ -20,7 +20,7 @@ function transfer() {
   }), { writeHead: vi.fn() });
   vi.mocked(createReadStream).mockReturnValueOnce(source as unknown as ReadStream);
   const closed = new Promise<void>((resolve) => target.once('close', resolve));
-  sendStatic(target as unknown as ServerResponse, 'example.html');
+  sendStatic(target as unknown as ServerResponse, 'example.html', true, 200, decompress ? { sourceBytes: 5 } : undefined);
   return { source, target, chunks, closed };
 }
 
@@ -46,6 +46,26 @@ describe('static file transfer lifecycle', () => {
   it('stops reading when the client disconnects', async () => {
     const warn = vi.spyOn(console, 'warn').mockImplementation(() => {});
     const { source, target, closed } = transfer();
+    target.destroy();
+    await closed;
+    await new Promise<void>((resolve) => source.closed ? resolve() : source.once('close', resolve));
+    expect(source.destroyed).toBe(true);
+    expect(warn).not.toHaveBeenCalled();
+  });
+
+  it('closes a corrupt compressed page without an unhandled decompression error', async () => {
+    const warn = vi.spyOn(console, 'warn').mockImplementation(() => {});
+    const { source, target, closed } = transfer(true);
+    source.end('invalid gzip');
+    await closed;
+    expect(target.destroyed).toBe(true);
+    expect(target.writableFinished).toBe(false);
+    expect(warn).toHaveBeenCalledWith('Static file transfer failed.', expect.objectContaining({ error: expect.any(String) }));
+  });
+
+  it('stops decompression and source reads when the client disconnects', async () => {
+    const warn = vi.spyOn(console, 'warn').mockImplementation(() => {});
+    const { source, target, closed } = transfer(true);
     target.destroy();
     await closed;
     await new Promise<void>((resolve) => source.closed ? resolve() : source.once('close', resolve));
