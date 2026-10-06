@@ -7,6 +7,8 @@ it('keeps retired-route redirects unique and directed to published destinations'
   const destinations = new Set([
     ...listRivers().map(route => `/rivers/${route.slug}/`),
     ...listRiverStateGroups().map(state => `/states/${state.slug}/`),
+    // Authored guide pages are published separately from the route catalog.
+    '/guides/minnehaha-creek-paddling/',
   ]);
   expect(new Set(routing.routes.map((rule: { route: string }) => rule.route.replace(/\/$/, '') || '/')).size).toBe(routing.routes.length);
   for (const rule of routing.routes.filter((rule: { redirect?: string }) => rule.redirect)) {
