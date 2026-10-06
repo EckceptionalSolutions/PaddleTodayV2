@@ -705,7 +705,7 @@ export const texasRiverTripDetails: Record<string, RiverTripDetails> = {
       ],
       "watchFor": [
         "The mandatory Espada Dam portage around mile 5; land early, carry around the dam, and reenter below Mission Parkway.",
-        "Flows near or below about 200 cfs, when the current implementation reading was below the conservative floor and chutes or riffles may be shallow or awkward.",
+        "Near or below 200 cfs, chutes and riffles may be shallow or awkward; check the live gauge and local conditions before launching.",
         "Rain in the previous 72 hours, rising water, or SARA current-condition warnings because TPWD links the Mission Reach to urban runoff, high flows, and undesirable water quality after storms.",
         "Canoe chutes, riffles, low bridges, crowded access points, no shade, heat, alcohol/body-contact restrictions, and the need to stay within the posted city paddling boundary.",
         "Daily-use limits: remove boats at the end of the day and do not treat parks, trails, missions, or visible banks as camping permission."
@@ -806,7 +806,7 @@ export const texasRiverTripDetails: Record<string, RiverTripDetails> = {
         "This route uses conservative corridor-level TRPA flow guidance, not a manager-authored exact-segment gauge table. If the Elmendorf gauge is below about 200 cfs, expect a slower, scrape-prone, debris-sensitive trip."
       ],
       "watchFor": [
-        "Flows near or below about 200 cfs, when the current implementation reading was below the conservative floor and low-water snags or shallow lines are more likely.",
+        "Near or below 200 cfs, low-water snags and shallow lines are more likely; check the live gauge and local conditions before launching.",
         "Fresh rain, rising water, or readings approaching TRPA's 2,000 cfs maximum cue, when the unrestrained lower San Antonio can produce temporary high flows and poorer water quality.",
         "Log jams, sweepers, strainers, soft mud banks, variable cell coverage, heat, limited bailouts, and long quiet pools that can stretch the day.",
         "The required Helton take-out boundary; do not drift into the temporarily closed downstream SASPAMCO section.",
@@ -872,7 +872,7 @@ export const texasRiverTripDetails: Record<string, RiverTripDetails> = {
         "Coordinates are access anchors from TPWD/SARA context. Follow posted launch paths and current site conditions on arrival rather than projecting mid-channel points."
       ],
       "watchFor": [
-        "Flows near or below about 200 cfs, when the current implementation reading was below the conservative floor and low-water snags or shallow lines are more likely.",
+        "Near or below 200 cfs, low-water snags and shallow lines are more likely; check the live gauge and local conditions before launching.",
         "Fresh rain, rising water, or readings approaching TRPA's 2,000 cfs maximum cue, when the unrestrained lower San Antonio can produce temporary high flows and poorer water quality.",
         "Log jams, sweepers, strainers, soft mud banks, variable cell coverage, heat, limited bailouts, and long quiet pools that can stretch the day.",
         "The required Helton take-out boundary; do not drift into the temporarily closed downstream SASPAMCO section.",
@@ -996,7 +996,7 @@ export const texasRiverTripDetails: Record<string, RiverTripDetails> = {
       "watchFor": [
         "Flash-flood potential and fast rises after Hill Country storms, especially if upstream weather changes after the shuttle is staged.",
         "Class I-II current, shallow ledges, low-water crossings, wood, root wads, and post-2015 flood changes documented by American Whitewater for the containing Blanco reach.",
-        "Very low flow below the 800 cfs floor. Same-day readings during implementation were 11.0 cfs at Wimberley and 19.5 cfs at Fischer Store, both far below runnable guidance.",
+        "Below the conservative 800 cfs floor, expect shallow water, dragging, and limited maneuvering room; check the current Wimberley gauge, Fischer Store visual gauge, and local weather before launch.",
         "Private banks and limited exits between the road bridge and John Knox Ranch."
       ]
     },
@@ -2142,7 +2142,7 @@ export const texasRiverTripDetails: Record<string, RiverTripDetails> = {
         "USACE documents Riverside Park on both sides of the Brazos below Whitney Dam. The stored put-in coordinate is a route-guide access anchor for Riverside Park; use current signs, park roads, and safe riverbank conditions for the actual water entry.",
         "USACE says the east-side gravel access road to the river closes when floodwater is being released. If that access is closed, skip the route instead of improvising a dam-tailwater launch.",
         "TPWD publishes Spivey as an active leased-access take-out through August 31, 2027. Call before arrival, confirm availability, pay the day-use fee, sign required liability paperwork, and prearrange shuttle handling when using it as the downstream exit.",
-        "The route was implemented with USGS 08093100 at 55.3 cfs, far below BRA's 200 cfs paddling minimum. At similar readings, the app should rate the route below floor rather than encouraging a launch.",
+        "Below BRA's 200 cfs paddling minimum, this reach can have shallow chutes and riffles. Check the live USGS 08093100 reading before launch.",
         "Lake Whitney Dam releases can create rapid rises and swift current even if the day starts low. Recheck release conditions, weather, and the hydrograph before committing."
       ],
       "watchFor": [
@@ -2201,7 +2201,7 @@ export const texasRiverTripDetails: Record<string, RiverTripDetails> = {
         "TPWD publishes BRNC as an active leased access through August 31, 2027, but requires 24-hour advance contact, fee payment, and liability paperwork; access is restricted to designated trails and parking areas only.",
         "The stored BRNC take-out coordinate is TPWD's RACA GIS access point at 31.698655, -97.279101. TPWD's HTML page also lists 31.69956, -97.26898 for driving directions, about 0.6 mi east/inland of the GIS river-access point, so follow current site directions and posted trails rather than treating either point as a surveyed wetted-edge landing.",
         "BRNC is primitive: TPWD says there are currently no restrooms and no potable water. Carry enough water and do not plan on services at the take-out.",
-        "The route was implemented with USGS 08093100 at 61.4 cfs / 6.13 ft at 2026-08-12 16:00 CDT, far below BRA's 200 cfs paddling minimum. At similar readings, the app should rate the route below floor rather than encouraging a launch."
+        "Below BRA's 200 cfs paddling minimum, this reach can have shallow chutes and riffles. Check the live USGS 08093100 reading before launch."
       ],
       "watchFor": [
         "Flows at or below about 200 cfs on USGS 08093100, when BRA says the Brazos is below the minimum needed for paddling.",
@@ -4443,12 +4443,12 @@ export const texasRiverTripDetails: Record<string, RiverTripDetails> = {
       "permits": "NPS requires a backcountry river permit before placing watercraft on the Rio Grande within Big Bend National Park. Day-use inner tubes are exempt, but this canoe/kayak route should still be treated as a permitted river trip.",
       "camping": "NPS says there is no overnight camping along the Hot Springs Canyon stretch, so the river trip is day-use only. Gravel Pit has permitted primitive roadside campsites at the put-in area, but they require a separate backcountry campsite permit and should not be treated as on-route camping.",
       "campingClassification": "endpoint_campground",
-      "summary": "Launch from the Gravel Pit river access and float through Hot Springs Canyon to Rio Grande Village. The route is gentle at most levels and currently just above the NPS 30 cfs canoe/kayak floor, but high-clearance access, heat, shallow water, and NPS permit requirements still matter.",
+      "summary": "Launch from the Gravel Pit river access and float through Hot Springs Canyon to Rio Grande Village. NPS identifies 30 cfs as the canoe/kayak floor; shallow water and slow travel become more likely near or below it, so check current conditions along with high-clearance access, heat, and permit requirements.",
       "accessCaveats": [
         "The Gravel Pit coordinate is an access anchor for the river access/campsite road area, not a guaranteed wetted-edge launch point. Use the signed NPS river-bank access at the end of the road and current bank conditions.",
         "NPS says River Road East and Gravel Pit Road require high-clearance vehicles and can become extremely muddy or impassable after rain.",
         "NPS says no overnight camping is allowed along this stretch of river. Use only separately permitted primitive roadside campsite plans at Gravel Pit or normal developed campground plans away from the route.",
-        "The same-day gauge reading is only barely above the 30 cfs NPS floor. Expect shallow riffles, slow travel, and possible dragging if the hydrograph drops.",
+        "Near or below the 30 cfs NPS canoe/kayak floor, expect shallow riffles, slow travel, and possible dragging; check the current gauge and trend before launch.",
         "This is a border river trip. The NPS river permit does not authorize entering Mexico, and parties should follow all current park, private-land, and river-use rules."
       ],
       "watchFor": [
@@ -4504,7 +4504,7 @@ export const texasRiverTripDetails: Record<string, RiverTripDetails> = {
       "accessCaveats": [
         "TRPA's Google map links resolve to exact access-anchor coordinates for 3rd Crossing and Freeman Crossing, but final water entry and exit should follow current signs, road-shoulder conditions, and safe banks rather than a projected mid-channel point.",
         "TRPA says almost all property adjacent to the Medina River is private. Use public road crossings for access and do not treat private banks, cabins, camps, or ranch roads as public stops.",
-        "The route was implemented with USGS 0817887350 product-live at 47.4 cfs, just below TRPA's 50 cfs North Prong floor and far below the 300 cfs ideal cue. At similar or lower levels, expect exposed limestone, dragging, and slower travel.",
+        "TRPA's North Prong guidance uses 50 cfs as a floor and 300 cfs as an ideal cue. Below the floor, expect exposed limestone, dragging, and slower travel; check live flow before launch.",
         "TRPA says all low-water crossings are potential hazards. If a crossing is posted, blocked, pushy, fenced, or unsafe, skip the route rather than inventing a private alternate."
       ],
       "watchFor": [
@@ -4560,7 +4560,7 @@ export const texasRiverTripDetails: Record<string, RiverTripDetails> = {
       "accessCaveats": [
         "TRPA's Google map links resolve to exact access-anchor coordinates for Freeman Crossing and Moffett Park, but final water entry and exit should follow current signs, road-shoulder conditions, and safe banks rather than a projected mid-channel point.",
         "TRPA says almost all property adjacent to the Medina River is private. Use public road crossings for access and do not treat private banks, cabins, camps, or ranch roads as public stops.",
-        "The route was implemented with USGS 0817887350 product-live at 48.5 cfs, just below TRPA's 50 cfs North Prong floor and far below the 300 cfs ideal cue. At similar or lower levels, expect exposed limestone, dragging, and slower travel.",
+        "TRPA's North Prong guidance uses 50 cfs as a floor and 300 cfs as an ideal cue. Below the floor, expect exposed limestone, dragging, and slower travel; check live flow before launch.",
         "TRPA says all low-water crossings are potential hazards. If a crossing is posted, blocked, pushy, fenced, or unsafe, skip the route rather than inventing a private alternate."
       ],
       "watchFor": [
@@ -4616,7 +4616,7 @@ export const texasRiverTripDetails: Record<string, RiverTripDetails> = {
       "accessCaveats": [
         "TRPA's Google map links resolve to exact access-anchor coordinates for Moffett Park and Bandina Camp Road, but final water entry and exit should follow current signs, road-shoulder conditions, and safe banks rather than a projected mid-channel point.",
         "TRPA says almost all property adjacent to the Medina River is private. Use public road crossings for access and do not treat private banks, cabins, camps, or ranch roads as public stops.",
-        "The route was implemented with USGS 0817887350 product-live at 49.6 cfs, above the 30 cfs lower-Medina floor but far below the 300 cfs ideal cue. At similar or lower levels, expect exposed gravel, dragging, and slower travel.",
+        "The lower Medina floor is 30 cfs, with 300 cfs as an ideal cue. At lower flows, expect exposed gravel, dragging, and slower travel; check the live gauge before launch.",
         "Downstream Bandera-area water-quality cautions on the TRPA page are not used as route evidence for this upper reach, but paddlers should still avoid paddling after local runoff or visible contamination."
       ],
       "watchFor": [
@@ -4672,7 +4672,7 @@ export const texasRiverTripDetails: Record<string, RiverTripDetails> = {
       "accessCaveats": [
         "TRPA's Google map links resolve to exact access-anchor coordinates for Bandina Camp Road and Peaceful Valley Road, but final water entry and exit should follow current signs, road-shoulder conditions, and safe banks rather than a projected mid-channel point.",
         "TRPA says almost all property adjacent to the Medina River is private. Use public road crossings for access and do not treat private banks, cabins, camps, or ranch roads as public stops.",
-        "The route was implemented with USGS 0817887350 product-live at 49.6 cfs and downstream USGS 08178880 at 59.0 cfs, above the 30 cfs lower-Medina floor but far below the 300 cfs ideal cue. At similar or lower levels, expect exposed gravel, dragging, and slower travel.",
+        "The lower Medina floor is 30 cfs, with 300 cfs as an ideal cue. At lower flows, expect exposed gravel, dragging, and slower travel; compare both gauges and local conditions before launch.",
         "Downstream Bandera-area water-quality cautions on the TRPA page are not the primary evidence for this upper reach, but paddlers should still avoid paddling after local runoff or visible contamination."
       ],
       "watchFor": [
@@ -4728,7 +4728,7 @@ export const texasRiverTripDetails: Record<string, RiverTripDetails> = {
       "accessCaveats": [
         "TRPA's Google map links resolve to exact access-anchor coordinates for Peaceful Valley Road and Ranger Crossing, but final water entry and exit should follow current signs, road-shoulder conditions, and safe banks rather than a projected mid-channel point.",
         "TRPA says almost all property adjacent to the Medina River is private. Use public road crossings for access and do not treat private banks, cabins, camps, or ranch roads as public stops.",
-        "The route was implemented with USGS 0817887350 product-live at 49.6 cfs and downstream USGS 08178880 at 59.0 cfs, above the 30 cfs lower-Medina floor but far below the 300 cfs ideal cue. At similar or lower levels, expect exposed gravel, dragging, and slower travel.",
+        "The lower Medina floor is 30 cfs, with 300 cfs as an ideal cue. At lower flows, expect exposed gravel, dragging, and slower travel; compare both gauges and local conditions before launch.",
         "Downstream Bandera-area water-quality cautions on the TRPA page are not the primary evidence for this short reach, but paddlers should still avoid paddling after local runoff or visible contamination."
       ],
       "watchFor": [
@@ -4785,7 +4785,7 @@ export const texasRiverTripDetails: Record<string, RiverTripDetails> = {
         "The Ranger Crossing coordinate is a source-backed access anchor shared with the upstream Medina card and corroborated by American Whitewater's Ranger Crossing public-access page; it is not a guessed mid-channel water-entry point.",
         "American Whitewater publishes the Bandera City Park public access coordinate river left upstream of the SH 173 / Main Street bridge. Use posted city-park signs, bank conditions, and the open lower-level parking rules on arrival.",
         "Bandera City Park is open daily from 8 a.m. to 30 minutes before sundown, charges weekend and holiday entry fees, prohibits camping, prohibits swimming near or standing on the dam, and says water entry is from the river bank only.",
-        "The route was implemented with USGS 08178880 product-live at 55.8 cfs / 4.26 ft at 2026-08-12 04:45 CDT, above the 30 cfs lower-Medina floor but far below the 300 cfs ideal cue and below American Whitewater's recommended display.",
+        "The lower Medina floor is 30 cfs, with 300 cfs as an ideal cue; American Whitewater also publishes a recommended display range. At lower flows, expect exposed gravel and dragging; check the live gauges before launch.",
         "TRPA says almost all adjacent Medina River property is private. Keep stops to lawful public access and do not treat private banks, cabins, ranch roads, or gravel bars as public bailout or camping options."
       ],
       "watchFor": [
@@ -4842,7 +4842,7 @@ export const texasRiverTripDetails: Record<string, RiverTripDetails> = {
         "TRPA's Bandera City Park Dam and English Crossing map links resolve to source-backed access anchors; they are not guessed mid-channel water-entry points.",
         "Bandera City Park is open daily from 8 a.m. to 30 minutes before sundown, charges weekend and holiday entry fees, prohibits camping, prohibits swimming near or standing on the dam, and says water entry is from the river bank only.",
         "TRPA marks the upstream access with a do-not-run dam warning. Start below the dam only where current city-park rules, signs, and safe bank conditions allow.",
-        "The route was implemented with USGS 08178880 product-live at 54.8 cfs / 4.25 ft at 2026-08-12 11:45 CDT, above the 30 cfs lower-Medina floor but far below the 300 cfs ideal cue.",
+        "The lower Medina floor is 30 cfs, with 300 cfs as an ideal cue. At lower flows, expect exposed gravel, dragging, and slower travel; check the live gauge before launch.",
         "TRPA says almost all adjacent Medina River property is private. Keep stops to lawful public access and do not treat private banks, cabins, ranch roads, or gravel bars as public bailout or camping options."
       ],
       "watchFor": [

@@ -1665,7 +1665,7 @@ export const wisconsinRoutes: River[] = [
     "state": "Wisconsin",
     "region": "West-Central Wisconsin",
     "summary": "Easy lower Red Cedar day with mild riffles, a strong access pair, and one of the better bike shuttles in the current seed set. It still needs enough water to keep the riffles fun instead of scratchy.",
-    "statusText": "Treat about 6.4 to 7.0 ft as the best same-route window we have today. Lower water gets slower and scrapier, while higher water washes out the riffles and speeds up this long day.",
+    "statusText": "Treat about 6.4 to 7.0 ft as a route-specific planning window. Lower water can mean slower, scrapier travel, while higher water can wash out the riffles and speed up this long day. Compare the live stage and trend with access and weather before launch.",
     "safetyProfile": {"riskLevel":"caution","hazards":["strainers","low_water","cold_water","private_banks"],"safetyNotes":["Low water can turn the riffly upper miles into a scrape-and-drag day; reassess the channel before launch.","Check the narrower final meanders for fresh deadfall and strainers because the older trip report is not a current clearance guarantee.","Use only the named Riverside Park and Dunnville Bottoms accesses; plan for fatigue, wind, and cold water over this nearly 15-mile day."],"reviewStatus":"reviewed"},
     "latitude": 44.87257917,
     "longitude": -91.94084048,
@@ -4759,8 +4759,8 @@ export const wisconsinRoutes: River[] = [
     "reach": "Washington Street Dam to Quaas Creek Park",
     "state": "Wisconsin",
     "region": "Southeast Wisconsin",
-    "summary": "Short West Bend Milwaukee run with a public put-in below the Washington Street dam, a city-park take-out at Quaas Creek, and a better route-specific Cedarburg gauge ladder than most upper-Milwaukee prospects.",
-    "statusText": "Use the Milwaukee River near Cedarburg gauge. Treat 351 to 600 cfs as the target range, 251 to 350 cfs as low with some likely walking above Riverside Park, 601 to 800 cfs as high but manageable, 801 to 1000 cfs as very high for experienced paddlers, and 1001+ cfs as probably too high for most groups.",
+    "summary": "West Bend float: 3.9 miles from below Washington Street Dam to Quaas Creek Park. Allow about 1.5–2.5 hours. Expect urban riffles, a stronger rapid below Indiana Avenue at high water, and strainers at the railroad-bridge island; stay in the north channel. USGS 04086600 near Cedarburg is downstream, and Wisconsin River Trips' low-flow walking guidance applies above Riverside Park, so use its community flow ladder as broad, conservative context for this full run.",
+    "statusText": "USGS 04086600 near Cedarburg is downstream, so use it as a broad trend rather than a precise West Bend reading. Wisconsin River Trips gives 351–600 cfs as a good target for the shallower section above Riverside Park; 0–350 cfs may mean shallow water or walking there, while its downstream stretch may remain floatable at lower flows. The source rates 601–800 cfs high but manageable, 801–1,000 very high, and 1,001+ probably too high for most paddlers. Scout the current and rapid below Indiana Avenue before launch.",
     "latitude": 43.42833,
     "longitude": -88.18399,
     "gaugeSource": {
@@ -4813,13 +4813,13 @@ export const wisconsinRoutes: River[] = [
       "seasonNotes": "Spring through fall works when Cedarburg is clearly above the shallow bands. Higher water brings pushier current and less forgiving shoreline strainers through the downtown and prairie sections.",
       "difficulty": "moderate",
       "difficultyNotes": "Short mileage keeps this approachable, but it is not flatwater. Expect many Class I riffles, one bouncier Class II-in-high-water rapid below Indiana Avenue, fast current, and a few strainer-lined banks that deserve active boat control.",
-      "confidenceNotes": "Confidence is good for a route-specific community-source add: Wisconsin River Trips documents the exact Washington Street Dam to Quaas Creek Park route and publishes a full Cedarburg-gauge ladder, Visit West Bend explicitly recommends this same launch-to-take-out pairing, Quaas Creek Park is a named city launch destination, and USGS 04086600 is the direct Milwaukee River gauge WRT ties to the route. The main caveat is that the gauge sits downstream near Cedarburg rather than in West Bend itself, so the score should be read as a practical corridor guide, not a hyper-local downtown sensor."
+      "confidenceNotes": "Route endpoints and 3.9-mile distance are supported by Wisconsin River Trips and Visit West Bend. Threshold confidence is limited to community guidance: the Cedarburg gauge is downstream, and Wisconsin River Trips' 351–600 cfs target and low-water walking notes describe the shallower section above Riverside Park, not a measured band for the entire run. Treat those thresholds as conservative corridor context, not an official or hyper-local safety rule."
     },
     "evidenceNotes": [
       {
         "label": "Published route ladder",
-        "value": "351 to 600 cfs target range",
-        "note": "Wisconsin River Trips says 0 to 250 cfs is likely too shallow above Riverside Park, 251 to 350 can require walking, 351 to 600 is a good target, 601 to 800 is high but manageable, 801 to 1000 is very high, and 1001+ is probably too high.",
+        "value": "351 to 600 cfs target for the stretch above Riverside Park",
+        "note": "Wisconsin River Trips says 0 to 250 cfs is likely too shallow above Riverside Park, 251 to 350 can require walking there, and 351 to 600 is a good target for that upper stretch; 601 to 800 is high but manageable, 801 to 1000 is very high, and 1001+ is probably too high for most paddlers.",
         "sourceUrl": "https://www.wisconsinrivertrips.com/segments/milwaukee-river/west-bend"
       },
       {
@@ -13269,9 +13269,10 @@ export const wisconsinRoutes: River[] = [
       "seasonNotes": "Run this only when recent rain or spring flow brings the Prairie proxy near the 150 cfs reference level and a same-day visual check confirms the Pine still has enough water. WRT notes the Pine can fall quickly after rain and nearby gauges are rough proxies only.",
       "difficulty": "hard",
       "difficultyNotes": "This is a short but consequential whitewater gorge with Class I-II rapids, two Class III features, few eddies, steep walls, cold water, and limited rescue options.",
-      "confidenceNotes": "Confidence is moderate-good: WRT documents the Pine River Park / Center Road to County W route, public access context, 2.5-mile distance, hazards, and rough gauge proxies; Miles Paddled corroborates endpoint GPS points, Prairie gauge level, and the route character. The threshold is minimum-only because no official Pine gauge or reliable upper cutoff exists."
+    "confidenceNotes": "Confidence is moderate-good: WRT documents the Pine River Park / Center Road to County W route, public access context, 2.5-mile distance, hazards, and rough gauge proxies; Miles Paddled corroborates endpoint GPS points, Prairie gauge level, and the route character. The threshold is minimum-only because no official Pine gauge or reliable upper cutoff exists."
     },
     "routeType": "whitewater",
+    "scoreEligibility": "planning",
     "safetyProfile": {
       "riskLevel": "advanced",
       "hazards": [
@@ -16395,7 +16396,7 @@ export const wisconsinRoutes: River[] = [
     "state": "Wisconsin",
     "region": "West-Central Wisconsin",
     "summary": "Rare-flow upper Eau Galle whitewater run from the 50th Avenue bridge to Boston Road, using American Whitewater access coordinates, route geometry, and the Spring Valley gauge range for a short watershed that is usually too low.",
-    "statusText": "Use the Eau Galle River at Spring Valley gauge. American Whitewater marks 200 cfs as the low runnable floor and 1000 cfs as high runnable; today's same-run USGS check was far below that floor.",
+    "statusText": "Use the Eau Galle River at Spring Valley gauge. American Whitewater marks 200 cfs as the low runnable floor and 1,000 cfs as high runnable. Below 200 cfs, treat the reach as below that published floor; check live flow and trend before launch.",
     "latitude": 44.93,
     "longitude": -92.262,
     "routeType": "whitewater",
@@ -16544,7 +16545,7 @@ export const wisconsinRoutes: River[] = [
     "state": "Wisconsin",
     "region": "West-Central Wisconsin",
     "summary": "Short lower Spring Valley Eau Galle run from Foote Avenue below the flood-control dam to 770th Avenue, with American Whitewater gauge guidance and Miles Paddled access corroboration for a flashy, usually low creek.",
-    "statusText": "Use the Eau Galle River at Spring Valley gauge. American Whitewater marks 100 cfs as the low runnable floor and 750 cfs as high runnable; today's same-run USGS check was far below that floor.",
+    "statusText": "Use the Eau Galle River at Spring Valley gauge. American Whitewater marks 100 cfs as the low runnable floor and 750 cfs as high runnable. Below 100 cfs, treat the reach as below that published floor; check live flow and trend before launch.",
     "latitude": 44.855,
     "longitude": -92.238,
     "routeType": "whitewater",
@@ -18940,8 +18941,8 @@ export const wisconsinRoutes: River[] = [
     ],
     "state": "Wisconsin",
     "region": "St. Croix National Scenic Riverway",
-    "summary": "Secluded lower Namekagon Riverway day below Trego Dam, using NPS/WTG public landings, on-route campsite context, and a WRT route-specific Leonards gauge observation.",
-    "statusText": "Use the Leonards gauge as a corridor check. WRT paddled County K to Whispering Pines at 155 cfs / 1.99 ft; below that, expect more scraping, riffle walking, and shallow side channels.",
+    "summary": "NPS's 9.9-mile County K–Whispering Pine day paddle on the Namekagon is mostly flatwater with brief Class I riffles, eight campsites (two group), and the Leisure Lake trail near river mile 29.3.",
+    "statusText": "Use the Leonards gauge as a corridor check, not a direct reading of this reach. One 2024 trip report recorded 155 cfs / 1.99 ft during a paddle; that single trip does not establish a minimum. NPS says the reach is generally floatable, with occasional scraping possible after particularly low rainfall.",
     "latitude": 45.95324,
     "longitude": -91.89136,
     "gaugeSource": {
@@ -18983,10 +18984,10 @@ export const wisconsinRoutes: River[] = [
         9,
         10
       ],
-      "seasonNotes": "WTG says the broader N4 reach is usually navigable during the warm-weather season. Low water still exposes riffles and side channels, while high water raises strainer and island-channel consequence.",
+      "seasonNotes": "NPS says this lower Namekagon reach is generally floatable throughout the season; unusually low rainfall can cause occasional scraping. Islands split the channel, and debris or vegetation can obstruct back channels.",
       "difficulty": "easy",
       "difficultyNotes": "Easy Riverway paddling in normal conditions, with several Class I riffles, remote shoreline, islands, and overhanging trees that require attention.",
-      "confidenceNotes": "Confidence is good for access and route shape: WRT documents the exact County-K-to-Whispering-Pines day route at a numeric Leonards level, WTG identifies the County K to Whispering Pines reach as one of the NPS-recommended paddles, and WTG GPX resolves endpoints. Threshold confidence is minimum-only because no full official ideal/high band is published for this exact split."
+      "confidenceNotes": "Access and route shape are supported by NPS and WTG. The 155 cfs / 1.99 ft value is one WRT trip observation, not a published minimum-flow study; NPS describes the reach as generally floatable and says scraping should be infrequent. Treat the product's 155 cfs floor as conservative, and the ideal/high range as uncalibrated."
     },
     "safetyProfile": {
       "riskLevel": "caution",
@@ -19028,13 +19029,13 @@ export const wisconsinRoutes: River[] = [
       {
         "label": "Exact route report",
         "value": "County K to Whispering Pines, 11.0 miles",
-        "note": "WRT documents the exact put-in, take-out, distance, 3-hour paddle time, Class I rapids/riffles, scenic character, and a Leonards reading of 155 cfs / 1.99 ft.",
+        "note": "A May 2024 trip report records these named endpoints as an 11.0-mile, 3-hour paddle and notes Leonards at 155 cfs / 1.99 ft that day. The single reading is not a published minimum-flow threshold.",
         "sourceUrl": "https://www.wisconsinrivertrips.com/segments/namekagon-river/county-k-to-whispering-pines"
       },
       {
         "label": "WTG recommended split",
-        "value": "County K to Whispering Pines, about 9.9-11 miles",
-        "note": "WTG says the County K to Whispering Pines reach is one of the most recommended single-day paddles by NPS rangers and documents N4 landings/campsites with GPX coordinates.",
+        "value": "County K to Whispering Pines, 9.9 miles",
+        "note": "WTG identifies this as one of the National Park Service's recommended single-day paddles. Its fourteen-campsite count applies to the broader 17.5-mile County K-to-Fritz N4 segment.",
         "sourceUrl": "https://wisconsintrailguide.com/paddle/namekagon-river-county-k-landing.html"
       },
       {
@@ -19042,6 +19043,12 @@ export const wisconsinRoutes: River[] = [
         "value": "Namekagon Map 3",
         "note": "NPS Map 3 covers Trego to Riverside Landing, including County K, downstream riffles, islands, rocky sections, safety rules, and designated-campsite regulations.",
         "sourceUrl": "https://www.nps.gov/sacn/planyourvisit/upload/Section-3_Namekagon_Trego-to-Riverside-Landing_2024_508.pdf"
+      },
+      {
+        "label": "NPS route description",
+        "value": "County K to Whispering Pine, 9.9 miles",
+        "note": "NPS lists a 3–6 hour easy trip with short Class I sections, eight campsites (two group sites), and the Leisure Lake Hiking Trail near river mile 29.3. It says the reach is generally floatable, with infrequent scraping possible during particularly low rainfall.",
+        "sourceUrl": "https://www.nps.gov/sacn/planyourvisit/k-whispering.htm"
       },
       {
         "label": "Current gauge check",
@@ -19064,6 +19071,11 @@ export const wisconsinRoutes: River[] = [
       {
         "label": "NPS Namekagon Map 3",
         "url": "https://www.nps.gov/sacn/planyourvisit/upload/Section-3_Namekagon_Trego-to-Riverside-Landing_2024_508.pdf",
+        "provider": "nps"
+      },
+      {
+        "label": "NPS County K to Whispering Pine route details",
+        "url": "https://www.nps.gov/sacn/planyourvisit/k-whispering.htm",
         "provider": "nps"
       },
       {
@@ -19202,9 +19214,9 @@ export const wisconsinRoutes: River[] = [
         "sourceUrl": "https://wisconsintrailguide.com/paddle/pdf/guide-namekagon2.pdf"
       },
       {
-        "label": "Current gauge check",
+        "label": "Historical gauge snapshot",
         "value": "58.6 cfs / 1.46 ft at 2026-07-23 00:00 CDT",
-        "note": "USGS Water Services returned current Leonards discharge and stage during this run, below the selected minimum-only floor.",
+        "note": "This value was captured during a July 23, 2026 route-data check and is not current. It was below the conservative 150 cfs corridor floor at that time; use the live USGS station link for present conditions.",
         "sourceUrl": "https://waterservices.usgs.gov/nwis/iv/?format=json&sites=05331833&parameterCd=00060,00065&siteStatus=all"
       }
     ],
@@ -19243,7 +19255,8 @@ export const wisconsinRoutes: River[] = [
     "state": "Wisconsin",
     "region": "St. Croix National Scenic Riverway",
     "routeType": "whitewater",
-    "summary": "Short scenic Namekagon connector from Springbrook to Big Bend, filling the N3 gap above the existing Big-Bend-to-Trego card with WTG/NPS coordinates and conservative Leonards-gauge context.",
+    "scoreEligibility": "planning",
+    "summary": "Plan the 5.2-mile Namekagon float from Springbrook Landing to Big Bend Landing in about 2–3.5 hours. This mostly quiet-water reach has light Class I riffles, grassy island channels, and wooded banks. The Leonards gauge is an upstream proxy; 150 cfs is a conservative corridor floor, not a route-specific ideal. Scout shallow channels and wood, and use signed Riverway landings.",
     "statusText": "Use the Leonards gauge as a corridor check. This card uses a conservative 150 cfs floor from the adjacent Namekagon Riverway evidence; below that, expect shallow riffles and narrow island channels.",
     "latitude": 45.95392,
     "longitude": -91.68622,
@@ -19659,8 +19672,8 @@ export const wisconsinRoutes: River[] = [
     "reach": "David Hansen Memorial Landing / Irving to Melrose Landing",
     "state": "Wisconsin",
     "region": "West Central Wisconsin",
-    "summary": "Popular lower-Black sandbar and bluff segment from Irving to Melrose, using Wisconsin Trail Guide BK3 GPX endpoints and the direct Black River Falls gauge.",
-    "statusText": "Use the Black River Falls gauge. Wisconsin Trail Guide lists 200 cfs as the suggested minimum and 3,000 cfs as the suggested maximum for BK3; low water can force wading around islands, while high water covers sandbars and raises strainer consequences.",
+    "summary": "Float 11.8 miles from Irving to Melrose on the lower Black. Plan about five hours; shallow island channels may require walking at low water. Expect quiet water, riffles, sandy beaches in medium and lower flows, and tall bluffs. Wisconsin Trail Guide's 200–3,000 cfs Black River Falls range is community guidance, not an official safety band; that gauge is upstream of Irving, so check current flow and use the named public landings rather than private campground access.",
+    "statusText": "USGS 053813595 at Black River Falls is upstream of Irving, so treat it as the Wisconsin Trail Guide's BK3 community gauge reference, not an on-route reading. The guide suggests 200 cfs minimum and 3,000 cfs maximum. Near the low end, shallow forks around the large islands may require pushing or walking; high water can cover beaches and increase strainer risk. These are not official safe-flow limits. Check current flow, weather, and access before launch.",
     "latitude": 44.18761,
     "longitude": -90.89892,
     "safetyProfile": {
@@ -19713,7 +19726,7 @@ export const wisconsinRoutes: River[] = [
       "seasonNotes": "Spring through fall is the normal window. Medium and lower levels expose the beaches that define the route, while late-summer lows can strand boats in sandy island channels.",
       "difficulty": "easy",
       "difficultyNotes": "Easy quietwater and riffles, but the nearly 12-mile distance, island-channel decisions, private-bank limits, and high-water strainers call for a planned shuttle and daylight margin.",
-      "confidenceNotes": "Confidence is good for a conservative lower-Black add: Wisconsin Trail Guide documents BK3 from Irving to Melrose with GPX waypoints, mileage, riffle character, sandbar camping context, and a 200-3,000 cfs Black River Falls gauge range; Wisconsin River Trips and Miles Paddled corroborate the Irving-to-Melrose route family and lower-Black hazards; Wisconsin DNR documents Melrose access; and USGS Water Services returned current direct Black River Falls data during this run."
+      "confidenceNotes": "Wisconsin Trail Guide documents BK3 from Irving to the DNR Melrose landing at 11.8 miles, estimates about five hours, describes quietwater, riffles, sandbars and shallow island channels, and ties its suggested 200–3,000 cfs limits to USGS 053813595. The USGS station is at Black River Falls upstream of Irving, so its reading is regional route context rather than a measurement inside this reach. Thresholds are community suggestions, not an official DNR paddling band or safety guarantee."
     },
     "evidenceNotes": [
       {
@@ -22955,7 +22968,7 @@ export const wisconsinRoutes: River[] = [
     "state": "Wisconsin",
     "region": "Central Wisconsin",
     "summary": "Lower Eau Claire water-trail split from the Club House Road park launch to the County J bridge landing, with KML-backed public endpoints, boulder gardens, Class I-II ledges, and Weston stage guidance.",
-    "statusText": "Use the Eau Claire River at Kelly / Ross Avenue stage gauge. Weston says about 1 ft is beginner-friendly, below 0.5 ft likely forces portages, and over 2 ft is experienced-paddler water; USGS legacy live JSON was unavailable during this run, so check the official monitoring page before launching.",
+    "statusText": "Use the Eau Claire River at Kelly / Ross Avenue stage gauge. Weston says about 1 ft is beginner-friendly, below 0.5 ft likely forces portages, and over 2 ft is experienced-paddler water. If a live feed is unavailable, check the official monitoring page; compare the current stage and trend with these thresholds before launching.",
     "latitude": 44.904,
     "longitude": -89.482,
     "safetyProfile": {
@@ -23312,7 +23325,7 @@ export const wisconsinRoutes: River[] = [
     "state": "Wisconsin",
     "region": "South Central Wisconsin",
     "summary": "Lower Yahara free-flowing day route from the better Highway N bridge access below Dunkirk Dam through the Stebbinsville recovery reach to the Highway 59 bridge/gauge access.",
-    "statusText": "Use the Yahara near Fulton gauge at Highway 59. WRT calls 201-400 cfs the good target range and says 0-200 cfs is near-drought but usually navigable with careful line choice; the current July 23 reading was below target at 103 cfs.",
+    "statusText": "Use the Yahara near Fulton gauge at Highway 59. WRT calls 201-400 cfs the good target range and says 0-200 cfs is near-drought but usually navigable with careful line choice. Check the live reading and trend before choosing a line.",
     "latitude": 42.8526,
     "longitude": -89.191,
     "safetyProfile": {
@@ -23428,7 +23441,7 @@ export const wisconsinRoutes: River[] = [
     "state": "Wisconsin",
     "region": "South Central Wisconsin",
     "summary": "Popular lower Yahara continuation from the Highway 59 bridge/gauge access to Murwin County Park, keeping the route below the Stebbinsville access dispute and above the Rock River continuation.",
-    "statusText": "Use the Yahara near Fulton gauge at the Highway 59 put-in. Miles Paddled calls 330-500 cfs the appealing range for this lower section; current July 23 flow was 103 cfs, so expect shallower/slower conditions even though WRT says low flows may still go.",
+    "statusText": "Use the Yahara near Fulton gauge at the Highway 59 put-in. Miles Paddled calls 330-500 cfs the appealing range for this lower section; WRT says low flows may still go. Check the live gauge and trend for shallow, slow conditions before launch.",
     "latitude": 42.8186,
     "longitude": -89.1497,
     "safetyProfile": {
@@ -23553,7 +23566,7 @@ export const wisconsinRoutes: River[] = [
     "state": "Wisconsin",
     "region": "South Central Wisconsin",
     "summary": "Beginner flatwater Sugar River day route from public Bowman Park in Albany to Head Gates Park in Brodhead, with Decatur Lake navigation and a hard dam boundary at the finish.",
-    "statusText": "Use the Sugar River near Verona gauge for the Miles Paddled floor. The selected minimum is 60 cfs on Verona; current July 23 flow was 37.8 cfs there, so this route is currently below the conservative paddling floor.",
+    "statusText": "Use the Sugar River near Verona gauge for the Miles Paddled floor. The selected minimum is 60 cfs on Verona; below that level, this route is below the conservative paddling floor. Compare the live flow and trend with that threshold before launch.",
     "latitude": 42.675,
     "longitude": -89.419,
     "safetyProfile": {

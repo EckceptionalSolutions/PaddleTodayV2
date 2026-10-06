@@ -17,7 +17,7 @@ export const texasRoutes: River[] = [
     "region": "Palo Pinto County",
     "routeType": "recreational",
     "summary": "Classic 19.5-mile Upper-Middle Brazos canoe-camping reach from the BRA river access below Possum Kingdom Dam at Hwy 16 to the FM 4/Dark Valley Creek take-out served by Rochelle's Canoe Rental. TRPA publishes the route shape, class, flow bands, and endpoint maps; current access requires reservation/shuttle planning at the FM 4 outfitter.",
-    "statusText": "Use direct USGS 08089000 near Palo Pinto. TRPA lists 150 cfs as the minimum, 225-1,500 cfs as ideal, and 5,000 cfs as the maximum. Current readings near the floor mean expect shallow gravel, scraping, and slower travel; check same-day dam releases, rainfall, wind, water quality, and both endpoint terms before committing to this two-day reach.",
+    "statusText": "Use direct USGS 08089000 near Palo Pinto. TRPA lists 150 cfs as the minimum, 225-1,500 cfs as ideal, and 5,000 cfs as the maximum. Near the minimum, expect shallow gravel, scraping, and slower travel; check the live reading, same-day dam releases, rainfall, wind, water quality, and both endpoint terms before committing to this two-day reach.",
     "latitude": 32.8589959,
     "longitude": -98.4133234,
     "putIn": {
@@ -1721,7 +1721,7 @@ export const texasRoutes: River[] = [
     "region": "South Texas Plains",
     "routeType": "whitewater",
     "summary": "Official Mission Reach urban paddling trail from Roosevelt Park to Camino Coahuilteca near Mission Espada. TPWD, SARA, and the City publish the public access corridor, blue-marked launch points, canoe chutes, and Espada Dam portage, while the San Antonio USGS gauge gives a direct upstream flow check.",
-    "statusText": "Use the San Antonio River at San Antonio gauge just upstream of Roosevelt Park. Treat about 200 cfs as the conservative San Antonio River floor from TRPA guidance; the current reading can be below that floor, so verify SARA flow, bacteria, rainfall, and portage conditions before launching.",
+    "statusText": "Use the San Antonio River at San Antonio gauge just upstream of Roosevelt Park. Treat about 200 cfs as the conservative floor from TRPA guidance; if the live reading is below it, expect shallower water. Verify SARA flow, bacteria, rainfall, and portage conditions before launch.",
     "latitude": 29.4015,
     "longitude": -98.4883,
     "safetyProfile": {
@@ -2350,7 +2350,7 @@ export const texasRoutes: River[] = [
     "region": "Hill Country",
     "routeType": "whitewater",
     "summary": "Short TPWD-supported Blanco River run from the Fischer Store Road bridge to the John Knox Ranch River Access near Wayside Drive. TPWD publishes the 3.6-mile route, active leased take-out, put-in no-parking rule, reservation and gate-code requirements, and same-river gauge checks.",
-    "statusText": "Use the Blanco River at Wimberley gauge. American Whitewater's containing Fischer Store-to-RM 12 reach uses about 800 cfs as the runnable floor; current readings are far below that floor, so treat this as no-go until the Blanco has enough water and John Knox confirms access.",
+    "statusText": "Use the Blanco River at Wimberley gauge. American Whitewater's containing Fischer Store-to-RM 12 reach uses about 800 cfs as the runnable floor; below that level, treat this route as no-go. Check the live reading and trend, and confirm John Knox access before planning a launch.",
     "latitude": 30.000583,
     "longitude": -98.200361,
     "safetyProfile": {
@@ -5288,7 +5288,7 @@ export const texasRoutes: River[] = [
     "region": "Central Texas",
     "routeType": "recreational",
     "summary": "Brazos River day trip below Lake Whitney Dam from USACE Riverside Park to TPWD leased-access Spivey Crossing RV Park. TPWD RACA publishes the 9.59-mile segment, USACE documents public Riverside river access, and the Aquilla USGS gauge gives a direct same-reach flow check.",
-    "statusText": "Use the Brazos River near Aquilla gauge. BRA's public paddling chart treats 200 cfs or less as below the minimum, 501-1,200 cfs as ideal, and higher flows as increasingly hazardous; current readings are well below the floor, so wait for more water and confirm Whitney release conditions.",
+    "statusText": "Use the Brazos River near Aquilla gauge. BRA's public paddling chart treats 200 cfs or less as below the minimum, 501-1,200 cfs as ideal, and higher flows as increasingly hazardous. Check the live gauge and Whitney release conditions before launch.",
     "latitude": 31.866028,
     "longitude": -97.367336,
     "safetyProfile": {
@@ -5444,7 +5444,7 @@ export const texasRoutes: River[] = [
     "region": "Central Texas",
     "routeType": "recreational",
     "summary": "Brazos River day trip below Lake Whitney Dam from TPWD leased-access Spivey Crossing RV Park to the TPWD leased-access Brazos River Nature Center. TPWD publishes the downstream route relationship, active public-use rules at both endpoints, and the Aquilla USGS gauge gives a direct same-corridor flow check.",
-    "statusText": "Use the Brazos River near Aquilla gauge. BRA's public paddling chart treats 200 cfs or less as below the minimum, 501-1,200 cfs as ideal, and higher flows as increasingly hazardous; current readings are well below the floor, so wait for more water and confirm Whitney release conditions and both leased-access reservations.",
+    "statusText": "Use the Brazos River near Aquilla gauge. BRA's public paddling chart treats 200 cfs or less as below the minimum, 501-1,200 cfs as ideal, and higher flows as increasingly hazardous. Check the live gauge, Whitney release conditions, and both leased-access reservations before launch.",
     "latitude": 31.801114,
     "longitude": -97.307315,
     "safetyProfile": {
@@ -5601,7 +5601,7 @@ export const texasRoutes: River[] = [
     "region": "Dallas-Fort Worth",
     "routeType": "recreational",
     "summary": "Short TPWD leased-access Brazos River float upstream of Lake Granbury, from Fuller's Folly River Ranch to Sandy Bottoms River Trail Camp. TPWD publishes the active leased access, endpoint coordinates, 4.1-mile downstream route, day-use rules, and contact requirements, while USGS 08090800 at Dennis gives a direct same-reach flow check.",
-    "statusText": "Use the Brazos River near Dennis gauge. BRA's public paddling chart treats 200 cfs as below the minimum, 501-1,200 cfs as ideal, and higher flows as increasingly hazardous; current readings near the floor mean more paddling, shallow bars, and stricter arrival checks.",
+    "statusText": "Use the Brazos River near Dennis gauge. BRA's public paddling chart treats 200 cfs as below the minimum, 501-1,200 cfs as ideal, and higher flows as increasingly hazardous. Near the minimum, expect more paddling and shallow bars; verify live conditions and arrival requirements before launch.",
     "latitude": 32.61955,
     "longitude": -97.89381,
     "safetyProfile": {
@@ -5876,7 +5876,7 @@ export const texasRoutes: River[] = [
     "region": "Central Texas",
     "routeType": "recreational",
     "summary": "Short TPWD leased-access Brazos River float near Calvert from Brazos River Milam County Area 1 at FM 979 to Area 2 near County Road 259. TPWD publishes the active lease, endpoint coordinates, 5-mile downstream route, daylight access rules, muddy-site closure caveat, and prearranged gate-code and shuttle requirements.",
-    "statusText": "Use the Brazos River near Highbank gauge as the conservative upstream flow check. BRA's public paddling chart treats 200 cfs as below the minimum, 501-1,200 cfs as ideal, and higher flows as increasingly hazardous; current readings are below the floor, so wait for more water and confirm site conditions before launch.",
+    "statusText": "Use the Brazos River near Highbank gauge as the conservative upstream flow check. BRA's public paddling chart treats 200 cfs as below the minimum, 501-1,200 cfs as ideal, and higher flows as increasingly hazardous. Check the live reading, trend, and site conditions before launch.",
     "latitude": 30.977162,
     "longitude": -96.761887,
     "safetyProfile": {
@@ -6295,7 +6295,7 @@ export const texasRoutes: River[] = [
     "state": "Texas",
     "region": "East Texas",
     "summary": "Easy Big Thicket flatwater day from FM 418 to TX 327. TPWD and NPS still document the exact 8.6-mile segment, and the Kountze USGS gauge gives a direct same-creek condition check.",
-    "statusText": "Use the Village Creek near Kountze gauge. Around 200 cfs is the conservative low-water floor for FM 418 to TX 327. The gauge was 229 cfs and 3.70 ft at 2026-07-13 14:30 CDT, just above the minimum-only floor; no route-specific upper cfs band is claimed.",
+    "statusText": "Use the Village Creek near Kountze gauge. Around 200 cfs is the conservative low-water floor for FM 418 to TX 327; near that level, expect marginal low-water conditions. No route-specific upper cfs band is claimed, so check the live gauge and trend before launch.",
     "latitude": 30.397794,
     "longitude": -94.265024,
     "safetyProfile": {
@@ -11437,7 +11437,7 @@ export const texasRoutes: River[] = [
     "region": "Big Bend",
     "routeType": "recreational",
     "summary": "Short Big Bend National Park day float through Hot Springs Canyon from the Gravel Pit river access on River Road East to the Rio Grande Village take-out. NPS publishes the five-mile route, the 30 cfs canoe/kayak low-flow cue, no-overnight rule for the stretch, high-clearance road caveats, and river-permit requirements, with USGS 08375300 providing the direct same-corridor gauge.",
-    "statusText": "Use the Rio Grande Village gauge. The route is currently just above NPS's 30 cfs canoe/kayak floor, but expect slow first miles, shallow riffles, heat, high-clearance access, and a same-day NPS permit and road-condition check before launch.",
+    "statusText": "Use the Rio Grande Village gauge. NPS sets a 30 cfs canoe/kayak floor; near that level, expect slow first miles and shallow riffles. Check live flow, heat, high-clearance access, the NPS permit, and road conditions before launch.",
     "latitude": 29.151417,
     "longitude": -103.002417,
     "safetyProfile": {
@@ -11580,7 +11580,7 @@ export const texasRoutes: River[] = [
     "region": "Texas Hill Country",
     "routeType": "whitewater",
     "summary": "North Prong Medina day run from 3rd Crossing of FR 2107 to Freeman Crossing at SH 16. TRPA publishes this 6.6-mile featured run, map-link access anchors, Class I-III corridor context, private-bank rules, and Medina flow bands tied to the product-supported Patterson Road gauge downstream.",
-    "statusText": "Use the Medina River at Patterson Road gauge. Treat 50 cfs as the North Prong floor, 300-1,500 cfs as the preferred window, and 2,000 cfs as the high-water ceiling; current readings below the floor mean scraping and dragging are likely.",
+    "statusText": "Use the Medina River at Patterson Road gauge. Treat 50 cfs as the North Prong floor, 300-1,500 cfs as the preferred window, and 2,000 cfs as the high-water ceiling. Below 50 cfs, expect scraping and dragging; compare the live reading and trend with these route-specific limits.",
     "latitude": 29.8763326,
     "longitude": -99.3483821,
     "safetyProfile": {
@@ -11728,7 +11728,7 @@ export const texasRoutes: River[] = [
     "region": "Texas Hill Country",
     "routeType": "whitewater",
     "summary": "North Prong Medina day run from Freeman Crossing at SH 16 to Moffett Park in Medina. TRPA publishes this 6.3-mile featured run, map-link access anchors, Class I-III corridor context, private-bank rules, and Medina flow bands tied to the product-supported Patterson Road gauge.",
-    "statusText": "Use the Medina River at Patterson Road gauge. Treat 50 cfs as the North Prong floor, 300-1,500 cfs as the preferred window, and 2,000 cfs as the high-water ceiling; current readings just below the floor mean scraping and dragging are likely.",
+    "statusText": "Use the Medina River at Patterson Road gauge. Treat 50 cfs as the North Prong floor, 300-1,500 cfs as the preferred window, and 2,000 cfs as the high-water ceiling. Below 50 cfs, expect scraping and dragging; compare the live reading and trend with these route-specific limits.",
     "latitude": 29.85418,
     "longitude": -99.2796359,
     "safetyProfile": {
@@ -11874,7 +11874,7 @@ export const texasRoutes: River[] = [
     "region": "Texas Hill Country",
     "routeType": "recreational",
     "summary": "Upper Medina River day trip from Moffett Park in Medina to the Bandina Camp Road crossing. TRPA publishes this 6.7-mile route, access-map coordinates, private-bank cautions, Medina River flow bands, and direct USGS current-condition links for the same river corridor.",
-    "statusText": "Use the Medina River at Patterson Road gauge. Treat 30 cfs as the lower Medina minimum, 300-1,500 cfs as the preferred window, and 2,000 cfs as the high-water ceiling; current readings near the floor can mean dragging and slow gravel-bar travel.",
+    "statusText": "Use the Medina River at Patterson Road gauge. Treat 30 cfs as the lower Medina minimum, 300-1,500 cfs as the preferred window, and 2,000 cfs as the high-water ceiling. Near the minimum, expect possible dragging and slow gravel-bar travel; compare the live reading and trend with these limits.",
     "latitude": 29.79452,
     "longitude": -99.24907,
     "safetyProfile": {
@@ -12343,7 +12343,7 @@ export const texasRoutes: River[] = [
     "region": "Texas Hill Country",
     "routeType": "recreational",
     "summary": "Bandera-area Medina River day trip from Ranger Crossing at Highway 16 to Bandera City Park. American Whitewater publishes this public access-to-access reach, endpoint coordinates, Class I-II context, low-water-crossing hazards, and the direct Bandera USGS gauge; Bandera City Park publishes current day-use rules, no-camping rules, and dam-area restrictions for the take-out.",
-    "statusText": "Use the Medina River at Bandera gauge directly at the take-out. Treat 30 cfs as the lower-Medina floor, 300-1,500 cfs as the preferred window, and 2,000 cfs as the high-water ceiling; American Whitewater also showed the same-day 56 cfs reading as below its recommended level, so expect shallow, scrape-prone conditions near today's flow.",
+    "statusText": "Use the Medina River at Bandera gauge directly at the take-out. Treat 30 cfs as the lower-Medina floor, 300–1,500 cfs as the preferred window, and 2,000 cfs as the high-water ceiling. Below 300 cfs, expect shallow, scrape-prone conditions; compare the live flow and trend with these bands before launch.",
     "latitude": 29.7369976,
     "longitude": -99.1232512,
     "safetyProfile": {
@@ -12501,7 +12501,7 @@ export const texasRoutes: River[] = [
     "region": "Texas Hill Country",
     "routeType": "recreational",
     "summary": "Downstream Bandera-area Medina River day trip from the Bandera City Park Dam access anchor to English Crossing. TRPA publishes this as a 12.5-mile featured run, ties lower-Medina paddling to the direct Bandera USGS gauge, warns not to run the City Park dam, and states public camping on the Medina is limited to Pioneer River Resort.",
-    "statusText": "Use the Medina River at Bandera gauge directly at the put-in. Treat 30 cfs as the lower-Medina floor, 300-1,500 cfs as the preferred window, and 2,000 cfs as the high-water ceiling; at today's near-floor flow, expect a long shallow day with scraping, dragging, and private-bank discipline.",
+    "statusText": "Use the Medina River at Bandera gauge directly at the put-in. Treat 30 cfs as the lower-Medina floor, 300–1,500 cfs as the preferred window, and 2,000 cfs as the high-water ceiling. Near the floor, expect a long shallow day with scraping and dragging; compare the live flow and trend with these bands before launch and respect private banks.",
     "latitude": 29.7222995,
     "longitude": -99.0702231,
     "safetyProfile": {
@@ -12650,7 +12650,7 @@ export const texasRoutes: River[] = [
     "region": "Round Rock",
     "routeType": "recreational",
     "summary": "American Whitewater's 5.7-mile Brushy Creek Class II+ reach from Chisholm Trail Road to CR 122 (Red Bud Lane), using the direct Kenney Fort Boulevard gauge and named public access anchors documented by the City of Round Rock and the Brushy Creek RUAA.",
-    "statusText": "Use direct USGS 08105888 at Kenney Fort Boulevard. American Whitewater's local beta treats about 200 cfs as a scrape-prone floor and about 400 cfs as a fun level; the current reading is below that window, so confirm the live trend, debris, dam hydraulics, and both access points before committing.",
+    "statusText": "Use direct USGS 08105888 at Kenney Fort Boulevard. American Whitewater's local beta treats about 200 cfs as a scrape-prone floor and about 400 cfs as a fun level. Below 200 cfs, expect scraping; confirm live trend, debris, dam hydraulics, and both access points before committing.",
     "latitude": 30.51307,
     "longitude": -97.68939,
     "putIn": {"name": "Chisholm Trail Crossing Park", "latitude": 30.51307, "longitude": -97.68939},

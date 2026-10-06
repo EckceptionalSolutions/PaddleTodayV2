@@ -2488,7 +2488,7 @@ export const minnesotaRiverTripDetails: Record<string, RiverTripDetails> = {
       "permits": "No route-specific paddling permit is known. Follow posted city, county, DNR public-access, boating, PFD, and invasive-species rules at Springfield, Highway 4, and any legal stop.",
       "camping": "Treat this as a long day route unless you separately confirm a legal overnight option. DNR water-trail guidance says to camp only at designated campsites, and no on-route campsite is assumed between Springfield and Highway 4.",
       "campingClassification": "none",
-      "summary": "Launch at Springfield and finish at Highway 4 for the missing middle-Cottonwood public-access connector above the existing lower-Cottonwood cards. The Springfield gauge was in the official low band during this run, so scraping and slow progress are real planning concerns.",
+      "summary": "Plan the 24.9-mile Cottonwood River day from Springfield to Highway 4; allow 8–11 hours plus wood scouting and low-water delays. Check the live Springfield gauge against DNR guidance before launching.",
       "accessCaveats": [
         "Springfield resolves in Minnesota public-water-access GIS as WAS01421 at river mile 56.3.",
         "Highway 4 resolves as WAS02675 at river mile 31.4 and is the selected finish; Theden's Landing is downstream and belongs to the next lower route family.",
@@ -2693,7 +2693,7 @@ export const minnesotaRiverTripDetails: Record<string, RiverTripDetails> = {
       "permits": "No route-specific paddling permit is known. Follow Minnesota boating/PFD rules, City of Mankato park rules, and posted access, parking, and private-bank restrictions.",
       "camping": "Land of Memories Park provides endpoint campground context, but this short connector should be treated as a day route with no assumed informal riverbank camping.",
       "campingClassification": "endpoint_campground",
-      "summary": "Launch at Land of Memories Park and take out at Mankato Riverfront Park for the short public-access connector between two existing Minnesota River route cards. The direct Mankato gauge was in the official low band during review, so same-day depth and mud checks matter.",
+      "summary": "Launch at Land of Memories Park and take out at Mankato Riverfront Park for a short Minnesota River connector. Compare the live Mankato gauge with DNR guidance and check local depth and mud at both landings.",
       "accessCaveats": [
         "Land of Memories Park resolves in Minnesota public-water-access context near river mile 105.0 and has city-park campground and boat-landing support.",
         "Riverfront Park resolves as WAS01018 at DNR Map 5 river mile 102.5.",
@@ -3543,7 +3543,7 @@ export const minnesotaRiverTripDetails: Record<string, RiverTripDetails> = {
       "permits": "No route-specific paddling permit is known. Follow city park, DNR water-trail, Minnesota boating/PFD, and invasive-species rules at both public accesses.",
       "camping": "Covered Bridge Park is mapped by DNR as having camping, toilets, drinking water, and rest area facilities. Treat overnight use as endpoint-campground staging only, subject to city rules and availability; do not camp on private banks.",
       "campingClassification": "endpoint_campground",
-      "summary": "Launch at Covered Bridge Park and finish at Walking Bridge Park for the North Fork Zumbro public-access day through Zumbrota-to-Mazeppa water. The Mazeppa DNR gauge was in the official medium band during this run, but it is downstream of the take-out and should be paired with visual checks.",
+      "summary": "Launch at Covered Bridge Park and finish at Walking Bridge Park for a North Fork Zumbro day through Zumbrota-to-Mazeppa water. The Mazeppa gauge is downstream of the take-out, so pair its live reading with local visual checks.",
       "accessCaveats": [
         "Covered Bridge Park resolves in Minnesota public-water-access GIS as WAS02181 at river mile 69.6.",
         "Walking Bridge Park resolves as WAS02184 at river mile 60.1 in Mazeppa and is the intended finish just below the mapped Mazeppa Rapids area.",
@@ -3595,7 +3595,7 @@ export const minnesotaRiverTripDetails: Record<string, RiverTripDetails> = {
       "shuttle": "Self-shuttle is typical, and multiple intermediate landings make shorter one-way options possible.",
       "permits": "No paddling permit noted. Check local park rules at launch and take-out.",
       "camping": "No camping noted for this day-use water trail.",
-      "summary": "The upper miles are mostly lake crossings before the creek narrows. Fish-barrier status, lake wind, and intermediate exits matter almost as much as the gauge.",
+      "summary": "The full Peltier Lake-to-Long Lake trail is 15.2 miles and takes an estimated 5–7 hours. The first seven miles cross five lakes, so wind and shorter exits matter; County Road I may require a high-water portage, and the Long Lake fish-barrier portage is marked when operational.",
       "accessCaveats": [
         "Multiple intermediate landings make it easy to shorten the route if wind or time becomes a problem.",
         "Wargo Nature Center on George Watch Lake is rentals/boat return only on the official map and is intentionally not modeled as a public self-launch. Use Aqua Lane for the first documented intermediate public access.",
@@ -4746,7 +4746,7 @@ export const minnesotaRiverTripDetails: Record<string, RiverTripDetails> = {
       "permits": "No route-specific paddling permit is known. Follow Minnesota boating/PFD rules, City of Mankato park rules, Nicollet County park rules, and posted access or parking restrictions.",
       "camping": "Treat this as a day route. Seven Mile Creek Park is a daylight-use park rather than an on-route campground; Land of Memories Park or other Mankato-area camping is a separate basecamp plan upstream of this route.",
       "campingClassification": "nearby_basecamp",
-      "summary": "Launch at Mankato Riverfront Park and take out at Seven Mile Creek County Park for the short DNR Map 5 easy stretch below Mankato. The Mankato gauge is direct at the put-in corridor, but the current reading was low just below medium during review.",
+      "summary": "Launch at Mankato Riverfront Park and take out at Seven Mile Creek County Park for the DNR Map 5 stretch below Mankato. The Mankato gauge is direct at the put-in; compare its live reading with DNR guidance and local depth.",
       "accessCaveats": [
         "Riverfront Park resolves as WAS01018 and Seven Mile Creek County Park resolves as WAS00211 in Minnesota public-water-access GIS with coordinates and river-mile records.",
         "Explore Minnesota describes Seven Mile Creek Park as daylight-use with a large river-side parking lot and public boat landing; confirm same-day county rules before staging a vehicle.",
@@ -5358,7 +5358,7 @@ export const minnesotaRiverTripDetails: Record<string, RiverTripDetails> = {
       "permits": "No route-specific paddling permit is known. Follow DNR public-water-access rules, Minnesota boating/PFD requirements, and posted parking or public-land rules.",
       "camping": "DNR Kettle maps support watercraft camping and public-land camping rules on the broader trail, but this card should be planned as a long day unless a legal designated or public-land overnight stop is separately confirmed.",
       "campingClassification": "nearby_basecamp",
-      "summary": "Launch at Musclewood Lake and take out at Kettle River #1 for the official DNR 16.5-mile day trip. The Willow River / Long Lake Road gauge was below the official scrapable floor during this run, so low-water dragging is the default assumption today.",
+      "summary": "Launch at Musclewood Lake and take out at Kettle River #1 for the official DNR 16.5-mile day trip.",
       "accessCaveats": [
         "Musclewood Lake resolves in Minnesota public-water-access GIS as WAS00898 at DNR river mile 46.2. DNR route text places the put-in at river mile 46.3.",
         "#1 resolves in Minnesota public-water-access GIS as WAS00904 near river mile 29.8 west of Askov.",
@@ -5409,7 +5409,7 @@ export const minnesotaRiverTripDetails: Record<string, RiverTripDetails> = {
       "permits": "No route-specific paddling permit is known. Follow Minnesota boating/PFD rules, Red River state-water-trail guidance, and all posted local access rules.",
       "camping": "Treat this as a day trip. No on-route watercraft campsite was confirmed for the County Road 25-to-Halstad reach, and private banks should not be used for informal camping.",
       "campingClassification": "none",
-      "summary": "Launch at the Highway 25 / Hendrum public access and take out at Halstad Landing for the official DNR 11.2-mile Map 3 day trip. The Halstad gauge was below the official scrapable floor during this run, so this is not a good low-water call today.",
+      "summary": "Launch at the Highway 25 / Hendrum public access and take out at Halstad Landing for the official DNR 11.2-mile Map 3 day trip.",
       "accessCaveats": [
         "The Hendrum public access resolves in Minnesota public-water-access GIS as WAS00548 at DNR river mile 392.7, matching the DNR County Road 25 / Canning Landing trip start.",
         "Halstad Landing resolves as WAS00536 at DNR river mile 381.5 near the Halstad DNR gauge.",
@@ -5460,7 +5460,7 @@ export const minnesotaRiverTripDetails: Record<string, RiverTripDetails> = {
       "permits": "No route-specific paddling permit is known. Follow DNR public-water-access rules, Banning State Park rules where applicable, Minnesota boating/PFD requirements, and posted parking limits.",
       "camping": "Treat this as a day trip. Banning State Park and mapped watercraft campsites provide nearby planning context upstream, but this connector should not rely on informal bank camping.",
       "campingClassification": "nearby_basecamp",
-      "summary": "Launch at Kettle River #4 and take out at #5 for the lower-Banning connector below the hardest Sandstone rapids. The Sandstone DNR gauge is direct to the put-in corridor and was far below the official scrapable floor during this run.",
+      "summary": "Launch at Kettle River #4 and take out at #5 for the lower-Banning connector below the hardest Sandstone rapids.",
       "accessCaveats": [
         "#4 and #5 both resolve in Minnesota public-water-access GIS with Kettle River mile records and coordinates.",
         "#4 is the intended upstream boundary. Starting above #4 adds Big Spring Falls / Sandstone Rapids, undercut walls, and advanced portage decisions.",
@@ -5511,7 +5511,7 @@ export const minnesotaRiverTripDetails: Record<string, RiverTripDetails> = {
       "permits": "No route-specific paddling permit is known. Use legal public right-of-way or DNR public access only, follow Minnesota boating/PFD rules, and check current St. Louis River water-trail alerts.",
       "camping": "Treat this as a day trip. DNR discusses dispersed camping rules for the broader Superior National Forest corridor, but no designated on-route campsite was confirmed between County Road 4 and County Road 95.",
       "campingClassification": "nearby_basecamp",
-      "summary": "Launch from the undeveloped County Road 4 bridge carry-in and take out at the County Road 95 public access for the official DNR 7.3-mile upper St. Louis day trip. The downstream Forbes gauge was below the official scrapable floor during this run, so visual low-water checks are essential.",
+      "summary": "Launch from the undeveloped County Road 4 bridge carry-in and take out at the County Road 95 public access for the official DNR 7.3-mile upper St. Louis day trip.",
       "accessCaveats": [
         "County Road 4 is a DNR-recommended undeveloped bridge carry-in at river mile 151.9, not a formal public-water-access-layer record.",
         "County Road 95 resolves in Minnesota public-water-access GIS as WAS02152 at DNR river mile 144.5 / 144.6.",
@@ -5613,7 +5613,7 @@ export const minnesotaRiverTripDetails: Record<string, RiverTripDetails> = {
       "permits": "No route-specific paddling permit is known. Use legal public right-of-way or public access only, follow Minnesota boating/PFD rules, and obey posted dam, park, WMA, and private-bank signs.",
       "camping": "Treat this as a short day trip. DNR does not document an on-route campsite between Lansing and Ramsey Mill Pond, and riverbed camping next to private property is not permitted.",
       "campingClassification": "none",
-      "summary": "Launch near the Lansing / County Road 2 DNR gauge and take out at Ramsey Mill Pond for the short upper-Cedar approach to the existing Ramsey-to-Austin route. The Lansing gauge is direct and was in the official medium band during this run.",
+      "summary": "Paddle from the Lansing / County Road 2 access to Ramsey Mill Pond on the upper Cedar River. The Lansing gauge is at the put-in; compare its live reading and trend with DNR guidance before launch.",
       "accessCaveats": [
         "The Lansing put-in is anchored to the DNR river-level gauge and County Road 2 bridge at river mile 25.0, not to a public-water-access-layer record. Confirm same-day legal launch and parking before using it.",
         "Ramsey Mill Pond resolves as DNR access WAS01376 at river mile 21.2 with public-water-access coordinates.",
@@ -5664,7 +5664,7 @@ export const minnesotaRiverTripDetails: Record<string, RiverTripDetails> = {
       "permits": "No route-specific paddling permit is known. Use the DNR public accesses, follow Minnesota boating/PFD rules, and obey state water-trail and campsite rules.",
       "camping": "DNR Map 1 marks the Stony Creek watercraft campsite at river mile 99.0 between Zim and Toivola. Use only designated or otherwise legal public-land sites, and do not camp on private riverbed or private banks.",
       "campingClassification": "on_route_campsite",
-      "summary": "Launch at Zim and take out at Toivola for the upper-St. Louis connector below the existing Forbes-to-Zim route. The Forbes DNR gauge is an upstream proxy and was below the official scrapable floor during this run, so low-water dragging is the default assumption.",
+      "summary": "Launch at Zim and take out at Toivola on the upper St. Louis River. The Forbes gauge is an upstream proxy, so pair its live reading with local depth and wood checks.",
       "accessCaveats": [
         "Minnesota public-water-access GIS resolves Zim as WAS00613 at river mile 113.0 and Toivola as WAS00615 at river mile 94.2.",
         "The Forbes gauge is upstream of Zim. It has official DNR interpretation bands, but it is still a corridor proxy and should be paired with launch-side depth checks.",
@@ -5715,7 +5715,7 @@ export const minnesotaRiverTripDetails: Record<string, RiverTripDetails> = {
       "permits": "No route-specific paddling permit is known. Use DNR public accesses, follow Minnesota boating/PFD rules, and obey state water-trail, forest, campsite, and private-bank rules.",
       "camping": "DNR Map 1 marks a watercraft campsite near river mile 90.8 between Toivola and County Road 29. Use only designated or otherwise legal public-land sites, and do not camp on private banks or riverbed next to private property.",
       "campingClassification": "on_route_campsite",
-      "summary": "Launch at Toivola and take out at County Road 29 for a long St. Louis Map 1/2 connector. The Floodwood gauge is downstream and below the official scrapable floor during this run, so make visual depth checks before committing.",
+      "summary": "Launch at Toivola and take out at County Road 29 after 15.7 miles on a remote reach with occasional shallow rapids. Floodwood is a downstream proxy gauge, so check local depth at both accesses; when it is below DNR's 24.4-foot scrapable threshold, expect dragging and exposed rock. A mapped watercraft campsite near river mile 90.8 may support an overnight if current rules and conditions allow.",
       "accessCaveats": [
         "Minnesota public-water-access GIS resolves Toivola as WAS00615 at river mile 94.2 and County Road 29 as WAS02129 at river mile 78.5.",
         "The Floodwood gauge is downstream of the take-out. Treat it as a same-corridor proxy and check local depth at Toivola and County Road 29 before launching.",
@@ -5766,7 +5766,7 @@ export const minnesotaRiverTripDetails: Record<string, RiverTripDetails> = {
       "permits": "No route-specific paddling permit is known. Use the DNR and city public accesses, follow Minnesota boating/PFD rules, and obey posted city, DNR, and private-bank rules.",
       "camping": "Treat this as a day trip. DNR Map 2 marks a watercraft campsite just below County Road 29, but this short connector should not be used as an informal overnight unless the site and rules are confirmed for the specific plan.",
       "campingClassification": "none",
-      "summary": "Launch at County Road 29 and finish at the Floodwood public access for the short above-town St. Louis connector. The direct Floodwood DNR gauge was below the official scrapable floor during this run.",
+      "summary": "Launch at County Road 29 and finish at the Floodwood public access for the short above-town St. Louis connector.",
       "accessCaveats": [
         "County Road 29 resolves as WAS02129 at DNR river mile 78.5.",
         "Floodwood River access resolves as WAS01940. DNR Map 2 places the St. Louis/Floodwood River confluence at river mile 72.6 and notes the trailer access is about one-half mile up the Floodwood River.",
@@ -5817,7 +5817,7 @@ export const minnesotaRiverTripDetails: Record<string, RiverTripDetails> = {
       "permits": "No route-specific paddling permit is known. Use the city and DNR public accesses, follow Minnesota boating/PFD rules, and obey DNR water-trail, AMA, and private-bank rules.",
       "camping": "Treat this as a day trip. DNR Map 2 shows the watercraft-campsite cluster beginning below Paupores on the separate Paupores-to-Brookston route, not on this Floodwood-to-Paupores split.",
       "campingClassification": "none",
-      "summary": "Launch from Floodwood, rejoin the St. Louis, and take out at Paupores for the rapid-marked lower Map 2 connector. The Floodwood gauge is direct at the launch corridor and was below scrapable during this run.",
+      "summary": "Launch from Floodwood, rejoin the St. Louis, and take out at Paupores for the rapid-marked lower Map 2 connector.",
       "accessCaveats": [
         "Floodwood River access resolves as WAS01940; DNR Map 2 places the St. Louis confluence about one-half mile downstream from the city access.",
         "Paupores resolves as WAS00609 at DNR river mile 61.8.",
@@ -6508,7 +6508,7 @@ export const minnesotaRiverTripDetails: Record<string, RiverTripDetails> = {
       "estimatedPaddleTime": "About 4 hr to 6 hr depending on wind, current, and mud",
       "shuttle": "Stage Harkin Store first, then drive back to the Highway 4 access south of Fairfax. This is a rural big-river shuttle with limited intermediate public exits.",
       "permits": "No route-specific paddling permit is known. Use the named public accesses, follow Minnesota boating/PFD rules, and respect DNR, historical-site, WMA, and posted access rules.",
-      "camping": "Treat this as a day trip. No legal on-route watercraft campsite was confirmed between Highway 4 and Harkin Store during this run; use separate legal campgrounds or parks only after checking current rules.",
+      "camping": "Treat this as a day trip unless you independently confirm a legal watercraft campsite between Highway 4 and Harkin Store; verify current campground rules.",
       "campingClassification": "none",
       "summary": "Launch at Highway 4 and take out at Harkin Store for a Map 4 public-access connector below the existing Morton-to-Highway-4 card. The Morton gauge is an upstream same-map proxy, so visual landing checks matter.",
       "accessCaveats": [
@@ -6714,7 +6714,7 @@ export const minnesotaRiverTripDetails: Record<string, RiverTripDetails> = {
       "permits": "No route-specific paddling permit is known. Use signed public accesses, follow Minnesota boating/PFD rules, and obey Aitkin County campground, parking, and boat-landing rules.",
       "camping": "Aitkin County documents campground facilities at the put-in, including campsites, showers, drinking water, picnic tables, and boat access. Treat camping as managed endpoint/basecamp support, not an assumed on-route overnight stop.",
       "campingClassification": "endpoint_campground",
-      "summary": "Launch at Aitkin Campground and take out at Highway 6 for the missing Mississippi Map 5 connector above the existing Highway-6-to-Trommald card. The Aitkin gauge is direct at the put-in corridor and is currently below the preferred medium band.",
+      "summary": "Launch at Aitkin Campground and take out at Highway 6 for the missing Mississippi Map 5 connector above the existing Highway-6-to-Trommald card.",
       "accessCaveats": [
         "Aitkin resolves as WAS01042 at river mile 1055.7, and Highway 6 resolves as WAS00999 at river mile 1030.0 in Minnesota public-water-access GIS.",
         "Aitkin County campground rules, fees, parking, and overnight use should be checked before relying on the put-in as a basecamp.",
@@ -7089,14 +7089,14 @@ export const minnesotaRiverTripDetails: Record<string, RiverTripDetails> = {
       "permits": "No route-specific paddling permit is known. Follow Minnesota boating/PFD rules, Baxter park rules, DNR water-trail guidance, county-park rules, and any Camp Ripley shoreline restrictions.",
       "camping": "DNR Map 6 identifies Overlook Park as a watercraft campsite, Crow Wing State Park campground context on river left, and Fletcher Creek as a watercraft campsite near the end. Treat all overnight stops as designated/posted or separately reserved; Camp Ripley and private banks are not camping options.",
       "campingClassification": "on_route_campsite",
-      "summary": "Launch at Baxter's Overlook Park and take out at Belle Prairie County Park for the official 25.6-mile MN DNR Map 6 one-way. The Brainerd gauge is a DNR-interpreted corridor proxy and is currently below the scrapable floor.",
+      "summary": "Launch at Baxter's Overlook Park and take out at Belle Prairie County Park for the official 25.6-mile MN DNR Map 6 one-way.",
       "accessCaveats": [
         "DNR Map 6 names Overlook Park as a river-mile 995.8 carry-in access and watercraft campsite. Baxter publishes Mississippi River Overlook Park at 6005 Oakdale Road with canoe access; the saved coordinate is a Census geocode for that address.",
         "Belle Prairie County Park resolves as WAS01278 in Minnesota public-water-access GIS at river mile 970.2 with Morrison County administration.",
         "DNR Map 6 says access to Camp Ripley Training Center is not allowed from the Mississippi or Crow Wing rivers. Use mapped public accesses, legal islands, and designated campsites only."
       ],
       "watchFor": [
-        "Below-scrapable water at the Brainerd gauge during this run; do not launch this long reach without enough water and a local visual check.",
+        "When the Brainerd proxy is below DNR's scrapable floor, avoid this long reach until local depth is confirmed; check the live reading and trend.",
         "Broad-river wind, motorboat wake, cold water, floating debris, long response times, and limited legal bailout points.",
         "Camp Ripley restrictions, private shoreline, Fletcher Creek campsite availability, and Little Falls Dam downstream of Belle Prairie if anyone continues."
       ]
@@ -7149,7 +7149,7 @@ export const minnesotaRiverTripDetails: Record<string, RiverTripDetails> = {
       "permits": "No route-specific paddling permit is known. Follow Minnesota boating/PFD rules, Royalton Sportsman's Club access rules, Stearns County park and township access rules, and all Sartell Dam warning signs.",
       "camping": "DNR Map 7 notes a watercraft campsite downstream of Stearns County Park and private islands/shorelines on the route. Treat camping as first-come or separately arranged and keep a no-camping day-trip backup.",
       "campingClassification": "on_route_campsite",
-      "summary": "Launch at Royalton Sportsman's Club and finish at the Sartell public access for the full official MN DNR 19.8-mile Map 7 route. The direct Royalton gauge is current but below the scrapable floor during this run.",
+      "summary": "Launch at Royalton Sportsman's Club and finish at the Sartell public access for the full official MN DNR 19.8-mile Map 7 route.",
       "accessCaveats": [
         "Royalton Sportsman's Club resolves as WAS00463 at river mile 953.6 and may require a fee.",
         "Sartell resolves as WAS02448 at river mile 933.8 in Minnesota public-water-access GIS and is the planned finish. Walleye Road is an intermediate public access, not the intended take-out for this longer card.",
@@ -7453,7 +7453,7 @@ export const minnesotaRiverTripDetails: Record<string, RiverTripDetails> = {
       "permits": "No route-specific paddling permit is known. Follow Minnesota boating/PFD rules plus posted Crookston, Fisher, DNR access, and parking rules.",
       "camping": "No on-route campsite is documented for this lower Red Lake River day. Treat it as a long day trip and use only legal town or campground options if separately confirmed.",
       "campingClassification": "none",
-      "summary": "Put in at the Highway 75 Bypass access below Crookston and take out at Fisher Landing. The Fisher gauge is direct at the finish and barely in the official medium band during this run.",
+      "summary": "Put in at the Highway 75 Bypass access below Crookston and take out at Fisher Landing.",
       "accessCaveats": [
         "Highway 75 Bypass resolves as WAS00550 at river mile 51.0, below the DNR-mapped Crookston constructed rock rapids and portage zone.",
         "Fisher Landing resolves as WAS02138 at river mile 27.9 beside the County Road 15 bridge and the Fisher river-level gauge.",
@@ -8019,7 +8019,7 @@ export const minnesotaRiverTripDetails: Record<string, RiverTripDetails> = {
       "permits": "No route-specific paddling permit is known. Follow Minnesota boating/PFD rules and obey Cannon Falls, Dakota County park, DNR water-trail, and private-property postings.",
       "camping": "Treat this as a day trip. No on-route campsite was verified between Riverside Park and Miesville Ravine; use nearby campgrounds or park lodging only if separately confirmed.",
       "campingClassification": "none",
-      "summary": "Launch at Cannon Falls Riverside Park and take out at Miesville Ravine County Park for a short lower-Cannon public-access day. The downstream Welch DNR gauge was in the official medium band during this run, but wood, riffles, and private banks still need same-day judgment.",
+      "summary": "Launch at Cannon Falls Riverside Park and take out at Miesville Ravine County Park for a short lower-Cannon day. The Welch gauge is downstream; pair its live reading with checks for wood, riffles, and private banks.",
       "accessCaveats": [
         "Riverside Park resolves in Minnesota public-water-access GIS as WAS01692 at DNR river mile 25.5.",
         "Miesville Ravine County Park resolves in Minnesota public-water-access GIS as WAS01694 at DNR river mile 18.5.",
@@ -8673,7 +8673,7 @@ export const minnesotaRiverTripDetails: Record<string, RiverTripDetails> = {
       "permits": "No route-specific paddling permit is known. Use the named public accesses, follow Minnesota boating/PFD rules, and obey posted city, DNR, campground, and parking rules.",
       "camping": "DNR Map 1 labels Riverview Campground watercraft campsite above Lanesboro and Sylvan Park watercraft campsite just below the Lanesboro dam portage. Treat camping as a deliberate campsite or town-basecamp plan, not informal private-bank camping.",
       "campingClassification": "on_route_campsite",
-      "summary": "Launch at Preston and finish in Lanesboro for the missing South Branch Root River route above the existing Lanesboro-to-Peterson card. The Lanesboro DNR gauge is inside the take-out corridor and was in the official medium band during this run.",
+      "summary": "Paddle the South Branch Root River from Preston to Lanesboro through a valley corridor. The Lanesboro gauge is near the take-out; check its live stage and trend along with local depth and wood.",
       "accessCaveats": [
         "Preston and Lanesboro both resolve in Minnesota public-water-access GIS with Root River water-trail mile records and coordinates.",
         "The Lanesboro dam is part of the finish corridor. Identify the access, portage signs, and safe landing before launching.",
@@ -8781,7 +8781,7 @@ export const minnesotaRiverTripDetails: Record<string, RiverTripDetails> = {
       "permits": "No route-specific paddling permit is known. Banning State Park vehicle permits and posted park rules may apply at park accesses; follow Minnesota boating/PFD rules and current DNR access signs.",
       "camping": "Banning State Park and DNR Map 1 document canoe-in/watercraft campsite context in this corridor. Use only legal reservable or designated sites and do not treat informal banks or ledges as campsites.",
       "campingClassification": "on_route_campsite",
-      "summary": "Launch at Kettle River #1 and take out at #4 for the advanced Banning / Sandstone corridor. The Sandstone DNR gauge was far below the official scrapable floor during this run, so this is not a current broad-audience go call.",
+      "summary": "Launch at Kettle River #1 and take out at #4 for the advanced Banning / Sandstone corridor.",
       "accessCaveats": [
         "#1, #2, Sandstone, and #4 all resolve in Minnesota public-water-access GIS with DNR river-mile records.",
         "The Sandstone gauge is in the downstream half of the route near the main hazard corridor. It cannot replace scouting the portages, falls, ledges, and wood.",
@@ -8852,7 +8852,7 @@ export const minnesotaRiverTripDetails: Record<string, RiverTripDetails> = {
       "permits": "No route-specific paddling permit is known. Follow Minnesota boating/PFD rules and posted Anoka County park, dam, launch, parking, and river-use rules.",
       "camping": "Treat this as a day route. No on-route camping plan is assumed between Coon Rapids Dam Regional Park and Riverfront Regional Park.",
       "campingClassification": "none",
-      "summary": "Launch below Coon Rapids Dam and take out at Anoka County Riverfront Regional Park for the official DNR Map 9 metro Mississippi day trip. The Hwy 610 DNR gauge is inside the reach and was in the official low band during this run.",
+      "summary": "Launch below Coon Rapids Dam and take out at Anoka County Riverfront Regional Park for the official DNR Map 9 metro Mississippi day trip.",
       "accessCaveats": [
         "Coon Rapids Dam resolves in Minnesota public-water-access GIS as WAS02630 at river mile 863.0. Launch below the dam and obey posted dam-area restrictions.",
         "Riverfront Regional Park resolves as WAS01210 at river mile 860.3 and is the planned take-out before the downstream North Mississippi / Minneapolis corridor.",
@@ -8905,7 +8905,7 @@ export const minnesotaRiverTripDetails: Record<string, RiverTripDetails> = {
       "permits": "No route-specific paddling permit is known. Use DNR public accesses, follow Minnesota boating/PFD rules, and obey state water-trail, forest, campsite, and posted access rules.",
       "camping": "DNR Map 2 and the Cloquet segments page identify primitive first-come watercraft campsites on this corridor. Use only designated/legal public sites and do not assume private-bank camping.",
       "campingClassification": "on_route_campsite",
-      "summary": "Launch at Indian Lake and take out at Bear Lake Road for the official DNR Map 2 day trip. The Brimson DNR gauge was in the official low band during this run, below preferred medium water, so expect shallow rock in places.",
+      "summary": "Launch at Indian Lake and take out at Bear Lake Road for the official DNR Map 2 day trip.",
       "accessCaveats": [
         "Indian Lake resolves in Minnesota public-water-access GIS as WAS01629 at DNR river mile 71.8.",
         "Severson Landing / Bear Lake Road resolves as WAS01633 at DNR river mile 61.5.",
@@ -8958,7 +8958,7 @@ export const minnesotaRiverTripDetails: Record<string, RiverTripDetails> = {
       "permits": "No route-specific paddling permit is known. Follow Itasca State Park, MN DNR public-water-access, and Minnesota boating/PFD rules, including any park vehicle or launch requirements.",
       "camping": "Treat this as a long day route with nearby basecamp options, not an assumed on-route overnight. Itasca State Park camping can support a trip plan if separately reserved or permitted; do not camp on private banks or rest stops unless current rules explicitly allow it.",
       "campingClassification": "nearby_basecamp",
-      "summary": "Launch at Lake Itasca and take out at Coffee Pot Landing for the official DNR headwaters day. The Vern gauge sits inside the route and was in the official medium band during this run.",
+      "summary": "Launch at Lake Itasca and take out at Coffee Pot Landing for the official DNR headwaters day.",
       "accessCaveats": [
         "Lake Itasca resolves in Minnesota public-water-access GIS as WAS02379 at DNR river mile 1341.6.",
         "Gulsvig Landing resolves as WAS02375 at river mile 1340.4 and can be a practical early access check, but this card follows the DNR Lake Itasca-to-Coffee-Pot recommendation.",
@@ -9020,7 +9020,7 @@ export const minnesotaRiverTripDetails: Record<string, RiverTripDetails> = {
       "permits": "No route-specific paddling permit is known. Follow Minnesota boating/PFD rules, Red River state-water-trail guidance, posted local access rules, and current border-river regulations.",
       "camping": "Treat this as a day trip. DNR notes nearby camping and picnic options on the broader Map 6 corridor, but no on-route public overnight site was selected for Golden Grain to Hilltop.",
       "campingClassification": "none",
-      "summary": "Launch at Golden Grain and take out at Hilltop for the official DNR 9-mile Map 6 day trip. The upstream Drayton DNR gauge was in the official medium band during this run.",
+      "summary": "Launch at Golden Grain and take out at Hilltop for the official DNR 9-mile Map 6 day trip.",
       "accessCaveats": [
         "Golden Grain resolves in Minnesota public-water-access GIS as WAS00531 at DNR river mile 180.2.",
         "Hilltop resolves as WAS03009 near DNR river mile 171.2; DNR web guidance lists Hilltop as the take-out for the 9-mile trip.",
@@ -9586,7 +9586,7 @@ export const minnesotaRiverTripDetails: Record<string, RiverTripDetails> = {
       "permits": "No route-specific paddling permit is known. Follow DNR public-water-access rules, Minnesota boating/PFD requirements, and invasive-species rules at Vesta and Wabasso.",
       "camping": "No on-route camping is assumed. DNR public-water-access rules prohibit camping at access sites, and the route should use only public accesses or separately confirmed legal stops.",
       "campingClassification": "none",
-      "summary": "Launch at Vesta and finish at Wabasso for the middle Redwood state-water-trail access gap. The Redwood Falls DNR gauge was current but in the official low band during this run, so expect scraping and slower travel unless local depth looks better.",
+      "summary": "Paddle the Redwood River from Vesta to Wabasso through the middle water-trail reach. Compare the live Redwood Falls gauge with DNR guidance; shallow water can slow travel.",
       "accessCaveats": [
         "Vesta resolves in Minnesota public-water-access GIS as WAS02156 at Redwood River mile 28.9.",
         "Wabasso resolves as WAS00004 at river mile 13.3 and is the selected finish for this card.",
@@ -9692,7 +9692,7 @@ export const minnesotaRiverTripDetails: Record<string, RiverTripDetails> = {
       "permits": "No route-specific paddling permit is known. Use DNR public accesses, follow Minnesota boating/PFD rules, and obey county park, water-trail, and campsite rules.",
       "camping": "DNR Map 3 identifies Knutson Island watercraft campsite on the route and rustic camping at Skalbekken County Park. Use only legal designated or currently allowed sites and do not assume private-bank camping.",
       "campingClassification": "on_route_campsite",
-      "summary": "Launch at Kinney and take out at Skalbekken County Park for MN DNR Map 3 recommended mileage above the Vicksburg rapid sequence. The downstream Morton DNR gauge was in the official low band, just below medium, during this run.",
+      "summary": "Launch at Kinney and take out at Skalbekken County Park for MN DNR Map 3 recommended mileage above the Vicksburg rapid sequence.",
       "accessCaveats": [
         "Kinney, Fredrickson, and Skalbekken all resolve in Minnesota public-water-access GIS with source-backed coordinates and river-mile records.",
         "The Morton gauge is downstream of the selected route. It is the official interpreted same-map gauge, but local tributary inflow, mud, wind, and wood still need same-day checks.",
@@ -9984,7 +9984,7 @@ export const minnesotaRiverTripDetails: Record<string, RiverTripDetails> = {
       "permits": "No route-specific paddling permit is known. Use the named public accesses, follow Minnesota boating/PFD rules, and obey DNR, county, and private-property postings.",
       "camping": "Treat this as a day route. DNR trip-planning guidance says to camp only in designated campsites, and no designated campsite is selected on the Highway 4-to-County Road 10 reach.",
       "campingClassification": "none",
-      "summary": "Launch at Highway 4 and take out at County Road 10 / Marti Landing for an official lower Cottonwood River water-trail day inside DNR’s maintained focal corridor. The Leavenworth DNR gauge was just inside the official medium band during this run, but local depth and wood checks still matter.",
+      "summary": "Launch at Highway 4 and take out at County Road 10 / Marti Landing on the lower Cottonwood River. Check the live Leavenworth gauge, local depth, and wood before launch.",
       "accessCaveats": [
         "MN DNR Map 4 places Highway 4 at river mile 31.6, Theden’s at river mile 29.0, and County Road 10 at river mile 23.5.",
         "Minnesota public-water-access GIS resolves Highway 4 as WAS02675 and County Road 10 as WAS01423, both carry-in natural launches with parking and no restroom.",
@@ -10099,7 +10099,7 @@ export const minnesotaRiverTripDetails: Record<string, RiverTripDetails> = {
       "permits": "No route-specific paddling permit is known. Follow Minnesota boating/PFD rules and obey all Flandrau State Park permits, camping reservations, watercraft-campsite rules, and posted closures.",
       "camping": "Flandrau State Park is the selected overnight support. MN DNR Map 4 shows park camping, water, toilets, and a watercraft campsite at river mile 5.7; use designated sites only and confirm current park availability before counting on an overnight.",
       "campingClassification": "endpoint_campground",
-      "summary": "Launch at County Road 11 and finish at Flandrau State Park for the lower Cottonwood reach immediately above New Ulm. The New Ulm DNR gauge was below the official scrapable floor during this run, so current conditions may require waiting for rain-fed recovery.",
+      "summary": "Launch at County Road 11 and finish at Flandrau State Park for the lower Cottonwood reach immediately above New Ulm.",
       "accessCaveats": [
         "MN DNR Map 4 places County Road 11 at river mile 16.8 and Flandrau State Park camping/access context from river mile 6.5 to 4.0, with a watercraft campsite at river mile 5.7.",
         "Minnesota public-water-access GIS resolves County Road 11 as WAS01424 and Flandrau State Park as WAS02651; the Flandrau access lists carry-in launch, parking, and restroom context.",
@@ -10152,7 +10152,7 @@ export const minnesotaRiverTripDetails: Record<string, RiverTripDetails> = {
       "permits": "No route-specific paddling permit is known. Follow Minnesota boating/PFD rules and all Flandrau State Park permits, posted access rules, parking rules, and private-property restrictions.",
       "camping": "Flandrau State Park is the endpoint overnight support. Use designated park or watercraft campsites only and confirm current state-park availability before planning an overnight.",
       "campingClassification": "endpoint_campground",
-      "summary": "Launch at Flandrau State Park and finish at Highway 15 for the short lower Cottonwood connector above the confluence route. The New Ulm DNR gauge was below the official scrapable floor during review, so this card should wait for recovered levels.",
+      "summary": "Paddle from Flandrau State Park to Highway 15 on a short lower Cottonwood reach above the confluence. Check the live New Ulm gauge and local depth against DNR's scrapable guidance.",
       "accessCaveats": [
         "Flandrau State Park resolves as WAS02651 near the DNR-mapped watercraft campsite and park facilities.",
         "Highway 15 / Cottonwood Street Bridge resolves as WAS01419 at Cottonwood river mile 1.6.",
@@ -10892,7 +10892,7 @@ export const minnesotaRiverTripDetails: Record<string, RiverTripDetails> = {
     "logistics": {
       "distanceLabel": "About 19.8 mi",
       "estimatedPaddleTime": "Long day, roughly 7 hr to 9 hr depending on level, wood, and breaks",
-      "shuttle": "Stage Canary Road first, then drive back to Mora. Walk both landings and check the Mora gauge bridge area because the current DNR reading was below the scrapable floor during this run.",
+      "shuttle": "Stage Canary Road first, then drive back to Mora. Walk both landings and check the live Mora gauge; low water can mean dragging and stalled progress.",
       "permits": "No route-specific paddling permit is known. Use the named public accesses, follow Minnesota boating/PFD rules, and obey posted City of Mora and DNR public-access rules.",
       "camping": "No on-route public watercraft campsite is documented for the Mora-to-Canary connector. Plan it as a long day route and do not camp on private banks or informal bars.",
       "campingClassification": "none",
@@ -11241,7 +11241,7 @@ export const minnesotaRiverTripDetails: Record<string, RiverTripDetails> = {
       "permits": "No route-specific paddling permit is known. Follow Minnesota boating/PFD rules, DNR water-trail guidance, Aitkin County access rules, and any posted campsite rules.",
       "camping": "Treat this as a day route with nearby or downstream designated-site planning only. DNR water-trail rules prohibit private-bank or adjacent-riverbed camping unless a legal campsite or public land is clearly identified.",
       "campingClassification": "none",
-      "summary": "Launch at Wold's Ferry and take out at Palisade to fill the upstream gap inside the official Wold's-to-Aitkin Map 4 corridor. Aitkin was below the DNR scrapable floor during this run.",
+      "summary": "Launch at Wold's Ferry and take out at Palisade on the upper Mississippi River. Compare the Aitkin gauge with DNR guidance; low water can expose shallows along this reach.",
       "accessCaveats": [
         "Wold's Ferry and Palisade are both DNR/public-access-backed endpoints already used by adjacent current route cards.",
         "The Aitkin gauge is downstream of the selected split, so inspect depth, mud, and wood at Wold's Ferry before committing.",
@@ -11294,7 +11294,7 @@ export const minnesotaRiverTripDetails: Record<string, RiverTripDetails> = {
       "permits": "No route-specific paddling permit is known. Follow Minnesota boating/PFD rules, DNR water-trail guidance, Baxter park rules, and all Camp Ripley shoreline restrictions.",
       "camping": "DNR Map 6 marks watercraft-campsite context at Fletcher Creek and Overlook Park. Treat overnight use as designated/posted or separately verified; Camp Ripley and private banks are not camping options.",
       "campingClassification": "on_route_campsite",
-      "summary": "Launch at Fletcher Creek and take out at Baxter's Overlook Park to close the Map 6 public-access gap above the existing Overlook-to-Belle Prairie card. The Brainerd proxy gauge was below scrapable during this run.",
+      "summary": "Paddle from Fletcher Creek to Baxter's Overlook Park on the Mississippi River. The Brainerd gauge is a proxy; compare its live reading with DNR guidance and confirm local depth before this long reach.",
       "accessCaveats": [
         "Fletcher Creek is DNR-named and appears on DNR county public-access mapping, but its coordinates are carried forward from the adjacent current card's paddling-directory support.",
         "Overlook Park is DNR-named and Baxter-published as a canoe-access city park; the saved coordinate is a Census geocode of Baxter's published address.",
@@ -11530,7 +11530,7 @@ export const minnesotaRiverTripDetails: Record<string, RiverTripDetails> = {
       "permits": "No route-specific paddling permit is known. Follow Minnesota boating/PFD rules plus posted DNR, Red River State Recreation Area, East Grand Forks, parking, and campground rules.",
       "camping": "DNR Map 2 identifies camping and services at Red River State Recreation Area near the end of the route. Treat this as endpoint/basecamp camping only; do not assume riverbank or private-shore camping between Fisher and East Grand Forks.",
       "campingClassification": "endpoint_campground",
-      "summary": "Put in at Fisher Landing and take out at Red River Recreation Area for the final lower Red Lake River section before the Red River. The Fisher gauge was barely in the official medium band during this run.",
+      "summary": "Put in at Fisher Landing and take out at Red River Recreation Area for the final lower Red Lake River section before the Red River.",
       "accessCaveats": [
         "Fisher Landing resolves as WAS02138 at DNR river mile 27.9 and sits beside the selected Fisher DNR gauge.",
         "Red River Recreation Area resolves as WAS02136 near river mile 0.3, above the East Grand Forks constructed rock rapids and confluence.",
@@ -11583,7 +11583,7 @@ export const minnesotaRiverTripDetails: Record<string, RiverTripDetails> = {
       "permits": "No route-specific paddling permit is known. Use public accesses, follow Minnesota boating/PFD rules, and obey DNR water-trail, forest, campsite, and Minnesota Power access rules.",
       "camping": "DNR Map 2 identifies primitive watercraft campsites on the Indian Lake-to-Island Lake corridor. Use only designated/legal public sites, carry a backup plan, and do not assume private-bank camping.",
       "campingClassification": "on_route_campsite",
-      "summary": "Launch at Bear Lake Road and paddle the lower half of the official DNR Indian Lake-to-Island Lake corridor. The upstream Brimson gauge was in the official low band during this run, so shallow rock and slower travel are likely.",
+      "summary": "Launch at Bear Lake Road and paddle the lower half of the official DNR Indian Lake-to-Island Lake corridor.",
       "accessCaveats": [
         "Severson Landing / Bear Lake Road resolves as WAS01633 at DNR river mile 61.5.",
         "Island Lake Minnesota Power North resolves as WAS02579 at DNR river mile 35.0; downstream Abbot Road and dam-site accesses require additional open-water routing.",

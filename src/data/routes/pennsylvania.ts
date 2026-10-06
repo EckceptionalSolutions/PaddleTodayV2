@@ -2215,121 +2215,7 @@ export const pennsylvaniaRoutes: River[] = [
       }
     ]
   },
-  {
-    "id": "susquehanna-river-canal-park-wetlands",
-    "slug": "susquehanna-river-canal-park-wetlands",
-    "name": "Susquehanna River",
-    "reach": "North Branch: Canal Park to Wetlands Nature Area",
-    "aliases": [
-      "North Branch Susquehanna - Canal Park to Wetlands",
-      "Susquehanna River - Canal Park to Wetlands Nature Area",
-      "North Branch Section 3 full upper corridor day trip"
-    ],
-    "state": "Pennsylvania",
-    "region": "North Branch Susquehanna",
-    "summary": "Longer North Branch Susquehanna day from Canal Park in West Nanticoke to Wetlands Nature Area. The official PFBC Section 3 guide publishes both access coordinates, uses Wilkes-Barre stage guidance for the corridor, and makes the mile-180 rapid below the Nanticoke bridge the clearest route-specific hazard.",
-    "statusText": "Use the Susquehanna River at Wilkes-Barre gauge. PFBC uses about 2 ft there as the safe-base planning level, says the river can still be paddled as low as about -0.5 ft, and says novice paddlers should stay off when Wilkes-Barre is over about 5 ft.",
-    "latitude": 41.154722,
-    "longitude": -76.070556,
-    "gaugeSource": {
-      "id": "usgs-01536500",
-      "provider": "usgs",
-      "siteId": "01536500",
-      "metric": "gage_height_ft",
-      "unit": "ft",
-      "kind": "direct",
-      "siteName": "Susquehanna River at Wilkes-Barre, PA",
-      "detailUrl": "https://waterdata.usgs.gov/monitoring-location/01536500/"
-    },
-    "safetyProfile": {
-      "riskLevel": "caution",
-      "hazards": [
-        "private_banks"
-      ],
-      "safetyNotes": [
-        "PFBC flags a long class I-II rapid on river right about one-half mile below the Nanticoke bridge early in this route.",
-        "Once you leave Canal Park, this becomes a committed exposed-river day with headwind, floating wood, and fewer obvious public exits than the first miles suggest.",
-        "Stay with the planned Wetlands Nature Area finish and do not improvise on private banks or islands between the named accesses."
-      ],
-      "reviewStatus": "reviewed"
-    },
-    "profile": {
-      "thresholdModel": "two-sided",
-      "idealMin": 2,
-      "idealMax": 4,
-      "tooLow": -0.5,
-      "tooHigh": 5,
-      "thresholdSource": {
-        "label": "PFBC North Branch Susquehanna Section 3 Wilkes-Barre stage guidance",
-        "url": "https://pfbc.pa.gov/watertrails/susq_northbranch/nbranch_sec3.pdf",
-        "provider": "local"
-      },
-      "thresholdSourceStrength": "official",
-      "rainfallSensitivity": "medium",
-      "seasonMonths": [
-        4,
-        5,
-        6,
-        7,
-        8,
-        9,
-        10
-      ],
-      "seasonNotes": "PFBC says the North Branch often stays paddleable in lower-water periods, but thunderstorms, valley wind, and floating wood still change the same-day feel quickly on this longer Section 3 run.",
-      "difficulty": "easy",
-      "difficultyNotes": "This is still an easier broad-river float with named public accesses, but the 14-mile length, exposed headwind risk, and early rapid make it a real day rather than a casual park paddle.",
-      "confidenceNotes": "Confidence is good for a conservative Pennsylvania restore: the PFBC North Branch Section 3 guide publishes exact Canal Park and Wetlands Nature Area coordinates, defines the corridor with official river miles, and writes the section guidance around the direct Wilkes-Barre stage gauge. USGS Water Services returned same-day July 16, 2026 values of 2,990 cfs and 0.74 ft at 2026-07-16 05:45 EDT for direct USGS 01536500 during this run."
-    },
-    "evidenceNotes": [
-      {
-        "label": "Official route segment",
-        "value": "Canal Park to Wetlands Nature Area, about 14 mi",
-        "note": "The PFBC North Branch Section 3 guide places Canal Park at river mile 180 and Wetlands Nature Area at river mile 166.",
-        "sourceUrl": "https://pfbc.pa.gov/watertrails/susq_northbranch/nbranch_sec3.pdf"
-      },
-      {
-        "label": "Endpoint coordinates",
-        "value": "PFBC access-site coordinates",
-        "note": "The PFBC Section 3 access table publishes Canal Park at 41 13 12 / -76 01 07 and Wetlands Nature Area at 41 05 22 / -76 07 21.",
-        "sourceUrl": "https://pfbc.pa.gov/watertrails/susq_northbranch/nbranch_sec3.pdf"
-      },
-      {
-        "label": "Direct gauge",
-        "value": "USGS 01536500 at Wilkes-Barre",
-        "note": "USGS Water Services returned same-day July 16, 2026 values of 2,990 cfs and 0.74 ft at 2026-07-16 05:45 EDT for Susquehanna River at Wilkes-Barre, PA.",
-        "sourceUrl": "https://waterdata.usgs.gov/monitoring-location/01536500/"
-      },
-      {
-        "label": "Official stage guidance",
-        "value": "Wilkes-Barre about 2 ft safe base, 5 ft novice ceiling",
-        "note": "PFBC says the river can still be paddled as low as about -0.5 ft at Wilkes-Barre, uses about 2 ft as the safe paddle base level, and says novice paddlers should stay off above about 5 ft.",
-        "sourceUrl": "https://pfbc.pa.gov/watertrails/susq_northbranch/nbranch_sec3.pdf"
-      },
-      {
-        "label": "Primary caution",
-        "value": "Mile-180 rapid below the Nanticoke bridge",
-        "note": "The PFBC Section 3 caution list flags a long class I-II rapid on river right about one-half mile downstream from the Nanticoke bridge.",
-        "sourceUrl": "https://pfbc.pa.gov/watertrails/susq_northbranch/nbranch_sec3.pdf"
-      }
-    ],
-    "sourceLinks": [
-      {
-        "label": "PFBC North Branch Susquehanna Section 3",
-        "url": "https://pfbc.pa.gov/watertrails/susq_northbranch/nbranch_sec3.pdf",
-        "provider": "local"
-      },
-      {
-        "label": "USGS 01536500 monitoring location",
-        "url": "https://waterdata.usgs.gov/monitoring-location/01536500/",
-        "provider": "usgs"
-      },
-      {
-        "label": "PFBC launch permit vs boat registration",
-        "url": "https://www.pa.gov/agencies/fishandboat/boating/paddlesports/launch-permit-vs-boat-reg",
-        "provider": "local"
-      }
-    ]
-  },
+
   {
     "id": "susquehanna-river-canal-park-test-track",
     "slug": "susquehanna-river-canal-park-test-track",
@@ -3530,7 +3416,7 @@ export const pennsylvaniaRoutes: River[] = [
     ],
     "state": "Pennsylvania",
     "region": "Lower Juniata",
-    "summary": "Lower Juniata planner corridor from Greenwood through Newport, Howe Township, and Green Valley to Amity Hall PFBC, using the Newport gauge model.",
+    "summary": "Paddle the 14-mile lower Juniata from Greenwood to Amity Hall; Newport, Howe Township, and Green Valley offer shorter floats. PFBC recommends at least 3.5 ft at Newport; watch for low bars, slow pools, fresh wood, and headwinds on open bends.",
     "statusText": "Use the Juniata River at Newport gauge. The official PFBC lower Juniata guide lists Newport among the useful gauges for this lower-section corridor and recommends at least 3.5 ft there.",
     "latitude": 40.530278,
     "longitude": -77.141944,
@@ -3997,7 +3883,7 @@ export const pennsylvaniaRoutes: River[] = [
     "state": "Pennsylvania",
     "region": "South Central Pennsylvania",
     "summary": "Short Cumberland County Conodoguinet day from Willow Mill Park to Vincent DiFilippo Nature Preserve. The county water-trail materials publish both named public launches, official mile markers, and direct Hogestown gauge guidance for when this creek is worth putting on the water.",
-    "statusText": "Use the Conodoguinet Creek near Hogestown gauge. Cumberland County says boating should be above 1.7 ft there; the gauge was only 1.52 ft at 2026-07-10 15:30 EDT, so expect dragging and shallow bridge lines rather than a routine green-light day.",
+    "statusText": "Use the Conodoguinet Creek near Hogestown gauge. Cumberland County says boating should be above 1.7 ft there. Below that level, expect dragging and shallow bridge lines rather than a routine green-light day; compare the live gauge and trend before launch.",
     "latitude": 40.2578,
     "longitude": -77.0426,
     "gaugeSource": {
@@ -4122,7 +4008,7 @@ export const pennsylvaniaRoutes: River[] = [
     "state": "Pennsylvania",
     "region": "South Central Pennsylvania",
     "summary": "Longer upper-middle Conodoguinet day from Willow Mill Park to the PFBC Good Hope Access. Cumberland County still publishes both named public launches, official mile markers, and the direct Hogestown gauge floor needed to keep this creek scoreable without over-claiming a high-water comfort band.",
-    "statusText": "Use the Conodoguinet Creek near Hogestown gauge. Cumberland County says boating should be above 1.7 ft there; the gauge was 1.69 ft at 2026-07-13 15:30 EDT, so expect a scrape-prone day and treat the route as below the county floor.",
+    "statusText": "Use the Conodoguinet Creek near Hogestown gauge. Cumberland County says boating should be above 1.7 ft there. Below that level, expect a scrape-prone day and treat the route as below the county floor; check the live stage and trend before launch.",
     "latitude": 40.2578,
     "longitude": -77.0426,
     "safetyProfile": {
@@ -4250,7 +4136,7 @@ export const pennsylvaniaRoutes: River[] = [
     "state": "Pennsylvania",
     "region": "South Central Pennsylvania",
     "summary": "Mid-creek Cumberland County Conodoguinet day from Vincent DiFilippo Nature Preserve to the PFBC Good Hope Access. The current county access table still defines the pair cleanly, and the same direct Hogestown gauge gives a current depth check for the whole corridor.",
-    "statusText": "Use the Conodoguinet Creek near Hogestown gauge. Cumberland County says boating should be above 1.7 ft there; the gauge was only 1.52 ft at 2026-07-10 15:30 EDT, so expect dragging and shallow bridge approaches rather than a routine easy day.",
+    "statusText": "Use the Conodoguinet Creek near Hogestown gauge. Cumberland County says boating should be above 1.7 ft there. Below that level, expect dragging and shallow bridge approaches rather than a routine easy day; compare the live gauge and trend before launch.",
     "latitude": 40.2561,
     "longitude": -77.0192,
     "gaugeSource": {
@@ -4374,7 +4260,7 @@ export const pennsylvaniaRoutes: River[] = [
     "state": "Pennsylvania",
     "region": "South Central Pennsylvania",
     "summary": "Long middle-to-lower Conodoguinet day from Vincent DiFilippo Nature Preserve to Acri Meadow Park. Cumberland County still publishes both named public launches, official mile markers, and the same direct Hogestown gauge floor for deciding whether this creek has enough depth to justify a longer day.",
-    "statusText": "Use the Conodoguinet Creek near Hogestown gauge. Cumberland County says boating should be above 1.7 ft there; the gauge was 1.69 ft at 2026-07-13 15:30 EDT, so expect a slow scrape-prone run and treat the route as below the county floor.",
+    "statusText": "Use the Conodoguinet Creek near Hogestown gauge. Cumberland County says boating should be above 1.7 ft there. Below that level, expect a slow, scrape-prone run and treat the route as below the county floor; check the live stage and trend before launch.",
     "latitude": 40.2561,
     "longitude": -77.0192,
     "safetyProfile": {
@@ -4491,7 +4377,7 @@ export const pennsylvaniaRoutes: River[] = [
     "state": "Pennsylvania",
     "region": "South Central Pennsylvania",
     "summary": "Longer lower-central Conodoguinet day from the PFBC Good Hope Access to Acri Meadow Park. Cumberland County still publishes both launches, the official mile spacing, and the same direct Hogestown gauge recommendation that keeps the route scoreable without over-claiming a high-water comfort band.",
-    "statusText": "Use the Conodoguinet Creek near Hogestown gauge. Cumberland County says boating should be above 1.7 ft there; the gauge was only 1.52 ft at 2026-07-10 15:30 EDT, so expect scraping, slower travel, and a more conditional lower-creek day.",
+    "statusText": "Use the Conodoguinet Creek near Hogestown gauge. Cumberland County says boating should be above 1.7 ft there. Below that level, expect scraping, slower travel, and a more conditional lower-creek day; compare the live gauge and trend before launch.",
     "latitude": 40.25889805739634,
     "longitude": -76.97639236255715,
     "gaugeSource": {
@@ -4615,7 +4501,7 @@ export const pennsylvaniaRoutes: River[] = [
     "state": "Pennsylvania",
     "region": "South Central Pennsylvania",
     "summary": "Full central Conodoguinet day from Willow Mill Park to Acri Meadow Park. Cumberland County still publishes both named public launches, official mile markers, and the direct Hogestown gauge floor, which is enough to score this longer creek card conservatively without pretending the county has a polished ideal high band.",
-    "statusText": "Use the Conodoguinet Creek near Hogestown gauge. Cumberland County says boating should be above 1.7 ft there; the gauge was only 1.71 ft at 2026-07-06 19:30 EDT, so this 17.4-mile route should be treated as a marginal low-water day rather than a casual green-light recommendation.",
+    "statusText": "Use the Conodoguinet Creek near Hogestown gauge. Cumberland County says boating should be above 1.7 ft there. On this 17.4-mile route, readings near that floor call for a marginal low-water plan rather than a casual green-light; check the live stage and trend before launch.",
     "latitude": 40.2578,
     "longitude": -77.0426,
     "safetyProfile": {
@@ -4738,7 +4624,7 @@ export const pennsylvaniaRoutes: River[] = [
     "state": "Pennsylvania",
     "region": "South Central Pennsylvania",
     "summary": "Middle Yellow Breeches township-to-township day from Simpson Park to Lower Allen Community Park. Cumberland County still publishes both named public launches and the Camp Hill gauge guidance, which is enough to ship this short creek route with conservative low-water and downstream-blockage messaging.",
-    "statusText": "Use the Yellow Breeches Creek near Camp Hill gauge as an official same-creek proxy. Cumberland County recommends boating at about 1.4 to 2.0 ft there; the gauge was 1.38 ft at 2026-07-10 08:13 EDT, so expect scraping and slower lines rather than a clean beginner green-light.",
+    "statusText": "Use the Yellow Breeches Creek near Camp Hill gauge as an official same-creek proxy. Cumberland County recommends boating at about 1.4 to 2.0 ft there. Below 1.4 ft, expect scraping and slower lines rather than a clean beginner green-light; compare the live stage and trend before launch.",
     "latitude": 40.164151,
     "longitude": -76.976192,
     "gaugeSource": {
@@ -4865,7 +4751,7 @@ export const pennsylvaniaRoutes: River[] = [
     "state": "Pennsylvania",
     "region": "South Central Pennsylvania",
     "summary": "Short Yellow Breeches middle segment from McCormick Park to the public Liberty Forge bridge access. Cumberland County still documents the access pair, the bridge-side public-use terms at Liberty Forge, and the same Camp Hill gauge guidance used for the whole trail.",
-    "statusText": "Use the Yellow Breeches Creek near Camp Hill gauge as an official same-creek proxy. Cumberland County recommends boating at about 1.4 to 2.0 ft there; the gauge was 1.38 ft at 2026-07-10 08:13 EDT, so expect scrape-prone shallows and slower pool-to-riffle progress.",
+    "statusText": "Use the Yellow Breeches Creek near Camp Hill gauge as an official same-creek proxy. Cumberland County recommends boating at about 1.4 to 2.0 ft there. Below 1.4 ft, expect scrape-prone shallows and slower pool-to-riffle progress; check the live stage before launch.",
     "latitude": 40.165436,
     "longitude": -76.95508,
     "gaugeSource": {
@@ -4992,7 +4878,7 @@ export const pennsylvaniaRoutes: River[] = [
     "state": "Pennsylvania",
     "region": "South Central Pennsylvania",
     "summary": "Very short Yellow Breeches connector from the campground-supported Lower Allen launch to the public Liberty Forge bridge access. Cumberland County still documents the access pair, the bridge-side public-use terms at Liberty Forge, and the same Camp Hill gauge guidance used for the whole trail.",
-    "statusText": "Use the Yellow Breeches Creek near Camp Hill gauge as an official same-creek proxy. Cumberland County recommends boating at about 1.4 to 2.0 ft there; the gauge was 1.12 ft at 2026-07-14 00:45 EDT, so expect a scrape-prone low-water connector rather than a broad green-light.",
+    "statusText": "Use the Yellow Breeches Creek near Camp Hill gauge as an official same-creek proxy. Cumberland County recommends boating at about 1.4 to 2.0 ft there. Below 1.4 ft, expect a scrape-prone low-water connector rather than a broad green-light; compare the live stage and trend before launch.",
     "latitude": 40.172373,
     "longitude": -76.913787,
     "gaugeSource": {
@@ -5119,7 +5005,7 @@ export const pennsylvaniaRoutes: River[] = [
     "state": "Pennsylvania",
     "region": "South Central Pennsylvania",
     "summary": "Lower-middle Yellow Breeches segment from the campground-supported Lower Allen launch to Yellow Breeches Park. This route intentionally stops above the currently flagged B7 blockage and dam-portage area instead of pretending the downstream continuation is routine.",
-    "statusText": "Use the Yellow Breeches Creek near Camp Hill gauge as an official same-creek proxy. Cumberland County recommends boating at about 1.4 to 2.0 ft there; the gauge was 1.38 ft at 2026-07-10 08:13 EDT, so treat this as a scrape-prone low-water day, not a broad green-light.",
+    "statusText": "Use the Yellow Breeches Creek near Camp Hill gauge as an official same-creek proxy. Cumberland County recommends boating at about 1.4 to 2.0 ft there. Below 1.4 ft, treat this as a scrape-prone low-water route, not a broad green-light; check the live stage and trend before launch.",
     "latitude": 40.172373,
     "longitude": -76.913787,
     "gaugeSource": {
@@ -5246,7 +5132,7 @@ export const pennsylvaniaRoutes: River[] = [
     "state": "Pennsylvania",
     "region": "South Central Pennsylvania",
     "summary": "Longer upper-middle Yellow Breeches day from Simpson Park to the public Liberty Forge bridge access. Cumberland County still documents the full access chain, the bridge-side public-use terms at Liberty Forge, and the Camp Hill gauge guidance used for the whole trail.",
-    "statusText": "Use the Yellow Breeches Creek near Camp Hill gauge as an official same-creek proxy. Cumberland County recommends boating at about 1.4 to 2.0 ft there; the gauge was 1.26 ft at 2026-07-10 23:45 EDT, so expect frequent scraping and slower pool-to-riffle progress rather than a smooth beginner green-light.",
+    "statusText": "Use the Yellow Breeches Creek near Camp Hill gauge as an official same-creek proxy. Cumberland County recommends boating at about 1.4 to 2.0 ft there. Below 1.4 ft, expect frequent scraping and slower pool-to-riffle progress rather than a smooth beginner green-light; compare the live stage and trend before launch.",
     "latitude": 40.164151,
     "longitude": -76.976192,
     "gaugeSource": {
@@ -5373,7 +5259,7 @@ export const pennsylvaniaRoutes: River[] = [
     "state": "Pennsylvania",
     "region": "South Central Pennsylvania",
     "summary": "Longest currently shippable Yellow Breeches public day from Simpson Park to Yellow Breeches Park. Cumberland County still documents the full access chain, the Camp Hill gauge guidance, and the current B6 finish that stays above the posted B7 blockage.",
-    "statusText": "Use the Yellow Breeches Creek near Camp Hill gauge as an official same-creek proxy. Cumberland County recommends boating at about 1.4 to 2.0 ft there; the gauge was 1.26 ft at 2026-07-10 23:45 EDT, so treat this as a scrape-prone low-water outing rather than a broad green-light.",
+    "statusText": "Use the Yellow Breeches Creek near Camp Hill gauge as an official same-creek proxy. Cumberland County recommends boating at about 1.4 to 2.0 ft there. Below 1.4 ft, treat this as a scrape-prone low-water outing rather than a broad green-light; check the live stage and trend before launch.",
     "latitude": 40.164151,
     "longitude": -76.976192,
     "gaugeSource": {
@@ -5500,7 +5386,7 @@ export const pennsylvaniaRoutes: River[] = [
     "state": "Pennsylvania",
     "region": "South Central Pennsylvania",
     "summary": "Middle-lower Yellow Breeches continuation from McCormick Park to Yellow Breeches Park. Cumberland County still documents the full access chain, the bridge-side Liberty Forge public-use terms, and the B6 finish that stays above the current downstream blockage.",
-    "statusText": "Use the Yellow Breeches Creek near Camp Hill gauge as an official same-creek proxy. Cumberland County recommends boating at about 1.4 to 2.0 ft there; the gauge was 1.26 ft at 2026-07-10 23:45 EDT, so expect scrape-prone shallows and slower-than-normal travel.",
+    "statusText": "Use the Yellow Breeches Creek near Camp Hill gauge as an official same-creek proxy. Cumberland County recommends boating at about 1.4 to 2.0 ft there. Below 1.4 ft, expect scrape-prone shallows and slower-than-normal travel; compare the live stage and trend before launch.",
     "latitude": 40.165436,
     "longitude": -76.95508,
     "gaugeSource": {
@@ -5627,7 +5513,7 @@ export const pennsylvaniaRoutes: River[] = [
     "state": "Pennsylvania",
     "region": "South Central Pennsylvania",
     "summary": "Shortest current Yellow Breeches public segment between Simpson Park and McCormick Park. Cumberland County still publishes both named launches, the exact 1.1-mile spacing, and the same Camp Hill gauge guidance used for the rest of the trail, which is enough for a cautious low-water add.",
-    "statusText": "Use the Yellow Breeches Creek near Camp Hill gauge as an official same-creek proxy. Cumberland County recommends boating at about 1.4 to 2.0 ft there; the gauge was 1.25 ft at 2026-07-11 00:45 EDT, so expect a scrape-prone short outing rather than an automatic beginner green-light.",
+    "statusText": "Use the Yellow Breeches Creek near Camp Hill gauge as an official same-creek proxy. Cumberland County recommends boating at about 1.4 to 2.0 ft there. Below 1.4 ft, expect a scrape-prone short outing rather than an automatic beginner green-light; compare the live stage and trend before launch.",
     "latitude": 40.164151,
     "longitude": -76.976192,
     "gaugeSource": {
@@ -5748,7 +5634,7 @@ export const pennsylvaniaRoutes: River[] = [
     "state": "Pennsylvania",
     "region": "South Central Pennsylvania",
     "summary": "Middle Yellow Breeches public segment from McCormick Park to Lower Allen Community Park. Cumberland County still publishes both launches, the exact 3.6-mile route shape, and the campground-supported take-out, while the same Camp Hill gauge story keeps low-water caution explicit.",
-    "statusText": "Use the Yellow Breeches Creek near Camp Hill gauge as an official same-creek proxy. Cumberland County recommends boating at about 1.4 to 2.0 ft there; the gauge was 1.25 ft at 2026-07-11 00:45 EDT, so expect shallow scraping and slower lines rather than a normal summer sweet spot.",
+    "statusText": "Use the Yellow Breeches Creek near Camp Hill gauge as an official same-creek proxy. Cumberland County recommends boating at about 1.4 to 2.0 ft there. Below 1.4 ft, expect shallow scraping and slower lines rather than a normal summer sweet spot; check the live stage and trend before launch.",
     "latitude": 40.165436,
     "longitude": -76.95508,
     "gaugeSource": {
@@ -5875,7 +5761,7 @@ export const pennsylvaniaRoutes: River[] = [
     "state": "Pennsylvania",
     "region": "South Central Pennsylvania",
     "summary": "Short lower-middle Yellow Breeches segment from the public Liberty Forge bridge access to Yellow Breeches Park. Cumberland County still documents both endpoints, the exact 1.9-mile route shape, and the current B6 finish logic above the downstream blockage.",
-    "statusText": "Use the Yellow Breeches Creek near Camp Hill gauge as an official same-creek proxy. Cumberland County recommends boating at about 1.4 to 2.0 ft there; the gauge was 1.25 ft at 2026-07-11 00:45 EDT, so treat this as a scrape-prone short float instead of a broad green-light.",
+    "statusText": "Use the Yellow Breeches Creek near Camp Hill gauge as an official same-creek proxy. Cumberland County recommends boating at about 1.4 to 2.0 ft there. Below 1.4 ft, treat this as a scrape-prone short float instead of a broad green-light; compare the live stage and trend before launch.",
     "latitude": 40.177495,
     "longitude": -76.924172,
     "gaugeSource": {

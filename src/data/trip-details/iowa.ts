@@ -1731,7 +1731,7 @@ export const iowaRiverTripDetails: Record<string, RiverTripDetails> = {
       "accessCaveats": [
         "Stone City is a named county Wapsipinicon River access. Use the public access site east of the General Store, not private banks in Stone City.",
         "Anamosa Boat Ramp is the intended finish above the dam. Do not continue downstream toward the low-head dam or assume the below-dam state-park launch is part of this route.",
-        "USGS 05421500 at Stone City did not return current instantaneous product values during this run, so the app uses the fresh Anamosa gauge as a route-corridor proxy."
+        "USGS 05421500 at Stone City is the direct route reference. If it lacks a usable recent reading, use the selected Anamosa station only as a corridor proxy and confirm local depth and current before launch."
       ],
       "watchFor": [
         "Mandatory above-dam take-out discipline at Anamosa.",
@@ -1796,7 +1796,7 @@ export const iowaRiverTripDetails: Record<string, RiverTripDetails> = {
         "Proxy-gauge uncertainty because the downstream Oxford Mills product feed is stale.",
         "Fresh strainers, bank-sweepers, and floating debris after storms.",
         "Shallow riffles and soft muddy banks in low water; faster bridge current and disappearing bars in high water.",
-        "Proxy-gauge uncertainty: USGS 05421760 at Oxford Mills was stale during this run, so confirm actual local depth and current at Olin.",
+        "USGS 05421760 at Oxford Mills is a proxy for this reach; compare its live reading with actual depth and current at Olin before launch.",
         "Fast or rising water around bridges and outside bends, especially if the Anamosa gauge is climbing toward the top of the community range.",
         "Proxy-gauge uncertainty and the stale Oxford Mills USGS product feed.",
         "Fresh strainers, floating debris, and outside-bend sweepers after rain.",
@@ -5915,7 +5915,7 @@ export const iowaRiverTripDetails: Record<string, RiverTripDetails> = {
       "accessCaveats": [
         "Otranto launch discipline matters: put in below the dam only and stay out of dam hydraulics.",
         "The guide says the Acorn broken dam may be runnable for experienced paddlers after scouting, but also warns it is fast water with little margin for error and old metal can be exposed at low water. Treat Acorn as the planned take-out/portage boundary.",
-        "USGS 05457505 at Osage returned stale 2017 Water Services data during this run, so the app uses downstream USGS 05457700 at Charles City plus a required visual check at Otranto."
+        "If USGS 05457505 at Osage lacks current values, use downstream USGS 05457700 at Charles City only as a corridor proxy and confirm local depth at Otranto."
       ],
       "watchFor": [
         "Broken-dam current, exposed metal or rock at low water, old dumpsite debris, and shallow riffles.",

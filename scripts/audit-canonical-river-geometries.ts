@@ -109,6 +109,8 @@ async function main() {
     matchedRouteCount?: number;
     unmatchedRouteIds?: string[];
     routeDataFingerprint?: string;
+    catalogRouteDataFingerprint?: string;
+    coverageMode?: string;
     states?: Array<{ slug?: string; state?: string; routeCount?: number; path?: string }>;
     routePathTemplate?: string;
   };
@@ -129,7 +131,12 @@ async function main() {
     if (routeText.includes('\n  "')) {
       throw new Error(`Route geometry asset ${fileName} is pretty-printed; regenerate it in compact form.`);
     }
-    features.push(JSON.parse(routeText));
+    const feature = JSON.parse(routeText);
+    if (feature.properties?.routeId !== fileName.slice(0, -5) || feature.geometry?.type !== 'MultiLineString') {
+      throw new Error(`Invalid route-scoped geometry: ${fileName}`);
+    }
+    // Retained assets are audited for shape and size but are outside current coverage.
+    if (!payload.coverageMode || expectedIds.includes(feature.properties.routeId)) features.push(feature);
   }
   if (routeTotalBytes > MAX_ROUTE_TOTAL_BYTES) {
     throw new Error(`Route geometry assets exceed ${formatMiB(MAX_ROUTE_TOTAL_BYTES)} combined (${formatMiB(routeTotalBytes)}).`);
@@ -144,7 +151,13 @@ async function main() {
   if (payload.routePathTemplate !== '/data/canonical-river-geometries/routes/{routeId}.json') {
     throw new Error('Canonical geometry route path template is missing or invalid.');
   }
-  if (payload.routeDataFingerprint !== routeDataFingerprint(routes)) throw new Error('Canonical geometry asset is stale relative to route data.');
+  const fingerprint = routeDataFingerprint(routes);
+  if (payload.coverageMode) {
+    if (!['generated', 'existing-reviewed-assets'].includes(payload.coverageMode)) throw new Error('Unknown canonical geometry coverage mode.');
+    if (payload.catalogRouteDataFingerprint !== fingerprint) throw new Error('Canonical geometry coverage is stale relative to route data.');
+    if (!/^[a-f0-9]{64}$/.test(payload.routeDataFingerprint ?? '')) throw new Error('Canonical geometry generation provenance is missing.');
+    if (payload.coverageMode === 'generated' && payload.routeDataFingerprint !== fingerprint) throw new Error('Generated canonical geometry is stale relative to route data.');
+  } else if (payload.routeDataFingerprint !== fingerprint) throw new Error('Canonical geometry asset is stale relative to route data.');
   if (sorted(payload.unmatchedRouteIds ?? []).join('|') !== sorted(unmatchedRouteIds).join('|')) {
     throw new Error('Canonical geometry unmatched-route metadata is stale.');
   }

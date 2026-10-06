@@ -1,4 +1,4 @@
-import { readFileSync } from 'node:fs';
+import { readFileSync, readdirSync } from 'node:fs';
 import path from 'node:path';
 import { describe, expect, it } from 'vitest';
 import { canonicalRiverRouteLineFromFeature } from './canonical-river-geometries.js';
@@ -20,6 +20,29 @@ function distanceMiles(left: [number, number], right: [number, number]) {
 }
 
 describe('canonical river geometry asset', () => {
+  it('reports current file-backed coverage without hiding missing traces or discarding legacy assets', () => {
+    const manifest = JSON.parse(readFileSync(assetPath, 'utf8'));
+    const publicIds = new Set(listRivers().map(route => route.id));
+    const existing = new Set(readdirSync(routeAssetDir).filter(file => file.endsWith('.json')).map(file => file.slice(0, -5)));
+    expect(manifest.unmatchedRouteIds.slice().sort()).toEqual([...publicIds].filter(id => !existing.has(id)).sort());
+    expect(manifest.matchedRouteCount).toBe([...publicIds].filter(id => existing.has(id)).length);
+    expect(['existing-reviewed-assets', 'generated']).toContain(manifest.coverageMode);
+    expect(manifest.catalogRouteDataFingerprint).toMatch(/^[a-f0-9]{64}$/);
+    const stateIds: string[] = [];
+    for (const state of manifest.states) {
+      const bundle = JSON.parse(readFileSync(path.join(process.cwd(), 'public', state.path), 'utf8'));
+      expect(bundle.features.length).toBe(state.routeCount);
+      for (const feature of bundle.features) {
+        expect(publicIds.has(feature.properties.routeId)).toBe(true);
+        expect(JSON.stringify(feature.geometry)).toBe(JSON.stringify(routeFeature(feature.properties.routeId).geometry));
+        stateIds.push(feature.properties.routeId);
+      }
+    }
+    expect(new Set(stateIds).size).toBe(manifest.matchedRouteCount);
+    expect(stateIds.length).toBe(manifest.matchedRouteCount);
+    expect(existing.has('susquehanna-river-canal-park-wetlands')).toBe(true);
+    expect(publicIds.has('susquehanna-river-canal-park-wetlands')).toBe(false);
+  }, 60_000);
   it('keeps the Little Falls round trip public, unscored, and west of the downstream dam complex', () => {
     const route = listRivers().find((river) => river.slug === 'erie-canal-little-falls-lock-e18-return');
     expect(route).toBeDefined();

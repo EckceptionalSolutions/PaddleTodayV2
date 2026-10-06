@@ -1093,7 +1093,7 @@ export const ohioRoutes: River[] = [
     "reach": "Kelley Nature Preserve to Jim Terrell Park",
     "state": "Ohio",
     "region": "Southwest Ohio",
-    "summary": "Short lower Little Miami run from the public Kelley Nature Preserve launch to Milford, with scenic-river access, riffles, small ledges, and several Class I-II play features when the Milford gauge is high enough.",
+    "summary": "This 4.9-mile Class I-II run goes from Kelley Nature Preserve to Jim Terrell Park in Milford. Scout Boathouse Rapid and the old low-head-dam remnants; American Whitewater's 5.5-7.5 ft Milford band is its best-play range, not a safety guarantee or tubing-depth target.",
     "statusText": "Guarded Class I-II play route. Use the Milford gauge; treat 5.5 to 7.5 ft as the best window, 4.6 ft as the low runnable floor, and 9 ft as the upper app ceiling before the run becomes sketchy or flood-prone.",
     "latitude": 39.20997,
     "longitude": -84.30608,
@@ -1150,7 +1150,7 @@ export const ohioRoutes: River[] = [
       ],
       "seasonNotes": "Spring and rain-refreshed periods are best for the AW play levels. Summer recreational floating may still occur below the app target, but this route score is calibrated to the Kelley-to-Milford Class I-II feature guidance rather than livery-style low-water floating.",
       "difficulty": "moderate",
-      "difficultyNotes": "Mostly easy moving water, but the AW route includes Boathouse Rapid, old low-head-dam remnants, small holes, ledges, rock gardens, and pushier water above the preferred range.",
+      "difficultyNotes": "American Whitewater rates the reach Class I-II overall. PaddleToday's separate advanced risk label reflects Boathouse Rapid and old low-head-dam remnants, small holes and ledges, and pushier water above the preferred range.",
       "confidenceNotes": "Confidence is good for a guarded community-threshold add. AW documents the exact Kelley Nature Preserve to Jim Terrell Park run, the direct Milford gauge, a detailed stage ladder, and feature-level hazards. ODNR publishes both access points with coordinates on the Little Miami Scenic River map, and Clermont County Parks confirms Kelley has canoe/kayak access."
     },
     "evidenceNotes": [

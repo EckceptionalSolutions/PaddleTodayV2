@@ -627,7 +627,10 @@ describe('Idaho statewide paddling expansion', () => {
     const highConsequenceRoutes = idahoRoutes.filter((route) => (maxPublishedRapidClass(route) ?? 0) >= 4);
     const classFiveRoutes = highConsequenceRoutes.filter((route) => (maxPublishedRapidClass(route) ?? 0) >= 5);
 
-    expect(highConsequenceRoutes).toHaveLength(79);
+    // The reviewed BLM Staircase correction promotes the longer Banks access
+    // card to Class III–IV without exposing either Staircase card to scoring.
+    expect(highConsequenceRoutes).toHaveLength(80);
+    expect(highConsequenceRoutes.some(route => route.id === 'south-fork-payette-deer-creek-banks')).toBe(true);
     expect(classFiveRoutes).toHaveLength(37);
     expect(highConsequenceRoutes.every((route) => route.safetyProfile?.reviewStatus === 'reviewed')).toBe(true);
     expect(highConsequenceRoutes.every((route) => route.safetyProfile?.riskLevel === 'advanced')).toBe(true);

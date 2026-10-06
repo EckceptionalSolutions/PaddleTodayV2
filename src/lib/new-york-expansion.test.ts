@@ -5,7 +5,8 @@ import { newYorkRoutes } from '../data/routes/new-york';
 
 describe('New York strategic expansion', () => {
   it('publishes more than one bounded New York route', () => {
-    expect(newYorkRoutes.length).toBe(303);
+    expect(newYorkRoutes.length).toBe(302);
+    expect(newYorkRoutes.some(route => route.id === 'mohawk-river-lock-9-freemans-bridge')).toBe(false);
     expect(newYorkRoutes.map((route) => route.id)).toEqual([
       'erie-canal-little-falls-lock-e18-return',
       'susquehanna-river-sidney-bainbridge',
@@ -281,7 +282,6 @@ describe('New York strategic expansion', () => {
       'batten-kill-greenwich-schuylerville',
       'allegheny-river-allegany-olean',
       'allegheny-river-olean-portville',
-      'mohawk-river-lock-9-freemans-bridge',
       'mohawk-river-freemans-bridge-lock-7',
       'west-branch-delaware-river-airport-hale-eddy',
       'delaware-river-balls-eddy-hancock',
@@ -340,25 +340,25 @@ describe('New York strategic expansion', () => {
   });
 
   it('publishes the Schenectady Mohawk public-launch sections with direct gauge context', () => {
-    for (const [id, start, finish, gauge] of [
-      ['mohawk-river-lock-9-freemans-bridge', 'Lock 9', "Freeman's Bridge", '01354330'],
-      ['mohawk-river-freemans-bridge-lock-7', "Freeman's Bridge", 'Lock 7', '01354500'],
+    for (const [id, riverId, start, finish, gauge, accessCount, evidenceLabel] of [
+      ['erie-canal-rotterdam-junction-freemans-bridge', 'erie-canal', 'Lock 9', 'Freeman', '01354330', 8, 'Access-chain evidence'],
+      ['mohawk-river-freemans-bridge-lock-7', 'mohawk-river', "Freeman's Bridge", 'Lock 7', '01354500', 2, 'Current public endpoint chain'],
     ] as const) {
       const route = newYorkRoutes.find((candidate) => candidate.id === id);
 
-      expect(route?.riverId).toBe('mohawk-river');
+      expect(route?.riverId).toBe(riverId);
       expect(route?.routeType).toBe('recreational');
       expect(route?.gaugeSource.kind).toBe('direct');
       expect(route?.gaugeSource.siteId).toBe(gauge);
       expect(route?.scoreEligibility).toBe('planning');
       expect(route?.profile.thresholdModel).toBe('minimum-only');
       expect(route?.profile.idealMin).toBeUndefined();
-      expect(route?.accessPoints).toHaveLength(2);
+      expect(route?.accessPoints).toHaveLength(accessCount);
       expect(route?.accessPoints?.[0]?.name).toContain(start);
-      expect(route?.accessPoints?.[1]?.name).toContain(finish);
+      expect(route?.accessPoints?.at(-1)?.name).toContain(finish);
       expect(route?.logistics?.campingClassification).toBe('nearby_basecamp');
       expect(route?.safetyProfile?.hazards).toEqual(expect.arrayContaining(['dam', 'mandatory_takeout', 'urban_water_quality']));
-      expect(route?.evidenceNotes.some((item) => item.label === 'Current public endpoint chain')).toBe(true);
+      expect(route?.evidenceNotes.some((item) => item.label === evidenceLabel)).toBe(true);
       expect(route?.evidenceNotes.some((item) => item.label === 'Direct live gauge')).toBe(true);
       expect(getRoutePreviewPhoto(route!)).not.toMatchObject({ isPlaceholder: true });
       expect(publicRivers.some((candidate) => candidate.slug === route?.slug)).toBe(true);
@@ -694,7 +694,7 @@ describe('New York strategic expansion', () => {
   it('publishes the upper Chenango Sherburne to North Norwich section with current public launches', () => {
     const route = newYorkRoutes.find((candidate) => candidate.id === 'chenango-river-sherburne-north-norwich');
 
-    expect(newYorkRoutes.length).toBe(303);
+    expect(newYorkRoutes.length).toBe(302);
     expect(route?.riverId).toBe('chenango-river');
     expect(route?.routeType).toBe('recreational');
     expect(route?.gaugeSource.kind).toBe('direct');
@@ -2092,6 +2092,7 @@ describe('New York strategic expansion', () => {
     expect(route?.safetyProfile?.riskLevel).toBe('caution');
     expect(route?.gaugeSource.kind).toBe('proxy');
     expect(route?.gaugeSource.siteId).toBe('04237496');
+    expect(route?.evidenceNotes.some(item => item.label === 'Seneca River proxy gauge')).toBe(true);
     expect(route?.scoreEligibility).toBe('planning');
     expect(route?.profile.thresholdModel).toBe('minimum-only');
     expect(route?.profile.tooLow).toBeUndefined();
@@ -3808,8 +3809,9 @@ describe('New York strategic expansion', () => {
   it('publishes the Rotterdam Junction-to-Freeman’s Bridge section with E8 and island-channel safeguards', () => {
     const route = newYorkRoutes.find((candidate) => candidate.id === 'erie-canal-rotterdam-junction-freemans-bridge');
 
-    expect(route?.gaugeSource.kind).toBe('proxy');
-    expect(route?.gaugeSource.siteId).toBe('04237496');
+    expect(route?.gaugeSource.kind).toBe('direct');
+    expect(route?.gaugeSource.siteId).toBe('01354330');
+    expect(route?.evidenceNotes.some(item => item.label === 'Direct but regulated stage gauge')).toBe(true);
     expect(route?.scoreEligibility).toBe('planning');
     expect(route?.profile.thresholdModel).toBe('minimum-only');
     expect(route?.profile.tooLow).toBeUndefined();

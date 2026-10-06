@@ -612,7 +612,7 @@ const maineExpansionRouteIds = [
   'kennebec-river-augusta-chelsea',
   'penobscot-river-t3r11-medway',
   'penobscot-river-medway-greenbush',
-  'penobscot-river-greenbush-winn',
+  'penobscot-river-winn-greenbush',
   'penobscot-river-winn-lincoln',
   'penobscot-river-lincoln-howland',
   'penobscot-river-howland-passadumkeag',
@@ -5844,11 +5844,11 @@ const approvedRoutePhotosBySlug: Record<string, RouteGalleryPhoto[]> = {
   'erie-canal-rotterdam-junction-freemans-bridge': [
     {
       id: 'erie-canal-rotterdam-junction-freemans-bridge-context',
-      src: 'https://ny.water.usgs.gov/images/StationPictures/04218700.jpg',
-      alt: 'Erie Barge Canal near the USGS Rochester station, used as same-canal context for the Rotterdam Junction to Freeman’s Bridge section.',
-      caption: 'Rotterdam Junction to Freeman’s Bridge Erie Canal route and same-canal proxy context',
+      src: 'https://ny.water.usgs.gov/images/StationPictures/01354330.jpg',
+      alt: 'Mohawk River at USGS Lock 8 near Schenectady, used as direct same-corridor context for the Rotterdam Junction to Freeman’s Bridge section.',
+      caption: 'Mohawk River at Lock 8 near Schenectady; direct regulated-stage context for Erie Canalway Section 27',
       credit: 'U.S. Geological Survey',
-      takenLabel: 'USGS station photograph; same-canal proxy context',
+      takenLabel: 'USGS public domain; direct same-river context',
     },
   ],
   'erie-canal-freemans-bridge-lock-e7': [
@@ -7117,16 +7117,6 @@ const approvedRoutePhotosBySlug: Record<string, RouteGalleryPhoto[]> = {
       src: 'https://ny.water.usgs.gov/images/StationPictures/03010820.jpg',
       alt: 'The Allegheny River at the USGS Olean monitoring station, used as direct same-river context for the Olean-to-Portville route in New York.',
       caption: 'Allegheny River at Olean; Olean-to-Portville direct-gauge context',
-      credit: 'U.S. Geological Survey',
-      takenLabel: 'USGS public domain; clearly labeled direct same-river context',
-    },
-  ],
-  'mohawk-river-lock-9-freemans-bridge': [
-    {
-      id: 'mohawk-river-lock-9-freemans-bridge-usgs-context',
-      src: 'https://ny.water.usgs.gov/images/StationPictures/01354330.jpg',
-      alt: 'The Mohawk River at USGS Lock 8 near Schenectady, used as direct same-river context for the Lock 9 to Freeman\'s Bridge route in New York.',
-      caption: 'Mohawk River at Lock 8 near Schenectady; direct stage-station context for Lock 9 to Freeman\'s Bridge',
       credit: 'U.S. Geological Survey',
       takenLabel: 'USGS public domain; clearly labeled direct same-river context',
     },

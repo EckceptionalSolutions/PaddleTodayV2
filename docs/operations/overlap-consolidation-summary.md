@@ -1,11 +1,20 @@
 # Route overlap and corridor consolidation
 
-Latest bounded audit: `npm run routes:audit:overlap`
+Latest bounded audit (October 5, 2026): `npm run routes:audit:overlap`
 
-- 1,115 route spans reviewed
-- 3,635 findings: 179 access-chain containment, 312 contained connectors, 468 crossing segments, 901 near-collinear overlaps, and 1,775 shared endpoints
-- The deduplicated review queue contains 40 bounded items; none are currently classified as `probable_duplicate`.
-- Findings are review signals, not deletion instructions.
+- 2,725 drawable route spans reviewed from the current public, non-withheld catalog.
+- 11,311 findings: 247 access-chain containment, 1,009 contained connectors, 1,304 crossings, 3,119 near-collinear overlaps, and 5,632 shared endpoints; no `duplicate_or_reversed` findings remain.
+- The three Bartram Globe Creek, Spoonbill Sandbar, and Canal Island itineraries share exact endpoints but official Bartram trail sources describe distinct waterways and camping choices. Their route factory now preserves explicit alternative metadata, so the audit filters these known pairs while retaining all three routes.
+- The prior New York Mohawk/Erie exact-match pair is consolidated locally into the detailed Erie Canalway Section 27 page. The separate Payette cards have different Banks take-out coordinates and remain separate access choices.
+- Findings are review signals, not deletion instructions. The persisted 40-item review queue predates this full-catalog run and was not regenerated.
+
+## 2026-10-05 Follow-up: verified Mohawk/Erie consolidation and Payette take-out distinction
+
+The fresh public-catalog audit initially flagged the Mohawk Lock 9–Freeman’s Bridge card and the Erie Canal Rotterdam Junction–Freeman’s Bridge card as an exact endpoint pair. Erie Canalway’s current stewardship inventory identifies one 9-mile Section 27 from Lock E9 to Freeman’s Bridge with the same six central access contexts. The site’s production pages likewise returned 200, were self-canonical and indexable, appeared in the current sitemap, linked to one another, and each had three server-rendered links from the New York state page. Search Console nevertheless stored one as “Discovered – currently not indexed” and the other as “URL is unknown to Google”; the latter showed no submitted sitemap. Both October 5 live URL tests reported “URL is available to Google.” The sitemap report’s last-read date was September 29, so that stored discovery state may predate the current sitemap/link graph.
+
+The local catalog now retains the detailed Erie Canalway Section 27 URL and removes the duplicate Mohawk URL from the public route order. The surviving route includes the NYSDEC-confirmed Lock 9 State Canal Park hand launch and uses USGS 01354330 at Lock 8 as direct but regulated Mohawk stage context instead of the distant Seneca River proxy. Both slash forms of the former Mohawk URL now redirect to Section 27. These source changes are local only; production still serves the old pair until release.
+
+The South Fork Payette cards remain separate. They share the Deer Creek start, but the stored Banks confluence take-out and the American Whitewater Banks Take-Out point are about 0.4 mile apart. BLM identifies Staircase as Class III–IV, and American Whitewater identifies the 4.8-mile Deer Creek Ramp–Banks reach as Class IV. The simpler confluence card’s old Class II–III claim was unsupported; its local summary now uses the BLM Class III–IV guidance and labels its 4.5-mile figure as a planning estimate. The fresh audit reports containment and near-collinear overlap between the pair, not an exact endpoint duplicate.
 
 ## 2026-09-22 Follow-up: Washington Spokane River 15-card candidate — blocked pending Riverside access, geometry, and logistics reconciliation
 

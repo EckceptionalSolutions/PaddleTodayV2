@@ -5140,7 +5140,7 @@ export const arkansasRoutes: River[] = [
     "state": "Arkansas",
     "region": "Ouachita Mountains",
     "routeType": "whitewater",
-    "summary": "Dam-release Ouachita day from the Remmel Dam tailrace to the Whitewater Park at Rockport in Malvern. Entergy documents the public float logistics and release guidance, and American Whitewater ties the route to the direct Remmel Dam USGS gauge, but Rockport Ledge, cold tailwater, dam operations, and strong take-out current keep this out of casual discovery.",
+    "summary": "About 5.9 miles from Remmel Dam to Rockport Whitewater Park; allow 3–4 hours on a recreational release. Check Entergy for current release timing; cold tailwater, Rockport Ledge, and a fast left-bank take-out before I-30 require a deliberate exit plan.",
     "statusText": "Use the Ouachita River at Remmel Dam gauge. Around 200 cfs is only a scrape-through floor, 3,500 to 4,000 cfs is the normal recreational release window, and flows above 4,000 cfs are not recommended for floating.",
     "latitude": 34.426111,
     "longitude": -92.890833,

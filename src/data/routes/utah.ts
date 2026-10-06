@@ -158,7 +158,7 @@ export const utahRoutes: River[] = [
     "region": "Ogden Valley / Uinta-Wasatch-Cache National Forest",
     "routeType": "whitewater",
     "summary": "Public South Fork Ogden River campground-complex run from Willows Campground downstream to Magpie Campground. The Forest Service publishes both campground coordinates, states the river flows through or adjacent to the campgrounds, and requires life jackets for South Fork floating/tubing; American Whitewater documents the broader Causey Reservoir-to-Huntsville Class II-III(IV) reach on direct USGS 10137500.",
-    "statusText": "Use South Fork Ogden River near Huntsville as the direct gauge. Today's 50.4 cfs reading is below the conservative 175 cfs minimum from AW trip-report evidence, so expect a no-go/too-low result until releases or runoff improve.",
+    "statusText": "Use South Fork Ogden River near Huntsville as the direct gauge. American Whitewater trip reports support 175 cfs as a conservative minimum; below that, treat the reach as too low until releases or runoff improve. Check the live gauge and trend before launch.",
     "latitude": 41.292013,
     "longitude": -111.634697,
     "gaugeSource": {
