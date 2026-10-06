@@ -17,6 +17,8 @@ const cases = [
   ['/rivers/minnehaha-creek-grays-bay-knollwood/', 301, '/guides/minnehaha-creek-paddling/'],
   ['/rivers/minnehaha-creek-grays-bay-knollwood', 301, '/guides/minnehaha-creek-paddling/'],
   ['/guides/minnehaha-creek-paddling/', 200],
+  ['/rivers/by-river/minnehaha-creek', 301, '/guides/minnehaha-creek-paddling/'],
+  ['/rivers/by-river/minnehaha-creek/', 301, '/guides/minnehaha-creek-paddling/'],
   [`/rivers/search-check-missing-${nonce}/`, 404],
 ];
 let failures = 0;
