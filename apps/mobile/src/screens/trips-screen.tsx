@@ -2,7 +2,7 @@ import { useEffect, useState, useCallback, useRef, useMemo, type ComponentProps 
 import { Alert, AppState, BackHandler, KeyboardAvoidingView, Platform, Pressable, ScrollView, Share, StyleSheet, Text, TextInput, View } from 'react-native';
 import { useHeaderHeight } from '@react-navigation/elements';
 import MaterialCommunityIcons from '@expo/vector-icons/MaterialCommunityIcons';
-import { useFocusEffect, useNavigation, usePreventRemove } from '@react-navigation/native';
+import { useFocusEffect, useIsFocused, useNavigation, usePreventRemove } from '@react-navigation/native';
 import { useLocalSearchParams, router } from 'expo-router';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import * as Crypto from 'expo-crypto';
@@ -84,7 +84,8 @@ export default function TripsScreen() {
   const [editorReadyUid, setEditorReadyUid] = useState<string | null>(null);
   const editorStorageKey = repo ? repo.storageKey + ':editor' : 'paddletoday:trip-guest-editor';
   const editorSaveTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
-  const routeCatalog = useExploreCatalogQuery(routeSearchOpen);
+  const isFocused = useIsFocused();
+  const routeCatalog = useExploreCatalogQuery(isFocused && routeSearchOpen);
   const searchableRoutes = routeCatalog.data?.rivers ?? [];
   const routeCounts = useMemo(() => buildRouteGroupMeta(searchableRoutes), [searchableRoutes]);
   const routeMatches = useMemo(() => findTripRouteMatches(searchableRoutes, routeQuery).slice(0, 10), [searchableRoutes, routeQuery]);
@@ -94,11 +95,11 @@ export default function TripsScreen() {
   const tripRecap = trip ? Object.values(state?.logs || {}).filter(l => l.sourceTripId === trip.id).sort((a, b) => b.updatedAt.localeCompare(a.updatedAt))[0] : undefined;
   const screenKey = editing ? `edit:${editId}:${planStep}` : log ? `recap-edit:${logId}:${logMode}` : viewLogId ? `recap:${viewLogId}` : `${selected}:${panel || ''}:${vehicleFormOpen}`;
   useEffect(() => { scrollRef.current?.scrollTo({ y: 0, animated: false }); }, [screenKey, tab]);
-  useEffect(() => {
+  useFocusEffect(useCallback(() => {
     if (tracking?.status !== 'recording') return;
     const timer = setInterval(() => setTrackingNow(Date.now()), 1000);
     return () => clearInterval(timer);
-  }, [tracking?.status]);
+  }, [tracking?.status]));
   useEffect(() => {
     let active = true;
     const refresh = async () => {
@@ -111,10 +112,13 @@ export default function TripsScreen() {
       if (active) { setTracking(next?.ownerUid === repo?.uid ? next : null); setTrackingNow(Date.now()); }
     };
     void recoverIfNeeded();
-    const timer = setInterval(() => void refresh(), 3000);
+    // Keep recording checkpoints and app-resume recovery alive across tabs.
+    // An idle, hidden Trips screen has no tracking display to poll.
+    const timer = isFocused || tracking?.status === 'recording'
+      ? setInterval(() => void refresh(), 3000) : null;
     const appState = AppState.addEventListener('change', state => { if (state === 'active') void recoverIfNeeded(); });
-    return () => { active = false; clearInterval(timer); appState.remove(); };
-  }, [repo?.uid]);
+    return () => { active = false; if (timer) clearInterval(timer); appState.remove(); };
+  }, [repo?.uid, isFocused, tracking?.status]);
   useEffect(() => subscribeTripSession(() => {
     const nextRepo = tripSession();
     void readPaddleTrackingSession().then(session => {

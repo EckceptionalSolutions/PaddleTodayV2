@@ -10,8 +10,9 @@ import {
 import MaterialCommunityIcons from '@expo/vector-icons/MaterialCommunityIcons';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import { useFocusEffect, useRouter } from 'expo-router';
+import { useIsFocused } from '@react-navigation/native';
 import type { ComponentProps, ReactNode } from 'react';
-import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
+import { memo, useCallback, useEffect, useMemo, useRef, useState } from 'react';
 import {
   ImageBackground,
   Platform,
@@ -24,6 +25,7 @@ import {
 } from 'react-native';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import { useExploreCatalogQuery, useRiverSummaryQuery } from '../api/queries';
+import { useBoardQueryState } from '../hooks/use-board-query-state';
 import { AppErrorState, AppLoadingState, AppRefreshNotice } from '../components/app-state';
 import { ManualLocationModal } from '../components/manual-location-modal';
 import { AppButton } from '../components/app-button';
@@ -69,16 +71,28 @@ const modeLabels: Record<BoardMode, string> = {
 };
 
 export default function HomeScreen() {
+  const isFocused = useIsFocused();
+  const [searchOpen, setSearchOpen] = useState(false);
+  const summaryQuery = useRiverSummaryQuery(isFocused);
+  const searchCatalog = useExploreCatalogQuery(isFocused && searchOpen);
+  const board = useBoardQueryState(summaryQuery);
+  const catalog = useBoardQueryState(searchCatalog);
+  return <HomeContent summaryQuery={board} searchCatalog={catalog} searchOpen={searchOpen} setSearchOpen={setSearchOpen} />;
+}
+
+const HomeContent = memo(function HomeContent({ summaryQuery, searchCatalog, searchOpen, setSearchOpen }: {
+  summaryQuery: ReturnType<typeof useBoardQueryState<ReturnType<typeof useRiverSummaryQuery>>>;
+  searchCatalog: ReturnType<typeof useBoardQueryState<ReturnType<typeof useExploreCatalogQuery>>>;
+  searchOpen: boolean;
+  setSearchOpen: (open: boolean) => void;
+}) {
   const router = useRouter();
   const insets = useSafeAreaInsets();
   const bottomContentInset = androidBottomInset(insets.bottom, ANDROID_NAV_CONTROL_MIN_INSET);
-  const summaryQuery = useRiverSummaryQuery();
   const { location, status, requestLocation, searchLocations, selectPlanningLocation, cancelLocationRequest } = useStoredLocation();
   const { isSaved, toggleSavedRiver } = useSavedRivers();
   const [mode, setMode] = useState<BoardMode>('best');
   const [routeQuery, setRouteQuery] = useState('');
-  const [searchOpen, setSearchOpen] = useState(false);
-  const searchCatalog = useExploreCatalogQuery(searchOpen);
   const [locationSearchOpen, setLocationSearchOpen] = useState(false);
   const [modeSaveError, setModeSaveError] = useState(false);
   const modeChosen = useRef(false);
@@ -88,14 +102,15 @@ export default function HomeScreen() {
   const rivers = summaryQuery.data?.rivers ?? [];
   const searchableRivers = searchCatalog.data?.rivers ?? [];
   const searchRouteCounts = useMemo(() => buildRouteGroupMeta(searchableRivers), [searchableRivers]);
-  const routeCounts = useMemo(() => buildRouteGroupMeta(rivers), [rivers]);
+  const routeCounts = useMemo(() => summaryQuery.data?.groupCounts
+    ? new Map(Object.entries(summaryQuery.data.groupCounts)) : buildRouteGroupMeta(rivers), [rivers, summaryQuery.data?.groupCounts]);
   const nearbyPicks = useMemo(
     () => (location ? selectNearbyPicks(rivers, location, rivers.length) : []),
     [rivers, location]
   );
   const scopedRoutes = location ? nearbyPicks : rivers;
   const snapshotRoutes = scopedRoutes;
-  const snapshot = buildBoardSnapshot(snapshotRoutes);
+  const snapshot = useMemo(() => buildBoardSnapshot(snapshotRoutes), [snapshotRoutes]);
   const snapshotContext = location
     ? `Within ${HOME_NEARBY_DISTANCE_MILES} mi of ${location.label}`
     : 'Across available routes';
@@ -371,7 +386,7 @@ export default function HomeScreen() {
   function openExploreIntent(intent: ExploreIntentId) {
     router.push({ pathname: '/explore', params: { intent, intentKey: Date.now().toString() } });
   }
-}
+});
 
 function BoardHero({
   mode,

@@ -1,4 +1,5 @@
 import { test, expect } from '@playwright/test';
+import { installMobileBoardFixtures } from './mobile-board-fixtures';
 
 const key = 'paddletoday:explore-preferences:v4';
 const stored = { viewMode: 'map', filters: {
@@ -7,7 +8,9 @@ const stored = { viewMode: 'map', filters: {
 } };
 test.beforeEach(async ({ page }) => {
   await page.addInitScript(() => localStorage.setItem('paddletoday:welcome-completed:v1', '1'));
-  await page.route('**/api/**', route => route.fulfill({ json: { rivers: [] } }));
+  await page.route('**/api/**', route => route.fulfill({ status: 503, json: { error: 'offline' } }));
+  const fulfillMobile = await installMobileBoardFixtures(page);
+  await page.route('**/api/mobile/explore.json**', route => fulfillMobile(route, { json: { rivers: [] } }));
 });
 
 test('late Explore preferences preserve active search and view choices', async ({ page }) => {

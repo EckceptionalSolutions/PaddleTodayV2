@@ -1,3 +1,4 @@
+import { installMobileBoardFixtures } from './mobile-board-fixtures';
 import { test, expect } from '@playwright/test';
 
 test('location write and clear failures are visible and retry locally without another search', async ({ page }) => {
@@ -22,6 +23,8 @@ test('location write and clear failures are visible and retry locally without an
     };
   });
   await page.route('**/api/**', route => route.fulfill({ json: { rivers: [] } }));
+  const fulfillMobile = await installMobileBoardFixtures(page);
+  await page.route('**/api/mobile/{summary,explore,weekend}.json**', route => fulfillMobile(route, { json: { rivers: [] } }));
   let searches = 0;
   await page.route('https://geocoding-api.open-meteo.com/**', route => {
     searches++;

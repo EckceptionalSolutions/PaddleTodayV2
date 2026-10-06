@@ -1,3 +1,4 @@
+import { installMobileBoardFixtures } from './mobile-board-fixtures';
 import { test, expect } from '@playwright/test';
 
 const key = 'paddletoday:weekend-distance-limit:v1';
@@ -6,7 +7,8 @@ test.beforeEach(async ({ page }) => {
     localStorage.setItem('paddletoday:welcome-completed:v1', '1');
     localStorage.setItem('paddletoday:user-location', JSON.stringify({ latitude: 46.78, longitude: -92.1, label: 'Duluth', source: 'search' }));
   });
-  await page.route('**/api/**', route => route.fulfill({ json: { rivers: [] } }));
+  const fulfillMobile = await installMobileBoardFixtures(page);
+  await page.route('**/api/mobile/weekend.json**', route => fulfillMobile(route, { json: { rivers: [] } }));
 });
 
 test('a delayed saved range cannot replace a new selection', async ({ page }) => {

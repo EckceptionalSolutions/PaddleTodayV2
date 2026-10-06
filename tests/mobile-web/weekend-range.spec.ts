@@ -1,4 +1,5 @@
 import { test, expect } from '@playwright/test';
+import { installMobileBoardFixtures } from './mobile-board-fixtures';
 test('Weekend range supports keyboard navigation and storage recovery', async ({ page }) => {
   const errors: string[] = [];
   page.on('pageerror', (error) => errors.push(error.message));
@@ -12,6 +13,8 @@ test('Weekend range supports keyboard navigation and storage recovery', async ({
     };
   });
   await page.route('**/api/**', (route) => route.fulfill({ json: { rivers: [] } }));
+  const fulfillMobile = await installMobileBoardFixtures(page);
+  await page.route('**/api/mobile/weekend.json**', route => fulfillMobile(route, { json: { rivers: [] } }));
   await page.goto('/weekend');
   const options = page.getByRole('radio');
   await expect(options).toHaveCount(5);
@@ -45,5 +48,4 @@ test('Weekend range supports keyboard navigation and storage recovery', async ({
   expect(errors).toEqual([]);
   console.log('Weekend range changes by keyboard and tolerates unavailable preference storage.');
 });
-
 

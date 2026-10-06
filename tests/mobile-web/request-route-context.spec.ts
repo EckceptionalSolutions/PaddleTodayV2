@@ -1,3 +1,4 @@
+import { installMobileBoardFixtures } from './mobile-board-fixtures';
 import { test, expect } from '@playwright/test';
 import fixture from './fixtures/route-detail.json' with { type: 'json' };
 
@@ -9,7 +10,8 @@ test('requesting an unfound route carries over the search without submitting it'
     if (route.request().method() === 'POST') submissions++;
     return route.fulfill({ status: 503, json: { error: 'offline' } });
   });
-  await page.route('**/api/rivers/{summary,explore}.json', route => route.fulfill({ json: { rivers: [{ ...fixture.result,
+  const fulfillMobile = await installMobileBoardFixtures(page);
+  await page.route('**/api/mobile/{summary,explore}.json**', route => fulfillMobile(route, { json: { rivers: [{ ...fixture.result,
     summary: { gaugeNow: 'QA', shortExplanation: 'QA' },
   }] } }));
   await page.goto('/');

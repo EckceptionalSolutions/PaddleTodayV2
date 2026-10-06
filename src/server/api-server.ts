@@ -47,6 +47,7 @@ import { handleHistorySnapshot, handleRiverSnapshotRefresh } from './routes/snap
 import { decodeRouteRequestStorageKeyParam } from '../lib/route-request-storage-key';
 import { accountMethodOptions, accountSyncMethod, handleAccountRoute } from './routes/accounts';
 import { handleTrips, isTripsPath } from './routes/trips';
+import { handleMobileDiscovery } from './routes/mobile-discovery';
 
 const host = process.env.CANOE_API_HOST || '0.0.0.0';
 const staticDirArg = readArgValue('--static');
@@ -117,6 +118,10 @@ const server = createServer(async (request, response) => {
 
     if (requestUrl.pathname === '/api/rivers/catalog.json') {
       return handleRiverCatalog(response, requestId, includeBody);
+    }
+
+    if (requestUrl.pathname.startsWith('/api/mobile/')) {
+      return await handleMobileDiscovery(response, requestId, includeBody, requestUrl);
     }
 
     if (requestUrl.pathname === '/api/rivers/explore.json') {

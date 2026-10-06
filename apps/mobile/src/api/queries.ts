@@ -11,14 +11,17 @@ import type {
   RiverSummaryResponse,
   WeekendSummaryApiItem,
   WeekendSummaryResponse,
+  MobileRouteScope,
 } from '@paddletoday/api-contract';
-import { queryOptions, useMutation, useQuery } from '@tanstack/react-query';
+import { queryOptions, useMutation, useQuery, useQueryClient, type QueryClient } from '@tanstack/react-query';
 import { useCallback } from 'react';
 import { useFreshnessClock } from '../hooks/use-freshness-clock';
 import { useOnlineStatus } from '../hooks/use-online-status';
 import { currentDetailSnapshot, currentExploreSnapshot, currentGroupSnapshot, currentSummarySnapshot, currentWeekendSnapshot } from '../lib/cached-snapshot';
 import { apiClient } from './client';
 import { requireConfirmedAreaSubscription, requireSavedAlert, requireStoredSubmission } from '../lib/submission-results';
+import { loadMobileExplore, loadMobileSummary, loadMobileWeekend, mobileScopeKey } from './mobile-discovery';
+import { useStoredLocation } from '../hooks/use-stored-location';
 
 export const riverQueryKeys = {
   explore: ['river-explore-catalog'] as const,
@@ -40,34 +43,43 @@ export function useRiverCatalogQuery() {
   });
 }
 
-export function useRiverSummaryQuery(enabled = true) {
-  const now = useFreshnessClock();
-  const online = useOnlineStatus();
+export function useRiverSummaryQuery(enabled = true, requestedScope?: MobileRouteScope) {
+  const client = useQueryClient();
+  const { location, status } = useStoredLocation();
+  const scope = requestedScope ?? (location ? { latitude: location.latitude, longitude: location.longitude, radiusMiles: 300 } : {});
+  enabled = enabled && status !== 'loading';
+  const now = useFreshnessClock(enabled);
+  const online = useOnlineStatus(enabled);
   return useQuery({
-    queryKey: riverQueryKeys.summary,
+    queryKey: [...riverQueryKeys.summary, mobileScopeKey(scope)],
     enabled,
-    queryFn: ({ signal }) => apiClient.getSummary({ signal }),
+    subscribed: enabled,
+    queryFn: ({ signal }) => loadMobileSummary(client, scope, signal),
     select: useCallback((response: RiverSummaryResponse) => currentSummarySnapshot(dedupeRiverSummaryResponse(response), now, online), [now, online]),
     retry: false,
     staleTime: 5 * 60 * 1000,
   });
 }
 
-export function exploreCatalogQueryOptions() {
+export function exploreCatalogQueryOptions(client: QueryClient, scope: MobileRouteScope = {}) {
   return queryOptions({
-    queryKey: riverQueryKeys.explore,
-    queryFn: ({ signal }) => apiClient.getExplore({ signal }),
+    queryKey: [...riverQueryKeys.explore, mobileScopeKey(scope)],
+    queryFn: ({ signal }) => loadMobileExplore(client, scope, signal),
     retry: false,
     staleTime: 5 * 60 * 1000,
   });
 }
 
-export function useExploreCatalogQuery(enabled = true) {
-  const now = useFreshnessClock();
-  const online = useOnlineStatus();
+export function useExploreCatalogQuery(enabled = true, scope: MobileRouteScope = {}) {
+  const client = useQueryClient();
+  const now = useFreshnessClock(enabled);
+  const online = useOnlineStatus(enabled);
   return useQuery({
-    ...exploreCatalogQueryOptions(),
+    ...exploreCatalogQueryOptions(client, scope),
     enabled,
+    // Closed search dialogs and hidden tabs can read the shared cache on
+    // their next render without projecting every catalog update meanwhile.
+    subscribed: enabled,
     select: useCallback((response: Awaited<ReturnType<typeof apiClient.getExplore>>) => currentExploreSnapshot(response, now, online), [now, online]),
   });
 }
@@ -118,12 +130,18 @@ export function useRiverHistoryQuery(slug: string, days = 7, enabled = true) {
   });
 }
 
-export function useWeekendSummaryQuery() {
-  const now = useFreshnessClock();
-  const online = useOnlineStatus();
+export function useWeekendSummaryQuery(enabled = true, requestedScope?: MobileRouteScope) {
+  const client = useQueryClient();
+  const { location, status } = useStoredLocation();
+  const scope = requestedScope ?? (location ? { latitude: location.latitude, longitude: location.longitude, radiusMiles: 300 } : {});
+  enabled = enabled && status !== 'loading';
+  const now = useFreshnessClock(enabled);
+  const online = useOnlineStatus(enabled);
   return useQuery({
-    queryKey: riverQueryKeys.weekend,
-    queryFn: ({ signal }) => apiClient.getWeekendSummary({ signal }),
+    queryKey: [...riverQueryKeys.weekend, mobileScopeKey(scope)],
+    enabled,
+    subscribed: enabled,
+    queryFn: ({ signal }) => loadMobileWeekend(client, scope, signal),
     select: useCallback((response: WeekendSummaryResponse) => currentWeekendSnapshot(dedupeWeekendSummaryResponse(response), now, online), [now, online]),
     staleTime: 15 * 60 * 1000,
   });

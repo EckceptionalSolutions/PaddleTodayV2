@@ -1,3 +1,4 @@
+import { installMobileBoardFixtures } from './mobile-board-fixtures';
 import { test, expect } from '@playwright/test';
 
 for (const outcome of ['success', 'failure', 'leave']) {
@@ -17,7 +18,8 @@ for (const outcome of ['success', 'failure', 'leave']) {
       } });
     });
     await page.route('**/api/**', (route) => route.fulfill({ status: 503, json: { error: 'offline' } }));
-    await page.route('**/api/rivers/{summary,explore}.json', (route) => route.fulfill({ json: { rivers: [] } }));
+    const fulfillMobile = await installMobileBoardFixtures(page);
+    await page.route('**/api/mobile/{summary,explore}.json**', (route) => fulfillMobile(route, { json: { rivers: [] } }));
     await page.goto('/');
     await page.getByRole('button', { name: 'Best nearby', exact: true }).click();
     const finding = page.getByRole('button', { name: 'Finding nearby', exact: true });

@@ -1,3 +1,4 @@
+import { installMobileBoardFixtures } from './mobile-board-fixtures';
 import { test, expect } from '@playwright/test';
 import fixture from './fixtures/route-detail.json' with { type: 'json' };
 
@@ -12,12 +13,13 @@ for (const path of ['/river/rice-creek-peltier-to-long-lake', '/saved', '/weeken
     });
     await page.route('**/api/**', (route) => route.fulfill({ status: 503, json: { error: 'offline' } }));
     await page.route('**/api/rivers/rice-creek-peltier-to-long-lake.json', (route) => route.fulfill({ json: fixture }));
-    await page.route('**/api/rivers/{summary,explore}.json', (route) => route.fulfill({ json: { rivers: [{
+    const fulfillMobile = await installMobileBoardFixtures(page);
+    await page.route('**/api/mobile/{summary,explore}.json**', (route) => fulfillMobile(route, { json: { rivers: [{
       ...fixture.result,
       summary: { gaugeNow: 'Check source', shortExplanation: 'QA fixture.' },
       liveData: { overall: 'stale', summary: 'Check current conditions.' },
     }] } }));
-    await page.route('**/api/weekend/summary.json', (route) => route.fulfill({ json: { rivers: [{
+    await page.route('**/api/mobile/weekend.json**', (route) => fulfillMobile(route, { json: { rivers: [{
       river: { ...fixture.result.river, difficulty: 'easy' },
       current: { score: 80, rating: 'Good', gaugeBandLabel: 'QA fixture' },
       weekend: { label: 'Weekend', score: 80, rating: 'Good', confidence: 'High', explanation: 'QA fixture.', summary: 'QA fixture.', signalLine: '' },

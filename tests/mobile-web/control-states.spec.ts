@@ -1,3 +1,4 @@
+import { installMobileBoardFixtures } from './mobile-board-fixtures';
 import { test, expect } from '@playwright/test';
 import fixture from './fixtures/route-detail.json' with { type: 'json' };
 
@@ -50,7 +51,8 @@ test('route sections and shorter-trip access choices work by keyboard and announ
 });
 
 test('Explore exposes search, view, and filter state to keyboard users', async ({ page }) => {
-  await page.route('**/api/rivers/{summary,explore}.json', (route) => route.fulfill({ json: { rivers: [] } }));
+  const fulfillMobile = await installMobileBoardFixtures(page);
+  await page.route('**/api/mobile/{summary,explore}.json**', (route) => fulfillMobile(route, { json: { rivers: [] } }));
   await page.goto('/explore');
   const search = page.getByRole('textbox', { name: 'Search routes', exact: true });
   await search.fill('Rice Creek');

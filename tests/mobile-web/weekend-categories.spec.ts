@@ -1,3 +1,4 @@
+import { installMobileBoardFixtures } from './mobile-board-fixtures';
 import { test, expect } from '@playwright/test';
 import fixture from './fixtures/route-detail.json' with { type: 'json' };
 
@@ -25,7 +26,8 @@ for (const located of [false, true]) {
         latitude: river.latitude, longitude: river.longitude, label: 'QA location', source: 'search',
       }));
     }, { located, river: fixture.result.river });
-    await page.route('**/api/**', (route) => route.fulfill({ json: {
+    const fulfillMobile = await installMobileBoardFixtures(page);
+    await page.route('**/api/mobile/weekend.json**', route => fulfillMobile(route, { json: {
       rivers: [weekendRoute('Camping Pick', 'Good', true), weekendRoute('Watch Pick', 'Fair'), weekendRoute('Skip Pick', 'No-go')],
     } }));
     await page.goto('/weekend');
@@ -57,7 +59,8 @@ test('Watch filter counts nearby routes when no Paddle options exist', async ({ 
       latitude: river.latitude, longitude: river.longitude, label: 'QA location', source: 'search',
     }));
   }, fixture.result.river);
-  await page.route('**/api/**', (route) => route.fulfill({ json: { rivers: [weekendRoute('Watch Pick', 'Fair')] } }));
+  const fulfillMobile = await installMobileBoardFixtures(page);
+  await page.route('**/api/mobile/weekend.json**', route => fulfillMobile(route, { json: { rivers: [weekendRoute('Watch Pick', 'Fair')] } }));
   await page.goto('/weekend');
   await page.getByRole('tab', { name: 'Watch, 1 routes', exact: true }).press('Space');
   await expect(page.getByRole('button', { name: /^Watch Pick,.*?, score 55$/ })).toBeVisible();

@@ -20,6 +20,7 @@ import {
 } from '@paddletoday/api-contract';
 import { PaddleTodayApiError } from '@paddletoday/api-client';
 import { useLocalSearchParams, useRouter } from 'expo-router';
+import { useIsFocused } from '@react-navigation/native';
 import MaterialCommunityIcons from '@expo/vector-icons/MaterialCommunityIcons';
 import { useEffect, useMemo, useRef, useState } from 'react';
 import { Keyboard, KeyboardAvoidingView, Platform, TextInput, Pressable, RefreshControl, ScrollView, SectionList, StyleSheet, Text, View } from 'react-native';
@@ -77,10 +78,12 @@ export default function SavedScreen() {
   const requestedTab = Array.isArray(params.tab) ? params.tab[0] : params.tab;
   const insets = useSafeAreaInsets();
   const bottomContentInset = androidBottomInset(insets.bottom);
-  const summaryQuery = useRiverSummaryQuery();
+  const isFocused = useIsFocused();
   const createAlertMutation = useCreateRiverAlertMutation();
   const { savedRivers, isHydrated, hasLoadError, isSaved, toggleSavedRiver } = useSavedRivers();
   const { routeAlerts, recordRouteAlert, alertForRiver, isHydrated: alertsHydrated, loadError: alertsLoadError } = useAlertPreferences();
+  const conditionSlugs = [...new Set([...savedRivers.map(route => route.slug), ...routeAlerts.map(alert => alert.riverSlug)])];
+  const summaryQuery = useRiverSummaryQuery(isFocused && isHydrated && alertsHydrated, { slugs: conditionSlugs });
   const [alertStatus, setAlertStatus] = useState('You will get a phone notification when a route reaches your selected call.');
   const [pendingAlertKey, setPendingAlertKey] = useState<string | null>(null);
   const alertSubmissionInFlight = useRef(false);

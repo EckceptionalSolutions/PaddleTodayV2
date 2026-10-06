@@ -2,11 +2,41 @@ import { afterEach, describe, expect, it, vi } from 'vitest';
 import { PaddleTodayApiError, createPaddleTodayApiClient } from './index';
 
 describe('@paddletoday/api-client', () => {
+  it('encodes nearby, nationwide, and empty saved-route scopes independently', async () => {
+    const fetchImpl = vi.fn<typeof fetch>(async () => Response.json({ rivers: [] }));
+    const client = createPaddleTodayApiClient({ baseUrl: 'https://api.example.com', fetchImpl });
+    await client.getMobileCatalog({ latitude: 45, longitude: -92.8, radiusMiles: 300 });
+    await client.getMobileExplore();
+    await client.getMobileSummary({ slugs: [] });
+    await client.getMobileWeekend({ state: 'New York' });
+    expect(fetchImpl.mock.calls.map(call => String(call[0]))).toEqual([
+      'https://api.example.com/api/mobile/catalog.json?latitude=45&longitude=-92.8&radiusMiles=300',
+      'https://api.example.com/api/mobile/explore.json',
+      'https://api.example.com/api/mobile/summary.json?slugs=',
+      'https://api.example.com/api/mobile/weekend.json?state=New+York',
+    ]);
+  });
   it('fetches the discovery catalog separately from live scoring', async () => {
     const fetchImpl = vi.fn<typeof fetch>(async () => Response.json({ rivers: [], coverage: { publicRoutes: 0 } }));
     const client = createPaddleTodayApiClient({ baseUrl: 'https://api.example.com', fetchImpl });
     await client.getExplore();
     expect(String(fetchImpl.mock.calls[0][0])).toBe('https://api.example.com/api/rivers/explore.json');
+  });
+  it('preserves native scopes when URLSearchParams has no size getter', async () => {
+    const descriptor = Object.getOwnPropertyDescriptor(URLSearchParams.prototype, 'size')!;
+    Object.defineProperty(URLSearchParams.prototype, 'size', { configurable: true, get: () => undefined });
+    try {
+      const fetchImpl = vi.fn<typeof fetch>(async () => Response.json({ rivers: [] }));
+      const client = createPaddleTodayApiClient({ baseUrl: 'https://api.example.com', fetchImpl });
+      await client.getMobileExplore({ latitude: 45.08, longitude: -93.2, radiusMiles: 300 });
+      await client.getMobileSummary({ slugs: [] });
+      expect(fetchImpl.mock.calls.map(call => String(call[0]))).toEqual([
+        'https://api.example.com/api/mobile/explore.json?latitude=45.08&longitude=-93.2&radiusMiles=300',
+        'https://api.example.com/api/mobile/summary.json?slugs=',
+      ]);
+    } finally {
+      Object.defineProperty(URLSearchParams.prototype, 'size', descriptor);
+    }
   });
   afterEach(() => vi.useRealTimers());
 

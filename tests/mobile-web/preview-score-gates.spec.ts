@@ -1,3 +1,4 @@
+import { installMobileBoardFixtures } from './mobile-board-fixtures';
 import { test, expect } from '@playwright/test';
 import fixture from './fixtures/route-detail.json' with { type: 'json' };
 
@@ -6,7 +7,8 @@ test('planning-only routes never regain a Paddle label in Today, map drawer or l
   await page.addInitScript(() => localStorage.setItem('paddletoday:welcome-completed:v1', '1'));
   const generatedAt = new Date().toISOString();
   await page.route('**/api/**', route => route.fulfill({ status: 503, json: { error: 'offline' } }));
-  await page.route('**/api/rivers/{summary,explore}.json', route => route.fulfill({ json: { generatedAt, rivers: [{
+  const fulfillMobile = await installMobileBoardFixtures(page);
+  await page.route('**/api/mobile/{summary,explore}.json**', route => fulfillMobile(route, { json: { generatedAt, rivers: [{
     ...fixture.result, generatedAt, score: 95, rating: 'Strong',
     river: { ...fixture.result.river, difficulty: 'easy', scoreEligibility: 'planning' },
     readiness: { status: 'ready', label: 'Ready', reason: 'A favorable explanation that must not become a recommendation.' },
@@ -40,7 +42,8 @@ for (const scenario of ['withheld', 'expired', 'ready'] as const) {
     });
     const generatedAt = scenario === 'expired' ? '2020-01-01T00:00:00Z' : new Date().toISOString();
     await page.route('**/api/**', route => route.fulfill({ status: 503, json: { error: 'offline' } }));
-    await page.route('**/api/rivers/{summary,explore}.json', route => route.fulfill({ json: { generatedAt, rivers: [{
+    const fulfillMobile = await installMobileBoardFixtures(page);
+    await page.route('**/api/mobile/{summary,explore}.json**', route => fulfillMobile(route, { json: { generatedAt, rivers: [{
       ...fixture.result, generatedAt, score: 95, rating: 'Strong',
       river: { ...fixture.result.river, difficulty: 'easy' },
       readiness: { status: scenario === 'withheld' ? 'withheld' : 'ready', label: 'QA', reason: 'Verify source coverage before choosing this route.' },

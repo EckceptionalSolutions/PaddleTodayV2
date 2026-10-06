@@ -1,6 +1,7 @@
 import { readFile, access, mkdir, writeFile } from 'node:fs/promises';
 import { resolve, join } from 'node:path';
 import { listRivers, listRiverGroups, listAllRiversForAudit, WITHHELD_ROUTE_SLUGS } from '../src/lib/rivers';
+import { staticRoutePatternErrors } from './lib/static-route-rules';
 
 // Inspect the actual build, not just template intent. Run after build:app.
 const root = resolve(process.argv[2] || 'dist');
@@ -19,13 +20,7 @@ if (config.navigationFallback) errors.push('Static pages must not fall back to t
 if (config.responseOverrides?.['404']?.statusCode !== 404 || config.responseOverrides?.['404']?.rewrite !== '/404.html') {
   errors.push('Azure must serve the branded 404 page with HTTP 404.');
 }
-const routePatterns = new Map<string, string>();
-for (const rule of config.routes || []) {
-  const pattern = rule.route === '/' ? '/' : rule.route.replace(/\/$/, '');
-  const previous = routePatterns.get(pattern);
-  if (previous) errors.push(`Duplicate static route pattern: ${previous} and ${rule.route}`);
-  else routePatterns.set(pattern, rule.route);
-}
+errors.push(...staticRoutePatternErrors(config.routes || []));
 const redirects = new Map<string, string>((config.routes || []).filter((r: any) => r.redirect).map((r: any) => [r.route.replace(/\/$/, ''), r.redirect]));
 const sitemapFiles = locs(await readFile(join(root, 'sitemap-index.xml'), 'utf8'));
 const urls: string[] = [];

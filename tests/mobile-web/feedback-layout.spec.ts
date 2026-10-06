@@ -1,3 +1,4 @@
+import { installMobileBoardFixtures } from './mobile-board-fixtures';
 import { test, expect } from '@playwright/test';
 
 test('feedback choices and store chooser stay reachable on a short screen', async ({ page }) => {
@@ -10,6 +11,8 @@ test('feedback choices and store chooser stay reachable on a short screen', asyn
     }));
   });
   await page.route('**/api/**', route => route.fulfill({ json: { rivers: [] } }));
+  const fulfillMobile = await installMobileBoardFixtures(page);
+  await page.route('**/api/mobile/{summary,explore,weekend}.json**', route => fulfillMobile(route, { json: { rivers: [] } }));
   await page.goto('/');
   const dialog = page.getByRole('dialog');
   const rate = dialog.getByRole('button', { name: 'Rate PaddleToday in the app store', exact: true });
