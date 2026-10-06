@@ -1,6 +1,6 @@
 import { describe, expect, it } from 'vitest';
 import { mississippiBlackCreekRoutes } from './mississippi-black-creek';
-import { rivers } from '../rivers';
+import { publicRivers, rivers } from '../rivers';
 import { auditRouteSafety } from '../../lib/route-safety-audit';
 
 describe('Mississippi Black Creek routes', () => {
@@ -20,7 +20,10 @@ describe('Mississippi Black Creek routes', () => {
       'black-creek-old-highway-49-fairley',
     ].sort());
     expect(mississippiBlackCreekRoutes.filter(route => route.scoreEligibility === 'scored')).toHaveLength(21);
-    expect(mississippiBlackCreekRoutes.every(route => rivers.some(candidate => candidate.slug === route.slug))).toBe(true);
+    expect(mississippiBlackCreekRoutes.filter(route => route.scoreEligibility === 'scored')
+      .every(route => rivers.some(candidate => candidate.slug === route.slug))).toBe(true);
+    expect(mississippiBlackCreekRoutes.filter(route => route.scoreEligibility === 'planning')
+      .every(route => publicRivers.some(candidate => candidate.slug === route.slug))).toBe(true);
     expect(mississippiBlackCreekRoutes.every(route => route.gaugeSource?.siteId === '02479130')).toBe(true);
     expect(auditRouteSafety(mississippiBlackCreekRoutes)).toEqual([]);
   });
