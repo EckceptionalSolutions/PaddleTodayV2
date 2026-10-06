@@ -46,7 +46,7 @@ export function maxPublishedRapidClass(
  * policy (which the catalog does not currently implement).
  */
 export function enforceHighConsequencePlanning(route: River): River {
-  if ((maxPublishedRapidClass(route) ?? 0) >= 4 && route.scoreEligibility === 'scored') {
+  if ((maxPublishedRapidClass(route) ?? 0) >= 4 && route.gaugeSource.kind === 'direct') {
     route.scoreEligibility = 'planning';
   }
   return route;
