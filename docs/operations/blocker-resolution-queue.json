@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-09-22T01:01:13.524Z",
+  "generatedAt": "2026-10-06T01:01:03.993Z",
   "groups": [
     {
       "category": "gauge/provider",
@@ -964,7 +964,8 @@
         "route-opportunity-pa-usgs-03108000",
         "overlap-review-74ca7a9ff6a4",
         "overlap-review-cf5bc6afa40a",
-        "overlap-review-2e4d8f27096d"
+        "overlap-review-2e4d8f27096d",
+        "overlap-review-392690e33ae3"
       ],
       "titles": [
         "Audit Nebraska coverage-complete state for saturation",
@@ -1054,7 +1055,8 @@
         "Investigate route opportunity: Raccoon Creek at Moffatts Mill, PA",
         "Review route consolidation candidate: Alabama · mulberry-fork-blountville-cr10 ↔ mulberry-fork-blountville-garden-city ↔ mulberry-fork-cr10-garden-city",
         "Review route consolidation candidate: Oregon · willamette-river-alton-baker-crystal-lake ↔ willamette-river-alton-baker-harkens ↔ willamette-river-alton-baker-harrisburg +42",
-        "Review route consolidation candidate: Arizona · salt-river-blue-point-goldfield ↔ salt-river-blue-point-granite-reef ↔ salt-river-blue-point-phon-d +7"
+        "Review route consolidation candidate: Arizona · salt-river-blue-point-goldfield ↔ salt-river-blue-point-granite-reef ↔ salt-river-blue-point-phon-d +7",
+        "Review route consolidation candidate: Washington · spokane-river-aubrey-white-nine-mile-dam ↔ spokane-river-aubrey-white-plese-flats ↔ spokane-river-aubrey-white-riverside +12"
       ],
       "summaries": [
         "Completed the bounded Nebraska coverage-complete audit without adding a route. Nebraska has 9 scored direct-USGS routes and no planning routes, but saturation is blocked by unresolved George D. Syas WMA put-in coordinate failures and missing route-scoped geometries for three George D. Syas-starting Loup routes; bounded image and camping metadata gaps were fixed.",
@@ -1144,7 +1146,8 @@
         "usgs:03108000 has three named canoe-guide reaches and stage guidance, but no complete public, coordinate-backed endpoint pair was established. Keep blocked; reopen only when access coordinates and station mapping are verified.",
         "Blocked: current authoritative evidence does not verify legal public carry and parking at Blountville Road, and the 12.5/19-mile route labels conflict with NHD geometry lengths of about 13.32/19.95 miles. Preserve all three route cards; do not register a verified corridor until access and mileage evidence are reconciled.",
         "Blocked: the 45 Willamette cards support a same-river condition family, but route-specific geometry and shuttle evidence are not yet trustworthy. Preserve every card and do not register a corridor until the fallback traces and endpoint-pair logistics are reconciled.",
-        "Blocked after independent review. Preserve all ten distinct route cards; rebuild/reconcile selected geometry and replace generic endpoint-pair logistics before corridor registration."
+        "Blocked after independent review. Preserve all ten distinct route cards; rebuild/reconcile selected geometry and replace generic endpoint-pair logistics before corridor registration.",
+        "Blocked after independent verification. Preserve all 15 distinct cards; resolve Riverside access/coordinate holds, missing geometry, and endpoint-specific logistics before corridor registration."
       ]
     },
     {

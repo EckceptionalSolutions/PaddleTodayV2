@@ -1,0 +1,483 @@
+{
+  "date": "2026-10-05",
+  "timeZone": "America/Chicago",
+  "head": "49d4518c5332aa29b71b25c061d82ba90dbdee11",
+  "workingTree": "Includes existing staged and unstaged user changes",
+  "nodeVersion": "v24.14.0",
+  "build": {
+    "command": "node node_modules/astro/bin/astro.mjs build --outDir .local/efficiency-audit/build",
+    "elapsedSeconds": 33.41,
+    "files": 6559,
+    "bytes": 531008195,
+    "groups": {
+      ".well-known": 703,
+      "404.html": 14151,
+      "about": 20107,
+      "account": 38596,
+      "admin": 3774853,
+      "alerts": 16482,
+      "brand": 5156974,
+      "contact": 15822,
+      "contribute": 368643,
+      "data": 85277720,
+      "explore": 43932,
+      "favorites": 19490,
+      "gallery": 132169223,
+      "global.css": 272531,
+      "guides": 160513,
+      "index.html": 48299,
+      "privacy": 17501,
+      "request-river": 16331,
+      "rivers": 290235875,
+      "robots.txt": 124,
+      "scripts": 46440,
+      "search-index.json": 1712963,
+      "share": 1103497,
+      "sitemap-0.xml": 288058,
+      "sitemap-index.xml": 186,
+      "states": 8439855,
+      "styles": 344561,
+      "terms": 16092,
+      "trips": 12932,
+      "weekend": 27827,
+      "_astro": 1347914
+    },
+    "html": {
+      "count": 3263,
+      "bytes": 303302463,
+      "medianBytes": 96710,
+      "largest": [
+        {
+          "path": "admin/operations/index.html",
+          "bytes": 1931561
+        },
+        {
+          "path": "admin/index.html",
+          "bytes": 1843292
+        },
+        {
+          "path": "states/new-york/index.html",
+          "bytes": 808798
+        },
+        {
+          "path": "states/minnesota/index.html",
+          "bytes": 502820
+        },
+        {
+          "path": "states/maryland/index.html",
+          "bytes": 386439
+        }
+      ]
+    },
+    "largestChunks": [
+      {
+        "path": "_astro/route-gallery.BmHcES4Z.js",
+        "bytes": 545259,
+        "gzipBytes": 89209
+      },
+      {
+        "path": "_astro/web-account-session.DwOtbzGL.js",
+        "bytes": 123758,
+        "gzipBytes": 34905
+      },
+      {
+        "path": "_astro/_slug_.astro_astro_type_script_index_0_lang.CCJ8qDx2.js",
+        "bytes": 120602,
+        "gzipBytes": 34550
+      },
+      {
+        "path": "_astro/explore.astro_astro_type_script_index_0_lang.C44J5VI0.js",
+        "bytes": 90841,
+        "gzipBytes": 27905
+      },
+      {
+        "path": "_astro/trips-page.C0iHivoq.js",
+        "bytes": 74060,
+        "gzipBytes": 25564
+      },
+      {
+        "path": "_astro/summary-board-home.BxFVUe6B.js",
+        "bytes": 53602,
+        "gzipBytes": 15491
+      },
+      {
+        "path": "_astro/_riverId_.astro_astro_type_script_index_0_lang.BJ8RmeHE.js",
+        "bytes": 39568,
+        "gzipBytes": 12811
+      },
+      {
+        "path": "_astro/weekend.astro_astro_type_script_index_0_lang.L8J351WU.js",
+        "bytes": 39375,
+        "gzipBytes": 11513
+      }
+    ],
+    "search": {
+      "rows": 3491,
+      "bytes": 1712963
+    },
+    "temporaryOutputRemoved": false,
+    "cleanupStatus": "Automatic approval review rejected temporary build removal: blocked by policy"
+  },
+  "tracked": {
+    "bytes": 712226650,
+    "groups": {
+      ".codex": 0,
+      ".codex-remote-attachments": 150016,
+      ".dockerignore": 77,
+      ".easignore": 1237,
+      ".expo": 809,
+      ".firebaserc": 59,
+      ".gitattributes": 49,
+      ".github": 35195,
+      ".gitignore": 830,
+      ".nvmrc": 8,
+      ".tmp-m6.html": 608891,
+      "MOBILE_UI_TODO.md": 11938,
+      "README.md": 12256,
+      "_tmp_process_09169500.ps1": 14809,
+      "ago(2d)": 0,
+      "api.local.log.err": 12746,
+      "apps": 78473506,
+      "astro.config.mjs": 1893,
+      "automations": 445000,
+      "docs": 281722790,
+      "firebase-auth-hosting": 639,
+      "firebase.json": 398,
+      "infra": 25174,
+      "knip.json": 2472,
+      "mobile.local.log.err": 19047,
+      "package-lock.json": 844611,
+      "package.json": 12122,
+      "packages": 237734,
+      "paddletoday-1.1.2.aab": 75460463,
+      "playwright.config.ts": 1439,
+      "playwright.mobile.config.ts": 816,
+      "public": 224354633,
+      "scripts": 1101135,
+      "src": 42291991,
+      "staticwebapp.config.json": 4598,
+      "tests": 5642481,
+      "tmp-summary.json": 47614,
+      "tmp_continue_co_remaining_unreviewed.ps1": 16821,
+      "tsconfig.gallery.json": 206,
+      "tsconfig.json": 103,
+      "tsconfig.route-data.json": 345,
+      "tsconfig.runtime.json": 176,
+      "upload-cert.RSA": 1254,
+      "vitest.config.ts": 159,
+      "web-dev.local.log.err": 0,
+      "web.local.log.err": 0,
+      "weekend-header-check.png": 82592,
+      "weekend-layout-check-populated.png": 287293,
+      "weekend-layout-check.png": 298225
+    }
+  },
+  "catalog": {
+    "publicRoutes": 2814,
+    "scoredRoutes": 1750,
+    "planningRoutes": 1064
+  },
+  "cacheSimulation": {
+    "fixture": "Sequential real gauge/weather keys; mocked zero-I/O loaders; 300000ms TTL; two immediate sweeps",
+    "lookupsPerSweep": 3500,
+    "uniqueKeys": 1732,
+    "firstSweepLoads": 1759,
+    "secondSweepLoads": 1759,
+    "retainedEntries": 256
+  },
+  "exploreBenchmark": {
+    "fixture": "Current public catalog with no stored scores; no upstream requests; five iterations; Node 24.14.0; desktop Windows",
+    "buildMedianMs": 56.1747,
+    "stringifyMedianMs": 33.1437,
+    "gzipSyncMedianMs": 60.8119,
+    "jsonBytes": 7883754,
+    "gzipBytes": 608668,
+    "withScoredOfflineSnapshotFixtureBuildMedianMs": 32.0811
+  },
+  "mobileFreshnessBenchmark": {
+    "fixture": "1750 synthetic stale summary items; seven iterations; desktop Windows",
+    "medianMs": 0.6293
+  },
+  "validation": {
+    "tests": {
+      "command": "node node_modules/vitest/vitest.mjs run src/lib/server-cache.test.ts src/server/http.test.ts src/lib/explore-catalog.test.ts",
+      "filesPassed": 3,
+      "testsPassed": 19
+    },
+    "knip": {
+      "command": "npm run deps:unused",
+      "exitCode": 1,
+      "unusedDependencyFlags": 9,
+      "assessment": "All nine flagged dependencies have imports or config usage; no safe dependency removals established"
+    }
+  },
+  "searchBenchmark": {
+    "fixture": "3491 generated index rows; desktop Windows; 15 iterations per query; same ranking algorithm with normalized fields cached",
+    "timings": [
+      {
+        "query": "river",
+        "currentMedianMs": 21.7294,
+        "precomputedMedianMs": 1.1614999999999327,
+        "sameResults": true
+      },
+      {
+        "query": "rice creek",
+        "currentMedianMs": 19.913599999999974,
+        "precomputedMedianMs": 1.0155999999999494,
+        "sameResults": true
+      },
+      {
+        "query": "susquehanna",
+        "currentMedianMs": 16.79729999999995,
+        "precomputedMedianMs": 0.5461999999999989,
+        "sameResults": true
+      }
+    ]
+  },
+  "storageSamples": {
+    "duplicateAndroidBundles": {
+      "paths": [
+        "paddletoday-1.1.2.aab",
+        "apps/mobile/paddletoday-1.1.2.aab"
+      ],
+      "bytesEach": 75460463,
+      "sha256": "3a4a0f38e6b9074e5148251b8e502ad4f130b699077a4ff482226110149cdea1",
+      "bothTracked": true
+    },
+    "authoritativeEvidence": {
+      "path": "docs/route-coordinate-authoritative-evidence.json",
+      "bytes": 92221751,
+      "compactBytes": 72672165,
+      "compactGzipBytes": 7571847
+    },
+    "accessRegistry": {
+      "path": "src/data/generated/route-access-registry.json",
+      "bytes": 15796536,
+      "compactBytes": 11520915,
+      "compactGzipBytes": 939920
+    },
+    "localGit": {
+      "directoryBytes": 1942314656,
+      "garbageObjects": 48,
+      "garbageKiB": 314582
+    },
+    "operationsReportsBytes": 42627148,
+    "globalCss": {
+      "bytes": 272531,
+      "gzipBytes": 42757
+    },
+    "searchIndexGzipBytes": 238251
+  },
+  "implementation": {
+    "date": "2026-10-06",
+    "findings": [
+      1,
+      2,
+      4
+    ],
+    "measurements": "docs/audits/efficiency-improvements-2026-10-06.json",
+    "benchmarkCommand": "node --import tsx scripts/benchmark-runtime-efficiency.ts docs/audits/efficiency-improvements-2026-10-06.json",
+    "cacheDefaults": {
+      "gauge": 612,
+      "weather": 2040,
+      "snapshot": 96
+    },
+    "cacheOverrides": [
+      "CANOE_GAUGE_CACHE_MAX_ENTRIES",
+      "CANOE_WEATHER_CACHE_MAX_ENTRIES"
+    ],
+    "upstreamCapacityCeiling": 20000,
+    "serializationLimits": {
+      "entries": 128,
+      "bytes": 67108864
+    },
+    "compressionLimits": {
+      "concurrency": 2,
+      "jobs": 32,
+      "inputBytes": 67108864,
+      "gzipLevel": 4
+    },
+    "verification": {
+      "focused": {
+        "filesPassed": 9,
+        "testsPassed": 55
+      },
+      "typecheckRuntime": "passed",
+      "typecheckRoutes": "passed",
+      "productionBuild": {
+        "command": "node node_modules/astro/bin/astro.mjs build --outDir .local/efficiency-audit/build",
+        "exitCode": 0,
+        "pages": 3263,
+        "seconds": 34.72
+      },
+      "scoringSensitivity": {
+        "routes": 1831,
+        "scenarios": 39977,
+        "invariantFailures": 0,
+        "changedScenarios": 0
+      },
+      "fullApiSuite": {
+        "filesPassed": 184,
+        "filesFailed": 6,
+        "testsPassed": 1036,
+        "testsFailed": 10
+      },
+      "catalogBaselineComparison": {
+        "strategy": "Vitest pre-transform substitutes original HEAD runtime modules at their original module IDs, preserving the current user catalog and tests.",
+        "baselineTransformedModules": [
+          "C:/Users/Yerff/source/repos/PaddleTodayV2/src/lib/rivers.ts",
+          "C:/Users/Yerff/source/repos/PaddleTodayV2/src/lib/server-cache.ts"
+        ],
+        "originalRuntime": {
+          "testsPassed": 290,
+          "testsFailed": 9
+        },
+        "updatedRuntime": {
+          "testsPassed": 290,
+          "testsFailed": 9
+        },
+        "identicalFailures": true,
+        "failures": [
+          "FAIL  src/lib/canonical-river-geometries.test.ts > canonical river geometry asset > publishes coverage metadata and a Minnesota-scoped asset",
+          "FAIL  src/lib/idaho-expansion.test.ts > Idaho statewide paddling expansion > audits high-consequence Idaho routes before any broader go-live decision",
+          "FAIL  src/lib/new-york-expansion.test.ts > New York strategic expansion > publishes more than one bounded New York route",
+          "FAIL  src/lib/new-york-expansion.test.ts > New York strategic expansion > publishes the Schenectady Mohawk public-launch sections with direct gauge context",
+          "FAIL  src/lib/new-york-expansion.test.ts > New York strategic expansion > publishes the upper Chenango Sherburne to North Norwich section with current public launches",
+          "FAIL  src/lib/new-york-expansion.test.ts > New York strategic expansion > publishes the Mays Point to Montezuma Richmond Aqueduct paddle",
+          "FAIL  src/lib/new-york-expansion.test.ts > New York strategic expansion > publishes the Rotterdam Junction-to-Freeman’s Bridge section with E8 and island-channel safeguards",
+          "FAIL  src/lib/operations.test.ts > operations snapshot > keeps planning routes out of scored saturation counts",
+          "FAIL  src/lib/pennsylvania-route-audit.test.ts > Pennsylvania route completeness > keeps every Pennsylvania route usable, documented, and illustrated"
+        ],
+        "coordinateBoundaryTimeout": "Full suite exceeded five seconds; passes in both isolated comparisons with a twenty-second limit."
+      },
+      "scopedDiffCheck": "passed",
+      "logsDirectory": ".local/efficiency-audit"
+    },
+    "limits": [
+      "Local synthetic conditions; no production capacity prediction",
+      "Provider values and process RSS not profiled",
+      "Prepared search strings and retained cache values increase RAM use",
+      "Gzip level four increases fixture wire bytes by 9.2 percent"
+    ],
+    "deployed": false,
+    "releaseArtifactsRemoved": false,
+    "gitHistoryChanged": false,
+    "cloudRetentionChanged": false
+  },
+  "followupGoal": {
+    "date": "2026-10-06",
+    "status": "complete",
+    "geometryCheckpoint": {
+      "finding": 3,
+      "status": "implemented and verified locally",
+      "measurements": "docs/audits/geometry-cache-improvements-2026-10-06.json",
+      "testsPassed": 27,
+      "testFilesPassed": 4,
+      "typecheckRuntime": "passed",
+      "scopedDiffCheck": "passed"
+    },
+    "pending": [],
+    "galleryCheckpoint": {
+      "finding": 5,
+      "status": "implemented and verified locally",
+      "measurements": [
+        "docs/audits/browser-preview-bundles-before-2026-10-06.json",
+        "docs/audits/browser-preview-bundles-after-2026-10-06.json",
+        "docs/audits/photo-preview-responses-2026-10-06.json"
+      ],
+      "publicRoutesCompared": 2814,
+      "browserTestsPassed": 8,
+      "browserTestsSkipped": 4,
+      "buildPages": 3263,
+      "buildSeconds": 37.05
+    },
+    "packageCheckpoint": {
+      "finding": 6,
+      "status": "implemented and verified locally",
+      "measurements": "docs/audits/api-package-improvements-2026-10-06.json",
+      "bytesSaved": 277241653,
+      "percentSaved": 45.00857709917119,
+      "staticResourcesVerified": 6561,
+      "runtimeChecksPassed": 21,
+      "focusedTestsPassed": 114,
+      "extraLifecycleTestsPassed": 2,
+      "localNode": "24.14.0",
+      "localPlatform": "Windows",
+      "externalNetwork": "disabled",
+      "ciEnvironmentNotYetVerified": "Linux / Node 22.12.0",
+      "deployed": false
+    },
+    "photoCheckpoint": {
+      "finding": 9,
+      "status": "implemented and verified locally",
+      "measurements": "docs/audits/private-photo-improvements-2026-10-06.json",
+      "storageTestsPassed": 48,
+      "storageTestFilesPassed": 5,
+      "offlineRepositoryTestsPassed": 13,
+      "typecheckRuntime": "passed",
+      "legacyObjects": "read/delete compatibility, no bulk migration",
+      "mobileQueueContract": "unchanged",
+      "cloudStorageModified": false
+    },
+    "archiveCheckpoint": {
+      "status": "archived, retrieval verified, exact checkout copies removed",
+      "ignoreRules": "AAB/APK excluded in Git and EAS",
+      "trackedBundlesRemoved": true,
+      "preparation": {
+        "command": "node scripts/archive-android-release.mjs --destination \"C:\\Users\\Yerff\\Documents\\PaddleTodayReleaseArchives\"",
+        "commandArchivesOnly": true,
+        "sourceBytesEach": 75460463,
+        "sourceSha256": "3a4a0f38e6b9074e5148251b8e502ad4f130b699077a4ff482226110149cdea1",
+        "fixtureTestsPassed": 5,
+        "fixtureTestFilesPassed": 1,
+        "realArchiveWritten": true,
+        "destinationAnswer": "User accepted recommended local directory: sure",
+        "receipt": ".local/efficiency-audit/release-archive-tests.log"
+      },
+      "completedAt": "2026-10-06T15:38:54.6633931Z",
+      "archiveFile": "C:\\Users\\Yerff\\Documents\\PaddleTodayReleaseArchives\\paddletoday-1.1.2-3a4a0f38e6b9\\paddletoday-1.1.2.aab",
+      "manifestFile": "C:\\Users\\Yerff\\Documents\\PaddleTodayReleaseArchives\\paddletoday-1.1.2-3a4a0f38e6b9\\archive-manifest.json",
+      "retrievalVerifiedBeforeAndAfterCleanup": true,
+      "verification": "Independent SHA256 and length checks matched archive and both unchanged checkout copies before exact-path cleanup; archive SHA256 reverified afterward",
+      "checkoutBytesRecovered": 150920926,
+      "netLocalArtifactBytesRecovered": 75460463,
+      "netLocalDiskSavingsLimit": "Excludes small archive manifest; Git history unchanged",
+      "cleanupReceipt": ".local/efficiency-audit/android-release-archive.json",
+      "manifestCleanupFlag": "false reflects archive-time state; subsequent removals recorded in cleanup receipt",
+      "automaticArchiveExpiryConfigured": false
+    },
+    "catalogCheckpoint": {
+      "status": "nine failures resolved and verified locally",
+      "apiTestsPassed": 1076,
+      "apiTestFilesPassed": 196,
+      "typecheckRoutes": "passed",
+      "typecheckRuntime": "passed",
+      "scoringSafetyScenarios": 39977,
+      "scoringSafetyInvariantFailures": 0,
+      "geometryMatchedRoutes": 2798,
+      "geometryUnmatchedRoutes": 16,
+      "publicRoutes": 2814,
+      "geometryGenerationFingerprint": "preserved; catalog fingerprint recorded separately",
+      "legacyGeometryAssetsRetained": 3,
+      "fullRegeneration": "not completed; coverage refresh uses available reviewed/generated route assets",
+      "deployed": false
+    },
+    "finalVerification": {
+      "apiTestsPassed": 1076,
+      "apiTestFilesPassed": 196,
+      "additionalPackageGalleryTestsPassed": 17,
+      "offlineRepositoryTestsPassed": 13,
+      "buildPages": 3263,
+      "buildSeconds": 37.05,
+      "packagedRuntimeChecksPassed": 21,
+      "packagedStaticResourcesCompared": 6561,
+      "scopedDiffCheck": "passed",
+      "logsDirectory": ".local/efficiency-audit",
+      "archiveFixtureTestsPassed": 5,
+      "archiveRetrievalVerifiedAfterCleanup": true
+    },
+    "deployed": false,
+    "gitHistoryChanged": false,
+    "cloudRetentionChanged": false
+  }
+}
