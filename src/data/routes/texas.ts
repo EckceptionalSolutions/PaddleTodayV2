@@ -6295,7 +6295,7 @@ export const texasRoutes: River[] = [
     "state": "Texas",
     "region": "East Texas",
     "summary": "Easy Big Thicket flatwater day from FM 418 to TX 327. TPWD and NPS still document the exact 8.6-mile segment, and the Kountze USGS gauge gives a direct same-creek condition check.",
-    "statusText": "Use the Village Creek near Kountze gauge. Around 200 cfs is the conservative low-water floor for FM 418 to TX 327. The gauge was 229 cfs and 3.70 ft at 2026-07-13 14:30 CDT, just above the minimum-only floor; no route-specific upper cfs band is claimed.",
+    "statusText": "Use the Village Creek near Kountze gauge. About 200 cfs is the conservative low-water floor for the FM 418 to TX 327 route. Check current discharge and trend before launching; no route-specific upper cfs band has been established.",
     "latitude": 30.397794,
     "longitude": -94.265024,
     "safetyProfile": {

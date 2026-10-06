@@ -10473,7 +10473,7 @@ export const kentuckyRoutes: River[] = [
     "state": "Kentucky",
     "region": "Eastern Kentucky",
     "summary": "Short lower-Manchester Goose Creek connector from Jacks / Bowling Branch Bridge Access to Dump Hollow Ford. KDFWR's access-mileage table supports this 3.0-mile public route by combining the exact Jacks-to-Tobacco and Tobacco-to-Dump segments against the direct Manchester gauge.",
-    "statusText": "Use the Goose Creek at Manchester gauge. KDFWR rates 175 to 514 cfs, or 7.4 to 8.5 ft, as good for boating and fishing. The gauge was 191 cfs and 7.32 ft at 2026-07-14 00:45 EDT, so flow is barely in-band while stage is still slightly low; treat this as a marginal low-water day.",
+    "statusText": "Use the Goose Creek at Manchester gauge. KDFWR describes 175 to 514 cfs, or 7.4 to 8.5 ft, as good for boating and fishing. Check both current readings and their trend before launching; values near or outside either limit call for extra caution on this short connector.",
     "latitude": 37.2052,
     "longitude": -83.7372,
     "safetyProfile": {

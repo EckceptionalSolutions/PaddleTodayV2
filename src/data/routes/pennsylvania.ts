@@ -3997,7 +3997,7 @@ export const pennsylvaniaRoutes: River[] = [
     "state": "Pennsylvania",
     "region": "South Central Pennsylvania",
     "summary": "Short Cumberland County Conodoguinet day from Willow Mill Park to Vincent DiFilippo Nature Preserve. The county water-trail materials publish both named public launches, official mile markers, and direct Hogestown gauge guidance for when this creek is worth putting on the water.",
-    "statusText": "Use the Conodoguinet Creek near Hogestown gauge. Cumberland County says boating should be above 1.7 ft there; the gauge was only 1.52 ft at 2026-07-10 15:30 EDT, so expect dragging and shallow bridge lines rather than a routine green-light day.",
+    "statusText": "Use the Conodoguinet Creek near Hogestown gauge. Cumberland County recommends boating above 1.7 ft there. Check the live reading and trend before launching; below that guidance, this short Willow Mill to Vincent DiFilippo reach may have shallow, scrape-prone bridge approaches.",
     "latitude": 40.2578,
     "longitude": -77.0426,
     "gaugeSource": {
@@ -4122,7 +4122,7 @@ export const pennsylvaniaRoutes: River[] = [
     "state": "Pennsylvania",
     "region": "South Central Pennsylvania",
     "summary": "Longer upper-middle Conodoguinet day from Willow Mill Park to the PFBC Good Hope Access. Cumberland County still publishes both named public launches, official mile markers, and the direct Hogestown gauge floor needed to keep this creek scoreable without over-claiming a high-water comfort band.",
-    "statusText": "Use the Conodoguinet Creek near Hogestown gauge. Cumberland County says boating should be above 1.7 ft there; the gauge was 1.69 ft at 2026-07-13 15:30 EDT, so expect a scrape-prone day and treat the route as below the county floor.",
+    "statusText": "Use the Conodoguinet Creek near Hogestown gauge. Cumberland County recommends boating above 1.7 ft there. Check the live reading and trend before launching; below that guidance, expect slower travel and shallow sections on the longer Willow Mill to Good Hope route.",
     "latitude": 40.2578,
     "longitude": -77.0426,
     "safetyProfile": {
@@ -4250,7 +4250,7 @@ export const pennsylvaniaRoutes: River[] = [
     "state": "Pennsylvania",
     "region": "South Central Pennsylvania",
     "summary": "Mid-creek Cumberland County Conodoguinet day from Vincent DiFilippo Nature Preserve to the PFBC Good Hope Access. The current county access table still defines the pair cleanly, and the same direct Hogestown gauge gives a current depth check for the whole corridor.",
-    "statusText": "Use the Conodoguinet Creek near Hogestown gauge. Cumberland County says boating should be above 1.7 ft there; the gauge was only 1.52 ft at 2026-07-10 15:30 EDT, so expect dragging and shallow bridge approaches rather than a routine easy day.",
+    "statusText": "Use the Conodoguinet Creek near Hogestown gauge. Cumberland County recommends boating above 1.7 ft there. Check the live reading and trend before launching; below that guidance, the Vincent DiFilippo to Good Hope segment may be shallow and scrape-prone.",
     "latitude": 40.2561,
     "longitude": -77.0192,
     "gaugeSource": {
@@ -4374,7 +4374,7 @@ export const pennsylvaniaRoutes: River[] = [
     "state": "Pennsylvania",
     "region": "South Central Pennsylvania",
     "summary": "Long middle-to-lower Conodoguinet day from Vincent DiFilippo Nature Preserve to Acri Meadow Park. Cumberland County still publishes both named public launches, official mile markers, and the same direct Hogestown gauge floor for deciding whether this creek has enough depth to justify a longer day.",
-    "statusText": "Use the Conodoguinet Creek near Hogestown gauge. Cumberland County says boating should be above 1.7 ft there; the gauge was 1.69 ft at 2026-07-13 15:30 EDT, so expect a slow scrape-prone run and treat the route as below the county floor.",
+    "statusText": "Use the Conodoguinet Creek near Hogestown gauge. Cumberland County recommends boating above 1.7 ft there. Check the live reading and trend before launching; below that guidance, expect slower progress on this Vincent DiFilippo to Acri Meadow reach.",
     "latitude": 40.2561,
     "longitude": -77.0192,
     "safetyProfile": {
@@ -4491,7 +4491,7 @@ export const pennsylvaniaRoutes: River[] = [
     "state": "Pennsylvania",
     "region": "South Central Pennsylvania",
     "summary": "Longer lower-central Conodoguinet day from the PFBC Good Hope Access to Acri Meadow Park. Cumberland County still publishes both launches, the official mile spacing, and the same direct Hogestown gauge recommendation that keeps the route scoreable without over-claiming a high-water comfort band.",
-    "statusText": "Use the Conodoguinet Creek near Hogestown gauge. Cumberland County says boating should be above 1.7 ft there; the gauge was only 1.52 ft at 2026-07-10 15:30 EDT, so expect scraping, slower travel, and a more conditional lower-creek day.",
+    "statusText": "Use the Conodoguinet Creek near Hogestown gauge. Cumberland County recommends boating above 1.7 ft there. Check the live reading and trend before launching; below that guidance, shallow water may slow the Good Hope to Acri Meadow segment.",
     "latitude": 40.25889805739634,
     "longitude": -76.97639236255715,
     "gaugeSource": {
@@ -4615,7 +4615,7 @@ export const pennsylvaniaRoutes: River[] = [
     "state": "Pennsylvania",
     "region": "South Central Pennsylvania",
     "summary": "Full central Conodoguinet day from Willow Mill Park to Acri Meadow Park. Cumberland County still publishes both named public launches, official mile markers, and the direct Hogestown gauge floor, which is enough to score this longer creek card conservatively without pretending the county has a polished ideal high band.",
-    "statusText": "Use the Conodoguinet Creek near Hogestown gauge. Cumberland County says boating should be above 1.7 ft there; the gauge was only 1.71 ft at 2026-07-06 19:30 EDT, so this 17.4-mile route should be treated as a marginal low-water day rather than a casual green-light recommendation.",
+    "statusText": "Use the Conodoguinet Creek near Hogestown gauge. Cumberland County recommends boating above 1.7 ft there. Check the live reading and trend before launching; below that guidance, plan for possible dragging on this longer Willow Mill to Acri Meadow run.",
     "latitude": 40.2578,
     "longitude": -77.0426,
     "safetyProfile": {
@@ -4738,7 +4738,7 @@ export const pennsylvaniaRoutes: River[] = [
     "state": "Pennsylvania",
     "region": "South Central Pennsylvania",
     "summary": "Middle Yellow Breeches township-to-township day from Simpson Park to Lower Allen Community Park. Cumberland County still publishes both named public launches and the Camp Hill gauge guidance, which is enough to ship this short creek route with conservative low-water and downstream-blockage messaging.",
-    "statusText": "Use the Yellow Breeches Creek near Camp Hill gauge as an official same-creek proxy. Cumberland County recommends boating at about 1.4 to 2.0 ft there; the gauge was 1.38 ft at 2026-07-10 08:13 EDT, so expect scraping and slower lines rather than a clean beginner green-light.",
+    "statusText": "Use the Yellow Breeches Creek near Camp Hill as an official same-creek proxy. Cumberland County recommends boating at about 1.4 to 2.0 ft. Check the live reading and trend before launching; below that range, expect shallow scraping on the Simpson Park to Lower Allen reach.",
     "latitude": 40.164151,
     "longitude": -76.976192,
     "gaugeSource": {
@@ -4865,7 +4865,7 @@ export const pennsylvaniaRoutes: River[] = [
     "state": "Pennsylvania",
     "region": "South Central Pennsylvania",
     "summary": "Short Yellow Breeches middle segment from McCormick Park to the public Liberty Forge bridge access. Cumberland County still documents the access pair, the bridge-side public-use terms at Liberty Forge, and the same Camp Hill gauge guidance used for the whole trail.",
-    "statusText": "Use the Yellow Breeches Creek near Camp Hill gauge as an official same-creek proxy. Cumberland County recommends boating at about 1.4 to 2.0 ft there; the gauge was 1.38 ft at 2026-07-10 08:13 EDT, so expect scrape-prone shallows and slower pool-to-riffle progress.",
+    "statusText": "Use the Yellow Breeches Creek near Camp Hill as an official same-creek proxy. Cumberland County recommends boating at about 1.4 to 2.0 ft. Check the live reading and trend before launching; below that range, this short McCormick Park to Liberty Forge segment may be scrape-prone.",
     "latitude": 40.165436,
     "longitude": -76.95508,
     "gaugeSource": {
@@ -4992,7 +4992,7 @@ export const pennsylvaniaRoutes: River[] = [
     "state": "Pennsylvania",
     "region": "South Central Pennsylvania",
     "summary": "Very short Yellow Breeches connector from the campground-supported Lower Allen launch to the public Liberty Forge bridge access. Cumberland County still documents the access pair, the bridge-side public-use terms at Liberty Forge, and the same Camp Hill gauge guidance used for the whole trail.",
-    "statusText": "Use the Yellow Breeches Creek near Camp Hill gauge as an official same-creek proxy. Cumberland County recommends boating at about 1.4 to 2.0 ft there; the gauge was 1.12 ft at 2026-07-14 00:45 EDT, so expect a scrape-prone low-water connector rather than a broad green-light.",
+    "statusText": "Use the Yellow Breeches Creek near Camp Hill as an official same-creek proxy. Cumberland County recommends boating at about 1.4 to 2.0 ft. Check the live reading and trend before launching; below that range, expect slower, shallow travel from Lower Allen to Liberty Forge.",
     "latitude": 40.172373,
     "longitude": -76.913787,
     "gaugeSource": {
@@ -5119,7 +5119,7 @@ export const pennsylvaniaRoutes: River[] = [
     "state": "Pennsylvania",
     "region": "South Central Pennsylvania",
     "summary": "Lower-middle Yellow Breeches segment from the campground-supported Lower Allen launch to Yellow Breeches Park. This route intentionally stops above the currently flagged B7 blockage and dam-portage area instead of pretending the downstream continuation is routine.",
-    "statusText": "Use the Yellow Breeches Creek near Camp Hill gauge as an official same-creek proxy. Cumberland County recommends boating at about 1.4 to 2.0 ft there; the gauge was 1.38 ft at 2026-07-10 08:13 EDT, so treat this as a scrape-prone low-water day, not a broad green-light.",
+    "statusText": "Use the Yellow Breeches Creek near Camp Hill as an official same-creek proxy. Cumberland County recommends boating at about 1.4 to 2.0 ft. Check the live reading and trend before launching; below that range, the Lower Allen to Yellow Breeches Park route may scrape in shallow sections.",
     "latitude": 40.172373,
     "longitude": -76.913787,
     "gaugeSource": {
@@ -5246,7 +5246,7 @@ export const pennsylvaniaRoutes: River[] = [
     "state": "Pennsylvania",
     "region": "South Central Pennsylvania",
     "summary": "Longer upper-middle Yellow Breeches day from Simpson Park to the public Liberty Forge bridge access. Cumberland County still documents the full access chain, the bridge-side public-use terms at Liberty Forge, and the Camp Hill gauge guidance used for the whole trail.",
-    "statusText": "Use the Yellow Breeches Creek near Camp Hill gauge as an official same-creek proxy. Cumberland County recommends boating at about 1.4 to 2.0 ft there; the gauge was 1.26 ft at 2026-07-10 23:45 EDT, so expect frequent scraping and slower pool-to-riffle progress rather than a smooth beginner green-light.",
+    "statusText": "Use the Yellow Breeches Creek near Camp Hill as an official same-creek proxy. Cumberland County recommends boating at about 1.4 to 2.0 ft. Check the live reading and trend before launching; below that range, plan for slower travel on the Simpson Park to Liberty Forge reach.",
     "latitude": 40.164151,
     "longitude": -76.976192,
     "gaugeSource": {
@@ -5373,7 +5373,7 @@ export const pennsylvaniaRoutes: River[] = [
     "state": "Pennsylvania",
     "region": "South Central Pennsylvania",
     "summary": "Longest currently shippable Yellow Breeches public day from Simpson Park to Yellow Breeches Park. Cumberland County still documents the full access chain, the Camp Hill gauge guidance, and the current B6 finish that stays above the posted B7 blockage.",
-    "statusText": "Use the Yellow Breeches Creek near Camp Hill gauge as an official same-creek proxy. Cumberland County recommends boating at about 1.4 to 2.0 ft there; the gauge was 1.26 ft at 2026-07-10 23:45 EDT, so treat this as a scrape-prone low-water outing rather than a broad green-light.",
+    "statusText": "Use the Yellow Breeches Creek near Camp Hill as an official same-creek proxy. Cumberland County recommends boating at about 1.4 to 2.0 ft. Check the live reading and trend before launching; below that range, expect shallow scraping on the Simpson Park to Yellow Breeches Park route.",
     "latitude": 40.164151,
     "longitude": -76.976192,
     "gaugeSource": {
@@ -5500,7 +5500,7 @@ export const pennsylvaniaRoutes: River[] = [
     "state": "Pennsylvania",
     "region": "South Central Pennsylvania",
     "summary": "Middle-lower Yellow Breeches continuation from McCormick Park to Yellow Breeches Park. Cumberland County still documents the full access chain, the bridge-side Liberty Forge public-use terms, and the B6 finish that stays above the current downstream blockage.",
-    "statusText": "Use the Yellow Breeches Creek near Camp Hill gauge as an official same-creek proxy. Cumberland County recommends boating at about 1.4 to 2.0 ft there; the gauge was 1.26 ft at 2026-07-10 23:45 EDT, so expect scrape-prone shallows and slower-than-normal travel.",
+    "statusText": "Use the Yellow Breeches Creek near Camp Hill as an official same-creek proxy. Cumberland County recommends boating at about 1.4 to 2.0 ft. Check the live reading and trend before launching; below that range, the McCormick Park to Yellow Breeches Park route may be scrape-prone.",
     "latitude": 40.165436,
     "longitude": -76.95508,
     "gaugeSource": {
@@ -5627,7 +5627,7 @@ export const pennsylvaniaRoutes: River[] = [
     "state": "Pennsylvania",
     "region": "South Central Pennsylvania",
     "summary": "Shortest current Yellow Breeches public segment between Simpson Park and McCormick Park. Cumberland County still publishes both named launches, the exact 1.1-mile spacing, and the same Camp Hill gauge guidance used for the rest of the trail, which is enough for a cautious low-water add.",
-    "statusText": "Use the Yellow Breeches Creek near Camp Hill gauge as an official same-creek proxy. Cumberland County recommends boating at about 1.4 to 2.0 ft there; the gauge was 1.25 ft at 2026-07-11 00:45 EDT, so expect a scrape-prone short outing rather than an automatic beginner green-light.",
+    "statusText": "Use the Yellow Breeches Creek near Camp Hill as an official same-creek proxy. Cumberland County recommends boating at about 1.4 to 2.0 ft. Check the live reading and trend before launching; below that range, the Simpson Park to McCormick Park section may have shallow riffles.",
     "latitude": 40.164151,
     "longitude": -76.976192,
     "gaugeSource": {
@@ -5748,7 +5748,7 @@ export const pennsylvaniaRoutes: River[] = [
     "state": "Pennsylvania",
     "region": "South Central Pennsylvania",
     "summary": "Middle Yellow Breeches public segment from McCormick Park to Lower Allen Community Park. Cumberland County still publishes both launches, the exact 3.6-mile route shape, and the campground-supported take-out, while the same Camp Hill gauge story keeps low-water caution explicit.",
-    "statusText": "Use the Yellow Breeches Creek near Camp Hill gauge as an official same-creek proxy. Cumberland County recommends boating at about 1.4 to 2.0 ft there; the gauge was 1.25 ft at 2026-07-11 00:45 EDT, so expect shallow scraping and slower lines rather than a normal summer sweet spot.",
+    "statusText": "Use the Yellow Breeches Creek near Camp Hill as an official same-creek proxy. Cumberland County recommends boating at about 1.4 to 2.0 ft. Check the live reading and trend before launching; below that range, expect shallow scraping on the McCormick Park to Lower Allen reach.",
     "latitude": 40.165436,
     "longitude": -76.95508,
     "gaugeSource": {
@@ -5875,7 +5875,7 @@ export const pennsylvaniaRoutes: River[] = [
     "state": "Pennsylvania",
     "region": "South Central Pennsylvania",
     "summary": "Short lower-middle Yellow Breeches segment from the public Liberty Forge bridge access to Yellow Breeches Park. Cumberland County still documents both endpoints, the exact 1.9-mile route shape, and the current B6 finish logic above the downstream blockage.",
-    "statusText": "Use the Yellow Breeches Creek near Camp Hill gauge as an official same-creek proxy. Cumberland County recommends boating at about 1.4 to 2.0 ft there; the gauge was 1.25 ft at 2026-07-11 00:45 EDT, so treat this as a scrape-prone short float instead of a broad green-light.",
+    "statusText": "Use the Yellow Breeches Creek near Camp Hill as an official same-creek proxy. Cumberland County recommends boating at about 1.4 to 2.0 ft. Check the live reading and trend before launching; below that range, the Liberty Forge to Yellow Breeches Park connector may be shallow.",
     "latitude": 40.177495,
     "longitude": -76.924172,
     "gaugeSource": {
