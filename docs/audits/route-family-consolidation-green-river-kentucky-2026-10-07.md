@@ -54,4 +54,4 @@ The candidate build contains 2,988 sitemap URLs and 2,548 standalone route pages
 
 ## Search Console follow-up
 
-On October 7, Search Console's stale 404 sample still included the retired `/rivers/by-river/green-river/` hub URL. The current path `/rivers/by-river/green-river-kentucky/` serves the replacement 32-trip hub, but the old hub URL returned 404. Added an Azure Static Web Apps 301 rule from the old hub path to the current hub; production verification is pending deployment. The old URL is not in the sitemap; the live sitemap remains limited to current canonical pages.
+On October 7, Search Console's stale 404 sample still included the retired `/rivers/by-river/green-river/` hub URL. Commit `242c61d1e636b63d254e37ec46c58919580da42b` adds an Azure Static Web Apps 301 from the old hub path to the current 32-trip hub. Production now returns that 301 for both slash and non-slash forms; the old URL is not in the sitemap.

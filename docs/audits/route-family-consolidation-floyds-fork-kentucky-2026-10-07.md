@@ -49,10 +49,12 @@ Sources:
 - The Parklands, [recommended-route map](https://theparklands.org/app/uploads/2020/11/TheParklands_PaddlingMap_Public.pdf)
 - The Parklands, [current paddling information and access notices](https://theparklands.org/find-an-activity/paddling/)
 
-## Implementation and candidate verification
+## Implementation and verification
 
 The hub now leads with the source-named sections, distinguishes the two KDFWR flow recommendations, and surfaces The Parklands' landing and notice guidance. Eight retired route pages resolve to the matching hub selections. Search Console settings remain unchanged; no sitemap submission or URL Inspection indexing request was made.
 
 The full production build and typecheck passed. The built-page indexability audit found 2,811 sitemap URLs, all 21 Floyds Fork trip cards, all 13 retained route pages in the sitemap and hub guide, and all eight exact selected-card fallback targets outside the sitemap. The audit reported no orphaned public pages, missing state or hub links, duplicate route headings or descriptions, errors, or warnings. The seven unrelated legacy 404 paths also have matching redirect rules in the 4,332-byte Azure configuration.
 
-Production verification is pending deployment. This change targets page selection and user discovery; it cannot guarantee indexing or ranking recovery.
+Commit `242c61d1e636b63d254e37ec46c58919580da42b` is deployed. Frontend [workflow 37683036826](https://github.com/EckceptionalSolutions/PaddleTodayV2/actions/runs/37683036826), API [workflow 37683036854](https://github.com/EckceptionalSolutions/PaddleTodayV2/actions/runs/37683036854), and Snapshot Worker [workflow 37683036825](https://github.com/EckceptionalSolutions/PaddleTodayV2/actions/runs/37683036825) all succeeded. Live production checks matched the candidate: the sitemap index and child return HTTP 200 with 2,811 URLs; the Floyds Fork hub returns HTTP 200 with 21 trip cards; all 13 retained guides return HTTP 200 with self-canonicals and sitemap entries; and all eight consolidated paths preserve their exact hub selection in their instant meta-refresh fallback pages and stay out of the sitemap. All seven legacy paths return the intended HTTP 301 to their replacement hubs for both slash and non-slash forms.
+
+This change targets page selection and user discovery; it cannot guarantee indexing or ranking recovery. Search Console settings remain unchanged; no sitemap submission or URL Inspection indexing request was made.
