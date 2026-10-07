@@ -1,10 +1,10 @@
 # Route corridor migration inventory
 
-Generated 2026-10-07T16:28:04.953Z.
+Generated 2026-10-07T16:40:25.222Z.
 
-- Defined corridors: 225
-- Routes covered by a corridor definition: 843
-- Remaining multi-route families: 325
+- Defined corridors: 226
+- Routes covered by a corridor definition: 865
+- Remaining multi-route families: 324
 
 ## Defined corridors
 
@@ -13,6 +13,7 @@ Generated 2026-10-07T16:28:04.953Z.
 | mt-blackfoot-section-family | Blackfoot River five named source-backed section family | condition-family | 39 | 0 |
 | ky-green-river-three-zone-family | Green River Upper Green, Hart County, and Mammoth Cave paddling zones | condition-family | 32 | 0 |
 | ct-willimantic-water-trail | Willimantic River Water Trail three-segment condition family | condition-family | 34 | 0 |
+| ma-millers-river-access-zones | Millers River Athol–Orange Blue Trail, South Main Street Dam portage, and Lower Millers condition zones | condition-family | 22 | 0 |
 | vt-lamoille-paddlers-trail | Lamoille River Paddlers Trail named reach family | condition-family | 28 | 0 |
 | ri-woonasquatucket-paddling-zones | Woonasquatucket River upper and lower paddling zones | condition-family | 28 | 0 |
 | fl-suwannee-wilderness-trail | Suwannee River Wilderness Trail section family | condition-family | 44 | 0 |
@@ -262,7 +263,6 @@ Generated 2026-10-07T16:28:04.953Z.
 | South Carolina | Broad River | 25 |
 | Nevada | Truckee River | 24 |
 | Arkansas | Buffalo River | 23 |
-| Massachusetts | Millers River | 22 |
 | Kentucky | Floyds Fork | 21 |
 | Missouri | Eleven Point River | 20 |
 | New Hampshire | Merrimack River | 20 |
@@ -295,6 +295,7 @@ Generated 2026-10-07T16:28:04.953Z.
 | New Hampshire | Saco River | 10 |
 | Arizona | Salt River | 10 |
 | Kentucky | Upper Cumberland River | 10 |
-| Additional families omitted | See route data and overlap audit | 285 |
+| North Carolina | Yadkin River | 10 |
+| Additional families omitted | See route data and overlap audit | 284 |
 
 This inventory is a migration queue, not an automatic deletion list. Each family still requires source review for continuity, hazards, access legality, gauge boundaries, and explicit trip edges.

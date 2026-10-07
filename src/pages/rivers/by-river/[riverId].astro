@@ -18,6 +18,7 @@ export function getStaticPaths() {
 
 const { group } = Astro.props;
 const isWillimanticHub = group.riverId === 'willimantic-river-connecticut';
+const isMillersHub = group.riverId === 'millers-river-massachusetts';
 const isGreenRiverHub = group.riverId === 'green-river-kentucky';
 const isBlackfootHub = group.riverId === 'blackfoot-river-montana';
 const isWillametteHub = group.riverId === 'willamette-river-oregon';
@@ -56,6 +57,8 @@ const groupTitle = isWoonasquatucketHub
   : `${group.name}, ${groupTitleLocation} | Paddle Routes & Trip Planning`;
 const groupDescription = isWillimanticHub
   ? 'Plan the Willimantic River Water Trail by stretch: upper quickwater, Eagleville Lake, or the lower river after the dam portage. Compare public access, mileage, and USGS stage cues.'
+  : isMillersHub
+  ? 'Compare the flatwater Athol–Orange Blue Trail, the South Main Street Dam portage, and the Lower Millers whitewater. The Erving gauge applies to the lower reach, not every trip option.'
   : isGreenRiverHub
   ? 'Plan Kentucky’s Green River by its Upper Green, Hart County, and Mammoth Cave stretches. Compare official trips, public access, and the distinct flow and stage guidance for each zone.'
   : isBlackfootHub
@@ -301,6 +304,8 @@ const faqItems = [
       ? 'Start with the named Asti–Alexander and Alexander Valley–Healdsburg upper runs, the Healdsburg–Wohler or Mirabel middle reach, or a lower beach-to-beach trip. The hub keeps every endpoint combination available so you can choose a shorter exit or a longer day.'
       : isGreenRiverHub
       ? 'Choose among the Upper Green from Tailwater toward Greensburg, the spring-fed Hart County reaches from Lynn Camp to Stovall Park, or the Mammoth Cave trips from Dennison Ferry through Houchin Ferry to Brownsville. Each zone has different access and condition guidance; the hub keeps all 32 endpoint choices available.'
+      : isMillersHub
+      ? 'Start with the six-mile Cass Meadow-to-Orange flatwater Blue Trail, the Lower Millers whitewater from Erving toward Millers Falls, or a longer trip that uses the marked South Main Street Dam portage. These are separate sections with different conditions and access checks.'
       : isWillimanticHub
       ? `This guide keeps the Willimantic Water Trail's mapped put-in and take-out combinations together. Choose a trip option below to compare its distance, access, gauge cue, and hazards.`
       : isWillametteHub
@@ -323,6 +328,8 @@ const faqItems = [
       ? 'Use the guide for your exact stretch. California Creeks ties its 300–1,500 cfs guidance for Healdsburg-to-near-Forestville and Alexander-to-Healdsburg runs to the Healdsburg gauge. Dreamflows separately lists 500–2,500 cfs triggers for Healdsburg-to-Guerneville at Hacienda Bridge. These are community flow indicators, not safe limits; the Asti reach has separate seasonal guidance.'
       : isGreenRiverHub
       ? 'Use the source for your exact zone and do not compare the numbers directly: the Upper Green guide uses Green River Lake dam release in cfs, KDFWR lists a separate Greensburg stage gauge in feet and a Munfordville discharge gauge in cfs, and NPS gives Mammoth Cave stage ranges and a park closure threshold. Multi-zone combinations are planning-only because one reading cannot represent all of those conditions.'
+      : isMillersHub
+      ? 'USGS 01166500 at Erving provides direct flow context for the Lower Millers run. The Athol–Orange Blue Trail is flatwater held by the Orange dam, so the downstream Erving gauge does not describe that reach. Trips that cross the dam are planning-only; verify both sections and the portage separately.'
       : isWillametteHub
       ? 'The Willamette Kayak and Canoe Club’s 2,000 cfs low, 6,000 cfs optimal, and 20,000 cfs high references apply to the Alton Baker–Harrisburg reach and two shorter options within it. The other trips are planning-only because no route-specific numeric range is verified; their Harrisburg or Corvallis USGS readings are context, not a live recommendation.'
       : scoredRouteCount
@@ -985,6 +992,50 @@ const groupStructuredData = [
 
           <p>
             Compare the <a href="https://www.cttrailfinder.com/trails/trail/willimantic-river-water-trail" target="_blank" rel="noopener noreferrer">Connecticut Trail Finder water-trail page and map</a>, The Last Green Valley’s <a href="https://thelastgreenvalley.org/member-directory/willimantic-river-nrt-eagleville-lake-to-route-66-columbia/" target="_blank" rel="noopener noreferrer">Eagleville-to-Willimantic access note</a>, its <a href="https://thelastgreenvalley.org/wp-content/uploads/2024/08/PaddleGuide2016xweb.pdf" target="_blank" rel="noopener noreferrer">2016 Paddle Guide (PDF)</a>, and the <a href="https://thelastgreenvalley.org/wp-content/uploads/2014/10/WilliPaddle2013web.pdf" target="_blank" rel="noopener noreferrer">older 2013 guide (PDF)</a>. Check the linked USGS gauge, weather, waterway notices, and access status before every trip. Never run Eagleville Dam or paddle beyond the take-out designated by the trail manager.
+          </p>
+        </div>
+      ) : null}
+
+      {isMillersHub ? (
+        <div class="river-hub-context__source-guide" id="millers-route-zones" aria-labelledby="millers-route-zones-title">
+          <div class="river-group-page__section-head">
+            <div>
+              <p class="eyebrow section-label">Millers River sections</p>
+              <h3 class="section-title" id="millers-route-zones-title">Choose a reach before choosing a take-out</h3>
+            </div>
+            <p class="muted river-group-page__section-note">
+              These trips span a dam boundary and very different water types. Start with the section guide below, then compare the verified endpoint choices in the trip selector.
+            </p>
+          </div>
+
+          <div class="river-hub-context__grid">
+            <article class="river-hub-context__item">
+              <h3>Athol–Orange Blue Trail · about 6 miles</h3>
+              <p>The Millers River Watershed Council describes Cass Meadow to Orange Riverfront Park as relaxed flatwater for paddlers of varied ages and experience. The dam in Orange maintains levels through this section. The Erving gauge is downstream and does not provide a route-specific score for the Blue Trail.</p>
+              <a href="/rivers/millers-river-cass-meadow-orange-riverfront/">Open the Blue Trail trip guide</a>
+            </article>
+            <article class="river-hub-context__item">
+              <h3>South Main Street Dam · mandatory portage</h3>
+              <p>Trips that continue from the Blue Trail into the lower river need a take-out above South Main Street Dam, a land portage, and a relaunch below it. Treat these as long, planning-only trips: one gauge reading cannot represent both the impounded flatwater and the downstream whitewater.</p>
+              <a href="/rivers/millers-river-cass-meadow-arch-street/">Review the Cass Meadow to Arch Street portage plan</a>
+            </article>
+            <article class="river-hub-context__item">
+              <h3>Lower Millers · Erving to Millers Falls</h3>
+              <p>American Whitewater describes about 6.2 miles of Class II–III(IV) water, with Funnel as the main Class III rapid; the Town of Erving warns that this reach is not for beginners and has no viable portage around Funnel. Check the Erving gauge and current wood, weather, and access before launch.</p>
+              <a href="/rivers/millers-river-erving-millers-falls/">Open the Lower Millers route guide</a>
+            </article>
+            <article class="river-hub-context__item">
+              <h3>Below the dam to Arch Street · Reach 6</h3>
+              <p>This source-named reach starts below the marked dam portage and ends at the Arch Street access in Erving. Its trip notes retain the carry and launch checks; it is planning-only because the Erving gauge lies downstream of this shorter segment.</p>
+              <a href="/rivers/millers-river-south-main-dam-arch-street/">Review the Reach 6 trip details</a>
+            </article>
+          </div>
+
+          <p>
+            Read the <a href="https://millerswatershed.org/blue-trails/" target="_blank" rel="noopener noreferrer">Millers River Watershed Council Blue Trail guide</a>, the <a href="https://www.erving-ma.gov/210/Millers-River" target="_blank" rel="noopener noreferrer">Town of Erving paddling and access notes</a>, and <a href="https://www.americanwhitewater.org/content/River/view/river-detail/695/main" target="_blank" rel="noopener noreferrer">American Whitewater’s Lower Millers reach page</a>. Check current access, dam notices, weather, water quality, and live flow before every trip.
+          </p>
+          <p>
+            In August 2025, the Massachusetts Office of Fishing and Boating Access opened a separate launch for 6.6 additional river miles from Royalston toward Athol. The current route cards do not yet describe a verified trip on that upstream segment; see the <a href="https://www.mass.gov/news/healey-driscoll-administration-celebrates-new-access-to-outdoor-recreation-on-the-millers-river" target="_blank" rel="noopener noreferrer">state access announcement</a> for the facility details.
           </p>
         </div>
       ) : null}

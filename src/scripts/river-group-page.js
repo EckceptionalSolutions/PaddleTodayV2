@@ -50,6 +50,7 @@ if (!riverId) {
   throw new Error('Missing river group id.');
 }
 const isWillimanticHub = riverId === 'willimantic-river-connecticut';
+const hasConsolidatedTrips = root.dataset.hasConsolidatedTrips === 'true';
 
 const routeList = root.querySelector('[data-group-route-list]');
 const banner = root.querySelector('[data-group-status-banner]');
@@ -407,11 +408,22 @@ function conditionsLine(route) {
 
 function tripNotesMarkup(route) {
   if (!isWillimanticHub) {
-    return `<a class="river-link river-link--inline route-choice__details-link" href="${routePageHref(route.slug)}">View route</a>`;
+    return `<a class="river-link river-link--inline route-choice__details-link" href="${routePageHref(route.slug)}">${hasConsolidatedTrips ? 'View trip option' : 'View route'}</a>`;
   }
 
+  return routeTripNotesMarkup(route);
+}
+
+function selectedTripNotesMarkup(route) {
+  if (!hasConsolidatedTrips || isWillimanticHub) return '';
+  return routeTripNotesMarkup(route, 'route-choice__trip-notes route-choice__trip-notes--selected');
+}
+
+function routeTripNotesMarkup(route, className = 'route-choice__trip-notes') {
   const gaugeFloor = route.profile?.idealMin ?? route.profile?.tooLow;
-  const gaugeCue = Number.isFinite(gaugeFloor)
+  const gaugeCue = isPlanningRoute(route)
+    ? 'Planning only: no route-specific Paddle Today flow band or score. Use local sources and check the reach in the field.'
+    : Number.isFinite(gaugeFloor)
     ? `Published planning floor: ${escapeHtml(String(gaugeFloor))} ${escapeHtml(route.gaugeSource?.unit || '')}. Check the live reading and trend before launch.`
     : 'Check the live reading and trend before launch.';
   const noteList = (label, values) => Array.isArray(values) && values.length
@@ -419,7 +431,7 @@ function tripNotesMarkup(route) {
     : '';
 
   return `
-    <details class="route-choice__trip-notes">
+    <details class="${className}">
       <summary><span>Trip details</span><span>Access · gauge · safety</span></summary>
       <div class="route-choice__trip-notes-panel">
         <p class="route-choice__trip-summary">${escapeHtml(route.logistics?.summary || route.summary || '')}</p>
@@ -1259,7 +1271,7 @@ function renderRouteList(routes) {
 
       return `
         <article
-          ${isWillimanticHub ? `id="trip-${escapeHtml(route.slug)}"` : ''}
+          ${hasConsolidatedTrips ? `id="trip-${escapeHtml(route.slug)}"` : ''}
           class="route-choice${active ? ' route-choice--active' : ''}"
           data-group-route-card
           data-route-slug="${route.slug}"
@@ -1369,8 +1381,9 @@ function renderSelectedSummary(route) {
       ? '<div class="river-route-picker__selected-decision river-route-picker__selected-decision--planning"><strong>—</strong><span>Call unavailable</span></div>'
       : `<div class="river-route-picker__selected-decision river-route-picker__selected-decision--${ratingToneKey(route.rating)}"><strong>${escapeHtml(String(route.score))}</strong><span>${escapeHtml(decisionLabel(route))}</span></div>`}
     <div class="river-route-picker__selected-actions">
-      <a class="river-link river-link--inline" href="${routePageHref(route.slug)}">${isWillimanticHub ? 'View trip option' : 'View route details'}</a>
+      <a class="river-link river-link--inline" href="${routePageHref(route.slug)}">${hasConsolidatedTrips ? 'View trip option' : 'View route details'}</a>
     </div>
+    ${selectedTripNotesMarkup(route)}
     ${nearbyMarkup}
   `;
 

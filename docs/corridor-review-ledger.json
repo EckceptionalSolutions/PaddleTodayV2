@@ -2206,5 +2206,13 @@
     "continuityStatus": "condition-family",
     "nextReview": "2026-10-08",
     "notes": "Reviewed all 32 Green River endpoint pairs against KDFWR Pool 6 access/mileage and gauge guidance, its separate Upper Green and Hart County Blue Water Trail guides, NPS Mammoth Cave trip and safety pages, and USGS 03309000. Retain eight source-documented standalone trips: Tailwater–Roachville, Tailwater–Greensburg, Lynn Camp–Rio, Rio–H.H. Wilson, H.H. Wilson–Stovall, Dennison–Green River Ferry, Green River Ferry–Houchin, and Houchin–Brownsville. Consolidate 24 other combinations to exact hub trip cards while preserving every option and its route details. Use separate Upper Green dam-release, Greensburg stage, Munfordville discharge, and Mammoth Cave stage contexts; do not transfer one zone's numeric guidance to another. Eleven composite trips crossing documented guidance zones are planning-only. NPS recommends 9–15 ft for beginner and 9–18 ft for intermediate paddlers and prohibits park river use at or above 20 ft; current access, rapid, private-bank, ferry, and campground notices still require direct verification. These conditions are planning cues, not safe limits."
+  },
+  {
+    "corridorId": "ma-millers-river-access-zones",
+    "status": "approved",
+    "owner": "route-data-team",
+    "continuityStatus": "condition-family",
+    "nextReview": "2026-10-08",
+    "notes": "Reviewed 22 catalog records against the Millers River Watershed Council Blue Trail guide, Town of Erving access and hazard guidance, American Whitewater's Lower Millers reach page, Massachusetts Paddler's reach inventory, and USGS 01166500. Preserve four source-distinct standalone pages: the Athol–Orange flatwater Blue Trail, its long composite itinerary with the mandatory South Main Street Dam portage, the Reach 6 below-dam-to-Arch Street section, and the Erving-to-Millers Falls Lower Millers run. Consolidate 17 overlapping endpoint combinations to their exact hub trip cards and hold one upstream-reversed endpoint order. Keep all options crossing zones or lacking exact reach-scoped scoring planning-only; the Erving score range stays on the documented Lower Millers core run. The 2025 Royalston–Athol launch is a follow-up candidate pending verified route access and conditions. The Blue Trail, portage, Reach 6, and whitewater zones do not share a continuous condition profile."
   }
 ]

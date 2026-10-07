@@ -187,5 +187,14 @@
     "conversionBaseline": null,
     "conversionPilot": null,
     "safetyReview": "approved"
+  },
+  {
+    "corridorId": "ma-millers-river-access-zones",
+    "canonicalSlug": null,
+    "status": "recommend",
+    "underlyingTripOptionsPreserved": true,
+    "conversionBaseline": null,
+    "conversionPilot": null,
+    "safetyReview": "approved"
   }
 ]

@@ -65,6 +65,13 @@ export const routeCorridorDefinitions: RouteCorridorDefinition[] = [
     slugPrefix: 'willimantic-river-',
   },
   {
+    corridorId: 'ma-millers-river-access-zones',
+    label: 'Millers River Athol–Orange Blue Trail, South Main Street Dam portage, and Lower Millers condition zones',
+    continuityStatus: 'condition-family',
+    slugPrefix: 'millers-river-',
+    segmentEdges: [],
+  },
+  {
     corridorId: 'vt-lamoille-paddlers-trail',
     label: 'Lamoille River Paddlers Trail named reach family',
     continuityStatus: 'condition-family',

@@ -43,6 +43,7 @@ const suwanneeHubPath = '/rivers/by-river/suwannee-river-florida/';
 const bayouTecheHubPath = '/rivers/by-river/bayou-teche-river-louisiana/';
 const willametteHubPath = '/rivers/by-river/willamette-river-oregon/';
 const greenRiverHubPath = '/rivers/by-river/green-river-kentucky/';
+const millersHubPath = '/rivers/by-river/millers-river-massachusetts/';
 
 const blackCreekCompositeRouteSlugs = [
   'black-creek-big-creek-cypress',
@@ -375,6 +376,26 @@ const greenRiverConsolidatedRouteSlugs = [
   'green-river-lynn-camp-creek-hh-wilson-park',
 ] as const;
 
+const millersConsolidatedRouteSlugs = [
+  'millers-river-cass-meadow-farley',
+  'millers-river-cass-meadow-millers-falls',
+  'millers-river-cass-meadow-railroad',
+  'millers-river-cass-meadow-route-2',
+  'millers-river-erving-farley',
+  'millers-river-erving-railroad',
+  'millers-river-erving-route-2-rest-area',
+  'millers-river-farley-millers-falls',
+  'millers-river-farley-route-2',
+  'millers-river-railroad-farley',
+  'millers-river-railroad-millers-falls',
+  'millers-river-railroad-route-2',
+  'millers-river-route-2-rest-area-millers-falls',
+  'millers-river-south-main-dam-farley',
+  'millers-river-south-main-dam-millers-falls',
+  'millers-river-south-main-dam-railroad',
+  'millers-river-south-main-dam-route-2',
+] as const;
+
 const consolidatedRouteTargets = new Map<string, string>(
   [
     ...willimanticRouteSlugs.map((slug) => [slug, `${willimanticHubPath}?route=${slug}#trip-${slug}`] as const),
@@ -399,6 +420,8 @@ const consolidatedRouteTargets = new Map<string, string>(
     ...blackfootConsolidatedRouteSlugs.map((slug) => [slug, `${blackfootHubPath}?route=${slug}#trip-${slug}`] as const),
     ...blackfootLegacyRouteAliases.map(([legacySlug, currentSlug]) => [legacySlug, `${blackfootHubPath}?route=${currentSlug}#trip-${currentSlug}`] as const),
     ...greenRiverConsolidatedRouteSlugs.map((slug) => [slug, `${greenRiverHubPath}?route=${slug}#trip-${slug}`] as const),
+    ...millersConsolidatedRouteSlugs.map((slug) => [slug, `${millersHubPath}?route=${slug}#trip-${slug}`] as const),
+    ['millers-river-erving-south-main-dam', `${millersHubPath}#millers-route-zones`] as const,
   ],
 );
 

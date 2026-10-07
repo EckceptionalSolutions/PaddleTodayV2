@@ -80,6 +80,9 @@ export const massachusettsMillersRoutes: River[] = [route];
 
 function makeLowerVariant(spec: {
   id: string;
+  scoreEligibility?: River['scoreEligibility'];
+  thresholdSource?: River['profile']['thresholdSource'];
+  confidenceNotes?: string;
   reach: string;
   putIn: River['putIn'];
   takeOut: River['takeOut'];
@@ -93,6 +96,9 @@ function makeLowerVariant(spec: {
     ...route,
     id: spec.id,
     slug: spec.id,
+    // The Erving gauge band is documented for the named Erving–Millers Falls run.
+    // Other endpoint combinations retain gauge context but do not inherit that score.
+    scoreEligibility: spec.scoreEligibility ?? 'planning',
     reach: spec.reach,
     putIn: spec.putIn,
     takeOut: spec.takeOut,
@@ -100,6 +106,12 @@ function makeLowerVariant(spec: {
     longitude: spec.putIn!.longitude!,
     summary: spec.summary,
     statusText: 'Check USGS 01166500, recent rain, wood and dam notices before launch; the Lower Millers remains cold Class II–III water with limited bailout points.',
+    profile: {
+      ...route.profile,
+      ...(spec.thresholdSource ? { thresholdSource: spec.thresholdSource } : { thresholdSource: awGuide }),
+      thresholdSourceStrength: 'derived',
+      confidenceNotes: spec.confidenceNotes || 'This endpoint combination has no route-specific Paddle Today flow band. USGS 01166500 is regional gauge context; verify the named section, access and current hazards locally.',
+    },
     accessPoints: [
       { ...spec.putIn!, id: `${spec.id}-put-in`, mileFromStart: 0, segmentKind: 'transition', note: spec.note },
       { ...spec.takeOut!, id: `${spec.id}-take-out`, mileFromStart: spec.miles, segmentKind: 'transition', note: 'Confirm public parking, river entry and current access notices before staging.' },
@@ -112,8 +124,8 @@ function makeLowerVariant(spec: {
       watchFor: spec.watchFor,
     },
     evidenceNotes: [
-      ...route.evidenceNotes!,
-      { label: 'Route-specific access', value: `${spec.reach}; ${spec.miles} miles`, note: 'American Whitewater and the Town of Erving identify the named Lower Millers access options and public riverfront endpoints; verify the carry, parking and water entry before staging.', sourceUrl: awGuide.url },
+      { label: 'Route-specific access', value: `${spec.reach}; ${spec.miles} miles`, note: spec.note, sourceUrl: awGuide.url },
+      { label: 'Gauge context', value: 'USGS 01166500 at Erving; no route-specific flow band', note: spec.confidenceNotes || 'This gauge provides regional context but does not establish a route-specific score or flow band for this endpoint combination.', sourceUrl: gauge.detailUrl },
     ],
   };
 }
@@ -146,18 +158,21 @@ export const massachusettsMillersExpansionRoutes: River[] = [
     id: 'millers-river-cass-meadow-orange-riverfront',
     slug: 'millers-river-cass-meadow-orange-riverfront',
     routeType: 'recreational',
+    scoreEligibility: 'planning',
     reach: 'Alan E. Rich Environmental Park / Cass Meadow to Orange Riverfront Park',
     putIn: { name: 'Alan E. Rich Environmental Park / Cass Meadow car-top launch', latitude: 42.593531, longitude: -72.239153 },
     takeOut: { name: 'Orange Riverfront Park boat ramp (above South Main Street Dam)', latitude: 42.588667, longitude: -72.308333 },
     latitude: 42.593531,
     longitude: -72.239153,
     summary: 'The six-mile Millers River Blue Trail from the accessible Cass Meadow car-top launch in Athol to Orange Riverfront Park, a relaxed Class I flatwater outing.',
-    statusText: 'Check USGS 01166500, water-quality advisories and dam notices before launch; the Blue Trail is flatwater but the Orange take-out is above South Main Street Dam.',
+    statusText: 'Check the Orange impoundment, water-quality advisories, park access and dam notices before launch. USGS 01166500 is downstream and does not measure Blue Trail conditions.',
     profile: {
       ...route.profile,
+      thresholdSource: { label: 'Millers River Watershed Council Blue Trails', url: 'https://millerswatershed.org/blue-trails/', provider: 'local' },
+      thresholdSourceStrength: 'derived',
       difficulty: 'easy',
       difficultyNotes: 'Millers River Watershed Council describes the six-mile Blue Trail as relaxed Class I flatwater suitable for families; the Orange impoundment maintains levels in dry periods.',
-      confidenceNotes: 'Massachusetts Paddler and the Millers River Watershed Council identify the Cass Meadow and Orange Riverfront public launches and the six-mile Blue Trail. USGS 01166500 at Erving supplies direct same-river telemetry; use the conservative 600–2,000 cfs planning band as a screening cue and verify local impoundment, water-quality and dam conditions.',
+      confidenceNotes: 'The Millers River Watershed Council describes this six-mile flatwater Blue Trail and says the Orange dam maintains levels through it. No numeric route band is asserted. USGS 01166500 is at Erving downstream of the Blue Trail and is not a route-specific level measure for this impounded reach.',
     },
     safetyProfile: {
       ...route.safetyProfile,
@@ -180,16 +195,17 @@ export const massachusettsMillersExpansionRoutes: River[] = [
       campingClassification: 'none',
       summary: 'A relaxed six-mile Blue Trail flatwater route with public launches at Cass Meadow and Orange Riverfront Park.',
       accessCaveats: ['The Alan E. Rich launch is car-top only with a carry trail.', 'Orange Riverfront Park is above South Main Street Dam; preserve the take-out and documented portage boundary.', 'Check posted water-quality advisories and sunrise-to-sunset park hours.'],
-      watchFor: ['USGS 01166500 and local impoundment conditions', 'South Main Street Dam and portage boundary', 'Heat, weather, water quality and private-bank boundaries'],
+      watchFor: ['Orange impoundment and any dam or release notices', 'South Main Street Dam boundary; take out above the dam', 'Heat, weather, water quality and private-bank boundaries'],
     },
     evidenceNotes: [
-      ...route.evidenceNotes!,
+      { label: 'Gauge context', value: 'USGS 01166500 is downstream at Erving; no route-specific flow band', note: 'The Erving reading does not measure the impounded Athol–Orange Blue Trail. Check local impoundment and access conditions.', sourceUrl: 'https://waterdata.usgs.gov/monitoring-location/USGS-01166500/' },
       { label: 'Blue Trail access and distance', value: 'Alan E. Rich Environmental Park / Cass Meadow to Orange Riverfront Park; 6 miles', note: 'The Millers River Watershed Council describes the six-mile family-friendly Blue Trail; Massachusetts Paddler publishes both launch coordinates and identifies the Orange take-out above South Main Street Dam.', sourceUrl: 'https://millerswatershed.org/blue-trails/' },
       { label: 'Dam and access control', value: 'Take out above South Main Street Dam; documented 0.2-mile portage below the dam', note: 'Massachusetts Paddler’s Blue Trail reach guide identifies the dam boundary and portage procedure. Do not run or bypass the dam without a verified portage.', sourceUrl: 'https://massachusettspaddler.com/m5-athol-dam-to-south-main-st-dam-orange' },
     ],
   },
   makeLowerVariant({
     id: 'millers-river-south-main-dam-arch-street',
+    scoreEligibility: 'planning',
     reach: 'South Main Street Dam portage put-in to Arch Street Bridge, Erving',
     putIn: { name: 'South Main Street Dam portage put-in (water-entry edge)', latitude: 42.5895, longitude: -72.311833 },
     takeOut: { name: 'Arch Street Bridge public car-top launch, Erving', latitude: 42.5985, longitude: -72.402667 },
@@ -198,6 +214,8 @@ export const massachusettsMillersExpansionRoutes: River[] = [
     time: 'Allow 3–6 hours with the dam portage, scouting and shuttle time',
     note: 'Massachusetts Paddler identifies the below-South-Main-Street-Dam portage put-in and Arch Street Bridge access as the endpoints of Reach 6. Complete the marked portage before launching and confirm the river entry in the field.',
     watchFor: ['South Main Street Dam portage and current carry condition', 'Strainers, bridge debris and fast rises', 'Cold water, private banks and limited intermediate exits'],
+    thresholdSource: { label: 'Massachusetts Paddler Millers River Reach 6', url: 'https://massachusettspaddler.com/millers-river-50-5-miles', provider: 'local' },
+    confidenceNotes: 'Massachusetts Paddler identifies the South Main Street Dam to Arch Street section as Reach 6. The Erving gauge is downstream of the Arch Street endpoint, so this reach has no route-specific Paddle Today flow band.',
   }),
   makeLowerVariant({
     id: 'millers-river-railroad-route-2',
@@ -270,6 +288,7 @@ export const massachusettsMillersExpansionRoutes: River[] = [
     id: 'millers-river-cass-meadow-arch-street',
     slug: 'millers-river-cass-meadow-arch-street',
     routeType: 'recreational',
+    scoreEligibility: 'planning',
     reach: 'Alan E. Rich Environmental Park / Cass Meadow to Arch Street Bridge, Erving',
     putIn: { name: 'Alan E. Rich Environmental Park / Cass Meadow car-top launch', latitude: 42.593531, longitude: -72.239153 },
     takeOut: { name: 'Arch Street Bridge public car-top launch, Erving', latitude: 42.5985, longitude: -72.402667 },
@@ -277,6 +296,12 @@ export const massachusettsMillersExpansionRoutes: River[] = [
     longitude: -72.239153,
     summary: 'A longer approximately 11.5-mile Millers River itinerary linking the family-friendly Blue Trail to the below-South-Main-Street-Dam reach and Arch Street access.',
     statusText: 'Complete the marked South Main Street Dam portage before relaunching. Check USGS 01166500, recent rain, wood, cold water and current access notices before launch.',
+    profile: {
+      ...route.profile,
+      thresholdSource: { label: 'Millers River Watershed Council Blue Trails', url: 'https://millerswatershed.org/blue-trails/', provider: 'local' },
+      thresholdSourceStrength: 'derived',
+      confidenceNotes: 'This itinerary combines the impounded Athol–Orange Blue Trail, a mandatory South Main Street Dam portage and downstream whitewater. One lower-river gauge cannot represent both sections; no route-specific score or flow band is asserted.',
+    },
     accessPoints: [
       { name: 'Alan E. Rich Environmental Park / Cass Meadow car-top launch', latitude: 42.593531, longitude: -72.239153, id: 'millers-river-cass-meadow-arch-street-put-in', mileFromStart: 0, segmentKind: 'transition', note: 'Massachusetts Paddler identifies the car-top launch adjacent to Cass Meadow with a marked trail from the Alan E. Rich parking area. Confirm carry and current water entry.' },
       { name: 'South Main Street Dam portage put-in', latitude: 42.5895, longitude: -72.311833, id: 'millers-river-cass-meadow-arch-street-intermediate', mileFromStart: 6, segmentKind: 'transition', note: 'Exit above South Main Street Dam and complete the documented land portage before relaunching below the dam. Never run or line the dam.' },
@@ -302,13 +327,14 @@ export const massachusettsMillersExpansionRoutes: River[] = [
       safetyNotes: ['Wear a fitted PFD, carry a throw rope, communication and offline navigation, and plan for cold-water self-rescue.', 'Take out well above South Main Street Dam, complete the marked land portage and inspect the below-dam launch before relaunching.', 'Scout wood, bridge features and current changes throughout the lower reach; never use private banks for bailout or camping.', 'Rain can raise the river rapidly and shorten rescue windows.'],
     },
     evidenceNotes: [
-      ...route.evidenceNotes!,
       { label: 'Combined access and portage', value: 'Cass Meadow to Arch Street; about 11.5 miles with South Main Street Dam portage', note: 'Millers River Watershed Council and Massachusetts Paddler document the six-mile Blue Trail from Cass Meadow to Orange and the below-dam reach to Arch Street. The itinerary preserves the mandatory land portage boundary.', sourceUrl: 'https://millerswatershed.org/blue-trails/' },
-      { label: 'Route-specific safety', value: 'One mandatory dam portage; Class II–III lower reach', note: 'The combined route retains the existing direct Erving gauge and Lower Millers safety package while requiring a verified take-out, carry and relaunch at South Main Street Dam.', sourceUrl: 'https://massachusettspaddler.com/m5-athol-dam-to-south-main-st-dam-orange' },
+      { label: 'Gauge context', value: 'USGS 01166500 is downstream of the Blue Trail; no composite flow band', note: 'The gauge cannot represent both the impounded Blue Trail and the below-dam whitewater reach.', sourceUrl: gauge.detailUrl },
+      { label: 'Route-specific safety', value: 'One mandatory dam portage; Class II–III lower reach', note: 'Plan the Orange take-out, marked land portage, below-dam relaunch and downstream whitewater as separate sections.', sourceUrl: 'https://massachusettspaddler.com/m5-athol-dam-to-south-main-st-dam-orange' },
     ],
   },
   makeLowerVariant({
     id: 'millers-river-cass-meadow-route-2',
+    scoreEligibility: 'planning',
     reach: 'Cass Meadow car-top launch to Route 2 Shunpike Rest Area alternate take-out',
     putIn: { name: 'Alan E. Rich Environmental Park / Cass Meadow car-top launch', latitude: 42.593531, longitude: -72.239153 },
     takeOut: { name: 'Route 2 Shunpike Rest Area alternate take-out (water-entry edge)', latitude: 42.5776088, longitude: -72.4630396 },
@@ -320,6 +346,7 @@ export const massachusettsMillersExpansionRoutes: River[] = [
   }),
   makeLowerVariant({
     id: 'millers-river-cass-meadow-millers-falls',
+    scoreEligibility: 'planning',
     reach: 'Cass Meadow car-top launch to Millers Falls Riverfront Public Access',
     putIn: { name: 'Alan E. Rich Environmental Park / Cass Meadow car-top launch', latitude: 42.593531, longitude: -72.239153 },
     takeOut: { name: 'Millers Falls Riverfront Public Access (water-entry edge)', latitude: 42.57982, longitude: -72.49179 },
@@ -331,6 +358,7 @@ export const massachusettsMillersExpansionRoutes: River[] = [
   }),
   makeLowerVariant({
     id: 'millers-river-cass-meadow-farley',
+    scoreEligibility: 'planning',
     reach: 'Cass Meadow car-top launch to Farley Road / Bridge Street take-out',
     putIn: { name: 'Alan E. Rich Environmental Park / Cass Meadow car-top launch', latitude: 42.593531, longitude: -72.239153 },
     takeOut: { name: 'Farley Road / Bridge Street take-out (water-entry edge)', latitude: 42.5978783, longitude: -72.4377538 },
@@ -375,6 +403,7 @@ export const massachusettsMillersExpansionRoutes: River[] = [
   }),
   makeLowerVariant({
     id: 'millers-river-south-main-dam-railroad',
+    scoreEligibility: 'planning',
     reach: 'South Main Street Dam below-dam portage put-in to Railroad Bridge access',
     putIn: { name: 'South Main Street Dam portage put-in (water-entry edge)', latitude: 42.5895, longitude: -72.311833 },
     takeOut: { name: 'Railroad Bridge take-out along Route 2 (water-entry edge)', latitude: 42.6072815, longitude: -72.4152707 },
@@ -386,6 +415,7 @@ export const massachusettsMillersExpansionRoutes: River[] = [
   }),
   makeLowerVariant({
     id: 'millers-river-erving-railroad',
+    scoreEligibility: 'planning',
     reach: 'Erving Riverfront Park to Railroad Bridge access',
     putIn: { name: 'Erving Riverfront Park / Arch Street water-entry edge', latitude: 42.598533, longitude: -72.402639 },
     takeOut: { name: 'Railroad Bridge take-out along Route 2 (water-entry edge)', latitude: 42.6072815, longitude: -72.4152707 },

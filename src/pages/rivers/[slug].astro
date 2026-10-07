@@ -59,9 +59,9 @@ const evidenceNoteDetail = (note: { label: string; value: string; note?: string 
     : note.note;
 
 const gaugeDisplay = gaugeDisplayForSource(river.gaugeSource);
-const thresholdConfidenceLabel = buildSourceStrengthViewModel(
-  river.profile.thresholdSourceStrength,
-).confidenceLabel;
+const thresholdConfidenceLabel = isPlanningRoute
+  ? 'Planning only; no route-specific scoring range'
+  : buildSourceStrengthViewModel(river.profile.thresholdSourceStrength).confidenceLabel;
 const formatThresholdValue = (value: number | undefined) => {
   if (typeof value !== 'number') {
     return 'Not calibrated yet';
@@ -75,14 +75,15 @@ const formatThresholdValue = (value: number | undefined) => {
 };
 const isMinimumOnlyRoute = river.profile.thresholdModel === 'minimum-only';
 const targetBandLabel = isMinimumOnlyRoute ? 'Ideal range' : 'Target band';
-const targetBandValue =
-  river.profile.thresholdModel === 'two-sided' &&
-  typeof river.profile.idealMin === 'number' &&
-  typeof river.profile.idealMax === 'number'
+const targetBandValue = isPlanningRoute
+  ? 'No route-specific band'
+  : river.profile.thresholdModel === 'two-sided' &&
+      typeof river.profile.idealMin === 'number' &&
+      typeof river.profile.idealMax === 'number'
     ? `${formatThresholdValue(river.profile.idealMin)} to ${formatThresholdValue(river.profile.idealMax)}`
     : 'Needs paddler reports';
-const lowThresholdValue = formatThresholdValue(river.profile.tooLow);
-const highThresholdValue = formatThresholdValue(river.profile.tooHigh);
+const lowThresholdValue = isPlanningRoute ? 'Not calibrated for this trip' : formatThresholdValue(river.profile.tooLow);
+const highThresholdValue = isPlanningRoute ? 'Not calibrated for this trip' : formatThresholdValue(river.profile.tooHigh);
 const putIn = river.putIn;
 const takeOut = river.takeOut;
 const logistics = river.logistics;
@@ -639,13 +640,13 @@ const routeFaqStructuredData = {
             )}
 
             <div class="route-current-conditions" aria-label="Current gauge and weather">
-              {isPlanningRoute ? (
-                <>
-                  <article class="route-condition-card route-condition-card--gauge">
-                    <span class="route-condition-card__label">Gauge context</span>
-                    <strong>Proxy gauge</strong>
-                    <p>{river.gaugeSource.siteName}</p>
-                    <small>Regional signal only; verify local water.</small>
+          {isPlanningRoute ? (
+            <>
+              <article class="route-condition-card route-condition-card--gauge">
+                <span class="route-condition-card__label">Gauge context</span>
+                <strong>Gauge context only</strong>
+                <p>{river.gaugeSource.siteName}</p>
+                <small>No route-specific score or flow band; verify local conditions.</small>
                   </article>
                   <article class="route-condition-card route-condition-card--weather">
                     <span class="route-condition-card__label">Local weather</span>
@@ -1042,14 +1043,14 @@ const routeFaqStructuredData = {
           <p class="river-detail__gauge-note-label">Gauge note</p>
           <p class="river-detail__gauge-note-summary">
             {isPlanningRoute
-              ? `Proxy gauge: ${river.gaugeSource.siteName}. Regional signal only; verify local water.`
+              ? `Planning only · no route-specific flow band · ${river.gaugeSource.siteName} is context only`
               : isMinimumOnlyRoute
                 ? `Minimum ${lowThresholdValue} · ${river.gaugeSource.siteName}`
                 : `${targetBandLabel}: ${targetBandValue} · ${river.gaugeSource.siteName}`}
           </p>
           <details class="river-detail__gauge-note-details">
             <summary>Gauge context</summary>
-            <p>{isPlanningRoute ? `This route uses ${river.gaugeSource.siteName} as a proxy gauge. It is a regional signal, not a measurement of this reach. Verify local water and hazards before launching.` : river.statusText}</p>
+            <p>{isPlanningRoute ? `${river.gaugeSource.siteName} provides context but does not establish a score or flow band for this trip. Follow the route-specific access and hazard notes, linked local sources, and current field conditions before launch.` : river.statusText}</p>
           </details>
           <p class="muted">New to reading stage or flow? <a class="river-link river-link--inline river-link--ghost" href="/guides/how-to-read-a-river-gauge-for-paddling/">Read the paddler's gauge guide</a>.</p>
         </aside>

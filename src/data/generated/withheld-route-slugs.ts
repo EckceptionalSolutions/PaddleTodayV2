@@ -89,6 +89,7 @@ export const coordinateWithheldRouteSlugs = [
   "malad-river-dam-snake",
   "maumee-river-kreager-moser",
   "menomonee-river-hoyt-park-bluemound",
+  "millers-river-erving-south-main-dam",
   "minnehaha-creek-grays-bay-longfellow-lagoon",
   "mississippi-river-fletcher-creek-overlook",
   "mississippi-river-overlook-belle-prairie",
