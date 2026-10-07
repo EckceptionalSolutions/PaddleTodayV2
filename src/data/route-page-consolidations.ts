@@ -59,6 +59,24 @@ const saukRiverHubPath = '/rivers/by-river/sauk-river/';
 const truckeeRiverHubPath = '/rivers/by-river/truckee-river-nevada/';
 const farmingtonRiverHubPath = '/rivers/by-river/farmington-river-connecticut/';
 const susquehannaRiverHubPath = '/rivers/by-river/susquehanna-river/';
+const merrimackRiverHubPath = '/rivers/by-river/merrimack-river-new-hampshire/';
+
+const merrimackRiverConsolidatedRouteSlugs = [
+  'merrimack-river-sewalls-falls-ferry-street',
+  'merrimack-river-everett-arena-ferry-street',
+  'merrimack-river-ferry-street-lambert-park',
+  'merrimack-river-sewalls-bow',
+  'merrimack-river-bow-lambert-park',
+  'merrimack-river-boscawen-intervale',
+  'merrimack-river-intervale-riverland',
+  'merrimack-river-boscawen-riverland',
+  'merrimack-river-boscawen-bow',
+  'merrimack-river-boscawen-lambert-park',
+  'merrimack-river-intervale-sewalls-falls',
+  'merrimack-river-intervale-bow',
+  'merrimack-river-intervale-lambert-park',
+  'merrimack-river-sewalls-lambert-park',
+] as const;
 
 const susquehannaConsolidatedRouteSlugs = [
   'susquehanna-river-hornbrook-wysox-township-park',
@@ -723,6 +741,7 @@ const consolidatedRouteTargets = new Map<string, string>(
     ...farmingtonRiverConsolidatedRouteSlugs.map((slug) => [slug, `${farmingtonRiverHubPath}?route=${slug}#trip-${slug}`] as const),
     ...farmingtonRiverRetiredRouteSlugs.map((slug) => [slug, `${farmingtonRiverHubPath}#farmington-river-access-notes`] as const),
     ...susquehannaConsolidatedRouteSlugs.map((slug) => [slug, `${susquehannaRiverHubPath}?route=${slug}#trip-${slug}`] as const),
+    ...merrimackRiverConsolidatedRouteSlugs.map((slug) => [slug, `${merrimackRiverHubPath}?route=${slug}#trip-${slug}`] as const),
   ],
 );
 

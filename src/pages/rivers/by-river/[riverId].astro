@@ -43,6 +43,7 @@ const isTruckeeHub = group.riverId === 'truckee-river-nevada';
 const isFarmingtonHub = group.riverId === 'farmington-river-connecticut';
 const isSusquehannaHub = group.riverId === 'susquehanna-river';
 const isBayouTecheHub = group.riverId === 'bayou-teche-river-louisiana';
+const isMerrimackHub = group.riverId === 'merrimack-river-new-hampshire';
 const hasConsolidatedTrips = group.routes.some((route) => routePageConsolidationTarget(route.slug));
 const stateSummary = group.states.join(', ');
 const stateDisplay = group.states.join(' and ');
@@ -57,6 +58,8 @@ const needsRegionInTitle = listRiverGroups().some((other) =>
 const groupTitleLocation = needsRegionInTitle ? `${regionSummary}, ${stateSummary}` : stateSummary;
 const groupTitle = isBroadRiverHub
   ? 'Broad River, South Carolina | Paddling Sections & Access'
+  : isMerrimackHub
+  ? 'Merrimack River, New Hampshire | Paddle Trips & Flow Guides'
   : isAnimasHub
   ? 'Animas River, New Mexico | Paddling Sections & Access'
   : isSanJuanHub
@@ -102,6 +105,8 @@ const groupTitle = isBroadRiverHub
   : `${group.name}, ${groupTitleLocation} | Paddle Routes & Trip Planning`;
 const groupDescription = isBroadRiverHub
   ? 'Compare eight Paddle SC trips on South Carolina’s Broad River, from Ninety-Nine Islands to Strother Landing and the separate Peak–Harbison reach. Check trip-specific gauges, dam portages, and public access.'
+  : isMerrimackHub
+  ? `Compare ${group.routeCount} Merrimack River trips from Franklin and Boscawen through Concord, Bow, Allenstown, and Hooksett. Five Franklin–Concord routes have published flow guidance; lower-valley trips need separate gauge and access checks.`
   : isAnimasHub
   ? 'Plan Animas River trips from Cedar Hill through Aztec and Farmington. Compare source-documented sections, public landings, diversion hazards, and route-specific USGS gauges across ten trip choices.'
   : isSanJuanHub
@@ -549,7 +554,9 @@ const areaLabel = group.regions.length === 1 ? 'paddle area' : 'paddle areas';
 const faqItems = [
   {
     question: `Where can I paddle the ${group.name}?`,
-    answer: isBroadRiverHub
+    answer: isMerrimackHub
+      ? 'Choose from five documented Franklin–Concord routes, the short Sewalls Falls–Everett Arena trip, or lower-valley access pairs from Boscawen through Hooksett. Fourteen overlapping planning combinations remain selectable in the trip picker with their own distance and access notes.'
+      : isBroadRiverHub
       ? 'Paddle SC names eight South Carolina trips represented in this guide, including the 7.8-mile Ninety-Nine Islands–Daltons section, the Lockhart–Strother sequence, and the separate 16.6-mile Peak–Harbison trip. The picker also keeps longer endpoint combinations available so paddlers can choose a different start or finish.'
       : isAnimasHub
       ? 'Farmington publishes the Riverside Park–Penny Lane, Penny Lane–Animas Park, and Animas Park–Boyd Park landing distances. Aztec maps Cedar Hill, public access points, diversion hazards, and the route to Farmington. The trip selector keeps all ten endpoint choices, including longer combinations and intermediate take-outs.'
@@ -599,7 +606,9 @@ const faqItems = [
   },
   {
     question: `How should I check ${group.name} water levels?`,
-    answer: isBroadRiverHub
+    answer: isMerrimackHub
+      ? 'The 400 cfs runnable floor and 1,500–2,000 cfs preferred range belong to the documented Franklin–Concord run and its USGS 01081500 gauge near Franklin Junction. Lower-valley trips are planning-only; that upstream station is context and does not provide a verified route-specific threshold for each downstream reach.'
+      : isBroadRiverHub
       ? 'Check the gauge and source attached to the exact trip. Ninety-Nine Islands–Daltons uses a stage reading in feet at USGS 02153551; Peak–Harbison and the lower sections use discharge readings at their own gauges. These locations and units do not form one river-wide threshold, and a gauge reading does not clear dam portages or access conditions.'
       : isAnimasHub
       ? 'Check the station and flow notes for the selected trip. Cedar Hill–Aztec Riverside uses USGS 09364010 below Aztec; downstream choices use direct stations near Penny Lane or Farmington depending on the endpoints. Farmington says the Animas is too low for rafting below 600 cfs, which is a rafting planning cue rather than a safety limit for every craft or reach. Check the live reading, trend, weather, sediment, and access notices.'
@@ -639,7 +648,9 @@ const faqItems = [
   },
   {
     question: scoredRouteCount ? `Which ${group.name} route is best today?` : `How should I choose a ${group.name} trip?`,
-    answer: isSusquehannaHub
+    answer: isMerrimackHub
+      ? 'Pick the reach first. Use the five documented Franklin–Concord options for the published upper-river flow guidance, or compare lower-valley trips by endpoint, distance, current, and dam boundaries. Allenstown’s Pelissier Boat Launch requires a resident permit sticker, so visitors should choose another take-out.'
+      : isSusquehannaHub
       ? 'Choose the river reach first: upper main-stem options in New York or North Branch sections in Pennsylvania. The picker keeps alternate endpoint pairs available, and each trip retains its own mileage, access, gauge, and hazard details.'
       : scoredRouteCount
       ? isHousatonicHub
@@ -709,6 +720,8 @@ const groupStructuredData = [
         <p class="river-group-page__lede" data-group-headline>
           {isBroadRiverHub
             ? 'Start with the eight South Carolina trips named by Paddle SC, then use the picker to compare alternate endpoint pairs. These routes cross different gauge areas and include the Ninety-Nine Islands, Lockhart, and Neal Shoals dam boundaries; check the source and access notes for your exact trip.'
+            : isMerrimackHub
+            ? 'Choose the documented Franklin–Concord trips for published flow guidance, or compare lower-valley access pairs from Boscawen through Hooksett. The Franklin gauge and flow range do not apply to every downstream option, and the Allenstown Ferry Street launch requires a resident permit.'
             : isHousatonicHub
             ? 'Plan the Berkshire Housatonic by reach: the upper mainstem and Woods Pond portage, separate trips above and below Glendale Dam, and the Great Barrington–Sheffield access chain. Gauge context, skill, and launch access change by section, so compare the selected trip’s details before planning a shuttle.'
             : isSanJuanHub
@@ -787,6 +800,47 @@ const groupStructuredData = [
         </figure>
       ) : null}
     </section>
+
+    {isMerrimackHub ? (
+      <section class="river-group-page__panel" aria-labelledby="merrimack-river-sections-title">
+        <div class="river-group-page__section-head">
+          <div>
+            <p class="eyebrow section-label">Reach-specific flow and access</p>
+            <h2 class="section-title" id="merrimack-river-sections-title">Choose a Merrimack trip by reach</h2>
+          </div>
+        </div>
+        <div class="river-hub-context__grid">
+          <article class="river-hub-context__item">
+            <h3>Franklin to Concord</h3>
+            <p>
+              How’s Your River documents five endpoint choices along its Franklin–Concord run, including the Class II Sewalls Falls area. It reports a 400 cfs runnable floor and 1,500–2,000 cfs preferred range for that run. USGS 01081500 is at Franklin Junction; use its live reading for the named upper trips and check Sewalls Falls, releases, weather, and access separately.
+            </p>
+            <ul>
+              {group.routes.filter((route) => route.scoreEligibility === 'scored').map((route) => (
+                <li><a href={routeDetailHref(route)}>{route.reach}</a>{route.logistics?.distanceLabel ? ` — ${route.logistics.distanceLabel}` : ''}</li>
+              ))}
+            </ul>
+          </article>
+          <article class="river-hub-context__item">
+            <h3>Boscawen to Hooksett</h3>
+            <p>
+              The shorter lower-valley choices use different landings, current, dam boundaries, and shuttle lengths. They remain planning-only because this review did not verify a recreational flow band for each reach; the Franklin gauge is upstream context, not a route-specific score. Compare each trip card’s access and hazard notes before setting a shuttle.
+            </p>
+            <p>
+              Allenstown’s Pelissier Boat Launch at Ferry Street is limited to residents with a current vehicle sticker. Do not plan it as a general public put-in or take-out. The short Sewalls Falls–Everett Arena trip remains a separate local option.
+            </p>
+            <ul>
+              {group.routes.filter((route) => route.slug === 'merrimack-river-sewalls-falls-everett-arena').map((route) => (
+                <li><a href={routeDetailHref(route)}>{route.reach}</a>{route.logistics?.distanceLabel ? ` — ${route.logistics.distanceLabel}` : ''}</li>
+              ))}
+            </ul>
+          </article>
+        </div>
+        <p>
+          Check the <a href="https://www.howsyourriver.com/runs/1-franklin-to-concord-merrimack-nh" rel="noopener">Franklin–Concord run guide</a>, New Hampshire’s <a href="https://gc.nh.gov/rules/state_agencies/fis1600.html" rel="noopener">public boat access regulations</a>, the <a href="https://bownh.gov/668/Water-Access" rel="noopener">Town of Bow water-access page</a>, the <a href="https://www.allenstownnh.gov/DocumentCenter/View/482/pelissier_boat_launch_ordinance_approved_and_signed_march_2024" rel="noopener">Allenstown launch ordinance</a>, and <a href="https://waterdata.usgs.gov/monitoring-location/USGS-01081500/" rel="noopener">USGS 01081500 at Franklin Junction</a> before travel.
+        </p>
+      </section>
+    ) : null}
 
     {broadRiverSections.length > 0 ? (
       <section class="river-group-page__panel" aria-labelledby="broad-river-named-trips-title">
@@ -1264,7 +1318,7 @@ const groupStructuredData = [
                       <span data-group-initial-score>{route.scoreEligibility === 'planning' ? 'Planning route' : 'Loading'}</span>
                     </span>
                   </button>
-                  {isWillimanticHub || isAnimasHub || isHousatonicHub ? (
+                  {isWillimanticHub || isMerrimackHub || isAnimasHub || isHousatonicHub ? (
                     <details class="route-choice__trip-notes">
                       <summary>{isAnimasHub || isHousatonicHub ? 'Access, flow, and safety notes' : 'Access, gauge, and safety notes'}</summary>
                       <div>
@@ -1279,7 +1333,7 @@ const groupStructuredData = [
                           {typeof (route.profile.idealMin ?? route.profile.tooLow) === 'number'
                             ? `; use ${route.profile.idealMin ?? route.profile.tooLow} ${route.gaugeSource.unit} as this route’s published planning floor.`
                             : '.'}
-                          {' '}This is route-specific planning guidance; check the live reading and trend before launch.
+                          {' '}{route.scoreEligibility === 'planning' ? 'No route-specific numeric flow band is verified; treat this station as context and check local conditions.' : 'This is route-specific planning guidance, not a safety guarantee; check the live reading and trend before launch.'}
                         </p>
                         {route.logistics?.accessCaveats?.length ? (
                           <ul>{route.logistics.accessCaveats.map((note) => <li>{note}</li>)}</ul>
@@ -1421,6 +1475,8 @@ const groupStructuredData = [
               ? 'Three trip options cover the two adjoining access legs and their combined run. Retired Lake McDonough combinations now lead to the separate reservoir access explanation below.'
               : isSusquehannaHub
               ? `The guide groups 13 upper main-stem options in New York and 20 public North Branch options in Pennsylvania. Twelve focused North Branch section and day-trip pages appear above; all ${group.routeCount} endpoint choices remain in the picker with their own access and gauge context.`
+              : isMerrimackHub
+              ? `Compare all ${group.routeCount} Merrimack endpoint choices here. Five published Franklin–Concord trips and the short Sewalls Falls–Everett Arena option keep focused pages; 14 overlapping lower-valley combinations remain selectable with their own access and hazard notes. The Franklin flow range applies only to the documented upper run.`
               : `Compare ${group.routeCount} ${routeLabel} (${scoredRouteCount} scored · ${planningRouteCount} planning) across ${regionSummary}. Open a route page for put-in, take-out, distance, source confidence, and access notes.`}
           </p>
         </article>
