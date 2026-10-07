@@ -45,4 +45,10 @@ These six routes continue to appear as trip options on `/rivers/by-river/san-jua
 
 ## Rollout verification
 
-Pending CI deployment and production checks. Confirm that all six former route URLs load their exact selected hub cards, all 11 trip choices remain available, and the six composite URLs are absent from the sitemap while the hub and five retained sections remain listed.
+Verified in production after the October 7 deployment:
+
+- The San Juan hub returns HTTP 200 and contains all 11 trip choices.
+- Each of the six former composite URLs serves its generated redirect page with the exact selected hub-card target.
+- All six consolidated URLs are absent from the current sitemap; the hub and five standalone sections remain listed.
+- The sitemap index and child sitemap both return HTTP 200; the child contains 2,892 URLs.
+- The old Big Eau Pleine hub URL returns HTTP 301 to `/rivers/big-eau-pleine-river-cherokee-march-rapids/`.

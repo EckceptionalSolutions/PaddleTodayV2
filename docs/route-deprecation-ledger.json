@@ -46,8 +46,8 @@
   },
   {
     "corridorId": "mn-crow-wing-condition-family",
-    "canonicalSlug": "crow-wing-river-mary-brown-cottingham",
-    "status": "observe",
+    "canonicalSlug": null,
+    "status": "recommend",
     "underlyingTripOptionsPreserved": true,
     "conversionBaseline": null,
     "conversionPilot": null,

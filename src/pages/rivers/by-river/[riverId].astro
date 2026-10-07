@@ -21,6 +21,7 @@ const isBroadRiverHub = group.riverId === 'broad-river';
 const isAnimasHub = group.riverId === 'animas-river-new-mexico';
 const isSanJuanHub = group.riverId === 'san-juan-river-new-mexico';
 const isHousatonicHub = group.riverId === 'housatonic-river-massachusetts';
+const isCrowWingHub = group.riverId === 'crow-wing-river';
 const isWillimanticHub = group.riverId === 'willimantic-river-connecticut';
 const isMillersHub = group.riverId === 'millers-river-massachusetts';
 const isBayouDeViewHub = group.riverId === 'bayou-deview';
@@ -54,6 +55,8 @@ const groupTitle = isBroadRiverHub
   ? 'Animas River, New Mexico | Paddling Sections & Access'
   : isSanJuanHub
   ? 'San Juan River, New Mexico | Navajo Dam to Farmington Paddle Access'
+  : isCrowWingHub
+  ? 'Crow Wing River, Minnesota | Paddling Sections & Day Trips'
   : isHousatonicHub
   ? 'Housatonic River, Massachusetts | Berkshire Sections & Access'
   : isWoonasquatucketHub
@@ -85,6 +88,8 @@ const groupDescription = isBroadRiverHub
   ? 'Plan Animas River trips from Cedar Hill through Aztec and Farmington. Compare source-documented sections, public landings, diversion hazards, and route-specific USGS gauges across ten trip choices.'
   : isSanJuanHub
   ? 'Plan San Juan River trips from Navajo Dam to Farmington. Compare five documented access sections and six longer trip options, with separate upper and lower USGS gauges, release notices, and diversion hazards.'
+  : isCrowWingHub
+  ? 'Plan Crow Wing River trips by access section, from the Huntersville forest and Nimrod to Wadena County parks and Lake Placid. Compare all 12 trip options, the two Minnesota DNR map sections, and the separate Nimrod and Sylvan Dam gauge contexts.'
   : isHousatonicHub
   ? 'Plan Berkshire Housatonic trips by reach, from the upper river and Glendale Dam portage to Great Barrington and Sheffield. Compare 15 trip options, public access, route-specific USGS gauges, and safety notes.'
   : isWillimanticHub
@@ -373,6 +378,37 @@ const sanJuanSectionGroups = isSanJuanHub
         .filter((route): route is River => Boolean(route)),
     }))
   : [];
+const crowWingSectionGroups = isCrowWingHub
+  ? [
+      {
+        label: 'Huntersville forest and the upper river',
+        slugs: [
+          'crow-wing-river-huntersville-north-mary-brown',
+          'crow-wing-river-mary-brown-stigmans-mound',
+        ],
+      },
+      {
+        label: 'Middle river and Wadena County parks',
+        slugs: [
+          'crow-wing-river-stigmans-mound-little-white-dog',
+          'crow-wing-river-little-white-dog-cottingham',
+          'crow-wing-river-cottingham-old-wadena',
+        ],
+      },
+      {
+        label: 'Downstream toward Lake Placid and Pillager Dam',
+        slugs: [
+          'crow-wing-river-old-wadena-green-oak',
+          'crow-wing-river-green-oak-lake-placid',
+        ],
+      },
+    ].map((sectionGroup) => ({
+      ...sectionGroup,
+      sections: sectionGroup.slugs
+        .map((slug) => group.routes.find((route) => route.slug === slug))
+        .filter((route): route is River => Boolean(route)),
+    }))
+  : [];
 const housatonicSectionGroups = isHousatonicHub
   ? [
       {
@@ -425,6 +461,8 @@ const faqItems = [
       ? 'Farmington publishes the Riverside Park–Penny Lane, Penny Lane–Animas Park, and Animas Park–Boyd Park landing distances. Aztec maps Cedar Hill, public access points, diversion hazards, and the route to Farmington. The trip selector keeps all ten endpoint choices, including longer combinations and intermediate take-outs.'
       : isSanJuanHub
       ? 'Start with the five named access sections from Navajo Dam through Blanco and Vereda del Rio to Farmington and Kirtland. The trip picker keeps six longer endpoint combinations available with their own route notes. The upper tailwater, lower diversion corridor, and city access chain need different gauge and access checks.'
+      : isCrowWingHub
+      ? 'Minnesota DNR separates the river into a Map 1 reach to Nimrod and a Map 2 reach downstream. Start with the DNR-recommended Huntersville North–Mary Brown or Little White Dog–Cottingham day trip, or choose the named rapids, county-park, and Lake Placid sections. The hub keeps all 12 endpoint options, including five overlapping combinations.'
       : isHousatonicHub
       ? 'The Berkshire guide covers distinct upper, Stockbridge, and Great Barrington–Sheffield reaches. Compare the named public-access sections, then use the trip picker for six longer endpoint combinations that remain available with their own mileage, gauge, dam, and access notes.'
       : isLoupRiverHub
@@ -465,6 +503,8 @@ const faqItems = [
       ? 'Check the station and flow notes for the selected trip. Cedar Hill–Aztec Riverside uses USGS 09364010 below Aztec; downstream choices use direct stations near Penny Lane or Farmington depending on the endpoints. Farmington says the Animas is too low for rafting below 600 cfs, which is a rafting planning cue rather than a safety limit for every craft or reach. Check the live reading, trend, weather, sediment, and access notices.'
       : isSanJuanHub
       ? 'Use the gauge attached to the exact trip: USGS 09355500 near Archuleta for the upper reaches and USGS 09365000 at Farmington for the lower corridor. Southwest Paddler’s 300 cfs minimum and 500 cfs target are community planning cues, not safety limits. Reclamation’s 500–1,000 cfs base-flow target is a weekly habitat objective downstream toward Lake Powell, not paddling guidance. Check current gauge trends, Navajo Dam notices, weather, and local hazards.'
+      : isCrowWingHub
+      ? 'Use the gauge shown on the selected trip. Minnesota DNR’s interpreted Nimrod gauge provides context for the Huntersville-to-Cottingham corridor; the Old Wadena–Green Oak and Green Oak–Lake Placid trips use the separate Sylvan Dam station. The stations are in different parts of the river, so do not apply one reading or threshold to every section. Check the live trend and local conditions.'
       : isHousatonicHub
       ? 'Use the gauge attached to the selected trip: Lenoxdale for the upper chain, Great Barrington near Division Street for the Stockbridge and Great Barrington starts, and Ashley Falls for the downstream Sheffield reaches. HVA’s broad 150 cfs minimum is a low-water planning cue, not a safe-flow guarantee; dams, intervening tributaries, water quality, and local conditions still matter.'
       : isLoupRiverHub
@@ -686,6 +726,33 @@ const groupStructuredData = [
         ))}
         <p>
           Check the <a href="https://www.farmingtonnm.gov/DocumentCenter/View/27318/River-Signage-Penny-Lane" rel="noopener">City of Farmington river access and hazard map</a>, the <a href="https://southwestpaddler.com/docs/sanjuannm2.html" rel="noopener">San Juan access guide</a>, <a href="https://waterdata.usgs.gov/monitoring-location/USGS-09355500/" rel="noopener">USGS 09355500 near Archuleta</a> and <a href="https://waterdata.usgs.gov/monitoring-location/USGS-09365000/" rel="noopener">USGS 09365000 at Farmington</a>. Navajo Dam releases can change; review the <a href="https://www.usbr.gov/uc/wcao/water/rsvrs/notice/nav_rel.html" rel="noopener">Bureau of Reclamation’s current release notices</a> before an upper-river trip.
+        </p>
+      </section>
+    ) : null}
+
+    {crowWingSectionGroups.length > 0 ? (
+      <section class="river-group-page__panel" aria-labelledby="crow-wing-documented-sections-title">
+        <div class="river-group-page__section-head">
+          <div>
+            <p class="eyebrow section-label">Minnesota DNR water trail and public access</p>
+            <h2 class="section-title" id="crow-wing-documented-sections-title">Crow Wing River trips by reach</h2>
+          </div>
+        </div>
+        <p>
+          Minnesota DNR’s water-trail guide divides the river at Nimrod. Map 1 covers the upper river toward Nimrod; Map 2 follows the lower river toward the Mississippi. DNR recommends Huntersville North to Mary Brown (7.3 miles) and Little White Dog to Cottingham (9.8 miles) as day trips. Named sections and county-park landings make useful shorter choices, while five overlapping endpoint combinations remain in the trip picker with their own distances, access, and route notes.
+        </p>
+        {crowWingSectionGroups.map((sectionGroup) => (
+          <div class="river-group-page__zone">
+            <h3>{sectionGroup.label}</h3>
+            <ul>
+              {sectionGroup.sections.map((route) => (
+                <li><a href={routeDetailHref(route)}>{route.reach}</a>{route.logistics?.distanceLabel ? ` — ${route.logistics.distanceLabel}` : ''}</li>
+              ))}
+            </ul>
+          </div>
+        ))}
+        <p>
+          Check the <a href="https://www.dnr.state.mn.us/state-water-trails/crow-wing-river/segments-maps.html" rel="noopener">Minnesota DNR segments and maps</a>, the <a href="https://www.dnr.state.mn.us/river_levels/index.html" rel="noopener">DNR river-level guidance</a>, and the <a href="https://files.dnr.state.mn.us/maps/canoe_routes/crowwing2.pdf" rel="noopener">Crow Wing Map 2</a>. The downstream Lake Placid option ends above Pillager Dam; follow the marked take-out and do not paddle through the dam boundary. Check the gauge attached to your selected reach because Nimrod and Sylvan Dam readings describe different sections.
         </p>
       </section>
     ) : null}
