@@ -34,3 +34,9 @@ The Nevada map identifies the Floriston run as Class III–IV, marks dams and po
 - Nevada Trail Finder, [USA Parkway to Wadsworth](https://www.nvtrailfinder.com/trails/trail/truckee-river-usa-parkway-to-wadsworth)
 - American Whitewater, [Truckee Reno reach](https://www.americanwhitewater.org/content/River/view/river-detail/4137/main)
 - USGS, [Truckee River at Farad](https://waterdata.usgs.gov/monitoring-location/USGS-10346000/), [Truckee River at Reno](https://waterdata.usgs.gov/monitoring-location/USGS-10348000/), [Truckee River at Vista](https://waterdata.usgs.gov/monitoring-location/USGS-10350000/), and [Truckee River below Derby Dam near Wadsworth](https://waterdata.usgs.gov/monitoring-location/USGS-10351600/)
+
+## Production verification
+
+Commit `c4c02205b7a39454c7e0cf8b5aeda1b107443e90` is deployed. Frontend workflow 37690589748 passed tests, production build, both built-page indexability audits, asset checks, deployment, and live-origin checks; API workflow 37690589622 and Snapshot Worker workflow 37690589702 also succeeded.
+
+Production `robots.txt`, `/sitemap-index.xml`, and its child sitemap return HTTP 200. The child contains 2,779 URLs. The Truckee hub returns HTTP 200, shows all 24 choices and the new guide, and has a self-canonical. All six retained reaches return HTTP 200 with self-canonicals and sitemap entries. All 18 consolidated routes return HTTP 200 with an instant exact-card meta refresh and the Truckee hub canonical; none appears in the sitemap. Search Console has not been resubmitted and no URL Inspection indexing request was made.
