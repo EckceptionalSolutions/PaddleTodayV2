@@ -49,6 +49,15 @@ const americanRiverHubPath = '/rivers/by-river/american-river-california/';
 const loupRiverHubPath = '/rivers/by-river/loup-river/';
 const verdeRiverHubPath = '/rivers/by-river/verde-river-arizona/';
 const broadRiverHubPath = '/rivers/by-river/broad-river/';
+const animasRiverHubPath = '/rivers/by-river/animas-river-new-mexico/';
+
+const animasConsolidatedRouteSlugs = [
+  'animas-river-cedar-hill-penny-lane',
+  'animas-river-cedar-hill-animas-park',
+  'animas-river-aztec-riverside-animas-park',
+  'animas-river-aztec-riverside-boyd',
+  'animas-river-penny-lane-boyd',
+] as const;
 
 const broadRiverConsolidatedRouteSlugs = [
   'broad-river-lockhart-neal-shoals',
@@ -525,6 +534,7 @@ const consolidatedRouteTargets = new Map<string, string>(
     ...loupRiverCoordinateReviewRouteSlugs.map((slug) => [slug, `${loupRiverHubPath}#loup-coordinate-review`] as const),
     ...verdeRiverConsolidatedRouteSlugs.map((slug) => [slug, `${verdeRiverHubPath}?route=${slug}#trip-${slug}`] as const),
     ...verdeRiverAccessReviewRouteSlugs.map((slug) => [slug, `${verdeRiverHubPath}#verde-coordinate-review`] as const),
+    ...animasConsolidatedRouteSlugs.map((slug) => [slug, `${animasRiverHubPath}?route=${slug}#trip-${slug}`] as const),
   ],
 );
 

@@ -1,15 +1,16 @@
 # Route corridor migration inventory
 
-Generated 2026-10-07T17:49:48.158Z.
+Generated 2026-10-07T18:44:28.111Z.
 
-- Defined corridors: 231
-- Routes covered by a corridor definition: 954
-- Remaining multi-route families: 319
+- Defined corridors: 232
+- Routes covered by a corridor definition: 964
+- Remaining multi-route families: 318
 
 ## Defined corridors
 
 | Corridor | Label | Continuity | Matching routes | Verified edges |
 | --- | --- | --- | ---: | ---: |
+| nm-animas-public-access-chain | Animas River Cedar Hill, Aztec and Farmington public-access route family | condition-family | 10 | 0 |
 | sc-broad-river-blueway | South Carolina Broad River Blueway named trips and endpoint combinations | condition-family | 25 | 0 |
 | mt-blackfoot-section-family | Blackfoot River five named source-backed section family | condition-family | 39 | 0 |
 | ky-green-river-three-zone-family | Green River Upper Green, Hart County, and Mammoth Cave paddling zones | condition-family | 32 | 0 |
@@ -288,7 +289,6 @@ Generated 2026-10-07T17:49:48.158Z.
 | Kansas | Kansas River | 11 |
 | New Mexico | San Juan River | 11 |
 | Minnesota | St. Louis River | 11 |
-| New Mexico | Animas River | 10 |
 | Kentucky | Barren River | 10 |
 | South Dakota | Big Sioux River | 10 |
 | Mississippi | Leaf River | 10 |
@@ -301,6 +301,7 @@ Generated 2026-10-07T17:49:48.158Z.
 | Maine | Aroostook River | 9 |
 | Texas | Brazos River | 9 |
 | New York | Grass River | 9 |
-| Additional families omitted | See route data and overlap audit | 279 |
+| North Carolina | Haw River | 9 |
+| Additional families omitted | See route data and overlap audit | 278 |
 
 This inventory is a migration queue, not an automatic deletion list. Each family still requires source review for continuity, hazards, access legality, gauge boundaries, and explicit trip edges.

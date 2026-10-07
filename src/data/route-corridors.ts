@@ -12,6 +12,24 @@ export interface RouteCorridorDefinition {
 
 export const routeCorridorDefinitions: RouteCorridorDefinition[] = [
   {
+    corridorId: 'nm-animas-public-access-chain',
+    label: 'Animas River Cedar Hill, Aztec and Farmington public-access route family',
+    continuityStatus: 'condition-family',
+    slugs: [
+      'animas-river-cedar-hill-aztec-riverside',
+      'animas-river-cedar-hill-penny-lane',
+      'animas-river-cedar-hill-animas-park',
+      'animas-river-cedar-hill-boyd-park',
+      'animas-river-aztec-riverside-penny-lane',
+      'animas-river-penny-lane-animas-park',
+      'animas-river-animas-park-boyd',
+      'animas-river-aztec-riverside-animas-park',
+      'animas-river-aztec-riverside-boyd',
+      'animas-river-penny-lane-boyd',
+    ],
+    segmentEdges: [],
+  },
+  {
     corridorId: 'sc-broad-river-blueway',
     label: 'South Carolina Broad River Blueway named trips and endpoint combinations',
     continuityStatus: 'condition-family',

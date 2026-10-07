@@ -1,5 +1,13 @@
 [
   {
+    "corridorId": "nm-animas-public-access-chain",
+    "status": "review",
+    "owner": "route-data-team",
+    "continuityStatus": "condition-family",
+    "nextReview": "2026-10-14",
+    "notes": "Condition-family grouping only; routes use different reach-specific gauge context and do not share a river-wide threshold. Farmington names three adjacent downstream landing pairs, Aztec documents the Cedar Hill-to-Riverside access points and hazards, and American Whitewater documents the longer Cedar Hill-Farmington run. Keep those five source-backed trips standalone; consolidate five overlapping composites to exact hub cards while preserving all ten route choices and their individual access and safety notes."
+  },
+  {
     "corridorId": "sc-broad-river-blueway",
     "status": "review",
     "owner": "route-data-team",
