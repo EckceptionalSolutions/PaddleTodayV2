@@ -39,4 +39,9 @@ The hub summarizes the five retained trips and links to them. For all ten option
 
 ## Verification
 
-Candidate-build, route data, corridor, deprecation, typecheck, sitemap, and live-origin results will be recorded here after implementation validation and deployment. Search Console recrawl and indexing remain separate follow-up signals.
+- Route data audit passed for 3,028 inventory routes. Route-corridor audit passed with the Animas family covering all ten choices; the route deprecation audit passed with no premature archives. Route-data and full project typechecks passed.
+- The local full static build reached and rendered the Animas hub, then stopped while generating later pages because the workstation ran out of disk space. The incomplete, task-created candidate output was removed. CI completed the full static build and both built-site indexability audits successfully.
+- Commit `f692f7eb0` was pushed directly to `main`. Frontend workflow [37669734372](https://github.com/EckceptionalSolutions/PaddleTodayV2/actions/runs/37669734372), API workflow [37669734244](https://github.com/EckceptionalSolutions/PaddleTodayV2/actions/runs/37669734244), and snapshot-worker workflow [37669734888](https://github.com/EckceptionalSolutions/PaddleTodayV2/actions/runs/37669734888) all succeeded.
+- Production `/rivers/by-river/animas-river-new-mexico/` returns HTTP 200 and contains the five documented-section links, all ten trip-card anchors, and ten expandable trip-note blocks. Each of the five consolidated route URLs returns the intended zero-second meta refresh to its matching hub card; none of those five standalone paths appears in the sitemap.
+- Production `/sitemap-index.xml` returns HTTP 200 with one child sitemap and 2,904 URLs. The Animas hub is listed. The previous release had 2,909 URLs, so this consolidation removes exactly five standalone pages while retaining every Animas trip option on the hub.
+- Search Console recrawl and indexing remain pending. The sitemap report last read the prior sitemap on September 29; submission of the new sitemap is awaiting user confirmation. No indexing request was submitted.
