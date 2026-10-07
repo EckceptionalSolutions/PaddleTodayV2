@@ -74,6 +74,11 @@
       "statusCode": 301
     },
     {
+      "route": "/rivers/by-river/big-eau-pleine-river",
+      "redirect": "/rivers/big-eau-pleine-river-cherokee-march-rapids/",
+      "statusCode": 301
+    },
+    {
       "route": "/rivers/clinton-river-budd-shadyside",
       "redirect": "/rivers/by-river/clinton-river/",
       "statusCode": 301

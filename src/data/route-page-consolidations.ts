@@ -51,6 +51,7 @@ const verdeRiverHubPath = '/rivers/by-river/verde-river-arizona/';
 const broadRiverHubPath = '/rivers/by-river/broad-river/';
 const animasRiverHubPath = '/rivers/by-river/animas-river-new-mexico/';
 const housatonicRiverHubPath = '/rivers/by-river/housatonic-river-massachusetts/';
+const sanJuanRiverHubPath = '/rivers/by-river/san-juan-river-new-mexico/';
 
 const animasConsolidatedRouteSlugs = [
   'animas-river-cedar-hill-penny-lane',
@@ -67,6 +68,15 @@ const housatonicConsolidatedRouteSlugs = [
   'housatonic-river-brookside-rannapo',
   'housatonic-river-division-covered-bridge',
   'housatonic-river-east-sheffield-rannapo',
+] as const;
+
+const sanJuanConsolidatedRouteSlugs = [
+  'san-juan-river-navajo-dam-vereda',
+  'san-juan-river-navajo-dam-among-waters',
+  'san-juan-river-blanco-among-waters',
+  'san-juan-river-among-waters-lions-park',
+  'san-juan-river-vereda-westland-park',
+  'san-juan-river-vereda-lions-park',
 ] as const;
 
 const broadRiverConsolidatedRouteSlugs = [
@@ -546,6 +556,7 @@ const consolidatedRouteTargets = new Map<string, string>(
     ...verdeRiverAccessReviewRouteSlugs.map((slug) => [slug, `${verdeRiverHubPath}#verde-coordinate-review`] as const),
     ...animasConsolidatedRouteSlugs.map((slug) => [slug, `${animasRiverHubPath}?route=${slug}#trip-${slug}`] as const),
     ...housatonicConsolidatedRouteSlugs.map((slug) => [slug, `${housatonicRiverHubPath}?route=${slug}#trip-${slug}`] as const),
+    ...sanJuanConsolidatedRouteSlugs.map((slug) => [slug, `${sanJuanRiverHubPath}?route=${slug}#trip-${slug}`] as const),
   ],
 );
 

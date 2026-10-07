@@ -46,4 +46,11 @@ Great Barrington's bridge page reports the temporary Division Street bridge open
 
 ## Rollout verification
 
-Pending CI deployment and production checks. Confirm that the six old route paths redirect to the exact selected trip cards, all 15 trip cards and their details remain available, and only the six retired standalone route URLs leave the sitemap.
+Verified in production after the October 7 deployment:
+
+- The Housatonic hub returns HTTP 200 and contains all 15 trip cards.
+- Each of the six old route URLs returns a generated redirect page pointing at its exact selected hub card.
+- All six consolidated URLs are absent from the current sitemap; the hub and five standalone source sections remain listed.
+- The current sitemap index returns HTTP 200 and has one valid child sitemap.
+
+GitHub frontend and API deployments for `8f0609ca8` both completed successfully. The public child sitemap currently contains 2,898 URLs; Search Console's October 5 sitemap snapshot still reported 3,249, so its next read should catch up to the smaller published catalog.

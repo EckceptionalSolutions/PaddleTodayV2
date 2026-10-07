@@ -1,10 +1,10 @@
 # Route corridor migration inventory
 
-Generated 2026-10-07T19:15:49.077Z.
+Generated 2026-10-07T19:30:38.287Z.
 
-- Defined corridors: 233
-- Routes covered by a corridor definition: 979
-- Remaining multi-route families: 317
+- Defined corridors: 234
+- Routes covered by a corridor definition: 990
+- Remaining multi-route families: 316
 
 ## Defined corridors
 
@@ -12,6 +12,7 @@ Generated 2026-10-07T19:15:49.077Z.
 | --- | --- | --- | ---: | ---: |
 | nm-animas-public-access-chain | Animas River Cedar Hill, Aztec and Farmington public-access route family | condition-family | 10 | 0 |
 | ma-housatonic-berkshire-reaches | Massachusetts Housatonic Berkshire reach and access family | condition-family | 15 | 0 |
+| nm-san-juan-navajo-to-farmington-access-chain | New Mexico San Juan River Navajo Dam, Blanco, Vereda del Rio, and Farmington access family | condition-family | 11 | 0 |
 | sc-broad-river-blueway | South Carolina Broad River Blueway named trips and endpoint combinations | condition-family | 25 | 0 |
 | mt-blackfoot-section-family | Blackfoot River five named source-backed section family | condition-family | 39 | 0 |
 | ky-green-river-three-zone-family | Green River Upper Green, Hart County, and Mammoth Cave paddling zones | condition-family | 32 | 0 |
@@ -287,7 +288,6 @@ Generated 2026-10-07T19:15:49.077Z.
 | Vermont | Winooski River | 12 |
 | Maine | Androscoggin River | 11 |
 | Kansas | Kansas River | 11 |
-| New Mexico | San Juan River | 11 |
 | Minnesota | St. Louis River | 11 |
 | Kentucky | Barren River | 10 |
 | South Dakota | Big Sioux River | 10 |
@@ -303,6 +303,7 @@ Generated 2026-10-07T19:15:49.077Z.
 | New York | Grass River | 9 |
 | North Carolina | Haw River | 9 |
 | Kentucky | Levisa Fork | 9 |
-| Additional families omitted | See route data and overlap audit | 277 |
+| Iowa | Maquoketa River | 9 |
+| Additional families omitted | See route data and overlap audit | 276 |
 
 This inventory is a migration queue, not an automatic deletion list. Each family still requires source review for continuity, hazards, access legality, gauge boundaries, and explicit trip edges.
