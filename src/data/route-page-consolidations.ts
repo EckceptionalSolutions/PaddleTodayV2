@@ -60,6 +60,7 @@ const truckeeRiverHubPath = '/rivers/by-river/truckee-river-nevada/';
 const farmingtonRiverHubPath = '/rivers/by-river/farmington-river-connecticut/';
 const susquehannaRiverHubPath = '/rivers/by-river/susquehanna-river/';
 const merrimackRiverHubPath = '/rivers/by-river/merrimack-river-new-hampshire/';
+const spokaneRiverHubPath = '/rivers/by-river/spokane-river-washington/';
 
 const merrimackRiverConsolidatedRouteSlugs = [
   'merrimack-river-sewalls-falls-ferry-street',
@@ -76,6 +77,29 @@ const merrimackRiverConsolidatedRouteSlugs = [
   'merrimack-river-intervale-bow',
   'merrimack-river-intervale-lambert-park',
   'merrimack-river-sewalls-lambert-park',
+] as const;
+
+const spokaneRiverConsolidatedRouteSlugs = [
+  'spokane-river-harvard-mission',
+  'spokane-river-harvard-sullivan',
+  'spokane-river-harvard-mirabeau',
+  'spokane-river-harvard-islands',
+  'spokane-river-harvard-plantes-ferry',
+  'spokane-river-harvard-boulder-beach',
+  'spokane-river-harvard-upriver-dam',
+  'spokane-river-barker-mission',
+  'spokane-river-barker-sullivan',
+  'spokane-river-barker-islands',
+  'spokane-river-barker-plantes-ferry',
+  'spokane-river-barker-upriver-dam',
+  'spokane-river-tj-meenach-nine-mile-dam',
+  'spokane-river-tj-meenach-aubrey-white',
+  'spokane-river-aubrey-white-plese-flats',
+  'spokane-river-aubrey-white-nine-mile-dam',
+  'spokane-river-redband-tj-meenach',
+  'spokane-river-redband-aubrey-white',
+  'spokane-river-redband-plese-flats',
+  'spokane-river-redband-nine-mile-dam',
 ] as const;
 
 const susquehannaConsolidatedRouteSlugs = [
@@ -742,6 +766,7 @@ const consolidatedRouteTargets = new Map<string, string>(
     ...farmingtonRiverRetiredRouteSlugs.map((slug) => [slug, `${farmingtonRiverHubPath}#farmington-river-access-notes`] as const),
     ...susquehannaConsolidatedRouteSlugs.map((slug) => [slug, `${susquehannaRiverHubPath}?route=${slug}#trip-${slug}`] as const),
     ...merrimackRiverConsolidatedRouteSlugs.map((slug) => [slug, `${merrimackRiverHubPath}?route=${slug}#trip-${slug}`] as const),
+    ...spokaneRiverConsolidatedRouteSlugs.map((slug) => [slug, `${spokaneRiverHubPath}?route=${slug}#trip-${slug}`] as const),
   ],
 );
 

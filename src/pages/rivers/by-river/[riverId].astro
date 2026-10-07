@@ -44,6 +44,7 @@ const isFarmingtonHub = group.riverId === 'farmington-river-connecticut';
 const isSusquehannaHub = group.riverId === 'susquehanna-river';
 const isBayouTecheHub = group.riverId === 'bayou-teche-river-louisiana';
 const isMerrimackHub = group.riverId === 'merrimack-river-new-hampshire';
+const isSpokaneHub = group.riverId === 'spokane-river-washington';
 const hasConsolidatedTrips = group.routes.some((route) => routePageConsolidationTarget(route.slug));
 const stateSummary = group.states.join(', ');
 const stateDisplay = group.states.join(' and ');
@@ -58,6 +59,8 @@ const needsRegionInTitle = listRiverGroups().some((other) =>
 const groupTitleLocation = needsRegionInTitle ? `${regionSummary}, ${stateSummary}` : stateSummary;
 const groupTitle = isBroadRiverHub
   ? 'Broad River, South Carolina | Paddling Sections & Access'
+  : isSpokaneHub
+  ? 'Spokane River, Washington | Paddling Sections, Gauges & Access'
   : isMerrimackHub
   ? 'Merrimack River, New Hampshire | Paddle Trips & Flow Guides'
   : isAnimasHub
@@ -105,6 +108,8 @@ const groupTitle = isBroadRiverHub
   : `${group.name}, ${groupTitleLocation} | Paddle Routes & Trip Planning`;
 const groupDescription = isBroadRiverHub
   ? 'Compare eight Paddle SC trips on South Carolina’s Broad River, from Ninety-Nine Islands to Strother Landing and the separate Peak–Harbison reach. Check trip-specific gauges, dam portages, and public access.'
+  : isSpokaneHub
+  ? 'Plan the Spokane River by its distinct upper reaches, lower whitewater and Nine Mile flatwater pool. Compare six focused Water Trail sections and 20 alternate endpoint choices, with local access, gauge context and safety notes.'
   : isMerrimackHub
   ? `Compare ${group.routeCount} Merrimack River trips from Franklin and Boscawen through Concord, Bow, Allenstown, and Hooksett. Five Franklin–Concord routes have published flow guidance; lower-valley trips need separate gauge and access checks.`
   : isAnimasHub
@@ -556,6 +561,8 @@ const faqItems = [
     question: `Where can I paddle the ${group.name}?`,
     answer: isMerrimackHub
       ? 'Choose from five documented Franklin–Concord routes, the short Sewalls Falls–Everett Arena trip, or lower-valley access pairs from Boscawen through Hooksett. Fourteen overlapping planning combinations remain selectable in the trip picker with their own distance and access notes.'
+      : isSpokaneHub
+      ? 'Start with the Water Trail’s six distinct sections: Harvard–Barker (2 miles, Class I), Barker–Mirabeau (4.5 miles, Class II), Mirabeau–Plante’s Ferry (1 mile, mostly flatwater), Plante’s Ferry–Boulder Beach (4.5 miles, mostly flatwater), TJ Meenach–Plese Flats (expert Class III–IV), and Plese Flats–Nine Mile Dam (5 miles, flatwater). Twenty other endpoint choices remain available as trip cards.'
       : isBroadRiverHub
       ? 'Paddle SC names eight South Carolina trips represented in this guide, including the 7.8-mile Ninety-Nine Islands–Daltons section, the Lockhart–Strother sequence, and the separate 16.6-mile Peak–Harbison trip. The picker also keeps longer endpoint combinations available so paddlers can choose a different start or finish.'
       : isAnimasHub
@@ -608,6 +615,8 @@ const faqItems = [
     question: `How should I check ${group.name} water levels?`,
     answer: isMerrimackHub
       ? 'The 400 cfs runnable floor and 1,500–2,000 cfs preferred range belong to the documented Franklin–Concord run and its USGS 01081500 gauge near Franklin Junction. Lower-valley trips are planning-only; that upstream station is context and does not provide a verified route-specific threshold for each downstream reach.'
+      : isSpokaneHub
+      ? 'Use USGS 12419000 near Post Falls for the short Harvard–Barker section; it is upstream context for the rest of the upper river and does not confirm local water near Barker and Sullivan. USGS 12422500 at Spokane provides lower-river context. The TJ Meenach–Plese expert run, upper combinations beyond Barker, and the Nine Mile pool are planning-only because their conditions cannot be represented safely by one live score.'
       : isBroadRiverHub
       ? 'Check the gauge and source attached to the exact trip. Ninety-Nine Islands–Daltons uses a stage reading in feet at USGS 02153551; Peak–Harbison and the lower sections use discharge readings at their own gauges. These locations and units do not form one river-wide threshold, and a gauge reading does not clear dam portages or access conditions.'
       : isAnimasHub
@@ -650,6 +659,8 @@ const faqItems = [
     question: scoredRouteCount ? `Which ${group.name} route is best today?` : `How should I choose a ${group.name} trip?`,
     answer: isMerrimackHub
       ? 'Pick the reach first. Use the five documented Franklin–Concord options for the published upper-river flow guidance, or compare lower-valley trips by endpoint, distance, current, and dam boundaries. Allenstown’s Pelissier Boat Launch requires a resident permit sticker, so visitors should choose another take-out.'
+      : isSpokaneHub
+      ? 'Choose by the hardest water on the route. The Water Trail describes Barker–Mirabeau as Class II for more experienced paddlers and TJ Meenach–Plese as expert-only Class III–IV. Plese Flats–Nine Mile Dam is a separate flatwater option. The City prohibits boating between the Division and Monroe Street bridges; do not extend a trip upstream into that corridor.'
       : isSusquehannaHub
       ? 'Choose the river reach first: upper main-stem options in New York or North Branch sections in Pennsylvania. The picker keeps alternate endpoint pairs available, and each trip retains its own mileage, access, gauge, and hazard details.'
       : scoredRouteCount
@@ -800,6 +811,57 @@ const groupStructuredData = [
         </figure>
       ) : null}
     </section>
+
+    {isSpokaneHub ? (
+      <section class="river-group-page__panel" aria-labelledby="spokane-river-sections-title">
+        <div class="river-group-page__section-head">
+          <div>
+            <p class="eyebrow section-label">Spokane River Water Trail</p>
+            <h2 class="section-title" id="spokane-river-sections-title">Choose a Spokane trip by its reach</h2>
+          </div>
+          <p class="muted river-group-page__section-note">
+            The six focused guides follow changes in skill, water and access. Longer combinations stay available in the trip picker.
+          </p>
+        </div>
+        <div class="river-hub-context__grid">
+          <article class="river-hub-context__item">
+            <h3>Upper river · Harvard to Boulder Beach</h3>
+            <p>
+              The Water Trail separates the novice-friendly Harvard–Barker Class I reach, the more experienced Barker–Mirabeau Class II run, and the mostly flatwater sections beyond Mirabeau. USGS 12419000 near Post Falls is upstream context. A 2025 technical report documented a dry reach between Barker and Sullivan, so check local water instead of relying on that upstream reading alone.
+            </p>
+            <ul>
+              <li><a href={routeSlugHref('spokane-river-harvard-barker')}>Harvard Road to Barker Road</a> · 2 mi · Class I</li>
+              <li><a href={routeSlugHref('spokane-river-barker-mirabeau')}>Barker Road to Mirabeau</a> · 4.5 mi · Class II</li>
+              <li><a href={routeSlugHref('spokane-river-mirabeau-plantes-ferry')}>Mirabeau to Plante’s Ferry</a> · 1 mi · mostly flatwater</li>
+              <li><a href={routeSlugHref('spokane-river-plantes-ferry-boulder-beach')}>Plante’s Ferry to Boulder Beach</a> · 4.5 mi · mostly flatwater, with Coyote Rock</li>
+            </ul>
+          </article>
+          <article class="river-hub-context__item">
+            <h3>Lower river · Redband and TJ Meenach</h3>
+            <p>
+              Redband to TJ Meenach is a short urban option. The Water Trail describes the TJ Meenach–Plese Flats section as roughly seven miles of Class III–IV whitewater for equipped experts; less experienced paddlers should exit at TJ. The listed flows are broad paddling references, not a safe range for every boater.
+            </p>
+            <ul>
+              <li><a href={routeSlugHref('spokane-river-redband-tj-meenach')}>Redband Park to TJ Meenach</a></li>
+              <li><a href={routeSlugHref('spokane-river-tj-meenach-plese-flats')}>TJ Meenach to Plese Flats</a> · about 7 mi · expert Class III–IV</li>
+            </ul>
+            <p>The City prohibits boating between the Division Street and Monroe Street bridges. Do not extend an upstream trip into that restricted corridor.</p>
+          </article>
+          <article class="river-hub-context__item">
+            <h3>Nine Mile · flatwater above the dam</h3>
+            <p>
+              Plese Flats to the Nine Mile Dam take-out is a separate five-mile flatwater trip. The Water Trail says to exit on river left before the dam. USGS 12422500 at Spokane provides broader upstream context; dam operations and local pool conditions need a same-day check.
+            </p>
+            <ul>
+              <li><a href={routeSlugHref('spokane-river-plese-flats-nine-mile-dam')}>Plese Flats to Nine Mile Dam</a> · 5 mi · flatwater</li>
+            </ul>
+          </article>
+        </div>
+        <p>
+          Review the <a href="https://www.spokaneriver.net/watertrail/paddling-stateline-to-upriver-dam/" target="_blank" rel="noopener noreferrer">upper Water Trail section guide</a>, its <a href="https://www.spokaneriver.net/watertrail/paddling-water-street-to-plese-flats/" target="_blank" rel="noopener noreferrer">Water Street–Plese Flats safety guide</a>, the <a href="https://www.spokaneriver.net/watertrail/paddling-plese-flats-to-little-falls-dam/" target="_blank" rel="noopener noreferrer">Plese Flats–Nine Mile section guide</a>, <a href="https://my.spokanecity.org/rulesoftheriver/" target="_blank" rel="noopener noreferrer">City river rules</a>, and the <a href="https://www.spokaneaquifer.org/wp-content/uploads/2025/12/FINAL_GSI_TM_SAJB-Model-Development_20251212.pdf" target="_blank" rel="noopener noreferrer">2025 low-flow observation report</a> before choosing a trip.
+        </p>
+      </section>
+    ) : null}
 
     {isMerrimackHub ? (
       <section class="river-group-page__panel" aria-labelledby="merrimack-river-sections-title">
@@ -1318,7 +1380,7 @@ const groupStructuredData = [
                       <span data-group-initial-score>{route.scoreEligibility === 'planning' ? 'Planning route' : 'Loading'}</span>
                     </span>
                   </button>
-                  {isWillimanticHub || isMerrimackHub || isAnimasHub || isHousatonicHub ? (
+                  {isWillimanticHub || isMerrimackHub || isSpokaneHub || isAnimasHub || isHousatonicHub ? (
                     <details class="route-choice__trip-notes">
                       <summary>{isAnimasHub || isHousatonicHub ? 'Access, flow, and safety notes' : 'Access, gauge, and safety notes'}</summary>
                       <div>
@@ -1329,8 +1391,8 @@ const groupStructuredData = [
                           <strong>Take-out:</strong> {route.takeOut?.name || 'See linked trail guide'}.
                         </p>
                         <p>
-                          <strong>Gauge:</strong> {route.gaugeSource.siteName}
-                          {typeof (route.profile.idealMin ?? route.profile.tooLow) === 'number'
+                          <strong>Gauge context:</strong> {route.gaugeSource.siteName}
+                          {route.scoreEligibility !== 'planning' && typeof (route.profile.idealMin ?? route.profile.tooLow) === 'number'
                             ? `; use ${route.profile.idealMin ?? route.profile.tooLow} ${route.gaugeSource.unit} as this route’s published planning floor.`
                             : '.'}
                           {' '}{route.scoreEligibility === 'planning' ? 'No route-specific numeric flow band is verified; treat this station as context and check local conditions.' : 'This is route-specific planning guidance, not a safety guarantee; check the live reading and trend before launch.'}
@@ -1437,7 +1499,9 @@ const groupStructuredData = [
         <article class="river-hub-context__item">
           <h3>Water levels</h3>
           <p>
-            {gaugeNames.length === 1
+            {isSpokaneHub
+              ? 'Use the station named for the chosen section. USGS 12419000 near Post Falls gives direct flow telemetry for Harvard–Barker, while the Spokane reading is lower-river context. Neither gauge verifies the dry-prone Barker–Sullivan channel or the Nine Mile pool above its dam; inspect those places locally.'
+              : gaugeNames.length === 1
               ? `These ${group.name} routes use ${gaugeNames[0]} as the main gauge reference.`
               : `These ${group.name} routes use ${gaugeNames.length} gauge references depending on the stretch.`}
           </p>
@@ -1447,6 +1511,8 @@ const groupStructuredData = [
           <p>
             {isRussianRiverHub
               ? `Compare all ${group.routeCount} endpoint combinations here. Six source-backed trips keep standalone pages; the remaining options stay selectable with their own mileage, access, shuttle, and hazard notes. The upper, middle, and lower reaches use different guide and gauge references.`
+              : isSpokaneHub
+              ? `Compare all ${group.routeCount} Spokane River options here. Six focused Water Trail sections keep standalone guides; the other 20 endpoint combinations remain available as cards with their own access and hazard notes. Upper Post Falls telemetry, the lower Spokane gauge, and the Nine Mile pool describe different conditions.`
               : isGreenRiverHub
               ? `Compare all ${group.routeCount} Green River trip choices across the Upper Green, Hart County, and Mammoth Cave. Eight source-backed trips keep standalone pages; the other 24 remain available here with their endpoint, mileage, access, and hazard details. Eleven cross-zone combinations are planning-only because their gauge guidance cannot be combined into one route score.`
               : isBlackfootHub
