@@ -50,6 +50,7 @@ const isWabashHub = group.riverId === 'wabash-river';
 const isVillageCreekHub = group.riverId === 'village-creek';
 const isElevenPointHub = group.riverId === 'eleven-point-river';
 const isJacksForkHub = group.riverId === 'jacks-fork-river';
+const isCurrentRiverHub = group.riverId === 'current-river';
 const hasConsolidatedTrips = group.routes.some((route) => routePageConsolidationTarget(route.slug));
 const stateSummary = group.states.join(', ');
 const stateDisplay = group.states.join(' and ');
@@ -64,6 +65,8 @@ const needsRegionInTitle = listRiverGroups().some((other) =>
 const groupTitleLocation = needsRegionInTitle ? `${regionSummary}, ${stateSummary}` : stateSummary;
 const groupTitle = isBroadRiverHub
   ? 'Broad River, South Carolina | Paddling Sections & Access'
+  : isCurrentRiverHub
+  ? 'Current River, Missouri | Upper & Lower Float Sections'
   : isJacksForkHub
   ? 'Jacks Fork River, Missouri | Float Sections, Gauges & Access'
   : isElevenPointHub
@@ -123,6 +126,8 @@ const groupTitle = isBroadRiverHub
   : `${group.name}, ${groupTitleLocation} | Paddle Routes & Trip Planning`;
 const groupDescription = isBroadRiverHub
   ? 'Compare eight Paddle SC trips on South Carolina’s Broad River, from Ninety-Nine Islands to Strother Landing and the separate Peak–Harbison reach. Check trip-specific gauges, dam portages, and public access.'
+  : isCurrentRiverHub
+  ? 'Compare 16 Current River trips in Ozark National Scenic Riverways, from Cedar Grove and Akers to Van Buren and Gooseneck. Review upper and lower sections, two gauge contexts, NPS float estimates, and access details.'
   : isJacksForkHub
   ? 'Plan Jacks Fork trips from Buck Hollow through Rymers, Bay Creek, and Alley Spring to Eminence. Compare 15 route options, three USGS gauges, access details, and National Park Service float guidance.'
   : isElevenPointHub
@@ -586,6 +591,8 @@ const faqItems = [
     question: `Where can I paddle the ${group.name}?`,
     answer: isMerrimackHub
       ? 'Choose from five documented Franklin–Concord routes, the short Sewalls Falls–Everett Arena trip, or lower-valley access pairs from Boscawen through Hooksett. Fourteen overlapping planning combinations remain selectable in the trip picker with their own distance and access notes.'
+      : isCurrentRiverHub
+      ? 'Choose the upper Current from Cedar Grove through Akers, Pulltite, and Round Spring, or the separate lower Current from Waymeyer through Van Buren, Big Spring, Cataract, and Gooseneck. All 16 endpoint choices remain in the trip picker; begin with a source-named section, then compare longer combinations by time, shuttle, and access.'
       : isJacksForkHub
       ? 'Choose among 15 endpoint combinations from Buck Hollow and Blue Spring through Rymers, Bay Creek, Alley Spring, and Eminence. The upper river can become too shallow to navigate during dry periods; the popular Alley Spring–Eminence float is a separate lower reach. Check the section guide and use the gauge attached to the exact trip.'
       : isElevenPointHub
@@ -650,6 +657,8 @@ const faqItems = [
     question: `How should I check ${group.name} water levels?`,
     answer: isMerrimackHub
       ? 'The 400 cfs runnable floor and 1,500–2,000 cfs preferred range belong to the documented Franklin–Concord run and its USGS 01081500 gauge near Franklin Junction. Lower-valley trips are planning-only; that upstream station is context and does not provide a verified route-specific threshold for each downstream reach.'
+      : isCurrentRiverHub
+      ? 'Use the gauge on the selected trip: USGS 07064533 above Akers for upper Current options and USGS 07067000 at Van Buren for lower Current options. The card floors (230 or 300 cfs upper; 700 cfs lower) are conservative community planning cues, not NPS safety limits. Check the park’s current river levels and closure notices; NPS closure stages use gauge height in feet and are a separate check.'
       : isJacksForkHub
       ? 'Use the station shown on the selected trip: USGS 07065200 near Mountain View for upper reaches, USGS 07065495 at Alley Spring for trips in the middle corridor, and USGS 07066000 at Eminence for the lower finish. NPS warns that parts of the upper river are navigable only at certain times because of low water. The 100 or 200 cfs card floors are conservative community-sourced planning cues, not NPS safe-flow rules; no ideal range or high-flow cutoff is claimed.'
       : isElevenPointHub
@@ -1065,6 +1074,48 @@ const groupStructuredData = [
         </div>
         <p>
           Check the current <a href="https://mdc.mo.gov/fishing/fishing-prospects/areas/eleven-point-river" target="_blank" rel="noopener noreferrer">MDC Eleven Point River reach and access guide</a>, the <a href="https://www.fs.usda.gov/Internet/FSE_DOCUMENTS/stelprdb5200703.pdf" target="_blank" rel="noopener noreferrer">Forest Service Eleven Point Scenic River travel guide</a>, and the <a href="https://www.fws.gov/rivers/river/eleven-point" target="_blank" rel="noopener noreferrer">Wild and Scenic River overview</a>. Much of the corridor borders private land under scenic easement; stay within public accesses and lawful float-camp rules. Use <a href="https://waterdata.usgs.gov/monitoring-location/USGS-07071500/" target="_blank" rel="noopener noreferrer">USGS 07071500 near Bardley</a> as flow context, not a river-wide go/no-go rule.
+        </p>
+      </section>
+    ) : null}
+
+    {isCurrentRiverHub ? (
+      <section class="river-group-page__panel" id="current-river-section-guide" aria-labelledby="current-river-section-guide-title">
+        <div class="river-group-page__section-head">
+          <div>
+            <p class="eyebrow section-label">Ozark National Scenic Riverways · Missouri</p>
+            <h2 class="section-title" id="current-river-section-guide-title">Choose a Current River trip by section</h2>
+          </div>
+          <p class="muted river-group-page__section-note">
+            Start with upper or lower Current. These sections use separate gauge stations and trip guidance.
+          </p>
+        </div>
+        <div class="river-hub-context__grid">
+          <article class="river-hub-context__item">
+            <h3>Upper Current: Cedar Grove to Round Spring</h3>
+            <p>
+              NPS’s 2024 float-time table lists Cedar Grove–Akers at 7.7 miles / 3 hours, Akers–Pulltite at 9.6 miles / 4 hours, and Pulltite–Round Spring at 8.9 miles / 4 hours. Its older upper-river page gives Akers–Pulltite as 5 hours. These are averages for canoes and kayaks; NPS says flow, breaks, vessel, paddling pace, and wind affect timing. Use USGS 07064533 above Akers as the route card’s upper-river gauge context, and check conditions again at the selected access.
+            </p>
+            <ul>
+              <li><a href={routeSlugHref('current-river-cedar-grove-akers')}>Cedar Grove to Akers</a> · 7.7 mi / about 3 hr</li>
+              <li><a href={routeSlugHref('current-river-akers-ferry-pulltite')}>Akers to Pulltite</a> · 9.6 mi / about 4–5 hr by NPS estimates</li>
+              <li><a href={routeSlugHref('current-river-pulltite-round-spring')}>Pulltite to Round Spring</a> · 8.9 mi / about 4 hr</li>
+            </ul>
+          </article>
+          <article class="river-hub-context__item">
+            <h3>Lower Current: Waymeyer to Gooseneck</h3>
+            <p>
+              NPS’s 2024 table lists Van Buren–Big Spring (4.3 miles / 2 hours), Big Spring–Cataract (8.8 miles / 4 hours), and Cataract–Gooseneck (6.2 miles / 3 hours). Its older lower-river page also names Waymeyer–Van Buren (3 hours), Big Spring–Gooseneck (6 hours), and Van Buren–Gooseneck (8 hours); the newer table’s segment totals differ for those combined trips. The selected cards retain those ranges and route-specific shuttle notes. Use USGS 07067000 at Van Buren as lower-river context; it does not describe the upper Current.
+            </p>
+            <ul>
+              <li><a href={routeSlugHref('current-river-waymeyer-van-buren')}>Waymeyer to Van Buren</a></li>
+              <li><a href={routeSlugHref('current-river-van-buren-big-spring')}>Van Buren to Big Spring</a> · 4.3 mi / about 2 hr</li>
+              <li><a href={routeSlugHref('current-river-big-spring-cataract')}>Big Spring to Cataract</a> · 8.8 mi / about 4 hr</li>
+              <li><a href={routeSlugHref('current-river-cataract-gooseneck')}>Cataract to Gooseneck / Hawes</a> · 6.2 mi / about 3 hr</li>
+            </ul>
+          </article>
+        </div>
+        <p>
+          The trip picker keeps all {group.routeCount} endpoint choices, including longer combinations, with their own access, shuttle, camping, gauge, and safety notes. Read the current <a href="https://www.nps.gov/ozar/planyourvisit/floattimes.htm" target="_blank" rel="noopener noreferrer">NPS estimated float-time table</a>, <a href="https://www.nps.gov/thingstodo/paddle-the-upper-current-river.htm" target="_blank" rel="noopener noreferrer">Upper Current paddling guidance</a>, and <a href="https://www.nps.gov/thingstodo/paddle-the-lower-current-river.htm" target="_blank" rel="noopener noreferrer">Lower Current paddling guidance</a>. Check <a href="https://www.nps.gov/ozar/planyourvisit/levels.htm" target="_blank" rel="noopener noreferrer">current NPS river levels and closure stages</a> before setting a shuttle; the route-card discharge floors are not official safety limits.
         </p>
       </section>
     ) : null}
@@ -1636,9 +1687,9 @@ const groupStructuredData = [
                       <span data-group-initial-score>{route.scoreEligibility === 'planning' ? 'Planning route' : 'Loading'}</span>
                     </span>
                   </button>
-                  {isWillimanticHub || isMerrimackHub || isSpokaneHub || isSaludaHub || isWabashHub || isVillageCreekHub || isElevenPointHub || isJacksForkHub || isAnimasHub || isHousatonicHub ? (
+                  {isWillimanticHub || isMerrimackHub || isSpokaneHub || isSaludaHub || isWabashHub || isVillageCreekHub || isElevenPointHub || isJacksForkHub || isCurrentRiverHub || isAnimasHub || isHousatonicHub ? (
                     <details class="route-choice__trip-notes">
-                      <summary>{isJacksForkHub ? 'Access, gauge, shuttle, and camping notes' : isAnimasHub || isHousatonicHub ? 'Access, flow, and safety notes' : 'Access, gauge, and safety notes'}</summary>
+                      <summary>{isJacksForkHub || isCurrentRiverHub ? 'Access, gauge, shuttle, and camping notes' : isAnimasHub || isHousatonicHub ? 'Access, flow, and safety notes' : 'Access, gauge, and safety notes'}</summary>
                       <div>
                         <p>{route.logistics?.summary || route.summary}</p>
                         <p>
@@ -1656,6 +1707,9 @@ const groupStructuredData = [
                         {isJacksForkHub && route.logistics?.shuttle ? <p><strong>Shuttle:</strong> {route.logistics.shuttle}</p> : null}
                         {isJacksForkHub && route.logistics?.camping ? <p><strong>Camping:</strong> {route.logistics.camping}</p> : null}
                         {isJacksForkHub && route.logistics?.permits ? <p><strong>Rules:</strong> {route.logistics.permits}</p> : null}
+                        {isCurrentRiverHub && route.logistics?.shuttle ? <p><strong>Shuttle:</strong> {route.logistics.shuttle}</p> : null}
+                        {isCurrentRiverHub && route.logistics?.camping ? <p><strong>Camping:</strong> {route.logistics.camping}</p> : null}
+                        {isCurrentRiverHub && route.logistics?.permits ? <p><strong>Rules:</strong> {route.logistics.permits}</p> : null}
                         {route.logistics?.accessCaveats?.length ? (
                           <ul>{route.logistics.accessCaveats.map((note) => <li>{note}</li>)}</ul>
                         ) : null}
@@ -1758,7 +1812,9 @@ const groupStructuredData = [
         <article class="river-hub-context__item">
           <h3>Water levels</h3>
           <p>
-            {isJacksForkHub
+            {isCurrentRiverHub
+              ? 'The Current River guide separates the Upper Current between Cedar Grove and Round Spring from the Lower Current around Waymeyer, Van Buren, Big Spring, Cataract, and Gooseneck. USGS 07064533 above Akers and USGS 07067000 at Van Buren describe different reaches; select the gauge shown on the exact trip card.'
+              : isJacksForkHub
               ? 'Jacks Fork options follow one main access corridor, but the upper section is seasonal and trip guidance uses three different stations. The trip cards group every endpoint choice here; use the direct source-backed adjacent floats to anchor a plan, and select the route that matches your launch, take-out, time, and gauge.'
               : isElevenPointHub
               ? 'Use USGS 07071500 near Bardley only as conservative same-river context. The station is downstream of Greer Spring, so the smaller Thomasville–Cane Bluff section can be shallow even when the lower gauge looks usable. Current route cards show a minimum-only planning cue, not an ideal range or high-water clearance; check rainfall, the live trend, and conditions at the actual put-in.'
@@ -1774,7 +1830,9 @@ const groupStructuredData = [
         <article class="river-hub-context__item">
           <h3>Route options</h3>
           <p>
-            {isJacksForkHub
+            {isCurrentRiverHub
+              ? `Compare all ${group.routeCount} Current River endpoint choices here. The picker keeps the two NPS-described sections separate and preserves every trip with its own endpoints, gauge, distance, shuttle, camping, and safety details.`
+              : isJacksForkHub
               ? `Compare all ${group.routeCount} Jacks Fork endpoint choices here. The NPS adjacent float sections provide useful anchors, while longer combinations remain available with their own mileage, shuttle, camping, and hazard notes. Use the gauge assigned to the specific trip: Mountain View upstream, Alley Spring in the middle, or Eminence for the lower finish.`
               : isElevenPointHub
               ? `Compare all ${group.routeCount} public endpoint choices here, from the upper reaches through Turner Mill, Whitten, Riverton, and The Narrows. The route cards keep their own access pairs, mileage, and safety notes together; choose trips within the river section and gauge context you plan to use.`

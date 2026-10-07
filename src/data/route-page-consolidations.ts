@@ -125,6 +125,15 @@ const jacksForkRiverConsolidatedRouteSlugs = [
   'jacks-fork-river-rymers-chilton',
 ] as const;
 
+const currentRiverHubPath = '/rivers/by-river/current-river/';
+const currentRiverConsolidatedRouteSlugs = [
+  'current-river-akers-ferry-round-spring',
+  'current-river-cedar-grove-round-spring',
+  'current-river-van-buren-cataract',
+  'current-river-van-buren-gooseneck',
+  'current-river-waymeyer-gooseneck',
+] as const;
+
 const merrimackRiverConsolidatedRouteSlugs = [
   'merrimack-river-sewalls-falls-ferry-street',
   'merrimack-river-everett-arena-ferry-street',
@@ -849,6 +858,7 @@ const consolidatedRouteTargets = new Map<string, string>(
     ...villageCreekConsolidatedRouteSlugs.map((slug) => [slug, `${villageCreekHubPath}?route=${slug}#trip-${slug}`] as const),
     ...elevenPointRiverConsolidatedRouteSlugs.map((slug) => [slug, `${elevenPointRiverHubPath}?route=${slug}#trip-${slug}`] as const),
     ...jacksForkRiverConsolidatedRouteSlugs.map((slug) => [slug, `${jacksForkRiverHubPath}?route=${slug}#trip-${slug}`] as const),
+    ...currentRiverConsolidatedRouteSlugs.map((slug) => [slug, `${currentRiverHubPath}?route=${slug}#trip-${slug}`] as const),
     ...saludaRiverConsolidatedRouteSlugs.map((slug) => [slug, `${saludaRiverHubPath}?route=${slug}#trip-${slug}`] as const),
     ...saludaRiverLaunchAliasSlugs.map((slug) => [slug, `${saludaRiverHubPath}?route=saluda-river-saluda-shoals-gardendale#trip-saluda-river-saluda-shoals-gardendale`] as const),
     ...saludaRiverAccessNoteRouteSlugs.map((slug) => [slug, `${saludaRiverHubPath}#saluda-route-access-notes`] as const),

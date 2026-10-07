@@ -765,7 +765,7 @@ export const missouriRoutes: River[] = [
     ],
     "state": "Missouri",
     "region": "Missouri Ozarks",
-    "summary": "Classic Upper Current River day float from Akers Ferry to Pulltite inside Ozark National Scenic Riverways. NPS lists the 9.6-mile route, the Akers gauge is in the put-in corridor, and the level model stays conservative because the low-water floor is community-calibrated.",
+    "summary": "Classic Upper Current River day float from Akers Ferry to Pulltite inside Ozark National Scenic Riverways. NPS lists the 9.6-mile route; its current table estimates four hours and its older paddling page says five. The Akers gauge is in the put-in corridor, and the level model stays conservative because the low-water floor is community-calibrated.",
     "statusText": "Use the Current River above Akers gauge. Around 230 cfs is the low-water marker for Akers to Pulltite; below that, expect shallow riffles and possible dragging. Do not treat high or rising water as casual, and check NPS closure notices before launching.",
     "latitude": 37.37591,
     "longitude": -91.55148,
@@ -819,7 +819,7 @@ export const missouriRoutes: River[] = [
       "seasonNotes": "The upper Current is spring-fed and commonly floated beyond peak spring runoff, but low summer water can make shoals slow and scrape-heavy. Heavy rain can raise the river quickly, add debris, and trigger NPS flood closures or access restrictions.",
       "difficulty": "easy",
       "difficultyNotes": "NPS treats Akers to Pulltite as a standard 4-hour upper-Current canoe/kayak float. The route is easy at ordinary levels, but shallow riffles, cold spring water, busy warm-season access areas, wood, caves, and high-water closure thresholds still matter.",
-      "confidenceNotes": "Confidence is good for a conservative Missouri add: NPS lists Akers to Pulltite as a 9.6-mile / 4-hour Upper Current route, NPS floating guidance directs private boaters to designated accesses, Recreation.gov currently describes Pulltite as a year-round campground with flood-damaged facilities reduced after October 15, 2025 rather than an active closure, USGS 07064533 is a direct live gauge in the Akers put-in corridor and showed same-day May 31, 2026 discharge and gage-height observations, and Rivers.MOHERP includes exact Akers-to-Pulltite good-condition trip evidence down to about 213 cfs plus broader Upper Current reports around the same floor. The app uses minimum-only scoring because the numeric low-water floor is community-calibrated rather than an official paddling band, and no ideal range or upper cutoff is inferred."
+      "confidenceNotes": "Confidence is good for a conservative Missouri add: the current NPS float-time table lists Akers to Pulltite as 9.6 miles / 4 hours, while its older upper-river paddling page estimates 5 hours; the route card gives a 4-to-5-hour planning range because NPS says times vary with conditions. NPS floating guidance directs private boaters to designated accesses, Recreation.gov describes Pulltite as a year-round campground with flood-damaged facilities reduced after October 15, 2025 rather than an active closure, USGS 07064533 is a direct live gauge in the Akers put-in corridor, and Rivers.MOHERP includes exact Akers-to-Pulltite good-condition trip evidence around the 230 cfs planning floor. The app uses minimum-only scoring because the numeric low-water floor is community-calibrated rather than an official paddling band; it does not infer an ideal range or upper cutoff."
     },
     "evidenceNotes": [
       {
@@ -827,6 +827,12 @@ export const missouriRoutes: River[] = [
         "value": "Akers to Pulltite, 9.6 mi / 4 hr",
         "note": "NPS Estimated Float Times lists Akers to Pulltite as a 9.6-mile Upper Current River float with an estimated four-hour canoe/kayak time.",
         "sourceUrl": "https://www.nps.gov/ozar/planyourvisit/floattimes.htm"
+      },
+      {
+        "label": "Earlier NPS time estimate",
+        "value": "About 5 hr",
+        "note": "The older NPS Paddle the Upper Current River page estimates five hours for Akers to Pulltite. Its newer float-time table gives four hours; the trip card reports a 4-to-5-hour range because NPS says these times vary with flow and other conditions.",
+        "sourceUrl": "https://www.nps.gov/thingstodo/paddle-the-upper-current-river.htm"
       },
       {
         "label": "Public floating rules",
@@ -3334,7 +3340,7 @@ export const missouriRoutes: River[] = [
     ],
     "state": "Missouri",
     "region": "Missouri Ozarks",
-    "summary": "Lower Current River day float from Waymeyer into Van Buren. NPS lists Waymeyer to Van Buren as a standard lower-river section, MDC confirms the Van Buren Riverfront Park boat ramp, and the direct Van Buren gauge gives a conservative low-water check.",
+    "summary": "Lower Current River day float from Waymeyer into Van Buren. NPS's older page estimates three hours, while the newer table's component rows total about 2.5 hours / 6.5 miles; the route trace is about 7.2 miles. MDC confirms the Van Buren Riverfront Park boat ramp, and the direct Van Buren gauge gives a conservative low-water check.",
     "statusText": "Use the Current River at Van Buren gauge. Around 700 cfs is a conservative low-water floor from MoHERP and exact-route trip evidence; below that, expect shallow shoals, slower travel, and possible dragging. No ideal range or high cutoff is claimed.",
     "latitude": 37.054302,
     "longitude": -91.055459,
@@ -3347,7 +3353,7 @@ export const missouriRoutes: River[] = [
         "private_banks"
       ],
       "safetyNotes": [
-        "NPS lists Waymeyer to Van Buren as an approximately three-hour Lower Current float and warns that flow changes alter timing. Treat the 700 cfs floor as a low-water check only; inspect the forecast and current level before committing to the shuttle.",
+        "NPS's older page lists Waymeyer to Van Buren as about three hours; the newer float-time table's Waymeyer–Raftyard and Raftyard–Van Buren rows total about 2.5 hours / 6.5 miles. The route trace is about 7.2 miles. Treat distance and time as approximate and check current flow before committing to the shuttle.",
         "NPS's current Compendium closes the Current to non-motorized vessels at the Van Buren Bridge at 5.00 ft. Flood water runs faster and carries debris, so check the park's current closure notice and do not launch into rising or closed conditions.",
         "Waymeyer remains a non-commercial floater access, but NPS has documented erosion and limited unloading room. Use the signed access, keep staging brief, and use the signed Van Buren Riverfront Park ramp; do not substitute a private bank or informal town shoreline for either endpoint."
       ],
@@ -3387,14 +3393,20 @@ export const missouriRoutes: River[] = [
       "seasonNotes": "The lower Current is spring-fed and NPS lists the Lower Current season as year-round, but low summer levels can make shoals slow and high or rising water can trigger closures, add debris, and make crowded landings harder. Check NPS closure notices before leaving vehicles.",
       "difficulty": "easy",
       "difficultyNotes": "NPS lists Waymeyer to Van Buren as a standard 3-hour Lower Current section. It is generally an easy moving-water float at normal levels, but this lower reach can have motorboat traffic, heavy summer recreation use, slick ramps, private-bank issues near town, and stronger current after rain.",
-      "confidenceNotes": "Confidence is good for a conservative minimum-only Missouri route: NPS identifies Waymeyer and Van Buren as lower Current put-in locations and lists Waymeyer to Van Buren as a 3-hour section; NPS separately says Waymeyer remains a non-commercial floater access, with crowding and erosion caveats; MDC confirms Van Buren Riverfront Park and says boats may be used there; USGS 07067000 showed same-day May 30, 2026 discharge and gage-height observations; and Rivers.MOHERP ties Van Buren-gauge ratings plus exact Waymeyer-to-Van Buren trip evidence to the selected gauge. The app uses only a 700 cfs low-water floor because the numeric threshold support is community-calibrated rather than an official manager band."
+      "confidenceNotes": "Confidence is good for a conservative minimum-only Missouri route: NPS's older paddling page gives Waymeyer to Van Buren as a 3-hour section, while the newer float-time table breaks it at Raftyard and totals 1.7 + 4.8 miles / 0.5 + 2 hours; the route trace is about 7.2 miles, so the card gives ranges. NPS separately identifies Waymeyer as a non-commercial floater access and notes crowding and erosion; MDC confirms Van Buren Riverfront Park and boat use there; USGS 07067000 is the direct lower-river gauge; and Rivers.MOHERP provides exact trip evidence. The app uses only a 700 cfs low-water floor because its numeric threshold is community-calibrated, not an official manager band."
     },
     "evidenceNotes": [
       {
         "label": "NPS route shape",
         "value": "Waymeyer to Van Buren, 3 hr",
-        "note": "NPS Paddle the Lower Current River lists Waymeyer to Van Buren as an estimated 3-hour lower Current float and names Waymeyer as a popular lower Current put-in.",
+        "note": "The older NPS Paddle the Lower Current River page gives a 3-hour estimate for this named section.",
         "sourceUrl": "https://www.nps.gov/thingstodo/paddle-the-lower-current-river.htm"
+      },
+      {
+        "label": "Newer NPS segment total",
+        "value": "About 6.5 mi / 2.5 hr",
+        "note": "The 2024 NPS float-time table breaks this route at Raftyard: Waymeyer–Raftyard is 1.7 miles / 0.5 hour and Raftyard–Van Buren is 4.8 miles / 2 hours. The route trace is about 7.2 miles, so the card keeps a source-based mileage range.",
+        "sourceUrl": "https://www.nps.gov/ozar/planyourvisit/floattimes.htm"
       },
       {
         "label": "Waymeyer access",
@@ -4000,7 +4012,7 @@ export const missouriRoutes: River[] = [
     ],
     "state": "Missouri",
     "region": "Missouri Ozarks",
-    "summary": "Long lower Current River day from Big Spring to Gooseneck / Hawes, ending near the Current River mouth. NPS lists this as a standard six-hour lower-river section, and the Van Buren USGS gauge gives a conservative same-river low-water check.",
+    "summary": "Long lower Current River day from Big Spring to Gooseneck / Hawes, ending near the Current River mouth. NPS's older page estimates six hours, while its newer table's Cataract split totals seven; the Van Buren USGS gauge gives a conservative same-river low-water check.",
     "statusText": "Use the Current River at Van Buren gauge. Around 700 cfs is the conservative low-water floor for this lower-Current cluster; below that, expect shallow shoals, slower travel, and a very long day. No ideal range or high cutoff is claimed.",
     "latitude": 36.9475519,
     "longitude": -90.9901267,
@@ -4024,7 +4036,7 @@ export const missouriRoutes: River[] = [
         "private_banks"
       ],
       "safetyNotes": [
-        "NPS lists Big Spring to Gooseneck as a roughly six-hour lower Current float. The current Superintendent's Compendium identifies Big Spring (upper) and Gooseneck (Hawes) as Current River landings, and the current concession operating plan includes Big Spring and Hawes among authorized Lower Current accesses. Use the signed landings and verify park alerts before leaving vehicles.",
+        "NPS's older lower-river page estimates six hours from Big Spring to Gooseneck; the newer float-time table's Big Spring–Cataract and Cataract–Gooseneck rows total seven hours. The trip card reports both estimates. The current Superintendent's Compendium identifies Big Spring (upper) and Gooseneck (Hawes) as Current River landings, and the current concession operating plan includes Big Spring and Hawes among authorized Lower Current accesses. Use signed landings and verify park alerts before leaving vehicles.",
         "NPS warns that fallen trees and rootwad strainers can occur on any river section, streams can rise quickly after moderate to heavy rain, and phone help may be hours away. Wear a PFD, be ready to self-rescue, and do not launch on high or rising water.",
         "The Current is spring-fed and cold. Below Big Spring, expect substantial motorboat traffic, wakes, and longer pools; use only NPS-owned land for gravel-bar camping and do not treat every reachable bank as a public stop.",
         "The 700 cfs value is a conservative community-supported low-water floor, not an ideal band or high-water clearance. The NPS Van Buren 5.00 ft closure level remains a separate same-day closure check."
@@ -4055,7 +4067,7 @@ export const missouriRoutes: River[] = [
       "seasonNotes": "NPS lists the Lower Current season as year-round, but this is a long downstream leg where low summer levels can make shoals and headwinds drag out the day. High or rising water can trigger closures, add debris, and make Gooseneck harder to land cleanly. Check NPS closure notices before leaving vehicles.",
       "difficulty": "moderate",
       "difficultyNotes": "NPS lists Big Spring to Gooseneck as a six-hour lower-Current section. The water is generally approachable at ordinary levels, but the mileage, lower-river motorboat traffic, limited bailouts, private-bank issues, and end-of-river logistics make it more committed than a short easy float.",
-      "confidenceNotes": "Confidence is good for a conservative minimum-only route: NPS lists Big Spring to Gooseneck as a lower Current float; the park brochure places Big Spring at lower-river mile 16 and Gooseneck / Hawes at river mile 0; the current Superintendent's Compendium identifies both as Current River landings; the current concession operating plan includes Big Spring and Hawes among authorized Lower Current accesses; USGS 07067000 showed same-day July 27, 2026 discharge and gage-height observations during safety review; and Rivers.MOHERP ties the same Van Buren gauge to exact Big-Spring-to-Gooseneck Good trip evidence. The app still uses only a 700 cfs low-water floor because the numeric threshold support is community-calibrated rather than an official manager band, and the Gooseneck coordinate is USGS-topo-derived rather than an NPS GIS point."
+      "confidenceNotes": "Confidence is good for a conservative minimum-only route: the older NPS lower-river page lists Big Spring to Gooseneck as a six-hour float, while the newer 2024 table's Big Spring–Cataract and Cataract–Gooseneck sections total seven hours. The park brochure places Big Spring at lower-river mile 16 and Gooseneck / Hawes at mile 0; the Superintendent's Compendium and concession operating plan identify the public landings; USGS 07067000 provides lower-river context; and Rivers.MOHERP has exact trip evidence. The app uses only a 700 cfs community-supported low-water floor, not an official manager band; the Gooseneck coordinate is USGS-topo-derived rather than an NPS GIS point."
     },
     "evidenceNotes": [
       {
@@ -4063,6 +4075,12 @@ export const missouriRoutes: River[] = [
         "value": "Big Spring to Gooseneck, 6 hr",
         "note": "NPS Paddle the Lower Current River lists Big Spring to Gooseneck as an estimated six-hour lower Current float and names Gooseneck as the end of the lower Current route sequence.",
         "sourceUrl": "https://www.nps.gov/thingstodo/paddle-the-lower-current-river.htm"
+      },
+      {
+        "label": "Current NPS segment total",
+        "value": "About 7 hr",
+        "note": "The newer NPS estimated float-time table lists Big Spring–Cataract at 4 hours and Cataract–Gooseneck at 3 hours; combined, they total about 7 hours. The route card keeps the older direct estimate as the other end of a 6-to-7-hour range.",
+        "sourceUrl": "https://www.nps.gov/ozar/planyourvisit/floattimes.htm"
       },
       {
         "label": "Park brochure context",
@@ -5265,7 +5283,7 @@ export const missouriRoutes: River[] = [
     ],
     "state": "Missouri",
     "region": "Missouri Ozarks",
-    "summary": "Long lower Current River day from Van Buren to Gooseneck / Hawes near the river mouth. Current NPS mileage and float-time guidance support the section, and the direct Van Buren gauge gives a conservative low-water check.",
+    "summary": "Long lower Current River day from Van Buren to Gooseneck / Hawes near the river mouth. NPS's older page estimates eight hours; its newer table's three component sections total nine. The direct Van Buren gauge gives a conservative low-water check.",
     "statusText": "Use the Current River at Van Buren gauge. Around 700 cfs is the conservative low-water floor for this lower-Current cluster; below that, expect shallow shoals, slower travel, and a very long day. No ideal range or high cutoff is claimed.",
     "latitude": 36.9939,
      "longitude": -91.014,
@@ -5313,7 +5331,7 @@ export const missouriRoutes: River[] = [
       "seasonNotes": "NPS lists the Lower Current season as year-round, but this long downstream route gets much slower at low water and more consequential in flood conditions. Check NPS closure notices before leaving vehicles.",
       "difficulty": "moderate",
       "difficultyNotes": "NPS lower-Current guidance supports this route as approachable moving water at ordinary levels, but the 19-plus-mile shape, motorboat traffic, long pools, limited exits, private-bank issues, and end-of-river shuttle make it more committed than a short easy float.",
-      "confidenceNotes": "Confidence is good for a conservative minimum-only add: current NPS float-times guidance lists Van Buren to Big Spring at 4.3 miles / 2 hours, Big Spring to Cataract at 8.8 miles / 4 hours, and Cataract to Gooseneck at 6.2 miles / 3 hours, which together define an about 19.3-mile public lower-Current route to Gooseneck / Hawes. The NPS brochure still confirms Van Buren / Watercress Park, Big Spring, and Gooseneck / Hawes as named public accesses, with Hawes / Gooseneck also carrying primitive-camping context. Same-day USGS Water Services returned 1,080 cfs and 3.01 ft at 2026-07-11 00:30 CDT for direct gauge 07067000 at Van Buren. Paddle Today keeps only the existing conservative 700 cfs minimum-only floor because the numeric support remains community-calibrated rather than an official manager band."
+      "confidenceNotes": "Confidence is good for a conservative minimum-only add: the current NPS float-time table lists Van Buren–Big Spring at 2 hours, Big Spring–Cataract at 4 hours, and Cataract–Gooseneck at 3 hours, totaling about 19.3 miles / 9 hours. The older NPS lower-river page gives 8 hours for Van Buren to Gooseneck, so the trip card reports an 8-to-9-hour range. NPS confirms the public access chain, USGS 07067000 provides direct Van Buren gauge context, and the app keeps only a community-supported 700 cfs low-water floor rather than an official manager band."
     },
     "evidenceNotes": [
       {
@@ -5324,9 +5342,15 @@ export const missouriRoutes: River[] = [
       },
       {
         "label": "NPS timing support",
-        "value": "About 8 hr total",
-        "note": "NPS lower-Current guidance lists Van Buren to Gooseneck as an about 8-hour route, matching the long committed day shape used here.",
+        "value": "About 8 hr",
+        "note": "The older NPS lower-river page estimates eight hours from Van Buren to Gooseneck.",
         "sourceUrl": "https://www.nps.gov/thingstodo/paddle-the-lower-current-river.htm"
+      },
+      {
+        "label": "Current NPS segment total",
+        "value": "About 9 hr",
+        "note": "The newer float-time table gives Van Buren–Big Spring 2 hours, Big Spring–Cataract 4 hours, and Cataract–Gooseneck 3 hours. Together they total about 9 hours; the route card gives an 8-to-9-hour planning range with the older estimate.",
+        "sourceUrl": "https://www.nps.gov/ozar/planyourvisit/floattimes.htm"
       },
       {
         "label": "Public endpoints",

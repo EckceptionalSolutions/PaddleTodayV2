@@ -78,11 +78,11 @@ export const missouriRiverTripDetails: Record<string, RiverTripDetails> = {
     },
     "logistics": {
       "distanceLabel": "9.6 mi",
-      "estimatedPaddleTime": "About 4 hr for canoes and kayaks; longer with stops, low water, wind, rafts, or tubes",
+      "estimatedPaddleTime": "About 4 hr to 5 hr by NPS estimates; longer with stops, low water, wind, rafts, or tubes",
       "shuttle": "Use a two-car or authorized outfitter shuttle between Akers Ferry and Pulltite. Cell service is limited in the park, so stage the Pulltite take-out and confirm the pickup plan before launching.",
       "permits": "No route-specific private-vessel paddling fee is known inside Ozark National Scenic Riverways. Follow NPS rules, posted signs, designated access layouts, parking limits, no-glass/no-polystyrene rules, and any current river closure notices.",
       "camping": "Treat this as a day float unless you have a separate legal camping plan. Pulltite has developed NPS camping context but flood damage has reduced facilities, and gravel-bar camping has park rules and location limits; do not assume any bank is public just because it is reachable from the river.",
-      "summary": "Launch at Akers Ferry and take out at Pulltite for the NPS-listed 9.6-mile Upper Current River day float. Use the Akers USGS gauge as a direct same-day low-water check, with the app using only a conservative 230 cfs minimum floor.",
+      "summary": "Launch at Akers Ferry and take out at Pulltite for the NPS-listed 9.6-mile Upper Current River day float. The newer NPS table estimates 4 hours and its older paddling page says 5; allow 4 to 5 hours. Use the Akers USGS gauge as a direct same-day low-water check, with the app using only a conservative 230 cfs minimum floor.",
       "accessCaveats": [
         "Akers and Pulltite are standard Ozark National Scenic Riverways access areas, but flood repairs, construction zones, parking, outfitter traffic, and temporary closure notices can change the practical launch or landing.",
         "Recreation.gov currently describes Pulltite as year-round with flood-damaged facilities reduced after October 15, 2025, and NPS says the Pulltite Ranger Station is closed for the 2026 season. Inspect the take-out before launching and follow current NPS signs rather than assuming every landing, road, restroom, or ranger service is normal.",
@@ -518,14 +518,15 @@ export const missouriRiverTripDetails: Record<string, RiverTripDetails> = {
       "longitude": -91.014
     },
     "logistics": {
-      "distanceLabel": "About 7.2 mi",
-      "estimatedPaddleTime": "About 3 hr, longer with low water, stops, wind, crowds, or motorboat traffic",
+      "distanceLabel": "About 6.5 to 7.2 mi by NPS segments and route trace",
+      "estimatedPaddleTime": "About 2.5 hr to 3 hr by NPS estimates; longer with low water, stops, wind, crowds, or motorboat traffic",
       "shuttle": "Stage the take-out at Van Buren Riverfront Park before driving north on State Route M to Waymeyer. Waymeyer has documented erosion and crowding limits, so inspect the signed access layout and unloading room before committing.",
       "permits": "No route-specific private-vessel paddling permit is known. Follow Ozark National Scenic Riverways rules at Waymeyer, MDC/cooperative-area and city rules at Van Buren Riverfront Park, Missouri boating laws, no-glass/no-polystyrene rules, and any posted NPS closure or access notices.",
       "camping": "Treat this as a day float. Do not assume private banks near Van Buren, commercial campgrounds, or gravel bars are available for camping without a separate legal plan and current NPS rules.",
-      "summary": "Launch at Waymeyer and take out at Van Buren Riverfront Park for the NPS-listed lower Current River day section. Use the direct Van Buren gauge as a conservative low-water check and expect a busier, more motorized lower-river character than the upper Current.",
+      "summary": "Launch at Waymeyer and take out at Van Buren Riverfront Park for the NPS-listed lower Current River day section. NPS's older page estimates 3 hours; its newer table's component rows total about 6.5 miles and 2.5 hours, compared with about 7.2 miles by this route trace. Use the direct Van Buren gauge as a conservative low-water check and expect a busier, more motorized lower-river character than the upper Current.",
       "accessCaveats": [
         "NPS has described Waymeyer as a non-commercial floater access, but also warned that erosion leaves limited safe unloading room on summer weekends. Follow current NPS signs and avoid blocking the access.",
+        "NPS's older paddling page estimates 3 hours from Waymeyer to Van Buren. Its newer float-time table breaks the run at Raftyard and totals 6.5 miles / 2.5 hours; the route trace is about 7.2 miles. Treat both distance and time as approximate.",
         "Van Buren Riverfront Park is MDC-listed under a cooperative agreement rather than MDC-owned land; posted city or owner rules may apply beyond MDC-listed boating regulations. The stored route point is a generalized park/access anchor, not a surveyed ramp toe; MDC's map shows the ramp and parking.",
         "The Van Buren coordinate is a practical ramp anchor from MDC map/directions context, not an official coordinate table. Use the signed ramp, parking, and loading zones on arrival."
       ],
@@ -612,7 +613,7 @@ export const missouriRiverTripDetails: Record<string, RiverTripDetails> = {
     },
     "logistics": {
       "distanceLabel": "About 13.1 mi",
-      "estimatedPaddleTime": "About 6 hr, longer with low water, stops, wind, crowds, or motorboat traffic",
+      "estimatedPaddleTime": "About 6 hr to 7 hr by NPS estimates; longer with low water, stops, wind, crowds, or motorboat traffic",
       "shuttle": "Stage the take-out at Cataract before driving back to Van Buren Riverfront Park. This is a longer lower-river shuttle and day, so verify access roads, parking, daylight, and the signed Cataract landing before launching.",
       "permits": "No route-specific private-vessel paddling permit is known. Follow Ozark National Scenic Riverways rules, Van Buren cooperative-area rules, Missouri boating laws, no-glass/no-polystyrene rules, and any posted NPS closure or access notices.",
       "camping": "Treat this as a long day unless you have a separate legal campground plan before or after the float. Do not assume private banks or informal gravel bars are legal overnight stops.",
@@ -647,7 +648,7 @@ export const missouriRiverTripDetails: Record<string, RiverTripDetails> = {
       "shuttle": "Stage the take-out at the signed Gooseneck / Hawes river landing before driving back to the Big Spring upper river landing. This is a long lower-river shuttle near the Current River mouth, so verify current road conditions, parking, and campground rules before launching.",
       "permits": "No route-specific private-vessel paddling permit is known. Follow Ozark National Scenic Riverways rules, campground and day-use rules at Big Spring and Gooseneck / Hawes, Missouri boating laws, no-glass/no-polystyrene rules, and any posted NPS closure or access notices.",
       "camping": "Treat this as a long day unless you have a separate legal camping plan. NPS lists Gooseneck / Hawes as a backcountry campground and allows gravel-bar camping only on NPS-owned land; availability, closures, fees, and river conditions can change.",
-      "summary": "Launch at the Big Spring upper river landing and take out at Gooseneck / Hawes for the final long lower Current River section. Use the Van Buren gauge as a conservative low-water check and plan for motorboats, private banks, limited exits, and end-of-river logistics.",
+      "summary": "Launch at the Big Spring upper river landing and take out at Gooseneck / Hawes for the final long lower Current River section. NPS's older page estimates 6 hours; the newer table's Big Spring–Cataract and Cataract–Gooseneck rows total 7. Use the Van Buren gauge as a conservative low-water check and plan for motorboats, private banks, limited exits, and end-of-river logistics.",
       "accessCaveats": [
         "The current NPS Superintendent's Compendium lists Gooseneck (Hawes) as a Current River landing, and the current concession operating plan includes Hawes among authorized Lower Current accesses. Use the signed landing and verify current park alerts before leaving a vehicle.",
         "The Gooseneck coordinate is a USGS-topo-derived Hawes Recreation Area point, not an NPS GIS landing table. Use current NPS signs and the actual river landing on arrival.",
@@ -769,11 +770,11 @@ export const missouriRiverTripDetails: Record<string, RiverTripDetails> = {
     },
     "logistics": {
       "distanceLabel": "About 19.3 mi",
-      "estimatedPaddleTime": "About 8 hr, longer with low water, stops, wind, crowds, or motorboat traffic",
+      "estimatedPaddleTime": "About 8 hr to 9 hr by NPS estimates; longer with low water, stops, wind, crowds, or motorboat traffic",
       "shuttle": "Stage the take-out at Gooseneck / Hawes before driving back to Van Buren Riverfront Park. This is a long lower-river shuttle, so verify roads, parking, daylight, and the signed river landing before launching.",
       "permits": "No route-specific private-vessel paddling permit is known. Follow Ozark National Scenic Riverways rules, campground and day-use rules at Gooseneck / Hawes, Van Buren cooperative-area rules, Missouri boating laws, and any posted NPS closure or access notices.",
       "camping": "Plan this as a very long day or an intentionally staged overnight. Gooseneck / Hawes has primitive NPS campground context at the finish, but campsite availability, closures, fees, and river conditions can change.",
-      "summary": "Launch at Van Buren Riverfront Park and finish at Gooseneck / Hawes for a long lower Current River continuation. Use the direct Van Buren gauge as a conservative low-water check and expect motorboats, long pool sections, limited exits, and end-of-river logistics.",
+      "summary": "Launch at Van Buren Riverfront Park and finish at Gooseneck / Hawes for a long lower Current River continuation. NPS's older page estimates 8 hours; the newer table's three component sections total 9. Use the direct Van Buren gauge as a conservative low-water check and expect motorboats, long pool sections, limited exits, and end-of-river logistics.",
       "accessCaveats": [
         "Van Buren Riverfront Park is MDC-listed under a cooperative agreement rather than MDC-owned land; posted city or owner rules may apply beyond MDC-listed boating regulations. The stored route point is a generalized park/access anchor, not a surveyed ramp toe; MDC's map shows the ramp and parking.",
         "NPS materials use both Gooseneck and Hawes naming for the downstream endpoint. Confirm the signed Gooseneck / Hawes river access before leaving a vehicle.",
