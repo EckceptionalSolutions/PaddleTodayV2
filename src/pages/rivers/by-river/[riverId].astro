@@ -38,6 +38,7 @@ const isBlackCreekHub = group.riverId === 'black-creek-mississippi';
 const isLamoilleHub = group.riverId === 'lamoille-river-vermont';
 const isWoonasquatucketHub = group.riverId === 'woonasquatucket-river-rhode-island';
 const isSuwanneeHub = group.riverId === 'suwannee-river-florida';
+const isSaukRiverHub = group.riverId === 'sauk-river';
 const isBayouTecheHub = group.riverId === 'bayou-teche-river-louisiana';
 const hasConsolidatedTrips = group.routes.some((route) => routePageConsolidationTarget(route.slug));
 const stateSummary = group.states.join(', ');
@@ -85,6 +86,8 @@ const groupTitle = isBroadRiverHub
   ? 'Bayou Teche National Paddle Trail, Louisiana | Sections & Access'
   : isSuwanneeHub
   ? 'Suwannee River Wilderness Trail, Florida | Paddling Sections & Access'
+  : isSaukRiverHub
+  ? 'Sauk River, Minnesota | State Water Trail Sections & Access'
   : scoredRouteCount
   ? `${group.name}, ${groupTitleLocation} | Water Levels & Paddle Routes`
   : `${group.name}, ${groupTitleLocation} | Paddle Routes & Trip Planning`;
@@ -130,6 +133,8 @@ const groupDescription = isBroadRiverHub
   ? 'Plan the Bayou Teche National Paddle Trail by town-to-town dock sections. Compare official mile markers, current public access notes, the St. Martinville portage, and planning-only water-level context.'
   : isSuwanneeHub
   ? 'Plan the Suwannee River Wilderness Trail by documented section. Compare official paddling distances, river-camp access, White Springs gauge guidance, and current campground notices.'
+  : isSaukRiverHub
+  ? `Compare ${group.routeCount} Sauk River routes across two Minnesota DNR water-trail maps. Review recommended trips, access, lower-river rapids, and St. Martin gauge context for nearby reaches.`
   : scoredRouteCount
   ? `Compare ${group.name} paddle routes with current water levels, Paddle Today scores, weather, access details, and route difficulty.`
   : `Compare ${group.name} planning routes with access details, distance, difficulty and source links. These routes have no live score.`;
@@ -649,6 +654,8 @@ const groupStructuredData = [
             ? 'Choose a town-to-town dock section on Louisiana’s Bayou Teche National Paddle Trail. Start with the named legs below, then compare longer itineraries in the picker. The upper and downstream trail sections have different portage and access needs.'
             : isSuwanneeHub
             ? 'Choose a named Suwannee River Wilderness Trail section, then check its access and overnight plan. Start with the source-backed day legs below; longer endpoint combinations stay available in the trip picker.'
+            : isSaukRiverHub
+            ? `Start with the DNR-recommended day trips or the documented Frogtown extension, then compare all ${group.routeCount} access pairs. The upper chain-of-lakes, the St. Martin gauge area, and the lower rapids have different conditions and planning needs.`
             : isFloydsForkHub
             ? 'Follow the six KDFWR-listed access legs from North Beckley to Cliffside, or choose the separately published full-corridor trip. The picker keeps every endpoint combination available with its own mileage, access, gauge, and hazard notes.'
             : `Plan a paddle across ${group.regions.length} ${areaLabel}. ${scoredRouteCount ? 'Compare distance, difficulty, and current scores where available before choosing your stretch.' : 'Compare distance, difficulty, and access. These planning routes have no live conditions score.'}`}
@@ -1300,6 +1307,8 @@ const groupStructuredData = [
               ? `Compare all ${group.routeCount} landing combinations here. The six adjacent reaches documented by Seven Rivers have individual pages; longer combinations and the Ashe Nursery alternative remain available as trip options.`
               : isFloydsForkHub
               ? `Compare all ${group.routeCount} Floyds Fork choices here. Thirteen detailed guides cover 11 routes published by KDFWR or The Parklands plus two longer options; the other eight combinations remain selectable with their own route details.`
+              : isSaukRiverHub
+              ? `Compare all ${group.routeCount} Sauk River endpoint choices here. Seven focused guides cover the DNR-recommended trips, its Frogtown extension, and useful St. Martin and lower-river access pairs; the other 14 combinations stay selectable with their own mileage, access, and hazard details.`
               : `Compare ${group.routeCount} ${routeLabel} (${scoredRouteCount} scored · ${planningRouteCount} planning) across ${regionSummary}. Open a route page for put-in, take-out, distance, source confidence, and access notes.`}
           </p>
         </article>
@@ -1359,6 +1368,62 @@ const groupStructuredData = [
 
           <p>
             Compare the current <a href="https://fw.ky.gov/Fish/Pages/floyds-fork.aspx" target="_blank" rel="noopener noreferrer">KDFWR access and level guide</a> with <a href="https://theparklands.org/app/uploads/2020/11/TheParklands_PaddlingMap_Public.pdf" target="_blank" rel="noopener noreferrer">The Parklands recommended-route map</a> and its <a href="https://theparklands.org/find-an-activity/paddling/" target="_blank" rel="noopener noreferrer">current paddling and access notices</a>. The sources differ slightly on some adjacent-leg mileages; each route guide keeps the source for its exact endpoints and distance.
+          </p>
+        </div>
+      ) : null}
+
+      {isSaukRiverHub ? (
+        <div class="river-hub-context__source-guide" aria-labelledby="sauk-river-sections-title">
+          <div class="river-group-page__section-head">
+            <div>
+              <p class="eyebrow section-label">Minnesota DNR State Water Trail</p>
+              <h3 class="section-title" id="sauk-river-sections-title">Choose a Sauk River stretch</h3>
+            </div>
+            <p class="muted river-group-page__section-note">
+              The two DNR map sections have different water and hazards. All 21 endpoint choices remain in the trip picker.
+            </p>
+          </div>
+
+          <div class="river-hub-context__grid">
+            <article class="river-hub-context__item">
+              <h3>Map 1 · Sauk Centre to Spring Hill</h3>
+              <p>The DNR recommends two day trips on this section. Both pass through open lowlands and tree-lined corridors; the Sauk Centre–Mill Pond run is a full-day 16.6-mile trip.</p>
+              <ul>
+                <li><a href={routeSlugHref('sauk-river-sauk-centre-dam-mill-pond')}>Sauk Centre Dam to Mill Pond</a> · 16.6 mi</li>
+                <li><a href={routeSlugHref('sauk-river-oak-township-spring-hill')}>Oak Township to Spring Hill</a> · 10.8 mi</li>
+              </ul>
+              <p>Map 1 also notes that the river above Guernsey Lake is impassable most of the year from low water and that the Richmond area becomes a chain of lakes. These are distinct conditions from the lower river.</p>
+            </article>
+
+            <article class="river-hub-context__item">
+              <h3>Map 2 · Spring Hill to the Mississippi</h3>
+              <p>The DNR’s recommended Eagle Park–Miller Landing day trip is 8.6 river miles. It is not recommended in late summer when water is low, and thick vegetation can make the route difficult.</p>
+              <ul>
+                <li><a href={routeSlugHref('sauk-river-eagle-miller-landing')}>Eagle Park to Miller Landing</a> · 8.6 mi</li>
+                <li><a href={routeSlugHref('sauk-river-frogtown-miller-landing')}>Frogtown to Miller Landing</a> · 14.2 mi; the DNR suggests starting at Frogtown to add about five miles</li>
+              </ul>
+              <p>Frogtown’s mapped landing is below Cold Spring Dam. Use the named downstream access and check current park rules before leaving a shuttle vehicle.</p>
+            </article>
+
+            <article class="river-hub-context__item">
+              <h3>St. Cloud area · gauge and lower rapids</h3>
+              <p>The DNR map describes nearly continuous Class I–II rapids in the final 2.5 miles when there is enough water. Routes ending at Heims Mill include that finish; routes ending at Miller Landing or Knights of Columbus stop upstream of it.</p>
+              <ul>
+                <li><a href={routeSlugHref('sauk-river-miller-landing-heims-mill')}>Miller Landing to Heims Mill</a> · 7.6 mi</li>
+                <li><a href={routeSlugHref('sauk-river-pineview-heims-mill')}>Pineview Park to Heims Mill</a> · 6.2 mi</li>
+              </ul>
+              <p>The <a href="https://www.dnr.state.mn.us/waters/csg/site.html?id=16051001" target="_blank" rel="noopener noreferrer">DNR gauge near St. Martin</a> is useful context for nearby reaches. It does not describe the upper chain-of-lakes or certify conditions, wood clearance, or safety along every lower-river trip.</p>
+            </article>
+
+            <article class="river-hub-context__item">
+              <h3>Spring Hill to St. Martin</h3>
+              <p>This shorter upper-section option follows the mapped access corridor near the St. Martin gauge. The gauge can help with nearby water-level context, while vegetation, snags, access rules, and changing conditions still require a same-day check.</p>
+              <a href={routeSlugHref('sauk-river-spring-hill-st-martin')}>Review Spring Hill to St. Martin · about 9.1 river mi</a>
+            </article>
+          </div>
+
+          <p>
+            Review the Minnesota DNR’s <a href="https://www.dnr.state.mn.us/state-water-trails/sauk-river/segments-maps.html" target="_blank" rel="noopener noreferrer">Sauk River segment descriptions</a>, <a href="https://files.dnr.state.mn.us/maps/canoe_routes/sauk1.pdf" target="_blank" rel="noopener noreferrer">Map 1</a>, and <a href="https://files.dnr.state.mn.us/maps/canoe_routes/sauk2.pdf" target="_blank" rel="noopener noreferrer">Map 2</a> before choosing a route. The DNR maps identify dams and portages, and note that snags may tip paddlers. Check current levels, weather, access, and the exact take-out before launch; a recommended section or gauge reading is not a safety guarantee.
           </p>
         </div>
       ) : null}

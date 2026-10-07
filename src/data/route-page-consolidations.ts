@@ -55,6 +55,7 @@ const housatonicRiverHubPath = '/rivers/by-river/housatonic-river-massachusetts/
 const sanJuanRiverHubPath = '/rivers/by-river/san-juan-river-new-mexico/';
 const crowWingRiverHubPath = '/rivers/by-river/crow-wing-river/';
 const chattahoocheeHubPath = '/rivers/by-river/chattahoochee-river/';
+const saukRiverHubPath = '/rivers/by-river/sauk-river/';
 
 const animasConsolidatedRouteSlugs = [
   'animas-river-cedar-hill-penny-lane',
@@ -159,6 +160,23 @@ const chattahoocheeConsolidatedRouteSlugs = [
   'chattahoochee-river-rogers-bridge-jones-bridge',
   'chattahoochee-river-rogers-bridge-medlock-bridge',
   'chattahoochee-river-whitewater-creek-paces-mill',
+] as const;
+
+const saukRiverConsolidatedRouteSlugs = [
+  'sauk-river-eagle-heims-mill',
+  'sauk-river-eagle-knights-of-columbus',
+  'sauk-river-frogtown-eagle-park',
+  'sauk-river-frogtown-heims-mill',
+  'sauk-river-frogtown-knights-of-columbus',
+  'sauk-river-frogtown-rockville',
+  'sauk-river-horseshoe-lions-park',
+  'sauk-river-knights-of-columbus-heims-mill',
+  'sauk-river-mill-pond-oak-township',
+  'sauk-river-miller-landing-knights-of-columbus',
+  'sauk-river-richmond-horseshoe-lake',
+  'sauk-river-rockville-heims-mill',
+  'sauk-river-rockville-knights-of-columbus',
+  'sauk-river-rockville-miller-landing',
 ] as const;
 
 const broadRiverConsolidatedRouteSlugs = [
@@ -653,6 +671,7 @@ const consolidatedRouteTargets = new Map<string, string>(
     ...sanJuanConsolidatedRouteSlugs.map((slug) => [slug, `${sanJuanRiverHubPath}?route=${slug}#trip-${slug}`] as const),
     ...crowWingConsolidatedRouteSlugs.map((slug) => [slug, `${crowWingRiverHubPath}?route=${slug}#trip-${slug}`] as const),
     ...chattahoocheeConsolidatedRouteSlugs.map((slug) => [slug, `${chattahoocheeHubPath}?route=${slug}#trip-${slug}`] as const),
+    ...saukRiverConsolidatedRouteSlugs.map((slug) => [slug, `${saukRiverHubPath}?route=${slug}#trip-${slug}`] as const),
   ],
 );
 
