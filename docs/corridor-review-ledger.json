@@ -1,5 +1,13 @@
 [
   {
+    "corridorId": "ma-housatonic-berkshire-reaches",
+    "status": "review",
+    "owner": "route-data-team",
+    "continuityStatus": "condition-family",
+    "nextReview": "2026-10-14",
+    "notes": "Condition-family grouping only; this covers upper, Stockbridge and downstream Berkshire mainstem trip choices and does not claim one continuous condition zone across dams. Keep nine named or access-specific reaches as standalone pages; consolidate six derived endpoint combinations to exact hub cards while preserving all 15 trip options and route-specific access and safety details. Gauge references vary by reach: Lenoxdale, Great Barrington and Ashley Falls; HVA's broad 150 cfs minimum is only a low-water planning cue."
+  },
+  {
     "corridorId": "nm-animas-public-access-chain",
     "status": "review",
     "owner": "route-data-team",

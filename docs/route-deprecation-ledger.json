@@ -1,5 +1,14 @@
 [
   {
+    "corridorId": "ma-housatonic-berkshire-reaches",
+    "canonicalSlug": null,
+    "status": "recommend",
+    "underlyingTripOptionsPreserved": true,
+    "conversionBaseline": null,
+    "conversionPilot": null,
+    "safetyReview": "approved"
+  },
+  {
     "corridorId": "wi-turtle-creek-upper",
     "canonicalSlug": "turtle-creek-school-section-east-creek",
     "status": "observe",

@@ -374,6 +374,35 @@ html body.page-river-hub .river-group-page__panel {
     0 16px 38px rgba(16, 35, 45, 0.075);
 }
 
+html body.page-river-hub .housatonic-section-group {
+  margin-top: 0.9rem;
+  padding-top: 0.85rem;
+  border-top: 1px solid rgba(20, 69, 83, 0.1);
+}
+
+html body.page-river-hub .housatonic-section-group .river-group-page__section-head {
+  margin-bottom: 0.35rem;
+}
+
+html body.page-river-hub .housatonic-section-group .section-title {
+  font-size: 1.02rem;
+  line-height: 1.35;
+}
+
+html body.page-river-hub .housatonic-section-list {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.25rem 1.5rem;
+  margin: 0;
+  padding-left: 1.1rem;
+}
+
+@media (max-width: 600px) {
+  html body.page-river-hub .housatonic-section-list {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
+
 html body.page-river-hub .river-group-page__hero--photo {
   min-height: 16rem;
   padding: 1rem;

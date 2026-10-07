@@ -1,16 +1,17 @@
 # Route corridor migration inventory
 
-Generated 2026-10-07T18:44:28.111Z.
+Generated 2026-10-07T19:15:49.077Z.
 
-- Defined corridors: 232
-- Routes covered by a corridor definition: 964
-- Remaining multi-route families: 318
+- Defined corridors: 233
+- Routes covered by a corridor definition: 979
+- Remaining multi-route families: 317
 
 ## Defined corridors
 
 | Corridor | Label | Continuity | Matching routes | Verified edges |
 | --- | --- | --- | ---: | ---: |
 | nm-animas-public-access-chain | Animas River Cedar Hill, Aztec and Farmington public-access route family | condition-family | 10 | 0 |
+| ma-housatonic-berkshire-reaches | Massachusetts Housatonic Berkshire reach and access family | condition-family | 15 | 0 |
 | sc-broad-river-blueway | South Carolina Broad River Blueway named trips and endpoint combinations | condition-family | 25 | 0 |
 | mt-blackfoot-section-family | Blackfoot River five named source-backed section family | condition-family | 39 | 0 |
 | ky-green-river-three-zone-family | Green River Upper Green, Hart County, and Mammoth Cave paddling zones | condition-family | 32 | 0 |
@@ -275,7 +276,6 @@ Generated 2026-10-07T18:44:28.111Z.
 | Maine | Kennebec River | 17 |
 | Maine | Penobscot River | 17 |
 | Missouri | Current River | 16 |
-| Massachusetts | Housatonic River | 15 |
 | Missouri | Jacks Fork River | 15 |
 | New Mexico | Rio Grande | 14 |
 | Alabama | Bartram Canoe Trail | 13 |
@@ -302,6 +302,7 @@ Generated 2026-10-07T18:44:28.111Z.
 | Texas | Brazos River | 9 |
 | New York | Grass River | 9 |
 | North Carolina | Haw River | 9 |
-| Additional families omitted | See route data and overlap audit | 278 |
+| Kentucky | Levisa Fork | 9 |
+| Additional families omitted | See route data and overlap audit | 277 |
 
 This inventory is a migration queue, not an automatic deletion list. Each family still requires source review for continuity, hazards, access legality, gauge boundaries, and explicit trip edges.

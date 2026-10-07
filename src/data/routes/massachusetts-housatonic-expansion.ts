@@ -2,7 +2,7 @@ import type { River, SourceLink } from '../../lib/types';
 import type { RouteHazard } from '@paddletoday/api-contract';
 
 const guide = { label: 'Housatonic Valley Association Berkshire County Paddling Guide (2023)', url: 'https://hvatoday.org/wp-content/uploads/2023/09/PaddleGuideBerkshire_2023UPDATES.pdf', provider: 'local' as const };
-const flowGuide = { label: 'HVA Housatonic flow guidance and nearest-gauge recommendations', url: guide.url, provider: 'local' as const };
+const flowGuide = { label: 'HVA Housatonic 150 cfs planning cue and nearest-gauge guidance', url: guide.url, provider: 'local' as const };
 const divisionAccess = { label: 'Berkshires Outside: Division Street Housatonic access', url: 'https://berkshiresoutside.org/place/housatonic-river-access-division-street-great-barrington-ma/', provider: 'local' as const };
 const eastSheffieldAccess = { label: 'Berkshires Outside: East Sheffield Road Housatonic access', url: 'https://berkshiresoutside.org/place/housatonic-river-access-east-sheffield-road-great-barrington-ma/', provider: 'local' as const };
 const brooksideAccess = { label: 'Great Barrington Land Conservancy Brookside Riverfront Trail and canoe launch', url: 'https://www.gbland.org/node/325', provider: 'local' as const };
@@ -13,6 +13,8 @@ const eastSheffieldRoadNotice = { label: 'Town of Great Barrington East Sheffiel
 const pcbSource = { label: 'Massachusetts Housatonic River PCB contamination and restoration', url: 'https://www.mass.gov/info-details/housatonic-river-natural-resource-restoration', provider: 'local' as const };
 const fishAdvisory = { label: 'Massachusetts Housatonic River fish and waterfowl advisory', url: 'https://www.mass.gov/lists/housatonic-river-fish-and-waterfowl-advisory', provider: 'local' as const };
 const gauge = { id: 'usgs-01197500', provider: 'usgs' as const, siteId: '01197500', metric: 'discharge_cfs' as const, unit: 'cfs' as const, kind: 'direct' as const, siteName: 'Housatonic River near Great Barrington, MA', detailUrl: 'https://waterdata.usgs.gov/monitoring-location/USGS-01197500/' };
+const upperGauge = { id: 'usgs-01197145', provider: 'usgs' as const, siteId: '01197145', metric: 'discharge_cfs' as const, unit: 'cfs' as const, kind: 'direct' as const, siteName: 'Housatonic River at Lenoxdale, MA', detailUrl: 'https://waterdata.usgs.gov/monitoring-location/USGS-01197145/' };
+const lowerGauge = { id: 'usgs-01198125', provider: 'usgs' as const, siteId: '01198125', metric: 'discharge_cfs' as const, unit: 'cfs' as const, kind: 'direct' as const, siteName: 'Housatonic River near Ashley Falls, MA', detailUrl: 'https://waterdata.usgs.gov/monitoring-location/USGS-01198125/' };
 const hazards: RouteHazard[] = ['low_water', 'strainers', 'fast_rise', 'cold_water', 'urban_water_quality', 'private_banks'];
 
 type Point = NonNullable<River['putIn']>;
@@ -75,8 +77,8 @@ const safetyById: Record<string, string[]> = {
   'housatonic-river-covered-bridge-rannapo': ['HVA describes 9.5 miles of flatwater and Class I, typically 4–5 hours. Confirm daylight and current conditions; roadside parking at Rannapo is limited.'],
   'housatonic-river-brookside-rannapo': ['This derived long day trip crosses the meandering Covered Bridge–Rannapo reach; plan ample daylight, food, water, and a shuttle. Rannapo has limited roadside parking.'],
   'housatonic-river-division-covered-bridge': ['This derived long day trip passes the Great Barrington urban reach and the meandering downstream river. The old Bridge Street/Searles access is closed; continue to the currently open Covered Bridge access.'],
-  'housatonic-river-east-sheffield-covered-bridge': ['East Sheffield ramp access is very steep (at least 40%), uneven and may be muddy; inspect it before carrying a boat. The route follows the lower meanders to Covered Bridge. Check the Town’s current East Sheffield Road washout stabilization and approach conditions before travel.'],
-  'housatonic-river-east-sheffield-rannapo': ['This long, derived trip starts at the very steep East Sheffield ramp, then follows the lower meanders to limited roadside parking at Rannapo. Allow ample daylight and carry/rescue margin. Check the Town’s current East Sheffield Road washout stabilization and approach conditions before travel.'],
+  'housatonic-river-east-sheffield-covered-bridge': ['East Sheffield ramp access is very steep (at least 40%), uneven and may be muddy; inspect it before carrying a boat. The route follows the lower meanders to Covered Bridge. The Town’s one-day East Sheffield Road stabilization closure notice for August 20, 2026 has passed; check current Town updates for any new work before travel.'],
+  'housatonic-river-east-sheffield-rannapo': ['This long, derived trip starts at the very steep East Sheffield ramp, then follows the lower meanders to limited roadside parking at Rannapo. Allow ample daylight and carry/rescue margin. The Town’s one-day East Sheffield Road stabilization closure notice for August 20, 2026 has passed; check current Town updates for any new work before travel.'],
 };
 
 const upperGroup = 'housatonic-berkshire-upper-access-chain';
@@ -103,6 +105,22 @@ const lowerSpecs: Spec[] = [
 ];
 
 const allSpecs = [...upperSpecs, ...lowerSpecs];
+const upperGaugeRouteIds = new Set([
+  'housatonic-river-fred-garner-decker',
+  'housatonic-river-decker-woods-pond',
+  'housatonic-river-woods-pond-lee-athletic',
+  'housatonic-river-fred-garner-woods-pond',
+  'housatonic-river-decker-lee-athletic',
+  'housatonic-river-fred-garner-lee-athletic',
+]);
+const lowerGaugeRouteIds = new Set([
+  'housatonic-river-brookside-covered-bridge',
+  'housatonic-river-covered-bridge-rannapo',
+  'housatonic-river-brookside-rannapo',
+  'housatonic-river-division-covered-bridge',
+  'housatonic-river-east-sheffield-covered-bridge',
+  'housatonic-river-east-sheffield-rannapo',
+]);
 
 function routeFromSpec(spec: Spec): River {
   const accessPoints: NonNullable<River['accessPoints']> = [
@@ -112,6 +130,7 @@ function routeFromSpec(spec: Spec): River {
   ];
   const additionalSources = spec.sourceLinks ?? [];
   const safetyNotes = [...commonSafety, ...(safetyById[spec.id] ?? []), ...(spec.safetyNotes ?? [])];
+  const routeGauge = upperGaugeRouteIds.has(spec.id) ? upperGauge : lowerGaugeRouteIds.has(spec.id) ? lowerGauge : gauge;
   return {
     id: spec.id,
     slug: spec.id,
@@ -121,14 +140,14 @@ function routeFromSpec(spec: Spec): River {
     region: 'Berkshire County / Pittsfield to Ashley Falls',
     routeType: 'recreational',
     scoreEligibility: 'scored',
-    gaugeSource: gauge,
+    gaugeSource: routeGauge,
     reach: spec.reach,
     putIn: spec.putIn,
     takeOut: spec.takeOut,
     latitude: spec.putIn.latitude!,
     longitude: spec.putIn.longitude!,
     summary: spec.summary,
-    statusText: `Check the live USGS 01197500 Great Barrington discharge and trend, recent rain and current water-quality notices. HVA’s ${spec.classText} reach guidance uses 150 cfs as a broad minimum planning cue; that threshold does not guarantee safety.`,
+    statusText: `Check the live USGS ${routeGauge.siteId} ${routeGauge.siteName} discharge and trend, recent rain and current water-quality notices. HVA’s ${spec.classText} reach guidance uses 150 cfs as a broad minimum planning cue; that cue does not guarantee safety.`,
     profile: {
       thresholdModel: 'minimum-only',
       tooLow: 150,
@@ -138,13 +157,13 @@ function routeFromSpec(spec: Spec): River {
       rainfallSensitivity: 'high',
       windSensitivity: 0.05,
       seasonMonths: [3, 4, 5, 6, 7, 8, 9, 10, 11],
-      seasonNotes: 'The HVA Berkshire guide recommends a broad minimum Housatonic flow of 150 cfs and directs paddlers to the Great Barrington and East Branch Coltsville USGS gauges. Check live discharge, trend, rain, river-specific hazards and current local notices; the minimum is not a safe operating guarantee.',
+      seasonNotes: `The HVA Berkshire guide gives a broad 150 cfs minimum planning cue and identifies Great Barrington and East Branch Coltsville for watershed context. This trip uses USGS ${routeGauge.siteId} at ${routeGauge.siteName} as its selected same-mainstem reference. Check data freshness, live trend, rain, route-specific hazards and current notices; the minimum is not a safe operating guarantee.`,
       difficulty: spec.difficulty,
       difficultyNotes: `HVA describes this route as ${spec.classText}. Keep the route-specific access, dam and wood controls in the safety notes; skill and actual conditions govern.`,
-      confidenceNotes: `HVA’s 2023 Berkshire paddling guide documents the named access pair and reach distance/character for ${spec.reach}. Its broad 150 cfs minimum is community paddling guidance, not an agency safety threshold. USGS 01197500 is the mainstem Housatonic gauge near Great Barrington; for the downstream reaches it is upstream context, so account for intervening tributaries and local conditions.`,
+      confidenceNotes: `HVA’s 2023 Berkshire paddling guide documents the named access pair and reach distance/character for ${spec.reach}. Its broad 150 cfs minimum is community paddling guidance, not an agency safety threshold. USGS ${routeGauge.siteId} at ${routeGauge.siteName} is the selected same-mainstem gauge reference for this trip; a nearby reading cannot represent every reach, dam, tributary or access condition.`,
     },
     safetyProfile: { riskLevel: 'caution', reviewStatus: 'reviewed', hazards: [...new Set([...hazards, ...(spec.extraHazards ?? [])])], safetyNotes },
-    sourceLinks: [guide, flowGuide, { label: 'USGS Housatonic River near Great Barrington gauge', url: gauge.detailUrl!, provider: 'usgs' as const }, pcbSource, fishAdvisory, ...additionalSources],
+    sourceLinks: [guide, flowGuide, { label: `USGS ${routeGauge.siteName} gauge`, url: routeGauge.detailUrl!, provider: 'usgs' as const }, pcbSource, fishAdvisory, ...additionalSources],
     accessPoints,
     logistics: {
       distanceLabel: `About ${spec.miles} river miles`,
@@ -155,12 +174,12 @@ function routeFromSpec(spec: Spec): River {
       campingClassification: 'none',
       summary: spec.summary,
       accessCaveats: [spec.accessNote, 'Great Barrington River Walk is a trail, not a public boat launch; use only the named public canoe sites. The former Bridge Street/Searles access is permanently closed for public safety.'],
-      watchFor: ['USGS 01197500 discharge and trend; HVA’s broad 150 cfs minimum is a planning screen only', 'PCBs in river sediment and current fish-consumption advisories', 'Cold water, rainfall rises, shallow rocks and strainers', ...(spec.extraHazards?.includes('dam') ? ['Dam exclusion zones and mandatory take-out/portage boundaries'] : [])],
+      watchFor: [`USGS ${routeGauge.siteId} discharge and trend; HVA’s broad 150 cfs minimum is a planning screen only`, 'PCBs in river sediment and current fish-consumption advisories', 'Cold water, rainfall rises, shallow rocks and strainers', ...(spec.extraHazards?.includes('dam') ? ['Dam exclusion zones and mandatory take-out/portage boundaries'] : [])],
     },
     evidenceNotes: [
       { label: 'Named reach and distance', value: `${spec.reach}; ${spec.miles} guide or derived miles`, note: spec.distanceEvidence, sourceUrl: guide.url },
       { label: 'Scoring threshold', value: '150 cfs broad minimum planning cue', note: 'HVA’s guide cautions against paddling below 150 cfs and names Great Barrington and East Branch Coltsville gauges for reference. Use this community cue as a low-water screen only, not a guarantee of floatability or safety.', sourceUrl: flowGuide.url },
-      { label: 'Gauge', value: 'USGS 01197500 Housatonic River near Great Barrington', note: 'Same-mainstem live discharge reference named by HVA for the Berkshire Housatonic. For downstream routes this gauge is upstream context; check tributary rainfall and local river conditions.', sourceUrl: gauge.detailUrl },
+      { label: 'Gauge', value: `USGS ${routeGauge.siteId} ${routeGauge.siteName}`, note: `Selected same-mainstem gauge reference for this trip. HVA’s 150 cfs minimum is broad paddling guidance, not a local operating limit; check intervening tributaries and conditions at the selected reach.`, sourceUrl: routeGauge.detailUrl },
       { label: 'Public water access', value: `${spec.putIn.name} to ${spec.takeOut.name}`, note: spec.accessNote, sourceUrl: additionalSources[0]?.url ?? guide.url },
       { label: 'PCB and fish advisory', value: 'Housatonic PCB contamination and active state fish/waterfowl advisories', note: 'Massachusetts identifies PCB contamination in river water, sediment, banks and floodplain and publishes Housatonic-specific advisories. Avoid swimming/sediment contact and follow current consumption guidance.', sourceUrl: pcbSource.url },
       { label: 'Camping', value: 'Day trip; no on-route camping documented', note: spec.campingEvidence, sourceUrl: guide.url },

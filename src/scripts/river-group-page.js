@@ -50,6 +50,7 @@ if (!riverId) {
   throw new Error('Missing river group id.');
 }
 const isWillimanticHub = riverId === 'willimantic-river-connecticut';
+const hasInlineTripNotes = ['willimantic-river-connecticut', 'animas-river-new-mexico', 'housatonic-river-massachusetts'].includes(riverId);
 const hasConsolidatedTrips = root.dataset.hasConsolidatedTrips === 'true';
 
 const routeList = root.querySelector('[data-group-route-list]');
@@ -407,7 +408,7 @@ function conditionsLine(route) {
 }
 
 function tripNotesMarkup(route) {
-  if (!isWillimanticHub) {
+  if (!hasInlineTripNotes) {
     return `<a class="river-link river-link--inline route-choice__details-link" href="${routePageHref(route.slug)}">${hasConsolidatedTrips ? 'View trip option' : 'View route'}</a>`;
   }
 
