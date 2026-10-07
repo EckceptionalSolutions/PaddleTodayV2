@@ -71,6 +71,18 @@ const wabashRiverConsolidatedRouteSlugs = [
   'wabash-river-linn-grove-hale-street',
 ] as const;
 
+const villageCreekHubPath = '/rivers/by-river/village-creek/';
+const villageCreekConsolidatedRouteSlugs = [
+  'village-creek-fm418-sh327',
+  'village-creek-sh327-baby-galvez',
+  'village-creek-fm418-baby-galvez',
+  'village-creek-baby-galvez-us-96',
+  'village-creek-sh327-us-96',
+  'village-creek-us-96-state-park',
+  'village-creek-baby-galvez-state-park',
+  'village-creek-fm418-state-park',
+] as const;
+
 const merrimackRiverConsolidatedRouteSlugs = [
   'merrimack-river-sewalls-falls-ferry-street',
   'merrimack-river-everett-arena-ferry-street',
@@ -792,6 +804,7 @@ const consolidatedRouteTargets = new Map<string, string>(
     ...merrimackRiverConsolidatedRouteSlugs.map((slug) => [slug, `${merrimackRiverHubPath}?route=${slug}#trip-${slug}`] as const),
     ...spokaneRiverConsolidatedRouteSlugs.map((slug) => [slug, `${spokaneRiverHubPath}?route=${slug}#trip-${slug}`] as const),
     ...wabashRiverConsolidatedRouteSlugs.map((slug) => [slug, `${wabashRiverHubPath}?route=${slug}#trip-${slug}`] as const),
+    ...villageCreekConsolidatedRouteSlugs.map((slug) => [slug, `${villageCreekHubPath}?route=${slug}#trip-${slug}`] as const),
     ...saludaRiverConsolidatedRouteSlugs.map((slug) => [slug, `${saludaRiverHubPath}?route=${slug}#trip-${slug}`] as const),
     ...saludaRiverLaunchAliasSlugs.map((slug) => [slug, `${saludaRiverHubPath}?route=saluda-river-saluda-shoals-gardendale#trip-saluda-river-saluda-shoals-gardendale`] as const),
     ...saludaRiverAccessNoteRouteSlugs.map((slug) => [slug, `${saludaRiverHubPath}#saluda-route-access-notes`] as const),
