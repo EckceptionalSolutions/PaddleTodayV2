@@ -48,6 +48,7 @@ const isSpokaneHub = group.riverId === 'spokane-river-washington';
 const isSaludaHub = group.riverId === 'saluda-river';
 const isWabashHub = group.riverId === 'wabash-river';
 const isVillageCreekHub = group.riverId === 'village-creek';
+const isElevenPointHub = group.riverId === 'eleven-point-river';
 const hasConsolidatedTrips = group.routes.some((route) => routePageConsolidationTarget(route.slug));
 const stateSummary = group.states.join(', ');
 const stateDisplay = group.states.join(' and ');
@@ -62,6 +63,8 @@ const needsRegionInTitle = listRiverGroups().some((other) =>
 const groupTitleLocation = needsRegionInTitle ? `${regionSummary}, ${stateSummary}` : stateSummary;
 const groupTitle = isBroadRiverHub
   ? 'Broad River, South Carolina | Paddling Sections & Access'
+  : isElevenPointHub
+  ? 'Eleven Point River, Missouri | Float Sections & Access'
   : isVillageCreekHub
   ? 'Village Creek Paddling Trail, Texas | Sections & Access'
   : isWabashHub
@@ -117,6 +120,8 @@ const groupTitle = isBroadRiverHub
   : `${group.name}, ${groupTitleLocation} | Paddle Routes & Trip Planning`;
 const groupDescription = isBroadRiverHub
   ? 'Compare eight Paddle SC trips on South Carolina’s Broad River, from Ninety-Nine Islands to Strother Landing and the separate Peak–Harbison reach. Check trip-specific gauges, dam portages, and public access.'
+  : isElevenPointHub
+  ? 'Compare 19 Eleven Point River floats by reach, from the upper river to The Narrows. Review Forest Service access, trout reaches, trip distances, and USGS gauge context.'
   : isVillageCreekHub
   ? 'Compare eight Village Creek trips from five public access points. Review trail sections, overnight planning, Kountze gauge context, and one source distance discrepancy.'
   : isWabashHub
@@ -576,6 +581,8 @@ const faqItems = [
     question: `Where can I paddle the ${group.name}?`,
     answer: isMerrimackHub
       ? 'Choose from five documented Franklin–Concord routes, the short Sewalls Falls–Everett Arena trip, or lower-valley access pairs from Boscawen through Hooksett. Fourteen overlapping planning combinations remain selectable in the trip picker with their own distance and access notes.'
+      : isElevenPointHub
+      ? 'Choose among 19 public endpoint combinations from Thomasville and Cane Bluff through Greer, Turner Mill, Whitten, Riverton, and Highway 142 / The Narrows. The upper river before Greer Spring, the spring-fed Blue Ribbon Trout Area, and the downstream White Ribbon reach have different character; select a launch and finish within the reach you intend to paddle.'
       : isVillageCreekHub
       ? 'The Village Creek Paddling Trail has five public access points from FM 418 to Village Creek State Park. Start with one of the four consecutive trail sections or compare longer options that combine adjacent sections. Choose by exact launch, take-out, time commitment, and shuttle; the full trail is an overnight-scale trip.'
       : isWabashHub
@@ -636,6 +643,8 @@ const faqItems = [
     question: `How should I check ${group.name} water levels?`,
     answer: isMerrimackHub
       ? 'The 400 cfs runnable floor and 1,500–2,000 cfs preferred range belong to the documented Franklin–Concord run and its USGS 01081500 gauge near Franklin Junction. Lower-valley trips are planning-only; that upstream station is context and does not provide a verified route-specific threshold for each downstream reach.'
+      : isElevenPointHub
+      ? 'Paddle Today shows USGS 07071500 near Bardley as conservative same-river context and uses a minimum-only low-water cue; there is no endorsed ideal range or high-flow cutoff for every section. The gauge is downstream of Greer Spring, so it does not describe the smaller upper river by itself. Check the live trend, recent rain, and the selected access and hazard notes before launch.'
       : isVillageCreekHub
       ? 'Use USGS 08041500 near Kountze with the local guidance from Big Thicket National Preserve: below about 3 feet, expect exposed sandbars and logs; at 10 feet or higher, swift current can be hazardous. Village Creek is free-flowing and responds to rain, so check the gauge trend and flood notices before launch; these are planning cues, not an all-clear.'
       : isWabashHub
@@ -997,6 +1006,57 @@ const groupStructuredData = [
             </p>
           </article>
         </div>
+      </section>
+    ) : null}
+
+    {isElevenPointHub ? (
+      <section class="river-group-page__panel" id="eleven-point-river-sections" aria-labelledby="eleven-point-river-sections-title">
+        <div class="river-group-page__section-head">
+          <div>
+            <p class="eyebrow section-label">Missouri Department of Conservation · Mark Twain National Forest</p>
+            <h2 class="section-title" id="eleven-point-river-sections-title">Choose an Eleven Point section by river character</h2>
+          </div>
+          <p class="muted river-group-page__section-note">
+            Greer Spring changes the river. Check the access-specific trip notes before treating neighboring sections as one float.
+          </p>
+        </div>
+        <div class="river-hub-context__grid">
+          <article class="river-hub-context__item">
+            <h3>Thomasville and Cane Bluff to Greer</h3>
+            <p>
+              The upper river is smaller and more sensitive to drought than the spring-fed reaches below Greer Spring. The Forest Service describes Thomasville to Cane Bluff as 9.3 miles and Thomasville to Greer as 16.6 miles; the Conservation Department says spring water helps avoid dragging over upper riffles. Use the trip cards for the exact public access pair and expect conditions to change with rain and season.
+            </p>
+            <ul>
+              <li><a href={routeSlugHref('eleven-point-river-thomasville-cane-bluff')}>Thomasville to Cane Bluff</a></li>
+              <li><a href={routeSlugHref('eleven-point-river-cane-bluff-greer-crossing')}>Cane Bluff to Greer Crossing</a></li>
+            </ul>
+          </article>
+          <article class="river-hub-context__item">
+            <h3>Greer Spring to Turner Mill</h3>
+            <p>
+              Greer Spring adds substantial cold water. MDC identifies the 5.5-mile reach below the spring to Turner Mill as a Blue Ribbon Trout Area. Official Forest Service mileage differs by source: its <a href="https://www.fs.usda.gov/r09/marktwain/recreation/turner-mill-north-river-access" target="_blank" rel="noopener noreferrer">Turner Mill North</a> and <a href="https://www.fs.usda.gov/r09/marktwain/recreation/turner-mill-south-river-access" target="_blank" rel="noopener noreferrer">Turner Mill South access pages</a> place those landings 4.9 miles below Greer Crossing, while its <a href="https://www.fs.usda.gov/Internet/FSE_DOCUMENTS/stelprdb5200703.pdf" target="_blank" rel="noopener noreferrer">Scenic River travel guide</a> lists Greer to Turner Mill South as 7 miles. MDC's 5.5-mile management reach begins at Greer Spring. Treat mileage as approximate, confirm the chosen landing, and allow time for the longer estimate.
+            </p>
+            <ul>
+              <li><a href={routeSlugHref('eleven-point-river-greer-crossing-turner-mill')}>Greer Crossing to Turner Mill North</a></li>
+              <li><a href={routeSlugHref('eleven-point-river-greer-crossing-turner-mill-south')}>Greer Crossing to Turner Mill South</a></li>
+              <li><a href={routeSlugHref('eleven-point-river-greer-crossing-whitten')}>Greer Crossing to Whitten</a> · Forest Service popular day float</li>
+            </ul>
+          </article>
+          <article class="river-hub-context__item">
+            <h3>Turner Mill to Riverton and The Narrows</h3>
+            <p>
+              MDC describes the 14 miles from Turner Mill downstream to Riverton as a White Ribbon Trout Area. The route cards continue to the Highway 142 / The Narrows access, the last planned take-out in this guide. The river continues south beyond that point; these trip choices do not treat the Arkansas line as a take-out.
+            </p>
+            <ul>
+              <li><a href={routeSlugHref('eleven-point-river-turner-mill-south-whitten')}>Turner Mill South to Whitten</a></li>
+              <li><a href={routeSlugHref('eleven-point-river-whitten-riverton')}>Whitten to Riverton</a></li>
+              <li><a href={routeSlugHref('eleven-point-river-riverton-narrows')}>Riverton to Highway 142 / The Narrows</a></li>
+            </ul>
+          </article>
+        </div>
+        <p>
+          Check the current <a href="https://mdc.mo.gov/fishing/fishing-prospects/areas/eleven-point-river" target="_blank" rel="noopener noreferrer">MDC Eleven Point River reach and access guide</a>, the <a href="https://www.fs.usda.gov/Internet/FSE_DOCUMENTS/stelprdb5200703.pdf" target="_blank" rel="noopener noreferrer">Forest Service Eleven Point Scenic River travel guide</a>, and the <a href="https://www.fws.gov/rivers/river/eleven-point" target="_blank" rel="noopener noreferrer">Wild and Scenic River overview</a>. Much of the corridor borders private land under scenic easement; stay within public accesses and lawful float-camp rules. Use <a href="https://waterdata.usgs.gov/monitoring-location/USGS-07071500/" target="_blank" rel="noopener noreferrer">USGS 07071500 near Bardley</a> as flow context, not a river-wide go/no-go rule.
+        </p>
       </section>
     ) : null}
 
@@ -1517,7 +1577,7 @@ const groupStructuredData = [
                       <span data-group-initial-score>{route.scoreEligibility === 'planning' ? 'Planning route' : 'Loading'}</span>
                     </span>
                   </button>
-                  {isWillimanticHub || isMerrimackHub || isSpokaneHub || isSaludaHub || isWabashHub || isVillageCreekHub || isAnimasHub || isHousatonicHub ? (
+                  {isWillimanticHub || isMerrimackHub || isSpokaneHub || isSaludaHub || isWabashHub || isVillageCreekHub || isElevenPointHub || isAnimasHub || isHousatonicHub ? (
                     <details class="route-choice__trip-notes">
                       <summary>{isAnimasHub || isHousatonicHub ? 'Access, flow, and safety notes' : 'Access, gauge, and safety notes'}</summary>
                       <div>
@@ -1636,7 +1696,9 @@ const groupStructuredData = [
         <article class="river-hub-context__item">
           <h3>Water levels</h3>
           <p>
-            {isSpokaneHub
+            {isElevenPointHub
+              ? 'Use USGS 07071500 near Bardley only as conservative same-river context. The station is downstream of Greer Spring, so the smaller Thomasville–Cane Bluff section can be shallow even when the lower gauge looks usable. Current route cards show a minimum-only planning cue, not an ideal range or high-water clearance; check rainfall, the live trend, and conditions at the actual put-in.'
+              : isSpokaneHub
               ? 'Use the station named for the chosen section. USGS 12419000 near Post Falls gives direct flow telemetry for Harvard–Barker, while the Spokane reading is lower-river context. Neither gauge verifies the dry-prone Barker–Sullivan channel or the Nine Mile pool above its dam; inspect those places locally.'
               : isSaludaHub
               ? 'USGS 02168504 is below Lake Murray Dam and provides direct flow telemetry for this upper reach. SCDNR publishes a broad daily range of 400–20,000 cfs and warns of rapid release changes; no route-specific scoring band is inferred from that range.'
@@ -1648,7 +1710,9 @@ const groupStructuredData = [
         <article class="river-hub-context__item">
           <h3>Route options</h3>
           <p>
-            {isRussianRiverHub
+            {isElevenPointHub
+              ? `Compare all ${group.routeCount} public endpoint choices here, from the upper reaches through Turner Mill, Whitten, Riverton, and The Narrows. The route cards keep their own access pairs, mileage, and safety notes together; choose trips within the river section and gauge context you plan to use.`
+              : isRussianRiverHub
               ? `Compare all ${group.routeCount} endpoint combinations here. Six source-backed trips keep standalone pages; the remaining options stay selectable with their own mileage, access, shuttle, and hazard notes. The upper, middle, and lower reaches use different guide and gauge references.`
               : isSpokaneHub
               ? `Compare all ${group.routeCount} Spokane River options here. Six focused Water Trail sections keep standalone guides; the other 20 endpoint combinations remain available as cards with their own access and hazard notes. Upper Post Falls telemetry, the lower Spokane gauge, and the Nine Mile pool describe different conditions.`

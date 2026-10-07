@@ -83,6 +83,29 @@ const villageCreekConsolidatedRouteSlugs = [
   'village-creek-fm418-state-park',
 ] as const;
 
+const elevenPointRiverHubPath = '/rivers/by-river/eleven-point-river/';
+const elevenPointRiverConsolidatedRouteSlugs = [
+  'eleven-point-river-cane-bluff-greer-crossing',
+  'eleven-point-river-cane-bluff-narrows',
+  'eleven-point-river-cane-bluff-riverton',
+  'eleven-point-river-cane-bluff-turner-mill',
+  'eleven-point-river-cane-bluff-whitten',
+  'eleven-point-river-greer-crossing-narrows',
+  'eleven-point-river-greer-crossing-riverton',
+  'eleven-point-river-greer-crossing-turner-mill',
+  'eleven-point-river-greer-crossing-turner-mill-south',
+  'eleven-point-river-greer-crossing-whitten',
+  'eleven-point-river-riverton-narrows',
+  'eleven-point-river-thomasville-cane-bluff',
+  'eleven-point-river-thomasville-turner-mill-south',
+  'eleven-point-river-thomasville-whitten',
+  'eleven-point-river-turner-mill-south-narrows',
+  'eleven-point-river-turner-mill-south-riverton',
+  'eleven-point-river-turner-mill-south-whitten',
+  'eleven-point-river-whitten-riverton',
+  'eleven-point-river-whitten-narrows',
+] as const;
+
 const merrimackRiverConsolidatedRouteSlugs = [
   'merrimack-river-sewalls-falls-ferry-street',
   'merrimack-river-everett-arena-ferry-street',
@@ -805,6 +828,7 @@ const consolidatedRouteTargets = new Map<string, string>(
     ...spokaneRiverConsolidatedRouteSlugs.map((slug) => [slug, `${spokaneRiverHubPath}?route=${slug}#trip-${slug}`] as const),
     ...wabashRiverConsolidatedRouteSlugs.map((slug) => [slug, `${wabashRiverHubPath}?route=${slug}#trip-${slug}`] as const),
     ...villageCreekConsolidatedRouteSlugs.map((slug) => [slug, `${villageCreekHubPath}?route=${slug}#trip-${slug}`] as const),
+    ...elevenPointRiverConsolidatedRouteSlugs.map((slug) => [slug, `${elevenPointRiverHubPath}?route=${slug}#trip-${slug}`] as const),
     ...saludaRiverConsolidatedRouteSlugs.map((slug) => [slug, `${saludaRiverHubPath}?route=${slug}#trip-${slug}`] as const),
     ...saludaRiverLaunchAliasSlugs.map((slug) => [slug, `${saludaRiverHubPath}?route=saluda-river-saluda-shoals-gardendale#trip-saluda-river-saluda-shoals-gardendale`] as const),
     ...saludaRiverAccessNoteRouteSlugs.map((slug) => [slug, `${saludaRiverHubPath}#saluda-route-access-notes`] as const),
