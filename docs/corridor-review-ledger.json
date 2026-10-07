@@ -2222,5 +2222,13 @@
     "continuityStatus": "condition-family",
     "nextReview": "2026-10-08",
     "notes": "Reviewed nine Bayou DeView records against AGFC's current water-trail guide and georeferenced map. Keep four source-distinct pages: the full 15.2-mile Benson Creek–Bank of Brinkley planner, Hickson Lake–Rock Island (2.9 mi), Rock Island–Apple Lake (1.5 mi), and Apple Lake–Bank of Brinkley (4.3 mi). Consolidate the other five endpoint combinations to their exact hub trip cards while preserving access, seasonal closure, navigation, camping, and gauge notes. AGFC's around-14-ft paddling floor, high-water danger warning, and 17-ft Dagmar Road gate closure describe separate conditions; retain minimum-only scoring and do not treat the gate height as a route-wide upper safety threshold. Remove stale static July 2026 gauge observations and rely on the live USGS reading."
+  },
+  {
+    "corridorId": "ca-lower-american-parkway-access-chain",
+    "status": "approved",
+    "owner": "route-data-team",
+    "continuityStatus": "condition-family",
+    "nextReview": "2026-10-08",
+    "notes": "Reviewed all ten Lower American River records against California State Parks' public boating-facility list and American River Parkway boating-trail guide, plus Sacramento County park access pages and USGS 11446500. The records are the ten endpoint pairs among the same five public launches in downstream order: Sailor Bar/Illinois, Upper Sunrise, Harrington, Watt Avenue, and Howe Avenue. Keep all ten trip options, but consolidate their near-identical standalone pages to exact hub selections; add one source-backed overview and group representative options by trip length. All ten share the Lower American reach and Fair Oaks gauge context; retain the community-derived 1,400–3,100 cfs comfortable band and 5,000 cfs maximum reference as planning cues, not official safety limits. Preserve the Nimbus Dam exclusion, PFD, rapid-scouting, cold-water, and current hazards."
   }
 ]

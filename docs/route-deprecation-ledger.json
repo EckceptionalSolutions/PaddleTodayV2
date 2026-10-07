@@ -205,5 +205,14 @@
     "conversionBaseline": null,
     "conversionPilot": null,
     "safetyReview": "approved"
+  },
+  {
+    "corridorId": "ca-lower-american-parkway-access-chain",
+    "canonicalSlug": null,
+    "status": "recommend",
+    "underlyingTripOptionsPreserved": true,
+    "conversionBaseline": null,
+    "conversionPilot": null,
+    "safetyReview": "approved"
   }
 ]

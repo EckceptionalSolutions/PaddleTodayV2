@@ -1,10 +1,10 @@
 # Route corridor migration inventory
 
-Generated 2026-10-07T16:49:41.809Z.
+Generated 2026-10-07T16:54:27.287Z.
 
-- Defined corridors: 227
-- Routes covered by a corridor definition: 874
-- Remaining multi-route families: 323
+- Defined corridors: 228
+- Routes covered by a corridor definition: 884
+- Remaining multi-route families: 322
 
 ## Defined corridors
 
@@ -19,6 +19,7 @@ Generated 2026-10-07T16:49:41.809Z.
 | fl-suwannee-wilderness-trail | Suwannee River Wilderness Trail section family | condition-family | 44 | 0 |
 | la-bayou-teche-national-paddle-trail | Bayou Teche National Paddle Trail reach family | condition-family | 44 | 0 |
 | ar-bayou-deview-water-trail | Bayou DeView Water Trail access-chain family | condition-family | 9 | 0 |
+| ca-lower-american-parkway-access-chain | Lower American River Parkway five-launch access chain | condition-family | 10 | 0 |
 | or-willamette-upper-valley-water-trail | Upper Willamette Valley access and itinerary family | condition-family | 50 | 0 |
 | ca-russian-river-paddling-zones | Russian River upper, middle, and lower paddling condition zones | condition-family | 37 | 0 |
 | mn-cannon-lower | Lower Cannon River access corridor | verified | 3 | 4 |
@@ -286,7 +287,6 @@ Generated 2026-10-07T16:49:41.809Z.
 | Kansas | Kansas River | 11 |
 | New Mexico | San Juan River | 11 |
 | Minnesota | St. Louis River | 11 |
-| California | American River | 10 |
 | New Mexico | Animas River | 10 |
 | Kentucky | Barren River | 10 |
 | South Dakota | Big Sioux River | 10 |
@@ -297,6 +297,7 @@ Generated 2026-10-07T16:49:41.809Z.
 | Arizona | Salt River | 10 |
 | Kentucky | Upper Cumberland River | 10 |
 | North Carolina | Yadkin River | 10 |
-| Additional families omitted | See route data and overlap audit | 283 |
+| Maine | Aroostook River | 9 |
+| Additional families omitted | See route data and overlap audit | 282 |
 
 This inventory is a migration queue, not an automatic deletion list. Each family still requires source review for continuity, hazards, access legality, gauge boundaries, and explicit trip edges.

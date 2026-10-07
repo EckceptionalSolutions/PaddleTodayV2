@@ -45,6 +45,7 @@ const willametteHubPath = '/rivers/by-river/willamette-river-oregon/';
 const greenRiverHubPath = '/rivers/by-river/green-river-kentucky/';
 const millersHubPath = '/rivers/by-river/millers-river-massachusetts/';
 const bayouDeViewHubPath = '/rivers/by-river/bayou-deview/';
+const americanRiverHubPath = '/rivers/by-river/american-river-california/';
 
 const blackCreekCompositeRouteSlugs = [
   'black-creek-big-creek-cypress',
@@ -405,6 +406,19 @@ const bayouDeViewConsolidatedRouteSlugs = [
   'bayou-deview-rock-island-road-bank-of-brinkley',
 ] as const;
 
+const americanRiverConsolidatedRouteSlugs = [
+  'american-river-sailor-bar-harrington',
+  'american-river-sailor-bar-upper-sunrise',
+  'american-river-harrington-watt',
+  'american-river-watt-howe',
+  'american-river-sailor-bar-watt',
+  'american-river-upper-sunrise-harrington',
+  'american-river-sailor-bar-howe',
+  'american-river-harrington-howe',
+  'american-river-upper-sunrise-watt',
+  'american-river-upper-sunrise-howe',
+] as const;
+
 const consolidatedRouteTargets = new Map<string, string>(
   [
     ...willimanticRouteSlugs.map((slug) => [slug, `${willimanticHubPath}?route=${slug}#trip-${slug}`] as const),
@@ -432,6 +446,7 @@ const consolidatedRouteTargets = new Map<string, string>(
     ...millersConsolidatedRouteSlugs.map((slug) => [slug, `${millersHubPath}?route=${slug}#trip-${slug}`] as const),
     ['millers-river-erving-south-main-dam', `${millersHubPath}#millers-route-zones`] as const,
     ...bayouDeViewConsolidatedRouteSlugs.map((slug) => [slug, `${bayouDeViewHubPath}?route=${slug}#trip-${slug}`] as const),
+    ...americanRiverConsolidatedRouteSlugs.map((slug) => [slug, `${americanRiverHubPath}?route=${slug}#trip-${slug}`] as const),
   ],
 );
 

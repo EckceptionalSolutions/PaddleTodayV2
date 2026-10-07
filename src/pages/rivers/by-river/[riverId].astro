@@ -20,6 +20,7 @@ const { group } = Astro.props;
 const isWillimanticHub = group.riverId === 'willimantic-river-connecticut';
 const isMillersHub = group.riverId === 'millers-river-massachusetts';
 const isBayouDeViewHub = group.riverId === 'bayou-deview';
+const isAmericanLowerHub = group.riverId === 'american-river-california';
 const isGreenRiverHub = group.riverId === 'green-river-kentucky';
 const isBlackfootHub = group.riverId === 'blackfoot-river-montana';
 const isWillametteHub = group.riverId === 'willamette-river-oregon';
@@ -43,6 +44,8 @@ const needsRegionInTitle = listRiverGroups().some((other) =>
 const groupTitleLocation = needsRegionInTitle ? `${regionSummary}, ${stateSummary}` : stateSummary;
 const groupTitle = isWoonasquatucketHub
   ? 'Woonasquatucket River, Rhode Island | Paddling Zones & Access'
+  : isAmericanLowerHub
+  ? 'Lower American River, California | Route Options & Access'
   : isBayouDeViewHub
   ? 'Bayou DeView Water Trail, Arkansas | Sections & Access'
   : isGreenRiverHub
@@ -60,6 +63,8 @@ const groupTitle = isWoonasquatucketHub
   : `${group.name}, ${groupTitleLocation} | Paddle Routes & Trip Planning`;
 const groupDescription = isWillimanticHub
   ? 'Plan the Willimantic River Water Trail by stretch: upper quickwater, Eagleville Lake, or the lower river after the dam portage. Compare public access, mileage, and USGS stage cues.'
+  : isAmericanLowerHub
+  ? 'Compare Lower American River trips from Sailor Bar and Upper Sunrise through Harrington, Watt, and Howe. Check Fair Oaks flows, park access, and river hazards.'
   : isBayouDeViewHub
   ? 'Plan the 15.2-mile Bayou DeView Water Trail by access point. Check the live Brinkley gauge, Dagmar Road access, seasonal closures, and the AGFC map for this floodplain channel.'
   : isMillersHub
@@ -305,7 +310,9 @@ const areaLabel = group.regions.length === 1 ? 'paddle area' : 'paddle areas';
 const faqItems = [
   {
     question: `Where can I paddle the ${group.name}?`,
-    answer: isRussianRiverHub
+    answer: isAmericanLowerHub
+      ? 'These ten trip options are endpoint pairs along one Lower American River reach: Sailor Bar/Illinois, Upper Sunrise, Harrington, Watt Avenue, and Howe Avenue. Choose any pair in the selector; the overview groups representative trips by distance.'
+      : isRussianRiverHub
       ? 'Start with the named Asti–Alexander and Alexander Valley–Healdsburg upper runs, the Healdsburg–Wohler or Mirabel middle reach, or a lower beach-to-beach trip. The hub keeps every endpoint combination available so you can choose a shorter exit or a longer day.'
       : isBayouDeViewHub
       ? 'The AGFC water trail runs 15.2 miles south from Benson Creek Access to Bank of Brinkley Access. Start with that full route or one of the named shorter sections; the trip selector keeps five other endpoint combinations available with their own access and distance details.'
@@ -331,7 +338,9 @@ const faqItems = [
   },
   {
     question: `How should I check ${group.name} water levels?`,
-    answer: isRussianRiverHub
+    answer: isAmericanLowerHub
+      ? 'Use USGS 11446500 at Fair Oaks and review the trend and current releases. The 1,400–3,100 cfs comfortable band and 5,000 cfs maximum reference are community-derived planning cues, not official safe-water limits.'
+      : isRussianRiverHub
       ? 'Use the guide for your exact stretch. California Creeks ties its 300–1,500 cfs guidance for Healdsburg-to-near-Forestville and Alexander-to-Healdsburg runs to the Healdsburg gauge. Dreamflows separately lists 500–2,500 cfs triggers for Healdsburg-to-Guerneville at Hacienda Bridge. These are community flow indicators, not safe limits; the Asti reach has separate seasonal guidance.'
       : isGreenRiverHub
       ? 'Use the source for your exact zone and do not compare the numbers directly: the Upper Green guide uses Green River Lake dam release in cfs, KDFWR lists a separate Greensburg stage gauge in feet and a Munfordville discharge gauge in cfs, and NPS gives Mammoth Cave stage ranges and a park closure threshold. Multi-zone combinations are planning-only because one reading cannot represent all of those conditions.'
@@ -1086,6 +1095,47 @@ const groupStructuredData = [
 
           <p>
             AGFC says a gauge height around 14 feet or higher is needed to paddle the trail and warns that high water is dangerous. It separately says the Dagmar Road gate closes at 17 feet; use that as an access check, not a route-wide upper safety threshold. Follow the <a href="https://www.agfc.com/things-to-do/water-trails/bayou-deview-water-trail/" target="_blank" rel="noopener noreferrer">AGFC Bayou DeView guide</a>, carry its <a href="https://www.agfc.com/wp-content/uploads/2023/05/bayoudeviewwatertrail.pdf" target="_blank" rel="noopener noreferrer">georeferenced trail map</a>, and check the <a href="https://waterdata.usgs.gov/monitoring-location/USGS-07077730/" target="_blank" rel="noopener noreferrer">live USGS 07077730 gauge</a> and current road access before departure.
+          </p>
+        </div>
+      ) : null}
+
+      {isAmericanLowerHub ? (
+        <div class="river-hub-context__source-guide" id="american-river-parkway-trips" aria-labelledby="american-river-parkway-trips-title">
+          <div class="river-group-page__section-head">
+            <div>
+              <p class="eyebrow section-label">California · American River Parkway</p>
+              <h3 class="section-title" id="american-river-parkway-trips-title">Choose a float by distance and access</h3>
+            </div>
+            <p class="muted river-group-page__section-note">
+              The ten cataloged trips share one downstream corridor. Start with the five public launches in order—Sailor Bar / Illinois, Upper Sunrise, Harrington, Watt Avenue, and Howe—then choose the pair that fits your time and shuttle.
+            </p>
+          </div>
+
+          <div class="river-hub-context__grid">
+            <article class="river-hub-context__item">
+              <h3>Short practice or connector floats</h3>
+              <p>Sailor Bar to Upper Sunrise is about 2 miles; Watt Avenue to Howe is about 1.4 miles. Upper Sunrise has a small-boat launch; confirm the take-out carry, parking, and current access before unloading.</p>
+              <a href="/rivers/by-river/american-river-california/?route=american-river-sailor-bar-upper-sunrise#trip-american-river-sailor-bar-upper-sunrise">Choose Sailor Bar to Upper Sunrise</a>
+              <a href="/rivers/by-river/american-river-california/?route=american-river-watt-howe#trip-american-river-watt-howe">Choose Watt Avenue to Howe</a>
+            </article>
+            <article class="river-hub-context__item">
+              <h3>Middle Parkway trips</h3>
+              <p>Harrington to Watt is about 4.9 miles. Sailor Bar to Harrington is about 8.2 miles and includes the upstream Parkway section; allow extra time to scout named features and stage the shuttle.</p>
+              <a href="/rivers/by-river/american-river-california/?route=american-river-harrington-watt#trip-american-river-harrington-watt">Choose Harrington to Watt</a>
+              <a href="/rivers/by-river/american-river-california/?route=american-river-sailor-bar-harrington#trip-american-river-sailor-bar-harrington">Choose Sailor Bar to Harrington</a>
+            </article>
+            <article class="river-hub-context__item">
+              <h3>Longest cataloged float</h3>
+              <p>Sailor Bar to Howe covers about 14.5 river miles, with Upper Sunrise, Harrington, and Watt as intermediate public accesses. It needs a longer daylight window and a downstream shuttle. The selector keeps all ten endpoint pairs available.</p>
+              <a href="/rivers/by-river/american-river-california/?route=american-river-sailor-bar-howe#trip-american-river-sailor-bar-howe">Choose Sailor Bar to Howe</a>
+            </article>
+          </div>
+
+          <p>
+            California State Parks lists all five locations as public launches. Its <a href="https://dbw.parks.ca.gov/?page_id=29488" target="_blank" rel="noopener noreferrer">American River Parkway boating guide</a> advises paddlers to scout Suicide Bend, San Juan Rapids, and Arden Rapids from shore, watch for strainers and cold water, and stay outside the 150-foot Nimbus Dam exclusion. Check the <a href="https://waterdata.usgs.gov/monitoring-location/USGS-11446500/" target="_blank" rel="noopener noreferrer">live USGS Fair Oaks gauge</a> and park notices before launch. Upper Sunrise is open from sunrise to sunset and has a parking fee; see <a href="https://regionalparks.saccounty.gov/us/en/parks/american-river-parkway/sunrise-recreation-area--upper-and-lower.html" target="_blank" rel="noopener noreferrer">Sacramento County’s current access details</a>.
+          </p>
+          <p>
+            The site’s 1,400–3,100 cfs comfortable range and 5,000 cfs maximum reference come from community flow guidance. Treat them as planning cues and use current gauge trend, dam releases, weather, and your group’s skill to make the trip decision.
           </p>
         </div>
       ) : null}
