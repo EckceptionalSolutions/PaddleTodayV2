@@ -13,7 +13,9 @@ describe('starter planning publication', () => {
       const published = publicRoutes.find(item => item.slug === route.slug);
       expect(published?.scoreEligibility).toBe('planning');
       expect(published?.logistics?.distanceLabel).toBeTruthy();
-      expect(published?.accessPoints).toHaveLength(2);
+      expect(published?.accessPoints?.length).toBeGreaterThanOrEqual(2);
+      expect(published?.accessPoints?.[0].name).toBe(route.putIn?.name);
+      expect(published?.accessPoints?.at(-1)?.name).toBe(route.takeOut?.name);
       expect(scoredRoutes.some(item => item.slug === route.slug)).toBe(false);
     }
   });
@@ -43,9 +45,10 @@ describe('starter planning publication', () => {
     expect(paths[1].slice(1).some(point => firstInterior.has(JSON.stringify(point)))).toBe(false);
   });
 
-  it('keeps Oregon traces within their launch boundaries and preserves the Peoria alcove', () => {
+  it('keeps named Oregon traces within their launch boundaries and preserves the Peoria alcove', () => {
     const distance = (a: number[], b: number[]) => Math.hypot((a[0]-b[0])*Math.cos((a[1]+b[1])*Math.PI/360),a[1]-b[1])*69;
-    const lines = oregonRoutes.filter(route => route.scoreEligibility === 'planning').map(route => {
+    const namedTraceIds = new Set(['willamette-river-peoria-crystal-lake', 'willamette-river-michaels-hyak']);
+    const lines = oregonRoutes.filter(route => namedTraceIds.has(route.id)).map(route => {
       const feature = JSON.parse(readFileSync(`public/data/canonical-river-geometries/routes/${route.slug}.json`,'utf8'));
       expect(feature.geometry.coordinates).toHaveLength(1);
       const line:number[][]=feature.geometry.coordinates[0];

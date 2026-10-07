@@ -1,6 +1,7 @@
 import { describe, expect, it } from 'vitest';
 import { arizonaVerdeRoutes } from './arizona-verde';
-import { rivers } from '../rivers';
+import { rivers as scoredRoutes } from '../rivers';
+import { listRivers } from '../../lib/rivers';
 import { auditRouteSafety } from '../../lib/route-safety-audit';
 
 describe('Arizona Verde starter routes', () => {
@@ -13,7 +14,10 @@ describe('Arizona Verde starter routes', () => {
     expect(lower.filter(route => route.scoreEligibility === 'planning').every(route =>
       route.profile.tooLow === undefined && route.profile.tooHigh === undefined && route.profile.idealMin === undefined && route.profile.idealMax === undefined,
     )).toBe(true);
-    expect(lower.every(route => rivers.some(candidate => candidate.id === route.id))).toBe(true);
+    expect(lower.every(route => listRivers().some(candidate => candidate.id === route.id))).toBe(true);
+    expect(lower.filter(route => route.scoreEligibility === 'scored').every(route =>
+      scoredRoutes.some(candidate => candidate.id === route.id),
+    )).toBe(true);
     expect(auditRouteSafety(lower)).toEqual([]);
   });
 
