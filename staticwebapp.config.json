@@ -19,6 +19,76 @@
       "statusCode": 301
     },
     {
+      "route": "/rivers/susquehanna-river-sayre-towanda",
+      "redirect": "/rivers/by-river/susquehanna-river/",
+      "statusCode": 301
+    },
+    {
+      "route": "/rivers/susquehanna-river-sayre-wysox-township-park",
+      "redirect": "/rivers/by-river/susquehanna-river/",
+      "statusCode": 301
+    },
+    {
+      "route": "/rivers/susquehanna-river-tunkhannock-west-falls",
+      "redirect": "/rivers/susquehanna-river-laceyville-west-falls/",
+      "statusCode": 301
+    },
+    {
+      "route": "/rivers/susquehanna-river-bloomsburg-danville",
+      "redirect": "/rivers/susquehanna-river-test-track-danville/",
+      "statusCode": 301
+    },
+    {
+      "route": "/rivers/susquehanna-river-sayre-hornbrook",
+      "redirect": "/rivers/by-river/susquehanna-river/",
+      "statusCode": 301
+    },
+    {
+      "route": "/rivers/susquehanna-river-meshoppen-tunkhannock",
+      "redirect": "/rivers/susquehanna-river-laceyville-west-falls/",
+      "statusCode": 301
+    },
+    {
+      "route": "/rivers/susquehanna-river-bloomsburg-indian-head",
+      "redirect": "/rivers/susquehanna-river-test-track-danville/",
+      "statusCode": 301
+    },
+    {
+      "route": "/rivers/susquehanna-river-sayre-ulster-bridge",
+      "redirect": "/rivers/by-river/susquehanna-river/",
+      "statusCode": 301
+    },
+    {
+      "route": "/rivers/susquehanna-river-whites-ferry-west-falls",
+      "redirect": "/rivers/susquehanna-river-laceyville-west-falls/",
+      "statusCode": 301
+    },
+    {
+      "route": "/rivers/susquehanna-river-wetlands-test-track",
+      "redirect": "/rivers/susquehanna-river-canal-park-test-track/",
+      "statusCode": 301
+    },
+    {
+      "route": "/rivers/susquehanna-river-pfbc-union-township-wetlands",
+      "redirect": "/rivers/susquehanna-river-canal-park-test-track/",
+      "statusCode": 301
+    },
+    {
+      "route": "/rivers/susquehanna-river-tunkhannock-whites-ferry",
+      "redirect": "/rivers/susquehanna-river-laceyville-west-falls/",
+      "statusCode": 301
+    },
+    {
+      "route": "/rivers/susquehanna-river-indian-head-danville",
+      "redirect": "/rivers/susquehanna-river-test-track-danville/",
+      "statusCode": 301
+    },
+    {
+      "route": "/rivers/susquehanna-river-canal-park-pfbc-union-township",
+      "redirect": "/rivers/susquehanna-river-canal-park-test-track/",
+      "statusCode": 301
+    },
+    {
       "route": "/rivers/mohawk-river-lock-9-freemans-bridge",
       "redirect": "/rivers/erie-canal-rotterdam-junction-freemans-bridge/",
       "statusCode": 301
@@ -90,7 +160,7 @@
     },
     {
       "route": "/rivers/susquehanna-river-test-track-bloomsburg",
-      "redirect": "/rivers/by-river/susquehanna-river/",
+      "redirect": "/rivers/susquehanna-river-test-track-danville/",
       "statusCode": 301
     },
     {

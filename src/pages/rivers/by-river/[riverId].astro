@@ -41,6 +41,7 @@ const isSuwanneeHub = group.riverId === 'suwannee-river-florida';
 const isSaukRiverHub = group.riverId === 'sauk-river';
 const isTruckeeHub = group.riverId === 'truckee-river-nevada';
 const isFarmingtonHub = group.riverId === 'farmington-river-connecticut';
+const isSusquehannaHub = group.riverId === 'susquehanna-river';
 const isBayouTecheHub = group.riverId === 'bayou-teche-river-louisiana';
 const hasConsolidatedTrips = group.routes.some((route) => routePageConsolidationTarget(route.slug));
 const stateSummary = group.states.join(', ');
@@ -94,6 +95,8 @@ const groupTitle = isBroadRiverHub
   ? 'Truckee River, Nevada | Paddling Sections, Gauges & Access'
   : isFarmingtonHub
   ? 'Farmington River, Connecticut | Upper West Branch Paddle Routes'
+  : isSusquehannaHub
+  ? 'Susquehanna River, New York & Pennsylvania | Paddling Sections & Access'
   : scoredRouteCount
   ? `${group.name}, ${groupTitleLocation} | Water Levels & Paddle Routes`
   : `${group.name}, ${groupTitleLocation} | Paddle Routes & Trip Planning`;
@@ -145,6 +148,8 @@ const groupDescription = isBroadRiverHub
   ? 'Compare 24 Truckee River trips from Floriston through Reno and Sparks to Wadsworth. Choose among six documented sections, review whitewater and dam portages, and use the gauge attached to your exact reach.'
   : isFarmingtonHub
   ? 'Compare three upper Farmington River trips from Riverton to People’s State Forest and the Route 181/318 bridge. Check Riverton flow, access, and why Lake McDonough is separate.'
+  : isSusquehannaHub
+  ? 'Plan Susquehanna River trips across New York’s upper main stem and Pennsylvania’s North Branch. Compare 33 current endpoint options, including 20 public North Branch trips across separate gauge areas.'
   : scoredRouteCount
   ? `Compare ${group.name} paddle routes with current water levels, Paddle Today scores, weather, access details, and route difficulty.`
   : `Compare ${group.name} planning routes with access details, distance, difficulty and source links. These routes have no live score.`;
@@ -403,6 +408,48 @@ const sanJuanSectionGroups = isSanJuanHub
         .filter((route): route is River => Boolean(route)),
     }))
   : [];
+const susquehannaSectionGroups = isSusquehannaHub
+  ? [
+      {
+        label: 'Bradford County · Ulster and Towanda',
+        slugs: ['susquehanna-river-ulster-bridge-towanda', 'susquehanna-river-ulster-bridge-wysox-township-park'],
+      },
+      {
+        label: 'Section 1 · Towanda to Laceyville',
+        slugs: ['susquehanna-river-towanda-laceyville'],
+      },
+      {
+        label: 'Section 2 · Laceyville to West Falls',
+        slugs: ['susquehanna-river-laceyville-west-falls'],
+      },
+      {
+        label: 'Section 3 · Canal Park to Test Track',
+        slugs: ['susquehanna-river-canal-park-test-track'],
+      },
+      {
+        label: 'Section 4 and Bloomsburg · Test Track downstream',
+        slugs: [
+          'susquehanna-river-test-track-danville',
+          'susquehanna-river-wetlands-bloomsburg',
+          'susquehanna-river-pfbc-bloomsburg-montgomery-park',
+        ],
+      },
+      {
+        label: 'Lower North Branch · Danville to Shikellamy',
+        slugs: [
+          'susquehanna-river-pfbc-danville-wrays',
+          'susquehanna-river-pfbc-danville-shikellamy-west',
+          'susquehanna-river-danville-montgomery-shikellamy-north',
+          'susquehanna-river-riverside-borough-shikellamy-north',
+        ],
+      },
+    ].map((sectionGroup) => ({
+      ...sectionGroup,
+      sections: sectionGroup.slugs
+        .map((slug) => group.routes.find((route) => route.slug === slug))
+        .filter((route): route is River => Boolean(route)),
+    }))
+  : [];
 const crowWingSectionGroups = isCrowWingHub
   ? [
       {
@@ -546,6 +593,8 @@ const faqItems = [
       ? 'The Nevada Truckee guide follows one access chain but separates three very different paddling zones: the technical Floriston–Verdi reach, Reno–Sparks and its whitewater parks, and the lower river toward Wadsworth. All 24 endpoint choices remain selectable with route-specific details.'
       : isFarmingtonHub
       ? 'Choose among the upper West Branch reaches between the Route 20 Riverton access, People’s State Forest, and the Route 181/318 bridge. Lake McDonough is a separate reservoir launch, not a river take-out.'
+      : isSusquehannaHub
+      ? 'This guide covers the Susquehanna’s upper main stem in New York and its North Branch in Pennsylvania. Start with a focused North Branch section below, or use the trip picker to compare all 33 endpoint options; gauge and access conditions vary by reach.'
       : `Paddle Today tracks ${group.routeCount} ${group.name} ${routeLabel} across ${regionSummary}. Compare the route cards on this page, then open an individual route for put-in, take-out, distance, and access notes.`,
   },
   {
@@ -582,13 +631,17 @@ const faqItems = [
       ? 'Use the gauge and flow notes attached to your selected route. USGS stations at Farad, Reno, Vista, and below Derby Dam cover different parts of the river. Truckee flow is regulated and varies by season; one station does not represent every reach or clear a dam portage, whitewater feature, or access restriction.'
       : isFarmingtonHub
       ? 'Use USGS 01186000 at Riverton for these upper West Branch trips. Riverton’s 250 cfs minimum and 360–980 cfs optimum for downriver canoeing are community planning cues for this corridor, not safety guarantees or guidance for the lower Farmington. Check the live trend, release notices, weather, and access before launch.'
+      : isSusquehannaHub
+      ? 'Use the gauge named on the selected route. Pennsylvania North Branch maps reference Towanda, Meshoppen, Wilkes-Barre, Bloomsburg, and Danville; New York trips use separate local gauge context. These readings describe different reaches, not one river-wide threshold. Check the live trend, weather, access, and current notices.'
       : scoredRouteCount
       ? `Check the gauge notes for your stretch and its live score where available. This hub uses ${gaugeNames.length === 1 ? gaugeNames[0] : `${gaugeNames.length} gauges or gauge references`}. Planning routes have no live score; check their source guidance and current access notices.`
       : `These planning routes have no live conditions score. Use each route’s gauge notes and source guidance, then check current waterway notices, weather, access, and local conditions before launching.`,
   },
   {
     question: scoredRouteCount ? `Which ${group.name} route is best today?` : `How should I choose a ${group.name} trip?`,
-    answer: scoredRouteCount
+    answer: isSusquehannaHub
+      ? 'Choose the river reach first: upper main-stem options in New York or North Branch sections in Pennsylvania. The picker keeps alternate endpoint pairs available, and each trip retains its own mileage, access, gauge, and hazard details.'
+      : scoredRouteCount
       ? isHousatonicHub
         ? 'Choose a reach by its own access and difficulty. The upper technical section starts with the mandatory Woods Pond Dam portage; the two Glendale reaches are separated by a separate land portage; the lower picker options have different launch grades, parking, and shuttle lengths. Use the trip details before selecting a route.'
         : isSanJuanHub
@@ -660,6 +713,8 @@ const groupStructuredData = [
             ? 'Plan the Berkshire Housatonic by reach: the upper mainstem and Woods Pond portage, separate trips above and below Glendale Dam, and the Great Barrington–Sheffield access chain. Gauge context, skill, and launch access change by section, so compare the selected trip’s details before planning a shuttle.'
             : isSanJuanHub
             ? 'Follow the San Juan from Navajo Dam through Blanco and Vereda del Rio to Farmington and Kirtland. Begin with a named section, then compare longer choices with intermediate access, separate gauges, release changes, and diversion hazards.'
+            : isSusquehannaHub
+            ? 'This guide covers the upper main stem in New York and the North Branch in Pennsylvania. Start with a documented North Branch section below, then compare endpoint choices; gauge and conditions must match the exact reach.'
             : isChattahoocheeHub
             ? 'Choose a source-backed Chattahoochee section, then verify the USGS gauge assigned to your put-in. Buford and Morgan Falls Dam releases can change flow quickly, and the NPS limits vary by craft.'
             : isWillimanticHub
@@ -797,6 +852,33 @@ const groupStructuredData = [
         ))}
         <p>
           Check the <a href="https://www.farmingtonnm.gov/DocumentCenter/View/27318/River-Signage-Penny-Lane" rel="noopener">City of Farmington river access and hazard map</a>, the <a href="https://southwestpaddler.com/docs/sanjuannm2.html" rel="noopener">San Juan access guide</a>, <a href="https://waterdata.usgs.gov/monitoring-location/USGS-09355500/" rel="noopener">USGS 09355500 near Archuleta</a> and <a href="https://waterdata.usgs.gov/monitoring-location/USGS-09365000/" rel="noopener">USGS 09365000 at Farmington</a>. Navajo Dam releases can change; review the <a href="https://www.usbr.gov/uc/wcao/water/rsvrs/notice/nav_rel.html" rel="noopener">Bureau of Reclamation’s current release notices</a> before an upper-river trip.
+        </p>
+      </section>
+    ) : null}
+
+    {susquehannaSectionGroups.length > 0 ? (
+      <section class="river-group-page__panel" aria-labelledby="susquehanna-north-branch-sections-title">
+        <div class="river-group-page__section-head">
+          <div>
+            <p class="eyebrow section-label">Pennsylvania Fish and Boat Commission and Susquehanna Greenway</p>
+            <h2 class="section-title" id="susquehanna-north-branch-sections-title">Plan the North Branch by section</h2>
+          </div>
+        </div>
+        <p>
+          The Pennsylvania Fish and Boat Commission’s North Branch water trail follows about 180 miles from the New York border to Sunbury. Start with one documented section, then compare the trip choices below. The official section maps reference Towanda, Meshoppen, Wilkes-Barre, Bloomsburg, and Danville gauges; use the station attached to your selected trip because readings and local conditions are section-specific.
+        </p>
+        {susquehannaSectionGroups.map((sectionGroup) => sectionGroup.sections.length > 0 ? (
+          <div class="river-group-page__zone">
+            <h3>{sectionGroup.label}</h3>
+            <ul>
+              {sectionGroup.sections.map((route) => (
+                <li><a href={routeDetailHref(route)}>{route.reach}</a>{route.logistics?.distanceLabel ? ` — ${route.logistics.distanceLabel}` : ''}</li>
+              ))}
+            </ul>
+          </div>
+        ) : null)}
+        <p>
+          See the <a href="https://www.pa.gov/agencies/fishandboat/boating/where-to-boat/water-trails/north-branch-susquehanna-river" rel="noopener">PFBC North Branch guide</a> and the <a href="https://susquehannagreenway.org/branches/north-branch/" rel="noopener">Susquehanna Greenway North Branch itineraries</a> for official access maps and trip context. All {group.routeCount} currently available endpoint options remain in the trip picker below.
         </p>
       </section>
     ) : null}
@@ -1337,6 +1419,8 @@ const groupStructuredData = [
               ? `Compare all ${group.routeCount} Truckee River choices here. Six source-documented pages cover the upper Floriston run, three Reno–Sparks sections, and two lower-river reaches. The other 18 endpoint combinations remain selectable with their own distance, access, gauge, and hazard details.`
               : isFarmingtonHub
               ? 'Three trip options cover the two adjoining access legs and their combined run. Retired Lake McDonough combinations now lead to the separate reservoir access explanation below.'
+              : isSusquehannaHub
+              ? `The guide groups 13 upper main-stem options in New York and 20 public North Branch options in Pennsylvania. Twelve focused North Branch section and day-trip pages appear above; all ${group.routeCount} endpoint choices remain in the picker with their own access and gauge context.`
               : `Compare ${group.routeCount} ${routeLabel} (${scoredRouteCount} scored · ${planningRouteCount} planning) across ${regionSummary}. Open a route page for put-in, take-out, distance, source confidence, and access notes.`}
           </p>
         </article>
