@@ -31,4 +31,10 @@ Consolidate the other 68 NRA standalone route pages to their matching selected t
 
 ## Rollout verification
 
-Pending build and production deployment. Verify all 79 trip choices, eight retained NRA standalone pages, 68 selected-card redirects, corrected NPS gauge assignments, and sitemap removal of the consolidated URLs. Search Console settings remain unchanged; no sitemap submission or indexing request was made.
+## Production verification
+
+Commit `c2395a6a5ece9d34e6564f8e60277107cfe032e9` deployed successfully. Frontend workflow [37680424449](https://github.com/EckceptionalSolutions/PaddleTodayV2/actions/runs/37680424449), API workflow [37680425031](https://github.com/EckceptionalSolutions/PaddleTodayV2/actions/runs/37680425031), and Snapshot Worker workflow [37680424540](https://github.com/EckceptionalSolutions/PaddleTodayV2/actions/runs/37680424540) all passed.
+
+Production checks confirmed the Chattahoochee hub returns HTTP 200 and contains all 79 trip-card links. Each of the 68 consolidated NRA route paths serves its exact hub selection, preserving the route query and fragment; all eight retained NRA guides and the three separate Upper Chattahoochee, Powers Island–Paces Mill, and Columbus guides remain. The sitemap index and child sitemap return HTTP 200; the child contains 2,819 URLs, includes the hub and all 11 retained guides, and excludes the 68 consolidated pages. The put-in gauge assignments were included in the deployed hub and route records.
+
+Search Console settings remain unchanged; no sitemap submission or indexing request was made. These production checks confirm the release and catalog behavior, not a Google recrawl or ranking recovery.

@@ -30,6 +30,7 @@ const isAmericanLowerHub = group.riverId === 'american-river-california';
 const isLoupRiverHub = group.riverId === 'loup-river';
 const isVerdeRiverHub = group.riverId === 'verde-river-arizona';
 const isGreenRiverHub = group.riverId === 'green-river-kentucky';
+const isFloydsForkHub = group.riverId === 'floyds-fork';
 const isBlackfootHub = group.riverId === 'blackfoot-river-montana';
 const isWillametteHub = group.riverId === 'willamette-river-oregon';
 const isRussianRiverHub = group.riverId === 'russian-river-california';
@@ -74,6 +75,8 @@ const groupTitle = isBroadRiverHub
   ? 'Bayou DeView Water Trail, Arkansas | Sections & Access'
   : isGreenRiverHub
   ? 'Green River, Kentucky | Paddling Sections & Access'
+  : isFloydsForkHub
+  ? 'Floyds Fork, Kentucky | Paddling Sections & Access'
   : isBlackfootHub
   ? 'Blackfoot River, Montana | Paddling Sections & Access'
   : isRussianRiverHub
@@ -111,6 +114,8 @@ const groupDescription = isBroadRiverHub
   ? 'Compare the flatwater Athol–Orange Blue Trail, the South Main Street Dam portage, and the Lower Millers whitewater. The Erving gauge applies to the lower reach, not every trip option.'
   : isGreenRiverHub
   ? 'Plan Kentucky’s Green River by its Upper Green, Hart County, and Mammoth Cave stretches. Compare official trips, public access, and the distinct flow and stage guidance for each zone.'
+  : isFloydsForkHub
+  ? 'Plan Floyds Fork by access section. Compare KDFWR-listed legs, Parklands routes, and longer trips with Fisherville gauge and landing guidance.'
   : isBlackfootHub
   ? 'Choose among five named Blackfoot River runs, from Class II–III whitewater to the mellow Johnsrud-to-Weigh Station float. Compare all 36 endpoint options, access rules, gauge context, and current closures.'
   : isRussianRiverHub
@@ -644,6 +649,8 @@ const groupStructuredData = [
             ? 'Choose a town-to-town dock section on Louisiana’s Bayou Teche National Paddle Trail. Start with the named legs below, then compare longer itineraries in the picker. The upper and downstream trail sections have different portage and access needs.'
             : isSuwanneeHub
             ? 'Choose a named Suwannee River Wilderness Trail section, then check its access and overnight plan. Start with the source-backed day legs below; longer endpoint combinations stay available in the trip picker.'
+            : isFloydsForkHub
+            ? 'Follow the six KDFWR-listed access legs from North Beckley to Cliffside, or choose the separately published full-corridor trip. The picker keeps every endpoint combination available with its own mileage, access, gauge, and hazard notes.'
             : `Plan a paddle across ${group.regions.length} ${areaLabel}. ${scoredRouteCount ? 'Compare distance, difficulty, and current scores where available before choosing your stretch.' : 'Compare distance, difficulty, and access. These planning routes have no live conditions score.'}`}
         </p>
 
@@ -1291,6 +1298,8 @@ const groupStructuredData = [
               ? `Compare all ${group.routeCount} endpoint combinations here. Five source-backed trips keep standalone pages; the other 45 remain selectable here with their own mileage, access, camping, and hazard notes. Three trips within the Alton Baker–Harrisburg flow-guidance reach have scores; the rest are planning-only.`
               : isBlackCreekHub
               ? `Compare all ${group.routeCount} landing combinations here. The six adjacent reaches documented by Seven Rivers have individual pages; longer combinations and the Ashe Nursery alternative remain available as trip options.`
+              : isFloydsForkHub
+              ? `Compare all ${group.routeCount} Floyds Fork choices here. Thirteen detailed guides cover 11 routes published by KDFWR or The Parklands plus two longer options; the other eight combinations remain selectable with their own route details.`
               : `Compare ${group.routeCount} ${routeLabel} (${scoredRouteCount} scored · ${planningRouteCount} planning) across ${regionSummary}. Open a route page for put-in, take-out, distance, source confidence, and access notes.`}
           </p>
         </article>
@@ -1303,6 +1312,56 @@ const groupStructuredData = [
           </p>
         </article>
       </div>
+
+      {isFloydsForkHub ? (
+        <div class="river-hub-context__source-guide" aria-labelledby="floyds-fork-sections-title">
+          <div class="river-group-page__section-head">
+            <div>
+              <p class="eyebrow section-label">KDFWR and The Parklands route guides</p>
+              <h3 class="section-title" id="floyds-fork-sections-title">Choose a Floyds Fork section</h3>
+            </div>
+            <p class="muted river-group-page__section-note">
+              Start with the named routes below. Every endpoint combination remains available in the trip picker.
+            </p>
+          </div>
+
+          <div class="river-hub-context__grid">
+            <article class="river-hub-context__item">
+              <h3>Six KDFWR access legs</h3>
+              <ol>
+                <li><a href="/rivers/floyds-fork-north-beckley-creekside/">North Beckley to Creekside</a> · 2.1 mi</li>
+                <li><a href="/rivers/floyds-fork-creekside-fisherville/">Creekside to Fisherville</a> · 4.3 mi</li>
+                <li><a href="/rivers/floyds-fork-fisherville-cane-run/">Fisherville to Cane Run</a> · 4.2 mi</li>
+                <li><a href="/rivers/floyds-fork-cane-run-seaton-valley/">Cane Run to Seaton Valley</a> · 3.1 mi</li>
+                <li><a href="/rivers/floyds-fork-seaton-valley-broad-run-valley/">Seaton Valley to Broad Run Valley</a> · 3.4 mi</li>
+                <li><a href="/rivers/floyds-fork-broad-run-valley-cliffside/">Broad Run Valley to Cliffside</a> · 2.1 mi</li>
+              </ol>
+            </article>
+            <article class="river-hub-context__item">
+              <h3>Five longer Parklands routes</h3>
+              <ul>
+                <li><a href="/rivers/floyds-fork-north-beckley-fisherville/">North Beckley to Fisherville</a> · 6.4 mi</li>
+                <li><a href="/rivers/floyds-fork-north-beckley-cane-run/">North Beckley to Cane Run</a> · 10.7 mi</li>
+                <li><a href="/rivers/floyds-fork-north-beckley-seaton-valley/">North Beckley to Seaton Valley</a> · 13.7 mi</li>
+                <li><a href="/rivers/floyds-fork-north-beckley-broad-run-valley/">North Beckley to Broad Run Valley</a> · 17.2 mi</li>
+                <li><a href="/rivers/floyds-fork-north-beckley-cliffside/">North Beckley to Cliffside</a> · 19.7 mi</li>
+              </ul>
+            </article>
+            <article class="river-hub-context__item">
+              <h3>Other extended choices</h3>
+              <ul>
+                <li><a href="/rivers/floyds-fork-creekside-cliffside/">Creekside to Cliffside</a> · extended lower-Parklands day trip</li>
+                <li><a href="/rivers/floyds-fork-cane-run-broad-run-valley/">Cane Run to Broad Run Valley</a> · two access legs in one outing</li>
+              </ul>
+              <p>KDFWR lists a 50–300 cfs / 1.3–2.5 ft boating and fishing band at Fisherville; its education guide gives a broader 35–500 cfs recreation range. Treat these as source recommendations, not safety guarantees. The Parklands asks paddlers to use marked landings only and posts current access notices, including closures. Verify the selected trip's gauge, access, and shuttle before launch.</p>
+            </article>
+          </div>
+
+          <p>
+            Compare the current <a href="https://fw.ky.gov/Fish/Pages/floyds-fork.aspx" target="_blank" rel="noopener noreferrer">KDFWR access and level guide</a> with <a href="https://theparklands.org/app/uploads/2020/11/TheParklands_PaddlingMap_Public.pdf" target="_blank" rel="noopener noreferrer">The Parklands recommended-route map</a> and its <a href="https://theparklands.org/find-an-activity/paddling/" target="_blank" rel="noopener noreferrer">current paddling and access notices</a>. The sources differ slightly on some adjacent-leg mileages; each route guide keeps the source for its exact endpoints and distance.
+          </p>
+        </div>
+      ) : null}
 
       {group.riverId === 'woonasquatucket-river-rhode-island' ? (
         <div class="river-hub-context__source-guide" aria-labelledby="woonasquatucket-providence-access-title">

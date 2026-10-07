@@ -51,3 +51,7 @@ The source-backed named runs retain their existing route-specific score models, 
 ## Validation
 
 The candidate build contains 2,988 sitemap URLs and 2,548 standalone route pages. The 24 retired Green River URLs have generated redirect pages that preserve their selected hub option; all 32 choices remain available on the hub. The indexability audit checked 2,926 route links, found no orphaned public pages or missing state/hub links, found unique standalone route H1s and descriptions, and returned no errors or warnings. The compact Azure configuration is 5,395 bytes. Production and Search Console remain unchanged. See [redirect delivery notes](route-consolidation-redirect-delivery-2026-10-07.md) for why these are generated instant meta refresh pages rather than per-route Azure 301 rules.
+
+## Search Console follow-up
+
+On October 7, Search Console's stale 404 sample still included the retired `/rivers/by-river/green-river/` hub URL. The current path `/rivers/by-river/green-river-kentucky/` serves the replacement 32-trip hub, but the old hub URL returned 404. Added an Azure Static Web Apps 301 rule from the old hub path to the current hub; production verification is pending deployment. The old URL is not in the sitemap; the live sitemap remains limited to current canonical pages.

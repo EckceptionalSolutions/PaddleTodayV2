@@ -69,6 +69,41 @@
       "statusCode": 301
     },
     {
+      "route": "/rivers/by-river/green-river",
+      "redirect": "/rivers/by-river/green-river-kentucky/",
+      "statusCode": 301
+    },
+    {
+      "route": "/rivers/kansas-river-belvue-kaw-river-state-park",
+      "redirect": "/rivers/by-river/kansas-river/",
+      "statusCode": 301
+    },
+    {
+      "route": "/rivers/kansas-river-blue-river-belvue",
+      "redirect": "/rivers/by-river/kansas-river/",
+      "statusCode": 301
+    },
+    {
+      "route": "/rivers/kansas-river-seward-lecompton",
+      "redirect": "/rivers/by-river/kansas-river/",
+      "statusCode": 301
+    },
+    {
+      "route": "/rivers/susquehanna-river-test-track-bloomsburg",
+      "redirect": "/rivers/by-river/susquehanna-river/",
+      "statusCode": 301
+    },
+    {
+      "route": "/rivers/juniata-river-greenwood-newport",
+      "redirect": "/rivers/by-river/juniata-river/",
+      "statusCode": 301
+    },
+    {
+      "route": "/rivers/french-creek-wilson-chutes-utica",
+      "redirect": "/rivers/by-river/french-creek/",
+      "statusCode": 301
+    },
+    {
       "route": "/rivers/by-river/minnehaha-creek",
       "redirect": "/guides/minnehaha-creek-paddling/",
       "statusCode": 301

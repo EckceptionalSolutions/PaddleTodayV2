@@ -43,6 +43,7 @@ const suwanneeHubPath = '/rivers/by-river/suwannee-river-florida/';
 const bayouTecheHubPath = '/rivers/by-river/bayou-teche-river-louisiana/';
 const willametteHubPath = '/rivers/by-river/willamette-river-oregon/';
 const greenRiverHubPath = '/rivers/by-river/green-river-kentucky/';
+const floydsForkHubPath = '/rivers/by-river/floyds-fork/';
 const millersHubPath = '/rivers/by-river/millers-river-massachusetts/';
 const bayouDeViewHubPath = '/rivers/by-river/bayou-deview/';
 const americanRiverHubPath = '/rivers/by-river/american-river-california/';
@@ -511,6 +512,17 @@ const greenRiverConsolidatedRouteSlugs = [
   'green-river-lynn-camp-creek-hh-wilson-park',
 ] as const;
 
+const floydsForkConsolidatedRouteSlugs = [
+  'floyds-fork-fisherville-seaton-valley',
+  'floyds-fork-creekside-cane-run',
+  'floyds-fork-creekside-seaton-valley',
+  'floyds-fork-creekside-broad-run-valley',
+  'floyds-fork-fisherville-broad-run-valley',
+  'floyds-fork-fisherville-cliffside',
+  'floyds-fork-seaton-valley-cliffside',
+  'floyds-fork-cane-run-cliffside',
+] as const;
+
 const millersConsolidatedRouteSlugs = [
   'millers-river-cass-meadow-farley',
   'millers-river-cass-meadow-millers-falls',
@@ -627,6 +639,7 @@ const consolidatedRouteTargets = new Map<string, string>(
     ...blackfootConsolidatedRouteSlugs.map((slug) => [slug, `${blackfootHubPath}?route=${slug}#trip-${slug}`] as const),
     ...blackfootLegacyRouteAliases.map(([legacySlug, currentSlug]) => [legacySlug, `${blackfootHubPath}?route=${currentSlug}#trip-${currentSlug}`] as const),
     ...greenRiverConsolidatedRouteSlugs.map((slug) => [slug, `${greenRiverHubPath}?route=${slug}#trip-${slug}`] as const),
+    ...floydsForkConsolidatedRouteSlugs.map((slug) => [slug, `${floydsForkHubPath}?route=${slug}#trip-${slug}`] as const),
     ...millersConsolidatedRouteSlugs.map((slug) => [slug, `${millersHubPath}?route=${slug}#trip-${slug}`] as const),
     ['millers-river-erving-south-main-dam', `${millersHubPath}#millers-route-zones`] as const,
     ...bayouDeViewConsolidatedRouteSlugs.map((slug) => [slug, `${bayouDeViewHubPath}?route=${slug}#trip-${slug}`] as const),
