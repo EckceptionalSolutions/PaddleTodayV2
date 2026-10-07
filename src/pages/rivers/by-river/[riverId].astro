@@ -22,6 +22,7 @@ const isAnimasHub = group.riverId === 'animas-river-new-mexico';
 const isSanJuanHub = group.riverId === 'san-juan-river-new-mexico';
 const isHousatonicHub = group.riverId === 'housatonic-river-massachusetts';
 const isCrowWingHub = group.riverId === 'crow-wing-river';
+const isChattahoocheeHub = group.riverId === 'chattahoochee-river';
 const isWillimanticHub = group.riverId === 'willimantic-river-connecticut';
 const isMillersHub = group.riverId === 'millers-river-massachusetts';
 const isBayouDeViewHub = group.riverId === 'bayou-deview';
@@ -57,6 +58,8 @@ const groupTitle = isBroadRiverHub
   ? 'San Juan River, New Mexico | Navajo Dam to Farmington Paddle Access'
   : isCrowWingHub
   ? 'Crow Wing River, Minnesota | Paddling Sections & Day Trips'
+  : isChattahoocheeHub
+  ? 'Chattahoochee River, Georgia | NPS Floats & Flow Gauges'
   : isHousatonicHub
   ? 'Housatonic River, Massachusetts | Berkshire Sections & Access'
   : isWoonasquatucketHub
@@ -90,6 +93,8 @@ const groupDescription = isBroadRiverHub
   ? 'Plan San Juan River trips from Navajo Dam to Farmington. Compare five documented access sections and six longer trip options, with separate upper and lower USGS gauges, release notices, and diversion hazards.'
   : isCrowWingHub
   ? 'Plan Crow Wing River trips by access section, from the Huntersville forest and Nimrod to Wadena County parks and Lake Placid. Compare all 12 trip options, the two Minnesota DNR map sections, and the separate Nimrod and Sylvan Dam gauge contexts.'
+  : isChattahoocheeHub
+  ? 'Plan 79 Chattahoochee River trips from metro Atlanta to Columbus. Compare National Park Service float sections, five put-in-specific USGS gauges, dam releases, and route-by-route access.'
   : isHousatonicHub
   ? 'Plan Berkshire Housatonic trips by reach, from the upper river and Glendale Dam portage to Great Barrington and Sheffield. Compare 15 trip options, public access, route-specific USGS gauges, and safety notes.'
   : isWillimanticHub
@@ -409,6 +414,28 @@ const crowWingSectionGroups = isCrowWingHub
         .filter((route): route is River => Boolean(route)),
     }))
   : [];
+const chattahoocheeSections = isChattahoocheeHub
+  ? [
+      { slug: 'chattahoochee-river-lower-pool-abbotts-bridge', label: 'Lower Pool Park to Abbotts Bridge', note: 'upper NRA' },
+      { slug: 'chattahoochee-river-abbotts-bridge-medlock-bridge', label: 'Abbotts Bridge to Medlock Bridge', note: 'NPS float section' },
+      { slug: 'chattahoochee-river-medlock-bridge-jones-bridge', label: 'Medlock Bridge to Jones Bridge', note: 'NPS float section' },
+      { slug: 'chattahoochee-river-medlock-bridge-garrard-landing', label: 'Medlock Bridge to Garrard Landing', note: 'Garrard flow zone' },
+      { slug: 'chattahoochee-river-island-ford-don-white', label: 'Island Ford to Don White Park', note: 'Roswell flow zone' },
+      { slug: 'chattahoochee-river-jones-bridge-chattahoochee-river-park', label: 'Jones Bridge to Chattahoochee River Park', note: 'last take-out before Morgan Falls Dam' },
+      { slug: 'chattahoochee-river-morgan-falls-park-johnson-ferry', label: 'Morgan Falls Park to Johnson Ferry', note: 'below Morgan Falls Dam' },
+      { slug: 'chattahoochee-river-johnson-ferry-powers-island', label: 'Johnson Ferry to Powers Island', note: 'NPS float section' },
+    ].map((section) => ({ ...section, route: group.routes.find((route) => route.slug === section.slug) }))
+      .filter((section) => section.route)
+  : [];
+const chattahoocheeGaugeZones = isChattahoocheeHub
+  ? [
+      { label: 'Below Buford Dam', station: '02334430', access: 'Buford Dam, Georgia 20 Bridge, Settles Bridge, McGinnis Ferry' },
+      { label: 'Above McGinnis Ferry Bridge', station: '02334653', access: 'Rogers Bridge, Abbotts Bridge, Medlock Bridge, Jones Bridge' },
+      { label: 'At Medlock Bridge', station: '02335000', access: 'Garrard Landing' },
+      { label: 'Above Roswell', station: '02335450', access: 'Island Ford, Don White Park, Riverside Park, Chattahoochee River Park, Chattahoochee Nature Center, Overlook Park' },
+      { label: 'Below Morgan Falls Dam', station: '02335815', access: 'Morgan Falls Dam, Johnson Ferry, Powers Island, Whitewater Creek' },
+    ]
+  : [];
 const housatonicSectionGroups = isHousatonicHub
   ? [
       {
@@ -463,6 +490,8 @@ const faqItems = [
       ? 'Start with the five named access sections from Navajo Dam through Blanco and Vereda del Rio to Farmington and Kirtland. The trip picker keeps six longer endpoint combinations available with their own route notes. The upper tailwater, lower diversion corridor, and city access chain need different gauge and access checks.'
       : isCrowWingHub
       ? 'Minnesota DNR separates the river into a Map 1 reach to Nimrod and a Map 2 reach downstream. Start with the DNR-recommended Huntersville North–Mary Brown or Little White Dog–Cottingham day trip, or choose the named rapids, county-park, and Lake Placid sections. The hub keeps all 12 endpoint options, including five overlapping combinations.'
+      : isChattahoocheeHub
+      ? 'The NPS float guide names seven sections between Buford Dam and Paces Mill. Start with the source-backed sections below, then choose from all 79 trip options in the picker. The 76 NRA choices include different put-ins, take-outs, and flow zones; Columbus and the Upper Chattahoochee are separate paddling contexts.'
       : isHousatonicHub
       ? 'The Berkshire guide covers distinct upper, Stockbridge, and Great Barrington–Sheffield reaches. Compare the named public-access sections, then use the trip picker for six longer endpoint combinations that remain available with their own mileage, gauge, dam, and access notes.'
       : isLoupRiverHub
@@ -505,6 +534,8 @@ const faqItems = [
       ? 'Use the gauge attached to the exact trip: USGS 09355500 near Archuleta for the upper reaches and USGS 09365000 at Farmington for the lower corridor. Southwest Paddler’s 300 cfs minimum and 500 cfs target are community planning cues, not safety limits. Reclamation’s 500–1,000 cfs base-flow target is a weekly habitat objective downstream toward Lake Powell, not paddling guidance. Check current gauge trends, Navajo Dam notices, weather, and local hazards.'
       : isCrowWingHub
       ? 'Use the gauge shown on the selected trip. Minnesota DNR’s interpreted Nimrod gauge provides context for the Huntersville-to-Cottingham corridor; the Old Wadena–Green Oak and Green Oak–Lake Placid trips use the separate Sylvan Dam station. The stations are in different parts of the river, so do not apply one reading or threshold to every section. Check the live trend and local conditions.'
+      : isChattahoocheeHub
+      ? 'Use the gauge assigned to the exact put-in in the NPS River Flow Rate table; its five USGS stations cover different launch zones. NPS recommends canoes and kayaks stay below 4,000 cfs and says no water-based activities are recommended above 8,000 cfs. Buford and Morgan Falls releases, storms, and rapid changes can override a static reading, so check the current trend and release schedule too.'
       : isHousatonicHub
       ? 'Use the gauge attached to the selected trip: Lenoxdale for the upper chain, Great Barrington near Division Street for the Stockbridge and Great Barrington starts, and Ashley Falls for the downstream Sheffield reaches. HVA’s broad 150 cfs minimum is a low-water planning cue, not a safe-flow guarantee; dams, intervening tributaries, water quality, and local conditions still matter.'
       : isLoupRiverHub
@@ -599,6 +630,8 @@ const groupStructuredData = [
             ? 'Plan the Berkshire Housatonic by reach: the upper mainstem and Woods Pond portage, separate trips above and below Glendale Dam, and the Great Barrington–Sheffield access chain. Gauge context, skill, and launch access change by section, so compare the selected trip’s details before planning a shuttle.'
             : isSanJuanHub
             ? 'Follow the San Juan from Navajo Dam through Blanco and Vereda del Rio to Farmington and Kirtland. Begin with a named section, then compare longer choices with intermediate access, separate gauges, release changes, and diversion hazards.'
+            : isChattahoocheeHub
+            ? 'Choose a source-backed Chattahoochee section, then verify the USGS gauge assigned to your put-in. Buford and Morgan Falls Dam releases can change flow quickly, and the NPS limits vary by craft.'
             : isWillimanticHub
             ? 'Choose among the Willimantic Water Trail’s three distinct stretches, then compare the mapped put-in and take-out combinations in one guide. Upper quickwater, the Eagleville impoundment, and the downstream river have different access, gauge cues, and hazards.'
             : isBlackCreekHub
@@ -753,6 +786,38 @@ const groupStructuredData = [
         ))}
         <p>
           Check the <a href="https://www.dnr.state.mn.us/state-water-trails/crow-wing-river/segments-maps.html" rel="noopener">Minnesota DNR segments and maps</a>, the <a href="https://www.dnr.state.mn.us/river_levels/index.html" rel="noopener">DNR river-level guidance</a>, and the <a href="https://files.dnr.state.mn.us/maps/canoe_routes/crowwing2.pdf" rel="noopener">Crow Wing Map 2</a>. The downstream Lake Placid option ends above Pillager Dam; follow the marked take-out and do not paddle through the dam boundary. Check the gauge attached to your selected reach because Nimrod and Sylvan Dam readings describe different sections.
+        </p>
+      </section>
+    ) : null}
+
+    {chattahoocheeGaugeZones.length > 0 ? (
+      <section class="river-group-page__panel" aria-labelledby="chattahoochee-sections-title">
+        <div class="river-group-page__section-head">
+          <div>
+            <p class="eyebrow section-label">National Park Service flow and float guidance</p>
+            <h2 class="section-title" id="chattahoochee-sections-title">Start with a named Chattahoochee section</h2>
+          </div>
+        </div>
+        <p>
+          The NPS float-time guide names seven sections in the recreation area. All 79 trip options remain selectable below, but the 76 NRA combinations do not share one gauge: choose the USGS station for the put-in, then check the release schedule and trend. NPS recommends canoe and kayak trips below 4,000 cfs and recommends no water-based activity above 8,000 cfs.
+        </p>
+        <div class="river-hub-context__grid">
+          {chattahoocheeGaugeZones.map((zone) => (
+            <article class="river-hub-context__item">
+              <h3>{zone.label} · USGS {zone.station}</h3>
+              <p><strong>Put-ins:</strong> {zone.access}</p>
+              <a href={`https://waterdata.usgs.gov/monitoring-location/USGS-${zone.station}/`} rel="noopener">Open this USGS gauge</a>
+            </article>
+          ))}
+        </div>
+        <h3>Eight focused recreation-area guides</h3>
+        <ul>
+          {chattahoocheeSections.map((section) => section.route ? (
+            <li><a href={routeDetailHref(section.route)}>{section.label}</a>{section.route.logistics?.distanceLabel ? ` — ${section.route.logistics.distanceLabel}` : ''}; {section.note}</li>
+          ) : null)}
+        </ul>
+        <p>
+          Check the NPS <a href="https://home.nps.gov/chat/planyourvisit/river-flow-rate.htm" rel="noopener">put-in-to-gauge table</a>, its <a href="https://www.nps.gov/chat/planyourvisit/floattimes.htm" rel="noopener">seven float times</a>, and current <a href="https://home.nps.gov/chat/planyourvisit/conditions.htm" rel="noopener">park conditions and release notices</a>. The NPS table does not assign a station to Bowmans Island, Lower Pool Park, Chattahoochee Pointe, or Morgan Falls Park. Confirm the applicable flow station with the park before relying on the gauge shown for trips starting at those access points.
         </p>
       </section>
     ) : null}
@@ -1216,6 +1281,8 @@ const groupStructuredData = [
               ? `Compare all ${group.routeCount} Animas trip choices here. Five source-backed sections keep standalone pages; the five composite options remain selectable with their own endpoints, mileage, bailout access, gauge references, and hazards.`
               : isSanJuanHub
               ? `Compare all ${group.routeCount} San Juan trip choices here. Five named access sections keep standalone pages; six longer combinations remain selectable with their own endpoints, mileage, intermediate access, gauge references, and hazards.`
+              : isChattahoocheeHub
+              ? `Compare all 79 Chattahoochee trips here. Eight focused recreation-area sections keep standalone guides; 68 overlapping NRA combinations remain selectable as route cards. The Upper Chattahoochee, Powers Island–Paces Mill, and Columbus routes keep separate guides for their different paddling contexts.`
               : isHousatonicHub
               ? `Compare all ${group.routeCount} Berkshire Housatonic trip choices here. Nine reach-specific sections keep standalone pages; six longer endpoint combinations remain selectable with their own access, mileage, gauge, portage, and safety details.`
               : isWillimanticHub

@@ -39,4 +39,9 @@ Each overlaps the adjacent sections and access points already available on the h
 
 ## Rollout verification
 
-Pending CI deployment and production checks. Confirm the five former route URLs resolve to the exact hub cards, all 12 trip choices remain selectable, and the five consolidated URLs are absent from the sitemap while the hub and seven retained sections remain listed.
+Production verification completed after commit `6a7174cb5`:
+
+- Crow Wing hub returns HTTP 200 and contains all 12 trip-card IDs.
+- All five former route URLs return the generated redirect page with the exact selected-card target.
+- Sitemap index and child sitemap return HTTP 200; the child contains 2,887 URLs.
+- The five consolidated slugs are absent from the sitemap; the Crow Wing hub and all seven retained sections are present.

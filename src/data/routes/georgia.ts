@@ -137,6 +137,65 @@ const npsChattahoocheeAccess = [
   ['Jones Bridge', 33.999, -84.2479], ['Island Ford', 33.9869, -84.3235], ['Johnson Ferry South', 33.937567, -84.413261],
   ['Powers Island', 33.904079, -84.442122], ['Paces Mill', 33.870403, -84.452310],
 ] as const;
+
+// NPS says to select the linked USGS gauge from the trip's put-in location.
+const npsChattahoocheePutInGauges: Record<string, { id: string; siteName: string }> = {
+  'McGinnis Ferry': { id: '02334430', siteName: 'Chattahoochee River below Buford Dam, GA' },
+  'Rogers Bridge Park': { id: '02334653', siteName: 'Chattahoochee River above McGinnis Ferry Bridge, GA' },
+  'Abbotts Bridge': { id: '02334653', siteName: 'Chattahoochee River above McGinnis Ferry Bridge, GA' },
+  'Medlock Bridge': { id: '02334653', siteName: 'Chattahoochee River above McGinnis Ferry Bridge, GA' },
+  'Jones Bridge': { id: '02334653', siteName: 'Chattahoochee River above McGinnis Ferry Bridge, GA' },
+  'Garrard Landing': { id: '02335000', siteName: 'Chattahoochee River at Medlock Bridge, GA' },
+  'Island Ford': { id: '02335450', siteName: 'Chattahoochee River above Roswell, GA' },
+  'Don White Park': { id: '02335450', siteName: 'Chattahoochee River above Roswell, GA' },
+  'Riverside Park': { id: '02335450', siteName: 'Chattahoochee River above Roswell, GA' },
+  'Chattahoochee River Park': { id: '02335450', siteName: 'Chattahoochee River above Roswell, GA' },
+  'Chattahoochee Nature Center': { id: '02335450', siteName: 'Chattahoochee River above Roswell, GA' },
+  'Overlook Park': { id: '02335450', siteName: 'Chattahoochee River above Roswell, GA' },
+  'Morgan Falls Dam': { id: '02335815', siteName: 'Chattahoochee River below Morgan Falls Dam, GA' },
+  'Johnson Ferry': { id: '02335815', siteName: 'Chattahoochee River below Morgan Falls Dam, GA' },
+  'Johnson Ferry South': { id: '02335815', siteName: 'Chattahoochee River below Morgan Falls Dam, GA' },
+  'Powers Island': { id: '02335815', siteName: 'Chattahoochee River below Morgan Falls Dam, GA' },
+  'Whitewater Creek': { id: '02335815', siteName: 'Chattahoochee River below Morgan Falls Dam, GA' },
+};
+
+function applyNpsChattahoocheePutInGauge(route: River): River {
+  if (route.riverId !== 'chattahoochee-river' || route.region !== 'Chattahoochee River National Recreation Area') return route;
+
+  const putInName = route.putIn?.name?.replace(/\s+public(?:\s+river)?\s+(?:launch|access)$/i, '').trim();
+  const station = putInName ? npsChattahoocheePutInGauges[putInName] : undefined;
+  if (!station) return route;
+
+  const previousSiteId = route.gaugeSource.siteId;
+  const gaugeUrl = `https://waterdata.usgs.gov/monitoring-location/USGS-${station.id}/`;
+  const hydrographUrl = `https://waterdata.usgs.gov/nwis/uv?legacy=1&site_no=${station.id}`;
+  const currentUrl = `https://waterservices.usgs.gov/nwis/iv/?format=json&sites=${station.id}&parameterCd=00060,00065&siteStatus=all`;
+  const gaugeChanged = previousSiteId !== station.id || route.gaugeSource.siteName !== station.siteName;
+  if (!gaugeChanged) return route;
+
+  return {
+    ...route,
+    statusText: route.statusText.replaceAll(previousSiteId, station.id),
+    gaugeSource: {
+      ...route.gaugeSource,
+      id: `usgs-${station.id}`,
+      siteId: station.id,
+      siteName: station.siteName,
+      detailUrl: gaugeUrl,
+      hydrographUrl,
+    },
+    evidenceNotes: route.evidenceNotes?.map((note) => ({
+      ...note,
+      value: note.value.replaceAll(previousSiteId, station.id),
+      note: note.note?.replaceAll(previousSiteId, station.id),
+      sourceUrl: note.label === 'Direct live gauge' ? currentUrl : note.sourceUrl?.replaceAll(previousSiteId, station.id),
+    })),
+    sourceLinks: route.sourceLinks?.map((link) => link.provider === 'usgs'
+      ? { ...link, label: link.label.replaceAll(previousSiteId, station.id), url: link.url.replaceAll(previousSiteId, station.id) }
+      : link),
+  };
+}
+
 const npsChattahoocheeRoutes: River[] = (() => {
   const miles = [12.5, 8.5, 4, 8, 7, 6, 5];
   const out: River[] = [];
@@ -148,8 +207,9 @@ const npsChattahoocheeRoutes: River[] = (() => {
       const [from, fromLat, fromLon] = npsChattahoocheeAccess[start]; const [to, toLat, toLon] = npsChattahoocheeAccess[end];
       if (from === 'Powers Island' && to === 'Paces Mill') continue;
       const distance = miles.slice(start, end).reduce((sum, value) => sum + value, 0);
-      const gauge = end <= 2 ? '02334430' : end <= 4 ? '02334653' : end <= 6 ? '02335000' : '02335815';
-      const siteName = end <= 2 ? 'Chattahoochee River below Buford Dam, GA' : end <= 4 ? 'Chattahoochee River at McGinnis Ferry, GA' : end <= 6 ? 'Chattahoochee River at Norcross, GA' : 'Chattahoochee River below Morgan Falls Dam, GA';
+      const putInGauge = npsChattahoocheePutInGauges[from];
+      const gauge = putInGauge?.id ?? (end <= 2 ? '02334430' : end <= 4 ? '02334653' : end <= 6 ? '02335000' : '02335815');
+      const siteName = putInGauge?.siteName ?? (end <= 2 ? 'Chattahoochee River below Buford Dam, GA' : end <= 4 ? 'Chattahoochee River at McGinnis Ferry, GA' : end <= 6 ? 'Chattahoochee River at Norcross, GA' : 'Chattahoochee River below Morgan Falls Dam, GA');
       out.push(buildGeorgiaRoute({
         id: `chattahoochee-river-${slug(from)}-${slug(to)}`, name: 'Chattahoochee River', riverId: 'chattahoochee-river', reach: `${from} to ${to}`,
         region: 'Chattahoochee River National Recreation Area', distance, time: distance > 12 ? 'About 5–8 hours' : 'About 2–5 hours', difficulty: 'moderate', risk: 'caution', gauge, metric: 'discharge_cfs', siteName,
@@ -591,4 +651,4 @@ export const georgiaRoutes: River[] = [
   }),
   ...npsDocumentedFloatRoutes,
   ...npsChattahoocheeRoutes,
-];
+].map(applyNpsChattahoocheePutInGauge);

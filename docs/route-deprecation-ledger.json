@@ -250,5 +250,14 @@
     "conversionBaseline": null,
     "conversionPilot": null,
     "safetyReview": "approved"
+  },
+  {
+    "corridorId": "ga-chattahoochee-public-launch-chain",
+    "canonicalSlug": null,
+    "status": "recommend",
+    "underlyingTripOptionsPreserved": true,
+    "conversionBaseline": null,
+    "conversionPilot": null,
+    "safetyReview": "approved"
   }
 ]
