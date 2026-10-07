@@ -42,8 +42,8 @@ for (const { slug, target: targetPath } of routes) {
   <body>
     <main>
       <h1>This trip has moved</h1>
-      <p>Open the river guide to see this trip and compare nearby options.</p>
-      <p><a href="${targetHref}">View this trip</a></p>
+      <p>Open the river guide to compare current trip options and access notes.</p>
+      <p><a href="${targetHref}">View the river guide</a></p>
     </main>
   </body>
 </html>
@@ -53,4 +53,4 @@ for (const { slug, target: targetPath } of routes) {
   await writeFile(outputPath, document, 'utf8');
 }
 
-console.log(`Generated ${routes.length} exact trip redirects in ${outputRoot}.`);
+console.log(`Generated ${routes.length} route consolidation redirects in ${outputRoot}.`);

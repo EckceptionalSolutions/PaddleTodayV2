@@ -21,6 +21,7 @@ const isWillimanticHub = group.riverId === 'willimantic-river-connecticut';
 const isMillersHub = group.riverId === 'millers-river-massachusetts';
 const isBayouDeViewHub = group.riverId === 'bayou-deview';
 const isAmericanLowerHub = group.riverId === 'american-river-california';
+const isLoupRiverHub = group.riverId === 'loup-river';
 const isGreenRiverHub = group.riverId === 'green-river-kentucky';
 const isBlackfootHub = group.riverId === 'blackfoot-river-montana';
 const isWillametteHub = group.riverId === 'willamette-river-oregon';
@@ -44,6 +45,8 @@ const needsRegionInTitle = listRiverGroups().some((other) =>
 const groupTitleLocation = needsRegionInTitle ? `${regionSummary}, ${stateSummary}` : stateSummary;
 const groupTitle = isWoonasquatucketHub
   ? 'Woonasquatucket River, Rhode Island | Paddling Zones & Access'
+  : isLoupRiverHub
+  ? 'Loup River Water Trail, Nebraska | Sections & Access'
   : isAmericanLowerHub
   ? 'Lower American River, California | Route Options & Access'
   : isBayouDeViewHub
@@ -63,6 +66,8 @@ const groupTitle = isWoonasquatucketHub
   : `${group.name}, ${groupTitleLocation} | Paddle Routes & Trip Planning`;
 const groupDescription = isWillimanticHub
   ? 'Plan the Willimantic River Water Trail by stretch: upper quickwater, Eagleville Lake, or the lower river after the dam portage. Compare public access, mileage, and USGS stage cues.'
+  : isLoupRiverHub
+  ? 'Plan the Loup River Water Trail from George Syas to Columbus, with a separate outlet to the Platte at ADM. Compare named sections, access, and gauge context.'
   : isAmericanLowerHub
   ? 'Compare Lower American River trips from Sailor Bar and Upper Sunrise through Harrington, Watt, and Howe. Check Fair Oaks flows, park access, and river hazards.'
   : isBayouDeViewHub
@@ -310,7 +315,9 @@ const areaLabel = group.regions.length === 1 ? 'paddle area' : 'paddle areas';
 const faqItems = [
   {
     question: `Where can I paddle the ${group.name}?`,
-    answer: isAmericanLowerHub
+    answer: isLoupRiverHub
+      ? 'Start with the source-named 8-mile George D. Syas WMA–Monroe section or the 16-mile Monroe–Columbus section. The selector also includes the 4.5-mile Columbus-to-ADM outlet and the Monroe-to-ADM composite. Longer trips starting at Syas remain off the list until their full route geometry is verified.'
+      : isAmericanLowerHub
       ? 'These ten trip options are endpoint pairs along one Lower American River reach: Sailor Bar/Illinois, Upper Sunrise, Harrington, Watt Avenue, and Howe Avenue. Choose any pair in the selector; the overview groups representative trips by distance.'
       : isRussianRiverHub
       ? 'Start with the named Asti–Alexander and Alexander Valley–Healdsburg upper runs, the Healdsburg–Wohler or Mirabel middle reach, or a lower beach-to-beach trip. The hub keeps every endpoint combination available so you can choose a shorter exit or a longer day.'
@@ -338,7 +345,9 @@ const faqItems = [
   },
   {
     question: `How should I check ${group.name} water levels?`,
-    answer: isAmericanLowerHub
+    answer: isLoupRiverHub
+      ? 'USGS 06793000 near Genoa provides live Loup River context. Nebraska Game and Parks’ 350 cfs field test supports a minimum-only cue for the upper Syas–Monroe section; it is not a threshold for the whole trail. ADM options continue onto the Platte and are planning-only.'
+      : isAmericanLowerHub
       ? 'Use USGS 11446500 at Fair Oaks and review the trend and current releases. The 1,400–3,100 cfs comfortable band and 5,000 cfs maximum reference are community-derived planning cues, not official safe-water limits.'
       : isRussianRiverHub
       ? 'Use the guide for your exact stretch. California Creeks ties its 300–1,500 cfs guidance for Healdsburg-to-near-Forestville and Alexander-to-Healdsburg runs to the Healdsburg gauge. Dreamflows separately lists 500–2,500 cfs triggers for Healdsburg-to-Guerneville at Hacienda Bridge. These are community flow indicators, not safe limits; the Asti reach has separate seasonal guidance.'
@@ -1095,6 +1104,49 @@ const groupStructuredData = [
 
           <p>
             AGFC says a gauge height around 14 feet or higher is needed to paddle the trail and warns that high water is dangerous. It separately says the Dagmar Road gate closes at 17 feet; use that as an access check, not a route-wide upper safety threshold. Follow the <a href="https://www.agfc.com/things-to-do/water-trails/bayou-deview-water-trail/" target="_blank" rel="noopener noreferrer">AGFC Bayou DeView guide</a>, carry its <a href="https://www.agfc.com/wp-content/uploads/2023/05/bayoudeviewwatertrail.pdf" target="_blank" rel="noopener noreferrer">georeferenced trail map</a>, and check the <a href="https://waterdata.usgs.gov/monitoring-location/USGS-07077730/" target="_blank" rel="noopener noreferrer">live USGS 07077730 gauge</a> and current road access before departure.
+          </p>
+        </div>
+      ) : null}
+
+      {isLoupRiverHub ? (
+        <div class="river-hub-context__source-guide" id="loup-water-trail-sections" aria-labelledby="loup-water-trail-sections-title">
+          <div class="river-group-page__section-head">
+            <div>
+              <p class="eyebrow section-label">Nebraska · Loup River Water Trail</p>
+              <h3 class="section-title" id="loup-water-trail-sections-title">Choose a documented section and check the river boundary</h3>
+            </div>
+            <p class="muted river-group-page__section-note">
+              The water trail follows four access points: George D. Syas WMA, Monroe, Pawnee Park in Columbus, and the ADM outlet near the Loup–Platte confluence. The selector includes four currently supported public trips.
+            </p>
+          </div>
+
+          <p class="muted river-group-page__section-note" id="loup-coordinate-review">
+            Longer trips starting at George D. Syas WMA remain off the selector until their full route geometry is verified. The 8-mile Syas-to-Monroe section is the only currently supported public trip from that launch.
+          </p>
+
+          <div class="river-hub-context__grid">
+            <article class="river-hub-context__item">
+              <h3>George D. Syas WMA to Monroe · about 8 miles</h3>
+              <p>This is the upper source-named section and the only option with a documented 350 cfs minimum-only field-test cue. The existing WMA fishing access is used as the start; check the approach and current flow before launching.</p>
+              <a href="/rivers/loup-river-george-syas-monroe/">Open the upper section guide</a>
+            </article>
+            <article class="river-hub-context__item">
+              <h3>Monroe to Columbus · 16 miles</h3>
+              <p>The official guide describes a six-to-eight-hour float. Monroe has county-provided parking; the Columbus landing uses the Pawnee Park Trail, with parking at a hotel about 250 yards away. Confirm current owner permission and construction detours. This longer section is planning-only because the upper section’s 350 cfs test does not set its flow threshold.</p>
+              <a href="/rivers/loup-river-monroe-columbus/">Open the main water-trail section</a>
+            </article>
+            <article class="river-hub-context__item">
+              <h3>Columbus to the ADM outlet · about 4.5 miles</h3>
+              <p>The ADM access sits on the Platte River about a mile below the Loup mouth. This option crosses a river and gauge boundary; USGS 06793000 near Genoa cannot describe the whole trip, so it is planning-only.</p>
+              <a href="/rivers/loup-river-columbus-adm-access/">Review the Platte outlet trip</a>
+            </article>
+          </div>
+
+          <p>
+            The 350 cfs test reported by Nebraska Game and Parks applies to the Syas WMA–Monroe section. It does not provide a threshold for the lower Loup or the ADM extension. Use <a href="https://waterdata.usgs.gov/monitoring-location/USGS-06793000/" target="_blank" rel="noopener noreferrer">USGS 06793000 near Genoa</a> as Loup context, not as an all-route recommendation. The trail guide warns about shallow, shifting sand channels and says the banks and stream bed are private; get permission before stopping except in an emergency.
+          </p>
+          <p>
+            Read the <a href="https://outdoornebraska.gov/wp-content/uploads/2023/05/Loup-River-Trail-Guide-.pdf" target="_blank" rel="noopener noreferrer">Nebraska Game and Parks Loup River Water Trail guide</a> and its <a href="https://magazine.outdoornebraska.gov/stories/travel-and-adventure/loup-river-water-trail/" target="_blank" rel="noopener noreferrer">route and access history</a>. Check <a href="https://columbusne.us/CivicAlerts.aspx?AID=1190&ARC=1617" target="_blank" rel="noopener noreferrer">current Columbus trail notices</a> and the <a href="https://columbusne.us/m/newsflash/home/detail/1328" target="_blank" rel="noopener noreferrer">ADM access lease announcement</a> before setting the shuttle.
           </p>
         </div>
       ) : null}

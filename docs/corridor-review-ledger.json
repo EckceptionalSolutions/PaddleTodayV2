@@ -2230,5 +2230,13 @@
     "continuityStatus": "condition-family",
     "nextReview": "2026-10-08",
     "notes": "Reviewed all ten Lower American River records against California State Parks' public boating-facility list and American River Parkway boating-trail guide, plus Sacramento County park access pages and USGS 11446500. The records are the ten endpoint pairs among the same five public launches in downstream order: Sailor Bar/Illinois, Upper Sunrise, Harrington, Watt Avenue, and Howe Avenue. Keep all ten trip options, but consolidate their near-identical standalone pages to exact hub selections; add one source-backed overview and group representative options by trip length. All ten share the Lower American reach and Fair Oaks gauge context; retain the community-derived 1,400–3,100 cfs comfortable band and 5,000 cfs maximum reference as planning cues, not official safety limits. Preserve the Nimbus Dam exclusion, PFD, rapid-scouting, cold-water, and current hazards."
+  },
+  {
+    "corridorId": "ne-loup-river-water-trail",
+    "status": "approved",
+    "owner": "route-data-team",
+    "continuityStatus": "condition-family",
+    "nextReview": "2026-10-08",
+    "notes": "Reviewed six Loup Water Trail records against Nebraska Game and Parks/Nebraskaland's route guide, the Columbus ADM access lease notice, the City of Columbus trail/access details, and USGS 06793000. Keep the source-named George D. Syas WMA–Monroe (8 mi) and Monroe–Columbus (16 mi) sections, plus the separate 4.5-mi Columbus-to-ADM outlet, as standalone pages. Consolidate the public Monroe-to-ADM composite to its exact hub trip option. The other two Syas-start composites remain withheld until full route geometry is verified and redirect to the hub's coordinate-review note. The 350 cfs field test is specific to Syas–Monroe; mark the other five source records planning-only, since the lower Loup segment has no route-specific numeric threshold and the ADM outlet crosses the Loup–Platte confluence. Treat the Genoa gauge as contextual on longer routes and preserve the private-bank, parking, lease, and current construction-access checks."
   }
 ]

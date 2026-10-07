@@ -1,10 +1,10 @@
 # Route corridor migration inventory
 
-Generated 2026-10-07T16:54:27.287Z.
+Generated 2026-10-07T17:12:21.698Z.
 
-- Defined corridors: 228
-- Routes covered by a corridor definition: 884
-- Remaining multi-route families: 322
+- Defined corridors: 229
+- Routes covered by a corridor definition: 890
+- Remaining multi-route families: 321
 
 ## Defined corridors
 
@@ -20,6 +20,7 @@ Generated 2026-10-07T16:54:27.287Z.
 | la-bayou-teche-national-paddle-trail | Bayou Teche National Paddle Trail reach family | condition-family | 44 | 0 |
 | ar-bayou-deview-water-trail | Bayou DeView Water Trail access-chain family | condition-family | 9 | 0 |
 | ca-lower-american-parkway-access-chain | Lower American River Parkway five-launch access chain | condition-family | 10 | 0 |
+| ne-loup-river-water-trail | Loup River Water Trail with Platte River outlet extension | condition-family | 6 | 0 |
 | or-willamette-upper-valley-water-trail | Upper Willamette Valley access and itinerary family | condition-family | 50 | 0 |
 | ca-russian-river-paddling-zones | Russian River upper, middle, and lower paddling condition zones | condition-family | 37 | 0 |
 | mn-cannon-lower | Lower Cannon River access corridor | verified | 3 | 4 |
@@ -298,6 +299,6 @@ Generated 2026-10-07T16:54:27.287Z.
 | Kentucky | Upper Cumberland River | 10 |
 | North Carolina | Yadkin River | 10 |
 | Maine | Aroostook River | 9 |
-| Additional families omitted | See route data and overlap audit | 282 |
+| Additional families omitted | See route data and overlap audit | 281 |
 
 This inventory is a migration queue, not an automatic deletion list. Each family still requires source review for continuity, hazards, access legality, gauge boundaries, and explicit trip edges.

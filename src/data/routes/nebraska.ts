@@ -710,7 +710,7 @@ export const nebraskaRoutes: River[] = [
       "seasonNotes": "Nebraska Game and Parks says March through June usually has more water, while summer is usually lower but still often navigable because Loup Power District maintains at least 275 cfs in the river. Check same-day flow, wind, channel shape, and fresh wood before committing.",
       "difficulty": "easy",
       "difficultyNotes": "This is a short scenic sand-bed river day, but the route still asks paddlers to pick the deepest braid, manage wind exposure, avoid fresh wood, and stay disciplined about the Monroe take-out.",
-      "confidenceNotes": "Confidence is good for a conservative Nebraska add: Nebraska Game and Parks / Nebraskaland documents the George D. Syas WMA start, the Monroe county access with parking, and the direct relationship to USGS 06793000 near Genoa; the City of Columbus repeats the Monroe public-access approach directions and parking/sign context; and USGS Water Services returned same-day 2026-06-18 values for 06793000. The app keeps the route minimum-only because the strongest numeric support is a 350 cfs George D. Syas-to-Monroe test plus a maintained 275 cfs baseflow, not a full official paddling band. Endpoint coordinates are practical public-access anchors rather than survey-grade ramp points."
+      "confidenceNotes": "Confidence is good for a conservative Nebraska add: Nebraska Game and Parks / Nebraskaland documents the George D. Syas WMA start, the Monroe county access with parking, and the direct relationship to USGS 06793000 near Genoa; the City of Columbus repeats the Monroe public-access approach directions and parking/sign context; and USGS provides live discharge and gage-height telemetry. The app keeps the route minimum-only because the strongest numeric support is a 350 cfs George D. Syas-to-Monroe test plus a maintained 275 cfs baseflow, not a full official paddling band. Endpoint coordinates are practical public-access anchors rather than survey-grade ramp points."
     },
     "evidenceNotes": [
       {
@@ -1410,3 +1410,53 @@ export const nebraskaRoutes: River[] = [
     "scoreEligibility": "scored"
   }
 ];
+
+// The 350 cfs Loup gauge trial is documented only for the Syas WMA–Monroe
+// section. Longer downstream options lack a route-wide threshold, and the
+// ADM access continues across the Loup–Platte confluence.
+const loupPlanningRouteNotes: Record<string, string> = {
+  'loup-river-monroe-columbus': 'Nebraska Game and Parks documents this 16-mile Monroe-to-Columbus water-trail section, but the 350 cfs test is specific to the upstream Syas-to-Monroe reach. This option has no verified route-specific flow threshold; USGS 06793000 near Genoa is upstream context. Confirm the current Pawnee Park trail approach and hotel parking permission before launch.',
+  'loup-river-george-syas-columbus': 'This roughly 24-mile option combines the source-named Syas-to-Monroe and Monroe-to-Columbus sections. The 350 cfs test applies only to the upper section, so no route-wide live score is shown. Confirm both access approaches, private-bank rules, and the Columbus trail and parking status.',
+  'loup-river-columbus-adm-access': 'This roughly 4.5-mile extension leaves the Loup near its mouth and finishes at the ADM access on the Platte River. USGS 06793000 measures the Loup near Genoa and cannot represent this full route; no route-wide live score is shown. Verify the current leased access and local conditions.',
+  'loup-river-monroe-adm-access': 'This roughly 20.5-mile option combines the 16-mile Monroe-to-Columbus Loup segment with the downstream ADM extension, which reaches the Platte River below the confluence. The Loup gauge does not represent the full route, and the 350 cfs upper-section test does not apply route-wide; no live score is shown.',
+  'loup-river-george-syas-adm-access': 'This roughly 28.5-mile itinerary combines the Syas-to-Monroe and Monroe-to-Columbus water-trail sections with the ADM extension onto the Platte River. It crosses a river and gauge boundary; the 350 cfs upper-section test and USGS 06793000 do not represent the full trip, so no route-wide live score is shown.',
+};
+
+for (const route of nebraskaRoutes.filter((item) => Object.hasOwn(loupPlanningRouteNotes, item.slug))) {
+  route.scoreEligibility = 'planning';
+  route.gaugeSource.kind = 'proxy';
+  delete route.profile.tooLow;
+  delete route.profile.tooHigh;
+  delete route.profile.idealMin;
+  delete route.profile.idealMax;
+  route.profile.confidenceNotes = 'No route-wide numeric flow threshold is verified for this option. The 350 cfs minimum-only test is limited to George D. Syas WMA–Monroe; longer options add a source-distinct lower Loup section, and ADM options continue across the confluence onto the Platte. USGS 06793000 near Genoa is contextual Loup River telemetry, not an all-route recommendation.';
+  route.statusText = loupPlanningRouteNotes[route.slug];
+  route.evidenceNotes = (route.evidenceNotes ?? [])
+    .filter((note) => note.label !== 'Threshold support')
+    .map((note) => note.label === 'Direct live gauge'
+      ? { ...note, value: 'USGS 06793000 near Genoa', note: 'This upstream Loup gauge is contextual telemetry only; it does not establish a route-wide threshold for this option.' }
+      : note);
+
+  if (route.slug.includes('adm-access')) {
+    route.evidenceNotes?.push({
+      label: 'Loup–Platte confluence',
+      value: 'ADM access on the Platte River, about one mile below the Loup mouth',
+      note: 'Nebraska Game and Parks describes the ADM access as a fourth trail point on the Platte River downstream from the Loup mouth. The Loup gauge cannot represent that final reach.',
+      sourceUrl: 'https://magazine.outdoornebraska.gov/stories/travel-and-adventure/loup-river-water-trail/',
+    });
+  } else {
+    route.evidenceNotes?.push({
+      label: 'Flow-condition scope',
+      value: 'No route-wide numeric threshold verified',
+      note: 'The published 350 cfs field test applies only to the upstream George D. Syas WMA–Monroe section.',
+      sourceUrl: 'https://magazine.outdoornebraska.gov/stories/travel-and-adventure/loup-river-water-trail/',
+    });
+  }
+}
+
+const loupUpperScoredRoute = nebraskaRoutes.find((item) => item.slug === 'loup-river-george-syas-monroe');
+if (loupUpperScoredRoute) {
+  loupUpperScoredRoute.evidenceNotes = loupUpperScoredRoute.evidenceNotes?.map((note) => note.label === 'Direct live gauge'
+    ? { ...note, value: 'USGS 06793000 near Genoa', note: 'USGS provides live discharge and gage-height telemetry. Check current values and trend before launch.' }
+    : note);
+}

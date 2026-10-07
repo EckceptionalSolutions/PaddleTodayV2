@@ -125,6 +125,20 @@ export const routeCorridorDefinitions: RouteCorridorDefinition[] = [
     segmentEdges: [],
   },
   {
+    corridorId: 'ne-loup-river-water-trail',
+    label: 'Loup River Water Trail with Platte River outlet extension',
+    continuityStatus: 'condition-family',
+    slugs: [
+      'loup-river-george-syas-monroe',
+      'loup-river-monroe-columbus',
+      'loup-river-george-syas-columbus',
+      'loup-river-columbus-adm-access',
+      'loup-river-monroe-adm-access',
+      'loup-river-george-syas-adm-access',
+    ],
+    segmentEdges: [],
+  },
+  {
     corridorId: 'or-willamette-upper-valley-water-trail',
     label: 'Upper Willamette Valley access and itinerary family',
     continuityStatus: 'condition-family',
