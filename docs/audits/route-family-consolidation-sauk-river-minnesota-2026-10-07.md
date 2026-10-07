@@ -13,6 +13,15 @@ For April 28–October 4, 2026, the Search Console performance report filtered t
 
 The other visible rows had no clicks. This sample supports protecting these four route pages, while Search Console performance alone does not establish that a route deserves a separate page.
 
+The same report also showed four older Sauk route URLs outside the current catalog. They had 23 combined impressions and no clicks. Live checks returned HTTP 404 for each:
+
+| Historical URL | Impressions | Decision |
+| --- | ---: | --- |
+| St. Martin–Rockville | 12 | 301 to the Sauk River hub; this endpoint pair is no longer offered |
+| Spring Hill–Frogtown | 6 | 301 to the Sauk River hub; this long option is not in the current catalog |
+| St. Martin–Frogtown | 3 | 301 to the Sauk River hub; this endpoint pair is no longer offered |
+| St. Martin–Eagle Park | 2 | 301 to the Sauk River hub; this endpoint pair is no longer offered |
+
 ## Route-page decision
 
 The Sauk River hub contains 21 endpoint choices across Minnesota DNR Map 1 (Osakis Lake to County Road 14) and Map 2 (County Road 14 to the Mississippi). The DNR names three recommended day trips: Sauk Centre Dam–Mill Pond (16.6 mi), Oak Township–Spring Hill (10.8 mi), and Eagle Park–Miller Landing (8.6 mi). It also explicitly suggests extending Eagle–Miller by starting at Frogtown, a 14.2-mile option in the catalog.
@@ -54,7 +63,7 @@ The hub distinguishes those reaches and links the DNR's current segment page, bo
 
 ## Implementation and candidate verification
 
-Fourteen legacy route URLs now resolve to their exact Sauk hub trip cards and are omitted from the sitemap. Seven retained route pages continue to have self-canonicals and sitemap entries. The hub includes all 21 trip choices and a source-linked section guide that links directly to all seven retained pages.
+Fourteen current route URLs now resolve to their exact Sauk hub trip cards and are omitted from the sitemap. Four older route URLs return a server-side 301 to the hub instead of 404. Seven retained route pages continue to have self-canonicals and sitemap entries. The hub includes all 21 trip choices and a source-linked section guide that links directly to all seven retained pages.
 
 The production build and typecheck passed. The candidate has 2,797 sitemap URLs, 2,807 public route options, 2,357 standalone published route pages, and 450 consolidated route options across the catalog. Its indexability audit checked 2,736 route links and found no orphaned public pages, missing state or hub links, duplicate route H1s or descriptions, errors, or warnings. A Sauk-specific check confirmed all 21 hub cards, all seven retained guides in the sitemap with self-canonicals and hub links, and all 14 exact selected-card fallback targets outside the sitemap. Search Console settings remain unchanged; no sitemap submission or URL Inspection indexing request was made. Production release verification is pending.
 

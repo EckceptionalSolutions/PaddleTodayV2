@@ -132,6 +132,26 @@
       "route": "/rivers/barren-river-tailwater-vpa-3",
       "redirect": "/rivers/barren-river-tailwater-martinsville/",
       "statusCode": 301
+    },
+    {
+      "route": "/rivers/sauk-river-st-martin-rockville",
+      "redirect": "/rivers/by-river/sauk-river/",
+      "statusCode": 301
+    },
+    {
+      "route": "/rivers/sauk-river-spring-hill-frogtown",
+      "redirect": "/rivers/by-river/sauk-river/",
+      "statusCode": 301
+    },
+    {
+      "route": "/rivers/sauk-river-st-martin-frogtown",
+      "redirect": "/rivers/by-river/sauk-river/",
+      "statusCode": 301
+    },
+    {
+      "route": "/rivers/sauk-river-st-martin-eagle-park",
+      "redirect": "/rivers/by-river/sauk-river/",
+      "statusCode": 301
     }
   ],
   "responseOverrides": {
