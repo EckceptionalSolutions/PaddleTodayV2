@@ -1,5 +1,13 @@
 [
   {
+    "corridorId": "sc-broad-river-blueway",
+    "status": "review",
+    "owner": "route-data-team",
+    "continuityStatus": "condition-family",
+    "nextReview": "2026-10-14",
+    "notes": "Condition-family grouping only. The 25 South Carolina records cover the separate Peak–Harbison run and the Ninety-Nine Islands-to-Strother access chain. Paddle SC names eight endpoint-specific South Carolina trips; 17 other endpoint combinations remain selectable on the hub after standalone page consolidation. Gauge contexts differ: USGS 02153551 stage at Ninety-Nine Islands, USGS 02156500 discharge near Carlisle, and USGS 02161000 discharge at Alston. The separate Georgia Broad River route has its own riverId."
+  },
+  {
     "corridorId": "mn-sauk-water-trail",
     "status": "approved",
     "owner": "route-data-team",

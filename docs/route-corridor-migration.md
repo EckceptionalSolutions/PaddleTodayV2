@@ -1,15 +1,16 @@
 # Route corridor migration inventory
 
-Generated 2026-10-07T17:38:26.207Z.
+Generated 2026-10-07T17:49:48.158Z.
 
-- Defined corridors: 230
-- Routes covered by a corridor definition: 929
-- Remaining multi-route families: 320
+- Defined corridors: 231
+- Routes covered by a corridor definition: 954
+- Remaining multi-route families: 319
 
 ## Defined corridors
 
 | Corridor | Label | Continuity | Matching routes | Verified edges |
 | --- | --- | --- | ---: | ---: |
+| sc-broad-river-blueway | South Carolina Broad River Blueway named trips and endpoint combinations | condition-family | 25 | 0 |
 | mt-blackfoot-section-family | Blackfoot River five named source-backed section family | condition-family | 39 | 0 |
 | ky-green-river-three-zone-family | Green River Upper Green, Hart County, and Mammoth Cave paddling zones | condition-family | 32 | 0 |
 | ct-willimantic-water-trail | Willimantic River Water Trail three-segment condition family | condition-family | 34 | 0 |
@@ -263,7 +264,6 @@ Generated 2026-10-07T17:38:26.207Z.
 | New York | Old Erie Canal | 37 |
 | Washington | Spokane River | 29 |
 | Mississippi | Black Creek | 28 |
-| South Carolina | Broad River | 25 |
 | Nevada | Truckee River | 24 |
 | Arkansas | Buffalo River | 23 |
 | Kentucky | Floyds Fork | 21 |
@@ -300,6 +300,7 @@ Generated 2026-10-07T17:38:26.207Z.
 | North Carolina | Yadkin River | 10 |
 | Maine | Aroostook River | 9 |
 | Texas | Brazos River | 9 |
-| Additional families omitted | See route data and overlap audit | 280 |
+| New York | Grass River | 9 |
+| Additional families omitted | See route data and overlap audit | 279 |
 
 This inventory is a migration queue, not an automatic deletion list. Each family still requires source review for continuity, hazards, access legality, gauge boundaries, and explicit trip edges.

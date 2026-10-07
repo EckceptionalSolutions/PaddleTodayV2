@@ -48,6 +48,27 @@ const bayouDeViewHubPath = '/rivers/by-river/bayou-deview/';
 const americanRiverHubPath = '/rivers/by-river/american-river-california/';
 const loupRiverHubPath = '/rivers/by-river/loup-river/';
 const verdeRiverHubPath = '/rivers/by-river/verde-river-arizona/';
+const broadRiverHubPath = '/rivers/by-river/broad-river/';
+
+const broadRiverConsolidatedRouteSlugs = [
+  'broad-river-lockhart-neal-shoals',
+  'broad-river-lockhart-sandy',
+  'broad-river-lockhart-shelton',
+  'broad-river-lockhart-strother',
+  'broad-river-broad-river-landing-sandy',
+  'broad-river-broad-river-landing-shelton',
+  'broad-river-broad-river-landing-strother',
+  'broad-river-daltons-broad-river-landing',
+  'broad-river-daltons-neal-shoals',
+  'broad-river-daltons-sandy',
+  'broad-river-neal-shoals-shelton',
+  'broad-river-neal-shoals-strother',
+  'broad-river-sandy-strother',
+  'broad-river-ninety-nine-islands-lockhart',
+  'broad-river-ninety-nine-islands-broad-river-landing',
+  'broad-river-daltons-shelton',
+  'broad-river-daltons-strother',
+] as const;
 
 const blackCreekCompositeRouteSlugs = [
   'black-creek-big-creek-cypress',
@@ -491,6 +512,7 @@ const consolidatedRouteTargets = new Map<string, string>(
         : `${bayouTecheHubPath}?route=${slug}#trip-${slug}`,
     ] as const),
     ...willametteConsolidatedRouteSlugs.map((slug) => [slug, `${willametteHubPath}?route=${slug}#trip-${slug}`] as const),
+    ...broadRiverConsolidatedRouteSlugs.map((slug) => [slug, `${broadRiverHubPath}?route=${slug}#trip-${slug}`] as const),
     ...russianRiverConsolidatedRouteSlugs.map((slug) => [slug, `/rivers/by-river/russian-river-california/?route=${slug}#trip-${slug}`] as const),
     ...blackfootConsolidatedRouteSlugs.map((slug) => [slug, `${blackfootHubPath}?route=${slug}#trip-${slug}`] as const),
     ...blackfootLegacyRouteAliases.map(([legacySlug, currentSlug]) => [legacySlug, `${blackfootHubPath}?route=${currentSlug}#trip-${currentSlug}`] as const),

@@ -17,6 +17,7 @@ export function getStaticPaths() {
 }
 
 const { group } = Astro.props;
+const isBroadRiverHub = group.riverId === 'broad-river';
 const isWillimanticHub = group.riverId === 'willimantic-river-connecticut';
 const isMillersHub = group.riverId === 'millers-river-massachusetts';
 const isBayouDeViewHub = group.riverId === 'bayou-deview';
@@ -44,7 +45,9 @@ const needsRegionInTitle = listRiverGroups().some((other) =>
   [...other.states].sort().join(',') === [...group.states].sort().join(',')
 );
 const groupTitleLocation = needsRegionInTitle ? `${regionSummary}, ${stateSummary}` : stateSummary;
-const groupTitle = isWoonasquatucketHub
+const groupTitle = isBroadRiverHub
+  ? 'Broad River, South Carolina | Paddling Sections & Access'
+  : isWoonasquatucketHub
   ? 'Woonasquatucket River, Rhode Island | Paddling Zones & Access'
   : isLoupRiverHub
   ? 'Loup River Water Trail, Nebraska | Sections & Access'
@@ -67,7 +70,9 @@ const groupTitle = isWoonasquatucketHub
   : scoredRouteCount
   ? `${group.name}, ${groupTitleLocation} | Water Levels & Paddle Routes`
   : `${group.name}, ${groupTitleLocation} | Paddle Routes & Trip Planning`;
-const groupDescription = isWillimanticHub
+const groupDescription = isBroadRiverHub
+  ? 'Compare eight Paddle SC trips on South Carolina’s Broad River, from Ninety-Nine Islands to Strother Landing and the separate Peak–Harbison reach. Check trip-specific gauges, dam portages, and public access.'
+  : isWillimanticHub
   ? 'Plan the Willimantic River Water Trail by stretch: upper quickwater, Eagleville Lake, or the lower river after the dam portage. Compare public access, mileage, and USGS stage cues.'
   : isLoupRiverHub
   ? 'Plan the Loup River Water Trail from George Syas to Columbus, with a separate outlet to the Platte at ADM. Compare named sections, access, and gauge context.'
@@ -307,6 +312,20 @@ const greenRiverSections = isGreenRiverHub
         .filter((route): route is River => Boolean(route)),
     }))
   : [];
+const broadRiverSections = isBroadRiverHub
+  ? [
+      { slug: 'broad-river-peak-harbison', label: 'Peak to Harbison State Forest', distance: '16.6 mi' },
+      { slug: 'broad-river-ninety-nine-islands-daltons', label: 'Ninety-Nine Islands to Daltons Landing', distance: '7.8 mi' },
+      { slug: 'broad-river-daltons-lockhart', label: 'Daltons Landing to Lockhart', distance: '12.5 mi' },
+      { slug: 'broad-river-lockhart-broad-river-landing', label: 'Lockhart to Broad River Landing', distance: '7.5 mi' },
+      { slug: 'broad-river-broad-river-landing-neal-shoals', label: 'Broad River Landing to Neal Shoals Dam', distance: '3.2 mi' },
+      { slug: 'broad-river-neal-shoals-sandy', label: 'Neal Shoals Dam to Sandy River Landing', distance: '7.4 mi' },
+      { slug: 'broad-river-sandy-shelton', label: 'Sandy River Landing to Shelton Ferry', distance: '6.2 mi' },
+      { slug: 'broad-river-shelton-strother', label: 'Shelton Ferry to Strother Landing', distance: '7.3 mi' },
+    ]
+      .map((section) => ({ ...section, route: group.routes.find((route) => route.slug === section.slug) }))
+      .filter((section) => section.route)
+  : [];
 const shortTimeLabel = (value) => {
   if (!value) return '';
   const text = String(value).trim();
@@ -320,7 +339,9 @@ const areaLabel = group.regions.length === 1 ? 'paddle area' : 'paddle areas';
 const faqItems = [
   {
     question: `Where can I paddle the ${group.name}?`,
-    answer: isLoupRiverHub
+    answer: isBroadRiverHub
+      ? 'Paddle SC names eight South Carolina trips represented in this guide, including the 7.8-mile Ninety-Nine Islands–Daltons section, the Lockhart–Strother sequence, and the separate 16.6-mile Peak–Harbison trip. The picker also keeps longer endpoint combinations available so paddlers can choose a different start or finish.'
+      : isLoupRiverHub
       ? 'Start with the source-named 8-mile George D. Syas WMA–Monroe section or the 16-mile Monroe–Columbus section. The selector also includes the 4.5-mile Columbus-to-ADM outlet and the Monroe-to-ADM composite. Longer trips starting at Syas remain off the list until their full route geometry is verified.'
       : isVerdeRiverHub
       ? 'Start with one of four distinct sections: the 3-mile Lower TAPCO–Tuzigoot trip in Clarkdale, Tuzigoot–Highway 89A, White Bridge–Beasley Flat, or the remote Beasley Flat–Childs whitewater run. The picker keeps 28 other public endpoint combinations available. Seven options around Sheep Crossing remain withheld until the landing and difficult carry are verified.'
@@ -352,7 +373,9 @@ const faqItems = [
   },
   {
     question: `How should I check ${group.name} water levels?`,
-    answer: isLoupRiverHub
+    answer: isBroadRiverHub
+      ? 'Check the gauge and source attached to the exact trip. Ninety-Nine Islands–Daltons uses a stage reading in feet at USGS 02153551; Peak–Harbison and the lower sections use discharge readings at their own gauges. These locations and units do not form one river-wide threshold, and a gauge reading does not clear dam portages or access conditions.'
+      : isLoupRiverHub
       ? 'USGS 06793000 near Genoa provides live Loup River context. Nebraska Game and Parks’ 350 cfs field test supports a minimum-only cue for the upper Syas–Monroe section; it is not a threshold for the whole trail. ADM options continue onto the Platte and are planning-only.'
       : isVerdeRiverHub
       ? 'Use the guidance for the exact reach. Clarkdale discourages boating at 300 cfs and above and blocks launch areas at 1,000 cfs and above on Lower TAPCO–Tuzigoot. The only scored trip is the community-sourced 9-mile White Bridge–Beasley Flat range of 150–1,000 cfs at the Camp Verde gauge; it is not a safety limit. RiverBrain’s Beasley Flat–Childs figures are planning references for that expert-only run. Other endpoint combinations have no route-specific numeric band.'
@@ -434,7 +457,9 @@ const groupStructuredData = [
         </p>
         <h1 class="river-group-page__title">{group.name}</h1>
         <p class="river-group-page__lede" data-group-headline>
-          {isWillimanticHub
+          {isBroadRiverHub
+            ? 'Start with the eight South Carolina trips named by Paddle SC, then use the picker to compare alternate endpoint pairs. These routes cross different gauge areas and include the Ninety-Nine Islands, Lockhart, and Neal Shoals dam boundaries; check the source and access notes for your exact trip.'
+            : isWillimanticHub
             ? 'Choose among the Willimantic Water Trail’s three distinct stretches, then compare the mapped put-in and take-out combinations in one guide. Upper quickwater, the Eagleville impoundment, and the downstream river have different access, gauge cues, and hazards.'
             : isBlackCreekHub
             ? 'Start with the six documented Black Creek reaches from Churchwell Road through Fairley Bridge. The trip picker also includes longer landing combinations, with intermediate public access points for breaks or shorter exits.'
@@ -496,6 +521,25 @@ const groupStructuredData = [
         </figure>
       ) : null}
     </section>
+
+    {broadRiverSections.length > 0 ? (
+      <section class="river-group-page__panel" aria-labelledby="broad-river-named-trips-title">
+        <div class="river-group-page__section-head">
+          <div>
+            <p class="eyebrow section-label">Paddle SC suggested trips</p>
+            <h2 class="section-title" id="broad-river-named-trips-title">Named South Carolina Broad River sections</h2>
+          </div>
+        </div>
+        <p>
+          These eight endpoint-specific trips appear in the <a href="https://www.gopaddlesc.com/waterways/trail/broad-river" rel="noopener">Paddle SC Broad River guide</a>. Longer endpoint combinations remain in the trip picker for alternate starts and finishes. Flow guidance differs by reach: Ninety-Nine Islands uses a stage gauge, while Peak–Harbison and the lower sections use separate discharge gauges. Check each trip’s named gauge, dam portage, and current access notes.
+        </p>
+        <ul>
+          {broadRiverSections.map((section) => section.route ? (
+            <li><a href={routeDetailHref(section.route)}>{section.label}</a> — {section.distance}</li>
+          ) : null)}
+        </ul>
+      </section>
+    ) : null}
 
     {blackCreekSegments.length > 0 ? (
       <section class="river-group-page__panel" aria-labelledby="black-creek-access-sequence-title">

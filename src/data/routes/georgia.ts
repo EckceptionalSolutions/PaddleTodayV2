@@ -471,7 +471,7 @@ export const georgiaRoutes: River[] = [
     watchFor: ['release schedule and rising USGS 02341460', 'feature changes, strainers, and commercial or event traffic', 'heat/cold exposure and urban water-quality notices'], evidence: 'American Whitewater documents the 1.9-mile Columbus course, direct gauge, public whitewater park context, and changing feature character by release.'
   }),
   buildGeorgiaRoute({
-    id: 'broad-river-us281-us172', name: 'Broad River', riverId: 'broad-river', reach: 'U.S. Route 281 to U.S. Route 172', region: 'Northeast Georgia / Broad River', distance: 5.8, time: 'About 3–5 hours', difficulty: 'moderate', risk: 'caution',
+    id: 'broad-river-us281-us172', name: 'Broad River', riverId: 'broad-river-georgia', reach: 'U.S. Route 281 to U.S. Route 172', region: 'Northeast Georgia / Broad River', distance: 5.8, time: 'About 3–5 hours', difficulty: 'moderate', risk: 'caution',
     gauge: '02191300', metric: 'gage_height_ft', siteName: 'Broad River above Carlton, GA',
     putIn: { name: 'U.S. Route 281 Broad River access', latitude: 34.181834421871585, longitude: -83.14652526139137 }, takeOut: { name: 'U.S. Route 172 Broad River access', latitude: 34.155695707056005, longitude: -83.08026939618452 },
     tooLow: 2, idealMin: 3, idealMax: 4, tooHigh: 6,
