@@ -18,6 +18,7 @@ import {
 import { createBoardMapMarker } from './board-map-controller.js';
 import { favoriteButtonMarkup as buildFavoriteButtonMarkup } from './favorite-button-markup.js';
 import { bindFavoriteButtons, refreshFavoriteButtons } from './favorites-ui.js';
+import { routePageHref } from '../data/route-page-consolidations.ts';
 import {
 } from './ui-taxonomy.js';
 import { createRequestGuard, isAbortError } from './request-guard.js';
@@ -48,6 +49,7 @@ const riverId = root.dataset.riverId;
 if (!riverId) {
   throw new Error('Missing river group id.');
 }
+const isWillimanticHub = riverId === 'willimantic-river-connecticut';
 
 const routeList = root.querySelector('[data-group-route-list]');
 const banner = root.querySelector('[data-group-status-banner]');
@@ -87,7 +89,8 @@ const AUTO_REFRESH_MS = 5 * 60 * 1000;
 const BULLET = ' \u2022 ';
 const DEG_F = '\u00B0F';
 const initialParams = new URLSearchParams(window.location.search);
-const initialSelectedSlug = initialParams.get('route');
+const anchorSelectedSlug = isWillimanticHub ? window.location.hash.match(/^#trip-(.+)$/)?.[1] : null;
+const initialSelectedSlug = initialParams.get('route') || anchorSelectedSlug;
 const distanceFilterValues = new Set(['all', 'short', 'medium', 'long']);
 const sortModeValues = new Set(['recommended', 'shortest', 'longest', 'easiest', 'confidence']);
 
@@ -390,7 +393,7 @@ function favoriteButtonMarkup(route) {
       reach: route.reach,
       state: route.state,
       region: route.region,
-      url: `/rivers/${route.slug}/`,
+      url: routePageHref(route.slug),
     },
     {
       className: 'favorite-toggle favorite-toggle--card favorite-toggle--inline',
@@ -400,6 +403,37 @@ function favoriteButtonMarkup(route) {
 
 function conditionsLine(route) {
   return [levelText(route), trendText(route), weatherSummary(route)].filter(Boolean).join(BULLET);
+}
+
+function tripNotesMarkup(route) {
+  if (!isWillimanticHub) {
+    return `<a class="river-link river-link--inline route-choice__details-link" href="${routePageHref(route.slug)}">View route</a>`;
+  }
+
+  const gaugeFloor = route.profile?.idealMin ?? route.profile?.tooLow;
+  const gaugeCue = Number.isFinite(gaugeFloor)
+    ? `Published planning floor: ${escapeHtml(String(gaugeFloor))} ${escapeHtml(route.gaugeSource?.unit || '')}. Check the live reading and trend before launch.`
+    : 'Check the live reading and trend before launch.';
+  const noteList = (label, values) => Array.isArray(values) && values.length
+    ? `<div class="route-choice__note-group"><strong>${label}</strong><ul>${values.map((value) => `<li>${escapeHtml(value)}</li>`).join('')}</ul></div>`
+    : '';
+
+  return `
+    <details class="route-choice__trip-notes">
+      <summary><span>Trip details</span><span>Access · gauge · safety</span></summary>
+      <div class="route-choice__trip-notes-panel">
+        <p class="route-choice__trip-summary">${escapeHtml(route.logistics?.summary || route.summary || '')}</p>
+        <div class="route-choice__access-pair">
+          <div><span>Put-in</span><strong>${escapeHtml(route.putIn?.name || 'See linked trail guide')}</strong></div>
+          <div><span>Take-out</span><strong>${escapeHtml(route.takeOut?.name || 'See linked trail guide')}</strong></div>
+        </div>
+        <p class="route-choice__gauge-note"><strong>${escapeHtml(route.gaugeSource?.siteName || 'Route gauge')}:</strong> ${gaugeCue}</p>
+        ${noteList('Access notes', route.logistics?.accessCaveats)}
+        ${noteList('Watch for', route.logistics?.watchFor)}
+        ${noteList('Safety notes', route.safetyProfile?.safetyNotes)}
+      </div>
+    </details>
+  `;
 }
 
 function levelText(route) {
@@ -1225,6 +1259,7 @@ function renderRouteList(routes) {
 
       return `
         <article
+          ${isWillimanticHub ? `id="trip-${escapeHtml(route.slug)}"` : ''}
           class="route-choice${active ? ' route-choice--active' : ''}"
           data-group-route-card
           data-route-slug="${route.slug}"
@@ -1254,7 +1289,7 @@ function renderRouteList(routes) {
               ? '<span class="route-choice__score-compact route-choice__score-compact--planning"><strong>—</strong><span>Call unavailable</span></span>'
               : `<span class="route-choice__score-compact route-choice__score-compact--${ratingToneKey(route.rating)}"><strong>${escapeHtml(String(route.score))}</strong><span>${escapeHtml(decisionLabel(route))}</span></span>`}
           </button>
-          <a class="river-link river-link--inline route-choice__details-link" href="/rivers/${encodeURIComponent(route.slug)}/">View route</a>
+          ${tripNotesMarkup(route)}
         </article>
       `;
     })
@@ -1334,7 +1369,7 @@ function renderSelectedSummary(route) {
       ? '<div class="river-route-picker__selected-decision river-route-picker__selected-decision--planning"><strong>—</strong><span>Call unavailable</span></div>'
       : `<div class="river-route-picker__selected-decision river-route-picker__selected-decision--${ratingToneKey(route.rating)}"><strong>${escapeHtml(String(route.score))}</strong><span>${escapeHtml(decisionLabel(route))}</span></div>`}
     <div class="river-route-picker__selected-actions">
-      <a class="river-link river-link--inline" href="/rivers/${encodeURIComponent(route.slug)}/">View route details</a>
+      <a class="river-link river-link--inline" href="${routePageHref(route.slug)}">${isWillimanticHub ? 'View trip option' : 'View route details'}</a>
     </div>
     ${nearbyMarkup}
   `;
