@@ -9,7 +9,7 @@ import type { River } from '../../../lib/types';
 
 export function getStaticPaths() {
   return listRiverGroups()
-    .filter((group) => group.routeCount > 1)
+    .filter((group) => group.routeCount > 1 || group.riverId === 'saluda-river')
     .map((group) => ({
       params: { riverId: group.riverId },
       props: { group },
@@ -45,6 +45,7 @@ const isSusquehannaHub = group.riverId === 'susquehanna-river';
 const isBayouTecheHub = group.riverId === 'bayou-teche-river-louisiana';
 const isMerrimackHub = group.riverId === 'merrimack-river-new-hampshire';
 const isSpokaneHub = group.riverId === 'spokane-river-washington';
+const isSaludaHub = group.riverId === 'saluda-river';
 const hasConsolidatedTrips = group.routes.some((route) => routePageConsolidationTarget(route.slug));
 const stateSummary = group.states.join(', ');
 const stateDisplay = group.states.join(' and ');
@@ -61,6 +62,8 @@ const groupTitle = isBroadRiverHub
   ? 'Broad River, South Carolina | Paddling Sections & Access'
   : isSpokaneHub
   ? 'Spokane River, Washington | Paddling Sections, Gauges & Access'
+  : isSaludaHub
+  ? 'Lower Saluda River, South Carolina | Paddle Access & Flow Context'
   : isMerrimackHub
   ? 'Merrimack River, New Hampshire | Paddle Trips & Flow Guides'
   : isAnimasHub
@@ -110,6 +113,8 @@ const groupDescription = isBroadRiverHub
   ? 'Compare eight Paddle SC trips on South Carolina’s Broad River, from Ninety-Nine Islands to Strother Landing and the separate Peak–Harbison reach. Check trip-specific gauges, dam portages, and public access.'
   : isSpokaneHub
   ? 'Plan the Spokane River by its distinct upper reaches, lower whitewater and Nine Mile flatwater pool. Compare six focused Water Trail sections and 20 alternate endpoint choices, with local access, gauge context and safety notes.'
+  : isSaludaHub
+  ? 'Plan the 3.5-mile upper Lower Saluda reach from either Saluda Shoals Park or Hope Ferry to Gardendale. Compare the two public launch choices, carry-in take-out, below-dam gauge context and downstream rapid boundary.'
   : isMerrimackHub
   ? `Compare ${group.routeCount} Merrimack River trips from Franklin and Boscawen through Concord, Bow, Allenstown, and Hooksett. Five Franklin–Concord routes have published flow guidance; lower-valley trips need separate gauge and access checks.`
   : isAnimasHub
@@ -563,6 +568,8 @@ const faqItems = [
       ? 'Choose from five documented Franklin–Concord routes, the short Sewalls Falls–Everett Arena trip, or lower-valley access pairs from Boscawen through Hooksett. Fourteen overlapping planning combinations remain selectable in the trip picker with their own distance and access notes.'
       : isSpokaneHub
       ? 'Start with the Water Trail’s six distinct sections: Harvard–Barker (2 miles, Class I), Barker–Mirabeau (4.5 miles, Class II), Mirabeau–Plante’s Ferry (1 mile, mostly flatwater), Plante’s Ferry–Boulder Beach (4.5 miles, mostly flatwater), TJ Meenach–Plese Flats (expert Class III–IV), and Plese Flats–Nine Mile Dam (5 miles, flatwater). Twenty other endpoint choices remain available as trip cards.'
+      : isSaludaHub
+      ? 'This guide covers one 3.5-mile upper reach. Choose Saluda Shoals Park or Hope Ferry Landing as the put-in; both lead to the carry-in take-out at Gardendale. The nearby launch ramps are alternatives, not a separate short trip.'
       : isBroadRiverHub
       ? 'Paddle SC names eight South Carolina trips represented in this guide, including the 7.8-mile Ninety-Nine Islands–Daltons section, the Lockhart–Strother sequence, and the separate 16.6-mile Peak–Harbison trip. The picker also keeps longer endpoint combinations available so paddlers can choose a different start or finish.'
       : isAnimasHub
@@ -617,6 +624,8 @@ const faqItems = [
       ? 'The 400 cfs runnable floor and 1,500–2,000 cfs preferred range belong to the documented Franklin–Concord run and its USGS 01081500 gauge near Franklin Junction. Lower-valley trips are planning-only; that upstream station is context and does not provide a verified route-specific threshold for each downstream reach.'
       : isSpokaneHub
       ? 'Use USGS 12419000 near Post Falls for the short Harvard–Barker section; it is upstream context for the rest of the upper river and does not confirm local water near Barker and Sullivan. USGS 12422500 at Spokane provides lower-river context. The TJ Meenach–Plese expert run, upper combinations beyond Barker, and the Nine Mile pool are planning-only because their conditions cannot be represented safely by one live score.'
+      : isSaludaHub
+      ? 'USGS 02168504 measures the river below Lake Murray Dam. SCDNR says daily flows may range from 400 to 20,000 cfs and warns that releases can change conditions rapidly; that broad range is not a route-specific paddling target. Check the live trend and release notices, and treat the gauge as context rather than an all-clear.'
       : isBroadRiverHub
       ? 'Check the gauge and source attached to the exact trip. Ninety-Nine Islands–Daltons uses a stage reading in feet at USGS 02153551; Peak–Harbison and the lower sections use discharge readings at their own gauges. These locations and units do not form one river-wide threshold, and a gauge reading does not clear dam portages or access conditions.'
       : isAnimasHub
@@ -661,6 +670,8 @@ const faqItems = [
       ? 'Pick the reach first. Use the five documented Franklin–Concord options for the published upper-river flow guidance, or compare lower-valley trips by endpoint, distance, current, and dam boundaries. Allenstown’s Pelissier Boat Launch requires a resident permit sticker, so visitors should choose another take-out.'
       : isSpokaneHub
       ? 'Choose by the hardest water on the route. The Water Trail describes Barker–Mirabeau as Class II for more experienced paddlers and TJ Meenach–Plese as expert-only Class III–IV. Plese Flats–Nine Mile Dam is a separate flatwater option. The City prohibits boating between the Division and Monroe Street bridges; do not extend a trip upstream into that corridor.'
+      : isSaludaHub
+      ? 'The single trip covers the same 3.5-mile reach from either public upstream ramp to Gardendale, a carry-in access. Major rapids begin downstream of I-26, but SCDNR does not list the bridge as a public river landing; do not use it as an assumed take-out.'
       : isSusquehannaHub
       ? 'Choose the river reach first: upper main-stem options in New York or North Branch sections in Pennsylvania. The picker keeps alternate endpoint pairs available, and each trip retains its own mileage, access, gauge, and hazard details.'
       : scoredRouteCount
@@ -859,6 +870,38 @@ const groupStructuredData = [
         </div>
         <p>
           Review the <a href="https://www.spokaneriver.net/watertrail/paddling-stateline-to-upriver-dam/" target="_blank" rel="noopener noreferrer">upper Water Trail section guide</a>, its <a href="https://www.spokaneriver.net/watertrail/paddling-water-street-to-plese-flats/" target="_blank" rel="noopener noreferrer">Water Street–Plese Flats safety guide</a>, the <a href="https://www.spokaneriver.net/watertrail/paddling-plese-flats-to-little-falls-dam/" target="_blank" rel="noopener noreferrer">Plese Flats–Nine Mile section guide</a>, <a href="https://my.spokanecity.org/rulesoftheriver/" target="_blank" rel="noopener noreferrer">City river rules</a>, and the <a href="https://www.spokaneaquifer.org/wp-content/uploads/2025/12/FINAL_GSI_TM_SAJB-Model-Development_20251212.pdf" target="_blank" rel="noopener noreferrer">2025 low-flow observation report</a> before choosing a trip.
+        </p>
+      </section>
+    ) : null}
+
+    {isSaludaHub ? (
+      <section class="river-group-page__panel" id="saluda-route-access-notes" aria-labelledby="saluda-river-sections-title">
+        <div class="river-group-page__section-head">
+          <div>
+            <p class="eyebrow section-label">SCDNR Lower Saluda Scenic River access</p>
+            <h2 class="section-title" id="saluda-river-sections-title">One upper reach, two public launch choices</h2>
+          </div>
+          <p class="muted river-group-page__section-note">
+            Choose the ramp that fits your boat and shuttle plan; both launches begin the same stretch.
+          </p>
+        </div>
+        <div class="river-hub-context__grid">
+          <article class="river-hub-context__item">
+            <h3>About 3.5 miles to Gardendale</h3>
+            <p>
+              SCDNR places Gardendale 3.5 river miles downstream from both the upstream Saluda Shoals Park ramp and Hope Ferry Landing. Saluda Shoals and Hope Ferry are the only public ramps SCDNR identifies for trailered boats; Gardendale is carry-in access.
+            </p>
+            <p><a href={routeSlugHref('saluda-river-saluda-shoals-gardendale')}>View the 3.5-mile upper Saluda trip</a> and choose either ramp as your put-in.</p>
+          </article>
+          <article class="river-hub-context__item">
+            <h3>I-26 marks a change in river character</h3>
+            <p>
+              SCDNR says major rapids, up to Class IV, begin downstream of the I-26 bridge. The bridge and Riverwalk path are not listed as a public boat landing. Plan a longer downstream trip only with a verified legal take-out, suitable whitewater skills, and a portage plan for Mill Race Rapids.
+            </p>
+          </article>
+        </div>
+        <p>
+          Check the <a href="https://www.dnr.sc.gov/water/river/scenic/saluda.html" target="_blank" rel="noopener noreferrer">current SCDNR Lower Saluda access and safety notes</a>, its <a href="https://www.dnr.sc.gov/water/river/pdf/LowerSaludaAccess.pdf" target="_blank" rel="noopener noreferrer">public access map</a>, and the <a href="https://waterdata.usgs.gov/monitoring-location/USGS-02168504/" target="_blank" rel="noopener noreferrer">USGS below-dam gauge</a> before choosing a trip.
         </p>
       </section>
     ) : null}
@@ -1380,7 +1423,7 @@ const groupStructuredData = [
                       <span data-group-initial-score>{route.scoreEligibility === 'planning' ? 'Planning route' : 'Loading'}</span>
                     </span>
                   </button>
-                  {isWillimanticHub || isMerrimackHub || isSpokaneHub || isAnimasHub || isHousatonicHub ? (
+                  {isWillimanticHub || isMerrimackHub || isSpokaneHub || isSaludaHub || isAnimasHub || isHousatonicHub ? (
                     <details class="route-choice__trip-notes">
                       <summary>{isAnimasHub || isHousatonicHub ? 'Access, flow, and safety notes' : 'Access, gauge, and safety notes'}</summary>
                       <div>
@@ -1501,6 +1544,8 @@ const groupStructuredData = [
           <p>
             {isSpokaneHub
               ? 'Use the station named for the chosen section. USGS 12419000 near Post Falls gives direct flow telemetry for Harvard–Barker, while the Spokane reading is lower-river context. Neither gauge verifies the dry-prone Barker–Sullivan channel or the Nine Mile pool above its dam; inspect those places locally.'
+              : isSaludaHub
+              ? 'USGS 02168504 is below Lake Murray Dam and provides direct flow telemetry for this upper reach. SCDNR publishes a broad daily range of 400–20,000 cfs and warns of rapid release changes; no route-specific scoring band is inferred from that range.'
               : gaugeNames.length === 1
               ? `These ${group.name} routes use ${gaugeNames[0]} as the main gauge reference.`
               : `These ${group.name} routes use ${gaugeNames.length} gauge references depending on the stretch.`}
@@ -1513,6 +1558,8 @@ const groupStructuredData = [
               ? `Compare all ${group.routeCount} endpoint combinations here. Six source-backed trips keep standalone pages; the remaining options stay selectable with their own mileage, access, shuttle, and hazard notes. The upper, middle, and lower reaches use different guide and gauge references.`
               : isSpokaneHub
               ? `Compare all ${group.routeCount} Spokane River options here. Six focused Water Trail sections keep standalone guides; the other 20 endpoint combinations remain available as cards with their own access and hazard notes. Upper Post Falls telemetry, the lower Spokane gauge, and the Nine Mile pool describe different conditions.`
+              : isSaludaHub
+              ? 'One trip card represents the 3.5-mile reach from two alternative public launch ramps to the Gardendale carry-in take-out. The short cross-bank pair and I-26 endpoint combinations are not listed as trips because they add little route value or rely on an undocumented take-out.'
               : isGreenRiverHub
               ? `Compare all ${group.routeCount} Green River trip choices across the Upper Green, Hart County, and Mammoth Cave. Eight source-backed trips keep standalone pages; the other 24 remain available here with their endpoint, mileage, access, and hazard details. Eleven cross-zone combinations are planning-only because their gauge guidance cannot be combined into one route score.`
               : isBlackfootHub

@@ -5,15 +5,20 @@ import { listRivers } from '../../lib/rivers';
 import { rivers } from '../rivers';
 import { auditRouteSafety } from '../../lib/route-safety-audit';
 
-describe('Lower Saluda scored starter', () => {
-  it('publishes three direct-gauge scored routes with the official flow envelope', () => {
-    expect(southCarolinaSaludaRoutes).toHaveLength(6);
+describe('Lower Saluda upper reach', () => {
+  it('publishes one planning-only reach with two documented launch choices', () => {
+    expect(southCarolinaSaludaRoutes).toHaveLength(1);
     for (const route of southCarolinaSaludaRoutes) {
-      expect(listRivers().find(r => r.slug === route.slug)?.scoreEligibility).toBe('scored');
+      expect(listRivers().find(r => r.slug === route.slug)?.scoreEligibility).toBe('planning');
       expect(rivers.some(r => r.slug === route.slug)).toBe(true);
       expect(auditRouteSafety([route])).toEqual([]);
       expect(route.gaugeSource).toMatchObject({ siteId: '02168504', metric: 'discharge_cfs', unit: 'cfs', kind: 'direct' });
-      expect(route.profile).toMatchObject({ tooLow: 400, idealMin: 400, idealMax: 18000, tooHigh: 18000 });
+      expect(route.reach).toContain('Hope Ferry Landing');
+      expect(route.profile.idealMin).toBeUndefined();
+      expect(route.profile.idealMax).toBeUndefined();
+      expect(route.profile.tooLow).toBeUndefined();
+      expect(route.profile.tooHigh).toBeUndefined();
+      expect(route.evidenceNotes?.find(note => note.label === 'Published daily flow range')?.value).toBe('400–20,000 cfs');
     }
   });
 

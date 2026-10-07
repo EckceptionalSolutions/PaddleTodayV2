@@ -61,6 +61,7 @@ const farmingtonRiverHubPath = '/rivers/by-river/farmington-river-connecticut/';
 const susquehannaRiverHubPath = '/rivers/by-river/susquehanna-river/';
 const merrimackRiverHubPath = '/rivers/by-river/merrimack-river-new-hampshire/';
 const spokaneRiverHubPath = '/rivers/by-river/spokane-river-washington/';
+const saludaRiverHubPath = '/rivers/by-river/saluda-river/';
 
 const merrimackRiverConsolidatedRouteSlugs = [
   'merrimack-river-sewalls-falls-ferry-street',
@@ -100,6 +101,21 @@ const spokaneRiverConsolidatedRouteSlugs = [
   'spokane-river-redband-aubrey-white',
   'spokane-river-redband-plese-flats',
   'spokane-river-redband-nine-mile-dam',
+] as const;
+
+const saludaRiverConsolidatedRouteSlugs = [
+  'saluda-river-saluda-shoals-gardendale',
+] as const;
+
+const saludaRiverLaunchAliasSlugs = [
+  'saluda-river-hope-ferry-gardendale',
+] as const;
+
+const saludaRiverAccessNoteRouteSlugs = [
+  'saluda-river-saluda-shoals-hope-ferry',
+  'saluda-river-saluda-shoals-i26',
+  'saluda-river-gardendale-i26',
+  'saluda-river-hope-ferry-i26',
 ] as const;
 
 const susquehannaConsolidatedRouteSlugs = [
@@ -767,6 +783,9 @@ const consolidatedRouteTargets = new Map<string, string>(
     ...susquehannaConsolidatedRouteSlugs.map((slug) => [slug, `${susquehannaRiverHubPath}?route=${slug}#trip-${slug}`] as const),
     ...merrimackRiverConsolidatedRouteSlugs.map((slug) => [slug, `${merrimackRiverHubPath}?route=${slug}#trip-${slug}`] as const),
     ...spokaneRiverConsolidatedRouteSlugs.map((slug) => [slug, `${spokaneRiverHubPath}?route=${slug}#trip-${slug}`] as const),
+    ...saludaRiverConsolidatedRouteSlugs.map((slug) => [slug, `${saludaRiverHubPath}?route=${slug}#trip-${slug}`] as const),
+    ...saludaRiverLaunchAliasSlugs.map((slug) => [slug, `${saludaRiverHubPath}?route=saluda-river-saluda-shoals-gardendale#trip-saluda-river-saluda-shoals-gardendale`] as const),
+    ...saludaRiverAccessNoteRouteSlugs.map((slug) => [slug, `${saludaRiverHubPath}#saluda-route-access-notes`] as const),
   ],
 );
 
