@@ -51,6 +51,7 @@ const isVillageCreekHub = group.riverId === 'village-creek';
 const isElevenPointHub = group.riverId === 'eleven-point-river';
 const isJacksForkHub = group.riverId === 'jacks-fork-river';
 const isCurrentRiverHub = group.riverId === 'current-river';
+const isYellowBreechesHub = group.riverId === 'yellow-breeches-creek';
 const hasConsolidatedTrips = group.routes.some((route) => routePageConsolidationTarget(route.slug));
 const stateSummary = group.states.join(', ');
 const stateDisplay = group.states.join(' and ');
@@ -65,6 +66,8 @@ const needsRegionInTitle = listRiverGroups().some((other) =>
 const groupTitleLocation = needsRegionInTitle ? `${regionSummary}, ${stateSummary}` : stateSummary;
 const groupTitle = isBroadRiverHub
   ? 'Broad River, South Carolina | Paddling Sections & Access'
+  : isYellowBreechesHub
+  ? 'Yellow Breeches Creek, Pennsylvania | Paddling Trips & Access'
   : isCurrentRiverHub
   ? 'Current River, Missouri | Upper & Lower Float Sections'
   : isJacksForkHub
@@ -126,6 +129,8 @@ const groupTitle = isBroadRiverHub
   : `${group.name}, ${groupTitleLocation} | Paddle Routes & Trip Planning`;
 const groupDescription = isBroadRiverHub
   ? 'Compare eight Paddle SC trips on South Carolina’s Broad River, from Ninety-Nine Islands to Strother Landing and the separate Peak–Harbison reach. Check trip-specific gauges, dam portages, and public access.'
+  : isYellowBreechesHub
+  ? 'Compare 10 Yellow Breeches Creek trips from Simpson Park through McCormick Park, Lower Allen, and Liberty Forge to Yellow Breeches Park. Review route mileage, the Camp Hill gauge, bridge access, camping rules, and the county’s B6 take-out advisory.'
   : isCurrentRiverHub
   ? 'Compare 16 Current River trips in Ozark National Scenic Riverways, from Cedar Grove and Akers to Van Buren and Gooseneck. Review upper and lower sections, two gauge contexts, NPS float estimates, and access details.'
   : isJacksForkHub
@@ -199,7 +204,7 @@ const difficultyLabels = [...new Set(group.routes.map((route) => route.profile.d
   .sort();
 const routeDistanceLabels = group.routes.map((route) => route.logistics?.distanceLabel).filter(Boolean);
 const routeDistanceMiles = routeDistanceLabels
-  .map((label) => Number(String(label).match(/(\d+(?:\.\d+)?)/)?.[1]))
+  .flatMap((label) => (String(label).match(/\d+(?:\.\d+)?/g) ?? []).map(Number))
   .filter((distance) => Number.isFinite(distance));
 const distanceRangeLabel = routeDistanceMiles.length > 0
   ? `${Math.min(...routeDistanceMiles).toLocaleString()}–${Math.max(...routeDistanceMiles).toLocaleString()} mi`
@@ -1170,6 +1175,57 @@ const groupStructuredData = [
       </section>
     ) : null}
 
+    {isYellowBreechesHub ? (
+      <section class="river-group-page__panel" id="yellow-breeches-section-guide" aria-labelledby="yellow-breeches-section-guide-title">
+        <div class="river-group-page__section-head">
+          <div>
+            <p class="eyebrow section-label">Cumberland County Water Trail · Pennsylvania</p>
+            <h2 class="section-title" id="yellow-breeches-section-guide-title">Choose a Yellow Breeches trip by access point</h2>
+          </div>
+          <p class="muted river-group-page__section-note">
+            The route picker keeps every endpoint choice, with each trip’s gauge, access, shuttle, and safety notes.
+          </p>
+        </div>
+        <div class="river-hub-context__grid">
+          <article class="river-hub-context__item">
+            <h3>Five public access points, four adjacent legs</h3>
+            <p>
+              This route family follows the county’s lower water-trail chain from B2 through B6. The county guide lists Simpson Park–McCormick Park at 1.1 miles, McCormick–Lower Allen at 3.6, Lower Allen–Liberty Forge at 0.5, and Liberty Forge–Yellow Breeches Park at 1.9. The Lower Allen–Liberty Forge card also shows the roughly 0.8-mile mapped trace, so longer totals crossing that leg are displayed as a range. Click a direct leg to compare its launch, take-out, and trip notes.
+            </p>
+            <ul>
+              <li><a href={routeSlugHref('yellow-breeches-creek-simpson-park-mccormick-park')}>B2 Simpson Park to B3 McCormick Park</a> · 1.1 mi</li>
+              <li><a href={routeSlugHref('yellow-breeches-creek-mccormick-park-lower-allen-community-park')}>B3 McCormick Park to B4 Lower Allen</a> · 3.6 mi</li>
+              <li><a href={routeSlugHref('yellow-breeches-creek-lower-allen-community-park-liberty-forge')}>B4 Lower Allen to B5 Liberty Forge</a> · 0.5–0.8 mi by source/map</li>
+              <li><a href={routeSlugHref('yellow-breeches-creek-liberty-forge-yellow-breeches-park')}>B5 Liberty Forge to B6 Yellow Breeches Park</a> · 1.9 mi</li>
+            </ul>
+          </article>
+          <article class="river-hub-context__item">
+            <h3>Plan to finish at B6</h3>
+            <p>
+              Cumberland County reports a complete blockage from a large fallen tree and logjam between B6 and B7, posted July 23, 2024, and recommends taking out at Yellow Breeches Park (B6). The route choices here end at or above B6; do not treat them as an invitation to continue downstream through the B7 hazard or dam-portage area. Check the county advisory again before launch because reported creek conditions can change.
+            </p>
+            <ul>
+              <li><a href={routeSlugHref('yellow-breeches-creek-lower-allen-community-park-yellow-breeches-park')}>Lower Allen to B6</a> · 2.4–2.7 mi</li>
+              <li><a href={routeSlugHref('yellow-breeches-creek-mccormick-park-yellow-breeches-park')}>McCormick Park to B6</a> · 6.0–6.3 mi</li>
+              <li><a href={routeSlugHref('yellow-breeches-creek-simpson-park-yellow-breeches-park')}>Simpson Park to B6</a> · 7.1–7.4 mi</li>
+            </ul>
+          </article>
+          <article class="river-hub-context__item">
+            <h3>Gauge and access checks</h3>
+            <p>
+              Cumberland County recommends checking USGS 01571500 at Camp Hill and gives a boating range of 1.4–2.0 feet; it lists 6 feet as action stage and 7 as flood stage. This downstream same-creek gauge is context for these planning-only routes, not a guarantee for conditions at a launch. County trail guidance says to stay within daylight hours and respect private property; its 2015 guide lists Lower Allen Community Park as the only trail access with camping, by reservation. Liberty Forge access is limited to the Old Forge Road bridge area and its posted rules.
+            </p>
+            <p>
+              Review the current <a href="https://www.cumberlandcountypa.gov/4907/Cumberland-County-Water-Trails" target="_blank" rel="noopener noreferrer">Cumberland County water-trail advisories</a>, its <a href="https://www.cumberlandcountypa.gov/DocumentCenter/View/23587/YellowBreechesGuide_2015Version" target="_blank" rel="noopener noreferrer">Yellow Breeches guide</a>, the <a href="https://gis.ccpa.net/storymaps/yellowbreeches/" target="_blank" rel="noopener noreferrer">interactive access map</a>, and <a href="https://waterdata.usgs.gov/monitoring-location/USGS-01571500/" target="_blank" rel="noopener noreferrer">USGS 01571500</a> before setting a shuttle.
+            </p>
+          </article>
+        </div>
+        <p>
+          The 10 trip cards below preserve every Simpson–B6 endpoint combination. Six focused trips have dedicated route guides; the overlapping combinations remain selectable here with their own shuttle, gauge, access, and safety notes. No route-wide condition score is inferred from the Camp Hill gauge.
+        </p>
+      </section>
+    ) : null}
+
     {isMerrimackHub ? (
       <section class="river-group-page__panel" aria-labelledby="merrimack-river-sections-title">
         <div class="river-group-page__section-head">
@@ -1687,9 +1743,9 @@ const groupStructuredData = [
                       <span data-group-initial-score>{route.scoreEligibility === 'planning' ? 'Planning route' : 'Loading'}</span>
                     </span>
                   </button>
-                  {isWillimanticHub || isMerrimackHub || isSpokaneHub || isSaludaHub || isWabashHub || isVillageCreekHub || isElevenPointHub || isJacksForkHub || isCurrentRiverHub || isAnimasHub || isHousatonicHub ? (
+                  {isWillimanticHub || isMerrimackHub || isSpokaneHub || isSaludaHub || isWabashHub || isVillageCreekHub || isElevenPointHub || isJacksForkHub || isCurrentRiverHub || isYellowBreechesHub || isAnimasHub || isHousatonicHub ? (
                     <details class="route-choice__trip-notes">
-                      <summary>{isJacksForkHub || isCurrentRiverHub ? 'Access, gauge, shuttle, and camping notes' : isAnimasHub || isHousatonicHub ? 'Access, flow, and safety notes' : 'Access, gauge, and safety notes'}</summary>
+                      <summary>{isJacksForkHub || isCurrentRiverHub || isYellowBreechesHub ? 'Access, gauge, shuttle, and camping notes' : isAnimasHub || isHousatonicHub ? 'Access, flow, and safety notes' : 'Access, gauge, and safety notes'}</summary>
                       <div>
                         <p>{route.logistics?.summary || route.summary}</p>
                         <p>
@@ -1710,6 +1766,9 @@ const groupStructuredData = [
                         {isCurrentRiverHub && route.logistics?.shuttle ? <p><strong>Shuttle:</strong> {route.logistics.shuttle}</p> : null}
                         {isCurrentRiverHub && route.logistics?.camping ? <p><strong>Camping:</strong> {route.logistics.camping}</p> : null}
                         {isCurrentRiverHub && route.logistics?.permits ? <p><strong>Rules:</strong> {route.logistics.permits}</p> : null}
+                        {isYellowBreechesHub && route.logistics?.shuttle ? <p><strong>Shuttle:</strong> {route.logistics.shuttle}</p> : null}
+                        {isYellowBreechesHub && route.logistics?.camping ? <p><strong>Camping:</strong> {route.logistics.camping}</p> : null}
+                        {isYellowBreechesHub && route.logistics?.permits ? <p><strong>Rules:</strong> {route.logistics.permits}</p> : null}
                         {route.logistics?.accessCaveats?.length ? (
                           <ul>{route.logistics.accessCaveats.map((note) => <li>{note}</li>)}</ul>
                         ) : null}
@@ -1812,7 +1871,9 @@ const groupStructuredData = [
         <article class="river-hub-context__item">
           <h3>Water levels</h3>
           <p>
-            {isCurrentRiverHub
+            {isYellowBreechesHub
+              ? 'Use USGS 01571500 at Camp Hill as same-creek context. Cumberland County recommends 1.4–2.0 ft for boating and lists 6 ft as action stage and 7 ft as flood stage; the gauge does not guarantee conditions at each access point.'
+              : isCurrentRiverHub
               ? 'The Current River guide separates the Upper Current between Cedar Grove and Round Spring from the Lower Current around Waymeyer, Van Buren, Big Spring, Cataract, and Gooseneck. USGS 07064533 above Akers and USGS 07067000 at Van Buren describe different reaches; select the gauge shown on the exact trip card.'
               : isJacksForkHub
               ? 'Jacks Fork options follow one main access corridor, but the upper section is seasonal and trip guidance uses three different stations. The trip cards group every endpoint choice here; use the direct source-backed adjacent floats to anchor a plan, and select the route that matches your launch, take-out, time, and gauge.'
@@ -1830,7 +1891,9 @@ const groupStructuredData = [
         <article class="river-hub-context__item">
           <h3>Route options</h3>
           <p>
-            {isCurrentRiverHub
+            {isYellowBreechesHub
+              ? `Compare all ${group.routeCount} Yellow Breeches endpoint choices from Simpson Park through McCormick Park, Lower Allen, and Liberty Forge to B6. Six focused trips have dedicated route guides; overlapping combinations remain available here, and the adjacent Simpson–McCormick leg is available as a short option.`
+              : isCurrentRiverHub
               ? `Compare all ${group.routeCount} Current River endpoint choices here. The picker keeps the two NPS-described sections separate and preserves every trip with its own endpoints, gauge, distance, shuttle, camping, and safety details.`
               : isJacksForkHub
               ? `Compare all ${group.routeCount} Jacks Fork endpoint choices here. The NPS adjacent float sections provide useful anchors, while longer combinations remain available with their own mileage, shuttle, camping, and hazard notes. Use the gauge assigned to the specific trip: Mountain View upstream, Alley Spring in the middle, or Eminence for the lower finish.`

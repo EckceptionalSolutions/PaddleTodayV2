@@ -4803,14 +4803,14 @@ export const pennsylvaniaRoutes: River[] = [
       "seasonNotes": "Warm-season windows are the easiest fit, but the creek is quick to rise after thunderstorms and quick to get scratchy when the Camp Hill proxy falls below the county floor.",
       "difficulty": "easy",
       "difficultyNotes": "The route is short and approachable at normal summer levels, but low water, fresh wood, or a sloppy Liberty Forge finish can make it feel less casual than the mileage suggests.",
-      "confidenceNotes": "Confidence is good for a conservative Pennsylvania add: Cumberland County still publishes McCormick Park and Liberty Forge as named public Yellow Breeches access points, and the county story map still gives exact endpoint coordinates plus the 3.6-mile McCormick-to-Lower-Allen and 0.5-mile Lower-Allen-to-Liberty legs that define this 4.1-mile route. The story map also still says the public may access the creek for boating at the Old Forge Road bridge at Liberty Forge while following posted rules. The county still recommends boating at 1.4 to 2.0 ft on the Camp Hill gauge, and same-day USGS Water Services returned 175 cfs and 1.38 ft at 2026-07-10 08:13 EDT for USGS 01571500."
+      "confidenceNotes": "Confidence is good for a conservative Pennsylvania add: Cumberland County still publishes McCormick Park and Liberty Forge as named public Yellow Breeches access points, and Cumberland County’s guide gives a 4.1-mile total using its 0.5-mile B4–B5 spacing; the mapped trace puts that leg near 0.8 miles, so the card shows 4.1–4.4 miles. The story map also still says the public may access the creek for boating at the Old Forge Road bridge at Liberty Forge while following posted rules. The county still recommends boating at 1.4 to 2.0 ft on the Camp Hill gauge, and same-day USGS Water Services returned 175 cfs and 1.38 ft at 2026-07-10 08:13 EDT for USGS 01571500."
     },
     "evidenceNotes": [
       {
         "label": "Official route shape",
-        "value": "McCormick Park to Liberty Forge, about 4.1 mi",
-        "note": "The county story map lists McCormick Park to Lower Allen Community Park as 3.6 miles and Lower Allen Community Park to Liberty Forge as 0.5 miles.",
-        "sourceUrl": "https://gis.ccpa.net/storymaps/yellowbreeches/"
+        "value": "McCormick Park to Liberty Forge, about 4.1–4.4 mi",
+        "note": "Cumberland County's trail guide lists 3.6 miles to Lower Allen and 0.5 miles from Lower Allen to Liberty Forge; Paddle Today's mapped trace estimates that last leg at about 0.8 miles. The card shows the resulting 4.1–4.4-mile range.",
+        "sourceUrl": "https://www.cumberlandcountypa.gov/DocumentCenter/View/23587/YellowBreechesGuide_2015Version"
       },
       {
         "label": "Public endpoint coordinates",
@@ -4930,14 +4930,14 @@ export const pennsylvaniaRoutes: River[] = [
       "seasonNotes": "Short warm-season floats are the natural fit, but this creek can rise fast after storms and still get annoyingly shallow when the Camp Hill proxy slips below the county recommendation.",
       "difficulty": "easy",
       "difficultyNotes": "The route is very short and normally easy, but low water, fresh wood, and the bridge-side public finish can still make it feel less casual than the mileage suggests.",
-      "confidenceNotes": "Confidence is good for a conservative Pennsylvania add: Cumberland County still publishes Lower Allen Community Park and Liberty Forge as named public Yellow Breeches access points, and the county story map still gives exact endpoint coordinates for the short Lower-Allen-to-Liberty bridge-access leg that defines this route. The story map also still says the public may access the creek for boating at the bridge at Old Forge Road while following posted rules. Paddle Today carries the leg as about 0.8 miles so the mapped route stays longer than the straight-line endpoint geometry. The county still recommends boating at 1.4 to 2.0 ft on the Camp Hill gauge, and same-day USGS Water Services returned 120 cfs and 1.12 ft at 2026-07-14 00:45 EDT for USGS 01571500."
+      "confidenceNotes": "Confidence is good for a conservative Pennsylvania add: Cumberland County still publishes Lower Allen Community Park and Liberty Forge as named public Yellow Breeches access points, and the county story map still gives exact endpoint coordinates for the short Lower-Allen-to-Liberty bridge-access leg that defines this route. The story map also still says the public may access the creek for boating at the bridge at Old Forge Road while following posted rules. Cumberland County’s guide lists the B4–B5 spacing as 0.5 miles; Paddle Today’s mapped creek trace is about 0.8 miles, so the card shows both estimates. The county still recommends boating at 1.4 to 2.0 ft on the Camp Hill gauge, and same-day USGS Water Services returned 120 cfs and 1.12 ft at 2026-07-14 00:45 EDT for USGS 01571500."
     },
     "evidenceNotes": [
       {
         "label": "Official route shape",
-        "value": "Lower Allen Community Park to Liberty Forge, about 0.8 mi",
-        "note": "Cumberland County still publishes the Lower Allen Community Park and Liberty Forge endpoints on the story map, and the mapped bridge-access leg is carried here as about 0.8 miles so the route remains consistent with the published endpoint geometry.",
-        "sourceUrl": "https://gis.ccpa.net/storymaps/yellowbreeches/"
+        "value": "Lower Allen Community Park to Liberty Forge, about 0.5–0.8 mi",
+        "note": "Cumberland County's trail guide lists this B4–B5 access spacing as 0.5 miles; Paddle Today's mapped creek trace is about 0.8 miles. The route card preserves both estimates because the mapped reach is longer than the county's listed spacing.",
+        "sourceUrl": "https://www.cumberlandcountypa.gov/DocumentCenter/View/23587/YellowBreechesGuide_2015Version"
       },
       {
         "label": "Public endpoint coordinates",
@@ -5057,14 +5057,14 @@ export const pennsylvaniaRoutes: River[] = [
       "seasonNotes": "Short warm-season floats are the natural fit, but this creek can rise fast after storms and still get annoyingly shallow when the Camp Hill proxy slips below the county recommendation.",
       "difficulty": "easy",
       "difficultyNotes": "The route is short and normally easy, but the low-water scrape potential and the need to finish before the posted downstream blockage keep it from being a mindless drift.",
-      "confidenceNotes": "Confidence is good for a conservative Pennsylvania add: Cumberland County still publishes Lower Allen Community Park and Yellow Breeches Park as named public access points, and the county story map still gives exact endpoint coordinates plus the 0.5-mile Lower-Allen-to-Liberty and 1.9-mile Liberty-to-Yellow-Breeches legs that define this 2.4-mile route. The county still recommends boating at 1.4 to 2.0 ft on the Camp Hill gauge, same-day USGS Water Services returned 175 cfs and 1.38 ft at 2026-07-10 08:13 EDT for USGS 01571500, and the current county advisory explicitly recommends B6 as the safer downstream finish because of the blockage above B7."
+      "confidenceNotes": "Confidence is good for a conservative Pennsylvania add: Cumberland County still publishes Lower Allen Community Park and Yellow Breeches Park as named public access points, and Cumberland County’s guide gives a 2.4-mile total using 0.5 miles for B4–B5; the mapped trace puts that leg near 0.8 miles, so the card shows 2.4–2.7 miles. The county still recommends boating at 1.4 to 2.0 ft on the Camp Hill gauge, same-day USGS Water Services returned 175 cfs and 1.38 ft at 2026-07-10 08:13 EDT for USGS 01571500, and the current county advisory explicitly recommends B6 as the safer downstream finish because of the blockage above B7."
     },
     "evidenceNotes": [
       {
         "label": "Official route shape",
-        "value": "Lower Allen Community Park to Yellow Breeches Park, about 2.4 mi",
-        "note": "The county story map lists Lower Allen Community Park to Liberty Forge as 0.5 miles and Liberty Forge to Yellow Breeches Park as 1.9 miles.",
-        "sourceUrl": "https://gis.ccpa.net/storymaps/yellowbreeches/"
+        "value": "Lower Allen Community Park to Yellow Breeches Park, about 2.4–2.7 mi",
+        "note": "Cumberland County's trail guide totals 0.5 miles for B4–B5 and 1.9 miles for B5–B6; Paddle Today's mapped trace estimates B4–B5 at about 0.8 miles. The card shows both resulting totals.",
+        "sourceUrl": "https://www.cumberlandcountypa.gov/DocumentCenter/View/23587/YellowBreechesGuide_2015Version"
       },
       {
         "label": "Public endpoint coordinates",
@@ -5184,14 +5184,14 @@ export const pennsylvaniaRoutes: River[] = [
       "seasonNotes": "Spring through early fall is the clearest fit, but summer thunderstorms can raise this small creek quickly and low summer water can turn even a moderate day into a scrape-and-drag outing.",
       "difficulty": "easy",
       "difficultyNotes": "This is easy moving water in ordinary conditions, but the longer distance, shallow low-water bends, bridge-side finish, and limited legal bailout options make it more serious than the shortest township segments.",
-      "confidenceNotes": "Confidence is good for a conservative Pennsylvania add: Cumberland County still publishes Simpson Park and Liberty Forge as named public Yellow Breeches access points, and the county story map still gives exact endpoint coordinates plus the 1.1-mile Simpson-to-McCormick, 3.6-mile McCormick-to-Lower-Allen, and 0.5-mile Lower-Allen-to-Liberty legs that define this 5.2-mile route. The story map also still says the public may access the creek for boating at the Old Forge Road bridge at Liberty Forge while following posted rules. The county still recommends boating at 1.4 to 2.0 ft on the Camp Hill gauge, and same-day USGS Water Services returned 149 cfs and 1.26 ft at 2026-07-10 23:45 EDT for USGS 01571500."
+      "confidenceNotes": "Confidence is good for a conservative Pennsylvania add: Cumberland County still publishes Simpson Park and Liberty Forge as named public Yellow Breeches access points, and Cumberland County’s guide gives a 5.2-mile total using 0.5 miles for B4–B5; the mapped trace puts that leg near 0.8 miles, so the card shows 5.2–5.5 miles. The story map also still says the public may access the creek for boating at the Old Forge Road bridge at Liberty Forge while following posted rules. The county still recommends boating at 1.4 to 2.0 ft on the Camp Hill gauge, and same-day USGS Water Services returned 149 cfs and 1.26 ft at 2026-07-10 23:45 EDT for USGS 01571500."
     },
     "evidenceNotes": [
       {
         "label": "Official route shape",
-        "value": "Simpson Park to Liberty Forge, about 5.2 mi",
-        "note": "The county story map lists Simpson Park to McCormick Park as 1.1 miles, McCormick Park to Lower Allen Community Park as 3.6 miles, and Lower Allen Community Park to Liberty Forge as 0.5 miles.",
-        "sourceUrl": "https://gis.ccpa.net/storymaps/yellowbreeches/"
+        "value": "Simpson Park to Liberty Forge, about 5.2–5.5 mi",
+        "note": "Cumberland County's trail guide totals the adjacent legs at 5.2 miles using 0.5 miles for B4–B5; Paddle Today's mapped trace estimates B4–B5 at about 0.8 miles. The card shows both resulting totals.",
+        "sourceUrl": "https://www.cumberlandcountypa.gov/DocumentCenter/View/23587/YellowBreechesGuide_2015Version"
       },
       {
         "label": "Public endpoint coordinates",
@@ -5311,14 +5311,14 @@ export const pennsylvaniaRoutes: River[] = [
       "seasonNotes": "Spring through early fall is the clearest fit, but summer thunderstorms can raise this small creek quickly and low summer water can turn a longer route into a scratchy, slower day.",
       "difficulty": "easy",
       "difficultyNotes": "This is easy moving water in ordinary conditions, but seven-plus miles, low-water scrape potential, wood movement after storms, and the need to stop before the posted downstream hazard make it a real day plan rather than a casual drift.",
-      "confidenceNotes": "Confidence is good for a conservative Pennsylvania add: Cumberland County still publishes Simpson Park and Yellow Breeches Park as named public Yellow Breeches access points, and the county story map still gives exact endpoint coordinates plus the 1.1-mile Simpson-to-McCormick, 3.6-mile McCormick-to-Lower-Allen, 0.5-mile Lower-Allen-to-Liberty, and 1.9-mile Liberty-to-Yellow-Breeches legs that define this 7.1-mile route. The county still recommends boating at 1.4 to 2.0 ft on the Camp Hill gauge, same-day USGS Water Services returned 149 cfs and 1.26 ft at 2026-07-10 23:45 EDT for USGS 01571500, and the current county advisory explicitly recommends B6 as the safer downstream finish because of the blockage above B7."
+      "confidenceNotes": "Confidence is good for a conservative Pennsylvania add: Cumberland County still publishes Simpson Park and Yellow Breeches Park as named public Yellow Breeches access points, and Cumberland County’s guide gives a 7.1-mile total using 0.5 miles for B4–B5; the mapped trace puts that leg near 0.8 miles, so the card shows 7.1–7.4 miles. The county still recommends boating at 1.4 to 2.0 ft on the Camp Hill gauge, same-day USGS Water Services returned 149 cfs and 1.26 ft at 2026-07-10 23:45 EDT for USGS 01571500, and the current county advisory explicitly recommends B6 as the safer downstream finish because of the blockage above B7."
     },
     "evidenceNotes": [
       {
         "label": "Official route shape",
-        "value": "Simpson Park to Yellow Breeches Park, about 7.1 mi",
-        "note": "The county story map lists Simpson Park to McCormick Park as 1.1 miles, McCormick Park to Lower Allen Community Park as 3.6 miles, Lower Allen Community Park to Liberty Forge as 0.5 miles, and Liberty Forge to Yellow Breeches Park as 1.9 miles.",
-        "sourceUrl": "https://gis.ccpa.net/storymaps/yellowbreeches/"
+        "value": "Simpson Park to Yellow Breeches Park, about 7.1–7.4 mi",
+        "note": "Cumberland County's trail guide totals the adjacent legs at 7.1 miles using 0.5 miles for B4–B5; Paddle Today's mapped trace estimates B4–B5 at about 0.8 miles. The card shows both resulting totals.",
+        "sourceUrl": "https://www.cumberlandcountypa.gov/DocumentCenter/View/23587/YellowBreechesGuide_2015Version"
       },
       {
         "label": "Public endpoint coordinates",
@@ -5438,14 +5438,14 @@ export const pennsylvaniaRoutes: River[] = [
       "seasonNotes": "Warm-season windows are the easiest fit, but the creek is quick to rise after thunderstorms and quick to get scratchy when the Camp Hill proxy falls below the county floor.",
       "difficulty": "easy",
       "difficultyNotes": "The route is approachable at normal summer levels, but six miles of moving water, low-water scraping, fresh wood, and the need to finish before the posted downstream hazard keep it from being a mindless drift.",
-      "confidenceNotes": "Confidence is good for a conservative Pennsylvania add: Cumberland County still publishes McCormick Park and Yellow Breeches Park as named public Yellow Breeches access points, and the county story map still gives exact endpoint coordinates plus the 3.6-mile McCormick-to-Lower-Allen, 0.5-mile Lower-Allen-to-Liberty, and 1.9-mile Liberty-to-Yellow-Breeches legs that define this 6.0-mile route. The story map also still says the public may access the creek for boating at the Old Forge Road bridge at Liberty Forge while following posted rules. The county still recommends boating at 1.4 to 2.0 ft on the Camp Hill gauge, same-day USGS Water Services returned 149 cfs and 1.26 ft at 2026-07-10 23:45 EDT for USGS 01571500, and the current county advisory explicitly recommends B6 as the safer downstream finish because of the blockage above B7."
+      "confidenceNotes": "Confidence is good for a conservative Pennsylvania add: Cumberland County still publishes McCormick Park and Yellow Breeches Park as named public Yellow Breeches access points, and Cumberland County’s guide gives a 6.0-mile total using 0.5 miles for B4–B5; the mapped trace puts that leg near 0.8 miles, so the card shows 6.0–6.3 miles. The story map also still says the public may access the creek for boating at the Old Forge Road bridge at Liberty Forge while following posted rules. The county still recommends boating at 1.4 to 2.0 ft on the Camp Hill gauge, same-day USGS Water Services returned 149 cfs and 1.26 ft at 2026-07-10 23:45 EDT for USGS 01571500, and the current county advisory explicitly recommends B6 as the safer downstream finish because of the blockage above B7."
     },
     "evidenceNotes": [
       {
         "label": "Official route shape",
-        "value": "McCormick Park to Yellow Breeches Park, about 6.0 mi",
-        "note": "The county story map lists McCormick Park to Lower Allen Community Park as 3.6 miles, Lower Allen Community Park to Liberty Forge as 0.5 miles, and Liberty Forge to Yellow Breeches Park as 1.9 miles.",
-        "sourceUrl": "https://gis.ccpa.net/storymaps/yellowbreeches/"
+        "value": "McCormick Park to Yellow Breeches Park, about 6.0–6.3 mi",
+        "note": "Cumberland County's trail guide totals the adjacent legs at 6.0 miles using 0.5 miles for B4–B5; Paddle Today's mapped trace estimates B4–B5 at about 0.8 miles. The card shows both resulting totals.",
+        "sourceUrl": "https://www.cumberlandcountypa.gov/DocumentCenter/View/23587/YellowBreechesGuide_2015Version"
       },
       {
         "label": "Public endpoint coordinates",

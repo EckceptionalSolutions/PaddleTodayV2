@@ -777,7 +777,7 @@ export const pennsylvaniaRiverTripDetails: Record<string, RiverTripDetails> = {
       "longitude": -76.924172
     },
     "logistics": {
-      "distanceLabel": "About 0.8 mi",
+      "distanceLabel": "About 0.5–0.8 mi",
       "estimatedPaddleTime": "About 20 min to 45 min depending on depth, wood, and how quickly you clear the bridge-side finish",
       "shuttle": "Stage the take-out at Liberty Forge before driving back to Lower Allen Community Park. Inspect the bridge-access pull-off first because parking is limited and same-day resort activity can affect the simplest finish.",
       "permits": "No route-specific paddling permit is known for this park-to-bridge connector. Follow current township, boating, and PFD rules, and obey any posted public-access instructions at Liberty Forge.",
@@ -810,7 +810,7 @@ export const pennsylvaniaRiverTripDetails: Record<string, RiverTripDetails> = {
       "longitude": -76.924172
     },
     "logistics": {
-      "distanceLabel": "About 4.1 mi",
+      "distanceLabel": "About 4.1–4.4 mi",
       "estimatedPaddleTime": "About 1 hr 45 min to 3 hr depending on depth, wood, and how careful the bridge-side finish feels on the day",
       "shuttle": "Stage the take-out at Liberty Forge before driving back to McCormick Park. Inspect the Old Forge Road bridge-access area first because parking is limited and same-day resort activity can affect the simplest finish.",
       "permits": "No route-specific paddling permit is known for this park-to-bridge segment. Follow current township, boating, and PFD rules, and obey any posted public-access instructions at Liberty Forge.",
@@ -843,7 +843,7 @@ export const pennsylvaniaRiverTripDetails: Record<string, RiverTripDetails> = {
       "longitude": -76.912682
     },
     "logistics": {
-      "distanceLabel": "About 2.4 mi",
+      "distanceLabel": "About 2.4–2.7 mi",
       "estimatedPaddleTime": "About 1 hr to 2 hr depending on depth, wood, and how much low-water line picking is needed",
       "shuttle": "Stage the take-out at Yellow Breeches Park before driving back to Lower Allen Community Park. Inspect the Sheepford Road finish first because informal roadside parking and muddy footing can change the feel quickly after rain.",
       "permits": "No route-specific paddling permit is known for these township launches. Follow current township, boating, and PFD rules, and do not assume the route should continue downstream into the posted B7 hazard area.",
@@ -876,7 +876,7 @@ export const pennsylvaniaRiverTripDetails: Record<string, RiverTripDetails> = {
       "longitude": -76.924172
     },
     "logistics": {
-      "distanceLabel": "About 5.2 mi",
+      "distanceLabel": "About 5.2–5.5 mi",
       "estimatedPaddleTime": "About 2 hr 15 min to 4 hr depending on depth, wood, and how much scraping or scouting the creek needs that day",
       "shuttle": "Stage the take-out at Liberty Forge before driving back to Simpson Park. Inspect the Old Forge Road bridge-access area first because parking is limited and same-day resort activity can affect the simplest finish.",
       "permits": "No route-specific paddling permit is known for this township-to-bridge route. Follow current township, boating, and PFD rules, and obey any posted public-access instructions at Liberty Forge.",
@@ -909,7 +909,7 @@ export const pennsylvaniaRiverTripDetails: Record<string, RiverTripDetails> = {
       "longitude": -76.912682
     },
     "logistics": {
-      "distanceLabel": "About 7.1 mi",
+      "distanceLabel": "About 7.1–7.4 mi",
       "estimatedPaddleTime": "About 3 hr to 5 hr depending on depth, wood, and how much low-water line picking or scouting the creek needs that day",
       "shuttle": "Stage the take-out at Yellow Breeches Park before driving back to Simpson Park. Inspect the Sheepford Road finish first because informal roadside parking and muddy footing can change the feel quickly after rain.",
       "permits": "No route-specific paddling permit is known for these township launches. Follow current township, boating, and PFD rules, and do not assume the route should continue downstream into the posted B7 hazard area.",
@@ -942,7 +942,7 @@ export const pennsylvaniaRiverTripDetails: Record<string, RiverTripDetails> = {
       "longitude": -76.912682
     },
     "logistics": {
-      "distanceLabel": "About 6.0 mi",
+      "distanceLabel": "About 6.0–6.3 mi",
       "estimatedPaddleTime": "About 2 hr 30 min to 4 hr 30 min depending on depth, wood, and how much low-water line picking the creek needs that day",
       "shuttle": "Stage the take-out at Yellow Breeches Park before driving back to McCormick Park. Inspect the Sheepford Road finish first because informal roadside parking and muddy footing can change quickly after rain.",
       "permits": "No route-specific paddling permit is known for this park-to-park route. Follow current township, boating, and PFD rules, and do not assume a downstream continuation beyond the posted B6 finish.",
