@@ -725,6 +725,139 @@ export const utahRoutes: River[] = [
     ]
   },
   {
+    "id": "green-river-ruby-ranch-mineral-bottom",
+    "slug": "green-river-ruby-ranch-mineral-bottom",
+    "name": "Green River",
+    "reach": "Ruby Ranch to Mineral Bottom (Labyrinth Canyon)",
+    "aliases": [
+      "Labyrinth Canyon",
+      "Ruby Ranch to Mineral Bottom",
+      "Green River Labyrinth Canyon 45-mile trip"
+    ],
+    "state": "Utah",
+    "region": "Labyrinth Canyon / Green River",
+    "routeType": "recreational",
+    "summary": "Plan the classic 45-mile, multi-day flatwater trip from the private Ruby Ranch launch through Labyrinth Canyon to the Mineral Bottom boat ramp. BLM identifies this launch and take-out pair; plan for remoteness, permit requirements, wind, late-season low water, and a long dirt-road take-out.",
+    "statusText": "Planning route only: USGS 09315000 at Green River is flow context, not a same-day launch score for this multi-day reach. Check the gauge trend, weather and wind, BLM permit stipulations, Ruby Ranch launch access and fee, and Mineral Bottom Road conditions before departure.",
+    "latitude": 38.777217,
+    "longitude": -110.105128,
+    "scoreEligibility": "planning",
+    "gaugeSource": {
+      "id": "usgs-09315000",
+      "provider": "usgs",
+      "siteId": "09315000",
+      "metric": "discharge_cfs",
+      "unit": "cfs",
+      "kind": "direct",
+      "siteName": "Green River at Green River, UT",
+      "detailUrl": "https://waterdata.usgs.gov/monitoring-location/USGS-09315000/"
+    },
+    "safetyProfile": {
+      "riskLevel": "caution",
+      "hazards": [
+        "remote",
+        "wind",
+        "low_water",
+        "access_uncertain"
+      ],
+      "safetyNotes": [
+        "This is a multi-day, remote canyon trip. BLM says services and cell coverage are unavailable in the canyon; carry all drinking water and a reliable emergency communication plan.",
+        "Complete the current BLM noncommercial river permit, carry it on the river, and follow its equipment and camping rules, including a portable toilet system and fire pan for overnight trips.",
+        "Ruby Ranch is private and charges to use its launch; confirm current access, hours, and fees directly before arrival.",
+        "The Mineral Bottom take-out road has a long dirt section and steep switchbacks. BLM recommends high-clearance, four-wheel-drive vehicles and warns the road can become slick or impassable when wet."
+      ],
+      "reviewStatus": "reviewed"
+    },
+    "profile": {
+      "thresholdModel": "minimum-only",
+      "thresholdSource": {
+        "label": "USGS 09315000 flow context; no launch threshold established for this planning-only trip",
+        "url": "https://waterdata.usgs.gov/monitoring-location/USGS-09315000/",
+        "provider": "usgs"
+      },
+      "thresholdSourceStrength": "derived",
+      "rainfallSensitivity": "medium",
+      "seasonMonths": [
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10
+      ],
+      "seasonNotes": "BLM describes Labyrinth Canyon as a spring-through-mid-fall float. Water levels generally decline toward fall and winter, so low-water progress and changing weather need extra planning late in the season.",
+      "difficulty": "moderate",
+      "difficultyNotes": "The reach is flatwater, but 45 miles of exposed, remote canyon travel requires several days of self-supported logistics. Wind, low water, limited communications, and the long Mineral Bottom road make this more than a casual day paddle.",
+      "confidenceNotes": "High confidence in the named 45-mile Ruby Ranch-to-Mineral Bottom trip, BLM permit requirements, launch fee context, seasonal flow caution, and remote-road logistics from BLM and NPS sources. Endpoint coordinates are access-area anchors from a paddling reference, not surveyed entry/landing points; no numeric same-day launch threshold has been established, so this route remains planning-only."
+    },
+    "evidenceNotes": [
+      {
+        "label": "Route and distance",
+        "value": "Ruby Ranch to Mineral Bottom, about 45 river miles",
+        "note": "BLM identifies Ruby Ranch as the alternative launch for a 45-mile Labyrinth Canyon trip and Mineral Bottom as the usual take-out.",
+        "sourceUrl": "https://www.blm.gov/visit/labyrinth-canyon-river"
+      },
+      {
+        "label": "Endpoint coordinates",
+        "value": "38.777217, -110.105128 to 38.524928, -109.993467",
+        "note": "Paddling reference coordinates identify the Ruby Ranch access and Mineral Bottom boat ramp; treat these as access-area anchors and follow signs and posted rules at each site.",
+        "sourceUrl": "https://southwestpaddler.com/docs/greenut6.html"
+      },
+      {
+        "label": "Permit and overnight equipment",
+        "value": "BLM noncommercial permit; portable toilet and fire pan required for overnight trips",
+        "note": "The interagency permit must be completed, carried on the river, and followed; its stipulations include a reusable toilet system and a metal fire pan for overnight trips.",
+        "sourceUrl": "https://www.blm.gov/sites/blm.gov/files/documents/files/LabyrinthPermitFinalForm.pdf"
+      },
+      {
+        "label": "Flow and daily mileage context",
+        "value": "NPS suggests about 10–15 miles per day at low water",
+        "note": "NPS says daily mileage depends on flow and time spent hiking or paddling; late-season low water may reduce progress and create challenges.",
+        "sourceUrl": "https://www.nps.gov/cany/planyourvisit/flatwater.htm"
+      },
+      {
+        "label": "Live flow context",
+        "value": "USGS 09315000 Green River at Green River, UT",
+        "note": "This gauge is upstream of the Ruby Ranch launch and is provided for planning context only; this route has no numeric scoring threshold.",
+        "sourceUrl": "https://waterdata.usgs.gov/monitoring-location/USGS-09315000/"
+      }
+    ],
+    "sourceLinks": [
+      {
+        "label": "BLM Labyrinth Canyon trip information and access",
+        "url": "https://www.blm.gov/visit/labyrinth-canyon-river",
+        "provider": "local"
+      },
+      {
+        "label": "BLM Labyrinth Canyon map",
+        "url": "https://www.blm.gov/sites/default/files/documents/files/LabyrinthCanyonRiverMap6.pdf",
+        "provider": "local"
+      },
+      {
+        "label": "BLM interagency noncommercial river permit",
+        "url": "https://www.blm.gov/sites/blm.gov/files/documents/files/LabyrinthPermitFinalForm.pdf",
+        "provider": "local"
+      },
+      {
+        "label": "NPS Canyonlands flatwater trips and flow planning",
+        "url": "https://www.nps.gov/cany/planyourvisit/flatwater.htm",
+        "provider": "nps"
+      },
+      {
+        "label": "USGS 09315000 Green River at Green River current conditions",
+        "url": "https://waterdata.usgs.gov/monitoring-location/USGS-09315000/",
+        "provider": "usgs"
+      },
+      {
+        "label": "Southwest Paddler Green River access references",
+        "url": "https://southwestpaddler.com/docs/greenut6.html",
+        "provider": "manual"
+      }
+    ]
+  },
+  {
     "id": "clear-creek-fish-creek-confluence-clear-creek-road",
     "slug": "clear-creek-fish-creek-confluence-clear-creek-road",
     "name": "Clear Creek",

@@ -291,6 +291,63 @@ export const utahRiverTripDetails: Record<string, RiverTripDetails> = {
       }
     ]
   },
+  "green-river-ruby-ranch-mineral-bottom": {
+    "putIn": {
+      "id": "ruby-ranch-green-river",
+      "name": "Ruby Ranch private boat launch",
+      "latitude": 38.777217,
+      "longitude": -110.105128
+    },
+    "takeOut": {
+      "id": "mineral-bottom-boat-ramp",
+      "name": "Mineral Bottom Boat Ramp",
+      "latitude": 38.524928,
+      "longitude": -109.993467
+    },
+    "logistics": {
+      "distanceLabel": "About 45 river miles",
+      "estimatedPaddleTime": "Plan about 3–5 days depending on flow, wind, hiking stops, and group pace; NPS suggests roughly 10–15 miles per day at low water",
+      "shuttle": "Stage the Mineral Bottom take-out and confirm the vehicle can manage the access road before launching. From SR 313, the route includes about 16 miles of dirt road and steep switchbacks; BLM recommends high-clearance 4WD and warns the road can become slick or impassable when wet. Arrange a shuttle or vehicle plan in advance because services are limited.",
+      "permits": "A completed BLM interagency noncommercial Labyrinth Canyon permit is required for this reach. Email the completed permit to BLM as directed and carry a copy on the river. Follow current permit stipulations, including the portable toilet system, fire pan for overnight trips, required boating equipment, and group rules. Confirm Utah boating requirements and current fire restrictions before departure.",
+      "camping": "This is an overnight trip. Late-summer and fall sandbars are often available, but select legal camps as conditions allow and follow the BLM permit. Carry a reusable portable toilet system; use a metal fire pan for any fire and pack out all waste, ash, and trash. Carry all drinking water because services and reliable cell coverage are unavailable in the canyon.",
+      "campingClassification": "sandbar_or_gravel_bar",
+      "summary": "A self-supported, roughly 45-mile flatwater trip from Ruby Ranch through Labyrinth Canyon to Mineral Bottom. Keep the BLM permit and all overnight gear aboard, plan daily mileage around current flow and wind, and leave a road-condition and emergency margin at the take-out.",
+      "accessCaveats": [
+        "Ruby Ranch is private property and charges a launch fee. BLM lists daily hours from sunrise to sunset; call ahead to confirm current access, hours, fees, and parking arrangements.",
+        "The stored endpoint coordinates are access-area anchors from a paddling reference, not surveyed water-entry points. Follow current signs and the launch ramp/landing directions on site.",
+        "Much of the river corridor upstream of Ruby Ranch is private; this route starts at Ruby Ranch and does not include the Green River State Park-to-Ruby Ranch section.",
+        "Mineral Bottom access is a remote dirt-road drive with steep switchbacks. Check recent road and weather conditions, and do not assume a standard-clearance vehicle can reach the ramp.",
+        "Cell phone service is not available within the canyon and services are limited. Leave a trip plan with a responsible contact and carry an appropriate emergency communication device."
+      ],
+      "watchFor": [
+        "Late-season low water can slow progress; NPS gives 10–15 miles per day as a low-water planning range, depending on paddling time and stops.",
+        "Wind exposure, long flatwater crossings, motorized boats sharing the channel, and changing weather in an open canyon.",
+        "Remote travel with no dependable cell coverage, limited rescue access, and no services; carry sufficient drinking water, food, repair supplies, first aid, and emergency communication.",
+        "Permit requirements for a completed permit, group travel, required flotation and spare propulsion, a portable toilet system, fire pan, and packing out waste.",
+        "Mud or rain on the Mineral Bottom road, especially the steep switchbacks and final approach to the take-out."
+      ]
+    },
+    "accessPoints": [
+      {
+        "id": "ruby-ranch-green-river",
+        "name": "Ruby Ranch private boat launch",
+        "latitude": 38.777217,
+        "longitude": -110.105128,
+        "mileFromStart": 0,
+        "segmentKind": "creek",
+        "note": "Default put-in for the approximately 45-mile route; private launch with a fee and sunrise-to-sunset hours per BLM. Confirm current terms before departure."
+      },
+      {
+        "id": "mineral-bottom-boat-ramp",
+        "name": "Mineral Bottom Boat Ramp",
+        "latitude": 38.524928,
+        "longitude": -109.993467,
+        "mileFromStart": 45,
+        "segmentKind": "creek",
+        "note": "Usual take-out; BLM access road includes a long dirt section and steep switchbacks. High-clearance 4WD is recommended, and wet roads may be impassable."
+      }
+    ]
+  },
   "clear-creek-fish-creek-confluence-clear-creek-road": {
     "putIn": {
       "id": "fish-creek-confluence-clear-creek",
