@@ -46,6 +46,7 @@ const isBayouTecheHub = group.riverId === 'bayou-teche-river-louisiana';
 const isMerrimackHub = group.riverId === 'merrimack-river-new-hampshire';
 const isSpokaneHub = group.riverId === 'spokane-river-washington';
 const isSaludaHub = group.riverId === 'saluda-river';
+const isWabashHub = group.riverId === 'wabash-river';
 const hasConsolidatedTrips = group.routes.some((route) => routePageConsolidationTarget(route.slug));
 const stateSummary = group.states.join(', ');
 const stateDisplay = group.states.join(' and ');
@@ -60,6 +61,8 @@ const needsRegionInTitle = listRiverGroups().some((other) =>
 const groupTitleLocation = needsRegionInTitle ? `${regionSummary}, ${stateSummary}` : stateSummary;
 const groupTitle = isBroadRiverHub
   ? 'Broad River, South Carolina | Paddling Sections & Access'
+  : isWabashHub
+  ? 'Wabash River near Bluffton, Indiana | Paddle Trips & Access'
   : isSpokaneHub
   ? 'Spokane River, Washington | Paddling Sections, Gauges & Access'
   : isSaludaHub
@@ -111,6 +114,8 @@ const groupTitle = isBroadRiverHub
   : `${group.name}, ${groupTitleLocation} | Paddle Routes & Trip Planning`;
 const groupDescription = isBroadRiverHub
   ? 'Compare eight Paddle SC trips on South Carolina’s Broad River, from Ninety-Nine Islands to Strother Landing and the separate Peak–Harbison reach. Check trip-specific gauges, dam portages, and public access.'
+  : isWabashHub
+  ? 'Compare four Wabash River trips near Bluffton, from Linn Grove Park and Vera Cruz to White Bridge, Kehoe Park, and Hale Street. Check public access, distance, the Bluffton gauge, and local stage guidance.'
   : isSpokaneHub
   ? 'Plan the Spokane River by its distinct upper reaches, lower whitewater and Nine Mile flatwater pool. Compare six focused Water Trail sections and 20 alternate endpoint choices, with local access, gauge context and safety notes.'
   : isSaludaHub
@@ -566,6 +571,8 @@ const faqItems = [
     question: `Where can I paddle the ${group.name}?`,
     answer: isMerrimackHub
       ? 'Choose from five documented Franklin–Concord routes, the short Sewalls Falls–Everett Arena trip, or lower-valley access pairs from Boscawen through Hooksett. Fourteen overlapping planning combinations remain selectable in the trip picker with their own distance and access notes.'
+      : isWabashHub
+      ? 'Choose among four trips on the same Wells County access chain: Linn Grove to White Bridge, Vera Cruz to Kehoe Park, Vera Cruz to Hale Street, or Linn Grove to Hale Street. These share river miles and public access points, but differ in launch, take-out, total distance, and shuttle plan.'
       : isSpokaneHub
       ? 'Start with the Water Trail’s six distinct sections: Harvard–Barker (2 miles, Class I), Barker–Mirabeau (4.5 miles, Class II), Mirabeau–Plante’s Ferry (1 mile, mostly flatwater), Plante’s Ferry–Boulder Beach (4.5 miles, mostly flatwater), TJ Meenach–Plese Flats (expert Class III–IV), and Plese Flats–Nine Mile Dam (5 miles, flatwater). Twenty other endpoint choices remain available as trip cards.'
       : isSaludaHub
@@ -622,6 +629,8 @@ const faqItems = [
     question: `How should I check ${group.name} water levels?`,
     answer: isMerrimackHub
       ? 'The 400 cfs runnable floor and 1,500–2,000 cfs preferred range belong to the documented Franklin–Concord run and its USGS 01081500 gauge near Franklin Junction. Lower-valley trips are planning-only; that upstream station is context and does not provide a verified route-specific threshold for each downstream reach.'
+      : isWabashHub
+      ? 'Wells County Trails calls 1.5–3 feet the ideal kayaking height, warns that low water may require dragging, and says to stay off the river during Action or Flood Stage. Check USGS 03323000 at Bluffton and the local flood-stage status before setting out; a gauge reading alone is not a safety guarantee.'
       : isSpokaneHub
       ? 'Use USGS 12419000 near Post Falls for the short Harvard–Barker section; it is upstream context for the rest of the upper river and does not confirm local water near Barker and Sullivan. USGS 12422500 at Spokane provides lower-river context. The TJ Meenach–Plese expert run, upper combinations beyond Barker, and the Nine Mile pool are planning-only because their conditions cannot be represented safely by one live score.'
       : isSaludaHub
@@ -903,6 +912,47 @@ const groupStructuredData = [
         <p>
           Check the <a href="https://www.dnr.sc.gov/water/river/scenic/saluda.html" target="_blank" rel="noopener noreferrer">current SCDNR Lower Saluda access and safety notes</a>, its <a href="https://www.dnr.sc.gov/water/river/pdf/LowerSaludaAccess.pdf" target="_blank" rel="noopener noreferrer">public access map</a>, and the <a href="https://waterdata.usgs.gov/monitoring-location/USGS-02168504/" target="_blank" rel="noopener noreferrer">USGS below-dam gauge</a> before choosing a trip.
         </p>
+      </section>
+    ) : null}
+
+    {isWabashHub ? (
+      <section class="river-group-page__panel" id="wabash-access-chain" aria-labelledby="wabash-access-chain-title">
+        <div class="river-group-page__section-head">
+          <div>
+            <p class="eyebrow section-label">Wells County public access chain</p>
+            <h2 class="section-title" id="wabash-access-chain-title">Choose a start and finish along the Wabash</h2>
+          </div>
+          <p class="muted river-group-page__section-note">
+            The four trips share portions of one river corridor; compare the exact endpoints and shuttle before choosing.
+          </p>
+        </div>
+        <div class="river-hub-context__grid">
+          <article class="river-hub-context__item">
+            <h3>Public access, in sequence</h3>
+            <p>
+              Wells County Trails lists Linn Grove Park, Vera Cruz Paddlesports Launch, White Bridge Picnic Area, Crosby/Main Street Bridge, and Hale Street as public access. Its published legs are 5.3 miles from Linn Grove to Vera Cruz, 4.2 to White Bridge, 2.1 to Crosby Bridge, then 0.3 to Hale Street. Rose Road downstream is listed as private.
+            </p>
+            <ul>
+              <li><a href={routeSlugHref('wabash-river-linn-grove-white-bridge')}>Linn Grove Park to White Bridge</a> · about 9.5 mi</li>
+              <li><a href={routeSlugHref('wabash-river-vera-cruz-kehoe-park')}>Vera Cruz to Kehoe Park</a> · about 6 mi</li>
+              <li><a href={routeSlugHref('wabash-river-vera-cruz-hale-street')}>Vera Cruz to Hale Street</a> · about 6.6 mi</li>
+              <li><a href={routeSlugHref('wabash-river-linn-grove-hale-street')}>Linn Grove to Hale Street</a> · about 11.9 mi</li>
+            </ul>
+          </article>
+          <article class="river-hub-context__item">
+            <h3>Use the Bluffton stage and flood status</h3>
+            <p>
+              Wells County Trails describes 1.5–3 feet as its ideal kayaking height. Below that, shallow sections may require getting out to pass; higher water adds flow and debris. Do not enter during Action or Flood Stage. USGS 03323000 at Bluffton is the gauge reference for these nearby trips; check the current stage and trend, weather, and local access conditions together.
+            </p>
+            <p>
+              <a href="https://waterdata.usgs.gov/monitoring-location/USGS-03323000/" target="_blank" rel="noopener noreferrer">USGS 03323000 at Bluffton</a>
+              {' · '}
+              <a href="https://www.wellscountytrails.org/kayaking" target="_blank" rel="noopener noreferrer">Wells County Trails access and stage guidance</a>
+              {' · '}
+              <a href="https://neiwatertrails.com/get-involved/event-calendar/wabash-river-challenge" target="_blank" rel="noopener noreferrer">NEI Water Trails Wabash route reference</a>
+            </p>
+          </article>
+        </div>
       </section>
     ) : null}
 
@@ -1423,7 +1473,7 @@ const groupStructuredData = [
                       <span data-group-initial-score>{route.scoreEligibility === 'planning' ? 'Planning route' : 'Loading'}</span>
                     </span>
                   </button>
-                  {isWillimanticHub || isMerrimackHub || isSpokaneHub || isSaludaHub || isAnimasHub || isHousatonicHub ? (
+                  {isWillimanticHub || isMerrimackHub || isSpokaneHub || isSaludaHub || isWabashHub || isAnimasHub || isHousatonicHub ? (
                     <details class="route-choice__trip-notes">
                       <summary>{isAnimasHub || isHousatonicHub ? 'Access, flow, and safety notes' : 'Access, gauge, and safety notes'}</summary>
                       <div>

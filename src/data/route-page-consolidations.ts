@@ -62,6 +62,14 @@ const susquehannaRiverHubPath = '/rivers/by-river/susquehanna-river/';
 const merrimackRiverHubPath = '/rivers/by-river/merrimack-river-new-hampshire/';
 const spokaneRiverHubPath = '/rivers/by-river/spokane-river-washington/';
 const saludaRiverHubPath = '/rivers/by-river/saluda-river/';
+const wabashRiverHubPath = '/rivers/by-river/wabash-river/';
+
+const wabashRiverConsolidatedRouteSlugs = [
+  'wabash-river-linn-grove-white-bridge',
+  'wabash-river-vera-cruz-kehoe-park',
+  'wabash-river-vera-cruz-hale-street',
+  'wabash-river-linn-grove-hale-street',
+] as const;
 
 const merrimackRiverConsolidatedRouteSlugs = [
   'merrimack-river-sewalls-falls-ferry-street',
@@ -783,6 +791,7 @@ const consolidatedRouteTargets = new Map<string, string>(
     ...susquehannaConsolidatedRouteSlugs.map((slug) => [slug, `${susquehannaRiverHubPath}?route=${slug}#trip-${slug}`] as const),
     ...merrimackRiverConsolidatedRouteSlugs.map((slug) => [slug, `${merrimackRiverHubPath}?route=${slug}#trip-${slug}`] as const),
     ...spokaneRiverConsolidatedRouteSlugs.map((slug) => [slug, `${spokaneRiverHubPath}?route=${slug}#trip-${slug}`] as const),
+    ...wabashRiverConsolidatedRouteSlugs.map((slug) => [slug, `${wabashRiverHubPath}?route=${slug}#trip-${slug}`] as const),
     ...saludaRiverConsolidatedRouteSlugs.map((slug) => [slug, `${saludaRiverHubPath}?route=${slug}#trip-${slug}`] as const),
     ...saludaRiverLaunchAliasSlugs.map((slug) => [slug, `${saludaRiverHubPath}?route=saluda-river-saluda-shoals-gardendale#trip-saluda-river-saluda-shoals-gardendale`] as const),
     ...saludaRiverAccessNoteRouteSlugs.map((slug) => [slug, `${saludaRiverHubPath}#saluda-route-access-notes`] as const),
