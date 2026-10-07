@@ -78,6 +78,7 @@ const trackedRiverCount = riverGroups.length;
                     </select>
                   </label></div>
               <div data-explore-scope-panel="nearby" hidden>
+              <p class="muted">Drive times are rough estimates from straight-line distance. Check road directions before you go.</p>
               <div class="explore-location-field">
               <span class="explore-filter-label">City or ZIP code</span>
               <section class="home-location-bar home-location-bar--explore home-location-bar--embedded" aria-label="Set your location" data-nearby-location-panel>
@@ -306,7 +307,10 @@ const trackedRiverCount = riverGroups.length;
               <p class="muted explore-workspace__list-note">Click a marker or a result to compare both views together.</p>
             </div>
             <div class="explore-grid-shell" data-explore-shell>
-              <p class="muted" data-explore-empty hidden></p>
+              <div class="explore-empty-state" data-explore-empty hidden>
+                <p class="muted" data-explore-empty-message role="status"></p>
+                <button class="filter-chip" type="button" data-explore-clear-search hidden>Clear search</button>
+              </div>
               <div class="river-grid river-grid--explore-list" aria-label="Explore paddle results today" data-explore-grid></div>
             </div>
 

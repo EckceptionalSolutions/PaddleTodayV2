@@ -99,7 +99,7 @@ const pageClass = [generatedPageClass, bodyClass].filter(Boolean).join(' ');
 const umamiWebsiteId =
   import.meta.env.PUBLIC_UMAMI_WEBSITE_ID || 'ce97ebc3-44ba-4c12-898e-666c904bc6b6';
 const umamiScriptSrc = import.meta.env.PUBLIC_UMAMI_SCRIPT_SRC || 'https://cloud.umami.is/script.js';
-const assetVersion = import.meta.env.PUBLIC_ASSET_VERSION || '20261006-account-navigation';
+const assetVersion = import.meta.env.PUBLIC_ASSET_VERSION || '20261007-desktop-audit';
 const routeDetailPage = pageClass.split(/\s+/).includes('page-route-detail');
 const appDownloadConfigJson = JSON.stringify({
   appStoreUrl,
@@ -209,6 +209,7 @@ const appDownloadConfigJson = JSON.stringify({
                 <span class="site-header__nav-label site-header__nav-label--full">Explore</span>
                 <span class="site-header__nav-label site-header__nav-label--short">Explore</span>
               </a>
+              <a class="site-header__nav-link site-header__nav-link--primary" href="/favorites/" aria-current={currentPage === '/favorites' ? 'page' : undefined}>Saved routes</a>
             </nav>
             {webFeatureFlags.webAccountExperience && <AccountMenu />}
           </div>
@@ -277,6 +278,7 @@ const appDownloadConfigJson = JSON.stringify({
           <a class="site-footer__link" href="/about/">About</a>
           <a class="site-footer__link" href="/weekend/">Weekend</a>
           <a class="site-footer__link" href="/explore/">Explore</a>
+          <a class="site-footer__link" href="/favorites/">Saved routes</a>
           <a class="site-footer__link" href="/states/">States</a>
           <a class="site-footer__link" href="/guides/">Guides</a>
           <a class="site-footer__link" href="/request-river/">Request a Route</a>

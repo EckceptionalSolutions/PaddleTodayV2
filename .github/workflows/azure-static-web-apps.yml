@@ -16,6 +16,7 @@ on:
       - 'scripts/sync-public-scripts.mjs'
       - 'scripts/generate-explore-map-overview.ts'
       - 'scripts/audit-search-indexability.ts'
+      - 'scripts/emit-route-consolidation-redirects.mjs'
       - 'scripts/search-serving-smoke.mjs'
       - 'scripts/lib/**'
       - 'staticwebapp.config.json'
@@ -82,6 +83,7 @@ jobs:
         run: |
           node scripts/assert-firebase-web-config.mjs
           npx astro build
+          node --import tsx scripts/emit-route-consolidation-redirects.mjs dist
           cp staticwebapp.config.json dist/staticwebapp.config.json
           node -e "const c = require('./dist/staticwebapp.config.json'); const h = c.globalHeaders || {}; if (h['Strict-Transport-Security'] !== 'max-age=31536000; includeSubDomains; preload' || h['Permissions-Policy'] !== 'geolocation=(self), microphone=(), camera=()') throw new Error('Static Web Apps security headers are not configured');"
 

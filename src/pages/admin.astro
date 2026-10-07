@@ -1,6 +1,7 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 import { scoringCalibrationCases } from '../data/scoring-calibrations';
+import { routePageConsolidationTarget } from '../data/route-page-consolidations';
 import { rivers } from '../data/rivers';
 import { scoreRiverCondition } from '../lib/scoring';
 import sensitivityReportJson from '../data/generated/scoring-sensitivity-report.json';
@@ -170,7 +171,7 @@ const routeAuditGroups = Array.from(
                   <div class="admin-route-audit-row__meta">
                     <span>{river.profile.difficulty}</span>
                     <span>{river.profile.thresholdSourceStrength}</span>
-                    <a href={`/rivers/${river.slug}`}>Open route</a>
+                    <a href={routePageConsolidationTarget(river.slug) ?? `/rivers/${river.slug}/`}>Open route</a>
                   </div>
                 </div>
                 <label class="admin-route-audit-row__notes">

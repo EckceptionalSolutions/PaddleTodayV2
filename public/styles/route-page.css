@@ -2686,3 +2686,90 @@ html body.page-route-detail [data-river-detail] .river-detail__hero-warning .pil
   max-width: 100%;
   white-space: normal;
 }
+
+/* Keep the launch decision and its evidence ahead of the supporting quality score. */
+html body.page-route-detail [data-river-detail] .route-decision-dashboard__call {
+  display: grid;
+  gap: 0.55rem;
+  padding: 0.8rem 0;
+  border-bottom: 1px solid rgba(16, 35, 45, 0.12);
+}
+
+html body.page-route-detail [data-river-detail] .route-decision-dashboard__call .pill {
+  justify-self: start;
+  font-size: 1.1rem;
+  line-height: 1.3;
+  padding: 0.45rem 0.7rem;
+  white-space: normal;
+}
+
+html body.page-route-detail [data-river-detail] .route-decision-dashboard__reason {
+  margin: 0;
+  color: var(--ink);
+  font-size: 0.9375rem;
+  line-height: 1.5;
+}
+
+html body.page-route-detail [data-river-detail] :is(
+  .route-decision-dashboard__trip-fit span,
+  .route-decision-dashboard__safety-label,
+  .route-decision-dashboard__freshness,
+  .route-decision-dashboard__freshness > span,
+  .route-decision-dashboard__freshness small,
+  .route-decision-dashboard__safety-summary,
+  .route-decision-dashboard__safety-chips span,
+  .route-decision-dashboard__live-meta,
+  .route-condition-card__label,
+  .route-condition-card__source,
+  .route-condition-card__details dt,
+  .route-condition-card__details dd,
+  .route-condition-card [data-field="observed-at"],
+  .gauge-current-panel__main span,
+  .gauge-current-panel__meta span
+) {
+  font-size: 0.8125rem;
+  line-height: 1.45;
+  letter-spacing: 0.015em;
+  text-transform: none;
+  color: var(--ink-soft);
+}
+
+html body.page-route-detail [data-river-detail] :is(
+  .route-decision-dashboard__trip-fit strong,
+  .route-decision-dashboard__safety-head strong,
+  .route-decision-dashboard__freshness strong
+) {
+  font-size: 0.875rem;
+  line-height: 1.4;
+}
+
+html body.page-route-detail [data-river-detail] .score-orb__rating {
+  font-size: 0.8125rem;
+  letter-spacing: 0.01em;
+  line-height: 1.2;
+}
+
+html body.page-route-detail [data-river-detail] .gauge-visual__body--current-only .gauge-current-panel {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  grid-template-areas: "summary meta" "note note" "links links" "hydrograph hydrograph";
+}
+
+html body.page-route-detail [data-river-detail] .gauge-current-panel__history {
+  grid-area: hydrograph;
+  min-width: 0;
+}
+
+html body.page-route-detail [data-river-detail] .gauge-current-panel__history > summary {
+  cursor: pointer;
+  min-height: 44px;
+  padding: 0.65rem 0;
+  color: var(--river-deep);
+  font-weight: 700;
+}
+
+@media (max-width: 700px) {
+  html body.page-route-detail [data-river-detail] .gauge-visual__body--current-only .gauge-current-panel {
+    grid-template-columns: minmax(0, 1fr);
+    grid-template-areas: "summary" "meta" "note" "links" "hydrograph";
+  }
+}

@@ -13,6 +13,10 @@ const commonSources = [
 const willametteGauge = {id:'usgs-14171600',provider:'usgs' as const,siteId:'14171600',metric:'discharge_cfs' as const,unit:'cfs' as const,kind:'proxy' as const,siteName:'Willamette River at Corvallis, OR',detailUrl:'https://waterdata.usgs.gov/monitoring-location/USGS-14171600/'};
 const harrisburgGauge = {id:'usgs-14166000',provider:'usgs' as const,siteId:'14166000',metric:'discharge_cfs' as const,unit:'cfs' as const,kind:'direct' as const,siteName:'Willamette River at Harrisburg, OR',detailUrl:'https://waterdata.usgs.gov/monitoring-location/USGS-14166000/'};
 const willametteFlowGuide = {label:'Willamette Kayak and Canoe Club river descriptions',url:'https://levels.wkcc.org/?D=wr1',provider:'local' as const};
+const willametteFlowBandRouteIds = new Set([
+  'willamette-river-alton-baker-marshall-island',
+  'willamette-river-marshall-island-harrisburg',
+]);
 const willametteCommon = {
   name:'Willamette River',riverId:'willamette-river-oregon',state:'Oregon',region:'Willamette Valley / Corvallis',
   difficulty:'moderate' as const,seasonMonths:[5,6,7,8,9,10],
@@ -135,7 +139,7 @@ export const oregonStarterSpecs: StarterPlanningSpec[] = [
 
 const scoredWillametteRoute: River = {
   id:'willamette-river-alton-baker-harrisburg', slug:'willamette-river-alton-baker-harrisburg',
-  name:'Willamette River', riverId:'willamette-river-oregon', state:'Oregon', region:'Eugene to Harrisburg / central Willamette Valley',
+  name:'Willamette River', riverId:'willamette-river-oregon', state:'Oregon', region:'Eugene–Corvallis mainstem',
   routeType:'recreational', scoreEligibility:'scored',
   reach:'Alton Baker Park, Eugene to Harrisburg Park',
   putIn:{name:'Alton Baker Park rustic boat ramp, Eugene',latitude:44.05242,longitude:-123.07791},
@@ -201,45 +205,101 @@ const makeScoredWillametteVariant = (input: {
   camping: string;
   accessCaveats: string[];
   watchFor: string[];
-}): River => ({
-  ...scoredWillametteRoute,
-  id: input.id,
-  slug: input.id,
-  reach: input.reach,
-  putIn: input.putIn,
-  takeOut: input.takeOut,
-  latitude: input.latitude,
-  longitude: input.longitude,
-  summary: input.summary,
-  statusText: 'Check USGS 14166000 at Harrisburg, recent rain, forecast, wood and daylight before launch; this reach has strong current, shifting side channels and changing gravel bars.',
-  sourceLinks: input.sourceLinks,
-  accessPoints: input.accessPoints,
-  evidenceNotes: input.evidenceNotes,
-  logistics: {
-    ...scoredWillametteRoute.logistics!,
-    distanceLabel: input.miles > 35 ? `About ${input.miles} river miles; staged multi-day itinerary` : `About ${input.miles} river miles`,
-    estimatedPaddleTime: input.estimatedPaddleTime,
-    camping: input.camping,
+}): River => {
+  const hasVerifiedFlowBand = willametteFlowBandRouteIds.has(input.id);
+  const gaugeSource = hasVerifiedFlowBand ? harrisburgGauge : nearestWillametteGauge(input.putIn, input.takeOut);
+  const confidenceNotes = hasVerifiedFlowBand
+    ? 'This route lies within the Willamette Kayak and Canoe Club’s documented Alton Baker-to-Harrisburg flow-guidance reach. Its 2,000 cfs low, 6,000 cfs optimal and 20,000 cfs high references are planning cues, not safety guarantees.'
+    : `No numeric recreational flow range is verified for this endpoint pair. USGS ${gaugeSource.siteId} at ${gaugeSource.siteName.replace(', OR', '')} is shown as nearby mainstem context only. The WKCC 2,000/6,000/20,000 cfs references apply to the separate Alton Baker-to-Harrisburg reach and are not transferred to this trip.`;
+  const profile = hasVerifiedFlowBand
+    ? { ...scoredWillametteRoute.profile, confidenceNotes }
+    : {
+        ...scoredWillametteRoute.profile,
+        thresholdModel: 'minimum-only' as const,
+        idealMin: undefined,
+        idealMax: undefined,
+        tooLow: undefined,
+        tooHigh: undefined,
+        confidenceNotes,
+      };
+  const sourceLinks = input.sourceLinks
+    .filter((link) => link.url !== harrisburgGauge.detailUrl && link.url !== willametteGauge.detailUrl)
+    .map((link) => link.url === willametteFlowGuide.url && !hasVerifiedFlowBand
+      ? { ...link, label: 'WKCC Alton Baker–Harrisburg flow references (not a threshold for this trip)' }
+      : link)
+    .concat({ label: `USGS ${gaugeSource.siteId} ${gaugeSource.siteName} gauge`, url: gaugeSource.detailUrl!, provider: 'usgs' as const });
+  const evidenceNotes = hasVerifiedFlowBand
+    ? input.evidenceNotes
+    : [
+        ...input.evidenceNotes.filter((note) => !/scoring band/i.test(note.label)),
+        {
+          label: 'Water-level context',
+          value: `USGS ${gaugeSource.siteId} ${gaugeSource.siteName}; no numeric route threshold verified`,
+          note: confidenceNotes,
+          sourceUrl: gaugeSource.detailUrl,
+        },
+      ];
+
+  return {
+    ...scoredWillametteRoute,
+    id: input.id,
+    slug: input.id,
+    reach: input.reach,
+    putIn: input.putIn,
+    takeOut: input.takeOut,
+    latitude: input.latitude,
+    longitude: input.longitude,
     summary: input.summary,
-    accessCaveats: input.accessCaveats,
-    watchFor: input.watchFor,
-  },
-});
+    statusText: hasVerifiedFlowBand
+      ? 'Check the USGS Harrisburg gauge, current trend, forecast, wood and daylight. The cited flow band is a conservative cue for the named Upper Willamette reach, not a safety guarantee.'
+      : `Planning-only trip. Check ${gaugeSource.siteName} and its trend with the forecast, wood and daylight; no numeric threshold is verified for this endpoint pair.`,
+    gaugeSource,
+    profile,
+    scoreEligibility: hasVerifiedFlowBand ? 'scored' : 'planning',
+    sourceLinks,
+    accessPoints: input.accessPoints,
+    evidenceNotes,
+    logistics: {
+      ...scoredWillametteRoute.logistics!,
+      distanceLabel: input.miles > 35 ? `About ${input.miles} river miles; staged multi-day itinerary` : `About ${input.miles} river miles`,
+      estimatedPaddleTime: input.estimatedPaddleTime,
+      camping: input.camping,
+      summary: input.summary,
+      accessCaveats: input.accessCaveats,
+      watchFor: hasVerifiedFlowBand
+        ? input.watchFor
+        : [
+            `USGS ${gaugeSource.siteId} live reading and trend are context only; no route-specific flow threshold is verified`,
+            ...input.watchFor.slice(1),
+          ],
+    },
+  };
+};
 
 type WillametteEndpointKey = 'alton' | 'marshall' | 'harrisburg' | 'harkens' | 'mccartney' | 'irish' | 'norwood' | 'peoria' | 'crystal' | 'michaels' | 'hyak';
-const willametteEndpointCatalog: Record<WillametteEndpointKey, { name: string; latitude: number; longitude: number; url: string }> = {
-  alton: { name: 'Alton Baker Park rustic boat ramp, Eugene', latitude: 44.05242, longitude: -123.07791, url: 'https://willamettewatertrail.org/map/alton-baker-park/' },
-  marshall: { name: 'Marshall Island Landing public boat ramp', latitude: 44.18784, longitude: -123.14698, url: 'https://willamettewatertrail.org/map/marshall-island-access/' },
-  harrisburg: { name: 'Harrisburg Park public boat ramp', latitude: 44.27302, longitude: -123.17401, url: 'https://willamettewatertrail.org/map/harrisburg-park/' },
-  harkens: { name: 'Harkens Lake Landing paddle-in site', latitude: 44.34197, longitude: -123.22916, url: 'https://willamettewatertrail.org/map/harkens-lake-landing/' },
-  mccartney: { name: 'McCartney Park public boat ramp', latitude: 44.31708, longitude: -123.21639, url: 'https://willamettewatertrail.org/map/mccartney-park/' },
-  irish: { name: 'Irish Bend public river access', latitude: 44.36293, longitude: -123.22037, url: 'https://willamettewatertrail.org/map/irish-bend/' },
-  norwood: { name: 'Norwood Island paddle-in landing', latitude: 44.3829, longitude: -123.24693, url: 'https://willamettewatertrail.org/map/norwood-island/' },
-  peoria: { name: 'Peoria Park boat ramp', latitude: 44.45402, longitude: -123.21009, url: 'https://willamettewatertrail.org/map/peoria-park/' },
-  crystal: { name: 'Crystal Lake / Willamette Boat Landing', latitude: 44.551595, longitude: -123.251708, url: 'https://willamettewatertrail.org/map/crystal-lake-boat-ramp/' },
-  michaels: { name: 'Michael’s Landing / North Riverfront Park', latitude: 44.56939, longitude: -123.25592, url: 'https://willamettewatertrail.org/map/michaels-landing/' },
-  hyak: { name: 'Hyak Park boat ramp', latitude: 44.638123, longitude: -123.16067, url: 'https://willamettewatertrail.org/map/hyak-park/' },
+const willametteEndpointCatalog: Record<WillametteEndpointKey, { name: string; latitude: number; longitude: number; mile: number; url: string }> = {
+  alton: { name: 'Alton Baker Park rustic boat ramp, Eugene', latitude: 44.05242, longitude: -123.07791, mile: 182, url: 'https://willamettewatertrail.org/map/alton-baker-park/' },
+  marshall: { name: 'Marshall Island Landing public boat ramp', latitude: 44.18784, longitude: -123.14698, mile: 169, url: 'https://willamettewatertrail.org/map/marshall-island-access/' },
+  harrisburg: { name: 'Harrisburg Park public boat ramp', latitude: 44.27302, longitude: -123.17401, mile: 161, url: 'https://willamettewatertrail.org/map/harrisburg-park/' },
+  harkens: { name: 'Harkens Lake Landing paddle-in site', latitude: 44.34197, longitude: -123.22916, mile: 153.5, url: 'https://willamettewatertrail.org/map/harkens-lake-landing/' },
+  mccartney: { name: 'McCartney Park public boat ramp', latitude: 44.31708, longitude: -123.21639, mile: 156.5, url: 'https://willamettewatertrail.org/map/mccartney-park/' },
+  irish: { name: 'Irish Bend public river access', latitude: 44.36293, longitude: -123.22037, mile: 151, url: 'https://willamettewatertrail.org/map/irish-bend/' },
+  norwood: { name: 'Norwood Island paddle-in landing', latitude: 44.3829, longitude: -123.24693, mile: 148.5, url: 'https://willamettewatertrail.org/map/norwood-island/' },
+  peoria: { name: 'Peoria Park boat ramp', latitude: 44.45402, longitude: -123.21009, mile: 141.5, url: 'https://willamettewatertrail.org/map/peoria-park/' },
+  crystal: { name: 'Crystal Lake / Willamette Boat Landing', latitude: 44.551595, longitude: -123.251708, mile: 132.5, url: 'https://willamettewatertrail.org/map/crystal-lake-boat-ramp/' },
+  michaels: { name: 'Michael’s Landing / North Riverfront Park', latitude: 44.56939, longitude: -123.25592, mile: 131, url: 'https://willamettewatertrail.org/map/michaels-landing/' },
+  hyak: { name: 'Hyak Park boat ramp', latitude: 44.638123, longitude: -123.16067, mile: 122, url: 'https://willamettewatertrail.org/map/hyak-park/' },
 };
+
+function nearestWillametteGauge(putIn: NonNullable<River['putIn']>, takeOut: NonNullable<River['takeOut']>) {
+  const endpoints = Object.values(willametteEndpointCatalog);
+  const putInMile = endpoints.find((endpoint) => endpoint.name === putIn.name)?.mile;
+  const takeOutMile = endpoints.find((endpoint) => endpoint.name === takeOut.name)?.mile;
+  if (putInMile === undefined || takeOutMile === undefined) return harrisburgGauge;
+
+  const midpoint = (putInMile + takeOutMile) / 2;
+  return Math.abs(midpoint - 161) <= Math.abs(midpoint - 131.4) ? harrisburgGauge : willametteGauge;
+}
 
 function makeScoredWillametteChainVariant(input: {
   id: string;

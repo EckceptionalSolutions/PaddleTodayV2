@@ -1,16 +1,24 @@
 # Route corridor migration inventory
 
-Generated 2026-10-06T23:59:50.422Z.
+Generated 2026-10-07T16:28:04.953Z.
 
-- Defined corridors: 217
-- Routes covered by a corridor definition: 541
-- Remaining multi-route families: 334
+- Defined corridors: 225
+- Routes covered by a corridor definition: 843
+- Remaining multi-route families: 325
 
 ## Defined corridors
 
 | Corridor | Label | Continuity | Matching routes | Verified edges |
 | --- | --- | --- | ---: | ---: |
+| mt-blackfoot-section-family | Blackfoot River five named source-backed section family | condition-family | 39 | 0 |
+| ky-green-river-three-zone-family | Green River Upper Green, Hart County, and Mammoth Cave paddling zones | condition-family | 32 | 0 |
 | ct-willimantic-water-trail | Willimantic River Water Trail three-segment condition family | condition-family | 34 | 0 |
+| vt-lamoille-paddlers-trail | Lamoille River Paddlers Trail named reach family | condition-family | 28 | 0 |
+| ri-woonasquatucket-paddling-zones | Woonasquatucket River upper and lower paddling zones | condition-family | 28 | 0 |
+| fl-suwannee-wilderness-trail | Suwannee River Wilderness Trail section family | condition-family | 44 | 0 |
+| la-bayou-teche-national-paddle-trail | Bayou Teche National Paddle Trail reach family | condition-family | 44 | 0 |
+| or-willamette-upper-valley-water-trail | Upper Willamette Valley access and itinerary family | condition-family | 50 | 0 |
+| ca-russian-river-paddling-zones | Russian River upper, middle, and lower paddling condition zones | condition-family | 37 | 0 |
 | mn-cannon-lower | Lower Cannon River access corridor | verified | 3 | 4 |
 | va-south-fork-holston-route58-alvarado | South Fork Holston Route 58 to Alvarado moving-water float | verified | 1 | 0 |
 | va-nottoway-river-double-bridge-route630 | Nottoway River Double Bridge to Route 630 moving-water float | verified | 1 | 1 |
@@ -247,18 +255,10 @@ Generated 2026-10-06T23:59:50.422Z.
 
 | State | River family | Route records |
 | --- | --- | ---: |
-| Oregon | Willamette River | 50 |
-| Louisiana | Bayou Teche | 44 |
-| Florida | Suwannee River | 44 |
 | Arizona | Verde River | 39 |
 | New York | Old Erie Canal | 37 |
-| California | Russian River | 37 |
-| Montana | Blackfoot River | 36 |
-| Kentucky | Green River | 32 |
 | Washington | Spokane River | 29 |
 | Mississippi | Black Creek | 28 |
-| Vermont | Lamoille River | 28 |
-| Rhode Island | Woonasquatucket River | 28 |
 | South Carolina | Broad River | 25 |
 | Nevada | Truckee River | 24 |
 | Arkansas | Buffalo River | 23 |
@@ -287,6 +287,14 @@ Generated 2026-10-06T23:59:50.422Z.
 | Minnesota | St. Louis River | 11 |
 | California | American River | 10 |
 | New Mexico | Animas River | 10 |
-| Additional families omitted | See route data and overlap audit | 294 |
+| Kentucky | Barren River | 10 |
+| South Dakota | Big Sioux River | 10 |
+| Mississippi | Leaf River | 10 |
+| Minnesota | Red Lake River | 10 |
+| Minnesota | Rum River | 10 |
+| New Hampshire | Saco River | 10 |
+| Arizona | Salt River | 10 |
+| Kentucky | Upper Cumberland River | 10 |
+| Additional families omitted | See route data and overlap audit | 285 |
 
 This inventory is a migration queue, not an automatic deletion list. Each family still requires source review for continuity, hazards, access legality, gauge boundaries, and explicit trip edges.

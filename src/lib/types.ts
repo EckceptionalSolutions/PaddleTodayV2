@@ -114,6 +114,8 @@ export interface RiverScoringProfile {
   idealMax?: number;
   tooLow?: number;
   tooHigh?: number;
+  /** Treat the high threshold as a closed boundary when the source prohibits use at that exact reading. */
+  tooHighInclusive?: boolean;
   thresholdSource: SourceLink;
   thresholdSourceStrength: SourceStrength;
   rainfallSensitivity: RainfallSensitivity;

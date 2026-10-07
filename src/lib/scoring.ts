@@ -487,7 +487,8 @@ function assessGauge(river: River, gauge: GaugeReading): {
     };
   }
 
-  if (current <= tooHigh) {
+  const atOrAboveClosedHighThreshold = river.profile.tooHighInclusive === true && current >= tooHigh;
+  if (current <= tooHigh && !atOrAboveClosedHighThreshold) {
     const ratio = (current - idealMax) / Math.max(tooHigh - idealMax, 0.01);
     return {
       points: 72 - clamp(ratio, 0, 1) * 42,
@@ -508,9 +509,13 @@ function assessGauge(river: River, gauge: GaugeReading): {
   return {
     points,
     impact: 'negative',
-    detail: `Above the high-water threshold of ${formatGauge(tooHigh, gauge.unit)} ${gauge.unit}. Expect faster current and less margin.`,
+    detail: atOrAboveClosedHighThreshold
+      ? `At or above the ${formatGauge(tooHigh, gauge.unit)} ${gauge.unit} closure threshold. River use is prohibited at this level.`
+      : `Above the high-water threshold of ${formatGauge(tooHigh, gauge.unit)} ${gauge.unit}. Expect faster current and less margin.`,
     band: 'too-high',
-    bandDetail: 'Above the hard high threshold. This is outside the workable paddling band.',
+    bandDetail: atOrAboveClosedHighThreshold
+      ? 'At or above the hard closure threshold. River use is prohibited.'
+      : 'Above the hard high threshold. This is outside the workable paddling band.',
   };
 }
 
@@ -1749,7 +1754,7 @@ function buildOutlook(args: {
   projectedScore = clamp(Math.round(projectedScore), 0, scoreCap);
   const directionDelta = projectedScore - args.currentRiverQuality;
   const direction: RiverOutlook['direction'] =
-    args.confidence.label === 'Low'
+    args.confidence.label === 'Low' || args.gauge.trend === 'unknown'
       ? 'uncertain'
       : directionDelta >= 5
         ? 'improving'
@@ -1820,7 +1825,7 @@ function trendAdjustmentForOutlook(
     return Math.round(-2 * multiplier * harmfulMultiplier);
   }
 
-  return band === 'ideal' ? 2 : 0;
+  return gauge.trend === 'steady' && band === 'ideal' ? 2 : 0;
 }
 
 function weatherAdjustmentForWindow(window: ForecastWindow, windowId: 'tomorrow' | 'weekend'): number {
@@ -1902,7 +1907,9 @@ function outlookExplanation(
       ? `Gauge is steady enough that today's ${gaugeBandLabel(band).toLowerCase()} call should not shift much on its own.`
       : gauge.trend === 'rising'
         ? `Gauge is still rising, which tends to improve low days and worsen high days.`
-        : `Gauge is falling, which tends to improve high days and worsen low days.`;
+        : gauge.trend === 'falling'
+          ? `Gauge is falling, which tends to improve high days and worsen low days.`
+          : `Not enough recent gauge history to read the trend. The current level and weather inform this outlook; the river's direction is uncertain.`;
 
   return `${trendText} ${weatherText} ${windowId === 'weekend' ? 'Re-check this before you commit to the drive.' : 'Tomorrow is an early read, not a promise.'}`;
 }

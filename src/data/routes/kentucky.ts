@@ -1,7 +1,7 @@
 // State-scoped route data. Keep entries in route-family and downstream order.
 import type { River } from '../../lib/types';
 
-export const kentuckyRoutes: River[] = [
+const kentuckyRouteRecords: River[] = [
   {
     "id": "green-river-dennison-green-river-ferry",
     "slug": "green-river-dennison-green-river-ferry",
@@ -19344,3 +19344,55 @@ export const kentuckyRoutes: River[] = [
     ]
   }
 ];
+
+const greenRiverMultiZonePlanningSlugs = new Set([
+  'green-river-american-legion-glenview-road',
+  'green-river-american-legion-lynn-camp-creek',
+  'green-river-greensburg-city-ramp-lynn-camp-creek',
+  'green-river-glenview-road-lynn-camp-creek',
+  'green-river-roachville-glenview-road',
+  'green-river-russell-ford-glenview-road',
+  'green-river-hh-wilson-park-dennison-ferry',
+  'green-river-hh-wilson-park-green-river-ferry',
+  'green-river-rio-carrydown-dennison-ferry',
+  'green-river-stovall-park-dennison-ferry',
+  'green-river-stovall-park-green-river-ferry',
+]);
+
+export const kentuckyRoutes: River[] = kentuckyRouteRecords.map((route) => {
+  const isGreenRiverParkGauge = route.slug.startsWith('green-river-') &&
+    route.gaugeSource.siteId === '03309000' &&
+    route.profile.thresholdSource.provider === 'nps';
+  if (!greenRiverMultiZonePlanningSlugs.has(route.slug)) {
+    return isGreenRiverParkGauge
+      ? { ...route, profile: { ...route.profile, tooHighInclusive: true } }
+      : route;
+  }
+
+  const crossesIntoMammothCave = route.slug.includes('dennison-ferry') || route.slug.includes('green-river-ferry');
+  const statusText = crossesIntoMammothCave
+    ? 'Planning-only trip across Hart County and Mammoth Cave. KDFWR’s Munfordville discharge guidance and NPS’s Mammoth Cave stage guidance describe different gauges and conditions; Paddle Today does not combine them into one route score. Check both local readings, current NPS restrictions, weather, and access before launch.'
+    : 'Planning-only trip beyond the Upper Green guide reach. KDFWR publishes separate Upper Green dam-release guidance and Pool 6 gauge recommendations; those different locations and measures are not combined into a route score. Check the current release schedule, gauge, weather, and access before launch.';
+
+  return {
+    ...route,
+    scoreEligibility: 'planning',
+    statusText,
+    profile: {
+      ...route.profile,
+      thresholdModel: 'minimum-only' as const,
+      tooLow: undefined,
+      idealMin: undefined,
+      idealMax: undefined,
+      tooHigh: undefined,
+      ...(isGreenRiverParkGauge ? { tooHighInclusive: true } : {}),
+      confidenceNotes: `${route.profile.confidenceNotes} This composite crosses a documented condition-guidance boundary, so the local gauge values remain context and no single numeric band is applied to the whole trip.`,
+    },
+    evidenceNotes: route.evidenceNotes.map((note) => note.label === 'Official level band'
+      ? {
+          ...note,
+          note: `${note.note} This source describes local gauge guidance; it is not applied as a score across the full multi-zone trip.`,
+        }
+      : note),
+  };
+});

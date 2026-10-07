@@ -2,7 +2,7 @@ import { readFile, access, mkdir, writeFile } from 'node:fs/promises';
 import { resolve, join } from 'node:path';
 import { listRivers, listRiverGroups, listAllRiversForAudit, WITHHELD_ROUTE_SLUGS } from '../src/lib/rivers';
 import { staticRoutePatternErrors } from './lib/static-route-rules';
-import { hasStandaloneRoutePage, routePageConsolidationTarget } from '../src/data/route-page-consolidations';
+import { hasStandaloneRoutePage, routePageConsolidationTarget, listRoutePageConsolidations } from '../src/data/route-page-consolidations';
 
 // Inspect the actual build, not just template intent. Run after build:app.
 const root = resolve(process.argv[2] || 'dist');
@@ -16,7 +16,11 @@ const tags = (html: string, name: string) => [...html.matchAll(new RegExp(`<${na
 const attr = (tag: string, name: string) => decode(tag.match(new RegExp(`\\b${name}=("|')(.*?)\\1`, 'i'))?.[2] || '');
 const fileFor = (pathname: string) => join(root, pathname.endsWith('/') ? `${pathname}index.html` : pathname);
 const utilityPaths = ['/admin/', '/admin/operations/', '/alerts/unsubscribe/', '/favorites/', '/request-river/'];
-const config = JSON.parse(await readFile(join(root, 'staticwebapp.config.json'), 'utf8'));
+const configText = await readFile(join(root, 'staticwebapp.config.json'), 'utf8');
+const config = JSON.parse(configText);
+if (Buffer.byteLength(configText, 'utf8') > 20 * 1024) {
+  errors.push(`Azure staticwebapp.config.json exceeds its 20 KB limit (${Buffer.byteLength(configText, 'utf8')} bytes).`);
+}
 if (config.navigationFallback) errors.push('Static pages must not fall back to the homepage for missing URLs.');
 if (config.responseOverrides?.['404']?.statusCode !== 404 || config.responseOverrides?.['404']?.rewrite !== '/404.html') {
   errors.push('Azure must serve the branded 404 page with HTTP 404.');
@@ -78,6 +82,30 @@ for (const value of urls) {
     }
   }
 }
+const consolidatedRedirects = listRoutePageConsolidations();
+for (const { slug, target } of consolidatedRedirects) {
+  const sourcePath = `/rivers/${slug}/`;
+  const targetUrl = new URL(target, origin);
+  if (paths.has(sourcePath)) errors.push(`Consolidated route must not appear in the sitemap: ${sourcePath}`);
+  if (!paths.has(targetUrl.pathname)) errors.push(`Consolidated route target is not in the sitemap: ${sourcePath} -> ${target}`);
+  try {
+    const html = await readFile(fileFor(sourcePath), 'utf8');
+    const refresh = tags(html, 'meta').find((tag) => attr(tag, 'http-equiv').toLowerCase() === 'refresh');
+    const refreshTarget = refresh ? attr(refresh, 'content').replace(/^0;url=/i, '') : '';
+    if (!refresh || new URL(refreshTarget, origin).href !== targetUrl.href) {
+      errors.push(`Consolidated route must instantly redirect to its selected hub trip: ${sourcePath} -> ${target}`);
+    }
+    const canonical = tags(html, 'link').find((tag) => attr(tag, 'rel') === 'canonical');
+    if (!canonical || attr(canonical, 'href') !== `${origin}${targetUrl.pathname}`) {
+      errors.push(`Consolidated route has the wrong hub canonical: ${sourcePath}`);
+    }
+    if (!tags(html, 'a').some((tag) => new URL(attr(tag, 'href'), origin).href === targetUrl.href)) {
+      errors.push(`Consolidated route is missing a fallback link to its selected hub trip: ${sourcePath}`);
+    }
+  } catch {
+    errors.push(`Consolidated route redirect page is missing from the build: ${sourcePath}`);
+  }
+}
 for (const rule of config.routes || []) {
   if (!rule.redirect) continue;
   const target = new URL(rule.redirect, origin);
@@ -107,24 +135,6 @@ const expected = [
   ...listRiverGroups().filter((group) => group.routeCount > 1).map((group) => `/rivers/by-river/${group.riverId}/`),
 ];
 for (const pathname of expected) if (!paths.has(pathname)) errors.push(`Published route/hub absent from sitemap: ${pathname}`);
-for (const route of consolidatedRoutes) {
-  const pathname = `/rivers/${route.slug}/`;
-  const target = routePageConsolidationTarget(route.slug);
-  if (!target || redirects.get(pathname.replace(/\/$/, '')) !== target) {
-    errors.push(`Consolidated route lacks a matching permanent redirect: ${pathname}`);
-    continue;
-  }
-  if (paths.has(pathname)) errors.push(`Consolidated route remains in the sitemap: ${pathname}`);
-  try { await access(fileFor(pathname)); errors.push(`Consolidated route page is still built: ${pathname}`); }
-  catch { /* Retired standalone paths must not have HTML output. */ }
-  const targetUrl = new URL(target, origin);
-  if (!paths.has(targetUrl.pathname.endsWith('/') ? targetUrl.pathname : `${targetUrl.pathname}/`)) {
-    errors.push(`Consolidated route target is absent from the sitemap: ${pathname} -> ${target}`);
-  }
-  if (targetUrl.hash && !targetUrl.hash.includes(route.slug)) {
-    errors.push(`Consolidated route target does not preserve its trip selection: ${pathname} -> ${target}`);
-  }
-}
 const unlinkedPublicPages = expected.filter((pathname) =>
   ![...(routeLinks.get(pathname) || [])].some((source) => source !== pathname),
 );
@@ -132,7 +142,8 @@ for (const pathname of unlinkedPublicPages) {
   errors.push(`Public route/hub has no incoming internal link from another sitemap page: ${pathname}`);
 }
 for (const [pathname, sources] of routeLinks) {
-  const destination = redirects.get(pathname.replace(/\/$/, '')) || pathname;
+  const redirect = redirects.get(pathname.replace(/\/$/, ''));
+  const destination = redirect ? new URL(redirect, origin).pathname : pathname;
   const normalized = destination.endsWith('/') ? destination : `${destination}/`;
   try { await access(fileFor(normalized)); }
   catch { errors.push(`Broken route link ${pathname} from ${[...sources][0] || 'unknown source'}`); }
@@ -185,6 +196,7 @@ const report = {
     sampleRoutesWithoutStateOrRiverHubInlinks: routesWithoutDirectoryInlinks.slice(0, 50),
   },
   internallyLinkedPublicPages: expected.length - unlinkedPublicPages.length,
+  consolidatedRedirectPages: consolidatedRedirects.length,
   unlinkedPublicPages,
   uniqueRouteH1s: routeHeadings.size,
   uniqueRouteDescriptions: routeDescriptions.size,

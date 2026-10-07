@@ -3,6 +3,7 @@ import { createPaddleTodayApiClient } from '@paddletoday/api-client';
 import type { SyncedRoute } from '@paddletoday/api-contract';
 import { getWebAuth } from './web-account-session';
 import { SavedRoutesRepository } from './saved-routes-repository';
+import { routePageConsolidationTarget } from '../data/route-page-consolidations';
 
 const auth = getWebAuth();
 let mode: 'loading' | 'guest' | 'account' = auth ? 'loading' : 'guest';
@@ -19,7 +20,7 @@ export function savedRoutesSession() {
 export function accountSavedRoutes() {
   if (mode === 'guest') return null;
   if (!repository) return [];
-  return repository.routes().map(route => ({ ...route, state: '', region: '', savedAt: Date.parse(route.savedAt), url: `/rivers/${encodeURIComponent(route.slug)}/` }));
+  return repository.routes().map(route => ({ ...route, state: '', region: '', savedAt: Date.parse(route.savedAt), url: routePageConsolidationTarget(route.slug) || `/rivers/${encodeURIComponent(route.slug)}/` }));
 }
 export function toSyncedRoute(route: { slug: string; name?: string; reach?: string; savedAt?: number; notes?: string }): SyncedRoute {
   return { slug: route.slug, name: route.name || '', reach: route.reach || '', savedAt: new Date(route.savedAt ?? Date.now()).toISOString(), ...(route.notes ? { notes: route.notes } : {}) };

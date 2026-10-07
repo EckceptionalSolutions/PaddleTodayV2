@@ -3,6 +3,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 import FavoriteButton from '../components/FavoriteButton.astro';
 import FeatureIcon from '../components/FeatureIcon.astro';
 import MapScoreLegendItems from '../components/MapScoreLegendItems.astro';
+import { webFeatureFlags } from '../lib/web-feature-flags';
 ---
 
 <BaseLayout
@@ -128,7 +129,7 @@ import MapScoreLegendItems from '../components/MapScoreLegendItems.astro';
         <button class="filter-chip filter-chip--quiet" type="button" data-favorite-notes>Add personal note</button>
       </div>
 
-      <a class="river-link river-link--wide" data-favorite-plan href="/trips/">Plan this route</a>
+      {webFeatureFlags.webAccountExperience && <a class="river-link river-link--wide" data-favorite-plan href="/trips/">Plan this route</a>}
       <a class="river-link river-link--wide" href="/" data-field="favorite-link">View route</a>
     </article>
   </template>

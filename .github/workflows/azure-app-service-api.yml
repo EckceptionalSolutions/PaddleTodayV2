@@ -16,6 +16,7 @@ on:
       - 'package-lock.json'
       - 'scripts/deployment-config.mjs'
       - 'scripts/lib/deployment-config.mjs'
+      - 'scripts/emit-route-consolidation-redirects.mjs'
       - 'scripts/package-api.mjs'
       - 'scripts/lib/api-package.mjs'
       - 'scripts/lib/static-compression.mjs'

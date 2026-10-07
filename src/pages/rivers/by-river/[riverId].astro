@@ -18,6 +18,16 @@ export function getStaticPaths() {
 
 const { group } = Astro.props;
 const isWillimanticHub = group.riverId === 'willimantic-river-connecticut';
+const isGreenRiverHub = group.riverId === 'green-river-kentucky';
+const isBlackfootHub = group.riverId === 'blackfoot-river-montana';
+const isWillametteHub = group.riverId === 'willamette-river-oregon';
+const isRussianRiverHub = group.riverId === 'russian-river-california';
+const isBlackCreekHub = group.riverId === 'black-creek-mississippi';
+const isLamoilleHub = group.riverId === 'lamoille-river-vermont';
+const isWoonasquatucketHub = group.riverId === 'woonasquatucket-river-rhode-island';
+const isSuwanneeHub = group.riverId === 'suwannee-river-florida';
+const isBayouTecheHub = group.riverId === 'bayou-teche-river-louisiana';
+const hasConsolidatedTrips = group.routes.some((route) => routePageConsolidationTarget(route.slug));
 const stateSummary = group.states.join(', ');
 const stateDisplay = group.states.join(' and ');
 const regionSummary = group.regions.join(', ');
@@ -29,11 +39,39 @@ const needsRegionInTitle = listRiverGroups().some((other) =>
   [...other.states].sort().join(',') === [...group.states].sort().join(',')
 );
 const groupTitleLocation = needsRegionInTitle ? `${regionSummary}, ${stateSummary}` : stateSummary;
-const groupTitle = scoredRouteCount
+const groupTitle = isWoonasquatucketHub
+  ? 'Woonasquatucket River, Rhode Island | Paddling Zones & Access'
+  : isGreenRiverHub
+  ? 'Green River, Kentucky | Paddling Sections & Access'
+  : isBlackfootHub
+  ? 'Blackfoot River, Montana | Paddling Sections & Access'
+  : isRussianRiverHub
+  ? 'Russian River, California | Paddling Sections & Access'
+  : isBayouTecheHub
+  ? 'Bayou Teche National Paddle Trail, Louisiana | Sections & Access'
+  : isSuwanneeHub
+  ? 'Suwannee River Wilderness Trail, Florida | Paddling Sections & Access'
+  : scoredRouteCount
   ? `${group.name}, ${groupTitleLocation} | Water Levels & Paddle Routes`
   : `${group.name}, ${groupTitleLocation} | Paddle Routes & Trip Planning`;
 const groupDescription = isWillimanticHub
   ? 'Plan the Willimantic River Water Trail by stretch: upper quickwater, Eagleville Lake, or the lower river after the dam portage. Compare public access, mileage, and USGS stage cues.'
+  : isGreenRiverHub
+  ? 'Plan Kentucky’s Green River by its Upper Green, Hart County, and Mammoth Cave stretches. Compare official trips, public access, and the distinct flow and stage guidance for each zone.'
+  : isBlackfootHub
+  ? 'Choose among five named Blackfoot River runs, from Class II–III whitewater to the mellow Johnsrud-to-Weigh Station float. Compare all 36 endpoint options, access rules, gauge context, and current closures.'
+  : isRussianRiverHub
+  ? 'Compare Russian River trips from Asti and Healdsburg through Forestville and Guerneville. Check the right flow gauge for each stretch, seasonal access, and current dam notices.'
+  : isWillametteHub
+  ? 'Compare Willamette Water Trail trips from Eugene through Corvallis. See which reaches have source-backed flow guidance, and compare planning-only options with nearby USGS context, distances, access, and hazards.'
+  : isLamoilleHub
+  ? 'Plan a Lamoille River Paddlers’ Trail trip by reach. Compare the named day trips, mandatory falls and dam portages, Johnson gauge context, and route-specific access notes.'
+  : isWoonasquatucketHub
+  ? 'Plan separate upper Woonasquatucket and lower Providence paddles. Compare public launch options, dam portages, urban and tidal hazards, and the unverified access gap below Greystone.'
+  : isBayouTecheHub
+  ? 'Plan the Bayou Teche National Paddle Trail by town-to-town dock sections. Compare official mile markers, current public access notes, the St. Martinville portage, and planning-only water-level context.'
+  : isSuwanneeHub
+  ? 'Plan the Suwannee River Wilderness Trail by documented section. Compare official paddling distances, river-camp access, White Springs gauge guidance, and current campground notices.'
   : scoredRouteCount
   ? `Compare ${group.name} paddle routes with current water levels, Paddle Today scores, weather, access details, and route difficulty.`
   : `Compare ${group.name} planning routes with access details, distance, difficulty and source links. These routes have no live score.`;
@@ -63,10 +101,189 @@ const blackCreekSegments = group.riverId === 'black-creek-mississippi'
       .map((segment) => ({ ...segment, route: group.routes.find((route) => route.slug === segment.slug) }))
       .filter((segment) => segment.route)
   : [];
+const lamoilleSegments = isLamoilleHub
+  ? [
+      { slug: 'lamoille-river-upper-access-morrisville-oxbow', label: 'Upper Lamoille Access to Morrisville Oxbow Park', distance: '8 mi' },
+      { slug: 'lamoille-river-cadyville-waterman-brook', label: 'Cadyville Falls to Waterman Brook', distance: '5 mi' },
+      { slug: 'lamoille-river-dog-head-dorothy-smith', label: 'Johnson area to Dorothy Smith Access', distance: 'about 12 mi' },
+      { slug: 'lamoille-river-dorothy-smith-fairfax-falls', label: 'Dorothy Smith Access to Fairfax Falls', distance: '13 mi' },
+      { slug: 'lamoille-river-fairfax-arrowhead', label: 'Fairfax Falls to Arrowhead Mountain Lake', distance: '8 mi' },
+    ]
+      .map((segment) => ({ ...segment, route: group.routes.find((route) => route.slug === segment.slug) }))
+      .filter((segment) => segment.route)
+  : [];
+const woonasquatucketZones = isWoonasquatucketHub
+  ? [
+      {
+        title: 'Upper river: Georgiaville to Greystone',
+        description: 'The guide documents short trips from Georgiaville Town Beach, Whipple Field and Esmond Park to Cricket Park at Greystone Mill Pond. The 2.5-mile Georgiaville-to-Cricket reach is the named upper paddle; the shorter endpoint choices remain available for planning.',
+        slugs: [
+          'woonasquatucket-river-georgiaville-whipple',
+          'woonasquatucket-river-georgiaville-esmond',
+          'woonasquatucket-river-georgiaville-cricket',
+          'woonasquatucket-river-esmond-cricket',
+          'woonasquatucket-river-whipple-esmond',
+          'woonasquatucket-river-whipple-cricket',
+        ],
+      },
+      {
+        title: 'Lower river: Manton to Providence',
+        description: 'Separate lower options follow the urban river from Manton Avenue through Riverside and Waterplace to South Water Street. Check dam carries, bridge debris, water-quality notices, events and tide conditions for the specific finish.',
+        slugs: [
+          'woonasquatucket-river-manton-riverside',
+          'woonasquatucket-river-manton-waterplace',
+          'woonasquatucket-river-riverside-waterplace',
+          'woonasquatucket-river-waterplace-south-water',
+          'woonasquatucket-river-manton-south-water',
+          'woonasquatucket-river-riverside-south-water',
+        ],
+      },
+    ].map((zone) => ({
+      ...zone,
+      routes: zone.slugs
+        .map((slug) => group.routes.find((route) => route.slug === slug))
+        .filter((route): route is River => Boolean(route)),
+    }))
+  : [];
+const suwanneeSections = isSuwanneeHub
+  ? [
+      { slug: 'suwannee-river-stephen-foster-woods-ferry', label: 'Stephen Foster State Park to Woods Ferry River Camp', distance: 'about 10.3 mi' },
+      { slug: 'suwannee-river-woods-ferry-spirit', label: 'Woods Ferry River Camp to Spirit of the Suwannee', distance: '10.8 mi' },
+      { slug: 'suwannee-river-stephen-foster-spirit', label: 'Stephen Foster State Park to Spirit of the Suwannee', distance: 'about 20.2 mi · advanced day trip' },
+      { slug: 'suwannee-river-gibson-suwannee-state-park', label: 'Gibson County Park to Suwannee River State Park', distance: 'about 7.7 mi' },
+      { slug: 'suwannee-river-suwannee-state-park-dowling-park', label: 'Suwannee River State Park to Dowling Park River Camp', distance: '14.7 mi' },
+      { slug: 'suwannee-river-dowling-lafayette-blue', label: 'Dowling Park River Camp to Lafayette Blue Springs State Park', distance: '9.7 mi' },
+      { slug: 'suwannee-river-dowling-peacock-slough', label: 'Dowling Park River Camp to Peacock Slough River Camp', distance: '18 mi · advanced day trip' },
+      { slug: 'suwannee-river-lafayette-blue-peacock-slough', label: 'Lafayette Blue Springs State Park to Peacock Slough River Camp', distance: '8.3 mi' },
+      { slug: 'suwannee-river-peacock-slough-adams-tract', label: 'Peacock Slough to Adams Tract River Camp', distance: '9.7 mi' },
+    ]
+      .map((section) => ({ ...section, route: group.routes.find((route) => route.slug === section.slug) }))
+      .filter((section) => section.route)
+  : [];
+const bayouTecheZones = isBayouTecheHub
+  ? [
+      {
+        title: 'Upper trail: Port Barre to St. Martinville',
+        description: 'The TECHE Project describes the upper bayou through St. Martinville as suitable for families and inexperienced paddlers. Port Barre starts on Bayou Courtableau; paddle about 0.3 mile to the left to reach Bayou Teche. Routes involving Poche’s Bridge remain subject to endpoint review.',
+        slugs: [
+          'bayou-teche-port-barre-leonville',
+          'bayou-teche-leonville-arnaudville',
+          'bayou-teche-breaux-bridge-parks',
+          'bayou-teche-parks-st-martinville',
+        ],
+      },
+      {
+        title: 'Downstream trail: St. Martinville to Centerville',
+        description: 'This section crosses the documented mile-52.6 obstruction after St. Martinville. The TECHE Project advises paddlers to portage left or arrange advance permission to lock through; check the parish map and local access before launch.',
+        slugs: [
+          'bayou-teche-st-martinville-loreauville',
+          'bayou-teche-loreauville-new-iberia',
+          'bayou-teche-new-iberia-jeanerette',
+          'bayou-teche-jeanerette-charenton',
+          'bayou-teche-charenton-baldwin',
+          'bayou-teche-baldwin-franklin',
+          'bayou-teche-franklin-centerville',
+        ],
+      },
+    ].map((zone) => ({
+      ...zone,
+      routes: zone.slugs
+        .map((slug) => group.routes.find((route) => route.slug === slug))
+        .filter((route): route is River => Boolean(route)),
+    }))
+  : [];
 const staticSelectedRoute = staticRoutes[0];
 const heroPhoto = getRiverGroupHeroPhoto(group.riverId, group.routes);
 const routeSlugHref = (slug: string) => routePageConsolidationTarget(slug) ?? `/rivers/${slug}/`;
 const routeDetailHref = (route: River) => routeSlugHref(route.slug);
+const russianRiverSections = isRussianRiverHub
+  ? [
+      {
+        title: 'Upper river: Asti to Healdsburg',
+        description: 'California Creeks describes the 11-mile Asti–Alexander reach separately from the 14.6-mile Alexander Valley–Healdsburg run. These are different flow zones: the Asti guide gives its own seasonal guidance, while the Healdsburg run uses the direct Healdsburg gauge.',
+        slugs: ['russian-river-asti-alexander', 'russian-river-alexander-healdsburg'],
+      },
+      {
+        title: 'Middle river: Healdsburg to Forestville',
+        description: 'California Creeks names an 8.9-mile Healdsburg–Wohler run and a 10.1-mile alternate ending at Mirabel. Both use its 300–1,500 cfs Healdsburg-gauge guidance; Wohler has a seasonal permit/key, 4WD recommendation, and short portage.',
+        slugs: ['russian-river-healdsburg-wohler', 'russian-river-healdsburg-mirabel'],
+      },
+      {
+        title: 'Lower river: Forestville to Guerneville',
+        description: 'This lower reach uses the Hacienda Bridge gauge context. Dreamflows lists 500–2,500 cfs triggers for its Healdsburg–Guerneville reach at that gauge. Steelhead–Sunset is a shorter beach-to-beach option; long combinations retain their individual endpoints and bailout choices in the trip list.',
+        slugs: ['russian-river-steelhead-sunset', 'russian-river-healdsburg-guerneville'],
+      },
+    ].map((section) => ({
+      ...section,
+      routes: section.slugs
+        .map((slug) => group.routes.find((route) => route.slug === slug))
+        .filter((route): route is River => Boolean(route)),
+    }))
+  : [];
+const blackfootSections = isBlackfootHub
+  ? [
+      {
+        title: 'Upper canyon: Russell Gates to Roundup',
+        description: 'The named 11.1-mile upper-corridor run has continuous Class II water that can sharpen to Class III at spring flows. Roundup Rapid is at the Highway 200 bridge by the take-out; decide before launch whether the trip includes it.',
+        slug: 'blackfoot-river-russell-gates-roundup',
+      },
+      {
+        title: 'Main corridor: Roundup to Johnsrud',
+        description: 'The 16.4-mile named reach links Roundup Rapid and Thibodeau Rapid. FWP limits river camping from Russell Gates to Johnsrud to designated float-in sites with advance permit or reservation.',
+        slug: 'blackfoot-river-roundup-johnsrud',
+      },
+      {
+        title: 'Canyon sampler: Whitaker Bridge to Johnsrud',
+        description: 'This 5.9-mile Class II–III half-day run includes Thibodeau Rapid and The Ledge, and is the busiest stretch on hot summer days. Check the direct Bonner gauge and scout features before committing.',
+        slug: 'blackfoot-river-whitaker-johnsrud',
+      },
+      {
+        title: 'Long run: Scotty Brown Bridge to Johnsrud',
+        description: 'The 31.6-mile named reach crosses the wider Blackfoot corridor and can be staged at permitted float-in campsites. Confirm campsite availability, daylight, shuttle logistics, wood, and cold-water rescue capability.',
+        slug: 'blackfoot-river-scotty-brown-johnsrud',
+      },
+      {
+        title: 'Lower river: Johnsrud to Weigh Station',
+        description: 'The 10.6-mile Class I–II reach is the mellow summer float below the Recreation Corridor. Weigh Station is the last reliable take-out; check FWP restrictions before planning beyond it.',
+        slug: 'blackfoot-river-johnsrud-weigh-station',
+      },
+    ].map((section) => ({
+      ...section,
+      route: group.routes.find((route) => route.slug === section.slug),
+    })).filter((section) => section.route)
+  : [];
+const greenRiverSections = isGreenRiverHub
+  ? [
+      {
+        title: 'Upper Green: Tailwater to Greensburg',
+        description: 'KDFWR describes a 23.5-mile Upper Green trail from Green River Lake Dam to Greensburg and names Tailwater–Roachville as a full-day 12.5-mile float. Its paddling advice uses Green River Lake dam releases: 150–500 cfs for casual floating, with faster water above 500 and local outfitters discouraging floats above 1,000. The separate Pool 6 gauge table gives a Greensburg stage range in feet; dam release and gauge stage are different readings.',
+        slugs: ['green-river-tailwater-roachville-ford', 'green-river-tailwater-greensburg-city-ramp'],
+      },
+      {
+        title: 'Hart County: Lynn Camp to Stovall Park',
+        description: 'KDFWR’s Hart County guide names Rio Carrydown–H.H. Wilson (8 miles) and H.H. Wilson–Stovall Park (4 miles). Big Buffalo Crossing also offers a Lynn Camp Creek–Rio shuttle and float past Three Hundred Springs, which can dwindle to a trickle in dry periods. KDFWR’s Munfordville gauge guidance is in cfs; confirm the Lynn Camp access rules and current Stovall ramp conditions.',
+        slugs: [
+          'green-river-lynn-camp-creek-rio-carrydown',
+          'green-river-rio-carrydown-hh-wilson-park',
+          'green-river-hh-wilson-stovall',
+        ],
+      },
+      {
+        title: 'Mammoth Cave: Dennison Ferry to Brownsville',
+        description: 'NPS names three trips: Dennison–Green River Ferry (7.6 miles), Green River Ferry–Houchin (12.4 miles), and Houchin–Brownsville (3.6 miles). The last reaches Class II rapids at the former Lock and Dam 6 site and leaves the park boundary, where banks are private. NPS recommends 9–15 ft for beginners and 9–18 ft for intermediate paddlers; park river use is prohibited at or above 20 ft.',
+        slugs: [
+          'green-river-dennison-green-river-ferry',
+          'green-river-green-river-ferry-houchins',
+          'green-river-houchins-ferry-brownsville-city-park',
+        ],
+      },
+    ].map((section) => ({
+      ...section,
+      routes: section.slugs
+        .map((slug) => group.routes.find((route) => route.slug === slug))
+        .filter((route): route is River => Boolean(route)),
+    }))
+  : [];
 const shortTimeLabel = (value) => {
   if (!value) return '';
   const text = String(value).trim();
@@ -80,13 +297,35 @@ const areaLabel = group.regions.length === 1 ? 'paddle area' : 'paddle areas';
 const faqItems = [
   {
     question: `Where can I paddle the ${group.name}?`,
-    answer: isWillimanticHub
+    answer: isRussianRiverHub
+      ? 'Start with the named Asti–Alexander and Alexander Valley–Healdsburg upper runs, the Healdsburg–Wohler or Mirabel middle reach, or a lower beach-to-beach trip. The hub keeps every endpoint combination available so you can choose a shorter exit or a longer day.'
+      : isGreenRiverHub
+      ? 'Choose among the Upper Green from Tailwater toward Greensburg, the spring-fed Hart County reaches from Lynn Camp to Stovall Park, or the Mammoth Cave trips from Dennison Ferry through Houchin Ferry to Brownsville. Each zone has different access and condition guidance; the hub keeps all 32 endpoint choices available.'
+      : isWillimanticHub
       ? `This guide keeps the Willimantic Water Trail's mapped put-in and take-out combinations together. Choose a trip option below to compare its distance, access, gauge cue, and hazards.`
+      : isWillametteHub
+      ? 'The Water Trail documents distinct trips from Alton Baker to Harrisburg, Marshall Island to Harrisburg, Harrisburg to Peoria, Peoria to Crystal Lake, and Michael’s Landing to Hyak. Other endpoint combinations remain selectable below with their own distance, access, and hazard details.'
+      : isBlackCreekHub
+      ? `This hub keeps all ${group.routeCount} Black Creek landing combinations together. Start with the six documented adjacent reaches, or choose a longer trip that includes intermediate public landings.`
+      : isLamoilleHub
+      ? `The Lamoille Paddlers Trail names separate day reaches from the upper valley through Johnson and Jeffersonville to Arrowhead Lake. Start with the source-backed day trips below, then compare other access combinations by distance, portage, and local hazards.`
+      : isWoonasquatucketHub
+      ? 'Use this guide for the separate Georgiaville-to-Greystone upper paddle and Manton-to-Providence lower paddles. The WRWC guide says the intervening pond corridor has no public access points and four dam portages that are not well established, so there is no verified continuous through-trip between the zones.'
+      : isBayouTecheHub
+      ? 'Start with the named public dock-to-dock sections below. The TECHE Project marks the mile-52.6 St. Martinville obstruction as a portage or advance lock-through; trips beyond that boundary need separate access planning. Longer endpoint combinations remain in the picker, and no route has a live score.'
+      : isSuwanneeHub
+      ? 'Start with the named day sections in the Suwannee River Wilderness Trail below, then compare longer endpoint combinations in the trip picker. Check each access point and overnight stop separately; Holton Creek River Camp and the Suwannee River State Park campground have current closure notices.'
       : `Paddle Today tracks ${group.routeCount} ${group.name} ${routeLabel} across ${regionSummary}. Compare the route cards on this page, then open an individual route for put-in, take-out, distance, and access notes.`,
   },
   {
     question: `How should I check ${group.name} water levels?`,
-    answer: scoredRouteCount
+    answer: isRussianRiverHub
+      ? 'Use the guide for your exact stretch. California Creeks ties its 300–1,500 cfs guidance for Healdsburg-to-near-Forestville and Alexander-to-Healdsburg runs to the Healdsburg gauge. Dreamflows separately lists 500–2,500 cfs triggers for Healdsburg-to-Guerneville at Hacienda Bridge. These are community flow indicators, not safe limits; the Asti reach has separate seasonal guidance.'
+      : isGreenRiverHub
+      ? 'Use the source for your exact zone and do not compare the numbers directly: the Upper Green guide uses Green River Lake dam release in cfs, KDFWR lists a separate Greensburg stage gauge in feet and a Munfordville discharge gauge in cfs, and NPS gives Mammoth Cave stage ranges and a park closure threshold. Multi-zone combinations are planning-only because one reading cannot represent all of those conditions.'
+      : isWillametteHub
+      ? 'The Willamette Kayak and Canoe Club’s 2,000 cfs low, 6,000 cfs optimal, and 20,000 cfs high references apply to the Alton Baker–Harrisburg reach and two shorter options within it. The other trips are planning-only because no route-specific numeric range is verified; their Harrisburg or Corvallis USGS readings are context, not a live recommendation.'
+      : scoredRouteCount
       ? `Check the gauge notes for your stretch and its live score where available. This hub uses ${gaugeNames.length === 1 ? gaugeNames[0] : `${gaugeNames.length} gauges or gauge references`}. Planning routes have no live score; check their source guidance and current access notices.`
       : `These planning routes have no live conditions score. Use each route’s gauge notes and source guidance, then check current waterway notices, weather, access, and local conditions before launching.`,
   },
@@ -142,7 +381,7 @@ const groupStructuredData = [
   structuredData={groupStructuredData}
   bodyClass="page-river-hub"
 >
-  <article class="river-group-page" data-river-group-page data-river-id={group.riverId} data-river-name={group.name} data-river-state={stateSummary} data-river-region={regionSummary}>
+  <article class="river-group-page" data-river-group-page data-river-id={group.riverId} data-river-name={group.name} data-river-state={stateSummary} data-river-region={regionSummary} data-has-consolidated-trips={hasConsolidatedTrips ? 'true' : 'false'}>
     <section class={`river-group-page__hero${heroPhoto ? ' river-group-page__hero--photo' : ' river-group-page__hero--fallback'}`}>
       <div class="river-group-page__hero-main">
         <p class="eyebrow river-group-page__hero-kicker">
@@ -154,6 +393,16 @@ const groupStructuredData = [
         <p class="river-group-page__lede" data-group-headline>
           {isWillimanticHub
             ? 'Choose among the Willimantic Water Trail’s three distinct stretches, then compare the mapped put-in and take-out combinations in one guide. Upper quickwater, the Eagleville impoundment, and the downstream river have different access, gauge cues, and hazards.'
+            : isBlackCreekHub
+            ? 'Start with the six documented Black Creek reaches from Churchwell Road through Fairley Bridge. The trip picker also includes longer landing combinations, with intermediate public access points for breaks or shorter exits.'
+            : isLamoilleHub
+            ? 'Choose a named Lamoille Paddlers’ Trail reach, then check its specific portages, water type, and access. The trail spans quiet water, rock gardens, falls, and Arrowhead Lake; a Johnson gauge reading does not describe every route hazard.'
+            : isWoonasquatucketHub
+            ? 'Plan the upper Georgiaville–Greystone paddle and the lower Manton–Providence paddles as separate zones. The WRWC guide describes an unverified access and portage gap between them; check the source notes before planning a longer trip.'
+            : isBayouTecheHub
+            ? 'Choose a town-to-town dock section on Louisiana’s Bayou Teche National Paddle Trail. Start with the named legs below, then compare longer itineraries in the picker. The upper and downstream trail sections have different portage and access needs.'
+            : isSuwanneeHub
+            ? 'Choose a named Suwannee River Wilderness Trail section, then check its access and overnight plan. Start with the source-backed day legs below; longer endpoint combinations stay available in the trip picker.'
             : `Plan a paddle across ${group.regions.length} ${areaLabel}. ${scoredRouteCount ? 'Compare distance, difficulty, and current scores where available before choosing your stretch.' : 'Compare distance, difficulty, and access. These planning routes have no live conditions score.'}`}
         </p>
 
@@ -218,9 +467,119 @@ const groupStructuredData = [
         </p>
         <ul>
           {blackCreekSegments.map((segment) => segment.route ? (
-            <li><a href={`/rivers/${segment.route.slug}/`}>{segment.label}</a> — {segment.distance}</li>
+          <li><a href={routeDetailHref(segment.route)}>{segment.label}</a> — {segment.distance}</li>
           ) : null)}
         </ul>
+      </section>
+    ) : null}
+
+    {lamoilleSegments.length > 0 ? (
+      <section class="river-group-page__panel" aria-labelledby="lamoille-recommended-reaches-title">
+        <div class="river-group-page__section-head">
+          <div>
+            <p class="eyebrow section-label">Trail guide day trips</p>
+            <h2 class="section-title" id="lamoille-recommended-reaches-title">Lamoille River Paddlers’ Trail reaches</h2>
+          </div>
+        </div>
+        <p>
+          The trail guide separates the river into named day reaches with different water types, falls and portages. Start with one of these documented trips, then use the picker for other endpoint combinations. Keep the Johnson gauge, weather, mandatory carries and route-specific access notes in view; the Arrowhead Lake section also has reservoir wind exposure. See the <a href="https://www.lamoilleriverpaddlerstrail.org/recommended-trips/" rel="noopener">Lamoille River Paddlers’ Trail recommended trips</a> and its <a href="https://www.lamoilleriverpaddlerstrail.org/maps/" rel="noopener">maps and access guide</a> for current route context.
+        </p>
+        <ul>
+          {lamoilleSegments.map((segment) => segment.route ? (
+          <li><a href={routeDetailHref(segment.route)}>{segment.label}</a> — {segment.distance}</li>
+          ) : null)}
+        </ul>
+      </section>
+    ) : null}
+
+    {woonasquatucketZones.length > 0 ? (
+      <section class="river-group-page__panel" id="woonasquatucket-access-zones" aria-labelledby="woonasquatucket-access-zones-title">
+        <div class="river-group-page__section-head">
+          <div>
+            <p class="eyebrow section-label">Separate access zones</p>
+            <h2 class="section-title" id="woonasquatucket-access-zones-title">Woonasquatucket paddling zones and access gap</h2>
+          </div>
+        </div>
+        <p>
+          The <a href="https://wrwc.org/wp/wp-content/uploads/2020/05/completePaddlingGuide.pdf" rel="noopener">Woonasquatucket River Watershed Council paddling guide</a> describes separate upper, mill-pond and lower-river paddles. It says the Allendale and Lymans Mill Ponds corridor below Greystone has no public access points and four dam portages that are not well established. Treat Georgiaville-to-Greystone and Manton-to-Providence as separate trips; do not plan a continuous through-paddle across the pond corridor until its lawful access and carries are verified.
+        </p>
+        {woonasquatucketZones.map((zone) => (
+          <div class="river-group-page__zone">
+            <h3>{zone.title}</h3>
+            <p>{zone.description}</p>
+            <ul>
+              {zone.routes.map((route) => (
+                <li><a href={routeDetailHref(route)}>{route.reach}</a>{route.logistics?.distanceLabel ? ` — ${route.logistics.distanceLabel}` : ''}</li>
+              ))}
+            </ul>
+          </div>
+        ))}
+      </section>
+    ) : null}
+
+    {suwanneeSections.length > 0 ? (
+      <section class="river-group-page__panel" id="suwannee-current-access-notices" aria-labelledby="suwannee-sections-title">
+        <div class="river-group-page__section-head">
+          <div>
+            <p class="eyebrow section-label">Trail sections and current access</p>
+            <h2 class="section-title" id="suwannee-sections-title">Suwannee River Wilderness Trail sections</h2>
+          </div>
+        </div>
+        <p>
+          Start with a named trail leg or the published Stephen Foster-to-Spirit day trip. Florida State Parks lists the camp-to-camp distances; Florida DEP’s data book maps the wider public access sequence. Mileage is approximate and follows the cited trip source. Read the{' '}
+          <a href="https://www.floridastateparks.org/parks-and-trails/suwannee-river-wilderness-trail/river-camps" rel="noopener">Florida State Parks river-camp guide</a>,{' '}
+          <a href="https://floridadep.gov/sites/default/files/Suwannee%20River%20Wilderness%20Trail%20overview%20and%20data%20book.pdf" rel="noopener">DEP trail data book</a>, and{' '}
+          <a href="https://static1.squarespace.com/static/5eb75b731e54267d65bab94d/t/6136306e34f08f2f257d407a/1630941296039/S27SR%2B-%2BStephen%2BFoster%2BFolk%2BCulture%2BCenter%2BState%2BPark%2Bto%2BSpirit%2Bof%2Bthe%2BSuwannee%2BMusic%2BPark%2BPaddle.pdf" rel="noopener">Florida Paddling Trails’ upper-river trip guide</a>.
+        </p>
+        <ul>
+          {suwanneeSections.map((section) => section.route ? (
+            <li><a href={routeDetailHref(section.route)}>{section.label}</a> — {section.distance}</li>
+          ) : null)}
+        </ul>
+        <div class="river-group-page__zone">
+          <h3>Current overnight and access notices</h3>
+          <p>
+            Florida State Parks currently reports <a href="https://www.floridastateparks.org/parks-and-trails/suwannee-river-wilderness-trail" rel="noopener">Holton Creek River Camp closed after Hurricane Helene damage</a>. The <a href="https://www.floridastateparks.org/parks-and-trails/suwannee-river-state-park" rel="noopener">Suwannee River State Park campground is closed to reservations and walk-ins effective June 3, 2026</a>. Do not plan an overnight stop at either site while those notices remain; confirm boat-ramp access, other open camps, reservations and river-only landings before departure. Routes with unresolved endpoint access are withheld from the public picker and redirect here.
+          </p>
+          <p>
+            The trip profiles use the White Springs USGS gauge and published Suwannee River Water Management District stage cues. Florida DEP cautions that high stages can make paddling dangerous and can close parks or river camps; check the <a href="https://www.srwmd.org/64/Boating-Canoeing" rel="noopener">District’s paddling guidance</a>, live gauge trend and official closure notices together.
+          </p>
+        </div>
+      </section>
+    ) : null}
+
+    {bayouTecheZones.length > 0 ? (
+      <section class="river-group-page__panel" id="bayou-teche-documented-sections" aria-labelledby="bayou-teche-sections-title">
+        <div class="river-group-page__section-head">
+          <div>
+            <p class="eyebrow section-label">National Paddle Trail sections</p>
+            <h2 class="section-title" id="bayou-teche-sections-title">Bayou Teche dock-to-dock trips</h2>
+          </div>
+        </div>
+        <p>
+          The <a href="https://www.techeproject.org/bayou-teche-paddle-trail/dock-locations/" rel="noopener">TECHE Project dock guide</a> lists official docks and river-mile positions. The trail maps include parish-specific safety notes and access details; all trips here are planning routes because no stage-based scoring range has been verified for the Port Barre gauge.{' '}
+          <a href="https://www.techeproject.org/bayou-teche-paddle-trail/map/" rel="noopener">See the official paddle-trail maps</a> before staging a trip.
+        </p>
+        {bayouTecheZones.map((zone) => (
+          <div class="river-group-page__zone">
+            <h3>{zone.title}</h3>
+            <p>{zone.description}</p>
+            <ul>
+              {zone.routes.map((route) => (
+                <li><a href={routeDetailHref(route)}>{route.reach}</a>{route.logistics?.distanceLabel ? ` — ${route.logistics.distanceLabel}` : ''}</li>
+              ))}
+            </ul>
+          </div>
+        ))}
+        <div class="river-group-page__zone" id="bayou-teche-access-notices">
+          <h3>Access review</h3>
+          <p>
+            Nine Bayou Teche endpoint combinations are temporarily withheld while their access coordinates are reviewed. Their old URLs point here; use the named sections above or another available trip option below. The official dock address and map are the current references for checking each water-entry path, parking area and opening status.
+          </p>
+          <p>
+            USGS 07385450 at Port Barre reports stage, but its discharge record ended in October 2024 and the site has no verified stage thresholds for these reaches. Check the <a href="https://teche-vermilion.gov/teche-vermilion-water-levels/" rel="noopener">Teche-Vermilion water-level page</a>, weather, dock notices and the specific parish map; a Port Barre reading is context rather than a live go/no-go score for the full trail.
+          </p>
+        </div>
       </section>
     ) : null}
 
@@ -347,7 +706,7 @@ const groupStructuredData = [
               const active = index === 0;
               return (
                 <article
-                  id={isWillimanticHub ? `trip-${route.slug}` : undefined}
+                  id={`trip-${route.slug}`}
                   class={`route-choice${active ? ' route-choice--active' : ''}`}
                   data-group-route-card
                   data-route-slug={route.slug}
@@ -418,7 +777,7 @@ const groupStructuredData = [
                     </details>
                   ) : (
                     <a class="river-link river-link--inline route-choice__details-link" href={routeDetailHref(route)}>
-                      View route
+                      {hasConsolidatedTrips ? 'View trip option' : 'View route'}
                     </a>
                   )}
                 </article>
@@ -453,7 +812,7 @@ const groupStructuredData = [
             </div>
             {staticSelectedRoute ? (
               <div class="river-route-picker__selected-actions">
-                <a class="river-link river-link--inline" href={routeDetailHref(staticSelectedRoute)}>{isWillimanticHub ? 'View trip option' : 'View route details'}</a>
+                <a class="river-link river-link--inline" href={routeDetailHref(staticSelectedRoute)}>{hasConsolidatedTrips ? 'View trip option' : 'View route details'}</a>
               </div>
             ) : null}
           </div>
@@ -515,8 +874,18 @@ const groupStructuredData = [
         <article class="river-hub-context__item">
           <h3>Route options</h3>
           <p>
-            {isWillimanticHub
+            {isRussianRiverHub
+              ? `Compare all ${group.routeCount} endpoint combinations here. Six source-backed trips keep standalone pages; the remaining options stay selectable with their own mileage, access, shuttle, and hazard notes. The upper, middle, and lower reaches use different guide and gauge references.`
+              : isGreenRiverHub
+              ? `Compare all ${group.routeCount} Green River trip choices across the Upper Green, Hart County, and Mammoth Cave. Eight source-backed trips keep standalone pages; the other 24 remain available here with their endpoint, mileage, access, and hazard details. Eleven cross-zone combinations are planning-only because their gauge guidance cannot be combined into one route score.`
+              : isBlackfootHub
+              ? `Compare all ${group.routeCount} endpoint combinations here. Five source-documented runs keep standalone pages; the other 31 remain selectable as trip options. Route-specific flow scores are limited to those five named reaches; the rest show the Bonner gauge as context only.`
+              : isWillimanticHub
               ? `Compare all ${group.routeCount} trip combinations here, grouped around the three official water-trail stretches. Each option retains its own access, mileage, gauge cue, difficulty, and hazard notes.`
+              : isWillametteHub
+              ? `Compare all ${group.routeCount} endpoint combinations here. Five source-backed trips keep standalone pages; the other 45 remain selectable here with their own mileage, access, camping, and hazard notes. Three trips within the Alton Baker–Harrisburg flow-guidance reach have scores; the rest are planning-only.`
+              : isBlackCreekHub
+              ? `Compare all ${group.routeCount} landing combinations here. The six adjacent reaches documented by Seven Rivers have individual pages; longer combinations and the Ashe Nursery alternative remain available as trip options.`
               : `Compare ${group.routeCount} ${routeLabel} (${scoredRouteCount} scored · ${planningRouteCount} planning) across ${regionSummary}. Open a route page for put-in, take-out, distance, source confidence, and access notes.`}
           </p>
         </article>
@@ -696,6 +1065,112 @@ const groupStructuredData = [
 
           <p>
             Read the <a href="https://www.alabamacanoetrails.com/sites/default/files/maps/Bartram%20Canoe%20Trail%20Brochure.pdf" target="_blank" rel="noopener noreferrer">Alabama State Lands Bartram Canoe Trail brochure</a> and the <a href="https://www.alabamacanoetrails.com/" target="_blank" rel="noopener noreferrer">official canoe-trail site</a> before choosing a trip. The brochure warns that delta channels can be confusing and directs paddlers to follow marked routes; check current water levels, access terms, platform reservations, and navigation conditions.
+          </p>
+        </div>
+      ) : null}
+
+      {isGreenRiverHub ? (
+        <div class="river-hub-context__source-guide" aria-labelledby="green-river-sections-title">
+          <div class="river-group-page__section-head">
+            <div>
+              <p class="eyebrow section-label">KDFWR and Mammoth Cave National Park trip guides</p>
+              <h3 class="section-title" id="green-river-sections-title">Choose a Green River zone first</h3>
+            </div>
+            <p class="muted river-group-page__section-note">
+              Eight source-backed trips keep standalone pages. The other 24 endpoint combinations remain available in the trip picker with their own route details.
+            </p>
+          </div>
+
+          <div class="river-hub-context__grid">
+            {greenRiverSections.map((section) => (
+              <article class="river-hub-context__item">
+                <h3>{section.title}</h3>
+                <p>{section.description}</p>
+                <ul>
+                  {section.routes.map((route) => (
+                    <li>
+                      <a href={routeDetailHref(route)}>{route.reach}</a>
+                      {route.logistics?.distanceLabel ? <span> · {route.logistics.distanceLabel}</span> : null}
+                    </li>
+                  ))}
+                </ul>
+              </article>
+            ))}
+          </div>
+
+          <p>
+            KDFWR’s <a href="https://fw.ky.gov/Education/Pages/Upper-Green-River.aspx" target="_blank" rel="noopener noreferrer">Upper Green guide</a> bases its casual-paddling guidance on Green River Lake dam releases. Its <a href="https://fw.ky.gov/Fish/Pages/Pool-6-%E2%80%93-Green-River.aspx" target="_blank" rel="noopener noreferrer">Pool 6 page</a> separately lists the Greensburg stage gauge and Munfordville discharge gauge; those readings use different locations and units. KDFWR’s <a href="https://fw.ky.gov/Education/Pages/Green-River---Hart-County.aspx" target="_blank" rel="noopener noreferrer">Hart County guide</a> documents the named floats and access details. These boating recommendations are planning cues, not safety limits.
+          </p>
+          <p>
+            For Mammoth Cave, check the NPS <a href="https://www.nps.gov/maca/planyourvisit/canoeing-kayaking-and-boating.htm" target="_blank" rel="noopener noreferrer">trip and access guide</a> and <a href="https://www.nps.gov/maca/planyourvisit/river-safety-and-regulations.htm" target="_blank" rel="noopener noreferrer">river safety rules</a> before launch. NPS warns that the river can rise quickly, current can be swift, and submerged wood, debris, ferry operations, muddy access, and downstream Class II rapids require route-specific planning. Confirm the live <a href="https://waterdata.usgs.gov/monitoring-location/USGS-03309000/" target="_blank" rel="noopener noreferrer">USGS Mammoth Cave gauge</a> and weather immediately before going.
+          </p>
+        </div>
+      ) : null}
+      {isRussianRiverHub ? (
+        <div class="river-hub-context__source-guide" aria-labelledby="russian-river-sections-title">
+          <div class="river-group-page__section-head">
+            <div>
+              <p class="eyebrow section-label">Russian River sections</p>
+              <h3 class="section-title" id="russian-river-sections-title">Choose a reach before comparing routes</h3>
+            </div>
+            <p class="muted river-group-page__section-note">
+              The 37 trip combinations cross upper, middle, and lower stretches with different access and gauge references.
+            </p>
+          </div>
+
+          <div class="river-hub-context__grid">
+            {russianRiverSections.map((section) => (
+              <article class="river-hub-context__item">
+                <h3>{section.title}</h3>
+                <p>{section.description}</p>
+                <ul>
+                  {section.routes.map((route) => (
+                    <li>
+                      <a href={routeDetailHref(route)}>{route.reach}</a>
+                      {route.logistics?.distanceLabel ? <span> · {route.logistics.distanceLabel}</span> : null}
+                    </li>
+                  ))}
+                </ul>
+              </article>
+            ))}
+          </div>
+
+          <p>
+            California Creeks publishes separate route notes for the <a href="https://www.cacreeks.com/russn-as.htm" target="_blank" rel="noopener noreferrer">Asti–Alexander</a>, <a href="https://www.cacreeks.com/russn-he.htm" target="_blank" rel="noopener noreferrer">Alexander–Healdsburg</a>, and <a href="https://www.cacreeks.com/russn-hl.htm" target="_blank" rel="noopener noreferrer">Healdsburg–near-Forestville</a> reaches. Dreamflows provides the <a href="https://www.dreamflows.com/reachMap/index.php?num=1&amp;rid=026" target="_blank" rel="noopener noreferrer">Healdsburg–Guerneville route and Hacienda gauge map</a> and <a href="https://www.dreamflows.com/triggerLevels.php" target="_blank" rel="noopener noreferrer">gauge-specific flow triggers</a>. Those community flow indicators are not safety limits.
+          </p>
+          <p>
+            Wohler Bridge is a seasonal permit/key launch with a short portage and a 4WD recommendation; check the <a href="https://www.sonomacounty.com/outdoor-activities/wohler-bridge-fishing-access/" target="_blank" rel="noopener noreferrer">current Sonoma County access details</a>. Seasonal dams and crossings change water depth and navigation. Before a lower-river trip, check the district’s latest <a href="https://www.russianriverrecpark.org/vacation-beach-dam-information" target="_blank" rel="noopener noreferrer">Vacation Beach Dam</a> and <a href="https://www.russianriverrecpark.org/rrrpd-dams-in-guerneville" target="_blank" rel="noopener noreferrer">Guerneville dam notices</a>, along with the linked USGS gauge and local access status.
+          </p>
+        </div>
+      ) : null}
+      {isBlackfootHub ? (
+        <div class="river-hub-context__source-guide" aria-labelledby="blackfoot-sections-title">
+          <div class="river-group-page__section-head">
+            <div>
+              <p class="eyebrow section-label">Montana FWP and Riverbeta section guide</p>
+              <h3 class="section-title" id="blackfoot-sections-title">Choose a Blackfoot run by river character</h3>
+            </div>
+            <p class="muted river-group-page__section-note">
+              The river flows west toward Bonner. The route-specific community flow bands apply to the five named runs below; the other 31 endpoint combinations remain planning-only options.
+            </p>
+          </div>
+
+          <div class="river-hub-context__grid">
+            {blackfootSections.map((section) => (
+              <article class="river-hub-context__item">
+                <h3>{section.title}</h3>
+                <p>{section.description}</p>
+                {section.route ? <a href={routeDetailHref(section.route)}>{section.route.reach}</a> : null}
+                {section.route?.logistics?.distanceLabel ? <p class="muted">{section.route.logistics.distanceLabel}</p> : null}
+              </article>
+            ))}
+          </div>
+
+          <p>
+            Montana FWP defines the Blackfoot River Recreation Corridor from Russell Gates downstream to Johnsrud. Camping within it is prohibited outside eight designated float-in campsites, which require advance reservation and permit. Confirm current campsite details and access restrictions in the <a href="https://fwp.mt.gov/activities/boating/blackfoot-river" target="_blank" rel="noopener noreferrer">FWP Blackfoot recreation guide</a> and <a href="https://fwp.mt.gov/binaries/content/assets/fwp/activities/river-recreation/blackfoot-river-float-map.pdf" target="_blank" rel="noopener noreferrer">official access and camping map</a>. The <a href="https://fwp.mt.gov/news/current-closures-restrictions" target="_blank" rel="noopener noreferrer">FWP current restrictions and closures page</a> is the source to check before launch, including any notice affecting the river below Weigh Station.
+          </p>
+          <p>
+            Riverbeta lists the five named sections and their direct USGS 12340000 community flow cues: <a href="https://riverbeta.app/blackfoot-river/blackfoot-russell-gates-to-roundup" target="_blank" rel="noopener noreferrer">Russell Gates–Roundup</a>, <a href="https://riverbeta.app/blackfoot-river/blackfoot-roundup-to-johnsrud" target="_blank" rel="noopener noreferrer">Roundup–Johnsrud</a>, <a href="https://riverbeta.app/blackfoot-river/blackfoot-whitaker-to-johnsrud" target="_blank" rel="noopener noreferrer">Whitaker–Johnsrud</a>, <a href="https://riverbeta.app/blackfoot-river/blackfoot-scotty-brown-to-johnsrud" target="_blank" rel="noopener noreferrer">Scotty Brown–Johnsrud</a>, and <a href="https://riverbeta.app/blackfoot-river/blackfoot-johnsrud-to-weigh-station" target="_blank" rel="noopener noreferrer">Johnsrud–Weigh Station</a>. These are community planning indicators, not safe operating limits; check the <a href="https://waterdata.usgs.gov/monitoring-location/USGS-12340000/" target="_blank" rel="noopener noreferrer">live USGS gauge</a>, local wood, weather, site access, and the route’s difficulty before going.
           </p>
         </div>
       ) : null}

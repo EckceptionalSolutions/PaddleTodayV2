@@ -36,25 +36,382 @@ const willimanticRouteSlugs = [
 ] as const;
 
 const willimanticHubPath = '/rivers/by-river/willimantic-river-connecticut/';
+const blackCreekHubPath = '/rivers/by-river/black-creek-mississippi/';
+const blackfootHubPath = '/rivers/by-river/blackfoot-river-montana/';
+const woonasquatucketHubPath = '/rivers/by-river/woonasquatucket-river-rhode-island/';
+const suwanneeHubPath = '/rivers/by-river/suwannee-river-florida/';
+const bayouTecheHubPath = '/rivers/by-river/bayou-teche-river-louisiana/';
+const willametteHubPath = '/rivers/by-river/willamette-river-oregon/';
+const greenRiverHubPath = '/rivers/by-river/green-river-kentucky/';
+
+const blackCreekCompositeRouteSlugs = [
+  'black-creek-big-creek-cypress',
+  'black-creek-janice-fairley',
+  'black-creek-big-creek-fairley',
+  'black-creek-big-creek-janice',
+  'black-creek-old-highway-49-janice',
+  'black-creek-old-highway-49-cypress',
+  'black-creek-old-highway-49-fairley',
+  'black-creek-churchwell-old-highway-49',
+  'black-creek-moodys-cypress',
+  'black-creek-moodys-fairley',
+  'black-creek-old-highway-49-ashe-nursery',
+  'black-creek-big-creek-ashe-nursery',
+  'black-creek-churchwell-ashe-nursery',
+  'black-creek-big-creek-moodys',
+  'black-creek-churchwell-moodys',
+  'black-creek-churchwell-janice',
+  'black-creek-churchwell-cypress',
+  'black-creek-churchwell-fairley',
+  'black-creek-ashe-nursery-moodys',
+  'black-creek-ashe-nursery-janice',
+  'black-creek-ashe-nursery-cypress',
+  'black-creek-ashe-nursery-fairley',
+] as const;
+
+const lamoilleCompositeRouteSlugs = [
+  'lamoille-river-cadyville-arrowhead',
+  'lamoille-river-cadyville-dog-head',
+  'lamoille-river-cadyville-dorothy-smith',
+  'lamoille-river-cadyville-fairfax',
+  'lamoille-river-dog-head-arrowhead',
+  'lamoille-river-dog-head-fairfax',
+  'lamoille-river-dorothy-smith-arrowhead',
+  'lamoille-river-oxbow-arrowhead',
+  'lamoille-river-oxbow-cadyville',
+  'lamoille-river-oxbow-dog-head',
+  'lamoille-river-oxbow-dorothy-smith',
+  'lamoille-river-oxbow-fairfax',
+  'lamoille-river-oxbow-waterman',
+  'lamoille-river-upper-access-arrowhead',
+  'lamoille-river-upper-access-cadyville',
+  'lamoille-river-upper-access-dog-head',
+  'lamoille-river-upper-access-dorothy-smith',
+  'lamoille-river-upper-access-fairfax',
+  'lamoille-river-upper-access-waterman',
+  'lamoille-river-waterman-arrowhead',
+  'lamoille-river-waterman-dog-head',
+  'lamoille-river-waterman-dorothy-smith',
+  'lamoille-river-waterman-fairfax',
+] as const;
+
+const woonasquatucketAccessGapRouteSlugs = [
+  'woonasquatucket-river-georgiaville-manton',
+  'woonasquatucket-river-georgiaville-riverside',
+  'woonasquatucket-river-georgiaville-waterplace',
+  'woonasquatucket-river-georgiaville-south-water',
+  'woonasquatucket-river-whipple-manton',
+  'woonasquatucket-river-whipple-riverside',
+  'woonasquatucket-river-whipple-waterplace',
+  'woonasquatucket-river-whipple-south-water',
+  'woonasquatucket-river-esmond-manton',
+  'woonasquatucket-river-esmond-riverside',
+  'woonasquatucket-river-esmond-waterplace',
+  'woonasquatucket-river-esmond-south-water',
+  'woonasquatucket-river-cricket-manton',
+  'woonasquatucket-river-cricket-riverside',
+  'woonasquatucket-river-cricket-waterplace',
+  'woonasquatucket-river-cricket-south-water',
+] as const;
+
+const woonasquatucketUpperCompositeRouteSlugs = [
+  'woonasquatucket-river-georgiaville-whipple',
+  'woonasquatucket-river-georgiaville-esmond',
+  'woonasquatucket-river-esmond-cricket',
+  'woonasquatucket-river-whipple-esmond',
+  'woonasquatucket-river-whipple-cricket',
+] as const;
+
+const suwanneeConsolidatedRouteSlugs = [
+  'suwannee-river-gibson-dowling-park',
+  'suwannee-river-state-park-lafayette-blue',
+  'suwannee-river-gibson-lafayette-blue',
+  'suwannee-river-spirit-holton-creek',
+  'suwannee-river-holton-suwannee-state-park',
+  'suwannee-river-holton-dowling-park',
+  'suwannee-river-spirit-suwannee-state-park',
+  'suwannee-river-spirit-dowling-park',
+  'suwannee-river-spirit-lafayette-blue',
+  'suwannee-river-state-park-peacock-slough',
+  'suwannee-river-state-park-adams-tract',
+  'suwannee-river-dowling-adams-tract',
+  'suwannee-river-holton-lafayette-blue',
+  'suwannee-river-holton-peacock-slough',
+  'suwannee-river-spirit-peacock-slough',
+  'suwannee-river-holton-adams-tract',
+  'suwannee-river-stephen-foster-holton',
+  'suwannee-river-stephen-foster-suwannee-state-park',
+  'suwannee-river-stephen-foster-dowling-park',
+  'suwannee-river-stephen-foster-lafayette-blue',
+  'suwannee-river-woods-ferry-holton',
+  'suwannee-river-woods-ferry-suwannee-state-park',
+  'suwannee-river-woods-ferry-dowling-park',
+  'suwannee-river-woods-ferry-lafayette-blue',
+  'suwannee-river-gibson-holton',
+  'suwannee-river-gibson-peacock-slough',
+  'suwannee-river-spirit-gibson',
+  'suwannee-river-woods-ferry-gibson',
+  'suwannee-river-stephen-foster-gibson',
+  'suwannee-river-gibson-adams-tract',
+  'suwannee-river-spirit-adams-tract',
+  'suwannee-river-woods-ferry-peacock-slough',
+  'suwannee-river-woods-ferry-adams-tract',
+  'suwannee-river-stephen-foster-peacock-slough',
+  'suwannee-river-stephen-foster-adams-tract',
+] as const;
+
+const suwanneeAccessNoticeRouteSlugs = new Set([
+  'suwannee-river-spirit-holton-creek',
+  'suwannee-river-holton-suwannee-state-park',
+  'suwannee-river-holton-dowling-park',
+  'suwannee-river-holton-lafayette-blue',
+  'suwannee-river-holton-peacock-slough',
+  'suwannee-river-holton-adams-tract',
+  'suwannee-river-stephen-foster-holton',
+  'suwannee-river-woods-ferry-holton',
+  'suwannee-river-gibson-holton',
+  'suwannee-river-state-park-peacock-slough',
+  'suwannee-river-gibson-peacock-slough',
+  'suwannee-river-spirit-peacock-slough',
+  'suwannee-river-stephen-foster-peacock-slough',
+  'suwannee-river-woods-ferry-peacock-slough',
+]);
+
+const bayouTecheConsolidatedRouteSlugs = [
+  'bayou-teche-arnaudville-poche-bridge',
+  'bayou-teche-poche-bridge-breaux-bridge',
+  'bayou-teche-charenton-centerville',
+  'bayou-teche-port-barre-arnaudville',
+  'bayou-teche-port-barre-poche-bridge',
+  'bayou-teche-port-barre-breaux-bridge',
+  'bayou-teche-leonville-poche-bridge',
+  'bayou-teche-leonville-breaux-bridge',
+  'bayou-teche-arnaudville-breaux-bridge',
+  'bayou-teche-arnaudville-parks',
+  'bayou-teche-poche-bridge-parks',
+  'bayou-teche-breaux-bridge-st-martinville',
+  'bayou-teche-parks-loreauville',
+  'bayou-teche-leonville-parks',
+  'bayou-teche-arnaudville-st-martinville',
+  'bayou-teche-poche-bridge-st-martinville',
+  'bayou-teche-poche-bridge-loreauville',
+  'bayou-teche-breaux-bridge-loreauville',
+  'bayou-teche-st-martinville-new-iberia',
+  'bayou-teche-loreauville-jeanerette',
+  'bayou-teche-new-iberia-charenton',
+  'bayou-teche-jeanerette-baldwin',
+  'bayou-teche-baldwin-centerville',
+  'bayou-teche-port-barre-st-martinville',
+  'bayou-teche-leonville-st-martinville',
+  'bayou-teche-leonville-loreauville',
+  'bayou-teche-arnaudville-loreauville',
+  'bayou-teche-arnaudville-new-iberia',
+  'bayou-teche-poche-bridge-new-iberia',
+  'bayou-teche-breaux-bridge-new-iberia',
+  'bayou-teche-parks-new-iberia',
+  'bayou-teche-st-martinville-jeanerette',
+  'bayou-teche-loreauville-charenton',
+] as const;
+
+const bayouTecheAccessReviewRouteSlugs = new Set([
+  'bayou-teche-arnaudville-poche-bridge',
+  'bayou-teche-poche-bridge-breaux-bridge',
+  'bayou-teche-port-barre-poche-bridge',
+  'bayou-teche-leonville-poche-bridge',
+  'bayou-teche-poche-bridge-parks',
+  'bayou-teche-poche-bridge-st-martinville',
+  'bayou-teche-poche-bridge-loreauville',
+  'bayou-teche-poche-bridge-new-iberia',
+  'bayou-teche-parks-new-iberia',
+]);
+
+const willametteConsolidatedRouteSlugs = [
+  'willamette-river-peoria-michaels',
+  'willamette-river-crystal-lake-michaels',
+  'willamette-river-crystal-lake-hyak',
+  'willamette-river-harrisburg-mccartney',
+  'willamette-river-mccartney-peoria',
+  'willamette-river-harrisburg-irish-bend',
+  'willamette-river-irish-bend-peoria',
+  'willamette-river-norwood-peoria',
+  'willamette-river-harrisburg-harkens',
+  'willamette-river-harkens-irish-bend',
+  'willamette-river-marshall-island-mccartney',
+  'willamette-river-harrisburg-norwood',
+  'willamette-river-mccartney-irish-bend',
+  'willamette-river-marshall-island-irish-bend',
+  'willamette-river-alton-baker-marshall-island',
+  'willamette-river-alton-baker-mccartney',
+  'willamette-river-alton-baker-harkens',
+  'willamette-river-alton-baker-irish-bend',
+  'willamette-river-alton-baker-norwood',
+  'willamette-river-alton-baker-peoria',
+  'willamette-river-marshall-island-peoria',
+  'willamette-river-marshall-island-norwood',
+  'willamette-river-harkens-peoria',
+  'willamette-river-irish-bend-norwood',
+  'willamette-river-alton-baker-crystal-lake',
+  'willamette-river-alton-baker-michaels',
+  'willamette-river-alton-baker-hyak',
+  'willamette-river-marshall-island-harkens',
+  'willamette-river-marshall-island-crystal-lake',
+  'willamette-river-marshall-island-michaels',
+  'willamette-river-harrisburg-crystal-lake',
+  'willamette-river-mccartney-harkens',
+  'willamette-river-mccartney-norwood',
+  'willamette-river-harkens-norwood',
+  'willamette-river-harrisburg-michaels',
+  'willamette-river-harrisburg-hyak',
+  'willamette-river-harkens-michaels',
+  'willamette-river-harkens-hyak',
+  'willamette-river-mccartney-michaels',
+  'willamette-river-mccartney-hyak',
+  'willamette-river-irish-bend-michaels',
+  'willamette-river-irish-bend-hyak',
+  'willamette-river-norwood-michaels',
+  'willamette-river-norwood-hyak',
+  'willamette-river-peoria-hyak',
+] as const;
+
+const russianRiverConsolidatedRouteSlugs = [
+  'russian-river-forestville-steelhead',
+  'russian-river-forestville-sunset',
+  'russian-river-healdsburg-steelhead',
+  'russian-river-wohler-steelhead',
+  'russian-river-healdsburg-sunset',
+  'russian-river-healdsburg-forestville',
+  'russian-river-wohler-mirabel',
+  'russian-river-wohler-sunset',
+  'russian-river-mirabel-steelhead',
+  'russian-river-mirabel-sunset',
+  'russian-river-mirabel-forestville',
+  'russian-river-wohler-forestville',
+  'russian-river-steelhead-guerneville',
+  'russian-river-forestville-guerneville',
+  'russian-river-wohler-guerneville',
+  'russian-river-mirabel-guerneville',
+  'russian-river-sunset-guerneville',
+  'russian-river-cloverdale-del-rio',
+  'russian-river-cloverdale-healdsburg',
+  'russian-river-alexander-del-rio',
+  'russian-river-del-rio-healdsburg',
+  'russian-river-healdsburg-monte-rio-planning',
+  'russian-river-guerneville-monte-rio-planning',
+  'russian-river-cloverdale-asti',
+  'russian-river-cloverdale-alexander',
+  'russian-river-asti-del-rio',
+  'russian-river-asti-healdsburg',
+  'russian-river-alexander-monte-rio',
+  'russian-river-del-rio-monte-rio',
+  'russian-river-asti-monte-rio',
+  'russian-river-cloverdale-monte-rio',
+] as const;
+
+const blackfootConsolidatedRouteSlugs = [
+  'blackfoot-river-johnsrud-k-ross-toole',
+  'blackfoot-river-k-ross-toole-angevine',
+  'blackfoot-river-angevine-marco-flats',
+  'blackfoot-river-marco-flats-weigh-station',
+  'blackfoot-river-k-ross-toole-marco-flats',
+  'blackfoot-river-johnsrud-angevine',
+  'blackfoot-river-johnsrud-marco-flats',
+  'blackfoot-river-k-ross-toole-weigh-station',
+  'blackfoot-river-angevine-weigh-station',
+  'blackfoot-river-scotty-brown-russell-gates',
+  'blackfoot-river-russell-gates-whitaker',
+  'blackfoot-river-russell-gates-johnsrud',
+  'blackfoot-river-scotty-brown-roundup',
+  'blackfoot-river-scotty-brown-whitaker',
+  'blackfoot-river-roundup-whitaker',
+  'blackfoot-river-russell-gates-weigh-station',
+  'blackfoot-river-scotty-brown-weigh-station',
+  'blackfoot-river-roundup-weigh-station',
+  'blackfoot-river-whitaker-weigh-station',
+  'blackfoot-river-roundup-k-ross-toole',
+  'blackfoot-river-roundup-angevine',
+  'blackfoot-river-roundup-marco-flats',
+  'blackfoot-river-whitaker-k-ross-toole',
+  'blackfoot-river-whitaker-angevine',
+  'blackfoot-river-whitaker-marco-flats',
+  'blackfoot-river-russell-gates-k-ross-toole',
+  'blackfoot-river-russell-gates-angevine',
+  'blackfoot-river-scotty-brown-k-ross-toole',
+  'blackfoot-river-scotty-brown-angevine',
+  'blackfoot-river-russell-gates-marco-flats',
+  'blackfoot-river-scotty-brown-marco-flats',
+] as const;
+
+const blackfootLegacyRouteAliases = [
+  ['blackfoot-river-k-ross-toole-johnsrud', 'blackfoot-river-johnsrud-k-ross-toole'],
+  ['blackfoot-river-angevine-johnsrud', 'blackfoot-river-johnsrud-angevine'],
+  ['blackfoot-river-marco-flats-johnsrud', 'blackfoot-river-johnsrud-marco-flats'],
+  ['blackfoot-river-russell-gates-scotty-brown', 'blackfoot-river-scotty-brown-russell-gates'],
+] as const;
+
+const greenRiverConsolidatedRouteSlugs = [
+  'green-river-green-river-ferry-brownsville-city-park',
+  'green-river-dennison-ferry-houchins-ferry',
+  'green-river-tailwater-american-legion',
+  'green-river-tailwater-russell-ford',
+  'green-river-roachville-russell-ford',
+  'green-river-roachville-american-legion',
+  'green-river-roachville-greensburg-city-ramp',
+  'green-river-russell-ford-american-legion',
+  'green-river-russell-ford-greensburg-city-ramp',
+  'green-river-russell-ford-glenview-road',
+  'green-river-greensburg-city-ramp-glenview-road',
+  'green-river-american-legion-greensburg',
+  'green-river-greensburg-city-ramp-lynn-camp-creek',
+  'green-river-american-legion-glenview-road',
+  'green-river-american-legion-lynn-camp-creek',
+  'green-river-roachville-glenview-road',
+  'green-river-glenview-road-lynn-camp-creek',
+  'green-river-hh-wilson-park-dennison-ferry',
+  'green-river-rio-carrydown-dennison-ferry',
+  'green-river-rio-carrydown-stovall-park',
+  'green-river-hh-wilson-park-green-river-ferry',
+  'green-river-stovall-park-green-river-ferry',
+  'green-river-stovall-park-dennison-ferry',
+  'green-river-lynn-camp-creek-hh-wilson-park',
+] as const;
 
 const consolidatedRouteTargets = new Map<string, string>(
-  willimanticRouteSlugs.map((slug) => [slug, `${willimanticHubPath}#trip-${slug}`]),
+  [
+    ...willimanticRouteSlugs.map((slug) => [slug, `${willimanticHubPath}?route=${slug}#trip-${slug}`] as const),
+    ...blackCreekCompositeRouteSlugs.map((slug) => [slug, `${blackCreekHubPath}?route=${slug}#trip-${slug}`] as const),
+    ...lamoilleCompositeRouteSlugs.map((slug) => [slug, `/rivers/by-river/lamoille-river-vermont/?route=${slug}#trip-${slug}`] as const),
+    ...woonasquatucketAccessGapRouteSlugs.map((slug) => [slug, `${woonasquatucketHubPath}#woonasquatucket-access-zones`] as const),
+    ...woonasquatucketUpperCompositeRouteSlugs.map((slug) => [slug, `${woonasquatucketHubPath}?route=${slug}#trip-${slug}`] as const),
+    ...suwanneeConsolidatedRouteSlugs.map((slug) => [
+      slug,
+      suwanneeAccessNoticeRouteSlugs.has(slug)
+        ? `${suwanneeHubPath}#suwannee-current-access-notices`
+        : `${suwanneeHubPath}?route=${slug}#trip-${slug}`,
+    ] as const),
+    ...bayouTecheConsolidatedRouteSlugs.map((slug) => [
+      slug,
+      bayouTecheAccessReviewRouteSlugs.has(slug)
+        ? `${bayouTecheHubPath}#bayou-teche-access-notices`
+        : `${bayouTecheHubPath}?route=${slug}#trip-${slug}`,
+    ] as const),
+    ...willametteConsolidatedRouteSlugs.map((slug) => [slug, `${willametteHubPath}?route=${slug}#trip-${slug}`] as const),
+    ...russianRiverConsolidatedRouteSlugs.map((slug) => [slug, `/rivers/by-river/russian-river-california/?route=${slug}#trip-${slug}`] as const),
+    ...blackfootConsolidatedRouteSlugs.map((slug) => [slug, `${blackfootHubPath}?route=${slug}#trip-${slug}`] as const),
+    ...blackfootLegacyRouteAliases.map(([legacySlug, currentSlug]) => [legacySlug, `${blackfootHubPath}?route=${currentSlug}#trip-${currentSlug}`] as const),
+    ...greenRiverConsolidatedRouteSlugs.map((slug) => [slug, `${greenRiverHubPath}?route=${slug}#trip-${slug}`] as const),
+  ],
 );
 
 export function routePageConsolidationTarget(slug: string): string | undefined {
   return consolidatedRouteTargets.get(slug);
 }
 
-/** Build a route link while keeping planner selections on the consolidated hub URL. */
+/** Build a route link while preserving trip selection and optional planner filters. */
 export function routePageHref(slug: string, params = new URLSearchParams()): string {
-  const target = routePageConsolidationTarget(slug);
-  const query = params.size ? `?${params.toString()}` : '';
-  if (!target) return `/rivers/${encodeURIComponent(slug)}/${query}`;
-
-  const hashIndex = target.indexOf('#');
-  const pathname = hashIndex >= 0 ? target.slice(0, hashIndex) : target;
-  const hash = hashIndex >= 0 ? target.slice(hashIndex) : '';
-  return `${pathname}${query}${hash}`;
+  const destination = routePageConsolidationTarget(slug) ?? `/rivers/${encodeURIComponent(slug)}/`;
+  const url = new URL(destination, 'https://paddletoday.invalid');
+  for (const [key, value] of params) url.searchParams.set(key, value);
+  return `${url.pathname}${url.search}${url.hash}`;
 }
 
 export function hasStandaloneRoutePage(slug: string): boolean {

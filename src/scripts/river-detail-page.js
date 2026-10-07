@@ -213,6 +213,7 @@ const riverContext = {
   defaultPutInNote: activePutInNote instanceof HTMLElement ? activePutInNote.textContent ?? '' : '',
   defaultTakeOutNote: activeTakeOutNote instanceof HTMLElement ? activeTakeOutNote.textContent ?? '' : '',
   defaultDistanceLabel: root.dataset.riverDistance || (activeFactDistance instanceof HTMLElement ? activeFactDistance.textContent ?? '' : ''),
+  defaultShuttleLabel: accessShuttle?.textContent?.trim() || 'Confirm shuttle details',
 };
 const routeShareContext = {
   title: root.dataset.routeShareTitle || `${riverContext.name}: ${riverContext.reach} | Paddle Today`,
@@ -3599,29 +3600,15 @@ function initializeAccessPlanner() {
     const distance = Math.max(0.1, Number((end.mileFromStart - start.mileFromStart).toFixed(1)));
     const paceFast = Math.max(0.5, distance / 3);
     const paceEasy = Math.max(paceFast + 0.25, distance / 2.2);
-    const segmentKind =
-      start.segmentKind === 'lake' && end.segmentKind === 'lake'
-        ? 'Lake chain'
-        : start.segmentKind === 'creek' && end.segmentKind === 'creek'
-          ? 'Creek-focused'
-          : 'Lake to creek';
-    const stageLabel =
-      distance < 4
-        ? 'Short option'
-        : distance < 9
-          ? 'Half-day option'
-          : 'Full route option';
-    const shuttleText =
-      distance < 5
-        ? 'Short self-shuttle'
-        : distance < 10
-          ? 'Flexible self-shuttle'
-          : 'Long self-shuttle';
-    const summaryText = `${start.name} to ${end.name} is about ${distance.toFixed(1)} mi. ${segmentKind === 'Lake chain' ? 'This keeps you mostly on the lake chain.' : segmentKind === 'Creek-focused' ? 'This keeps the day mostly on the narrower downstream creek.' : 'This starts on the lakes and finishes on the narrower creek.'}`;
+    const fullAccessPair = start.id === plannerAccessPoints[0]?.id
+      && end.id === plannerAccessPoints[plannerAccessPoints.length - 1]?.id;
+    const stageLabel = fullAccessPair ? 'Full route' : 'Shorter segment';
+    const shuttleText = fullAccessPair ? riverContext.defaultShuttleLabel : 'Confirm shuttle for this pair';
+    const summaryText = `${start.name} to ${end.name} is about ${distance.toFixed(1)} mi. Check the access notes and directions for this pair before launching.`;
     const noteText = [start.note, end.note].filter(Boolean).join(' ');
 
     setElementText(accessDistance, `${distance.toFixed(1)} mi`);
-    setElementText(accessShape, segmentKind);
+    setElementText(accessShape, 'Selected segment');
     setElementText(accessTime, `About ${formatDuration(paceFast)} to ${formatDuration(paceEasy)}`);
     setElementText(accessStage, stageLabel);
     setElementText(accessShuttle, shuttleText);
@@ -4264,6 +4251,7 @@ function renderGaugeChart(result) {
   const rangeListEl = root.querySelector('[data-current-gauge-range-list]');
   const hydrographFigure = root.querySelector('[data-current-gauge-hydrograph-figure]');
   const hydrographImage = root.querySelector('[data-current-gauge-hydrograph-image]');
+  const historyStatus = root.querySelector('[data-current-gauge-history-status]');
   const hydrographLink = root.querySelector('[data-current-gauge-hydrograph]');
   const detailLink = root.querySelector('[data-current-gauge-detail]');
   const lineEl = root.querySelector('[data-chart-line]');
@@ -4327,6 +4315,16 @@ function renderGaugeChart(result) {
       : result.river?.gaugeSource?.hydrographUrl || '';
     if (hydrographFigure instanceof HTMLElement && hydrographImage instanceof HTMLImageElement) {
       if (hydrographUrl) {
+        hydrographImage.hidden = false;
+        if (historyStatus instanceof HTMLElement) {
+          historyStatus.textContent = 'Recent trend is unavailable. This source does not provide chart samples; its official image may contain no recent readings. Use the source links to check the latest history.';
+        }
+        hydrographImage.onerror = () => {
+          hydrographImage.hidden = true;
+          if (historyStatus instanceof HTMLElement) {
+            historyStatus.textContent = 'Recent trend is unavailable, and the official hydrograph image could not load. Open the official source below to check recent readings.';
+          }
+        };
         hydrographImage.src = hydrographUrl;
         hydrographFigure.hidden = false;
       } else {
@@ -5474,7 +5472,13 @@ bindScoreFeedbackButtons();
 trackEvent('Route view', routeAnalyticsProperties());
 bindFavoriteButtons(document, {
   onToggle({ saved }) {
-    setRouteActionStatus(saved ? 'Saved to Favorites.' : 'Removed from Favorites.', 'success');
+    setRouteActionStatus(saved ? 'Route saved. ' : 'Removed from Saved routes.', 'success');
+    if (saved && routeActionStatus instanceof HTMLElement) {
+      const link = document.createElement('a');
+      link.href = '/favorites/';
+      link.textContent = 'View saved routes';
+      routeActionStatus.append(link);
+    }
   },
 });
 if (detailRefreshButton instanceof HTMLButtonElement) {
