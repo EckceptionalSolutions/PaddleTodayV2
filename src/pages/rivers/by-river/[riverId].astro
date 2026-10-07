@@ -40,6 +40,7 @@ const isWoonasquatucketHub = group.riverId === 'woonasquatucket-river-rhode-isla
 const isSuwanneeHub = group.riverId === 'suwannee-river-florida';
 const isSaukRiverHub = group.riverId === 'sauk-river';
 const isTruckeeHub = group.riverId === 'truckee-river-nevada';
+const isFarmingtonHub = group.riverId === 'farmington-river-connecticut';
 const isBayouTecheHub = group.riverId === 'bayou-teche-river-louisiana';
 const hasConsolidatedTrips = group.routes.some((route) => routePageConsolidationTarget(route.slug));
 const stateSummary = group.states.join(', ');
@@ -91,6 +92,8 @@ const groupTitle = isBroadRiverHub
   ? 'Sauk River, Minnesota | State Water Trail Sections & Access'
   : isTruckeeHub
   ? 'Truckee River, Nevada | Paddling Sections, Gauges & Access'
+  : isFarmingtonHub
+  ? 'Farmington River, Connecticut | Upper West Branch Paddle Routes'
   : scoredRouteCount
   ? `${group.name}, ${groupTitleLocation} | Water Levels & Paddle Routes`
   : `${group.name}, ${groupTitleLocation} | Paddle Routes & Trip Planning`;
@@ -140,6 +143,8 @@ const groupDescription = isBroadRiverHub
   ? `Compare ${group.routeCount} Sauk River routes across two Minnesota DNR water-trail maps. Review recommended trips, access, lower-river rapids, and St. Martin gauge context for nearby reaches.`
   : isTruckeeHub
   ? 'Compare 24 Truckee River trips from Floriston through Reno and Sparks to Wadsworth. Choose among six documented sections, review whitewater and dam portages, and use the gauge attached to your exact reach.'
+  : isFarmingtonHub
+  ? 'Compare three upper Farmington River trips from Riverton to People’s State Forest and the Route 181/318 bridge. Check Riverton flow, access, and why Lake McDonough is separate.'
   : scoredRouteCount
   ? `Compare ${group.name} paddle routes with current water levels, Paddle Today scores, weather, access details, and route difficulty.`
   : `Compare ${group.name} planning routes with access details, distance, difficulty and source links. These routes have no live score.`;
@@ -539,6 +544,8 @@ const faqItems = [
       ? 'Start with the named day sections in the Suwannee River Wilderness Trail below, then compare longer endpoint combinations in the trip picker. Check each access point and overnight stop separately; Holton Creek River Camp and the Suwannee River State Park campground have current closure notices.'
       : isTruckeeHub
       ? 'The Nevada Truckee guide follows one access chain but separates three very different paddling zones: the technical Floriston–Verdi reach, Reno–Sparks and its whitewater parks, and the lower river toward Wadsworth. All 24 endpoint choices remain selectable with route-specific details.'
+      : isFarmingtonHub
+      ? 'Choose among the upper West Branch reaches between the Route 20 Riverton access, People’s State Forest, and the Route 181/318 bridge. Lake McDonough is a separate reservoir launch, not a river take-out.'
       : `Paddle Today tracks ${group.routeCount} ${group.name} ${routeLabel} across ${regionSummary}. Compare the route cards on this page, then open an individual route for put-in, take-out, distance, and access notes.`,
   },
   {
@@ -573,6 +580,8 @@ const faqItems = [
       ? 'The Willamette Kayak and Canoe Club’s 2,000 cfs low, 6,000 cfs optimal, and 20,000 cfs high references apply to the Alton Baker–Harrisburg reach and two shorter options within it. The other trips are planning-only because no route-specific numeric range is verified; their Harrisburg or Corvallis USGS readings are context, not a live recommendation.'
       : isTruckeeHub
       ? 'Use the gauge and flow notes attached to your selected route. USGS stations at Farad, Reno, Vista, and below Derby Dam cover different parts of the river. Truckee flow is regulated and varies by season; one station does not represent every reach or clear a dam portage, whitewater feature, or access restriction.'
+      : isFarmingtonHub
+      ? 'Use USGS 01186000 at Riverton for these upper West Branch trips. Riverton’s 250 cfs minimum and 360–980 cfs optimum for downriver canoeing are community planning cues for this corridor, not safety guarantees or guidance for the lower Farmington. Check the live trend, release notices, weather, and access before launch.'
       : scoredRouteCount
       ? `Check the gauge notes for your stretch and its live score where available. This hub uses ${gaugeNames.length === 1 ? gaugeNames[0] : `${gaugeNames.length} gauges or gauge references`}. Planning routes have no live score; check their source guidance and current access notices.`
       : `These planning routes have no live conditions score. Use each route’s gauge notes and source guidance, then check current waterway notices, weather, access, and local conditions before launching.`,
@@ -669,6 +678,8 @@ const groupStructuredData = [
             ? `Start with the DNR-recommended day trips or the documented Frogtown extension, then compare all ${group.routeCount} access pairs. The upper chain-of-lakes, the St. Martin gauge area, and the lower rapids have different conditions and planning needs.`
             : isTruckeeHub
             ? 'Choose a documented reach first, then compare nearby endpoint pairs. The upper Floriston–Verdi gorge, Reno–Sparks whitewater corridor, and lower river each have different difficulty, gauge context, and access requirements.'
+            : isFarmingtonHub
+            ? 'Choose the Riverton–People’s Forest reach, the People’s Forest–Route 181/318 reach, or the combined run. The selector keeps all three choices together so you can compare endpoints and shuttle needs on one guide.'
             : isFloydsForkHub
             ? 'Follow the six KDFWR-listed access legs from North Beckley to Cliffside, or choose the separately published full-corridor trip. The picker keeps every endpoint combination available with its own mileage, access, gauge, and hazard notes.'
             : `Plan a paddle across ${group.regions.length} ${areaLabel}. ${scoredRouteCount ? 'Compare distance, difficulty, and current scores where available before choosing your stretch.' : 'Compare distance, difficulty, and access. These planning routes have no live conditions score.'}`}
@@ -1324,6 +1335,8 @@ const groupStructuredData = [
               ? `Compare all ${group.routeCount} Sauk River endpoint choices here. Seven focused guides cover the DNR-recommended trips, its Frogtown extension, and useful St. Martin and lower-river access pairs; the other 14 combinations stay selectable with their own mileage, access, and hazard details.`
               : isTruckeeHub
               ? `Compare all ${group.routeCount} Truckee River choices here. Six source-documented pages cover the upper Floriston run, three Reno–Sparks sections, and two lower-river reaches. The other 18 endpoint combinations remain selectable with their own distance, access, gauge, and hazard details.`
+              : isFarmingtonHub
+              ? 'Three trip options cover the two adjoining access legs and their combined run. Retired Lake McDonough combinations now lead to the separate reservoir access explanation below.'
               : `Compare ${group.routeCount} ${routeLabel} (${scoredRouteCount} scored · ${planningRouteCount} planning) across ${regionSummary}. Open a route page for put-in, take-out, distance, source confidence, and access notes.`}
           </p>
         </article>
@@ -1336,6 +1349,35 @@ const groupStructuredData = [
           </p>
         </article>
       </div>
+
+      {isFarmingtonHub ? (
+        <div class="river-hub-context__source-guide" id="farmington-river-access-notes" aria-labelledby="farmington-river-sections-title">
+          <div class="river-group-page__section-head">
+            <div>
+              <p class="eyebrow section-label">Farmington River Coordinating Committee and local access guidance</p>
+              <h3 class="section-title" id="farmington-river-sections-title">Upper West Branch access and nearby reservoir</h3>
+            </div>
+            <p class="muted river-group-page__section-note">
+              Access-point numbers differ between the current FRCC map and the older Riverton guide; use the place names when staging.
+            </p>
+          </div>
+
+          <div class="river-hub-context__grid">
+            <article class="river-hub-context__item">
+              <h3>Three river accesses, two adjoining reaches</h3>
+              <p>The selectable runs connect the Route 20 parking lot in Riverton, People’s State Forest, and the Route 181/318 bridge in Pleasant Valley. The forest is an intermediate access on the combined trip, so it can serve as an earlier take-out if conditions or timing change.</p>
+            </article>
+            <article class="river-hub-context__item">
+              <h3>Lake McDonough is a separate reservoir paddle</h3>
+              <p>Do not use the lake launch as the take-out for a downriver Farmington trip. The MDC permits canoe and kayak launching with a day-boat fee, but prohibits leaving a boat along the shoreline except at the launch area. Plan it as a separate reservoir outing.</p>
+            </article>
+          </div>
+
+          <p>
+            Compare the <a href="https://farmingtonriver.org/wp-content/uploads/2026/03/619c00c50fd8f88b63cc717e_FRCC_RecArea2.pdf" target="_blank" rel="noopener noreferrer">FRCC Hartland–New Hartford access map</a> with the <a href="https://www.rivertonct.com/product/canoeing-kayaking" target="_blank" rel="noopener noreferrer">Town of Riverton canoeing guidance</a>. For the separate reservoir, check the <a href="https://themdc.org/lake-mcdonough/" target="_blank" rel="noopener noreferrer">MDC Lake McDonough launch rules and fees</a>. Use the <a href="https://waterdata.usgs.gov/monitoring-location/USGS-01186000/" target="_blank" rel="noopener noreferrer">USGS Riverton gauge</a> for the upper West Branch and verify its live trend and current notices before launch.
+          </p>
+        </div>
+      ) : null}
 
       {isFloydsForkHub ? (
         <div class="river-hub-context__source-guide" aria-labelledby="floyds-fork-sections-title">

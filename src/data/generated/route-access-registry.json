@@ -1,12 +1,12 @@
 {
-  "generatedAt": "2026-10-06T17:59:00.733Z",
+  "generatedAt": "2026-10-07T22:04:51.400Z",
   "auditGeneratedAt": "2026-09-22T14:58:34.632Z",
   "summary": {
     "entryCount": 4087,
-    "repeatedEntryCount": 1220,
+    "repeatedEntryCount": 1219,
     "conflictCount": 0,
     "distinctLocationNameCount": 3,
-    "derivedWaterEntryCount": 2283,
+    "derivedWaterEntryCount": 2276,
     "authoritativeAccessCount": 1266,
     "authoritativeWaterEntryCount": 499,
     "areaAnchorOnlyCount": 1,
@@ -27746,578 +27746,6 @@
       ]
     },
     {
-      "id": "connecticut--access-point-6-route-20-parking-lot-riverton-water-entry-edge",
-      "state": "Connecticut",
-      "name": "Access Point 6 — Route 20 parking lot, Riverton (water-entry edge)",
-      "aliases": [
-        "Access Point 6 — Route 20 parking lot, Riverton (water-entry edge)"
-      ],
-      "sourceIds": [
-        "farmington-river-riverton-181-318-put-in",
-        "farmington-river-riverton-lake-mcdonough-put-in",
-        "farmington-river-riverton-peoples-forest-put-in"
-      ],
-      "storedAccessCoordinate": {
-        "latitude": 41.959027,
-        "longitude": -73.018056
-      },
-      "accessCoordinate": {
-        "latitude": 41.959027,
-        "longitude": -73.018056
-      },
-      "accessCoordinateSource": "stored-route-consensus",
-      "authoritativeAccess": null,
-      "authoritativeFacilityAnchor": null,
-      "authoritativeAreaAnchor": null,
-      "storedCoordinateIsAreaAnchor": false,
-      "authoritativeAccessIdentityMismatch": false,
-      "authoritativeAccessMismatchFeet": null,
-      "waterEntryCoordinate": {
-        "latitude": 41.959027,
-        "longitude": -73.018056
-      },
-      "waterEntryConsensusRouteCount": 3,
-      "waterEntryExactOnRiver": true,
-      "waterEntryWaterbodyConfirmed": true,
-      "authoritativeResolvesDistinctLocation": false,
-      "coordinateStatus": "consistent",
-      "verificationStatus": "derived-consensus",
-      "maximumSeparationFeet": 0,
-      "occurrenceCount": 6,
-      "routeCount": 3,
-      "coordinateVariants": [
-        {
-          "key": "41.95903,-73.01806",
-          "coordinate": {
-            "latitude": 41.959027,
-            "longitude": -73.018056
-          },
-          "occurrenceCount": 6,
-          "routeCount": 3,
-          "routes": [
-            "farmington-river-riverton-181-318",
-            "farmington-river-riverton-lake-mcdonough",
-            "farmington-river-riverton-peoples-forest"
-          ]
-        }
-      ],
-      "occurrences": [
-        {
-          "routeId": "farmington-river-riverton-181-318",
-          "routeName": "Farmington River",
-          "state": "Connecticut",
-          "endpoint": "accessPoint",
-          "sourceId": "farmington-river-riverton-181-318-put-in",
-          "name": "Access Point 6 — Route 20 parking lot, Riverton (water-entry edge)",
-          "latitude": 41.959027,
-          "longitude": -73.018056,
-          "auditSeverity": "ok",
-          "distanceFeetToMatchedRiver": 0,
-          "endpointOnWaterbody": true,
-          "coordinateEvidenceRole": null
-        },
-        {
-          "routeId": "farmington-river-riverton-181-318",
-          "routeName": "Farmington River",
-          "state": "Connecticut",
-          "endpoint": "putIn",
-          "sourceId": null,
-          "name": "Access Point 6 — Route 20 parking lot, Riverton (water-entry edge)",
-          "latitude": 41.959027,
-          "longitude": -73.018056,
-          "auditSeverity": "ok",
-          "distanceFeetToMatchedRiver": 0,
-          "endpointOnWaterbody": true,
-          "coordinateEvidenceRole": null
-        },
-        {
-          "routeId": "farmington-river-riverton-lake-mcdonough",
-          "routeName": "Farmington River",
-          "state": "Connecticut",
-          "endpoint": "accessPoint",
-          "sourceId": "farmington-river-riverton-lake-mcdonough-put-in",
-          "name": "Access Point 6 — Route 20 parking lot, Riverton (water-entry edge)",
-          "latitude": 41.959027,
-          "longitude": -73.018056,
-          "auditSeverity": "ok",
-          "distanceFeetToMatchedRiver": 0,
-          "endpointOnWaterbody": true,
-          "coordinateEvidenceRole": null
-        },
-        {
-          "routeId": "farmington-river-riverton-lake-mcdonough",
-          "routeName": "Farmington River",
-          "state": "Connecticut",
-          "endpoint": "putIn",
-          "sourceId": null,
-          "name": "Access Point 6 — Route 20 parking lot, Riverton (water-entry edge)",
-          "latitude": 41.959027,
-          "longitude": -73.018056,
-          "auditSeverity": "ok",
-          "distanceFeetToMatchedRiver": 0,
-          "endpointOnWaterbody": true,
-          "coordinateEvidenceRole": null
-        },
-        {
-          "routeId": "farmington-river-riverton-peoples-forest",
-          "routeName": "Farmington River",
-          "state": "Connecticut",
-          "endpoint": "accessPoint",
-          "sourceId": "farmington-river-riverton-peoples-forest-put-in",
-          "name": "Access Point 6 — Route 20 parking lot, Riverton (water-entry edge)",
-          "latitude": 41.959027,
-          "longitude": -73.018056,
-          "auditSeverity": "ok",
-          "distanceFeetToMatchedRiver": 0,
-          "endpointOnWaterbody": true,
-          "coordinateEvidenceRole": null
-        },
-        {
-          "routeId": "farmington-river-riverton-peoples-forest",
-          "routeName": "Farmington River",
-          "state": "Connecticut",
-          "endpoint": "putIn",
-          "sourceId": null,
-          "name": "Access Point 6 — Route 20 parking lot, Riverton (water-entry edge)",
-          "latitude": 41.959027,
-          "longitude": -73.018056,
-          "auditSeverity": "ok",
-          "distanceFeetToMatchedRiver": 0,
-          "endpointOnWaterbody": true,
-          "coordinateEvidenceRole": null
-        }
-      ]
-    },
-    {
-      "id": "connecticut--access-point-7-people-s-state-forest-barkhamsted-water-entry-edge",
-      "state": "Connecticut",
-      "name": "Access Point 7 — People’s State Forest, Barkhamsted (water-entry edge)",
-      "aliases": [
-        "Access Point 7 — People’s State Forest, Barkhamsted (water-entry edge)"
-      ],
-      "sourceIds": [
-        "farmington-river-peoples-forest-181-318-put-in",
-        "farmington-river-peoples-forest-lake-mcdonough-put-in",
-        "farmington-river-riverton-peoples-forest-take-out"
-      ],
-      "storedAccessCoordinate": {
-        "latitude": 41.925531,
-        "longitude": -73.001434
-      },
-      "accessCoordinate": {
-        "latitude": 41.925531,
-        "longitude": -73.001434
-      },
-      "accessCoordinateSource": "stored-route-consensus",
-      "authoritativeAccess": null,
-      "authoritativeFacilityAnchor": null,
-      "authoritativeAreaAnchor": null,
-      "storedCoordinateIsAreaAnchor": false,
-      "authoritativeAccessIdentityMismatch": false,
-      "authoritativeAccessMismatchFeet": null,
-      "waterEntryCoordinate": {
-        "latitude": 41.925531,
-        "longitude": -73.001434
-      },
-      "waterEntryConsensusRouteCount": 3,
-      "waterEntryExactOnRiver": true,
-      "waterEntryWaterbodyConfirmed": true,
-      "authoritativeResolvesDistinctLocation": false,
-      "coordinateStatus": "consistent",
-      "verificationStatus": "derived-consensus",
-      "maximumSeparationFeet": 0,
-      "occurrenceCount": 6,
-      "routeCount": 3,
-      "coordinateVariants": [
-        {
-          "key": "41.92553,-73.00143",
-          "coordinate": {
-            "latitude": 41.925531,
-            "longitude": -73.001434
-          },
-          "occurrenceCount": 6,
-          "routeCount": 3,
-          "routes": [
-            "farmington-river-peoples-forest-181-318",
-            "farmington-river-peoples-forest-lake-mcdonough",
-            "farmington-river-riverton-peoples-forest"
-          ]
-        }
-      ],
-      "occurrences": [
-        {
-          "routeId": "farmington-river-peoples-forest-181-318",
-          "routeName": "Farmington River",
-          "state": "Connecticut",
-          "endpoint": "accessPoint",
-          "sourceId": "farmington-river-peoples-forest-181-318-put-in",
-          "name": "Access Point 7 — People’s State Forest, Barkhamsted (water-entry edge)",
-          "latitude": 41.925531,
-          "longitude": -73.001434,
-          "auditSeverity": "ok",
-          "distanceFeetToMatchedRiver": 0,
-          "endpointOnWaterbody": true,
-          "coordinateEvidenceRole": null
-        },
-        {
-          "routeId": "farmington-river-peoples-forest-181-318",
-          "routeName": "Farmington River",
-          "state": "Connecticut",
-          "endpoint": "putIn",
-          "sourceId": null,
-          "name": "Access Point 7 — People’s State Forest, Barkhamsted (water-entry edge)",
-          "latitude": 41.925531,
-          "longitude": -73.001434,
-          "auditSeverity": "ok",
-          "distanceFeetToMatchedRiver": 0,
-          "endpointOnWaterbody": true,
-          "coordinateEvidenceRole": null
-        },
-        {
-          "routeId": "farmington-river-peoples-forest-lake-mcdonough",
-          "routeName": "Farmington River",
-          "state": "Connecticut",
-          "endpoint": "accessPoint",
-          "sourceId": "farmington-river-peoples-forest-lake-mcdonough-put-in",
-          "name": "Access Point 7 — People’s State Forest, Barkhamsted (water-entry edge)",
-          "latitude": 41.925531,
-          "longitude": -73.001434,
-          "auditSeverity": "ok",
-          "distanceFeetToMatchedRiver": 0,
-          "endpointOnWaterbody": true,
-          "coordinateEvidenceRole": null
-        },
-        {
-          "routeId": "farmington-river-peoples-forest-lake-mcdonough",
-          "routeName": "Farmington River",
-          "state": "Connecticut",
-          "endpoint": "putIn",
-          "sourceId": null,
-          "name": "Access Point 7 — People’s State Forest, Barkhamsted (water-entry edge)",
-          "latitude": 41.925531,
-          "longitude": -73.001434,
-          "auditSeverity": "ok",
-          "distanceFeetToMatchedRiver": 0,
-          "endpointOnWaterbody": true,
-          "coordinateEvidenceRole": null
-        },
-        {
-          "routeId": "farmington-river-riverton-peoples-forest",
-          "routeName": "Farmington River",
-          "state": "Connecticut",
-          "endpoint": "accessPoint",
-          "sourceId": "farmington-river-riverton-peoples-forest-take-out",
-          "name": "Access Point 7 — People’s State Forest, Barkhamsted (water-entry edge)",
-          "latitude": 41.925531,
-          "longitude": -73.001434,
-          "auditSeverity": "ok",
-          "distanceFeetToMatchedRiver": 0,
-          "endpointOnWaterbody": true,
-          "coordinateEvidenceRole": null
-        },
-        {
-          "routeId": "farmington-river-riverton-peoples-forest",
-          "routeName": "Farmington River",
-          "state": "Connecticut",
-          "endpoint": "takeOut",
-          "sourceId": null,
-          "name": "Access Point 7 — People’s State Forest, Barkhamsted (water-entry edge)",
-          "latitude": 41.925531,
-          "longitude": -73.001434,
-          "auditSeverity": "ok",
-          "distanceFeetToMatchedRiver": 0,
-          "endpointOnWaterbody": true,
-          "coordinateEvidenceRole": null
-        }
-      ]
-    },
-    {
-      "id": "connecticut--access-point-8-route-181-318-bridge-pleasant-valley-water-entry-edge",
-      "state": "Connecticut",
-      "name": "Access Point 8 — Route 181/318 bridge, Pleasant Valley (water-entry edge)",
-      "aliases": [
-        "Access Point 8 — Route 181/318 bridge, Pleasant Valley (water-entry edge)"
-      ],
-      "sourceIds": [
-        "farmington-river-181-318-lake-mcdonough-put-in",
-        "farmington-river-peoples-forest-181-318-take-out",
-        "farmington-river-riverton-181-318-take-out"
-      ],
-      "storedAccessCoordinate": {
-        "latitude": 41.878549,
-        "longitude": -72.958845
-      },
-      "accessCoordinate": {
-        "latitude": 41.878549,
-        "longitude": -72.958845
-      },
-      "accessCoordinateSource": "stored-route-consensus",
-      "authoritativeAccess": null,
-      "authoritativeFacilityAnchor": null,
-      "authoritativeAreaAnchor": null,
-      "storedCoordinateIsAreaAnchor": false,
-      "authoritativeAccessIdentityMismatch": false,
-      "authoritativeAccessMismatchFeet": null,
-      "waterEntryCoordinate": {
-        "latitude": 41.878549,
-        "longitude": -72.958845
-      },
-      "waterEntryConsensusRouteCount": 3,
-      "waterEntryExactOnRiver": true,
-      "waterEntryWaterbodyConfirmed": true,
-      "authoritativeResolvesDistinctLocation": false,
-      "coordinateStatus": "consistent",
-      "verificationStatus": "derived-consensus",
-      "maximumSeparationFeet": 0,
-      "occurrenceCount": 6,
-      "routeCount": 3,
-      "coordinateVariants": [
-        {
-          "key": "41.87855,-72.95884",
-          "coordinate": {
-            "latitude": 41.878549,
-            "longitude": -72.958845
-          },
-          "occurrenceCount": 6,
-          "routeCount": 3,
-          "routes": [
-            "farmington-river-181-318-lake-mcdonough",
-            "farmington-river-peoples-forest-181-318",
-            "farmington-river-riverton-181-318"
-          ]
-        }
-      ],
-      "occurrences": [
-        {
-          "routeId": "farmington-river-181-318-lake-mcdonough",
-          "routeName": "Farmington River",
-          "state": "Connecticut",
-          "endpoint": "accessPoint",
-          "sourceId": "farmington-river-181-318-lake-mcdonough-put-in",
-          "name": "Access Point 8 — Route 181/318 bridge, Pleasant Valley (water-entry edge)",
-          "latitude": 41.878549,
-          "longitude": -72.958845,
-          "auditSeverity": "ok",
-          "distanceFeetToMatchedRiver": 0,
-          "endpointOnWaterbody": true,
-          "coordinateEvidenceRole": null
-        },
-        {
-          "routeId": "farmington-river-181-318-lake-mcdonough",
-          "routeName": "Farmington River",
-          "state": "Connecticut",
-          "endpoint": "putIn",
-          "sourceId": null,
-          "name": "Access Point 8 — Route 181/318 bridge, Pleasant Valley (water-entry edge)",
-          "latitude": 41.878549,
-          "longitude": -72.958845,
-          "auditSeverity": "ok",
-          "distanceFeetToMatchedRiver": 0,
-          "endpointOnWaterbody": true,
-          "coordinateEvidenceRole": null
-        },
-        {
-          "routeId": "farmington-river-peoples-forest-181-318",
-          "routeName": "Farmington River",
-          "state": "Connecticut",
-          "endpoint": "accessPoint",
-          "sourceId": "farmington-river-peoples-forest-181-318-take-out",
-          "name": "Access Point 8 — Route 181/318 bridge, Pleasant Valley (water-entry edge)",
-          "latitude": 41.878549,
-          "longitude": -72.958845,
-          "auditSeverity": "ok",
-          "distanceFeetToMatchedRiver": 0,
-          "endpointOnWaterbody": true,
-          "coordinateEvidenceRole": null
-        },
-        {
-          "routeId": "farmington-river-peoples-forest-181-318",
-          "routeName": "Farmington River",
-          "state": "Connecticut",
-          "endpoint": "takeOut",
-          "sourceId": null,
-          "name": "Access Point 8 — Route 181/318 bridge, Pleasant Valley (water-entry edge)",
-          "latitude": 41.878549,
-          "longitude": -72.958845,
-          "auditSeverity": "ok",
-          "distanceFeetToMatchedRiver": 0,
-          "endpointOnWaterbody": true,
-          "coordinateEvidenceRole": null
-        },
-        {
-          "routeId": "farmington-river-riverton-181-318",
-          "routeName": "Farmington River",
-          "state": "Connecticut",
-          "endpoint": "accessPoint",
-          "sourceId": "farmington-river-riverton-181-318-take-out",
-          "name": "Access Point 8 — Route 181/318 bridge, Pleasant Valley (water-entry edge)",
-          "latitude": 41.878549,
-          "longitude": -72.958845,
-          "auditSeverity": "ok",
-          "distanceFeetToMatchedRiver": 0,
-          "endpointOnWaterbody": true,
-          "coordinateEvidenceRole": null
-        },
-        {
-          "routeId": "farmington-river-riverton-181-318",
-          "routeName": "Farmington River",
-          "state": "Connecticut",
-          "endpoint": "takeOut",
-          "sourceId": null,
-          "name": "Access Point 8 — Route 181/318 bridge, Pleasant Valley (water-entry edge)",
-          "latitude": 41.878549,
-          "longitude": -72.958845,
-          "auditSeverity": "ok",
-          "distanceFeetToMatchedRiver": 0,
-          "endpointOnWaterbody": true,
-          "coordinateEvidenceRole": null
-        }
-      ]
-    },
-    {
-      "id": "connecticut--access-point-9-lake-mcdonough-barkhamsted-water-entry-edge",
-      "state": "Connecticut",
-      "name": "Access Point 9 — Lake McDonough, Barkhamsted (water-entry edge)",
-      "aliases": [
-        "Access Point 9 — Lake McDonough, Barkhamsted (water-entry edge)"
-      ],
-      "sourceIds": [
-        "farmington-river-181-318-lake-mcdonough-take-out",
-        "farmington-river-peoples-forest-lake-mcdonough-take-out",
-        "farmington-river-riverton-lake-mcdonough-take-out"
-      ],
-      "storedAccessCoordinate": {
-        "latitude": 41.867099,
-        "longitude": -72.954567
-      },
-      "accessCoordinate": {
-        "latitude": 41.867099,
-        "longitude": -72.954567
-      },
-      "accessCoordinateSource": "stored-route-consensus",
-      "authoritativeAccess": null,
-      "authoritativeFacilityAnchor": null,
-      "authoritativeAreaAnchor": null,
-      "storedCoordinateIsAreaAnchor": false,
-      "authoritativeAccessIdentityMismatch": false,
-      "authoritativeAccessMismatchFeet": null,
-      "waterEntryCoordinate": {
-        "latitude": 41.867099,
-        "longitude": -72.954567
-      },
-      "waterEntryConsensusRouteCount": 3,
-      "waterEntryExactOnRiver": true,
-      "waterEntryWaterbodyConfirmed": true,
-      "authoritativeResolvesDistinctLocation": false,
-      "coordinateStatus": "consistent",
-      "verificationStatus": "derived-consensus",
-      "maximumSeparationFeet": 0,
-      "occurrenceCount": 6,
-      "routeCount": 3,
-      "coordinateVariants": [
-        {
-          "key": "41.86710,-72.95457",
-          "coordinate": {
-            "latitude": 41.867099,
-            "longitude": -72.954567
-          },
-          "occurrenceCount": 6,
-          "routeCount": 3,
-          "routes": [
-            "farmington-river-181-318-lake-mcdonough",
-            "farmington-river-peoples-forest-lake-mcdonough",
-            "farmington-river-riverton-lake-mcdonough"
-          ]
-        }
-      ],
-      "occurrences": [
-        {
-          "routeId": "farmington-river-181-318-lake-mcdonough",
-          "routeName": "Farmington River",
-          "state": "Connecticut",
-          "endpoint": "accessPoint",
-          "sourceId": "farmington-river-181-318-lake-mcdonough-take-out",
-          "name": "Access Point 9 — Lake McDonough, Barkhamsted (water-entry edge)",
-          "latitude": 41.867099,
-          "longitude": -72.954567,
-          "auditSeverity": "ok",
-          "distanceFeetToMatchedRiver": 0,
-          "endpointOnWaterbody": true,
-          "coordinateEvidenceRole": null
-        },
-        {
-          "routeId": "farmington-river-181-318-lake-mcdonough",
-          "routeName": "Farmington River",
-          "state": "Connecticut",
-          "endpoint": "takeOut",
-          "sourceId": null,
-          "name": "Access Point 9 — Lake McDonough, Barkhamsted (water-entry edge)",
-          "latitude": 41.867099,
-          "longitude": -72.954567,
-          "auditSeverity": "ok",
-          "distanceFeetToMatchedRiver": 0,
-          "endpointOnWaterbody": true,
-          "coordinateEvidenceRole": null
-        },
-        {
-          "routeId": "farmington-river-peoples-forest-lake-mcdonough",
-          "routeName": "Farmington River",
-          "state": "Connecticut",
-          "endpoint": "accessPoint",
-          "sourceId": "farmington-river-peoples-forest-lake-mcdonough-take-out",
-          "name": "Access Point 9 — Lake McDonough, Barkhamsted (water-entry edge)",
-          "latitude": 41.867099,
-          "longitude": -72.954567,
-          "auditSeverity": "ok",
-          "distanceFeetToMatchedRiver": 0,
-          "endpointOnWaterbody": true,
-          "coordinateEvidenceRole": null
-        },
-        {
-          "routeId": "farmington-river-peoples-forest-lake-mcdonough",
-          "routeName": "Farmington River",
-          "state": "Connecticut",
-          "endpoint": "takeOut",
-          "sourceId": null,
-          "name": "Access Point 9 — Lake McDonough, Barkhamsted (water-entry edge)",
-          "latitude": 41.867099,
-          "longitude": -72.954567,
-          "auditSeverity": "ok",
-          "distanceFeetToMatchedRiver": 0,
-          "endpointOnWaterbody": true,
-          "coordinateEvidenceRole": null
-        },
-        {
-          "routeId": "farmington-river-riverton-lake-mcdonough",
-          "routeName": "Farmington River",
-          "state": "Connecticut",
-          "endpoint": "accessPoint",
-          "sourceId": "farmington-river-riverton-lake-mcdonough-take-out",
-          "name": "Access Point 9 — Lake McDonough, Barkhamsted (water-entry edge)",
-          "latitude": 41.867099,
-          "longitude": -72.954567,
-          "auditSeverity": "ok",
-          "distanceFeetToMatchedRiver": 0,
-          "endpointOnWaterbody": true,
-          "coordinateEvidenceRole": null
-        },
-        {
-          "routeId": "farmington-river-riverton-lake-mcdonough",
-          "routeName": "Farmington River",
-          "state": "Connecticut",
-          "endpoint": "takeOut",
-          "sourceId": null,
-          "name": "Access Point 9 — Lake McDonough, Barkhamsted (water-entry edge)",
-          "latitude": 41.867099,
-          "longitude": -72.954567,
-          "auditSeverity": "ok",
-          "distanceFeetToMatchedRiver": 0,
-          "endpointOnWaterbody": true,
-          "coordinateEvidenceRole": null
-        }
-      ]
-    },
-    {
       "id": "connecticut--butts-bridge-road-aspinook-pond-canoe-launch-water-entry-edge",
       "state": "Connecticut",
       "name": "Butts Bridge Road / Aspinook Pond canoe launch (water-entry edge)",
@@ -30645,6 +30073,182 @@
       ]
     },
     {
+      "id": "connecticut--people-s-state-forest-barkhamsted-west-branch-access",
+      "state": "Connecticut",
+      "name": "People’s State Forest, Barkhamsted (West Branch access)",
+      "aliases": [
+        "People’s State Forest, Barkhamsted (West Branch access)"
+      ],
+      "sourceIds": [
+        "farmington-river-riverton-181-318-intermediate-1"
+      ],
+      "storedAccessCoordinate": {
+        "latitude": 41.925531,
+        "longitude": -73.001434
+      },
+      "accessCoordinate": {
+        "latitude": 41.925531,
+        "longitude": -73.001434
+      },
+      "accessCoordinateSource": "stored-route-consensus",
+      "authoritativeAccess": null,
+      "authoritativeFacilityAnchor": null,
+      "authoritativeAreaAnchor": null,
+      "storedCoordinateIsAreaAnchor": false,
+      "authoritativeAccessIdentityMismatch": false,
+      "authoritativeAccessMismatchFeet": null,
+      "waterEntryCoordinate": null,
+      "waterEntryConsensusRouteCount": 0,
+      "waterEntryExactOnRiver": false,
+      "waterEntryWaterbodyConfirmed": false,
+      "authoritativeResolvesDistinctLocation": false,
+      "coordinateStatus": "consistent",
+      "verificationStatus": "unverified",
+      "maximumSeparationFeet": 0,
+      "occurrenceCount": 1,
+      "routeCount": 1,
+      "coordinateVariants": [
+        {
+          "key": "41.92553,-73.00143",
+          "coordinate": {
+            "latitude": 41.925531,
+            "longitude": -73.001434
+          },
+          "occurrenceCount": 1,
+          "routeCount": 1,
+          "routes": [
+            "farmington-river-riverton-181-318"
+          ]
+        }
+      ],
+      "occurrences": [
+        {
+          "routeId": "farmington-river-riverton-181-318",
+          "routeName": "Farmington River",
+          "state": "Connecticut",
+          "endpoint": "accessPoint",
+          "sourceId": "farmington-river-riverton-181-318-intermediate-1",
+          "name": "People’s State Forest, Barkhamsted (West Branch access)",
+          "latitude": 41.925531,
+          "longitude": -73.001434,
+          "auditSeverity": null,
+          "distanceFeetToMatchedRiver": null,
+          "endpointOnWaterbody": null,
+          "coordinateEvidenceRole": null
+        }
+      ]
+    },
+    {
+      "id": "connecticut--people-s-state-forest-barkhamsted-west-branch-water-entry-edge-frcc-access-point-7",
+      "state": "Connecticut",
+      "name": "People’s State Forest, Barkhamsted (West Branch water-entry edge; FRCC Access Point 7)",
+      "aliases": [
+        "People’s State Forest, Barkhamsted (West Branch water-entry edge; FRCC Access Point 7)"
+      ],
+      "sourceIds": [
+        "farmington-river-peoples-forest-181-318-put-in",
+        "farmington-river-riverton-peoples-forest-take-out"
+      ],
+      "storedAccessCoordinate": {
+        "latitude": 41.925531,
+        "longitude": -73.001434
+      },
+      "accessCoordinate": {
+        "latitude": 41.925531,
+        "longitude": -73.001434
+      },
+      "accessCoordinateSource": "stored-route-consensus",
+      "authoritativeAccess": null,
+      "authoritativeFacilityAnchor": null,
+      "authoritativeAreaAnchor": null,
+      "storedCoordinateIsAreaAnchor": false,
+      "authoritativeAccessIdentityMismatch": false,
+      "authoritativeAccessMismatchFeet": null,
+      "waterEntryCoordinate": null,
+      "waterEntryConsensusRouteCount": 0,
+      "waterEntryExactOnRiver": false,
+      "waterEntryWaterbodyConfirmed": false,
+      "authoritativeResolvesDistinctLocation": false,
+      "coordinateStatus": "consistent",
+      "verificationStatus": "unverified",
+      "maximumSeparationFeet": 0,
+      "occurrenceCount": 4,
+      "routeCount": 2,
+      "coordinateVariants": [
+        {
+          "key": "41.92553,-73.00143",
+          "coordinate": {
+            "latitude": 41.925531,
+            "longitude": -73.001434
+          },
+          "occurrenceCount": 4,
+          "routeCount": 2,
+          "routes": [
+            "farmington-river-peoples-forest-181-318",
+            "farmington-river-riverton-peoples-forest"
+          ]
+        }
+      ],
+      "occurrences": [
+        {
+          "routeId": "farmington-river-peoples-forest-181-318",
+          "routeName": "Farmington River",
+          "state": "Connecticut",
+          "endpoint": "accessPoint",
+          "sourceId": "farmington-river-peoples-forest-181-318-put-in",
+          "name": "People’s State Forest, Barkhamsted (West Branch water-entry edge; FRCC Access Point 7)",
+          "latitude": 41.925531,
+          "longitude": -73.001434,
+          "auditSeverity": null,
+          "distanceFeetToMatchedRiver": null,
+          "endpointOnWaterbody": null,
+          "coordinateEvidenceRole": null
+        },
+        {
+          "routeId": "farmington-river-peoples-forest-181-318",
+          "routeName": "Farmington River",
+          "state": "Connecticut",
+          "endpoint": "putIn",
+          "sourceId": null,
+          "name": "People’s State Forest, Barkhamsted (West Branch water-entry edge; FRCC Access Point 7)",
+          "latitude": 41.925531,
+          "longitude": -73.001434,
+          "auditSeverity": null,
+          "distanceFeetToMatchedRiver": null,
+          "endpointOnWaterbody": null,
+          "coordinateEvidenceRole": null
+        },
+        {
+          "routeId": "farmington-river-riverton-peoples-forest",
+          "routeName": "Farmington River",
+          "state": "Connecticut",
+          "endpoint": "accessPoint",
+          "sourceId": "farmington-river-riverton-peoples-forest-take-out",
+          "name": "People’s State Forest, Barkhamsted (West Branch water-entry edge; FRCC Access Point 7)",
+          "latitude": 41.925531,
+          "longitude": -73.001434,
+          "auditSeverity": null,
+          "distanceFeetToMatchedRiver": null,
+          "endpointOnWaterbody": null,
+          "coordinateEvidenceRole": null
+        },
+        {
+          "routeId": "farmington-river-riverton-peoples-forest",
+          "routeName": "Farmington River",
+          "state": "Connecticut",
+          "endpoint": "takeOut",
+          "sourceId": null,
+          "name": "People’s State Forest, Barkhamsted (West Branch water-entry edge; FRCC Access Point 7)",
+          "latitude": 41.925531,
+          "longitude": -73.001434,
+          "auditSeverity": null,
+          "distanceFeetToMatchedRiver": null,
+          "endpointOnWaterbody": null,
+          "coordinateEvidenceRole": null
+        }
+      ]
+    },
+    {
       "id": "connecticut--river-park-on-plains-road-river-launch",
       "state": "Connecticut",
       "name": "River Park on Plains Road river launch",
@@ -31134,6 +30738,226 @@
       ]
     },
     {
+      "id": "connecticut--route-181-318-bridge-pleasant-valley-river-left-landing-near-frcc-access-point-8",
+      "state": "Connecticut",
+      "name": "Route 181/318 bridge, Pleasant Valley (river-left landing near FRCC Access Point 8)",
+      "aliases": [
+        "Route 181/318 bridge, Pleasant Valley (river-left landing near FRCC Access Point 8)"
+      ],
+      "sourceIds": [
+        "farmington-river-peoples-forest-181-318-take-out",
+        "farmington-river-riverton-181-318-take-out"
+      ],
+      "storedAccessCoordinate": {
+        "latitude": 41.913239,
+        "longitude": -72.987967
+      },
+      "accessCoordinate": {
+        "latitude": 41.913239,
+        "longitude": -72.987967
+      },
+      "accessCoordinateSource": "stored-route-consensus",
+      "authoritativeAccess": null,
+      "authoritativeFacilityAnchor": null,
+      "authoritativeAreaAnchor": null,
+      "storedCoordinateIsAreaAnchor": false,
+      "authoritativeAccessIdentityMismatch": false,
+      "authoritativeAccessMismatchFeet": null,
+      "waterEntryCoordinate": null,
+      "waterEntryConsensusRouteCount": 0,
+      "waterEntryExactOnRiver": false,
+      "waterEntryWaterbodyConfirmed": false,
+      "authoritativeResolvesDistinctLocation": false,
+      "coordinateStatus": "consistent",
+      "verificationStatus": "unverified",
+      "maximumSeparationFeet": 0,
+      "occurrenceCount": 4,
+      "routeCount": 2,
+      "coordinateVariants": [
+        {
+          "key": "41.91324,-72.98797",
+          "coordinate": {
+            "latitude": 41.913239,
+            "longitude": -72.987967
+          },
+          "occurrenceCount": 4,
+          "routeCount": 2,
+          "routes": [
+            "farmington-river-peoples-forest-181-318",
+            "farmington-river-riverton-181-318"
+          ]
+        }
+      ],
+      "occurrences": [
+        {
+          "routeId": "farmington-river-peoples-forest-181-318",
+          "routeName": "Farmington River",
+          "state": "Connecticut",
+          "endpoint": "accessPoint",
+          "sourceId": "farmington-river-peoples-forest-181-318-take-out",
+          "name": "Route 181/318 bridge, Pleasant Valley (river-left landing near FRCC Access Point 8)",
+          "latitude": 41.913239,
+          "longitude": -72.987967,
+          "auditSeverity": null,
+          "distanceFeetToMatchedRiver": null,
+          "endpointOnWaterbody": null,
+          "coordinateEvidenceRole": null
+        },
+        {
+          "routeId": "farmington-river-peoples-forest-181-318",
+          "routeName": "Farmington River",
+          "state": "Connecticut",
+          "endpoint": "takeOut",
+          "sourceId": null,
+          "name": "Route 181/318 bridge, Pleasant Valley (river-left landing near FRCC Access Point 8)",
+          "latitude": 41.913239,
+          "longitude": -72.987967,
+          "auditSeverity": null,
+          "distanceFeetToMatchedRiver": null,
+          "endpointOnWaterbody": null,
+          "coordinateEvidenceRole": null
+        },
+        {
+          "routeId": "farmington-river-riverton-181-318",
+          "routeName": "Farmington River",
+          "state": "Connecticut",
+          "endpoint": "accessPoint",
+          "sourceId": "farmington-river-riverton-181-318-take-out",
+          "name": "Route 181/318 bridge, Pleasant Valley (river-left landing near FRCC Access Point 8)",
+          "latitude": 41.913239,
+          "longitude": -72.987967,
+          "auditSeverity": null,
+          "distanceFeetToMatchedRiver": null,
+          "endpointOnWaterbody": null,
+          "coordinateEvidenceRole": null
+        },
+        {
+          "routeId": "farmington-river-riverton-181-318",
+          "routeName": "Farmington River",
+          "state": "Connecticut",
+          "endpoint": "takeOut",
+          "sourceId": null,
+          "name": "Route 181/318 bridge, Pleasant Valley (river-left landing near FRCC Access Point 8)",
+          "latitude": 41.913239,
+          "longitude": -72.987967,
+          "auditSeverity": null,
+          "distanceFeetToMatchedRiver": null,
+          "endpointOnWaterbody": null,
+          "coordinateEvidenceRole": null
+        }
+      ]
+    },
+    {
+      "id": "connecticut--route-20-riverton-water-entry-edge-frcc-access-point-6",
+      "state": "Connecticut",
+      "name": "Route 20 Riverton water-entry edge (FRCC Access Point 6)",
+      "aliases": [
+        "Route 20 Riverton water-entry edge (FRCC Access Point 6)"
+      ],
+      "sourceIds": [
+        "farmington-river-riverton-181-318-put-in",
+        "farmington-river-riverton-peoples-forest-put-in"
+      ],
+      "storedAccessCoordinate": {
+        "latitude": 41.959027,
+        "longitude": -73.018056
+      },
+      "accessCoordinate": {
+        "latitude": 41.959027,
+        "longitude": -73.018056
+      },
+      "accessCoordinateSource": "stored-route-consensus",
+      "authoritativeAccess": null,
+      "authoritativeFacilityAnchor": null,
+      "authoritativeAreaAnchor": null,
+      "storedCoordinateIsAreaAnchor": false,
+      "authoritativeAccessIdentityMismatch": false,
+      "authoritativeAccessMismatchFeet": null,
+      "waterEntryCoordinate": null,
+      "waterEntryConsensusRouteCount": 0,
+      "waterEntryExactOnRiver": false,
+      "waterEntryWaterbodyConfirmed": false,
+      "authoritativeResolvesDistinctLocation": false,
+      "coordinateStatus": "consistent",
+      "verificationStatus": "unverified",
+      "maximumSeparationFeet": 0,
+      "occurrenceCount": 4,
+      "routeCount": 2,
+      "coordinateVariants": [
+        {
+          "key": "41.95903,-73.01806",
+          "coordinate": {
+            "latitude": 41.959027,
+            "longitude": -73.018056
+          },
+          "occurrenceCount": 4,
+          "routeCount": 2,
+          "routes": [
+            "farmington-river-riverton-181-318",
+            "farmington-river-riverton-peoples-forest"
+          ]
+        }
+      ],
+      "occurrences": [
+        {
+          "routeId": "farmington-river-riverton-181-318",
+          "routeName": "Farmington River",
+          "state": "Connecticut",
+          "endpoint": "accessPoint",
+          "sourceId": "farmington-river-riverton-181-318-put-in",
+          "name": "Route 20 Riverton water-entry edge (FRCC Access Point 6)",
+          "latitude": 41.959027,
+          "longitude": -73.018056,
+          "auditSeverity": null,
+          "distanceFeetToMatchedRiver": null,
+          "endpointOnWaterbody": null,
+          "coordinateEvidenceRole": null
+        },
+        {
+          "routeId": "farmington-river-riverton-181-318",
+          "routeName": "Farmington River",
+          "state": "Connecticut",
+          "endpoint": "putIn",
+          "sourceId": null,
+          "name": "Route 20 Riverton water-entry edge (FRCC Access Point 6)",
+          "latitude": 41.959027,
+          "longitude": -73.018056,
+          "auditSeverity": null,
+          "distanceFeetToMatchedRiver": null,
+          "endpointOnWaterbody": null,
+          "coordinateEvidenceRole": null
+        },
+        {
+          "routeId": "farmington-river-riverton-peoples-forest",
+          "routeName": "Farmington River",
+          "state": "Connecticut",
+          "endpoint": "accessPoint",
+          "sourceId": "farmington-river-riverton-peoples-forest-put-in",
+          "name": "Route 20 Riverton water-entry edge (FRCC Access Point 6)",
+          "latitude": 41.959027,
+          "longitude": -73.018056,
+          "auditSeverity": null,
+          "distanceFeetToMatchedRiver": null,
+          "endpointOnWaterbody": null,
+          "coordinateEvidenceRole": null
+        },
+        {
+          "routeId": "farmington-river-riverton-peoples-forest",
+          "routeName": "Farmington River",
+          "state": "Connecticut",
+          "endpoint": "putIn",
+          "sourceId": null,
+          "name": "Route 20 Riverton water-entry edge (FRCC Access Point 6)",
+          "latitude": 41.959027,
+          "longitude": -73.018056,
+          "auditSeverity": null,
+          "distanceFeetToMatchedRiver": null,
+          "endpointOnWaterbody": null,
+          "coordinateEvidenceRole": null
+        }
+      ]
+    },
+    {
       "id": "connecticut--route-32-stafford-springs-commuter-lot-river-access",
       "state": "Connecticut",
       "name": "Route 32 Stafford Springs commuter lot river access",
@@ -31427,11 +31251,11 @@
       ]
     },
     {
-      "id": "connecticut--route-66-bridge-upstream-side-river-take-out",
+      "id": "connecticut--route-66-bridge-upstream-side-take-out-river-mile-21-4-2016-guide",
       "state": "Connecticut",
-      "name": "Route 66 bridge upstream-side river take-out",
+      "name": "Route 66 bridge upstream-side take-out (river mile 21.4; 2016 guide)",
       "aliases": [
-        "Route 66 bridge upstream-side river take-out"
+        "Route 66 bridge upstream-side take-out (river mile 21.4; 2016 guide)"
       ],
       "sourceIds": [
         "willimantic-river-commuter-route-66-take-out",
@@ -31457,16 +31281,13 @@
       "storedCoordinateIsAreaAnchor": false,
       "authoritativeAccessIdentityMismatch": false,
       "authoritativeAccessMismatchFeet": null,
-      "waterEntryCoordinate": {
-        "latitude": 41.717606999999994,
-        "longitude": -72.24465399999998
-      },
-      "waterEntryConsensusRouteCount": 7,
-      "waterEntryExactOnRiver": true,
-      "waterEntryWaterbodyConfirmed": true,
+      "waterEntryCoordinate": null,
+      "waterEntryConsensusRouteCount": 0,
+      "waterEntryExactOnRiver": false,
+      "waterEntryWaterbodyConfirmed": false,
       "authoritativeResolvesDistinctLocation": false,
       "coordinateStatus": "consistent",
-      "verificationStatus": "derived-consensus",
+      "verificationStatus": "unverified",
       "maximumSeparationFeet": 0,
       "occurrenceCount": 14,
       "routeCount": 7,
@@ -31497,12 +31318,12 @@
           "state": "Connecticut",
           "endpoint": "accessPoint",
           "sourceId": "willimantic-river-commuter-route-66-take-out",
-          "name": "Route 66 bridge upstream-side river take-out",
+          "name": "Route 66 bridge upstream-side take-out (river mile 21.4; 2016 guide)",
           "latitude": 41.717607,
           "longitude": -72.244654,
-          "auditSeverity": "ok",
-          "distanceFeetToMatchedRiver": 33.16393300427716,
-          "endpointOnWaterbody": true,
+          "auditSeverity": null,
+          "distanceFeetToMatchedRiver": null,
+          "endpointOnWaterbody": null,
           "coordinateEvidenceRole": null
         },
         {
@@ -31511,12 +31332,12 @@
           "state": "Connecticut",
           "endpoint": "takeOut",
           "sourceId": null,
-          "name": "Route 66 bridge upstream-side river take-out",
+          "name": "Route 66 bridge upstream-side take-out (river mile 21.4; 2016 guide)",
           "latitude": 41.717607,
           "longitude": -72.244654,
-          "auditSeverity": "ok",
-          "distanceFeetToMatchedRiver": 33.16393300427716,
-          "endpointOnWaterbody": true,
+          "auditSeverity": null,
+          "distanceFeetToMatchedRiver": null,
+          "endpointOnWaterbody": null,
           "coordinateEvidenceRole": null
         },
         {
@@ -31525,12 +31346,12 @@
           "state": "Connecticut",
           "endpoint": "accessPoint",
           "sourceId": "willimantic-river-eagleville-route-66-take-out",
-          "name": "Route 66 bridge upstream-side river take-out",
+          "name": "Route 66 bridge upstream-side take-out (river mile 21.4; 2016 guide)",
           "latitude": 41.717607,
           "longitude": -72.244654,
-          "auditSeverity": "ok",
-          "distanceFeetToMatchedRiver": 33.16393300427716,
-          "endpointOnWaterbody": true,
+          "auditSeverity": null,
+          "distanceFeetToMatchedRiver": null,
+          "endpointOnWaterbody": null,
           "coordinateEvidenceRole": null
         },
         {
@@ -31539,12 +31360,12 @@
           "state": "Connecticut",
           "endpoint": "takeOut",
           "sourceId": null,
-          "name": "Route 66 bridge upstream-side river take-out",
+          "name": "Route 66 bridge upstream-side take-out (river mile 21.4; 2016 guide)",
           "latitude": 41.717607,
           "longitude": -72.244654,
-          "auditSeverity": "ok",
-          "distanceFeetToMatchedRiver": 33.16393300427716,
-          "endpointOnWaterbody": true,
+          "auditSeverity": null,
+          "distanceFeetToMatchedRiver": null,
+          "endpointOnWaterbody": null,
           "coordinateEvidenceRole": null
         },
         {
@@ -31553,12 +31374,12 @@
           "state": "Connecticut",
           "endpoint": "accessPoint",
           "sourceId": "willimantic-river-heron-cove-route-66-take-out",
-          "name": "Route 66 bridge upstream-side river take-out",
+          "name": "Route 66 bridge upstream-side take-out (river mile 21.4; 2016 guide)",
           "latitude": 41.717607,
           "longitude": -72.244654,
-          "auditSeverity": "ok",
-          "distanceFeetToMatchedRiver": 33.16393300427716,
-          "endpointOnWaterbody": true,
+          "auditSeverity": null,
+          "distanceFeetToMatchedRiver": null,
+          "endpointOnWaterbody": null,
           "coordinateEvidenceRole": null
         },
         {
@@ -31567,12 +31388,12 @@
           "state": "Connecticut",
           "endpoint": "takeOut",
           "sourceId": null,
-          "name": "Route 66 bridge upstream-side river take-out",
+          "name": "Route 66 bridge upstream-side take-out (river mile 21.4; 2016 guide)",
           "latitude": 41.717607,
           "longitude": -72.244654,
-          "auditSeverity": "ok",
-          "distanceFeetToMatchedRiver": 33.16393300427716,
-          "endpointOnWaterbody": true,
+          "auditSeverity": null,
+          "distanceFeetToMatchedRiver": null,
+          "endpointOnWaterbody": null,
           "coordinateEvidenceRole": null
         },
         {
@@ -31581,12 +31402,12 @@
           "state": "Connecticut",
           "endpoint": "accessPoint",
           "sourceId": "willimantic-river-merrow-route-66-take-out",
-          "name": "Route 66 bridge upstream-side river take-out",
+          "name": "Route 66 bridge upstream-side take-out (river mile 21.4; 2016 guide)",
           "latitude": 41.717607,
           "longitude": -72.244654,
-          "auditSeverity": "ok",
-          "distanceFeetToMatchedRiver": 33.16393300427716,
-          "endpointOnWaterbody": true,
+          "auditSeverity": null,
+          "distanceFeetToMatchedRiver": null,
+          "endpointOnWaterbody": null,
           "coordinateEvidenceRole": null
         },
         {
@@ -31595,12 +31416,12 @@
           "state": "Connecticut",
           "endpoint": "takeOut",
           "sourceId": null,
-          "name": "Route 66 bridge upstream-side river take-out",
+          "name": "Route 66 bridge upstream-side take-out (river mile 21.4; 2016 guide)",
           "latitude": 41.717607,
           "longitude": -72.244654,
-          "auditSeverity": "ok",
-          "distanceFeetToMatchedRiver": 33.16393300427716,
-          "endpointOnWaterbody": true,
+          "auditSeverity": null,
+          "distanceFeetToMatchedRiver": null,
+          "endpointOnWaterbody": null,
           "coordinateEvidenceRole": null
         },
         {
@@ -31609,12 +31430,12 @@
           "state": "Connecticut",
           "endpoint": "accessPoint",
           "sourceId": "willimantic-river-nye-holman-route-66-take-out",
-          "name": "Route 66 bridge upstream-side river take-out",
+          "name": "Route 66 bridge upstream-side take-out (river mile 21.4; 2016 guide)",
           "latitude": 41.717607,
           "longitude": -72.244654,
-          "auditSeverity": "ok",
-          "distanceFeetToMatchedRiver": 33.16393300427716,
-          "endpointOnWaterbody": true,
+          "auditSeverity": null,
+          "distanceFeetToMatchedRiver": null,
+          "endpointOnWaterbody": null,
           "coordinateEvidenceRole": null
         },
         {
@@ -31623,12 +31444,12 @@
           "state": "Connecticut",
           "endpoint": "takeOut",
           "sourceId": null,
-          "name": "Route 66 bridge upstream-side river take-out",
+          "name": "Route 66 bridge upstream-side take-out (river mile 21.4; 2016 guide)",
           "latitude": 41.717607,
           "longitude": -72.244654,
-          "auditSeverity": "ok",
-          "distanceFeetToMatchedRiver": 33.16393300427716,
-          "endpointOnWaterbody": true,
+          "auditSeverity": null,
+          "distanceFeetToMatchedRiver": null,
+          "endpointOnWaterbody": null,
           "coordinateEvidenceRole": null
         },
         {
@@ -31637,12 +31458,12 @@
           "state": "Connecticut",
           "endpoint": "accessPoint",
           "sourceId": "willimantic-river-pecks-mill-route-66-take-out",
-          "name": "Route 66 bridge upstream-side river take-out",
+          "name": "Route 66 bridge upstream-side take-out (river mile 21.4; 2016 guide)",
           "latitude": 41.717607,
           "longitude": -72.244654,
-          "auditSeverity": "ok",
-          "distanceFeetToMatchedRiver": 33.16393300427716,
-          "endpointOnWaterbody": true,
+          "auditSeverity": null,
+          "distanceFeetToMatchedRiver": null,
+          "endpointOnWaterbody": null,
           "coordinateEvidenceRole": null
         },
         {
@@ -31651,12 +31472,12 @@
           "state": "Connecticut",
           "endpoint": "takeOut",
           "sourceId": null,
-          "name": "Route 66 bridge upstream-side river take-out",
+          "name": "Route 66 bridge upstream-side take-out (river mile 21.4; 2016 guide)",
           "latitude": 41.717607,
           "longitude": -72.244654,
-          "auditSeverity": "ok",
-          "distanceFeetToMatchedRiver": 33.16393300427716,
-          "endpointOnWaterbody": true,
+          "auditSeverity": null,
+          "distanceFeetToMatchedRiver": null,
+          "endpointOnWaterbody": null,
           "coordinateEvidenceRole": null
         },
         {
@@ -31665,12 +31486,12 @@
           "state": "Connecticut",
           "endpoint": "accessPoint",
           "sourceId": "willimantic-river-river-park-route-66-take-out",
-          "name": "Route 66 bridge upstream-side river take-out",
+          "name": "Route 66 bridge upstream-side take-out (river mile 21.4; 2016 guide)",
           "latitude": 41.717607,
           "longitude": -72.244654,
-          "auditSeverity": "ok",
-          "distanceFeetToMatchedRiver": 33.16393300427716,
-          "endpointOnWaterbody": true,
+          "auditSeverity": null,
+          "distanceFeetToMatchedRiver": null,
+          "endpointOnWaterbody": null,
           "coordinateEvidenceRole": null
         },
         {
@@ -31679,12 +31500,12 @@
           "state": "Connecticut",
           "endpoint": "takeOut",
           "sourceId": null,
-          "name": "Route 66 bridge upstream-side river take-out",
+          "name": "Route 66 bridge upstream-side take-out (river mile 21.4; 2016 guide)",
           "latitude": 41.717607,
           "longitude": -72.244654,
-          "auditSeverity": "ok",
-          "distanceFeetToMatchedRiver": 33.16393300427716,
-          "endpointOnWaterbody": true,
+          "auditSeverity": null,
+          "distanceFeetToMatchedRiver": null,
+          "endpointOnWaterbody": null,
           "coordinateEvidenceRole": null
         }
       ]
@@ -205394,11 +205215,11 @@
       ]
     },
     {
-      "id": "mississippi--ashe-nursery-landing-mdeq-water-entry-anchor",
+      "id": "mississippi--ashe-nursery-road-sandbar-landing",
       "state": "Mississippi",
-      "name": "Ashe Nursery landing (MDEQ water-entry anchor)",
+      "name": "Ashe Nursery Road sandbar landing",
       "aliases": [
-        "Ashe Nursery landing (MDEQ water-entry anchor)"
+        "Ashe Nursery Road sandbar landing"
       ],
       "sourceIds": [
         "black-creek-ashe-nursery-cypress-put-in",
@@ -205424,16 +205245,13 @@
       "storedCoordinateIsAreaAnchor": false,
       "authoritativeAccessIdentityMismatch": false,
       "authoritativeAccessMismatchFeet": null,
-      "waterEntryCoordinate": {
-        "latitude": 31.051519999999993,
-        "longitude": -89.17958
-      },
-      "waterEntryConsensusRouteCount": 7,
-      "waterEntryExactOnRiver": true,
-      "waterEntryWaterbodyConfirmed": true,
+      "waterEntryCoordinate": null,
+      "waterEntryConsensusRouteCount": 0,
+      "waterEntryExactOnRiver": false,
+      "waterEntryWaterbodyConfirmed": false,
       "authoritativeResolvesDistinctLocation": false,
       "coordinateStatus": "consistent",
-      "verificationStatus": "derived-consensus",
+      "verificationStatus": "unverified",
       "maximumSeparationFeet": 0,
       "occurrenceCount": 14,
       "routeCount": 7,
@@ -205464,12 +205282,12 @@
           "state": "Mississippi",
           "endpoint": "accessPoint",
           "sourceId": "black-creek-ashe-nursery-cypress-put-in",
-          "name": "Ashe Nursery landing (MDEQ water-entry anchor)",
+          "name": "Ashe Nursery Road sandbar landing",
           "latitude": 31.05152,
           "longitude": -89.17958,
-          "auditSeverity": "ok",
-          "distanceFeetToMatchedRiver": 9.232760281158402,
-          "endpointOnWaterbody": true,
+          "auditSeverity": null,
+          "distanceFeetToMatchedRiver": null,
+          "endpointOnWaterbody": null,
           "coordinateEvidenceRole": null
         },
         {
@@ -205478,12 +205296,12 @@
           "state": "Mississippi",
           "endpoint": "putIn",
           "sourceId": null,
-          "name": "Ashe Nursery landing (MDEQ water-entry anchor)",
+          "name": "Ashe Nursery Road sandbar landing",
           "latitude": 31.05152,
           "longitude": -89.17958,
-          "auditSeverity": "ok",
-          "distanceFeetToMatchedRiver": 9.232760281158402,
-          "endpointOnWaterbody": true,
+          "auditSeverity": null,
+          "distanceFeetToMatchedRiver": null,
+          "endpointOnWaterbody": null,
           "coordinateEvidenceRole": null
         },
         {
@@ -205492,12 +205310,12 @@
           "state": "Mississippi",
           "endpoint": "accessPoint",
           "sourceId": "black-creek-ashe-nursery-fairley-put-in",
-          "name": "Ashe Nursery landing (MDEQ water-entry anchor)",
+          "name": "Ashe Nursery Road sandbar landing",
           "latitude": 31.05152,
           "longitude": -89.17958,
-          "auditSeverity": "ok",
-          "distanceFeetToMatchedRiver": 9.232760281158402,
-          "endpointOnWaterbody": true,
+          "auditSeverity": null,
+          "distanceFeetToMatchedRiver": null,
+          "endpointOnWaterbody": null,
           "coordinateEvidenceRole": null
         },
         {
@@ -205506,12 +205324,12 @@
           "state": "Mississippi",
           "endpoint": "putIn",
           "sourceId": null,
-          "name": "Ashe Nursery landing (MDEQ water-entry anchor)",
+          "name": "Ashe Nursery Road sandbar landing",
           "latitude": 31.05152,
           "longitude": -89.17958,
-          "auditSeverity": "ok",
-          "distanceFeetToMatchedRiver": 9.232760281158402,
-          "endpointOnWaterbody": true,
+          "auditSeverity": null,
+          "distanceFeetToMatchedRiver": null,
+          "endpointOnWaterbody": null,
           "coordinateEvidenceRole": null
         },
         {
@@ -205520,12 +205338,12 @@
           "state": "Mississippi",
           "endpoint": "accessPoint",
           "sourceId": "black-creek-ashe-nursery-janice-put-in",
-          "name": "Ashe Nursery landing (MDEQ water-entry anchor)",
+          "name": "Ashe Nursery Road sandbar landing",
           "latitude": 31.05152,
           "longitude": -89.17958,
-          "auditSeverity": "ok",
-          "distanceFeetToMatchedRiver": 9.232760281158402,
-          "endpointOnWaterbody": true,
+          "auditSeverity": null,
+          "distanceFeetToMatchedRiver": null,
+          "endpointOnWaterbody": null,
           "coordinateEvidenceRole": null
         },
         {
@@ -205534,12 +205352,12 @@
           "state": "Mississippi",
           "endpoint": "putIn",
           "sourceId": null,
-          "name": "Ashe Nursery landing (MDEQ water-entry anchor)",
+          "name": "Ashe Nursery Road sandbar landing",
           "latitude": 31.05152,
           "longitude": -89.17958,
-          "auditSeverity": "ok",
-          "distanceFeetToMatchedRiver": 9.232760281158402,
-          "endpointOnWaterbody": true,
+          "auditSeverity": null,
+          "distanceFeetToMatchedRiver": null,
+          "endpointOnWaterbody": null,
           "coordinateEvidenceRole": null
         },
         {
@@ -205548,12 +205366,12 @@
           "state": "Mississippi",
           "endpoint": "accessPoint",
           "sourceId": "black-creek-ashe-nursery-moodys-put-in",
-          "name": "Ashe Nursery landing (MDEQ water-entry anchor)",
+          "name": "Ashe Nursery Road sandbar landing",
           "latitude": 31.05152,
           "longitude": -89.17958,
-          "auditSeverity": "ok",
-          "distanceFeetToMatchedRiver": 9.232760281158402,
-          "endpointOnWaterbody": true,
+          "auditSeverity": null,
+          "distanceFeetToMatchedRiver": null,
+          "endpointOnWaterbody": null,
           "coordinateEvidenceRole": null
         },
         {
@@ -205562,12 +205380,12 @@
           "state": "Mississippi",
           "endpoint": "putIn",
           "sourceId": null,
-          "name": "Ashe Nursery landing (MDEQ water-entry anchor)",
+          "name": "Ashe Nursery Road sandbar landing",
           "latitude": 31.05152,
           "longitude": -89.17958,
-          "auditSeverity": "ok",
-          "distanceFeetToMatchedRiver": 9.232760281158402,
-          "endpointOnWaterbody": true,
+          "auditSeverity": null,
+          "distanceFeetToMatchedRiver": null,
+          "endpointOnWaterbody": null,
           "coordinateEvidenceRole": null
         },
         {
@@ -205576,12 +205394,12 @@
           "state": "Mississippi",
           "endpoint": "accessPoint",
           "sourceId": "black-creek-big-creek-ashe-nursery-take-out",
-          "name": "Ashe Nursery landing (MDEQ water-entry anchor)",
+          "name": "Ashe Nursery Road sandbar landing",
           "latitude": 31.05152,
           "longitude": -89.17958,
-          "auditSeverity": "ok",
-          "distanceFeetToMatchedRiver": 9.232760281158402,
-          "endpointOnWaterbody": true,
+          "auditSeverity": null,
+          "distanceFeetToMatchedRiver": null,
+          "endpointOnWaterbody": null,
           "coordinateEvidenceRole": null
         },
         {
@@ -205590,12 +205408,12 @@
           "state": "Mississippi",
           "endpoint": "takeOut",
           "sourceId": null,
-          "name": "Ashe Nursery landing (MDEQ water-entry anchor)",
+          "name": "Ashe Nursery Road sandbar landing",
           "latitude": 31.05152,
           "longitude": -89.17958,
-          "auditSeverity": "ok",
-          "distanceFeetToMatchedRiver": 9.232760281158402,
-          "endpointOnWaterbody": true,
+          "auditSeverity": null,
+          "distanceFeetToMatchedRiver": null,
+          "endpointOnWaterbody": null,
           "coordinateEvidenceRole": null
         },
         {
@@ -205604,12 +205422,12 @@
           "state": "Mississippi",
           "endpoint": "accessPoint",
           "sourceId": "black-creek-churchwell-ashe-nursery-take-out",
-          "name": "Ashe Nursery landing (MDEQ water-entry anchor)",
+          "name": "Ashe Nursery Road sandbar landing",
           "latitude": 31.05152,
           "longitude": -89.17958,
-          "auditSeverity": "ok",
-          "distanceFeetToMatchedRiver": 9.232760281158402,
-          "endpointOnWaterbody": true,
+          "auditSeverity": null,
+          "distanceFeetToMatchedRiver": null,
+          "endpointOnWaterbody": null,
           "coordinateEvidenceRole": null
         },
         {
@@ -205618,12 +205436,12 @@
           "state": "Mississippi",
           "endpoint": "takeOut",
           "sourceId": null,
-          "name": "Ashe Nursery landing (MDEQ water-entry anchor)",
+          "name": "Ashe Nursery Road sandbar landing",
           "latitude": 31.05152,
           "longitude": -89.17958,
-          "auditSeverity": "ok",
-          "distanceFeetToMatchedRiver": 9.232760281158402,
-          "endpointOnWaterbody": true,
+          "auditSeverity": null,
+          "distanceFeetToMatchedRiver": null,
+          "endpointOnWaterbody": null,
           "coordinateEvidenceRole": null
         },
         {
@@ -205632,12 +205450,12 @@
           "state": "Mississippi",
           "endpoint": "accessPoint",
           "sourceId": "black-creek-old-highway-49-ashe-nursery-take-out",
-          "name": "Ashe Nursery landing (MDEQ water-entry anchor)",
+          "name": "Ashe Nursery Road sandbar landing",
           "latitude": 31.05152,
           "longitude": -89.17958,
-          "auditSeverity": "ok",
-          "distanceFeetToMatchedRiver": 9.232760281158402,
-          "endpointOnWaterbody": true,
+          "auditSeverity": null,
+          "distanceFeetToMatchedRiver": null,
+          "endpointOnWaterbody": null,
           "coordinateEvidenceRole": null
         },
         {
@@ -205646,12 +205464,12 @@
           "state": "Mississippi",
           "endpoint": "takeOut",
           "sourceId": null,
-          "name": "Ashe Nursery landing (MDEQ water-entry anchor)",
+          "name": "Ashe Nursery Road sandbar landing",
           "latitude": 31.05152,
           "longitude": -89.17958,
-          "auditSeverity": "ok",
-          "distanceFeetToMatchedRiver": 9.232760281158402,
-          "endpointOnWaterbody": true,
+          "auditSeverity": null,
+          "distanceFeetToMatchedRiver": null,
+          "endpointOnWaterbody": null,
           "coordinateEvidenceRole": null
         }
       ]
@@ -206093,11 +205911,11 @@
       ]
     },
     {
-      "id": "mississippi--churchwell-road-camp-dantzler-landing-vicinity-mdeq-water-entry-anchor",
+      "id": "mississippi--churchwell-road-public-boat-ramp-camp-dantzler-area",
       "state": "Mississippi",
-      "name": "Churchwell Road / Camp Dantzler landing vicinity (MDEQ water-entry anchor)",
+      "name": "Churchwell Road public boat ramp (Camp Dantzler area)",
       "aliases": [
-        "Churchwell Road / Camp Dantzler landing vicinity (MDEQ water-entry anchor)"
+        "Churchwell Road public boat ramp (Camp Dantzler area)"
       ],
       "sourceIds": [
         "black-creek-churchwell-ashe-nursery-put-in",
@@ -206123,16 +205941,13 @@
       "storedCoordinateIsAreaAnchor": false,
       "authoritativeAccessIdentityMismatch": false,
       "authoritativeAccessMismatchFeet": null,
-      "waterEntryCoordinate": {
-        "latitude": 31.115099999999995,
-        "longitude": -89.29654000000002
-      },
-      "waterEntryConsensusRouteCount": 7,
-      "waterEntryExactOnRiver": true,
-      "waterEntryWaterbodyConfirmed": true,
+      "waterEntryCoordinate": null,
+      "waterEntryConsensusRouteCount": 0,
+      "waterEntryExactOnRiver": false,
+      "waterEntryWaterbodyConfirmed": false,
       "authoritativeResolvesDistinctLocation": false,
       "coordinateStatus": "consistent",
-      "verificationStatus": "derived-consensus",
+      "verificationStatus": "unverified",
       "maximumSeparationFeet": 0,
       "occurrenceCount": 14,
       "routeCount": 7,
@@ -206163,12 +205978,12 @@
           "state": "Mississippi",
           "endpoint": "accessPoint",
           "sourceId": "black-creek-churchwell-ashe-nursery-put-in",
-          "name": "Churchwell Road / Camp Dantzler landing vicinity (MDEQ water-entry anchor)",
+          "name": "Churchwell Road public boat ramp (Camp Dantzler area)",
           "latitude": 31.1151,
           "longitude": -89.29654,
-          "auditSeverity": "ok",
-          "distanceFeetToMatchedRiver": 33.498181175453865,
-          "endpointOnWaterbody": true,
+          "auditSeverity": null,
+          "distanceFeetToMatchedRiver": null,
+          "endpointOnWaterbody": null,
           "coordinateEvidenceRole": null
         },
         {
@@ -206177,12 +205992,12 @@
           "state": "Mississippi",
           "endpoint": "putIn",
           "sourceId": null,
-          "name": "Churchwell Road / Camp Dantzler landing vicinity (MDEQ water-entry anchor)",
+          "name": "Churchwell Road public boat ramp (Camp Dantzler area)",
           "latitude": 31.1151,
           "longitude": -89.29654,
-          "auditSeverity": "ok",
-          "distanceFeetToMatchedRiver": 33.498181175453865,
-          "endpointOnWaterbody": true,
+          "auditSeverity": null,
+          "distanceFeetToMatchedRiver": null,
+          "endpointOnWaterbody": null,
           "coordinateEvidenceRole": null
         },
         {
@@ -206191,12 +206006,12 @@
           "state": "Mississippi",
           "endpoint": "accessPoint",
           "sourceId": "black-creek-churchwell-big-creek-put-in",
-          "name": "Churchwell Road / Camp Dantzler landing vicinity (MDEQ water-entry anchor)",
+          "name": "Churchwell Road public boat ramp (Camp Dantzler area)",
           "latitude": 31.1151,
           "longitude": -89.29654,
-          "auditSeverity": "ok",
-          "distanceFeetToMatchedRiver": 33.498181175453865,
-          "endpointOnWaterbody": true,
+          "auditSeverity": null,
+          "distanceFeetToMatchedRiver": null,
+          "endpointOnWaterbody": null,
           "coordinateEvidenceRole": null
         },
         {
@@ -206205,12 +206020,12 @@
           "state": "Mississippi",
           "endpoint": "putIn",
           "sourceId": null,
-          "name": "Churchwell Road / Camp Dantzler landing vicinity (MDEQ water-entry anchor)",
+          "name": "Churchwell Road public boat ramp (Camp Dantzler area)",
           "latitude": 31.1151,
           "longitude": -89.29654,
-          "auditSeverity": "ok",
-          "distanceFeetToMatchedRiver": 33.498181175453865,
-          "endpointOnWaterbody": true,
+          "auditSeverity": null,
+          "distanceFeetToMatchedRiver": null,
+          "endpointOnWaterbody": null,
           "coordinateEvidenceRole": null
         },
         {
@@ -206219,12 +206034,12 @@
           "state": "Mississippi",
           "endpoint": "accessPoint",
           "sourceId": "black-creek-churchwell-cypress-put-in",
-          "name": "Churchwell Road / Camp Dantzler landing vicinity (MDEQ water-entry anchor)",
+          "name": "Churchwell Road public boat ramp (Camp Dantzler area)",
           "latitude": 31.1151,
           "longitude": -89.29654,
-          "auditSeverity": "ok",
-          "distanceFeetToMatchedRiver": 33.498181175453865,
-          "endpointOnWaterbody": true,
+          "auditSeverity": null,
+          "distanceFeetToMatchedRiver": null,
+          "endpointOnWaterbody": null,
           "coordinateEvidenceRole": null
         },
         {
@@ -206233,12 +206048,12 @@
           "state": "Mississippi",
           "endpoint": "putIn",
           "sourceId": null,
-          "name": "Churchwell Road / Camp Dantzler landing vicinity (MDEQ water-entry anchor)",
+          "name": "Churchwell Road public boat ramp (Camp Dantzler area)",
           "latitude": 31.1151,
           "longitude": -89.29654,
-          "auditSeverity": "ok",
-          "distanceFeetToMatchedRiver": 33.498181175453865,
-          "endpointOnWaterbody": true,
+          "auditSeverity": null,
+          "distanceFeetToMatchedRiver": null,
+          "endpointOnWaterbody": null,
           "coordinateEvidenceRole": null
         },
         {
@@ -206247,12 +206062,12 @@
           "state": "Mississippi",
           "endpoint": "accessPoint",
           "sourceId": "black-creek-churchwell-fairley-put-in",
-          "name": "Churchwell Road / Camp Dantzler landing vicinity (MDEQ water-entry anchor)",
+          "name": "Churchwell Road public boat ramp (Camp Dantzler area)",
           "latitude": 31.1151,
           "longitude": -89.29654,
-          "auditSeverity": "ok",
-          "distanceFeetToMatchedRiver": 33.498181175453865,
-          "endpointOnWaterbody": true,
+          "auditSeverity": null,
+          "distanceFeetToMatchedRiver": null,
+          "endpointOnWaterbody": null,
           "coordinateEvidenceRole": null
         },
         {
@@ -206261,12 +206076,12 @@
           "state": "Mississippi",
           "endpoint": "putIn",
           "sourceId": null,
-          "name": "Churchwell Road / Camp Dantzler landing vicinity (MDEQ water-entry anchor)",
+          "name": "Churchwell Road public boat ramp (Camp Dantzler area)",
           "latitude": 31.1151,
           "longitude": -89.29654,
-          "auditSeverity": "ok",
-          "distanceFeetToMatchedRiver": 33.498181175453865,
-          "endpointOnWaterbody": true,
+          "auditSeverity": null,
+          "distanceFeetToMatchedRiver": null,
+          "endpointOnWaterbody": null,
           "coordinateEvidenceRole": null
         },
         {
@@ -206275,12 +206090,12 @@
           "state": "Mississippi",
           "endpoint": "accessPoint",
           "sourceId": "black-creek-churchwell-janice-put-in",
-          "name": "Churchwell Road / Camp Dantzler landing vicinity (MDEQ water-entry anchor)",
+          "name": "Churchwell Road public boat ramp (Camp Dantzler area)",
           "latitude": 31.1151,
           "longitude": -89.29654,
-          "auditSeverity": "ok",
-          "distanceFeetToMatchedRiver": 33.498181175453865,
-          "endpointOnWaterbody": true,
+          "auditSeverity": null,
+          "distanceFeetToMatchedRiver": null,
+          "endpointOnWaterbody": null,
           "coordinateEvidenceRole": null
         },
         {
@@ -206289,12 +206104,12 @@
           "state": "Mississippi",
           "endpoint": "putIn",
           "sourceId": null,
-          "name": "Churchwell Road / Camp Dantzler landing vicinity (MDEQ water-entry anchor)",
+          "name": "Churchwell Road public boat ramp (Camp Dantzler area)",
           "latitude": 31.1151,
           "longitude": -89.29654,
-          "auditSeverity": "ok",
-          "distanceFeetToMatchedRiver": 33.498181175453865,
-          "endpointOnWaterbody": true,
+          "auditSeverity": null,
+          "distanceFeetToMatchedRiver": null,
+          "endpointOnWaterbody": null,
           "coordinateEvidenceRole": null
         },
         {
@@ -206303,12 +206118,12 @@
           "state": "Mississippi",
           "endpoint": "accessPoint",
           "sourceId": "black-creek-churchwell-moodys-put-in",
-          "name": "Churchwell Road / Camp Dantzler landing vicinity (MDEQ water-entry anchor)",
+          "name": "Churchwell Road public boat ramp (Camp Dantzler area)",
           "latitude": 31.1151,
           "longitude": -89.29654,
-          "auditSeverity": "ok",
-          "distanceFeetToMatchedRiver": 33.498181175453865,
-          "endpointOnWaterbody": true,
+          "auditSeverity": null,
+          "distanceFeetToMatchedRiver": null,
+          "endpointOnWaterbody": null,
           "coordinateEvidenceRole": null
         },
         {
@@ -206317,12 +206132,12 @@
           "state": "Mississippi",
           "endpoint": "putIn",
           "sourceId": null,
-          "name": "Churchwell Road / Camp Dantzler landing vicinity (MDEQ water-entry anchor)",
+          "name": "Churchwell Road public boat ramp (Camp Dantzler area)",
           "latitude": 31.1151,
           "longitude": -89.29654,
-          "auditSeverity": "ok",
-          "distanceFeetToMatchedRiver": 33.498181175453865,
-          "endpointOnWaterbody": true,
+          "auditSeverity": null,
+          "distanceFeetToMatchedRiver": null,
+          "endpointOnWaterbody": null,
           "coordinateEvidenceRole": null
         },
         {
@@ -206331,12 +206146,12 @@
           "state": "Mississippi",
           "endpoint": "accessPoint",
           "sourceId": "black-creek-churchwell-old-highway-49-put-in",
-          "name": "Churchwell Road / Camp Dantzler landing vicinity (MDEQ water-entry anchor)",
+          "name": "Churchwell Road public boat ramp (Camp Dantzler area)",
           "latitude": 31.1151,
           "longitude": -89.29654,
-          "auditSeverity": "ok",
-          "distanceFeetToMatchedRiver": 33.498181175453865,
-          "endpointOnWaterbody": true,
+          "auditSeverity": null,
+          "distanceFeetToMatchedRiver": null,
+          "endpointOnWaterbody": null,
           "coordinateEvidenceRole": null
         },
         {
@@ -206345,12 +206160,12 @@
           "state": "Mississippi",
           "endpoint": "putIn",
           "sourceId": null,
-          "name": "Churchwell Road / Camp Dantzler landing vicinity (MDEQ water-entry anchor)",
+          "name": "Churchwell Road public boat ramp (Camp Dantzler area)",
           "latitude": 31.1151,
           "longitude": -89.29654,
-          "auditSeverity": "ok",
-          "distanceFeetToMatchedRiver": 33.498181175453865,
-          "endpointOnWaterbody": true,
+          "auditSeverity": null,
+          "distanceFeetToMatchedRiver": null,
+          "endpointOnWaterbody": null,
           "coordinateEvidenceRole": null
         }
       ]
@@ -215485,9 +215300,9 @@
         "Angevine Fishing Access Site (imagery-derived water-entry edge)"
       ],
       "sourceIds": [
-        "blackfoot-river-angevine-johnsrud-put-in",
         "blackfoot-river-angevine-marco-flats-put-in",
         "blackfoot-river-angevine-weigh-station-put-in",
+        "blackfoot-river-johnsrud-angevine-take-out",
         "blackfoot-river-k-ross-toole-angevine-take-out",
         "blackfoot-river-roundup-angevine-take-out",
         "blackfoot-river-russell-gates-angevine-take-out",
@@ -215511,9 +215326,9 @@
       "authoritativeAccessMismatchFeet": null,
       "waterEntryCoordinate": {
         "latitude": 46.8958721652,
-        "longitude": -113.76392732339997
+        "longitude": -113.76392732339998
       },
-      "waterEntryConsensusRouteCount": 8,
+      "waterEntryConsensusRouteCount": 7,
       "waterEntryExactOnRiver": true,
       "waterEntryWaterbodyConfirmed": true,
       "authoritativeResolvesDistinctLocation": false,
@@ -215532,9 +215347,9 @@
           "occurrenceCount": 16,
           "routeCount": 8,
           "routes": [
-            "blackfoot-river-angevine-johnsrud",
             "blackfoot-river-angevine-marco-flats",
             "blackfoot-river-angevine-weigh-station",
+            "blackfoot-river-johnsrud-angevine",
             "blackfoot-river-k-ross-toole-angevine",
             "blackfoot-river-roundup-angevine",
             "blackfoot-river-russell-gates-angevine",
@@ -215544,34 +215359,6 @@
         }
       ],
       "occurrences": [
-        {
-          "routeId": "blackfoot-river-angevine-johnsrud",
-          "routeName": "Blackfoot River",
-          "state": "Montana",
-          "endpoint": "accessPoint",
-          "sourceId": "blackfoot-river-angevine-johnsrud-put-in",
-          "name": "Angevine Fishing Access Site (imagery-derived water-entry edge)",
-          "latitude": 46.8958721652,
-          "longitude": -113.7639273234,
-          "auditSeverity": "ok",
-          "distanceFeetToMatchedRiver": 55.43136050033439,
-          "endpointOnWaterbody": true,
-          "coordinateEvidenceRole": "authoritative-water-entry"
-        },
-        {
-          "routeId": "blackfoot-river-angevine-johnsrud",
-          "routeName": "Blackfoot River",
-          "state": "Montana",
-          "endpoint": "putIn",
-          "sourceId": null,
-          "name": "Angevine Fishing Access Site (imagery-derived water-entry edge)",
-          "latitude": 46.8958721652,
-          "longitude": -113.7639273234,
-          "auditSeverity": "ok",
-          "distanceFeetToMatchedRiver": 55.43136050033439,
-          "endpointOnWaterbody": true,
-          "coordinateEvidenceRole": "authoritative-water-entry"
-        },
         {
           "routeId": "blackfoot-river-angevine-marco-flats",
           "routeName": "Blackfoot River",
@@ -215627,6 +215414,34 @@
           "distanceFeetToMatchedRiver": 55.43136050033439,
           "endpointOnWaterbody": true,
           "coordinateEvidenceRole": "authoritative-water-entry"
+        },
+        {
+          "routeId": "blackfoot-river-johnsrud-angevine",
+          "routeName": "Blackfoot River",
+          "state": "Montana",
+          "endpoint": "accessPoint",
+          "sourceId": "blackfoot-river-johnsrud-angevine-take-out",
+          "name": "Angevine Fishing Access Site (imagery-derived water-entry edge)",
+          "latitude": 46.8958721652,
+          "longitude": -113.7639273234,
+          "auditSeverity": null,
+          "distanceFeetToMatchedRiver": null,
+          "endpointOnWaterbody": null,
+          "coordinateEvidenceRole": null
+        },
+        {
+          "routeId": "blackfoot-river-johnsrud-angevine",
+          "routeName": "Blackfoot River",
+          "state": "Montana",
+          "endpoint": "takeOut",
+          "sourceId": null,
+          "name": "Angevine Fishing Access Site (imagery-derived water-entry edge)",
+          "latitude": 46.8958721652,
+          "longitude": -113.7639273234,
+          "auditSeverity": null,
+          "distanceFeetToMatchedRiver": null,
+          "endpointOnWaterbody": null,
+          "coordinateEvidenceRole": null
         },
         {
           "routeId": "blackfoot-river-k-ross-toole-angevine",
@@ -216462,10 +216277,10 @@
         "Johnsrud Park Fishing Access Site (water-entry edge)"
       ],
       "sourceIds": [
-        "blackfoot-river-angevine-johnsrud-take-out",
+        "blackfoot-river-johnsrud-angevine-put-in",
+        "blackfoot-river-johnsrud-k-ross-toole-put-in",
+        "blackfoot-river-johnsrud-marco-flats-put-in",
         "blackfoot-river-johnsrud-weigh-station-put-in",
-        "blackfoot-river-k-ross-toole-johnsrud-take-out",
-        "blackfoot-river-marco-flats-johnsrud-take-out",
         "blackfoot-river-roundup-johnsrud-take-out",
         "blackfoot-river-russell-gates-johnsrud-take-out",
         "blackfoot-river-scotty-brown-johnsrud-take-out",
@@ -216487,10 +216302,10 @@
       "authoritativeAccessIdentityMismatch": false,
       "authoritativeAccessMismatchFeet": null,
       "waterEntryCoordinate": {
-        "latitude": 46.916399999999996,
+        "latitude": 46.9164,
         "longitude": -113.6785
       },
-      "waterEntryConsensusRouteCount": 7,
+      "waterEntryConsensusRouteCount": 4,
       "waterEntryExactOnRiver": false,
       "waterEntryWaterbodyConfirmed": true,
       "authoritativeResolvesDistinctLocation": false,
@@ -216509,10 +216324,10 @@
           "occurrenceCount": 14,
           "routeCount": 7,
           "routes": [
-            "blackfoot-river-angevine-johnsrud",
+            "blackfoot-river-johnsrud-angevine",
+            "blackfoot-river-johnsrud-k-ross-toole",
+            "blackfoot-river-johnsrud-marco-flats",
             "blackfoot-river-johnsrud-weigh-station",
-            "blackfoot-river-k-ross-toole-johnsrud",
-            "blackfoot-river-marco-flats-johnsrud",
             "blackfoot-river-roundup-johnsrud",
             "blackfoot-river-russell-gates-johnsrud",
             "blackfoot-river-scotty-brown-johnsrud"
@@ -216533,31 +216348,87 @@
       ],
       "occurrences": [
         {
-          "routeId": "blackfoot-river-angevine-johnsrud",
+          "routeId": "blackfoot-river-johnsrud-angevine",
           "routeName": "Blackfoot River",
           "state": "Montana",
           "endpoint": "accessPoint",
-          "sourceId": "blackfoot-river-angevine-johnsrud-take-out",
+          "sourceId": "blackfoot-river-johnsrud-angevine-put-in",
           "name": "Johnsrud Park Fishing Access Site (water-entry edge)",
           "latitude": 46.9164,
           "longitude": -113.6785,
-          "auditSeverity": "review",
-          "distanceFeetToMatchedRiver": 157.45999519385492,
-          "endpointOnWaterbody": true,
+          "auditSeverity": null,
+          "distanceFeetToMatchedRiver": null,
+          "endpointOnWaterbody": null,
           "coordinateEvidenceRole": null
         },
         {
-          "routeId": "blackfoot-river-angevine-johnsrud",
+          "routeId": "blackfoot-river-johnsrud-angevine",
           "routeName": "Blackfoot River",
           "state": "Montana",
-          "endpoint": "takeOut",
+          "endpoint": "putIn",
           "sourceId": null,
           "name": "Johnsrud Park Fishing Access Site (water-entry edge)",
           "latitude": 46.9164,
           "longitude": -113.6785,
-          "auditSeverity": "review",
-          "distanceFeetToMatchedRiver": 157.45999519385492,
-          "endpointOnWaterbody": true,
+          "auditSeverity": null,
+          "distanceFeetToMatchedRiver": null,
+          "endpointOnWaterbody": null,
+          "coordinateEvidenceRole": null
+        },
+        {
+          "routeId": "blackfoot-river-johnsrud-k-ross-toole",
+          "routeName": "Blackfoot River",
+          "state": "Montana",
+          "endpoint": "accessPoint",
+          "sourceId": "blackfoot-river-johnsrud-k-ross-toole-put-in",
+          "name": "Johnsrud Park Fishing Access Site (water-entry edge)",
+          "latitude": 46.9164,
+          "longitude": -113.6785,
+          "auditSeverity": null,
+          "distanceFeetToMatchedRiver": null,
+          "endpointOnWaterbody": null,
+          "coordinateEvidenceRole": null
+        },
+        {
+          "routeId": "blackfoot-river-johnsrud-k-ross-toole",
+          "routeName": "Blackfoot River",
+          "state": "Montana",
+          "endpoint": "putIn",
+          "sourceId": null,
+          "name": "Johnsrud Park Fishing Access Site (water-entry edge)",
+          "latitude": 46.9164,
+          "longitude": -113.6785,
+          "auditSeverity": null,
+          "distanceFeetToMatchedRiver": null,
+          "endpointOnWaterbody": null,
+          "coordinateEvidenceRole": null
+        },
+        {
+          "routeId": "blackfoot-river-johnsrud-marco-flats",
+          "routeName": "Blackfoot River",
+          "state": "Montana",
+          "endpoint": "accessPoint",
+          "sourceId": "blackfoot-river-johnsrud-marco-flats-put-in",
+          "name": "Johnsrud Park Fishing Access Site (water-entry edge)",
+          "latitude": 46.9164,
+          "longitude": -113.6785,
+          "auditSeverity": null,
+          "distanceFeetToMatchedRiver": null,
+          "endpointOnWaterbody": null,
+          "coordinateEvidenceRole": null
+        },
+        {
+          "routeId": "blackfoot-river-johnsrud-marco-flats",
+          "routeName": "Blackfoot River",
+          "state": "Montana",
+          "endpoint": "putIn",
+          "sourceId": null,
+          "name": "Johnsrud Park Fishing Access Site (water-entry edge)",
+          "latitude": 46.9164,
+          "longitude": -113.6785,
+          "auditSeverity": null,
+          "distanceFeetToMatchedRiver": null,
+          "endpointOnWaterbody": null,
           "coordinateEvidenceRole": null
         },
         {
@@ -216579,62 +216450,6 @@
           "routeName": "Blackfoot River",
           "state": "Montana",
           "endpoint": "putIn",
-          "sourceId": null,
-          "name": "Johnsrud Park Fishing Access Site (water-entry edge)",
-          "latitude": 46.9164,
-          "longitude": -113.6785,
-          "auditSeverity": "review",
-          "distanceFeetToMatchedRiver": 157.45999519385492,
-          "endpointOnWaterbody": true,
-          "coordinateEvidenceRole": null
-        },
-        {
-          "routeId": "blackfoot-river-k-ross-toole-johnsrud",
-          "routeName": "Blackfoot River",
-          "state": "Montana",
-          "endpoint": "accessPoint",
-          "sourceId": "blackfoot-river-k-ross-toole-johnsrud-take-out",
-          "name": "Johnsrud Park Fishing Access Site (water-entry edge)",
-          "latitude": 46.9164,
-          "longitude": -113.6785,
-          "auditSeverity": "review",
-          "distanceFeetToMatchedRiver": 157.45999519385492,
-          "endpointOnWaterbody": true,
-          "coordinateEvidenceRole": null
-        },
-        {
-          "routeId": "blackfoot-river-k-ross-toole-johnsrud",
-          "routeName": "Blackfoot River",
-          "state": "Montana",
-          "endpoint": "takeOut",
-          "sourceId": null,
-          "name": "Johnsrud Park Fishing Access Site (water-entry edge)",
-          "latitude": 46.9164,
-          "longitude": -113.6785,
-          "auditSeverity": "review",
-          "distanceFeetToMatchedRiver": 157.45999519385492,
-          "endpointOnWaterbody": true,
-          "coordinateEvidenceRole": null
-        },
-        {
-          "routeId": "blackfoot-river-marco-flats-johnsrud",
-          "routeName": "Blackfoot River",
-          "state": "Montana",
-          "endpoint": "accessPoint",
-          "sourceId": "blackfoot-river-marco-flats-johnsrud-take-out",
-          "name": "Johnsrud Park Fishing Access Site (water-entry edge)",
-          "latitude": 46.9164,
-          "longitude": -113.6785,
-          "auditSeverity": "review",
-          "distanceFeetToMatchedRiver": 157.45999519385492,
-          "endpointOnWaterbody": true,
-          "coordinateEvidenceRole": null
-        },
-        {
-          "routeId": "blackfoot-river-marco-flats-johnsrud",
-          "routeName": "Blackfoot River",
-          "state": "Montana",
-          "endpoint": "takeOut",
           "sourceId": null,
           "name": "Johnsrud Park Fishing Access Site (water-entry edge)",
           "latitude": 46.9164,
@@ -216766,8 +216581,8 @@
         "K. Ross Toole Fishing Access Site (water-entry edge)"
       ],
       "sourceIds": [
+        "blackfoot-river-johnsrud-k-ross-toole-take-out",
         "blackfoot-river-k-ross-toole-angevine-put-in",
-        "blackfoot-river-k-ross-toole-johnsrud-put-in",
         "blackfoot-river-k-ross-toole-marco-flats-put-in",
         "blackfoot-river-k-ross-toole-weigh-station-put-in",
         "blackfoot-river-roundup-k-ross-toole-take-out",
@@ -216791,10 +216606,10 @@
       "authoritativeAccessIdentityMismatch": false,
       "authoritativeAccessMismatchFeet": null,
       "waterEntryCoordinate": {
-        "latitude": 46.90392999999999,
+        "latitude": 46.903929999999995,
         "longitude": -113.72594000000002
       },
-      "waterEntryConsensusRouteCount": 8,
+      "waterEntryConsensusRouteCount": 7,
       "waterEntryExactOnRiver": false,
       "waterEntryWaterbodyConfirmed": true,
       "authoritativeResolvesDistinctLocation": false,
@@ -216813,8 +216628,8 @@
           "occurrenceCount": 16,
           "routeCount": 8,
           "routes": [
+            "blackfoot-river-johnsrud-k-ross-toole",
             "blackfoot-river-k-ross-toole-angevine",
-            "blackfoot-river-k-ross-toole-johnsrud",
             "blackfoot-river-k-ross-toole-marco-flats",
             "blackfoot-river-k-ross-toole-weigh-station",
             "blackfoot-river-roundup-k-ross-toole",
@@ -216825,6 +216640,34 @@
         }
       ],
       "occurrences": [
+        {
+          "routeId": "blackfoot-river-johnsrud-k-ross-toole",
+          "routeName": "Blackfoot River",
+          "state": "Montana",
+          "endpoint": "accessPoint",
+          "sourceId": "blackfoot-river-johnsrud-k-ross-toole-take-out",
+          "name": "K. Ross Toole Fishing Access Site (water-entry edge)",
+          "latitude": 46.90393,
+          "longitude": -113.72594,
+          "auditSeverity": null,
+          "distanceFeetToMatchedRiver": null,
+          "endpointOnWaterbody": null,
+          "coordinateEvidenceRole": null
+        },
+        {
+          "routeId": "blackfoot-river-johnsrud-k-ross-toole",
+          "routeName": "Blackfoot River",
+          "state": "Montana",
+          "endpoint": "takeOut",
+          "sourceId": null,
+          "name": "K. Ross Toole Fishing Access Site (water-entry edge)",
+          "latitude": 46.90393,
+          "longitude": -113.72594,
+          "auditSeverity": null,
+          "distanceFeetToMatchedRiver": null,
+          "endpointOnWaterbody": null,
+          "coordinateEvidenceRole": null
+        },
         {
           "routeId": "blackfoot-river-k-ross-toole-angevine",
           "routeName": "Blackfoot River",
@@ -216841,34 +216684,6 @@
         },
         {
           "routeId": "blackfoot-river-k-ross-toole-angevine",
-          "routeName": "Blackfoot River",
-          "state": "Montana",
-          "endpoint": "putIn",
-          "sourceId": null,
-          "name": "K. Ross Toole Fishing Access Site (water-entry edge)",
-          "latitude": 46.90393,
-          "longitude": -113.72594,
-          "auditSeverity": "review",
-          "distanceFeetToMatchedRiver": 114.73799891919354,
-          "endpointOnWaterbody": true,
-          "coordinateEvidenceRole": null
-        },
-        {
-          "routeId": "blackfoot-river-k-ross-toole-johnsrud",
-          "routeName": "Blackfoot River",
-          "state": "Montana",
-          "endpoint": "accessPoint",
-          "sourceId": "blackfoot-river-k-ross-toole-johnsrud-put-in",
-          "name": "K. Ross Toole Fishing Access Site (water-entry edge)",
-          "latitude": 46.90393,
-          "longitude": -113.72594,
-          "auditSeverity": "review",
-          "distanceFeetToMatchedRiver": 114.73799891919354,
-          "endpointOnWaterbody": true,
-          "coordinateEvidenceRole": null
-        },
-        {
-          "routeId": "blackfoot-river-k-ross-toole-johnsrud",
           "routeName": "Blackfoot River",
           "state": "Montana",
           "endpoint": "putIn",
@@ -217060,8 +216875,8 @@
       ],
       "sourceIds": [
         "blackfoot-river-angevine-marco-flats-take-out",
+        "blackfoot-river-johnsrud-marco-flats-take-out",
         "blackfoot-river-k-ross-toole-marco-flats-take-out",
-        "blackfoot-river-marco-flats-johnsrud-put-in",
         "blackfoot-river-marco-flats-weigh-station-put-in",
         "blackfoot-river-roundup-marco-flats-take-out",
         "blackfoot-river-russell-gates-marco-flats-take-out",
@@ -217104,8 +216919,8 @@
           "routeCount": 8,
           "routes": [
             "blackfoot-river-angevine-marco-flats",
+            "blackfoot-river-johnsrud-marco-flats",
             "blackfoot-river-k-ross-toole-marco-flats",
-            "blackfoot-river-marco-flats-johnsrud",
             "blackfoot-river-marco-flats-weigh-station",
             "blackfoot-river-roundup-marco-flats",
             "blackfoot-river-russell-gates-marco-flats",
@@ -217144,6 +216959,34 @@
           "coordinateEvidenceRole": "authoritative-access-anchor"
         },
         {
+          "routeId": "blackfoot-river-johnsrud-marco-flats",
+          "routeName": "Blackfoot River",
+          "state": "Montana",
+          "endpoint": "accessPoint",
+          "sourceId": "blackfoot-river-johnsrud-marco-flats-take-out",
+          "name": "Marco Flats Fishing Access Site (official access-area anchor)",
+          "latitude": 46.88969,
+          "longitude": -113.82973,
+          "auditSeverity": null,
+          "distanceFeetToMatchedRiver": null,
+          "endpointOnWaterbody": null,
+          "coordinateEvidenceRole": null
+        },
+        {
+          "routeId": "blackfoot-river-johnsrud-marco-flats",
+          "routeName": "Blackfoot River",
+          "state": "Montana",
+          "endpoint": "takeOut",
+          "sourceId": null,
+          "name": "Marco Flats Fishing Access Site (official access-area anchor)",
+          "latitude": 46.88969,
+          "longitude": -113.82973,
+          "auditSeverity": null,
+          "distanceFeetToMatchedRiver": null,
+          "endpointOnWaterbody": null,
+          "coordinateEvidenceRole": null
+        },
+        {
           "routeId": "blackfoot-river-k-ross-toole-marco-flats",
           "routeName": "Blackfoot River",
           "state": "Montana",
@@ -217162,34 +217005,6 @@
           "routeName": "Blackfoot River",
           "state": "Montana",
           "endpoint": "takeOut",
-          "sourceId": null,
-          "name": "Marco Flats Fishing Access Site (official access-area anchor)",
-          "latitude": 46.88969,
-          "longitude": -113.82973,
-          "auditSeverity": "review",
-          "distanceFeetToMatchedRiver": 165.66608361342753,
-          "endpointOnWaterbody": true,
-          "coordinateEvidenceRole": "authoritative-access-anchor"
-        },
-        {
-          "routeId": "blackfoot-river-marco-flats-johnsrud",
-          "routeName": "Blackfoot River",
-          "state": "Montana",
-          "endpoint": "accessPoint",
-          "sourceId": "blackfoot-river-marco-flats-johnsrud-put-in",
-          "name": "Marco Flats Fishing Access Site (official access-area anchor)",
-          "latitude": 46.88969,
-          "longitude": -113.82973,
-          "auditSeverity": "review",
-          "distanceFeetToMatchedRiver": 165.66608361342753,
-          "endpointOnWaterbody": true,
-          "coordinateEvidenceRole": "authoritative-access-anchor"
-        },
-        {
-          "routeId": "blackfoot-river-marco-flats-johnsrud",
-          "routeName": "Blackfoot River",
-          "state": "Montana",
-          "endpoint": "putIn",
           "sourceId": null,
           "name": "Marco Flats Fishing Access Site (official access-area anchor)",
           "latitude": 46.88969,
@@ -217903,9 +217718,9 @@
         "blackfoot-river-russell-gates-k-ross-toole-put-in",
         "blackfoot-river-russell-gates-marco-flats-put-in",
         "blackfoot-river-russell-gates-roundup-put-in",
-        "blackfoot-river-russell-gates-scotty-brown-put-in",
         "blackfoot-river-russell-gates-weigh-station-put-in",
-        "blackfoot-river-russell-gates-whitaker-put-in"
+        "blackfoot-river-russell-gates-whitaker-put-in",
+        "blackfoot-river-scotty-brown-russell-gates-take-out"
       ],
       "storedAccessCoordinate": {
         "latitude": 47.02343610310001,
@@ -217993,9 +217808,9 @@
             "blackfoot-river-russell-gates-k-ross-toole",
             "blackfoot-river-russell-gates-marco-flats",
             "blackfoot-river-russell-gates-roundup",
-            "blackfoot-river-russell-gates-scotty-brown",
             "blackfoot-river-russell-gates-weigh-station",
-            "blackfoot-river-russell-gates-whitaker"
+            "blackfoot-river-russell-gates-whitaker",
+            "blackfoot-river-scotty-brown-russell-gates"
           ]
         }
       ],
@@ -218141,34 +217956,6 @@
           "coordinateEvidenceRole": "authoritative-access-anchor"
         },
         {
-          "routeId": "blackfoot-river-russell-gates-scotty-brown",
-          "routeName": "Blackfoot River",
-          "state": "Montana",
-          "endpoint": "accessPoint",
-          "sourceId": "blackfoot-river-russell-gates-scotty-brown-put-in",
-          "name": "Russell Gates Memorial Fishing Access Site (public ramp/access area)",
-          "latitude": 47.0234361031,
-          "longitude": -113.306023437,
-          "auditSeverity": "review",
-          "distanceFeetToMatchedRiver": 560.2905922237371,
-          "endpointOnWaterbody": false,
-          "coordinateEvidenceRole": "authoritative-access-anchor"
-        },
-        {
-          "routeId": "blackfoot-river-russell-gates-scotty-brown",
-          "routeName": "Blackfoot River",
-          "state": "Montana",
-          "endpoint": "putIn",
-          "sourceId": null,
-          "name": "Russell Gates Memorial Fishing Access Site (public ramp/access area)",
-          "latitude": 47.0234361031,
-          "longitude": -113.306023437,
-          "auditSeverity": "review",
-          "distanceFeetToMatchedRiver": 560.2905922237371,
-          "endpointOnWaterbody": false,
-          "coordinateEvidenceRole": "authoritative-access-anchor"
-        },
-        {
           "routeId": "blackfoot-river-russell-gates-weigh-station",
           "routeName": "Blackfoot River",
           "state": "Montana",
@@ -218223,6 +218010,34 @@
           "distanceFeetToMatchedRiver": 560.2905922237371,
           "endpointOnWaterbody": false,
           "coordinateEvidenceRole": "authoritative-access-anchor"
+        },
+        {
+          "routeId": "blackfoot-river-scotty-brown-russell-gates",
+          "routeName": "Blackfoot River",
+          "state": "Montana",
+          "endpoint": "accessPoint",
+          "sourceId": "blackfoot-river-scotty-brown-russell-gates-take-out",
+          "name": "Russell Gates Memorial Fishing Access Site (public ramp/access area)",
+          "latitude": 47.0234361031,
+          "longitude": -113.306023437,
+          "auditSeverity": null,
+          "distanceFeetToMatchedRiver": null,
+          "endpointOnWaterbody": null,
+          "coordinateEvidenceRole": null
+        },
+        {
+          "routeId": "blackfoot-river-scotty-brown-russell-gates",
+          "routeName": "Blackfoot River",
+          "state": "Montana",
+          "endpoint": "takeOut",
+          "sourceId": null,
+          "name": "Russell Gates Memorial Fishing Access Site (public ramp/access area)",
+          "latitude": 47.0234361031,
+          "longitude": -113.306023437,
+          "auditSeverity": null,
+          "distanceFeetToMatchedRiver": null,
+          "endpointOnWaterbody": null,
+          "coordinateEvidenceRole": null
         }
       ]
     },
@@ -218234,12 +218049,12 @@
         "Scotty Brown Bridge Fishing Access Site (water-entry edge)"
       ],
       "sourceIds": [
-        "blackfoot-river-russell-gates-scotty-brown-take-out",
         "blackfoot-river-scotty-brown-angevine-put-in",
         "blackfoot-river-scotty-brown-johnsrud-put-in",
         "blackfoot-river-scotty-brown-k-ross-toole-put-in",
         "blackfoot-river-scotty-brown-marco-flats-put-in",
         "blackfoot-river-scotty-brown-roundup-put-in",
+        "blackfoot-river-scotty-brown-russell-gates-put-in",
         "blackfoot-river-scotty-brown-weigh-station-put-in",
         "blackfoot-river-scotty-brown-whitaker-put-in"
       ],
@@ -218259,10 +218074,10 @@
       "authoritativeAccessIdentityMismatch": false,
       "authoritativeAccessMismatchFeet": null,
       "waterEntryCoordinate": {
-        "latitude": 47.01840000000001,
+        "latitude": 47.0184,
         "longitude": -113.24019999999997
       },
-      "waterEntryConsensusRouteCount": 8,
+      "waterEntryConsensusRouteCount": 7,
       "waterEntryExactOnRiver": false,
       "waterEntryWaterbodyConfirmed": true,
       "authoritativeResolvesDistinctLocation": false,
@@ -218281,46 +218096,18 @@
           "occurrenceCount": 16,
           "routeCount": 8,
           "routes": [
-            "blackfoot-river-russell-gates-scotty-brown",
             "blackfoot-river-scotty-brown-angevine",
             "blackfoot-river-scotty-brown-johnsrud",
             "blackfoot-river-scotty-brown-k-ross-toole",
             "blackfoot-river-scotty-brown-marco-flats",
             "blackfoot-river-scotty-brown-roundup",
+            "blackfoot-river-scotty-brown-russell-gates",
             "blackfoot-river-scotty-brown-weigh-station",
             "blackfoot-river-scotty-brown-whitaker"
           ]
         }
       ],
       "occurrences": [
-        {
-          "routeId": "blackfoot-river-russell-gates-scotty-brown",
-          "routeName": "Blackfoot River",
-          "state": "Montana",
-          "endpoint": "accessPoint",
-          "sourceId": "blackfoot-river-russell-gates-scotty-brown-take-out",
-          "name": "Scotty Brown Bridge Fishing Access Site (water-entry edge)",
-          "latitude": 47.0184,
-          "longitude": -113.2402,
-          "auditSeverity": "review",
-          "distanceFeetToMatchedRiver": 162.37254036253245,
-          "endpointOnWaterbody": true,
-          "coordinateEvidenceRole": null
-        },
-        {
-          "routeId": "blackfoot-river-russell-gates-scotty-brown",
-          "routeName": "Blackfoot River",
-          "state": "Montana",
-          "endpoint": "takeOut",
-          "sourceId": null,
-          "name": "Scotty Brown Bridge Fishing Access Site (water-entry edge)",
-          "latitude": 47.0184,
-          "longitude": -113.2402,
-          "auditSeverity": "review",
-          "distanceFeetToMatchedRiver": 162.37254036253245,
-          "endpointOnWaterbody": true,
-          "coordinateEvidenceRole": null
-        },
         {
           "routeId": "blackfoot-river-scotty-brown-angevine",
           "routeName": "Blackfoot River",
@@ -218459,6 +218246,34 @@
           "auditSeverity": "review",
           "distanceFeetToMatchedRiver": 162.37254036253245,
           "endpointOnWaterbody": true,
+          "coordinateEvidenceRole": null
+        },
+        {
+          "routeId": "blackfoot-river-scotty-brown-russell-gates",
+          "routeName": "Blackfoot River",
+          "state": "Montana",
+          "endpoint": "accessPoint",
+          "sourceId": "blackfoot-river-scotty-brown-russell-gates-put-in",
+          "name": "Scotty Brown Bridge Fishing Access Site (water-entry edge)",
+          "latitude": 47.0184,
+          "longitude": -113.2402,
+          "auditSeverity": null,
+          "distanceFeetToMatchedRiver": null,
+          "endpointOnWaterbody": null,
+          "coordinateEvidenceRole": null
+        },
+        {
+          "routeId": "blackfoot-river-scotty-brown-russell-gates",
+          "routeName": "Blackfoot River",
+          "state": "Montana",
+          "endpoint": "putIn",
+          "sourceId": null,
+          "name": "Scotty Brown Bridge Fishing Access Site (water-entry edge)",
+          "latitude": 47.0184,
+          "longitude": -113.2402,
+          "auditSeverity": null,
+          "distanceFeetToMatchedRiver": null,
+          "endpointOnWaterbody": null,
           "coordinateEvidenceRole": null
         },
         {

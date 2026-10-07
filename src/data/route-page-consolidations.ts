@@ -57,6 +57,19 @@ const crowWingRiverHubPath = '/rivers/by-river/crow-wing-river/';
 const chattahoocheeHubPath = '/rivers/by-river/chattahoochee-river/';
 const saukRiverHubPath = '/rivers/by-river/sauk-river/';
 const truckeeRiverHubPath = '/rivers/by-river/truckee-river-nevada/';
+const farmingtonRiverHubPath = '/rivers/by-river/farmington-river-connecticut/';
+
+const farmingtonRiverConsolidatedRouteSlugs = [
+  'farmington-river-riverton-peoples-forest',
+  'farmington-river-peoples-forest-181-318',
+  'farmington-river-riverton-181-318',
+] as const;
+
+const farmingtonRiverRetiredRouteSlugs = [
+  'farmington-river-181-318-lake-mcdonough',
+  'farmington-river-riverton-lake-mcdonough',
+  'farmington-river-peoples-forest-lake-mcdonough',
+] as const;
 
 const animasConsolidatedRouteSlugs = [
   'animas-river-cedar-hill-penny-lane',
@@ -695,6 +708,8 @@ const consolidatedRouteTargets = new Map<string, string>(
     ...chattahoocheeConsolidatedRouteSlugs.map((slug) => [slug, `${chattahoocheeHubPath}?route=${slug}#trip-${slug}`] as const),
     ...saukRiverConsolidatedRouteSlugs.map((slug) => [slug, `${saukRiverHubPath}?route=${slug}#trip-${slug}`] as const),
     ...truckeeRiverConsolidatedRouteSlugs.map((slug) => [slug, `${truckeeRiverHubPath}?route=${slug}#trip-${slug}`] as const),
+    ...farmingtonRiverConsolidatedRouteSlugs.map((slug) => [slug, `${farmingtonRiverHubPath}?route=${slug}#trip-${slug}`] as const),
+    ...farmingtonRiverRetiredRouteSlugs.map((slug) => [slug, `${farmingtonRiverHubPath}#farmington-river-access-notes`] as const),
   ],
 );
 
