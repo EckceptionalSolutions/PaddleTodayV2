@@ -1,10 +1,10 @@
 # Route corridor migration inventory
 
-Generated 2026-10-07T17:12:21.698Z.
+Generated 2026-10-07T17:38:26.207Z.
 
-- Defined corridors: 229
-- Routes covered by a corridor definition: 890
-- Remaining multi-route families: 321
+- Defined corridors: 230
+- Routes covered by a corridor definition: 929
+- Remaining multi-route families: 320
 
 ## Defined corridors
 
@@ -21,6 +21,7 @@ Generated 2026-10-07T17:12:21.698Z.
 | ar-bayou-deview-water-trail | Bayou DeView Water Trail access-chain family | condition-family | 9 | 0 |
 | ca-lower-american-parkway-access-chain | Lower American River Parkway five-launch access chain | condition-family | 10 | 0 |
 | ne-loup-river-water-trail | Loup River Water Trail with Platte River outlet extension | condition-family | 6 | 0 |
+| az-verde-river-reach-family | Verde River Clarkdale, Greenway, and Wild and Scenic reach family | condition-family | 39 | 0 |
 | or-willamette-upper-valley-water-trail | Upper Willamette Valley access and itinerary family | condition-family | 50 | 0 |
 | ca-russian-river-paddling-zones | Russian River upper, middle, and lower paddling condition zones | condition-family | 37 | 0 |
 | mn-cannon-lower | Lower Cannon River access corridor | verified | 3 | 4 |
@@ -259,7 +260,6 @@ Generated 2026-10-07T17:12:21.698Z.
 
 | State | River family | Route records |
 | --- | --- | ---: |
-| Arizona | Verde River | 39 |
 | New York | Old Erie Canal | 37 |
 | Washington | Spokane River | 29 |
 | Mississippi | Black Creek | 28 |
@@ -299,6 +299,7 @@ Generated 2026-10-07T17:12:21.698Z.
 | Kentucky | Upper Cumberland River | 10 |
 | North Carolina | Yadkin River | 10 |
 | Maine | Aroostook River | 9 |
-| Additional families omitted | See route data and overlap audit | 281 |
+| Texas | Brazos River | 9 |
+| Additional families omitted | See route data and overlap audit | 280 |
 
 This inventory is a migration queue, not an automatic deletion list. Each family still requires source review for continuity, hazards, access legality, gauge boundaries, and explicit trip edges.

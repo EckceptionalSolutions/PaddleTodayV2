@@ -47,6 +47,7 @@ const millersHubPath = '/rivers/by-river/millers-river-massachusetts/';
 const bayouDeViewHubPath = '/rivers/by-river/bayou-deview/';
 const americanRiverHubPath = '/rivers/by-river/american-river-california/';
 const loupRiverHubPath = '/rivers/by-river/loup-river/';
+const verdeRiverHubPath = '/rivers/by-river/verde-river-arizona/';
 
 const blackCreekCompositeRouteSlugs = [
   'black-creek-big-creek-cypress',
@@ -429,6 +430,47 @@ const loupRiverCoordinateReviewRouteSlugs = [
   'loup-river-george-syas-adm-access',
 ] as const;
 
+const verdeRiverConsolidatedRouteSlugs = [
+  'verde-river-89a-skidmore',
+  'verde-river-lower-tapco-89a-bridge',
+  'verde-river-lower-tapco-skidmore',
+  'verde-river-tuzigoot-skidmore',
+  'verde-river-white-bridge-clear-creek',
+  'verde-river-clear-creek-beasley-flat',
+  'verde-river-white-bridge-childs',
+  'verde-river-clear-creek-childs',
+  'verde-river-tuzigoot-dead-horse',
+  'verde-river-dead-horse-89a',
+  'verde-river-skidmore-black-canyon',
+  'verde-river-black-canyon-bignotti',
+  'verde-river-newton-parsons',
+  'verde-river-parsons-black-bridge',
+  'verde-river-black-bridge-white',
+  'verde-river-skidmore-bignotti',
+  'verde-river-skidmore-newton',
+  'verde-river-skidmore-parsons',
+  'verde-river-skidmore-black-bridge',
+  'verde-river-skidmore-white',
+  'verde-river-bignotti-newton',
+  'verde-river-bignotti-parsons',
+  'verde-river-newton-black-bridge',
+  'verde-river-tuzigoot-black-canyon',
+  'verde-river-tuzigoot-bignotti',
+  'verde-river-89a-black-canyon',
+  'verde-river-89a-bignotti',
+  'verde-river-89a-parsons',
+] as const;
+
+const verdeRiverAccessReviewRouteSlugs = [
+  'verde-river-bignotti-sheep-crossing',
+  'verde-river-sheep-crossing-newton',
+  'verde-river-skidmore-sheep-crossing',
+  'verde-river-black-canyon-sheep-crossing',
+  'verde-river-sheep-parsons',
+  'verde-river-tuzigoot-sheep-crossing',
+  'verde-river-89a-sheep-crossing',
+] as const;
+
 const consolidatedRouteTargets = new Map<string, string>(
   [
     ...willimanticRouteSlugs.map((slug) => [slug, `${willimanticHubPath}?route=${slug}#trip-${slug}`] as const),
@@ -459,6 +501,8 @@ const consolidatedRouteTargets = new Map<string, string>(
     ...americanRiverConsolidatedRouteSlugs.map((slug) => [slug, `${americanRiverHubPath}?route=${slug}#trip-${slug}`] as const),
     ...loupRiverConsolidatedRouteSlugs.map((slug) => [slug, `${loupRiverHubPath}?route=${slug}#trip-${slug}`] as const),
     ...loupRiverCoordinateReviewRouteSlugs.map((slug) => [slug, `${loupRiverHubPath}#loup-coordinate-review`] as const),
+    ...verdeRiverConsolidatedRouteSlugs.map((slug) => [slug, `${verdeRiverHubPath}?route=${slug}#trip-${slug}`] as const),
+    ...verdeRiverAccessReviewRouteSlugs.map((slug) => [slug, `${verdeRiverHubPath}#verde-coordinate-review`] as const),
   ],
 );
 

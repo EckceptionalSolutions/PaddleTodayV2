@@ -22,6 +22,7 @@ const isMillersHub = group.riverId === 'millers-river-massachusetts';
 const isBayouDeViewHub = group.riverId === 'bayou-deview';
 const isAmericanLowerHub = group.riverId === 'american-river-california';
 const isLoupRiverHub = group.riverId === 'loup-river';
+const isVerdeRiverHub = group.riverId === 'verde-river-arizona';
 const isGreenRiverHub = group.riverId === 'green-river-kentucky';
 const isBlackfootHub = group.riverId === 'blackfoot-river-montana';
 const isWillametteHub = group.riverId === 'willamette-river-oregon';
@@ -47,6 +48,8 @@ const groupTitle = isWoonasquatucketHub
   ? 'Woonasquatucket River, Rhode Island | Paddling Zones & Access'
   : isLoupRiverHub
   ? 'Loup River Water Trail, Nebraska | Sections & Access'
+  : isVerdeRiverHub
+  ? 'Verde River, Arizona | Paddling Sections & Access'
   : isAmericanLowerHub
   ? 'Lower American River, California | Route Options & Access'
   : isBayouDeViewHub
@@ -68,6 +71,8 @@ const groupDescription = isWillimanticHub
   ? 'Plan the Willimantic River Water Trail by stretch: upper quickwater, Eagleville Lake, or the lower river after the dam portage. Compare public access, mileage, and USGS stage cues.'
   : isLoupRiverHub
   ? 'Plan the Loup River Water Trail from George Syas to Columbus, with a separate outlet to the Platte at ADM. Compare named sections, access, and gauge context.'
+  : isVerdeRiverHub
+  ? 'Compare Verde River trips across Clarkdale, the Verde River Greenway, and the remote Wild and Scenic reach. Check section-specific flow guidance, gauges, access, and hazards.'
   : isAmericanLowerHub
   ? 'Compare Lower American River trips from Sailor Bar and Upper Sunrise through Harrington, Watt, and Howe. Check Fair Oaks flows, park access, and river hazards.'
   : isBayouDeViewHub
@@ -317,6 +322,8 @@ const faqItems = [
     question: `Where can I paddle the ${group.name}?`,
     answer: isLoupRiverHub
       ? 'Start with the source-named 8-mile George D. Syas WMA–Monroe section or the 16-mile Monroe–Columbus section. The selector also includes the 4.5-mile Columbus-to-ADM outlet and the Monroe-to-ADM composite. Longer trips starting at Syas remain off the list until their full route geometry is verified.'
+      : isVerdeRiverHub
+      ? 'Start with one of four distinct sections: the 3-mile Lower TAPCO–Tuzigoot trip in Clarkdale, Tuzigoot–Highway 89A, White Bridge–Beasley Flat, or the remote Beasley Flat–Childs whitewater run. The picker keeps 28 other public endpoint combinations available. Seven options around Sheep Crossing remain withheld until the landing and difficult carry are verified.'
       : isAmericanLowerHub
       ? 'These ten trip options are endpoint pairs along one Lower American River reach: Sailor Bar/Illinois, Upper Sunrise, Harrington, Watt Avenue, and Howe Avenue. Choose any pair in the selector; the overview groups representative trips by distance.'
       : isRussianRiverHub
@@ -347,6 +354,8 @@ const faqItems = [
     question: `How should I check ${group.name} water levels?`,
     answer: isLoupRiverHub
       ? 'USGS 06793000 near Genoa provides live Loup River context. Nebraska Game and Parks’ 350 cfs field test supports a minimum-only cue for the upper Syas–Monroe section; it is not a threshold for the whole trail. ADM options continue onto the Platte and are planning-only.'
+      : isVerdeRiverHub
+      ? 'Use the guidance for the exact reach. Clarkdale discourages boating at 300 cfs and above and blocks launch areas at 1,000 cfs and above on Lower TAPCO–Tuzigoot. The only scored trip is the community-sourced 9-mile White Bridge–Beasley Flat range of 150–1,000 cfs at the Camp Verde gauge; it is not a safety limit. RiverBrain’s Beasley Flat–Childs figures are planning references for that expert-only run. Other endpoint combinations have no route-specific numeric band.'
       : isAmericanLowerHub
       ? 'Use USGS 11446500 at Fair Oaks and review the trend and current releases. The 1,400–3,100 cfs comfortable band and 5,000 cfs maximum reference are community-derived planning cues, not official safe-water limits.'
       : isRussianRiverHub
@@ -1147,6 +1156,50 @@ const groupStructuredData = [
           </p>
           <p>
             Read the <a href="https://outdoornebraska.gov/wp-content/uploads/2023/05/Loup-River-Trail-Guide-.pdf" target="_blank" rel="noopener noreferrer">Nebraska Game and Parks Loup River Water Trail guide</a> and its <a href="https://magazine.outdoornebraska.gov/stories/travel-and-adventure/loup-river-water-trail/" target="_blank" rel="noopener noreferrer">route and access history</a>. Check <a href="https://columbusne.us/CivicAlerts.aspx?AID=1190&ARC=1617" target="_blank" rel="noopener noreferrer">current Columbus trail notices</a> and the <a href="https://columbusne.us/m/newsflash/home/detail/1328" target="_blank" rel="noopener noreferrer">ADM access lease announcement</a> before setting the shuttle.
+          </p>
+        </div>
+      ) : null}
+
+      {isVerdeRiverHub ? (
+        <div class="river-hub-context__source-guide" id="verde-river-sections" aria-labelledby="verde-river-sections-title">
+          <div class="river-group-page__section-head">
+            <div>
+              <p class="eyebrow section-label">Arizona · Verde River</p>
+              <h3 class="section-title" id="verde-river-sections-title">Choose a section by reach and conditions</h3>
+            </div>
+            <p class="muted river-group-page__section-note">
+              The Clarkdale reach, Verde River Greenway, and remote Wild and Scenic section have different flow guidance and access. Start with these four source-backed trips; the picker keeps 28 other public endpoint combinations available.
+            </p>
+          </div>
+
+          <div class="river-hub-context__grid">
+            <article class="river-hub-context__item">
+              <h3>Lower TAPCO to Tuzigoot · 3 miles</h3>
+              <p>The Town identifies this as its Clarkdale kayak section. It discourages boating at 300 cfs and above and blocks launch areas at 1,000 cfs and above. Use the Clarkdale gauge and confirm current launch access.</p>
+              <a href="/rivers/verde-river-lower-tapco-tuzigoot/">Open the Clarkdale section guide</a>
+            </article>
+            <article class="river-hub-context__item">
+              <h3>Tuzigoot to Highway 89A Bridge · 6.5 miles</h3>
+              <p>Friends of the Verde publishes a dedicated map for this Greenway stretch. Check the route map for access details and do not apply Clarkdale’s high-flow restrictions beyond the reach they describe.</p>
+              <a href="/rivers/verde-river-tuzigoot-89a-bridge/">Open the Tuzigoot–89A guide</a>
+            </article>
+            <article class="river-hub-context__item">
+              <h3>White Bridge to Beasley Flat · 9 miles</h3>
+              <p>This named Class II run has route-specific community flow references of 150–1,000 cfs at the Camp Verde gauge. Treat them as planning cues, scout the river, and check the trend.</p>
+              <a href="/rivers/verde-river-white-bridge-beasley-flat/">Open the White Bridge–Beasley guide</a>
+            </article>
+            <article class="river-hub-context__item">
+              <h3>Beasley Flat to Childs · about 16–17 miles</h3>
+              <p>A remote Class III–IV+ Wild and Scenic run for expert paddlers. RiverBrain publishes route-specific flow context, but this trip remains planning-only because a flow number is not a safe-launch recommendation.</p>
+              <a href="/rivers/verde-river-beasley-flat-childs/">Review the Wild and Scenic trip</a>
+            </article>
+          </div>
+
+          <p>
+            Friends of the Verde warns that flow conditions, obstacles, and hazards vary by stretch and change daily. Read its <a href="https://verderiver.org/get-involved/paddle-guides/" target="_blank" rel="noopener noreferrer">paddle guide index</a> and <a href="https://verderiver.org/wp-content/uploads/2022/03/river-access-points.pdf" target="_blank" rel="noopener noreferrer">river access map</a>. Use <a href="https://waterdata.usgs.gov/monitoring-location/USGS-09504000/" target="_blank" rel="noopener noreferrer">USGS 09504000 near Clarkdale</a> for the Clarkdale section and <a href="https://waterdata.usgs.gov/monitoring-location/USGS-09506000" target="_blank" rel="noopener noreferrer">USGS 09506000 near Camp Verde</a> for the named lower and Wild and Scenic routes; neither reading represents the entire river.
+          </p>
+          <p id="verde-coordinate-review">
+            Seven trips involving Sheep Crossing remain unavailable while the exact water-entry point and long boat carry are verified. The access map marks Sheep Crossing as a difficult haul but does not locate the landing edge. Use the other public options above or in the trip picker until that access review is complete.
           </p>
         </div>
       ) : null}

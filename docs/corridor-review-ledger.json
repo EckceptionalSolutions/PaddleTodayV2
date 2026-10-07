@@ -2238,5 +2238,13 @@
     "continuityStatus": "condition-family",
     "nextReview": "2026-10-08",
     "notes": "Reviewed six Loup Water Trail records against Nebraska Game and Parks/Nebraskaland's route guide, the Columbus ADM access lease notice, the City of Columbus trail/access details, and USGS 06793000. Keep the source-named George D. Syas WMA–Monroe (8 mi) and Monroe–Columbus (16 mi) sections, plus the separate 4.5-mi Columbus-to-ADM outlet, as standalone pages. Consolidate the public Monroe-to-ADM composite to its exact hub trip option. The other two Syas-start composites remain withheld until full route geometry is verified and redirect to the hub's coordinate-review note. The 350 cfs field test is specific to Syas–Monroe; mark the other five source records planning-only, since the lower Loup segment has no route-specific numeric threshold and the ADM outlet crosses the Loup–Platte confluence. Treat the Genoa gauge as contextual on longer routes and preserve the private-bank, parking, lease, and current construction-access checks."
+  },
+  {
+    "corridorId": "az-verde-river-reach-family",
+    "status": "approved",
+    "owner": "route-data-team",
+    "continuityStatus": "condition-family",
+    "nextReview": "2026-10-08",
+    "notes": "Reviewed all 39 Verde River source records against the Town of Clarkdale's reach-specific access and flow guidance, Friends of the Verde's distinct paddle maps and warning that conditions vary by stretch, Forest Service access information, and route-specific RiverBrain runs. Keep four source-backed standalone guides: Lower TAPCO–Tuzigoot (3 mi), Tuzigoot–Highway 89A Bridge (6.5 mi), White Bridge–Beasley Flat (9 mi), and Beasley Flat–Childs (about 17 planning mi; Class III–IV+). Consolidate 28 other public endpoint combinations to their exact hub trip choices, while preserving the 32 currently public options. Keep all seven Sheep Crossing combinations withheld until the water-entry edge and long carry are mapped; old paths point to the access-review note. Retain scored community flow guidance only for the exact White Bridge–Beasley run; keep Beasley–Childs planning-only with its exact-run source context. Remove inherited river-wide numeric bands from all other trips. Clarkdale's 300+ cfs boating discouragement and 1,000+ cfs launch closure apply only to Lower TAPCO–Tuzigoot. The three river zones do not share a continuous condition profile."
   }
 ]

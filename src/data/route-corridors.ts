@@ -139,6 +139,13 @@ export const routeCorridorDefinitions: RouteCorridorDefinition[] = [
     segmentEdges: [],
   },
   {
+    corridorId: 'az-verde-river-reach-family',
+    label: 'Verde River Clarkdale, Greenway, and Wild and Scenic reach family',
+    continuityStatus: 'condition-family',
+    slugPrefix: 'verde-river-',
+    segmentEdges: [],
+  },
+  {
     corridorId: 'or-willamette-upper-valley-water-trail',
     label: 'Upper Willamette Valley access and itinerary family',
     continuityStatus: 'condition-family',

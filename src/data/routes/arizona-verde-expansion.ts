@@ -1,5 +1,6 @@
 import type { River } from '../../lib/types';
 import type { RouteHazard } from '@paddletoday/api-contract';
+import { applyVerdeFlowPolicy } from './arizona-verde';
 
 const accessMap = { label: 'Friends of the Verde River access points map', url: 'https://verderiver.org/wp-content/uploads/2022/03/river-access-points.pdf', provider: 'local' as const };
 const forestGuide = { label: 'USFS Verde River Paddle Trail guide', url: 'https://www.fs.usda.gov/Internet/FSE_DOCUMENTS/stelprd3818300.pdf', provider: 'local' as const };
@@ -37,7 +38,7 @@ function makeRoute(spec: Spec): River {
   };
 }
 
-export const arizonaVerdeExpansionRoutes: River[] = [
+export const arizonaVerdeExpansionRoutes: River[] = applyVerdeFlowPolicy([
   makeRoute({ id: 'verde-river-tuzigoot-dead-horse', start: points.tuzigoot, end: points.deadHorse, miles: 3.2, summary: 'A short, public Verde River Greenway reach from Tuzigoot Bridge to Dead Horse Ranch State Park.', note: 'The access map names Tuzigoot and Dead Horse Ranch RAPs; the park launch has day-use rules and a carry to the river.', gauge: upperGauge, time: 'Allow 2–4 hours with carry and shuttle time' }),
   makeRoute({ id: 'verde-river-dead-horse-89a', start: points.deadHorse, end: points.rap89, miles: 3.3, summary: 'A Verde River Greenway section linking Dead Horse Ranch State Park RAPs with the Highway 89A Bridge.', note: 'Dead Horse Ranch has multiple launch choices; confirm the selected river-day-use area and the Highway 89A bridge-side carry before staging.', gauge: upperGauge, time: 'Allow 2–4 hours with carry and shuttle time' }),
   makeRoute({ id: 'verde-river-skidmore-black-canyon', start: points.skidmore, end: points.blackCanyon, miles: 0.9, summary: 'A short lower Verde access choice from Skidmore Drive to Black Canyon RAP.', note: 'The access map identifies both public RAPs and marks Black Canyon in the river-mile sequence. Confirm the road-side parking and long carry where posted.', gauge: lowerGauge, time: 'Allow 1–3 hours with carry and shuttle time' }),
@@ -65,4 +66,4 @@ export const arizonaVerdeExpansionRoutes: River[] = [
   makeRoute({ id: 'verde-river-89a-bignotti', start: points.rap89, end: points.bignotti, miles: 4.8, summary: 'A Verde Valley reach from Highway 89A through Skidmore and Black Canyon to Bignotti Beach.', note: 'Use Skidmore and Black Canyon as named intermediate exits. Confirm the Bignotti beach carry and private-bank boundaries.', gauge: lowerGauge, time: 'Allow 3–5 hours with scouting and carry time' }),
   makeRoute({ id: 'verde-river-89a-sheep-crossing', start: points.rap89, end: points.sheep, miles: 6.5, summary: 'A connected Verde River reach from Highway 89A Bridge RAP through Skidmore, Black Canyon and Bignotti to Sheep Crossing.', note: 'Use Skidmore, Black Canyon and Bignotti as bail-outs. Sheep Crossing is marked difficult; confirm the carry, road access and current water edge.', gauge: lowerGauge, time: 'Allow 4–7 hours with scouting, carries and shuttle margin' }),
   makeRoute({ id: 'verde-river-89a-parsons', start: points.rap89, end: points.parsons, miles: 13.4, summary: 'A mid-Verde day itinerary from Highway 89A through the mapped Skidmore, Black Canyon, Bignotti, Sheep Crossing and Newton RAP chain to Parsons Preserve.', note: 'Use each named RAP as a documented bailout. Confirm the difficult Sheep Crossing carry, Newton Lane access and Parsons Preserve hours before committing.', gauge: lowerGauge, time: 'Allow 6–9 hours with scouting, carries and shuttle margin' }),
-];
+]);

@@ -2,6 +2,7 @@ import type { River } from '../../lib/types';
 import type { RouteHazard } from '@paddletoday/api-contract';
 
 const paddleGuide = { label: 'Friends of the Verde River access points', url: 'https://verderiver.org/wp-content/uploads/2022/03/river-access-points.pdf', provider: 'local' as const };
+const paddleGuidesPage = { label: 'Friends of the Verde River paddle guides and flow cautions', url: 'https://verderiver.org/get-involved/paddle-guides/', provider: 'local' as const };
 const forestGuide = { label: 'USFS Verde River Paddle Trail guide', url: 'https://www.fs.usda.gov/Internet/FSE_DOCUMENTS/stelprd3818300.pdf', provider: 'local' as const };
 const flowGuide = { label: 'RiverScout Verde River conditions summary', url: 'https://riverscout.app/rivers/arizona/verde-river', provider: 'local' as const };
 const lowerFlowGuide = { label: 'RiverBrain White Bridge to Beasley Flat flow guidance', url: 'https://www.riverbrain.com/runs/483', provider: 'local' as const };
@@ -11,15 +12,16 @@ const wildScenicPlan = { label: 'Verde Wild and Scenic River access plan', url: 
 const wildFlowGuide = { label: 'RiverBrain Beasley Flat to Childs flow guidance', url: 'https://www.riverbrain.com/runs/486', provider: 'local' as const };
 const wildReachGuide = { label: 'Southwest Paddler Verde River Beasley Flat to Childs', url: 'https://www.southwestpaddler.com/docs/verde4.html', provider: 'local' as const };
 const wildAccessMap = { label: 'Friends of the Verde Beasley Flat to Sheep Bridge access map', url: 'https://verderiver.org/wp-content/uploads/2022/03/veri_paddle_map-beasleyflatsheepbridge.pdf', provider: 'local' as const };
+const clarkdaleFlowGuide = { label: 'Town of Clarkdale Verde River flow and access guidance', url: 'https://www.clarkdale.az.gov/214/Verde-River-Clarkdale', provider: 'local' as const };
 const gauge = { id: 'usgs-09504000', provider: 'usgs' as const, siteId: '09504000', metric: 'discharge_cfs' as const, unit: 'cfs' as const, kind: 'direct' as const, siteName: 'Verde River near Clarkdale, AZ', detailUrl: 'https://waterdata.usgs.gov/monitoring-location/USGS-09504000/' };
 const lowerGauge = { id: 'usgs-09506000', provider: 'usgs' as const, siteId: '09506000', metric: 'discharge_cfs' as const, unit: 'cfs' as const, kind: 'direct' as const, siteName: 'Verde River near Camp Verde, AZ', detailUrl: 'https://waterdata.usgs.gov/monitoring-location/USGS-09506000' };
 
 const common = {
   name: 'Verde River', riverId: 'verde-river-arizona', state: 'Arizona', region: 'Verde Valley / Yavapai County', routeType: 'recreational' as const, scoreEligibility: 'scored' as const,
   gaugeSource: gauge,
-  profile: { thresholdModel: 'two-sided' as const, tooLow: 300, idealMin: 300, idealMax: 2000, tooHigh: 2000, thresholdSource: flowGuide, thresholdSourceStrength: 'community' as const, rainfallSensitivity: 'medium' as const, windSensitivity: 0.2, seasonMonths: [1,2,3,4,5,6,7,8,9,10,11,12], seasonNotes: 'Check current flow, thunderstorms, flash-flood forecasts and access notices. The Verde is dynamic and obstructions can change quickly.', difficulty: 'moderate' as const, difficultyNotes: 'Moving water with shallow riffles, diversion structures and occasional Class II features; comfortable boat control and scouting are required.', confidenceNotes: 'Friends of the Verde and the USFS guide publish named access points and waypoint coordinates. RiverScout supplies a same-gauge community optimal window of 300–2,000 cfs; this is a conservative planning band, not a guarantee of safe passage.' },
+  profile: { thresholdModel: 'two-sided' as const, tooLow: 300, idealMin: 300, idealMax: 2000, tooHigh: 2000, thresholdSource: flowGuide, thresholdSourceStrength: 'community' as const, rainfallSensitivity: 'medium' as const, windSensitivity: 0.2, seasonMonths: [1,2,3,4,5,6,7,8,9,10,11,12], seasonNotes: 'Check current flow, thunderstorms, flash-flood forecasts and access notices. The Verde is dynamic and obstructions can change quickly.', difficulty: 'moderate' as const, difficultyNotes: 'Moving water with shallow riffles, diversion structures and occasional Class II features; comfortable boat control and scouting are required.', confidenceNotes: 'The Verde spans reaches with different access, obstacles, hazards, and flow conditions. Use the named trip source and the gauge closest to that reach; there is no single river-wide flow band.' },
   safetyProfile: { riskLevel: 'caution' as const, reviewStatus: 'reviewed' as const, hazards: ['low_water','strainers','fast_rise','private_banks','dam'] as RouteHazard[], safetyNotes: ['Wear a PFD and carry offline navigation, throw rope and communication equipment.', 'Scout shallow riffles and diversion structures; portage where the guide marks a portage or caution location.', 'Private property borders much of the river. Leave the river only at named public access points.', 'Avoid flash floods and thunderstorms; recheck current conditions before launch.'] },
-  sourceLinks: [forestGuide, paddleGuide, flowGuide, { label: 'USGS Verde River gauge', url: gauge.detailUrl, provider: 'usgs' as const }],
+  sourceLinks: [forestGuide, paddleGuide, paddleGuidesPage, { label: 'USGS Verde River gauge', url: gauge.detailUrl, provider: 'usgs' as const }],
 };
 
 function makeRoute(spec: { id: string; reach: string; putIn: River['putIn']; takeOut: River['takeOut']; miles: number; summary: string; time: string; note: string }): River {
@@ -77,7 +79,7 @@ function makeWildRoute(spec: { id: string; reach: string; putIn: River['putIn'];
     profile: {
       thresholdModel: 'two-sided',
       tooLow: 150,
-      idealMin: 600,
+      idealMin: 300,
       idealMax: 2000,
       tooHigh: 3000,
       thresholdSource: wildFlowGuide,
@@ -85,25 +87,25 @@ function makeWildRoute(spec: { id: string; reach: string; putIn: River['putIn'];
       rainfallSensitivity: 'high',
       windSensitivity: 0.15,
       seasonMonths: [1, 2, 3, 4, 5],
-      seasonNotes: 'RiverBrain recommends roughly 150 cfs minimum and 800 cfs average, while Southwest Paddler uses 300 cfs minimum and 600–2,000 cfs optimum. Winter through spring is the practical season; avoid monsoon flash-flood conditions.',
+      seasonNotes: 'RiverBrain lists January through May as the typical season. Its 150 cfs minimum is described as extreme-low-flow boating; hard-shell boaters may prefer about 300 cfs, and larger boats often use roughly 700–800 cfs as a minimum cue. Avoid monsoon flash-flood conditions.',
       difficulty: 'hard',
       difficultyNotes: 'A remote 16–18 mile Class III–IV+ Wild and Scenic reach with named rapids, limited road access and no dependable bailout between Beasley Flat and Childs.',
-      confidenceNotes: 'RiverBrain and Southwest Paddler identify the Beasley Flat–Childs reach and tie flow guidance to USGS 09506000 near Camp Verde. Published mileage varies from 16 to 18 miles; this catalog uses the USFS-style 17-mile planning distance. Verify current road, permit and take-out conditions because access is remote and can change seasonally.',
+      confidenceNotes: 'RiverBrain identifies the Beasley Flat–Childs run and ties its 150 cfs minimum, 800 cfs average, and 2,000 cfs maximum references to USGS 09506000 near Camp Verde. Published mileage varies from 16 to about 17 miles; this catalog uses 17 planning miles based on the access map. Verify current road, permit and take-out conditions because access is remote and can change seasonally.',
     },
     safetyProfile: {
       riskLevel: 'advanced',
       reviewStatus: 'reviewed',
       hazards: ['whitewater', 'low_water', 'strainers', 'fast_rise', 'flash_flood', 'cold_water', 'remote', 'private_banks', 'access_uncertain'] as RouteHazard[],
-      safetyNotes: ['Expert paddlers only: wear a properly fitted PFD and helmet, carry rescue gear, offline maps and redundant communication.', 'Scout and set safety for every named rapid; plan for self-rescue because road exits and cell coverage are limited.', 'Use the direct Camp Verde gauge as a planning cue only. Stop for monsoon storms, rising trend, debris or water outside the published band.', 'Childs access uses rough Forest Service roads and a remote campground/river landing. Confirm current road, permit, parking and water-entry status before launching.'],
+      safetyNotes: ['Expert paddlers only: wear a properly fitted PFD and helmet, carry rescue gear, offline maps and redundant communication.', 'Scout and set safety for every named rapid; plan for self-rescue because road exits and cell coverage are limited.', 'Treat published flow figures as community planning references, not safety limits. Stop for monsoon storms, rising trend or debris.', 'Childs access uses rough Forest Service roads and a remote campground/river landing. Confirm current road, permit, parking and water-entry status before launching.'],
     },
     sourceLinks: [lowerForestGuide, wildAccessMap, wildFlowGuide, wildReachGuide, wildScenicPlan, { label: 'U.S. Fish and Wildlife Service Verde River access overview', url: 'https://www.fws.gov/rivers/river/verde', provider: 'local' as const }, { label: 'USGS Verde River near Camp Verde gauge', url: lowerGauge.detailUrl, provider: 'usgs' as const }],
     accessPoints: [{ ...spec.putIn!, id: `${spec.id}-put-in`, mileFromStart: 0, segmentKind: 'transition', note: spec.note }, { name: 'Childs River Access / Childs Campground', latitude: spec.takeOut!.latitude, longitude: spec.takeOut!.longitude, id: `${spec.id}-take-out`, mileFromStart: spec.miles, segmentKind: 'transition', note: 'Remote FR 502/FR 708 approach and rough carry. Confirm campground status, road conditions and a safe water-entry edge; do not rely on informal bank access.' }],
     logistics: { distanceLabel: `About ${spec.miles} river miles`, estimatedPaddleTime: spec.time, shuttle: 'Stage the Childs vehicle first and allow a full day for the rough Forest Service road approach; use an experienced shuttle or commercial outfitter familiar with the reach.', permits: 'Confirm current Forest Service access, Wild and Scenic rules, road closures and any commercial or group permit requirements before unloading.', camping: 'Childs Campground and designated sites are documented near the take-out; confirm current status and reservations. Do not assume informal riverbank camping is legal.', campingClassification: 'endpoint_campground', summary: spec.summary, accessCaveats: ['Beasley Flat and Childs are the named public access points for this reach.', 'FR 502/708 roads can be rough, seasonal or closed; verify before committing a shuttle.', 'Carry all emergency and water supplies; bailout options are limited.'], watchFor: ['Class III–IV+ rapids and changing lines', 'Low water, strainers and debris', 'Flash-flood rises and cold water', 'Remote road access, private banks and limited communication'] },
-    evidenceNotes: [{ label: 'Named reach and access', value: `${spec.reach}; ${spec.miles} planning miles`, note: 'USFS/FWS materials identify Beasley Flat and Childs as public boat launch/take-out sites; the Verde access map places Childs at approximately river mile 17.2.', sourceUrl: wildAccessMap.url }, { label: 'Scoring band', value: '150–3,000 cfs review band; 600–2,000 cfs preferred', note: 'RiverBrain reports 150 cfs minimum, about 800 cfs average and 2,000 cfs maximum; Southwest Paddler gives 300 minimum, 600–2,000 optimum and 3,000 maximum. Use the conservative two-sided cue and verify local conditions.', sourceUrl: wildFlowGuide.url }, { label: 'Direct gauge', value: 'USGS 09506000', note: 'Verde River near Camp Verde telemetry used by both route guides; recheck current discharge and trend.', sourceUrl: lowerGauge.detailUrl }, { label: 'Difficulty and remoteness', value: 'Class III–IV+ Wild and Scenic reach', note: 'The reach is remote with named rapids, limited exits and rough road access to Childs; expert skills and a conservative shuttle plan are required.', sourceUrl: wildReachGuide.url }],
+    evidenceNotes: [{ label: 'Named reach and access', value: `${spec.reach}; ${spec.miles} planning miles`, note: 'USFS/FWS materials identify Beasley Flat and Childs as public boat launch/take-out sites; the Verde access map places Childs at approximately river mile 17.2.', sourceUrl: wildAccessMap.url }, { label: 'Flow guidance', value: 'RiverBrain: 150 cfs minimum, about 800 average, 2,000 maximum', note: 'These community values describe the named Beasley Flat–Childs run only; 150 cfs is described as extreme-low-flow boating. A longer trip that starts above Beasley Flat includes other reaches and should not inherit this flow guidance.', sourceUrl: wildFlowGuide.url }, { label: 'Direct gauge', value: 'USGS 09506000', note: 'Verde River near Camp Verde telemetry used for the named Beasley Flat–Childs run; recheck current discharge and trend.', sourceUrl: lowerGauge.detailUrl }, { label: 'Difficulty and remoteness', value: 'Class III–IV+ Wild and Scenic reach', note: 'The reach is remote with named rapids, limited exits and rough road access to Childs; expert skills and a conservative shuttle plan are required.', sourceUrl: wildReachGuide.url }],
   };
 }
 
-export const arizonaVerdeRoutes: River[] = [
+const arizonaVerdeCoreRoutes: River[] = [
   makeRoute({ id: 'verde-river-lower-tapco-tuzigoot', reach: 'Lower TAPCO RAP to Tuzigoot Bridge', putIn: { name: 'Lower TAPCO RAP', latitude: 34.796181, longitude: -112.041017 }, takeOut: { name: 'Tuzigoot Bridge', latitude: 34.7672379, longitude: -112.0398467 }, miles: 3.3, summary: 'A short Verde River access section through the Clarkdale corridor from Lower TAPCO to Tuzigoot Bridge.', time: 'Allow 2–4 hours with scouting and access stops', note: 'Named Lower TAPCO access; stored point refined to the NHD water-entry edge. Confirm the current roadside pull-off.' }),
   makeRoute({ id: 'verde-river-tuzigoot-89a-bridge', reach: 'Tuzigoot Bridge to Highway 89A Bridge', putIn: { name: 'Tuzigoot Bridge', latitude: 34.7672379, longitude: -112.0398467 }, takeOut: { name: 'Highway 89A Bridge', latitude: 34.7224176, longitude: -111.9915453 }, miles: 6.5, summary: 'A six-and-a-half-mile Verde River run from Tuzigoot Bridge to the Highway 89A Bridgeport access.', time: 'Allow 3–5 hours with scouting and diversion checks', note: 'Named Tuzigoot Bridge access; stored point refined to the NHD water-entry edge. Confirm the current public launch and parking.' }),
   makeRoute({ id: 'verde-river-89a-skidmore', reach: 'Highway 89A Bridge to Skidmore RAP', putIn: { name: 'Highway 89A Bridge', latitude: 34.7224176, longitude: -111.9915453 }, takeOut: { name: 'Skidmore RAP', latitude: 34.69268085, longitude: -111.96223986 }, miles: 4, summary: 'A four-mile Verde River outing from the Highway 89A Bridge to Skidmore access in the Verde Valley.', time: 'Allow 2–4 hours with shallow-riffle scouting', note: 'Named Highway 89A access; verify the bridge-side launch and legal parking. Stored point refined to the NHD water-entry edge.' }),
@@ -117,3 +119,65 @@ export const arizonaVerdeRoutes: River[] = [
   makeWildRoute({ id: 'verde-river-clear-creek-childs', reach: 'Clear Creek RAP to Childs River Access', putIn: { name: 'Clear Creek RAP', latitude: 34.5057, longitude: -111.8378 }, takeOut: { name: 'Childs River Access / Childs Campground', latitude: 34.3501015, longitude: -111.6999969 }, miles: 21, summary: 'A remote Verde River expedition from Clear Creek through Beasley Flat and the Wild and Scenic reach to Childs.', time: 'Plan a full daylight expedition with an expert crew, multiple scouting stops and a large shuttle margin', note: 'Use Beasley Flat as the documented transition and bailout point. Confirm the Clear Creek carry, Forest Service road, parking and current Childs water entry before launch.' }),
   makeWildRoute({ id: 'verde-river-beasley-flat-childs', reach: 'Beasley Flat RAP to Childs River Access', putIn: { name: 'Beasley Flat RAP', latitude: 34.4794006, longitude: -111.7985001 }, takeOut: { name: 'Childs River Access / Childs Campground', latitude: 34.3501015, longitude: -111.6999969 }, miles: 17, summary: 'A remote 17-mile Wild and Scenic Verde River expedition from Beasley Flat through named Class III–IV rapids to Childs.', time: 'Plan a full daylight day with an expert crew, scouting time and a large shuttle margin', note: 'Beasley Flat is the established Wild and Scenic launch. Confirm the Forest Service carry, parking and current river-level restrictions before entering this remote reach.' }),
 ];
+
+export function applyVerdeFlowPolicy(routes: River[]): River[] {
+  return routes.map((route): River => {
+    if (route.slug === 'verde-river-white-bridge-beasley-flat') {
+      return { ...route, scoreEligibility: 'scored' };
+    }
+
+    if (route.slug === 'verde-river-beasley-flat-childs') {
+      return { ...route, scoreEligibility: 'planning' };
+    }
+
+    const isClarkdaleReach = route.slug === 'verde-river-lower-tapco-tuzigoot';
+    const { tooLow: _tooLow, tooHigh: _tooHigh, idealMin: _idealMin, idealMax: _idealMax, ...profile } = route.profile;
+    const routeScopedSource = isClarkdaleReach ? clarkdaleFlowGuide : paddleGuidesPage;
+    const routeScopedFlowNote = isClarkdaleReach
+      ? {
+          label: 'Official flow and access guidance',
+          value: 'Boating discouraged at 300+ cfs; no boating access at 1,000+ cfs',
+          note: 'Town of Clarkdale guidance applies to its Lower TAPCO–Tuzigoot section. Its upper cutoff is an access closure, so this route is planning-only and has no live score.',
+          sourceUrl: clarkdaleFlowGuide.url,
+        }
+      : {
+          label: 'Flow guidance scope',
+          value: 'No numeric flow range verified for this exact trip',
+          note: 'Friends of the Verde warns that flow, obstacles and hazards differ by stretch and can change daily. Use the linked gauge as context, not a route-wide recommendation.',
+          sourceUrl: paddleGuidesPage.url,
+        };
+    const sourceLinks = route.sourceLinks.filter((source) =>
+      source.url !== flowGuide.url && source.url !== lowerFlowGuide.url && source.url !== wildFlowGuide.url,
+    );
+
+    return {
+      ...route,
+      scoreEligibility: 'planning',
+      statusText: isClarkdaleReach
+        ? 'Clarkdale discourages boating at 300+ cfs and blocks launch areas at 1,000+ cfs. Check the live Clarkdale gauge and current access notices before considering this short section.'
+        : 'Planning route. Check the gauge nearest this reach, recent trend, weather and named access notes; no route-specific numeric flow range is verified.',
+      profile: {
+        ...profile,
+        thresholdSource: routeScopedSource,
+        thresholdSourceStrength: isClarkdaleReach ? 'official' : 'community',
+        seasonNotes: isClarkdaleReach
+          ? 'Clarkdale discourages boating at 300 cfs and above and blocks boat launch areas at 1,000 cfs and above. Spring runoff can rise quickly; check the live gauge and Town access notices.'
+          : 'Friends of the Verde warns that conditions differ among river stretches and can change daily. Check the nearest gauge, weather, access and current obstacles for this trip.',
+        confidenceNotes: isClarkdaleReach
+          ? 'The Town of Clarkdale names Lower TAPCO and Tuzigoot as a 3-mile kayak section and publishes reach-specific high-flow restrictions. The route has no live score because the published boating cutoff and access closure do not form a usable two-sided flow band.'
+          : 'The access sources name public points and map their order, but they do not publish a numeric flow range for this exact endpoint pair. Treat nearby gauge readings as context and verify the named route conditions locally.',
+      },
+      sourceLinks: [
+        ...sourceLinks,
+        paddleGuidesPage,
+        ...(isClarkdaleReach ? [clarkdaleFlowGuide] : []),
+      ].filter((source, index, sources) => sources.findIndex((candidate) => candidate.url === source.url) === index),
+      evidenceNotes: [
+        ...route.evidenceNotes.filter((note) => note.label !== 'Scoring band'),
+        routeScopedFlowNote,
+      ],
+    };
+  });
+}
+
+export const arizonaVerdeRoutes: River[] = applyVerdeFlowPolicy(arizonaVerdeCoreRoutes);
