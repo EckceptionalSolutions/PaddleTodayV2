@@ -45,6 +45,12 @@ Each path below now points to `?route=<same-slug>#trip-<same-slug>` on the South
 - Candidate build: `.local/seo-candidate-2026-10-07-broad-river`; Astro built 2,921 static pages and the sitemap contains 2,909 URLs, 17 fewer than the immediately preceding Verde candidate.
 - The built-page audit checked 2,848 route links and found zero orphaned public pages, zero routes missing state or river-hub inlinks, duplicate route H1s/descriptions, errors, or warnings. It verified all 391 generated consolidation redirects, including the 17 new exact Broad River targets.
 - The candidate has 2,469 standalone route pages, down from 2,486, and retains all 25 South Carolina Broad River route choices. The South Carolina hub renders only South Carolina routes; the Georgia group contains only `broad-river-us281-us172`.
-- Route-data, corridor, deprecation, and route TypeScript checks passed. Full `npm run typecheck` remains blocked by the existing canonical-geometry manifest count (2,831 versus 2,807 public routes); the typecheck phases before that audit passed. No automated tests were run.
+- Route-data, corridor, deprecation, and route TypeScript checks passed. The initial full typecheck exposed a stale canonical-geometry manifest (2,831 versus 2,807 public routes); see the deployment follow-up below. No automated tests were run locally.
 
 This is candidate-build evidence. Production deployment and Google's recrawl have not yet been confirmed.
+
+## October 7 deployment follow-up
+
+The first GitHub frontend deployment stopped at its `npm test` typecheck because the canonical-geometry inventory still described an older public route catalog. Refreshed the root manifest and state bundles using the reviewed existing route assets, preserving the original geometry-generation fingerprint. The geometry audit now passes for 2,775 matched of 2,807 public routes, with 32 explicitly unmatched.
+
+That audit also exposed a stale Blackfoot access-anchor requirement left under the retired reverse-direction slug. Updated the required route ID and added the current Johnsrud–Marco Flats route asset by reversing its existing reviewed network trace. The resulting trace follows route direction, lands within 157 ft of Johnsrud and 165 ft of Marco Flats, and measures 9.3 miles. The geometry audit and full `npm run typecheck` now pass. This follow-up is pushed with the Broad River change; production and Search Console verification remain pending until the deployment workflow succeeds.

@@ -38,7 +38,7 @@ const requiredRouteControlPoints: Record<string, Array<{ latitude: number; longi
   'blackfoot-river-k-ross-toole-marco-flats': [
     { latitude: 46.88969, longitude: -113.82973, maxFeet: 600, label: 'Marco Flats FWP access-area anchor' },
   ],
-  'blackfoot-river-marco-flats-johnsrud': [
+  'blackfoot-river-johnsrud-marco-flats': [
     { latitude: 46.88969, longitude: -113.82973, maxFeet: 600, label: 'Marco Flats FWP access-area anchor' },
   ],
   'blackfoot-river-marco-flats-weigh-station': [
