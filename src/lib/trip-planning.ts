@@ -1,4 +1,5 @@
 import { newTripPlan, validTripDate, validTripTime, validTimeZone, type TripPlan, type RiverDetailApiResult } from '@paddletoday/api-contract';
+import { routePageHref } from '../data/route-page-consolidations';
 
 /** Route links carry IDs, never a second copy of route metadata. */
 export function planFromRouteLink(params: URLSearchParams): TripPlan | null {
@@ -41,5 +42,5 @@ export function tripRouteUrl(route: TripPlan['route']) {
   const params = new URLSearchParams();
   if (route.putInId) params.set('putin', route.putInId);
   if (route.takeOutId) params.set('takeout', route.takeOutId);
-  return `/rivers/${encodeURIComponent(route.slug)}/${params.size ? '?' + params.toString() : ''}`;
+  return routePageHref(route.slug, params);
 }

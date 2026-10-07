@@ -1,15 +1,16 @@
 # Route corridor migration inventory
 
-Generated 2026-09-22T14:56:11.346Z.
+Generated 2026-10-06T23:59:50.422Z.
 
-- Defined corridors: 216
-- Routes covered by a corridor definition: 508
-- Remaining multi-route families: 335
+- Defined corridors: 217
+- Routes covered by a corridor definition: 541
+- Remaining multi-route families: 334
 
 ## Defined corridors
 
 | Corridor | Label | Continuity | Matching routes | Verified edges |
 | --- | --- | --- | ---: | ---: |
+| ct-willimantic-water-trail | Willimantic River Water Trail three-segment condition family | condition-family | 34 | 0 |
 | mn-cannon-lower | Lower Cannon River access corridor | verified | 3 | 4 |
 | va-south-fork-holston-route58-alvarado | South Fork Holston Route 58 to Alvarado moving-water float | verified | 1 | 0 |
 | va-nottoway-river-double-bridge-route630 | Nottoway River Double Bridge to Route 630 moving-water float | verified | 1 | 1 |
@@ -190,7 +191,7 @@ Generated 2026-09-22T14:56:11.346Z.
 | wv-cheat-hannahsville-riverview | Upper Cheat River Water Trail Hannahsville Ford to Riverview Lounge | verified | 1 | 1 |
 | md-middle-potomac-point-of-rocks-monocacy | Middle Potomac Point of Rocks to Monocacy Aqueduct | verified | 1 | 2 |
 | md-middle-potomac-monocacy-edwards | Middle Potomac Monocacy Aqueduct to Edwards Ferry through Whites Ferry | verified | 1 | 2 |
-| pa-susquehanna-north-branch | North Branch Susquehanna public-access corridor family | condition-family | 23 | 0 |
+| pa-susquehanna-north-branch | North Branch Susquehanna public-access corridor family | condition-family | 22 | 0 |
 | pa-juniata | Juniata River public-access corridor family | condition-family | 4 | 0 |
 | pa-conodoguinet | Conodoguinet Creek Cumberland County water-trail family | condition-family | 6 | 0 |
 | pa-yellow-breeches | Yellow Breeches Creek Cumberland County access family | condition-family | 10 | 0 |
@@ -253,7 +254,6 @@ Generated 2026-09-22T14:56:11.346Z.
 | New York | Old Erie Canal | 37 |
 | California | Russian River | 37 |
 | Montana | Blackfoot River | 36 |
-| Connecticut | Willimantic River | 34 |
 | Kentucky | Green River | 32 |
 | Washington | Spokane River | 29 |
 | Mississippi | Black Creek | 28 |
@@ -286,6 +286,7 @@ Generated 2026-09-22T14:56:11.346Z.
 | New Mexico | San Juan River | 11 |
 | Minnesota | St. Louis River | 11 |
 | California | American River | 10 |
-| Additional families omitted | See route data and overlap audit | 295 |
+| New Mexico | Animas River | 10 |
+| Additional families omitted | See route data and overlap audit | 294 |
 
 This inventory is a migration queue, not an automatic deletion list. Each family still requires source review for continuity, hazards, access legality, gauge boundaries, and explicit trip edges.

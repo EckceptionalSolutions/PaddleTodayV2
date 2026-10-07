@@ -11,5 +11,6 @@
   {"corridorId":"mn-vermilion-condition-family","canonicalSlug":null,"status":"observe","underlyingTripOptionsPreserved":true,"conversionBaseline":null,"conversionPilot":null,"safetyReview":"condition-family-only"},
   {"corridorId":"wi-chippewa-upper","canonicalSlug":"chippewa-river-county-d-highway-8","status":"recommend","underlyingTripOptionsPreserved":true,"conversionBaseline":null,"conversionPilot":null,"safetyReview":"approved"},
   {"corridorId":"ia-turkey-elkader-garber","canonicalSlug":"turkey-river-elkader-garber","status":"recommend","underlyingTripOptionsPreserved":true,"conversionBaseline":null,"conversionPilot":null,"safetyReview":"approved"},
-  {"corridorId":"ia-north-fork-maquoketa-cascade-caven","canonicalSlug":"north-fork-maquoketa-river-cascade-caven","status":"recommend","underlyingTripOptionsPreserved":true,"conversionBaseline":null,"conversionPilot":null,"safetyReview":"approved"}
+  {"corridorId":"ia-north-fork-maquoketa-cascade-caven","canonicalSlug":"north-fork-maquoketa-river-cascade-caven","status":"recommend","underlyingTripOptionsPreserved":true,"conversionBaseline":null,"conversionPilot":null,"safetyReview":"approved"},
+  {"corridorId":"ct-willimantic-water-trail","canonicalSlug":null,"status":"recommend","underlyingTripOptionsPreserved":true,"conversionBaseline":null,"conversionPilot":null,"safetyReview":"approved"}
 ]

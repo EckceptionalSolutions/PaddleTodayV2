@@ -12,6 +12,7 @@ import { getRouteGalleryPhotos, getRoutePreviewPhoto } from '../../data/route-ga
 import { getRouteSocialCard } from '../../data/route-social-cards';
 import { FAVORITE_STAR_PATH } from '../../lib/favorites-icon.js';
 import { listRivers, listRiverStateGroups } from '../../lib/rivers';
+import { hasStandaloneRoutePage, routePageConsolidationTarget } from '../../data/route-page-consolidations';
 import { gaugeDisplayForSource } from '../../lib/source-adapters';
 import {
   buildRiverDetailLogisticsViewModel,
@@ -20,7 +21,7 @@ import {
 } from '@paddletoday/api-contract';
 
 export function getStaticPaths() {
-  return listRivers().map((river) => ({
+  return listRivers().filter((river) => hasStandaloneRoutePage(river.slug)).map((river) => ({
     params: { slug: river.slug },
     props: { river },
   }));
@@ -2399,7 +2400,7 @@ const routeFaqStructuredData = {
               {siblingRoutes.slice(0, 4).map((candidate) => (
                 <a
                   class="route-discovery__link"
-                  href={`/rivers/${candidate.slug}/`}
+                  href={routePageConsolidationTarget(candidate.slug) ?? `/rivers/${candidate.slug}/`}
                   data-analytics-event="Open related route"
                   data-analytics-label="same-river"
                 >
@@ -2424,7 +2425,7 @@ const routeFaqStructuredData = {
               {nearbyRoutes.map((candidate) => (
                 <a
                   class="route-discovery__link"
-                  href={`/rivers/${candidate.slug}/`}
+                  href={routePageConsolidationTarget(candidate.slug) ?? `/rivers/${candidate.slug}/`}
                   data-analytics-event="Open related route"
                   data-analytics-label="nearby"
                 >

@@ -3,6 +3,7 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
 import FeatureIcon from '../../components/FeatureIcon.astro';
 import MapScoreLegendItems from '../../components/MapScoreLegendItems.astro';
 import { getRoutePreviewPhoto } from '../../data/route-gallery';
+import { routePageConsolidationTarget } from '../../data/route-page-consolidations';
 import { listRiverGroups, listRiverStateGroups } from '../../lib/rivers';
 import { formatRouteSegmentLabel, routeSegmentSummary } from '../../lib/route-segments';
 import { conditionZoneIdForRiver } from '../../lib/condition-zones';
@@ -35,6 +36,8 @@ const stateTitle = scoredRoutes.length
   ? `Best ${stateGroup.name} Rivers to Paddle Today | Paddle Today`
   : `${stateGroup.name} Paddle Routes & Trip Planning | Paddle Today`;
 const stateDescription = `Explore ${stateRouteCount} ${stateGroup.name} paddle ${routeLabel} with access details, trip planning, and source links. ${scoredRoutes.length} support live scores; ${reviewedPlanningCount} are planning-only.`;
+const routePageHref = (route: River) => routePageConsolidationTarget(route.slug) ?? `/rivers/${route.slug}/`;
+const routePageLinkLabel = (route: River) => routePageConsolidationTarget(route.slug) ? 'View trip option' : 'View route';
 const requestStateHref = `/request-river/#state=${encodeURIComponent(stateGroup.name)}`;
 const formatDifficulty = (difficulty: River['profile']['difficulty']) =>
   difficulty.charAt(0).toUpperCase() + difficulty.slice(1);
@@ -210,7 +213,7 @@ const structuredData = [
         '@type': 'ListItem',
         position: index + 1,
         name: `${route.name}: ${route.reach}`,
-        url: new URL(`/rivers/${route.slug}/`, siteUrl).href,
+        url: new URL(routePageHref(route), siteUrl).href,
       })),
     },
   },
@@ -364,7 +367,7 @@ const structuredData = [
               <p>{route.reach}</p>
               <span>{routeFacts(route)}</span>
             </div>
-            <a class="river-link river-link--inline route-choice__link" href={`/rivers/${route.slug}/`} aria-label={`View route: ${route.name}: ${route.reach}`}>View route</a>
+            <a class="river-link river-link--inline route-choice__link" href={routePageHref(route)} aria-label={`${routePageLinkLabel(route)}: ${route.name}: ${route.reach}`}>{routePageLinkLabel(route)}</a>
           </article>
         ))}
       </div>
@@ -389,7 +392,7 @@ const structuredData = [
       <div class="river-group-page__route-list">
         {bestRouteCards.map(({ route, photo }) => (
           <article class="route-choice state-route-card">
-            <a class="state-route-card__media" href={`/rivers/${route.slug}/`} aria-label={`View ${route.name}: ${route.reach}`}>
+            <a class="state-route-card__media" href={routePageHref(route)} aria-label={`${routePageLinkLabel(route)} ${route.name}: ${route.reach}`}>
               <img src={photo.src} alt={photo.alt} loading="lazy" />
               <span class="state-route-card__photo-fallback" hidden>Photo unavailable</span>
             </a>
@@ -409,8 +412,8 @@ const structuredData = [
               </div>
             </div>
             <div class="route-choice__footer">
-              <span class="route-choice__selection">{route.scoreEligibility === 'planning' ? 'Planning details on route page' : 'Live score on route page'}</span>
-              <a class="river-link river-link--inline route-choice__link" href={`/rivers/${route.slug}/`} aria-label={`View route: ${route.name}: ${route.reach}`}>View route</a>
+              <span class="route-choice__selection">{routePageConsolidationTarget(route.slug) ? 'Trip notes and live score in river guide' : route.scoreEligibility === 'planning' ? 'Planning details on route page' : 'Live score on route page'}</span>
+              <a class="river-link river-link--inline route-choice__link" href={routePageHref(route)} aria-label={`${routePageLinkLabel(route)}: ${route.name}: ${route.reach}`}>{routePageLinkLabel(route)}</a>
             </div>
           </article>
         ))}
@@ -430,7 +433,7 @@ const structuredData = [
         </div>
         <div class="state-route-list state-route-list--featured">
           {beginnerRoutes.map((route) => (
-            <a class="state-route-list__item" href={`/rivers/${route.slug}/`} data-state-map-route={route.slug}>
+            <a class="state-route-list__item" href={routePageHref(route)} data-state-map-route={route.slug}>
               <span>
                 <strong>{route.name}</strong>
                 <span>{route.reach}</span>
@@ -459,7 +462,7 @@ const structuredData = [
       </div>
       <div class="state-route-list state-route-list--featured">
         {planningRoutes.map((route) => (
-          <a class="state-route-list__item" href={`/rivers/${route.slug}/`} data-state-map-route={route.slug}>
+          <a class="state-route-list__item" href={routePageHref(route)} data-state-map-route={route.slug}>
             <span>
               <strong>{route.name}</strong>
               <span>{route.reach}</span>
@@ -502,7 +505,7 @@ const structuredData = [
                     <div class="state-directory-group__links">
                       <a class="state-directory-group__hub" href={`/rivers/${family.canonicalRoute.slug}/`}>Open canonical route</a>
                       {family.routes.map((route) => (
-                        <a href={`/rivers/${route.slug}/`}>{route.reach}</a>
+                        <a href={routePageHref(route)}>{route.reach}</a>
                       ))}
                     </div>
                   </details>
@@ -523,7 +526,7 @@ const structuredData = [
                     <a class="state-directory-group__hub" href={`/rivers/by-river/${group.riverId}/`}>{group.name} hub</a>
                   ) : null}
                   {group.routes.map((route) => (
-                    <a href={`/rivers/${route.slug}/`}>{route.reach}</a>
+                    <a href={routePageHref(route)}>{route.reach}</a>
                   ))}
                 </div>
               </details>
@@ -541,7 +544,7 @@ const structuredData = [
                 </summary>
                 <div class="state-directory-group__links">
                   {routes.map((route) => (
-                    <a href={`/rivers/${route.slug}/`}>{route.name}: {route.reach}</a>
+                    <a href={routePageHref(route)}>{route.name}: {route.reach}</a>
                   ))}
                 </div>
               </details>
@@ -616,7 +619,7 @@ const structuredData = [
         {stateRoutes.map((route) => (
           <a
             class="state-route-list__item"
-            href={`/rivers/${route.slug}/`}
+            href={routePageHref(route)}
             data-state-route-item
             data-state-map-route={route.slug}
             data-difficulty={route.profile.difficulty}

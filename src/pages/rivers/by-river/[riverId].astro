@@ -3,7 +3,9 @@ import BaseLayout from '../../../layouts/BaseLayout.astro';
 import FeatureIcon from '../../../components/FeatureIcon.astro';
 import FavoriteButton from '../../../components/FavoriteButton.astro';
 import { getRiverGroupHeroPhoto } from '../../../data/river-group-hero';
+import { routePageConsolidationTarget } from '../../../data/route-page-consolidations';
 import { listRiverGroups } from '../../../lib/rivers';
+import type { River } from '../../../lib/types';
 
 export function getStaticPaths() {
   return listRiverGroups()
@@ -15,6 +17,7 @@ export function getStaticPaths() {
 }
 
 const { group } = Astro.props;
+const isWillimanticHub = group.riverId === 'willimantic-river-connecticut';
 const stateSummary = group.states.join(', ');
 const stateDisplay = group.states.join(' and ');
 const regionSummary = group.regions.join(', ');
@@ -29,7 +32,9 @@ const groupTitleLocation = needsRegionInTitle ? `${regionSummary}, ${stateSummar
 const groupTitle = scoredRouteCount
   ? `${group.name}, ${groupTitleLocation} | Water Levels & Paddle Routes`
   : `${group.name}, ${groupTitleLocation} | Paddle Routes & Trip Planning`;
-const groupDescription = scoredRouteCount
+const groupDescription = isWillimanticHub
+  ? 'Plan the Willimantic River Water Trail by stretch: upper quickwater, Eagleville Lake, or the lower river after the dam portage. Compare public access, mileage, and USGS stage cues.'
+  : scoredRouteCount
   ? `Compare ${group.name} paddle routes with current water levels, Paddle Today scores, weather, access details, and route difficulty.`
   : `Compare ${group.name} planning routes with access details, distance, difficulty and source links. These routes have no live score.`;
 const gaugeNames = [...new Set(group.routes.map((route) => route.gaugeSource.siteName))];
@@ -60,6 +65,8 @@ const blackCreekSegments = group.riverId === 'black-creek-mississippi'
   : [];
 const staticSelectedRoute = staticRoutes[0];
 const heroPhoto = getRiverGroupHeroPhoto(group.riverId, group.routes);
+const routeSlugHref = (slug: string) => routePageConsolidationTarget(slug) ?? `/rivers/${slug}/`;
+const routeDetailHref = (route: River) => routeSlugHref(route.slug);
 const shortTimeLabel = (value) => {
   if (!value) return '';
   const text = String(value).trim();
@@ -73,7 +80,9 @@ const areaLabel = group.regions.length === 1 ? 'paddle area' : 'paddle areas';
 const faqItems = [
   {
     question: `Where can I paddle the ${group.name}?`,
-    answer: `Paddle Today tracks ${group.routeCount} ${group.name} ${routeLabel} across ${regionSummary}. Compare the route cards on this page, then open an individual route for put-in, take-out, distance, and access notes.`,
+    answer: isWillimanticHub
+      ? `This guide keeps the Willimantic Water Trail's mapped put-in and take-out combinations together. Choose a trip option below to compare its distance, access, gauge cue, and hazards.`
+      : `Paddle Today tracks ${group.routeCount} ${group.name} ${routeLabel} across ${regionSummary}. Compare the route cards on this page, then open an individual route for put-in, take-out, distance, and access notes.`,
   },
   {
     question: `How should I check ${group.name} water levels?`,
@@ -143,7 +152,9 @@ const groupStructuredData = [
         </p>
         <h1 class="river-group-page__title">{group.name}</h1>
         <p class="river-group-page__lede" data-group-headline>
-          Plan a paddle across {group.regions.length} {areaLabel}. {scoredRouteCount ? 'Compare distance, difficulty, and current scores where available before choosing your stretch.' : 'Compare distance, difficulty, and access. These planning routes have no live conditions score.'}
+          {isWillimanticHub
+            ? 'Choose among the Willimantic Water Trail’s three distinct stretches, then compare the mapped put-in and take-out combinations in one guide. Upper quickwater, the Eagleville impoundment, and the downstream river have different access, gauge cues, and hazards.'
+            : `Plan a paddle across ${group.regions.length} ${areaLabel}. ${scoredRouteCount ? 'Compare distance, difficulty, and current scores where available before choosing your stretch.' : 'Compare distance, difficulty, and access. These planning routes have no live conditions score.'}`}
         </p>
 
         <div class="river-group-page__hero-facts" aria-label={`${group.name} trip overview`}>
@@ -336,6 +347,7 @@ const groupStructuredData = [
               const active = index === 0;
               return (
                 <article
+                  id={isWillimanticHub ? `trip-${route.slug}` : undefined}
                   class={`route-choice${active ? ' route-choice--active' : ''}`}
                   data-group-route-card
                   data-route-slug={route.slug}
@@ -347,7 +359,7 @@ const groupStructuredData = [
                     reach={route.reach}
                     state={route.state}
                     region={route.region}
-                    url={`/rivers/${route.slug}/`}
+                    url={routeDetailHref(route)}
                   />
                   <button
                     class="route-choice__select"
@@ -376,9 +388,39 @@ const groupStructuredData = [
                       <span data-group-initial-score>{route.scoreEligibility === 'planning' ? 'Planning route' : 'Loading'}</span>
                     </span>
                   </button>
-                  <a class="river-link river-link--inline route-choice__details-link" href={`/rivers/${route.slug}/`}>
-                    View route
-                  </a>
+                  {isWillimanticHub ? (
+                    <details class="route-choice__trip-notes">
+                      <summary>Access, gauge, and safety notes</summary>
+                      <div>
+                        <p>{route.logistics?.summary || route.summary}</p>
+                        <p>
+                          <strong>Put-in:</strong> {route.putIn?.name || 'See linked trail guide'}.
+                          {' '}
+                          <strong>Take-out:</strong> {route.takeOut?.name || 'See linked trail guide'}.
+                        </p>
+                        <p>
+                          <strong>Gauge:</strong> {route.gaugeSource.siteName}
+                          {typeof (route.profile.idealMin ?? route.profile.tooLow) === 'number'
+                            ? `; use ${route.profile.idealMin ?? route.profile.tooLow} ${route.gaugeSource.unit} as this route’s published planning floor.`
+                            : '.'}
+                          {' '}This is route-specific planning guidance; check the live reading and trend before launch.
+                        </p>
+                        {route.logistics?.accessCaveats?.length ? (
+                          <ul>{route.logistics.accessCaveats.map((note) => <li>{note}</li>)}</ul>
+                        ) : null}
+                        {route.logistics?.watchFor?.length ? (
+                          <ul>{route.logistics.watchFor.map((note) => <li>{note}</li>)}</ul>
+                        ) : null}
+                        {route.safetyProfile?.safetyNotes?.length ? (
+                          <ul>{route.safetyProfile.safetyNotes.map((note) => <li>{note}</li>)}</ul>
+                        ) : null}
+                      </div>
+                    </details>
+                  ) : (
+                    <a class="river-link river-link--inline route-choice__details-link" href={routeDetailHref(route)}>
+                      View route
+                    </a>
+                  )}
                 </article>
               );
             })}
@@ -402,7 +444,7 @@ const groupStructuredData = [
                 reach={staticSelectedRoute.reach}
                 state={staticSelectedRoute.state}
                 region={staticSelectedRoute.region}
-                url={`/rivers/${staticSelectedRoute.slug}/`}
+                url={routeDetailHref(staticSelectedRoute)}
               />
             ) : null}
             <div class="river-route-picker__selected-decision">
@@ -411,7 +453,7 @@ const groupStructuredData = [
             </div>
             {staticSelectedRoute ? (
               <div class="river-route-picker__selected-actions">
-                <a class="river-link river-link--inline" href={`/rivers/${staticSelectedRoute.slug}/`}>View route details</a>
+                <a class="river-link river-link--inline" href={routeDetailHref(staticSelectedRoute)}>{isWillimanticHub ? 'View trip option' : 'View route details'}</a>
               </div>
             ) : null}
           </div>
@@ -473,7 +515,9 @@ const groupStructuredData = [
         <article class="river-hub-context__item">
           <h3>Route options</h3>
           <p>
-            Compare {group.routeCount} {routeLabel} ({scoredRouteCount} scored · {planningRouteCount} planning) across {regionSummary}. Open a route page for put-in, take-out, distance, source confidence, and access notes.
+            {isWillimanticHub
+              ? `Compare all ${group.routeCount} trip combinations here, grouped around the three official water-trail stretches. Each option retains its own access, mileage, gauge cue, difficulty, and hazard notes.`
+              : `Compare ${group.routeCount} ${routeLabel} (${scoredRouteCount} scored · ${planningRouteCount} planning) across ${regionSummary}. Open a route page for put-in, take-out, distance, source confidence, and access notes.`}
           </p>
         </article>
         <article class="river-hub-context__item">
@@ -546,27 +590,27 @@ const groupStructuredData = [
             <article class="river-hub-context__item">
               <h3>Upper quickwater</h3>
               <p>The guide notes a weekend-only launch at the Route 32 commuter lot, an old low-head drop below it, and strainers along the upper reach.</p>
-              <a href="/rivers/willimantic-river-commuter-nye-holman/">Route 32 commuter lot to Nye-Holman</a>
+              <a href={routeSlugHref('willimantic-river-commuter-nye-holman')}>Route 32 commuter lot to Nye-Holman</a>
             </article>
             <article class="river-hub-context__item">
               <h3>Heron Cove to Peck’s Mill</h3>
               <p>This short reach includes the guide’s Class II quickwater, boulders, Pulpit Rock, and the small-eddy landing at Peck’s Mill.</p>
-              <a href="/rivers/willimantic-river-heron-cove-pecks-mill/">Heron Cove Park to Peck’s Mill</a>
+              <a href={routeSlugHref('willimantic-river-heron-cove-pecks-mill')}>Heron Cove Park to Peck’s Mill</a>
             </article>
             <article class="river-hub-context__item">
               <h3>Eagleville Lake</h3>
               <p>River Park leads into the impoundment. Check wind on the open lake and stop at the documented access above the dam.</p>
-              <a href="/rivers/willimantic-river-river-park-eagleville-lake/">River Park to Eagleville Lake</a>
+              <a href={routeSlugHref('willimantic-river-river-park-eagleville-lake')}>River Park to Eagleville Lake</a>
             </article>
             <article class="river-hub-context__item">
               <h3>Below Eagleville Dam</h3>
               <p>Portage around Eagleville Dam. The 2016 guide documents the Route 66 take-out at river mile 21.4 and Air Line Trail at river mile 22.5 as the last public landing. Leave the river at Air Line Trail before dangerous downstream falls and current.</p>
-              <a href="/rivers/willimantic-river-eagleville-route-66/">Downstream portage route listing</a>
+              <a href={routeSlugHref('willimantic-river-eagleville-route-66')}>Downstream portage route listing</a>
             </article>
             <article class="river-hub-context__item">
               <h3>Long Route 32 day trip</h3>
               <p>This 21.4-mile listing ends at the Route 66 take-out documented in the 2016 guide. Air Line Trail, 1.1 river miles farther downstream, is the last public landing before dangerous falls and current.</p>
-              <a href="/rivers/willimantic-river-commuter-route-66/">Route 32 commuter lot to Route 66 (older endpoint)</a>
+              <a href={routeSlugHref('willimantic-river-commuter-route-66')}>Route 32 commuter lot to Route 66 (older endpoint)</a>
             </article>
           </div>
 

@@ -2,6 +2,7 @@ import { readFile, access, mkdir, writeFile } from 'node:fs/promises';
 import { resolve, join } from 'node:path';
 import { listRivers, listRiverGroups, listAllRiversForAudit, WITHHELD_ROUTE_SLUGS } from '../src/lib/rivers';
 import { staticRoutePatternErrors } from './lib/static-route-rules';
+import { hasStandaloneRoutePage, routePageConsolidationTarget } from '../src/data/route-page-consolidations';
 
 // Inspect the actual build, not just template intent. Run after build:app.
 const root = resolve(process.argv[2] || 'dist');
@@ -68,8 +69,9 @@ for (const value of urls) {
     if (target.origin !== origin) continue;
     if (target.pathname === '/request-river/' && target.search) errors.push(`Crawlable form prefill on ${url.pathname}`);
     if (target.pathname.startsWith('/rivers/')) {
-      const destination = redirects.get(target.pathname.replace(/\/$/, '')) || target.pathname;
-      const normalized = destination.endsWith('/') ? destination : `${destination}/`;
+      const redirect = redirects.get(target.pathname.replace(/\/$/, ''));
+      const destinationPath = redirect ? new URL(redirect, origin).pathname : target.pathname;
+      const normalized = destinationPath.endsWith('/') ? destinationPath : `${destinationPath}/`;
       const sources = routeLinks.get(normalized) || new Set<string>();
       sources.add(url.pathname);
       routeLinks.set(normalized, sources);
@@ -96,13 +98,33 @@ const duplicateRouteDescriptions = [...routeDescriptions]
   .map(([text, pages]) => ({ text, pages }));
 for (const { text, pages } of duplicateRouteHeadings) warnings.push(`Shared route H1 (${pages.length} pages): ${text}: ${pages.join(', ')}`);
 for (const { text, pages } of duplicateRouteDescriptions) warnings.push(`Shared route description (${pages.length} pages): ${text}: ${pages.join(', ')}`);
-const routes = listRivers();
+const routeOptions = listRivers();
+const routes = routeOptions.filter((route) => hasStandaloneRoutePage(route.slug));
+const consolidatedRoutes = routeOptions.filter((route) => !hasStandaloneRoutePage(route.slug));
 const routePaths = routes.map((route) => `/rivers/${route.slug}/`);
 const expected = [
   ...routePaths,
   ...listRiverGroups().filter((group) => group.routeCount > 1).map((group) => `/rivers/by-river/${group.riverId}/`),
 ];
 for (const pathname of expected) if (!paths.has(pathname)) errors.push(`Published route/hub absent from sitemap: ${pathname}`);
+for (const route of consolidatedRoutes) {
+  const pathname = `/rivers/${route.slug}/`;
+  const target = routePageConsolidationTarget(route.slug);
+  if (!target || redirects.get(pathname.replace(/\/$/, '')) !== target) {
+    errors.push(`Consolidated route lacks a matching permanent redirect: ${pathname}`);
+    continue;
+  }
+  if (paths.has(pathname)) errors.push(`Consolidated route remains in the sitemap: ${pathname}`);
+  try { await access(fileFor(pathname)); errors.push(`Consolidated route page is still built: ${pathname}`); }
+  catch { /* Retired standalone paths must not have HTML output. */ }
+  const targetUrl = new URL(target, origin);
+  if (!paths.has(targetUrl.pathname.endsWith('/') ? targetUrl.pathname : `${targetUrl.pathname}/`)) {
+    errors.push(`Consolidated route target is absent from the sitemap: ${pathname} -> ${target}`);
+  }
+  if (targetUrl.hash && !targetUrl.hash.includes(route.slug)) {
+    errors.push(`Consolidated route target does not preserve its trip selection: ${pathname} -> ${target}`);
+  }
+}
 const unlinkedPublicPages = expected.filter((pathname) =>
   ![...(routeLinks.get(pathname) || [])].some((source) => source !== pathname),
 );
@@ -146,13 +168,15 @@ const samples = [
 const inventory = new Set(listAllRiversForAudit().map((route) => route.slug));
 const sampleStatus = samples.map((slug) => ({
   slug,
-  status: paths.has(`/rivers/${slug}/`) ? 'published-in-build' : WITHHELD_ROUTE_SLUGS.has(slug) ? 'withheld-for-coordinate-review' : inventory.has(slug) ? 'not-public-in-current-catalog' : 'absent-from-current-catalog',
+  status: paths.has(`/rivers/${slug}/`) ? 'published-in-build' : routePageConsolidationTarget(slug) ? 'consolidated-into-river-hub' : WITHHELD_ROUTE_SLUGS.has(slug) ? 'withheld-for-coordinate-review' : inventory.has(slug) ? 'not-public-in-current-catalog' : 'absent-from-current-catalog',
 }));
 const report = {
   generatedAt: new Date().toISOString(),
   origin,
   pages: urls.length,
+  publicRouteOptions: routeOptions.length,
   publishedRoutes: routes.length,
+  consolidatedRouteOptions: consolidatedRoutes.length,
   checkedRouteLinks: routeLinks.size,
   routeLinkAudit: {
     routesWithNoInternalInlinks: unlinkedRoutePaths.length,

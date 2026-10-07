@@ -14,6 +14,7 @@ import {
   type SegmentFilterSelection,
 } from '@paddletoday/api-contract';
 import type { River, RiverRouteAccessPoint, RiverScoreResult } from './types';
+import { routePageHref } from '../data/route-page-consolidations';
 
 export type {
   PaddleLengthFilter,
@@ -76,12 +77,8 @@ export function formatRouteSegmentLabel(summary: RouteSegmentSummary | null, sel
 }
 
 export function buildRoutePlannerHref(slug: string, selectedSegment: RouteSegment | null) {
-  const href = `/rivers/${encodeURIComponent(slug)}/`;
-  if (!selectedSegment) return href;
-
-  const params = new URLSearchParams({
-    putin: selectedSegment.putIn.id,
-    takeout: selectedSegment.takeOut.id,
-  });
-  return `${href}?${params.toString()}`;
+  const params = selectedSegment
+    ? new URLSearchParams({ putin: selectedSegment.putIn.id, takeout: selectedSegment.takeOut.id })
+    : new URLSearchParams();
+  return routePageHref(slug, params);
 }

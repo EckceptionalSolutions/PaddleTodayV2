@@ -1,6 +1,7 @@
 import { readFileSync } from 'node:fs';
 import { expect, it } from 'vitest';
 import { listRivers, listRiverGroups, listRiverStateGroups } from './rivers';
+import { listRoutePageConsolidations } from '../data/route-page-consolidations';
 import { staticRoutePatternErrors } from '../../scripts/lib/static-route-rules';
 
 it('keeps retired-route redirects unique and directed to published destinations', () => {
@@ -9,6 +10,7 @@ it('keeps retired-route redirects unique and directed to published destinations'
     ...listRivers().map(route => `/rivers/${route.slug}/`),
     ...listRiverGroups().map(group => `/rivers/by-river/${group.riverId}/`),
     ...listRiverStateGroups().map(state => `/states/${state.slug}/`),
+    ...listRoutePageConsolidations().map(({ target }) => target),
     // Authored guide pages are published separately from the route catalog.
     '/guides/minnehaha-creek-paddling/',
   ]);

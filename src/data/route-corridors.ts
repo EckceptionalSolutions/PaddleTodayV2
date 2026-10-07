@@ -12,6 +12,12 @@ export interface RouteCorridorDefinition {
 
 export const routeCorridorDefinitions: RouteCorridorDefinition[] = [
   {
+    corridorId: 'ct-willimantic-water-trail',
+    label: 'Willimantic River Water Trail three-segment condition family',
+    continuityStatus: 'condition-family',
+    slugPrefix: 'willimantic-river-',
+  },
+  {
     corridorId: 'mn-cannon-lower',
     label: 'Lower Cannon River access corridor',
     continuityStatus: 'verified',
