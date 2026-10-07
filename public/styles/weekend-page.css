@@ -403,11 +403,31 @@
 .weekend-featured__gallery .route-photo-preview__fallback { box-sizing: border-box; padding: 12px 12px 52px; font-size: 14px; gap: 4px; }
 .weekend-featured__gallery .route-photo-preview__fallback > span:first-child { font-size: 28px; }
 html body[data-weekend-unavailable="true"] :is(
+  .weekend-hero__featured,
   .weekend-hero .decision-hero__support,
   .weekend-hero a[href="#weekend-results"],
   .weekend-planner,
   .weekend-results-panel
 ) { display: none !important; }
+
+html body.page-weekend[data-weekend-unavailable="true"] .weekend-hero {
+  grid-template-columns: minmax(0, 1fr) !important;
+}
+html body.page-weekend[data-weekend-unavailable="true"] .decision-hero__intro {
+  grid-column: 1 / -1;
+  max-width: 72ch;
+}
+html body.page-weekend[data-weekend-unavailable="true"] .weekend-hero h1 {
+  max-width: none;
+}
+html body.page-weekend[data-weekend-unavailable="true"] :is(.hero__lede, .hero__snapshot) {
+  display: block !important;
+}
+html body.page-weekend[data-weekend-unavailable="true"] [data-weekend-retry] {
+  width: fit-content;
+  min-height: 44px;
+  padding-inline: 1rem;
+}
 
 /* Weekend-specific layout and controls. Shared map styling remains in map-markers.css. */
 html body.page-weekend [hidden] {
@@ -687,6 +707,13 @@ html body.page-weekend .hero__call-mix-item {
   min-width: 0;
   grid-template-columns: minmax(0, 1fr);
   overflow-wrap: anywhere;
+}
+
+html body.page-weekend .weekend-planner__estimate-note {
+  margin: 0;
+  font-size: 0.875rem;
+  line-height: 1.5;
+  color: var(--ink-soft);
 }
 
 @container weekend-overview (max-width: 10rem) {

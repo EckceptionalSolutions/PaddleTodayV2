@@ -69,11 +69,11 @@ const weekendConfidenceRank = {
 
 export function formatWeekendTravelTime(minutes: number) {
   if (!Number.isFinite(minutes)) return 'Distance unavailable';
-  if (minutes < 60) return `${minutes} min away`;
+  if (minutes < 60) return `Est. ${minutes} min drive`;
 
   const hours = Math.floor(minutes / 60);
   const remainingMinutes = minutes % 60;
-  return remainingMinutes === 0 ? `${hours}h away` : `${hours}h ${remainingMinutes}m away`;
+  return remainingMinutes === 0 ? `Est. ${hours}h drive` : `Est. ${hours}h ${remainingMinutes}m drive`;
 }
 
 export function rankWeekendRoutes(

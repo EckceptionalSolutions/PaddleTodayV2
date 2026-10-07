@@ -584,6 +584,22 @@ describe('scoreRiverCondition', () => {
     expect(clearTomorrow?.rating).toBe(stormyTomorrow?.rating);
   });
 
+  it('keeps an unknown gauge trend uncertain in both forecast horizons', () => {
+    const now = new Date('2026-05-10T12:00:00Z');
+    const result = scoreRiverCondition({
+      river: baseRiver,
+      gauge: { ...makeGauge(500, 'unknown', 0), observedAt: '2026-05-10T11:00:00Z' },
+      weather: { ...weather, observedAt: '2026-05-10T11:15:00Z' },
+      now,
+    });
+    for (const outlook of result.outlooks) {
+      expect(outlook.availability).toBe('available');
+      expect(outlook.direction).toBe('uncertain');
+      expect(outlook.explanation).toContain('Not enough recent gauge history');
+      expect(outlook.explanation).not.toMatch(/Gauge is (falling|steady|still rising)/);
+    }
+  });
+
   it('marks missing gauge data as offline instead of treating it as a normal low-confidence score', () => {
     const result = scoreRiverCondition({
       river: baseRiver,

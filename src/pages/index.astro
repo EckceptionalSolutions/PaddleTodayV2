@@ -55,9 +55,8 @@ const homepageStructuredData = [
           Find the best paddle near you today
         </h1>
         <p class="hero__lede">
-          Compare the latest available river levels, weather, access details,
-          and route information. Enter a city or ZIP to find nearby paddling
-          options and sort them by drive time.
+          Compare river levels, weather, and access. Enter a city or ZIP to find
+          nearby routes and the latest available conditions.
         </p>
         <p class="home-hero__freshness" data-home-freshness-wrap hidden>
           <span class="site-header__freshness-item">Data refreshes every 30 minutes.</span>
@@ -145,7 +144,7 @@ const homepageStructuredData = [
           hidden
         ></p>
 
-        <details class="home-preferences" data-home-preferences open>
+        <details class="home-preferences" data-home-preferences>
         <summary class="home-location-bar__refine" data-home-refine-row>
           <div class="home-location-bar__refine-copy">
             <p class="home-location-bar__step home-location-bar__step--refine">
@@ -378,7 +377,7 @@ const homepageStructuredData = [
               class="home-radius-panel__footer-copy muted"
               data-home-live-count
             >
-              0 results match your filters
+              Loading routes…
             </p>
             <button
               class="filter-chip filter-chip--quiet home-radius-panel__footer-reset"
@@ -390,6 +389,13 @@ const homepageStructuredData = [
           </div>
         </div>
         </details>
+      </section>
+      <section class="home-shortlist" data-home-shortlist aria-labelledby="home-shortlist-title" hidden>
+        <div class="home-shortlist__heading">
+          <h2 id="home-shortlist-title">More routes in your range</h2>
+          <a href="#best-options">Compare all</a>
+        </div>
+        <ul class="home-shortlist__list" data-home-shortlist-list></ul>
       </section>
     </div>
 
@@ -434,8 +440,9 @@ const homepageStructuredData = [
           <div class="hero-call__scoreline">
             <div
               class="score-orb score-orb--featured"
-              aria-label="Today's best score"
+              aria-label="Route quality score, separate from launch readiness"
             >
+              <span class="score-orb__label">Quality score</span>
               <span class="score-orb__score" data-field="featured-score"
                 >--</span
               >
@@ -527,6 +534,8 @@ const homepageStructuredData = [
             </a>
           </div>
 
+          <details class="home-featured__preview" data-featured-preview>
+            <summary>Photo and route map</summary>
           <figure class="home-featured__gallery route-photo-preview" data-featured-gallery hidden>
             <img
               class="home-featured__gallery-image"
@@ -572,6 +581,8 @@ const homepageStructuredData = [
             </div>
           </div>
 
+          </details>
+
           <section class="home-featured__facts" aria-label="Featured facts">
             <p
               class="home-featured__facts-label"
@@ -608,6 +619,8 @@ const homepageStructuredData = [
     </aside>
   </section>
 
+  <p class="muted home-travel-note">Drive times are rough estimates from straight-line distance, not road routing. Check directions before you go.</p>
+
   <section
     class="decision-section decision-section--recommended home-recommendations"
     id="best-options"
@@ -642,22 +655,23 @@ const homepageStructuredData = [
             data-home-route-mix
             hidden
           >
-            <span class="home-radius-pill home-radius-pill--strong">
+            <p class="home-recommendations__mix-scope" data-home-mix-scope>Loading routes…</p>
+            <button type="button" class="home-radius-pill home-radius-pill--strong" data-summary-score-toggle="Strong" aria-pressed="true">
               <strong data-home-strong-count>0</strong>
               <span>Strong conditions</span>
-            </span>
-            <span class="home-radius-pill home-radius-pill--good">
+            </button>
+            <button type="button" class="home-radius-pill home-radius-pill--good" data-summary-score-toggle="Good" aria-pressed="true">
               <strong data-home-good-count>0</strong>
               <span>Good conditions</span>
-            </span>
-            <span class="home-radius-pill home-radius-pill--fair">
+            </button>
+            <button type="button" class="home-radius-pill home-radius-pill--fair" data-summary-score-toggle="Fair" aria-pressed="true">
               <strong data-home-mixed-count>0</strong>
               <span>Watch closely</span>
-            </span>
-            <span class="home-radius-pill home-radius-pill--no-go">
+            </button>
+            <button type="button" class="home-radius-pill home-radius-pill--no-go" data-summary-score-toggle="No-go" aria-pressed="false">
               <strong data-home-no-go-count>0</strong>
               <span>Skip</span>
-            </span>
+            </button>
             <span class="home-radius-pill home-radius-pill--muted">
               <strong data-home-unavailable-count>0</strong>
               <span>No call</span>

@@ -23,6 +23,19 @@ function element() {
 }
 
 describe('board status controller', () => {
+  it('keeps pending data distinct from an empty filtered result', () => {
+    expect(boardSummaryStatusCopy([], [], { loaded: false })).toEqual({
+      headline: 'Loading routes…', detail: 'Checking the latest available conditions.',
+    });
+    let loaded = false;
+    const elements = { summaryHeadline: element(), summaryDetail: element() };
+    const controller = createBoardStatusController({ elements, getHasLoadedBoard: () => loaded });
+    controller.updateSummaryStatus([], []);
+    expect(elements.summaryHeadline.textContent).toBe('Loading routes…');
+    loaded = true;
+    controller.updateSummaryStatus([], []);
+    expect(elements.summaryHeadline.textContent).toBe('No results match the current filters.');
+  });
   it('summarizes the visible live-data states from one shared policy', () => {
     const items = ['live', 'degraded', 'offline'].map((overall) => ({
       cardRoute: { liveData: { overall } },

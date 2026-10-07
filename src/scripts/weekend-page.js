@@ -1,4 +1,5 @@
 import { createRoutePhotoPreviewController } from './route-photo-preview.js';
+import { weekendOutlookAvailability, weekendWeatherVisualState } from './weekend-presenters.js';
 import {
   bindMarkerPopup,
   captureMapResultFocus,
@@ -46,6 +47,11 @@ const LOCATION_STORAGE_KEY = 'paddletoday:user-location';
 const snapshotLine = document.querySelector('[data-weekend-snapshot]');
 const retryButton = document.querySelector('[data-weekend-retry]');
 const weekendDates = document.querySelector('[data-weekend-dates]');
+const weekendHeading = document.querySelector('[data-weekend-heading]');
+const weekendLede = document.querySelector('[data-weekend-lede]');
+const weekendBrowse = document.querySelector('[data-weekend-browse]');
+const defaultWeekendLede = weekendLede?.textContent.trim() ?? '';
+let outlookExpiryTimer;
 const homeFreshness = document.querySelector('[data-home-freshness]');
 const homeFreshnessWrap = document.querySelector('[data-home-freshness-wrap]');
 const cardTemplate = document.querySelector('[data-river-card-template]');
@@ -228,8 +234,8 @@ function updateWeekendControls(plan) {
     weekendLocationHint.textContent = weekendLocationPending
       ? 'Finding your location...'
       : userLocation
-      ? 'Drive time is included in the weekend ranking.'
-      : 'Use your location to include drive time in the weekend ranking.';
+      ? 'Estimated drive time is included in the weekend ranking.'
+      : 'Use your location to include estimated drive time in the weekend ranking.';
   }
   if (weekendLocationUse instanceof HTMLButtonElement) {
     weekendLocationUse.hidden = Boolean(userLocation);
@@ -283,10 +289,12 @@ function updateWeekendControls(plan) {
   if (weekendFilterSummary instanceof HTMLElement) {
     const routeCount = plan.mapRoutes.length;
     const scoredCount = plan.inRangeRoutes.length;
+    const inRangeSlugs = new Set(plan.inRangeRoutes.map((route) => route.river.slug));
+    const outsideCount = plan.mapRoutes.filter((route) => !inRangeSlugs.has(route.river.slug)).length;
     const typeLabel = weekendFilterLabel(selectedWeekendFilter);
     const rangeLabel = userLocation ? ` within ${weekendDistanceLabel()}` : '';
     weekendFilterSummary.textContent = routeCount > 0
-      ? `Showing ${routeCount} curated ${typeLabel} ${routeCount === 1 ? 'route' : 'routes'}${scoredCount > routeCount ? ` from ${scoredCount} board routes` : ''}${rangeLabel}.`
+      ? `${routeCount} curated ${typeLabel} ${routeCount === 1 ? 'route' : 'routes'} shown · ${scoredCount} ${scoredCount === 1 ? 'route' : 'routes'} with available outlooks${rangeLabel || ' across all locations'}.${outsideCount ? ` Includes ${outsideCount} recommended alternatives outside your range.` : ''}`
       : `No ${typeLabel} routes match${rangeLabel || ' right now'}.`;
   }
 }
@@ -333,25 +341,6 @@ function parseWeekendSignalLine(rawSignal) {
       return null;
     })
     .filter(Boolean);
-}
-
-function parseWeekendTemperature(rawSignal) {
-  const match =
-    typeof rawSignal === 'string'
-      ? rawSignal.match(/Temps?:\s*(-?\d+)(?:\u00B0)?(?:\s*-\s*|-)(-?\d+)(?:\u00B0)?F/i) ||
-        rawSignal.match(/High:\s*(-?\d+)(?:\u00B0)?F/i) ||
-        rawSignal.match(/Low:\s*(-?\d+)(?:\u00B0)?F/i)
-      : null;
-  if (!match) {
-    return null;
-  }
-
-  const values = match.slice(1).filter(Boolean).map((value) => Number.parseInt(value, 10)).filter(Number.isFinite);
-  if (values.length === 0) {
-    return null;
-  }
-
-  return Math.min(...values);
 }
 
 function signalIconMarkup(kind) {
@@ -403,6 +392,8 @@ function weekendSignalRowMarkup(item) {
 
 function weatherVisualLabel(state) {
   switch (state) {
+    case 'unknown':
+      return 'Weather unclear';
     case 'storm':
       return 'Storm risk';
     case 'rain':
@@ -420,6 +411,13 @@ function weatherVisualMarkup(state) {
   const label = weatherVisualLabel(state);
 
   switch (state) {
+    case 'unknown':
+      return `
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" aria-label="${label}" role="img">
+          <circle cx="12" cy="12" r="9"></circle>
+          <path d="M9.5 9a2.5 2.5 0 0 1 5 0c0 2-2.5 2-2.5 4M12 16h.01"></path>
+        </svg>
+      `;
     case 'storm':
       return `
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-label="${label}" role="img">
@@ -468,30 +466,6 @@ function weatherVisualMarkup(state) {
         </svg>
       `;
   }
-}
-
-function weekendWeatherVisualState(item) {
-  const combined = `${item?.weekend?.summary || ''} ${item?.weekend?.explanation || ''} ${item?.weekend?.signalLine || ''}`.toLowerCase();
-  const temperature = parseWeekendTemperature(item?.weekend?.signalLine);
-  const coldSevere = typeof temperature === 'number' && temperature <= 35;
-  const coldNoticeable = typeof temperature === 'number' && temperature <= 40;
-
-  if (combined.includes('storm')) {
-    return 'storm';
-  }
-  if (coldSevere) {
-    return 'cold';
-  }
-  if (combined.includes('rain')) {
-    return 'rain';
-  }
-  if (coldNoticeable) {
-    return 'cold';
-  }
-  if (combined.includes('wind')) {
-    return 'wind';
-  }
-  return 'calm';
 }
 
 function weekendWeatherBadgeMarkup(item) {
@@ -663,29 +637,32 @@ function updateSnapshotLine(payload, visibleRivers = payload?.rivers) {
         worthWatching.length === 1
           ? '1 tradeoff route worth re-checking'
           : `${worthWatching.length} tradeoff routes worth re-checking`;
-      snapshotLine.textContent = `No weekend picks yet ${scopeLabel} / ${watchLabel}`;
+      snapshotLine.textContent = `No recommended outlooks yet ${scopeLabel} · ${watchLabel}. See the curated shortlist below.`;
       return;
     }
 
-    snapshotLine.textContent = `No weekend picks yet ${scopeLabel}. Try a wider range or check back after the next refresh.`;
+    snapshotLine.textContent = `No recommended outlooks yet ${scopeLabel}. Try a wider range or check back after the next refresh.`;
     return;
   }
 
-  const countLabel = count === 1 ? '1 weekend pick' : `${count} weekend picks`;
-  snapshotLine.textContent = `${countLabel} ${scopeLabel}`;
+  const countLabel = count === 1 ? '1 route with a recommended outlook' : `${count} routes with recommended outlooks`;
+  snapshotLine.textContent = `${countLabel} ${scopeLabel} · See the curated shortlist below.`;
 }
 
 function updateOverviewCounts(payload, visibleRivers = payload?.rivers) {
+  const rivers = Array.isArray(visibleRivers) ? visibleRivers : [];
+  const routeLabel = rivers.length === 1 ? 'route' : 'routes';
   setText(document.querySelector('[data-weekend-overview-label]'),
     userLocation && selectedWeekendDistance !== null
-      ? `Weekend overview · ${weekendDistanceLabel()}` : 'Weekend overview · All locations');
-  const rivers = Array.isArray(visibleRivers) ? visibleRivers : [];
+      ? `All available outlooks · ${rivers.length} ${routeLabel} within ${weekendDistanceLabel()}`
+      : `All available outlooks · ${rivers.length} ${routeLabel} across all locations`);
   const strong = rivers.filter((item) => item.weekend.rating === 'Strong').length;
   const good = rivers.filter((item) => item.weekend.rating === 'Good').length;
   const fair = rivers.filter((item) => item.weekend.rating === 'Fair').length;
   setText(strongCount, String(strong));
   setText(goodCount, String(good));
   setText(fairCount, String(fair));
+  setText(document.querySelector('[data-weekend-skip-count]'), String(rivers.filter((item) => item.weekend.rating === 'No-go').length));
   setText(withheldCount, String(payload?.withheldCount ?? 0));
 }
 
@@ -1104,7 +1081,7 @@ function renderWeekendResults(routes) {
   const restoreFocus = captureMapResultFocus(weekendResults, 'data-weekend-result-key');
   weekendResults.innerHTML = '';
   if (weekendResultsTitle instanceof HTMLElement) {
-    weekendResultsTitle.textContent = `${routes.length} ${routes.length === 1 ? 'route' : 'routes'} in this view`;
+    weekendResultsTitle.textContent = `${routes.length} curated ${routes.length === 1 ? 'route' : 'routes'} shown`;
   }
   if (weekendResultsNote instanceof HTMLElement) {
     weekendResultsNote.textContent = routes.length > 0
@@ -1468,25 +1445,59 @@ async function renderWeekendMap(routes) {
   }
 }
 
-function renderWeekend(payload) {
+function renderUnavailable({ expired = false } = {}) {
+  const hiddenContentHadFocus = [featuredPanel, weekendPlanner, weekendMapSection]
+    .some(element => element?.contains(document.activeElement));
+  window.clearTimeout(outlookExpiryTimer);
+  document.body.dataset.weekendUnavailable = 'true';
+  latestWeekendItems = [];
+  renderFeatured(null);
+  renderGrid([]);
+  void renderWeekendMap([]);
+  setText(weekendHeading, 'Weekend forecast unavailable');
+  setText(weekendDates, '');
+  setText(weekendLede, 'Check again before planning your drive. You can still browse routes and access details.');
+  setText(snapshotLine, expired
+    ? 'The previous outlook has expired. Retry for a current forecast.'
+    : 'The weekend outlook could not be loaded. Retry for a current forecast.');
+  updateFreshness();
+  setText(homeFreshness, expired ? 'Outlook expired · awaiting fresh data' : 'Current outlook unavailable');
+  if (retryButton instanceof HTMLButtonElement) retryButton.hidden = false;
+  if (weekendBrowse instanceof HTMLElement) weekendBrowse.hidden = false;
+  if (hiddenContentHadFocus && weekendHeading instanceof HTMLElement) weekendHeading.focus({ preventScroll: true });
+}
+
+function renderWeekend(payload, { restoreFocus = false } = {}) {
+  const retryHadFocus = restoreFocus || document.activeElement === retryButton;
+  latestWeekendPayload = payload;
+  lastGeneratedAt = typeof payload?.generatedAt === 'string' ? payload.generatedAt : null;
+  const availability = weekendOutlookAvailability(payload);
+  window.clearTimeout(outlookExpiryTimer);
+  if (!availability.available) {
+    renderUnavailable({ expired: true });
+    return false;
+  }
+  outlookExpiryTimer = window.setTimeout(() => renderWeekend(latestWeekendPayload),
+    Math.max(1, availability.expiresAt - Date.now()));
   delete document.body.dataset.weekendUnavailable;
   if (retryButton instanceof HTMLButtonElement) retryButton.hidden = true;
-  const items = Array.isArray(payload?.rivers) ? payload.rivers : [];
+  if (weekendBrowse instanceof HTMLElement) weekendBrowse.hidden = true;
+  setText(weekendHeading, 'Best picks this weekend');
+  setText(weekendLede, defaultWeekendLede);
+  const items = availability.rivers;
   const plan = buildWeekendPlan(items, {
     location: userLocation,
     distanceLimit: selectedWeekendDistance,
     filter: selectedWeekendFilter,
   });
   latestWeekendItems = items;
-  latestWeekendPayload = payload;
-  lastGeneratedAt = typeof payload?.generatedAt === 'string' ? payload.generatedAt : null;
-  setText(weekendDates, weekendDateRangeText(payload?.label));
+  setText(weekendDates, weekendDateRangeText(items[0]?.weekend?.label ?? payload?.label));
   updateFreshness({
     generatedAt: lastGeneratedAt,
     fallback: payload?.snapshotStatus === 'stale',
   });
   updateSnapshotLine(payload, plan.inRangeRoutes);
-  updateOverviewCounts(payload, plan.inRangeRoutes);
+  updateOverviewCounts({ ...payload, withheldCount: (payload.withheldCount ?? 0) + payload.rivers.length - items.length }, plan.inRangeRoutes);
   updateWeekendControls(plan);
   renderFeatured(plan.featured, {
     worthWatchingCount: plan.rechecks.length,
@@ -1495,6 +1506,8 @@ function renderWeekend(payload) {
   });
 
   void renderWeekendMap(plan.mapRoutes);
+  if (retryHadFocus && weekendHeading instanceof HTMLElement) weekendHeading.focus({ preventScroll: true });
+  return true;
 }
 
 function hydrateFromCache() {
@@ -1503,12 +1516,17 @@ function hydrateFromCache() {
     return false;
   }
 
-  renderWeekend(cached.payload);
-  updateFreshness({ generatedAt: cached.payload.generatedAt, refreshing: true });
+  if (renderWeekend(cached.payload)) {
+    updateFreshness({ generatedAt: cached.payload.generatedAt, refreshing: true });
+  }
   return true;
 }
 
 async function loadWeekend({ silent = false } = {}) {
+  const retryHadFocus = document.activeElement === retryButton;
+  if (latestWeekendPayload && !weekendOutlookAvailability(latestWeekendPayload).available) {
+    renderUnavailable({ expired: true });
+  }
   const { requestId, controller } = weekendRequestGuard.begin();
   if (retryButton instanceof HTMLButtonElement) {
     retryButton.disabled = true;
@@ -1523,7 +1541,7 @@ async function loadWeekend({ silent = false } = {}) {
   }
 
   try {
-    if (silent && lastGeneratedAt) {
+    if (silent && lastGeneratedAt && !document.body.dataset.weekendUnavailable) {
       updateFreshness({ generatedAt: lastGeneratedAt, refreshing: true });
     }
 
@@ -1535,7 +1553,7 @@ async function loadWeekend({ silent = false } = {}) {
       return;
     }
     writeCachedPayload(WEEKEND_CACHE_KEY, payload);
-    renderWeekend(payload);
+    renderWeekend(payload, { restoreFocus: retryHadFocus });
   } catch (error) {
     if (isAbortError(error)) {
       return;
@@ -1548,29 +1566,14 @@ async function loadWeekend({ silent = false } = {}) {
     if (retryButton instanceof HTMLButtonElement) retryButton.hidden = false;
 
     if (latestWeekendPayload) {
-      updateFreshness({ generatedAt: lastGeneratedAt, fallback: true });
+      if (renderWeekend(latestWeekendPayload, { restoreFocus: retryHadFocus })) {
+        updateFreshness({ generatedAt: lastGeneratedAt, fallback: true });
+      }
+      if (retryButton instanceof HTMLButtonElement) retryButton.hidden = false;
       return;
     }
 
-    document.body.dataset.weekendUnavailable = 'true';
-    updateFreshness();
-    updateSnapshotLine({ riverCount: 0, withheldCount: 0 });
-    renderFeatured(null);
-    setText(snapshotLine, 'The weekend outlook could not be loaded. Try again.');
-    setText(featuredName, 'Weekend outlook unavailable');
-    setText(featuredReach, 'We couldn’t fetch the latest forecast and river readings.');
-    setText(featuredState, 'Connection issue');
-    setText(featuredVerdict, 'Check again before planning');
-    setText(featuredReason, 'Retry to check whether there are routes worth planning around.');
-    setText(featuredSignal, 'Current outlook unavailable');
-    renderGrid([]);
-    if (weekendPlanner instanceof HTMLElement) {
-      weekendPlanner.hidden = false;
-    }
-    renderWeekendResults([]);
-    if (weekendMapEmpty instanceof HTMLElement) {
-      weekendMapEmpty.hidden = false;
-    }
+    renderUnavailable();
   } finally {
     if (weekendRequestGuard.isCurrent(requestId) && retryButton instanceof HTMLButtonElement) {
       retryButton.disabled = false;
@@ -1736,6 +1739,9 @@ weekendMapRetry?.addEventListener('click', () => {
   void renderWeekendMap(plan.mapRoutes);
 });
 window.addEventListener('resize', () => setWeekendMobileView(weekendMobileView));
+document.addEventListener('visibilitychange', () => {
+  if (!document.hidden && latestWeekendPayload) renderWeekend(latestWeekendPayload);
+});
 updateWeekendControls(buildWeekendPlan([], {
   location: userLocation,
   distanceLimit: selectedWeekendDistance,

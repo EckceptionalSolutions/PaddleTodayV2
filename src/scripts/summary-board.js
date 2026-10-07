@@ -48,6 +48,7 @@ import { createBoardStatusController } from './board-status-controller.js';
 import { createBoardPreferenceController } from './board-preference-controller.js';
 import {
   formatMixedFilterSummary,
+  exploreEmptyState,
   formatMixedResultCount,
   mixedResultsEmptyText,
   mixedResultsNoMatchText,
@@ -427,7 +428,8 @@ function scheduleExploreRender(options = {}) {
     exploreSection.setAttribute('aria-busy', 'true');
   }
   if (exploreResultsCount instanceof HTMLElement) {
-    exploreResultsCount.textContent = 'Updating routes…';
+    exploreResultsCount.textContent = hasLoadedBoardOnce ? 'Updating routes…'
+      : boardFetchBanner?.hidden === false ? 'Results unavailable. Try Refresh data.' : 'Loading results…';
   }
   if (exploreRenderFrame) return;
 
@@ -439,6 +441,9 @@ function scheduleExploreRender(options = {}) {
     if (exploreSection instanceof HTMLElement) {
       exploreSection.setAttribute('aria-busy', 'false');
     }
+    if (renderOptions.focusSearch && filterSearch instanceof HTMLInputElement) {
+      filterSearch.focus();
+    }
   };
 
   // Let the click/input event finish before the heavier board model and card
@@ -446,7 +451,7 @@ function scheduleExploreRender(options = {}) {
   exploreRenderFrame = window.setTimeout(render, 150);
 }
 
-function commitExploreFilterChange({ preservePreset = false } = {}) {
+function commitExploreFilterChange({ preservePreset = false, focusSearch = false } = {}) {
   restoredExplorePosition = null;
   pendingExploreScroll = null;
   if (!preservePreset) {
@@ -454,7 +459,7 @@ function commitExploreFilterChange({ preservePreset = false } = {}) {
   }
   saveStoredExploreFilters();
   currentExplorePage = 1;
-  scheduleExploreRender({ renderReason: 'filter' });
+  scheduleExploreRender({ renderReason: 'filter', focusSearch });
 }
 
 let latestResults = [];
@@ -847,7 +852,9 @@ const summaryMapController = createBoardMapController({
     mapMarkerLabel,
     routeLabelForItem,
     mapMarkerContext,
-    getEmptyText: () => mixedResultsEmptyText({ nearby: isNearbySummaryMapMode() }),
+    getEmptyText: () => !hasLoadedBoardOnce ? 'Loading routes…'
+      : activeFilters.search ? exploreEmptyState({ loaded: true, query: activeFilters.search }).message
+      : mixedResultsEmptyText({ nearby: isNearbySummaryMapMode() }),
     onOpen: (key) => openSummaryMapItem(key),
     onSelection: (key) => updateSummaryMapSelection(key, { preserveZone: true }),
   },
@@ -862,6 +869,7 @@ const {
   updateSummaryStatus,
 } = createBoardStatusController({
   getLastSuccessAt: () => lastBoardSuccessAt,
+  getHasLoadedBoard: () => hasLoadedBoardOnce,
   refreshReadyLabel: 'Refresh data',
   formatRefreshCopy: formatBoardRefreshCopy,
   joinWithBullet,
@@ -1378,12 +1386,14 @@ function supportingReasonList(item, nearbyReady) {
 function renderExploreList(items) {
   const empty = document.querySelector('[data-explore-empty]');
   if (empty instanceof HTMLElement) {
-    empty.hidden = items.length > 0;
+    empty.hidden = !hasLoadedBoardOnce || items.length > 0;
     const areaRoutes = latestResults.filter(result => !activeFilters.state || result.river.state === activeFilters.state);
-    empty.textContent = activeFilters.scope === 'nearby' && !userLocation
-      ? 'Choose a city or use GPS to search nearby.'
-      : areaRoutes.length ? areaRoutes.length + ' published routes are available in this area. Clear trip filters or widen your search area to see more. Routes without current scores appear under All conditions.'
-      : 'No published routes are available in this area yet. Try another state or browse the state directory.';
+    const state = exploreEmptyState({ loaded: hasLoadedBoardOnce, query: activeFilters.search,
+      needsLocation: activeFilters.scope === 'nearby' && !userLocation, areaCount: areaRoutes.length });
+    const message = empty.querySelector('[data-explore-empty-message]');
+    const clearSearch = empty.querySelector('[data-explore-clear-search]');
+    if (message) message.textContent = state.message;
+    if (clearSearch instanceof HTMLElement) clearSearch.hidden = !state.clearSearch;
   }
   if (restoredExplorePosition && !restoredExploreList && (items.length || hasLoadedBoardOnce)) {
     currentExplorePage = restoredExplorePosition.page;
@@ -1439,7 +1449,9 @@ function updateExplorePagination(pagination) {
   if (exploreResultsCount instanceof HTMLElement) {
     const routes = lastExploreItems.reduce((total, item) => total + item.matchingRouteCount, 0);
     const rivers = lastExploreItems.length;
-    exploreResultsCount.textContent = `${routes} ${routes === 1 ? 'route' : 'routes'} on ${rivers} ${rivers === 1 ? 'river' : 'rivers'}`;
+    exploreResultsCount.textContent = hasLoadedBoardOnce
+      ? `${routes} ${routes === 1 ? 'route' : 'routes'} on ${rivers} ${rivers === 1 ? 'river' : 'rivers'}`
+      : 'Loading results…';
   }
 }
 
@@ -2123,6 +2135,11 @@ function updateFilterSummary(exploreItems) {
   }
 
   if (!(filterSummary instanceof HTMLElement)) {
+    return;
+  }
+
+  if (!hasLoadedBoardOnce) {
+    filterSummary.textContent = 'Loading routes…';
     return;
   }
 
@@ -3980,6 +3997,8 @@ function syncExploreSearchUrl() {
 }
 
 function renderHomepage(results, { preserveMapViewport = false, renderReason = 'initial' } = {}) {
+  // A pending request is not an empty result, including after changing filters.
+  if (!hasLoadedBoardOnce) return;
   syncExploreSearchUrl();
   const renderStartedAt = renderReason === 'filter' && typeof performance !== 'undefined'
     ? performance.now()
@@ -4175,6 +4194,18 @@ function setupFilters() {
     filterSearch.addEventListener('input', () => {
       activeFilters.search = filterSearch.value.trim();
       commitExploreFilterChange();
+    });
+  }
+
+  const clearSearch = document.querySelector('[data-explore-clear-search]');
+  if (clearSearch instanceof HTMLButtonElement && clearSearch.dataset.filterBound !== 'true') {
+    clearSearch.dataset.filterBound = 'true';
+    clearSearch.addEventListener('click', () => {
+      activeFilters.search = '';
+      if (filterSearch instanceof HTMLInputElement) {
+        filterSearch.value = '';
+      }
+      commitExploreFilterChange({ preservePreset: true, focusSearch: true });
     });
   }
 

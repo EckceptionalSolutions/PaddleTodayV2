@@ -1,4 +1,151 @@
 /* Home-specific layout and controls. Home map styling lives in home-map.css. */
+.home-shortlist {
+  order: 4;
+}
+
+@media (max-width: 980px) {
+  .home-shortlist {
+    display: none;
+  }
+}
+
+.home-shortlist__heading {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.home-shortlist__heading h2 {
+  margin: 0;
+  font-size: 1.1rem;
+}
+
+.home-shortlist__list {
+  display: grid;
+  gap: 0.6rem;
+  list-style: none;
+  padding: 0;
+  margin: 0.7rem 0 0;
+}
+
+.home-shortlist__route {
+  display: grid;
+  gap: 0.25rem;
+  padding: 0.8rem 1rem;
+  border: 1px solid rgba(30, 115, 151, 0.2);
+  border-radius: 18px;
+  background: rgba(255, 255, 255, 0.85);
+  color: inherit;
+  text-decoration: none;
+}
+
+.home-shortlist__route:hover {
+  border-color: currentColor;
+}
+
+.home-shortlist__route:focus-visible,
+.home-featured__preview > summary:focus-visible {
+  outline: 3px solid currentColor;
+  outline-offset: 3px;
+}
+
+.home-shortlist__reach,
+.home-shortlist__facts {
+  font-size: 0.85rem;
+  line-height: 1.4;
+}
+
+.home-shortlist__facts {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.3rem 0.8rem;
+}
+
+.home-featured__preview > summary {
+  cursor: pointer;
+  padding-block: 0.5rem;
+  font-weight: 700;
+}
+
+.home-featured__preview[open] > :not(summary) {
+  margin-top: 0.65rem;
+}
+
+.home-featured .score-orb__label {
+  font-size: 0.7rem;
+  font-weight: 700;
+}
+
+.home-travel-note {
+  margin-block: 0.75rem;
+  font-size: 0.85rem;
+}
+
+@media (min-width: 761px) {
+  html body.page-home .home-hero__intro {
+    gap: 1rem;
+  }
+
+  html body.page-home .home-location-bar {
+    gap: 0.6rem;
+    padding: 1rem;
+  }
+
+  html body.page-home .home-location-bar--set {
+    grid-template-columns: minmax(0, 1fr) auto;
+    align-items: center;
+  }
+
+  html body.page-home .home-location-bar--set > .home-location-bar__step {
+    display: none;
+  }
+
+  html body.page-home .home-location-bar--set .home-location-bar__current {
+    min-height: 44px;
+    padding-block: 0.5rem;
+  }
+
+  html body.page-home .home-location-bar--set .home-location-bar__form {
+    display: flex;
+    gap: 0.5rem;
+    align-items: center;
+  }
+
+  html body.page-home .home-preferences,
+  html body.page-home .home-location-bar__status {
+    grid-column: 1 / -1;
+  }
+
+  html body.page-home .home-location-bar__refine {
+    min-height: 44px;
+    padding-block: 0.5rem;
+  }
+
+  html body.page-home .home-featured__bridge,
+  html body.page-home .home-featured__jump-link {
+    display: none;
+  }
+
+  html body.page-home .home-hero__copy {
+    gap: 0.7rem;
+  }
+
+  html body.page-home .home-hero .hero__lede {
+    font-size: 1rem;
+    font-weight: 500;
+    line-height: 1.45;
+  }
+
+  html body.page-home .home-featured__body {
+    gap: 0.65rem;
+  }
+
+  html body.page-home .home-featured .hero-call__verdict {
+    font-size: 1.4rem;
+  }
+}
+
 @media (max-width: 760px) {
   .page-home .home-location-bar {
     max-width: none;
@@ -1265,12 +1412,43 @@ html body.page-home .home-featured--locked .home-featured__lock-copy {
 @media (min-width: 761px) {
   html body.page-home .home-hero h1 {
     max-width: 20ch;
-    font-size: clamp(2.25rem, 3.5vw, 3.25rem);
+    font-size: clamp(2.25rem, 3vw, 2.7rem);
     line-height: 1.08;
   }
 }
 body.page-home:has([data-board-fetch-banner].status-banner--offline:not([hidden])) :is(.summary-map-shell--home, [data-home-route-mix], [data-home-live-count]) {
   display: none !important;
+}
+
+html body.page-home .home-recommendations__mix-scope {
+  flex-basis: 100%;
+  grid-column: 1 / -1;
+  margin: 0 0 0.2rem;
+  font-size: 0.875rem;
+  line-height: 1.5;
+  color: var(--ink-soft);
+  letter-spacing: normal;
+}
+
+html body.page-home button.home-radius-pill {
+  cursor: pointer;
+  font: inherit;
+  min-height: 44px;
+}
+
+html body.page-home button.home-radius-pill[aria-pressed="false"] {
+  background: rgba(255, 255, 255, 0.7);
+  border-style: dashed;
+  text-decoration: line-through;
+}
+
+html body.page-home button.home-radius-pill:focus-visible {
+  outline: 3px solid var(--river-deep);
+  outline-offset: 3px;
+}
+
+html body.page-home button.home-radius-pill:hover {
+  box-shadow: 0 0 0 2px rgba(28, 119, 112, 0.18);
 }
 @media (max-width: 760px) {
   html body.page-home .home-location-bar__current,

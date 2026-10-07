@@ -131,6 +131,8 @@ export function serializeWeekendSummaryResult(result: RiverScoreResult): Weekend
     },
     weekend: {
       label: weekend.label,
+      forecastStartDate: result.weather?.weekend?.startDate ?? null,
+      forecastEndDate: result.weather?.weekend?.endDate ?? null,
       score: weekend.score,
       rating: weekend.rating,
       confidence: weekend.confidence,

@@ -35,17 +35,18 @@ const structuredData = [
   <section class="decision-hero hero weekend-hero">
     <div class="decision-hero__intro">
       <p class="hero__kicker">Weekend planning</p>
-      <h1>Best picks this weekend</h1>
+      <h1 data-weekend-heading tabindex="-1">Best picks this weekend</h1>
       <p class="hero__dates" data-weekend-dates>
         This weekend
       </p>
-      <p class="hero__lede">
+      <p class="hero__lede" data-weekend-lede>
         Early read from current river shape and the weekend forecast. Re-check before you commit to the drive.
       </p>
       <p class="hero__snapshot" data-weekend-snapshot role="status">
         Checking the weekend outlook…
       </p>
       <button class="filter-chip filter-chip--primary" type="button" data-weekend-retry hidden>Retry weekend forecast</button>
+      <a class="river-link river-link--inline" href="/explore/" data-weekend-browse hidden>Browse routes and access details</a>
     </div>
 
     <aside class="hero-call decision-hero__featured weekend-hero__featured" aria-busy="true" aria-hidden="true">
@@ -98,6 +99,10 @@ const structuredData = [
           <strong data-weekend-fair-count>--</strong>
           <span>Watch closely</span>
         </li>
+        <li class="hero__call-mix-item hero__call-mix-item--no-go">
+          <strong data-weekend-skip-count>--</strong>
+          <span>Skip</span>
+        </li>
       </ul>
       <details class="weekend-data-note">
         <summary>About weekend data coverage</summary>
@@ -118,9 +123,12 @@ const structuredData = [
         <h2 class="section-title" id="weekend-planner-title">Filter weekend routes</h2>
       </div>
       <p class="muted weekend-planner__summary" data-weekend-filter-summary>
-        Add your location to sort by drive time and set a weekend range.
+        Add your location to sort by estimated drive time and set a weekend range.
       </p>
     </div>
+    <p class="muted weekend-planner__estimate-note">
+      Drive times are estimates based on straight-line distance at 50 mph. Check road directions on the route page before planning travel. A route can appear in more than one shortlist category.
+    </p>
 
     <div class="weekend-location-strip" data-weekend-location-strip>
       <div class="weekend-location-strip__copy">

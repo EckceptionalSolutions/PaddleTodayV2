@@ -85,6 +85,7 @@ import {
   cardSummary,
   confidenceLabel,
   distanceBucketLabel,
+  boardConditionCategory,
   exploreSortSummaryLabel,
   formatBoardRefreshCopy,
   formatGeneratedFreshness,
@@ -96,6 +97,7 @@ import {
   regionStateText,
   routeDifficultyLabel,
   routeEstimatedTimeLabel,
+  routeLengthLabel,
   summaryParts,
 } from './board-presenters.js';
 import {
@@ -221,6 +223,10 @@ const featuredCompareLink = document.querySelector('[data-featured-compare-link]
 const featuredJumpLink = document.querySelector('.home-featured__jump-link');
 const featuredConfidence = document.querySelector('[data-field="featured-confidence"]');
 const featuredDistance = document.querySelector('[data-field="featured-distance"]');
+const featuredPreview = document.querySelector('[data-featured-preview]');
+const homeShortlist = document.querySelector('[data-home-shortlist]');
+const homeShortlistList = document.querySelector('[data-home-shortlist-list]');
+let featuredPreviewItem = null;
 const featuredSegment = document.querySelector('[data-field="featured-segment"]');
 const featuredReason = document.querySelector('[data-field="featured-reason"]');
 const featuredWeather = document.querySelector('[data-featured-weather]');
@@ -644,7 +650,7 @@ const summaryMapController = createBoardMapController({
     mapMarkerLabel,
     routeLabelForItem,
     mapMarkerContext,
-    getEmptyText: () => mixedResultsEmptyText({ nearby: isNearbySummaryMapMode() }),
+    getEmptyText: () => !hasLoadedBoardOnce ? 'Loading routes…' : mixedResultsEmptyText({ nearby: isNearbySummaryMapMode() }),
     onOpen: (key) => openSummaryMapItem(key),
     onHover: (key) => setSummaryMapHover(key),
     onSelection: (key) => updateSummaryMapSelection(key),
@@ -661,6 +667,7 @@ const {
   updateSummaryStatus,
 } = createBoardStatusController({
   getLastSuccessAt: () => lastBoardSuccessAt,
+  getHasLoadedBoard: () => hasLoadedBoardOnce,
   refreshReadyLabel: 'Refresh board',
   formatRefreshCopy: formatBoardRefreshCopy,
   joinWithBullet,
@@ -1071,7 +1078,7 @@ function updateSummaryScoreFilterButtons(counts = {}) {
       : rating === 'Good'
         ? 'Good conditions'
         : rating === 'Fair'
-          ? 'Fair conditions'
+          ? 'Watch closely'
           : rating === 'No-go'
             ? 'Skip'
             : rating;
@@ -1086,13 +1093,22 @@ function updateSummaryScoreFilterButtons(counts = {}) {
 }
 
 function updateHeroCallMix(results) {
+  if (homeRouteMix instanceof HTMLElement) homeRouteMix.hidden = !hasLoadedBoardOnce;
   const totalCount = Array.isArray(results) ? results.length : 0;
-  const callFor = (result) => callStateForDecision(result.rating, result.readiness?.status);
-  const strongCount = results.filter((result) => result.rating === 'Strong' && callFor(result) === 'paddle').length;
-  const goodCount = results.filter((result) => result.rating === 'Good' && callFor(result) === 'paddle').length;
-  const mixedCount = results.filter((result) => callFor(result) === 'watch').length;
-  const unavailableCount = results.filter((result) => callFor(result) === 'unavailable').length;
-  const noGoCount = results.filter((result) => callFor(result) === 'skip').length;
+  const categories = results.map(boardConditionCategory);
+  const strongCount = categories.filter((category) => category === 'Strong').length;
+  const goodCount = categories.filter((category) => category === 'Good').length;
+  const mixedCount = categories.filter((category) => category === 'Fair').length;
+  const unavailableCount = categories.filter((category) => category === 'unavailable').length;
+  const noGoCount = categories.filter((category) => category === 'No-go').length;
+  const shownCount = categories.filter((category) => category === 'unavailable' || visibleRatings.has(category)).length;
+  const scope = document.querySelector('[data-home-mix-scope]');
+  if (scope instanceof HTMLElement) {
+    const area = userLocation ? 'in your selected range' : 'across all locations';
+    scope.textContent = hasLoadedBoardOnce
+      ? `${totalCount} ${totalCount === 1 ? 'route' : 'routes'} ${area} ${totalCount === 1 ? 'matches' : 'match'} your trip filters · ${shownCount} shown · ${totalCount - shownCount} hidden by condition filters. Toggle a condition below.`
+      : 'Loading routes…';
+  }
 
   if (homeStrongCount instanceof HTMLElement) {
     homeStrongCount.textContent = String(strongCount);
@@ -1323,7 +1339,7 @@ function supportingReasonList(item, nearbyReady) {
   }
 
   if (nearbyReady && locationReady && Number.isFinite(item.travelMinutes)) {
-    reasons.push(`About ${formatTravelLabel(item.travelMinutes)} from ${shortLocationLabel()}.`);
+    reasons.push(`${formatTravelLabel(item.travelMinutes)} from ${shortLocationLabel()}. Check road directions.`);
   }
 
   return Array.from(new Set(reasons)).slice(0, 2);
@@ -1475,11 +1491,29 @@ function updateFeaturedHeroAnimation(nextKey) {
 }
 
 function updateFeaturedHero(nearbyItems, overallItems) {
+  if (!hasLoadedBoardOnce) return;
   const locationReady = userLocationState === 'ready' && Boolean(userLocation);
   const preferredNearbyItems = recommendationPoolForNearby(nearbyItems);
   const nearbyReady = locationReady && preferredNearbyItems.length > 0;
   const item = nearbyReady ? preferredNearbyItems[0] : locationReady ? null : overallItems[0] ?? null;
   const activePreferenceText = homePreferenceSummaryTextClean();
+  featuredPreviewItem = nearbyReady || featuredMapAlwaysVisible ? item : null;
+  if (featuredPreview instanceof HTMLDetailsElement) {
+    featuredPreview.hidden = !featuredPreviewItem;
+  }
+  if (homeShortlist instanceof HTMLElement && homeShortlistList instanceof HTMLElement) {
+    const alternatives = nearbyReady ? preferredNearbyItems.slice(1, 3) : [];
+    homeShortlist.hidden = alternatives.length === 0;
+    homeShortlistList.innerHTML = alternatives.map((alternative) => {
+      const action = boardRouteActionModel(alternative).route;
+      if (!action) return '';
+      return `<li><a class="home-shortlist__route" href="${escapeHtml(action.href)}">
+        <strong>${escapeHtml(alternative.cardRoute.river.name)}</strong>
+        <span class="home-shortlist__reach">${escapeHtml(featuredRouteLabelForItem(alternative))}</span>
+        <span class="home-shortlist__facts"><b>${escapeHtml(recommendationVerdict(alternative))}</b><span>${escapeHtml(formatTravelLabel(alternative.travelMinutes))}</span><span>${escapeHtml(routeLengthLabel(alternative))}</span></span>
+      </a></li>`;
+    }).join('');
+  }
   updateFeaturedHeroAnimation(item?.key || (locationReady ? 'empty' : 'locked'));
   if (!item) {
     renderFeaturedMap(null, { visible: false, status: '' });
@@ -1588,7 +1622,7 @@ function updateFeaturedHero(nearbyItems, overallItems) {
     renderScoreBreakdownDisclosure(featuredPanel, null);
     return;
   }
-  renderFeaturedMap(item, { visible: nearbyReady || featuredMapAlwaysVisible, status: regionStateText(item) });
+  renderFeaturedMap(item, { visible: Boolean(featuredPreview?.open && featuredPreviewItem), status: regionStateText(item) });
   const callUnavailable = isCurrentCallUnavailable(item.cardRoute);
   const ratingKey = callUnavailable ? 'pending' : ratingToneKey(item.cardRoute.rating);
   if (featuredPanel instanceof HTMLElement) {
@@ -1619,9 +1653,7 @@ function updateFeaturedHero(nearbyItems, overallItems) {
   setText(document, 'featured-score', callUnavailable ? '--' : String(item.cardRoute.score));
   setText(document, 'featured-rating', callUnavailable ? 'Not enough data' : conditionTierDisplayLabel(item.cardRoute.rating));
   setText(document, 'featured-verdict', callUnavailable ? 'Call unavailable' : recommendationVerdict(item));
-  setText(document, 'featured-reason', callUnavailable
-    ? 'Live river reads are stale. Refresh the sources before relying on this route.'
-    : recommendationSummaryText(item, nearbyReady, latestResults));
+  setText(document, 'featured-reason', recommendationSummaryText(item, nearbyReady, latestResults));
   renderScoreBreakdownDisclosure(featuredPanel, item.cardRoute.scoreBreakdown);
   setText(document, 'featured-facts-label', isGroupedItem(item) ? 'River facts' : 'Route facts');
   setText(document, 'featured-confidence', callUnavailable ? 'Not enough data' : confidenceLabel(item));
@@ -1859,7 +1891,7 @@ function updateLocationStatus() {
   }
 
   if (homeRouteMix instanceof HTMLElement) {
-    homeRouteMix.hidden = false;
+    homeRouteMix.hidden = !hasLoadedBoardOnce;
   }
 
   if (nearbyLocationPanel instanceof HTMLElement) {
@@ -1927,8 +1959,8 @@ function updateLocationStatus() {
 
 function updateHomeNearbyCounters(results) {
   const count = Array.isArray(results) ? results.length : 0;
-  const showingCopy = formatRouteCountLabel(count);
-  const matchingCopy = count === 1 ? '1 route matches your filters' : `${count} routes match your filters`;
+  const showingCopy = hasLoadedBoardOnce ? formatRouteCountLabel(count) : 'Loading routes…';
+  const matchingCopy = hasLoadedBoardOnce ? `${count} ${count === 1 ? 'route' : 'routes'} shown after condition filters` : 'Loading routes…';
 
   if (homeMatchCount instanceof HTMLElement) {
     homeMatchCount.textContent = showingCopy;
@@ -1941,6 +1973,10 @@ function updateHomeNearbyCounters(results) {
 
 function updateFilterSummary(exploreItems) {
   if (!(filterSummary instanceof HTMLElement)) {
+    return;
+  }
+  if (!hasLoadedBoardOnce) {
+    filterSummary.textContent = 'Loading routes…';
     return;
   }
 
@@ -2581,6 +2617,9 @@ async function renderRequestedSummaryMap(items, { preserveViewport = false } = {
 }
 
 function renderHomepage(results, { preserveMapViewport = false, animateResults = true } = {}) {
+  // Filter changes can arrive while the first request is pending. Keep the
+  // initial loading/error presentation until there is an actual board to filter.
+  if (!hasLoadedBoardOnce) return;
   const locationReady = userLocationState === 'ready' && Boolean(userLocation);
   const overallItems = sortBoardItems(
     buildDisplayItems(results, results, 'best-now'),
@@ -2591,7 +2630,7 @@ function renderHomepage(results, { preserveMapViewport = false, animateResults =
     ? nearbyPreferenceResults.filter(resultWithinSelectedRadius)
     : nearbyPreferenceResults;
   const summaryResults = matchingPreferenceResults.filter(
-    (result) => visibleRatings.has(result.rating),
+    (result) => boardConditionCategory(result) === 'unavailable' || visibleRatings.has(boardConditionCategory(result)),
   );
   const homeSegmentFilters = {
     paddleTime: isChoiceSetAny(selectedHomePaddleTimes) ? '' : selectedHomePaddleTimes,
@@ -2649,7 +2688,7 @@ function renderHomepage(results, { preserveMapViewport = false, animateResults =
   }
 
   if (homeResultsEmpty instanceof HTMLElement) {
-    homeResultsEmpty.hidden = summaryItems.length > 0;
+    homeResultsEmpty.hidden = !hasLoadedBoardOnce || summaryItems.length > 0;
   }
   renderCardGrid(homeResultsRail, summaryItems, {
     showDistance: locationReady,
@@ -2670,6 +2709,13 @@ function renderHomepage(results, { preserveMapViewport = false, animateResults =
 function saveHomePaddleLengthFilter(value) {
   localStorage.setItem(STORAGE_HOME_PADDLE_LENGTH_KEY, JSON.stringify(normalizeHomePaddleLengthFilters(value)));
 }
+
+featuredPreview?.addEventListener('toggle', () => {
+  renderFeaturedMap(featuredPreviewItem, {
+    visible: Boolean(featuredPreview.open && featuredPreviewItem),
+    status: featuredPreviewItem ? regionStateText(featuredPreviewItem) : '',
+  });
+});
 
 function saveHomeCampingFilter(value) {
   localStorage.setItem(STORAGE_HOME_CAMPING_KEY, normalizeHomeCampingFilter(value));

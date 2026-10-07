@@ -33,6 +33,21 @@ export function mixedResultsEmptyText({ nearby = false } = {}) {
     : 'Adjust the filters to bring results back onto the map.';
 }
 
+export function exploreEmptyState({ loaded, query = '', needsLocation = false, areaCount = 0 }) {
+  if (!loaded) return { message: 'Loading routes…', clearSearch: false };
+  if (needsLocation) return { message: 'Choose a city or use GPS to search nearby.', clearSearch: false };
+  if (query) return {
+    message: `No routes match “${query}” with your current area and trip filters. Clear the search to keep browsing this area.`,
+    clearSearch: true,
+  };
+  return {
+    message: areaCount > 0
+      ? `${areaCount} published routes are available in this area. Clear trip filters or widen your search area to see more. Routes without current scores appear under All conditions.`
+      : 'No published routes are available in this area yet. Try another state or browse the state directory.',
+    clearSearch: false,
+  };
+}
+
 export function mixedResultsNoMatchText({ nearby = false } = {}) {
   return nearby ? 'No results match your current preferences.' : 'No results match these filters.';
 }

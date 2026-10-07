@@ -83,7 +83,7 @@ describe('weekend planning', () => {
     );
 
     expect(ranked.map((route) => route.river.slug)).toEqual(['near', 'far']);
-    expect(ranked[0].travelLabel).toMatch(/min away/);
+    expect(ranked[0].travelLabel).toMatch(/^Est\. \d+ min drive$/);
   });
 
   it('applies distance and camping filters to the map route set', () => {

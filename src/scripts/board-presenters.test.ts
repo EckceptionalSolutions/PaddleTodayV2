@@ -6,6 +6,7 @@ import {
   coldWeatherDrivenCall,
   confidenceLabel,
   distanceBucketLabel,
+  boardConditionCategory,
   exploreSortSummaryLabel,
   favoriteRecordForItem,
   formatBoardRefreshCopy,
@@ -45,13 +46,23 @@ describe('board presenters', () => {
   });
 
   it('formats travel durations and buckets', () => {
-    expect(formatTravelLabel(45)).toBe('45 min drive');
-    expect(formatTravelLabel(60)).toBe('1h drive');
-    expect(formatTravelLabel(95)).toBe('1h 35m drive');
+    expect(formatTravelLabel(45)).toBe('Est. 45 min drive');
+    expect(formatTravelLabel(60)).toBe('Est. 1h drive');
+    expect(formatTravelLabel(95)).toBe('Est. 1h 35m drive');
     expect(formatTravelLabel(Number.POSITIVE_INFINITY)).toBe('');
     expect(distanceBucketLabel(30)).toBe('Within 30 minutes');
     expect(distanceBucketLabel(90)).toBe('Within 90 minutes');
-    expect(distanceBucketLabel(95)).toBe('Day trip');
+    expect(distanceBucketLabel(95)).toBe('Longer drive');
+    expect(distanceBucketLabel(1500)).toBe('Extended travel');
+  });
+
+  it('uses the same actionable condition categories for counts and visibility', () => {
+    const good = { rating: 'Good', liveData: { overall: 'live' }, readiness: { status: 'ready' } };
+    expect(boardConditionCategory(good)).toBe('Good');
+    expect(boardConditionCategory({ ...good, readiness: { status: 'verify' } })).toBe('Fair');
+    expect(boardConditionCategory({ ...good, readiness: { status: 'skip' } })).toBe('No-go');
+    expect(boardConditionCategory({ ...good, readiness: { status: 'withheld' } })).toBe('unavailable');
+    expect(boardConditionCategory({ ...good, liveData: { overall: 'degraded', gaugeState: 'stale' } })).toBe('unavailable');
   });
 
   it('builds reusable favorite and recommendation presentation', () => {
@@ -134,6 +145,12 @@ describe('board presenters', () => {
     );
     expect(recommendationSummaryText({
       ...fairItem,
+      cardRoute: { ...fairItem.cardRoute, readiness: { status: 'ready', reason: 'Evidence is current.' } },
+    }, true, [fairItem.cardRoute])).toBe(
+      'This is the highest-ranked route on the board, but it still has tradeoffs.'
+    );
+    expect(recommendationSummaryText({
+      ...fairItem,
       cardRoute: {
         ...fairItem.cardRoute,
         rating: 'No-go',
@@ -141,6 +158,39 @@ describe('board presenters', () => {
         summary: { shortExplanation: 'Too low • Stable • Rain later' },
       },
     }, false)).toBe('Water is too low today, and weather only makes the call worse.');
+  });
+
+  it('uses the readiness evidence instead of inferring a weather caution from summary words', () => {
+    const reason = 'Not enough recent gauge history to read the trend.';
+    const item = {
+      cardRoute: {
+        rating: 'Good',
+        score: 84,
+        gaugeBand: 'ideal',
+        liveData: { overall: 'live' },
+        readiness: { status: 'verify', reason },
+        summary: { shortExplanation: 'Ideal level • Wind 5 mph' },
+        weather: { temperatureF: 65, windMph: 5 },
+      },
+    };
+    expect(recommendationVerdict(item)).toBe('Watch closely');
+    expect(recommendationSummaryText(item, true)).toBe(reason);
+  });
+
+  it('does not recommend an unrestricted multi-day drive as a nearby trip', () => {
+    const item = {
+      travelMinutes: 1500,
+      cardRoute: {
+        rating: 'Strong',
+        gaugeBand: 'ideal',
+        liveData: { overall: 'live' },
+        summary: { shortExplanation: 'Ideal level • Steady • Dry' },
+        weather: { temperatureF: 70 },
+      },
+    };
+    expect(recommendationSummaryText(item, true)).toBe(
+      'Strong conditions match. Check the travel estimate before planning the trip.'
+    );
   });
 
   it('labels every shared board sort mode', () => {
@@ -189,7 +239,7 @@ describe('board presenters', () => {
     expect(routeEstimatedTimeLabel(item)).toBe('3-4 hours');
     expect(routeTypeLabel(item)).toBe('Whitewater');
     expect(metaLineText(item, true, { includeRouteType: true })).toBe(
-      '45 min drive • 7.4 miles on-water • Whitewater • Moderate difficulty • 3-4 hours • High data confidence'
+      'Est. 45 min drive • 7.4 miles on-water • Whitewater • Moderate difficulty • 3-4 hours • High data confidence'
     );
     expect(routeLengthLabel({})).toBe('');
   });

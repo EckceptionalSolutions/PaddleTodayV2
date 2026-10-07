@@ -1,7 +1,14 @@
 import { describe, expect, it } from 'vitest';
 import { scoreRiverCondition } from './scoring';
-import { serializeDetailResult, serializePlanningRoute, serializeSummaryResult, serializeRiverGroupResult } from './api-contract';
+import { serializeDetailResult, serializePlanningRoute, serializeSummaryResult, serializeRiverGroupResult, serializeWeekendSummaryResult } from './api-contract';
 import type { GaugeReading, River, WeatherSnapshot } from './types';
+
+it('includes machine-readable forecast dates in weekend summaries', () => {
+  const result = scoreRiverCondition({ river: baseRiver, gauge, weather, now: new Date('2026-05-10T12:00:00Z') });
+  expect(serializeWeekendSummaryResult(result)?.weekend).toMatchObject({
+    forecastStartDate: '2026-05-16', forecastEndDate: '2026-05-17',
+  });
+});
 
 const baseRiver: River = {
   id: 'api-test-river',

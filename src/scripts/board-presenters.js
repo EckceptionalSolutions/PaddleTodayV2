@@ -24,16 +24,16 @@ export function formatTravelLabel(minutes) {
   }
 
   if (minutes < 60) {
-    return `${minutes} min drive`;
+    return `Est. ${minutes} min drive`;
   }
 
   const hours = Math.floor(minutes / 60);
   const remainingMinutes = minutes % 60;
   if (remainingMinutes === 0) {
-    return `${hours}h drive`;
+    return `Est. ${hours}h drive`;
   }
 
-  return `${hours}h ${remainingMinutes}m drive`;
+  return `Est. ${hours}h ${remainingMinutes}m drive`;
 }
 
 export function distanceBucketLabel(minutes) {
@@ -43,7 +43,18 @@ export function distanceBucketLabel(minutes) {
 
   if (minutes <= 30) return 'Within 30 minutes';
   if (minutes <= 90) return 'Within 90 minutes';
-  return 'Day trip';
+  if (minutes <= 180) return 'Longer drive';
+  return 'Extended travel';
+}
+
+// The condition controls describe the actionable call, not just the quality score.
+export function boardConditionCategory(result) {
+  if (isCurrentCallUnavailable(result)) return 'unavailable';
+  const call = callStateForDecision(result.rating, result.readiness?.status);
+  if (call === 'unavailable') return 'unavailable';
+  if (call === 'skip') return 'No-go';
+  if (call === 'watch') return 'Fair';
+  return result.rating;
 }
 
 export function favoriteRecordForItem(item) {
@@ -153,6 +164,10 @@ export function recommendationSummaryText(item, nearbyReady, candidates = []) {
     return item.cardRoute.readiness?.reason || 'A current call is unavailable until the required evidence refreshes.';
   }
 
+  if (['verify', 'skip'].includes(item.cardRoute.readiness?.status) && item.cardRoute.readiness?.reason) {
+    return item.cardRoute.readiness.reason;
+  }
+
   if (call === 'skip') {
     if (flowLooksTooLow && hasWeatherRisk) {
       return 'Water is too low today, and weather only makes the call worse.';
@@ -202,7 +217,9 @@ export function recommendationSummaryText(item, nearbyReady, candidates = []) {
   }
 
   if (!shortDrive && nearbyReady && call === 'paddle') {
-    return 'Worth the drive if you want the strongest nearby conditions.';
+    return item.travelMinutes <= 120
+      ? 'One of the strongest conditions matches within your selected range.'
+      : 'Strong conditions match. Check the travel estimate before planning the trip.';
   }
 
   if (item.cardRoute.rating === 'Strong') {

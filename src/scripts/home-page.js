@@ -94,9 +94,9 @@ const preferences = document.querySelector('[data-home-preferences]');
 if (preferences instanceof HTMLDetailsElement) {
   try {
     const storedPreference = localStorage.getItem('paddletoday:home-preferences-open');
-    preferences.open = storedPreference === null ? true : storedPreference === 'true';
+    preferences.open = storedPreference === 'true';
   } catch {
-    preferences.open = true;
+    preferences.open = false;
   }
   preferences.addEventListener('toggle', () => {
     try { localStorage.setItem('paddletoday:home-preferences-open', String(preferences.open)); } catch {}

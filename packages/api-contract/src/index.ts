@@ -610,6 +610,8 @@ export interface WeekendSummaryApiItem {
   };
   weekend: {
     label: string;
+    forecastStartDate?: string | null;
+    forecastEndDate?: string | null;
     score: number;
     rating: ScoreRating;
     confidence: ConfidenceLabel;

@@ -15,8 +15,12 @@ export function boardSummaryStatusCopy(
   {
     formatGeneratedAt = defaultGeneratedAtLabel,
     joinWithBullet = defaultJoinWithBullet,
+    loaded = true,
   } = {},
 ) {
+  if (!loaded) {
+    return { headline: 'Loading routes…', detail: 'Checking the latest available conditions.' };
+  }
   if (items.length === 0) {
     return {
       headline: 'No results match the current filters.',
@@ -59,6 +63,7 @@ export function boardSummaryStatusCopy(
 export function createBoardStatusController({
   elements = {},
   getLastSuccessAt = () => null,
+  getHasLoadedBoard = () => true,
   refreshReadyLabel = 'Refresh board',
   formatRefreshCopy,
   joinWithBullet,
@@ -80,7 +85,7 @@ export function createBoardStatusController({
       return;
     }
 
-    const copy = boardSummaryStatusCopy(items, routeResults, { joinWithBullet });
+    const copy = boardSummaryStatusCopy(items, routeResults, { joinWithBullet, loaded: getHasLoadedBoard() });
     summaryHeadline.textContent = copy.headline;
     summaryDetail.textContent = copy.detail;
   }
