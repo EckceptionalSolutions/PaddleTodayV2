@@ -56,6 +56,7 @@ const sanJuanRiverHubPath = '/rivers/by-river/san-juan-river-new-mexico/';
 const crowWingRiverHubPath = '/rivers/by-river/crow-wing-river/';
 const chattahoocheeHubPath = '/rivers/by-river/chattahoochee-river/';
 const saukRiverHubPath = '/rivers/by-river/sauk-river/';
+const truckeeRiverHubPath = '/rivers/by-river/truckee-river-nevada/';
 
 const animasConsolidatedRouteSlugs = [
   'animas-river-cedar-hill-penny-lane',
@@ -177,6 +178,27 @@ const saukRiverConsolidatedRouteSlugs = [
   'sauk-river-rockville-heims-mill',
   'sauk-river-rockville-knights-of-columbus',
   'sauk-river-rockville-miller-landing',
+] as const;
+
+const truckeeRiverConsolidatedRouteSlugs = [
+  'truckee-river-crissie-caughlin-cottonwood',
+  'truckee-river-crissie-caughlin-idlewild',
+  'truckee-river-crissie-caughlin-lockwood',
+  'truckee-river-crissie-caughlin-wingfield',
+  'truckee-river-crystal-peak-cottonwood',
+  'truckee-river-crystal-peak-crissie-caughlin',
+  'truckee-river-crystal-peak-idlewild',
+  'truckee-river-crystal-peak-lockwood',
+  'truckee-river-crystal-peak-wingfield',
+  'truckee-river-idlewild-cottonwood',
+  'truckee-river-idlewild-lockwood',
+  'truckee-river-idlewild-wingfield',
+  'truckee-river-mayberry-crissie-caughlin',
+  'truckee-river-mayberry-idlewild',
+  'truckee-river-mayberry-lockwood',
+  'truckee-river-mayberry-wingfield',
+  'truckee-river-wingfield-cottonwood',
+  'truckee-river-wingfield-lockwood',
 ] as const;
 
 const broadRiverConsolidatedRouteSlugs = [
@@ -672,6 +694,7 @@ const consolidatedRouteTargets = new Map<string, string>(
     ...crowWingConsolidatedRouteSlugs.map((slug) => [slug, `${crowWingRiverHubPath}?route=${slug}#trip-${slug}`] as const),
     ...chattahoocheeConsolidatedRouteSlugs.map((slug) => [slug, `${chattahoocheeHubPath}?route=${slug}#trip-${slug}`] as const),
     ...saukRiverConsolidatedRouteSlugs.map((slug) => [slug, `${saukRiverHubPath}?route=${slug}#trip-${slug}`] as const),
+    ...truckeeRiverConsolidatedRouteSlugs.map((slug) => [slug, `${truckeeRiverHubPath}?route=${slug}#trip-${slug}`] as const),
   ],
 );
 

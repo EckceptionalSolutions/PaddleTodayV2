@@ -39,6 +39,7 @@ const isLamoilleHub = group.riverId === 'lamoille-river-vermont';
 const isWoonasquatucketHub = group.riverId === 'woonasquatucket-river-rhode-island';
 const isSuwanneeHub = group.riverId === 'suwannee-river-florida';
 const isSaukRiverHub = group.riverId === 'sauk-river';
+const isTruckeeHub = group.riverId === 'truckee-river-nevada';
 const isBayouTecheHub = group.riverId === 'bayou-teche-river-louisiana';
 const hasConsolidatedTrips = group.routes.some((route) => routePageConsolidationTarget(route.slug));
 const stateSummary = group.states.join(', ');
@@ -88,6 +89,8 @@ const groupTitle = isBroadRiverHub
   ? 'Suwannee River Wilderness Trail, Florida | Paddling Sections & Access'
   : isSaukRiverHub
   ? 'Sauk River, Minnesota | State Water Trail Sections & Access'
+  : isTruckeeHub
+  ? 'Truckee River, Nevada | Paddling Sections, Gauges & Access'
   : scoredRouteCount
   ? `${group.name}, ${groupTitleLocation} | Water Levels & Paddle Routes`
   : `${group.name}, ${groupTitleLocation} | Paddle Routes & Trip Planning`;
@@ -135,6 +138,8 @@ const groupDescription = isBroadRiverHub
   ? 'Plan the Suwannee River Wilderness Trail by documented section. Compare official paddling distances, river-camp access, White Springs gauge guidance, and current campground notices.'
   : isSaukRiverHub
   ? `Compare ${group.routeCount} Sauk River routes across two Minnesota DNR water-trail maps. Review recommended trips, access, lower-river rapids, and St. Martin gauge context for nearby reaches.`
+  : isTruckeeHub
+  ? 'Compare 24 Truckee River trips from Floriston through Reno and Sparks to Wadsworth. Choose among six documented sections, review whitewater and dam portages, and use the gauge attached to your exact reach.'
   : scoredRouteCount
   ? `Compare ${group.name} paddle routes with current water levels, Paddle Today scores, weather, access details, and route difficulty.`
   : `Compare ${group.name} planning routes with access details, distance, difficulty and source links. These routes have no live score.`;
@@ -532,6 +537,8 @@ const faqItems = [
       ? 'Start with the named public dock-to-dock sections below. The TECHE Project marks the mile-52.6 St. Martinville obstruction as a portage or advance lock-through; trips beyond that boundary need separate access planning. Longer endpoint combinations remain in the picker, and no route has a live score.'
       : isSuwanneeHub
       ? 'Start with the named day sections in the Suwannee River Wilderness Trail below, then compare longer endpoint combinations in the trip picker. Check each access point and overnight stop separately; Holton Creek River Camp and the Suwannee River State Park campground have current closure notices.'
+      : isTruckeeHub
+      ? 'The Nevada Truckee guide follows one access chain but separates three very different paddling zones: the technical Floriston–Verdi reach, Reno–Sparks and its whitewater parks, and the lower river toward Wadsworth. All 24 endpoint choices remain selectable with route-specific details.'
       : `Paddle Today tracks ${group.routeCount} ${group.name} ${routeLabel} across ${regionSummary}. Compare the route cards on this page, then open an individual route for put-in, take-out, distance, and access notes.`,
   },
   {
@@ -564,6 +571,8 @@ const faqItems = [
       ? 'Use the live USGS 07077730 gauge near Brinkley. AGFC says the trail needs a stage around 14 ft or higher, warns that high water is dangerous, and separately says the Dagmar Road gate closes at 17 ft. The gate closure is an access restriction, not an upper safe-water limit; check the roads and seasonal Apple Lake closure before launch.'
       : isWillametteHub
       ? 'The Willamette Kayak and Canoe Club’s 2,000 cfs low, 6,000 cfs optimal, and 20,000 cfs high references apply to the Alton Baker–Harrisburg reach and two shorter options within it. The other trips are planning-only because no route-specific numeric range is verified; their Harrisburg or Corvallis USGS readings are context, not a live recommendation.'
+      : isTruckeeHub
+      ? 'Use the gauge and flow notes attached to your selected route. USGS stations at Farad, Reno, Vista, and below Derby Dam cover different parts of the river. Truckee flow is regulated and varies by season; one station does not represent every reach or clear a dam portage, whitewater feature, or access restriction.'
       : scoredRouteCount
       ? `Check the gauge notes for your stretch and its live score where available. This hub uses ${gaugeNames.length === 1 ? gaugeNames[0] : `${gaugeNames.length} gauges or gauge references`}. Planning routes have no live score; check their source guidance and current access notices.`
       : `These planning routes have no live conditions score. Use each route’s gauge notes and source guidance, then check current waterway notices, weather, access, and local conditions before launching.`,
@@ -575,6 +584,8 @@ const faqItems = [
         ? 'Choose a reach by its own access and difficulty. The upper technical section starts with the mandatory Woods Pond Dam portage; the two Glendale reaches are separated by a separate land portage; the lower picker options have different launch grades, parking, and shuttle lengths. Use the trip details before selecting a route.'
         : isSanJuanHub
         ? 'Choose one access section at a time when starting out. The upper Navajo Dam tailwater differs from the lower river’s diversion and fence hazards, and the Farmington city segments have posted public access rules. The longer trips remain in the picker with intermediate access notes; check the exact route and gauge before setting a shuttle.'
+        : isTruckeeHub
+        ? 'Start with one of the six documented sections below. The Floriston reach is technical whitewater; Reno–Sparks routes include urban access and whitewater-park features; the lower Truckee includes a required Derby Dam portage and a tribal permit for the Wadsworth take-out. The other 18 endpoint combinations remain available in the picker with their own route notes.'
         : `Compare current scores where available, along with water level, recent trend, weather, access, and route difficulty. Planning-only cards provide trip information without a live paddling recommendation.`
       : `Compare distance, difficulty, launch access, and shuttle needs. These routes are planning references; verify current conditions with the linked sources before choosing a trip.`,
   },
@@ -656,6 +667,8 @@ const groupStructuredData = [
             ? 'Choose a named Suwannee River Wilderness Trail section, then check its access and overnight plan. Start with the source-backed day legs below; longer endpoint combinations stay available in the trip picker.'
             : isSaukRiverHub
             ? `Start with the DNR-recommended day trips or the documented Frogtown extension, then compare all ${group.routeCount} access pairs. The upper chain-of-lakes, the St. Martin gauge area, and the lower rapids have different conditions and planning needs.`
+            : isTruckeeHub
+            ? 'Choose a documented reach first, then compare nearby endpoint pairs. The upper Floriston–Verdi gorge, Reno–Sparks whitewater corridor, and lower river each have different difficulty, gauge context, and access requirements.'
             : isFloydsForkHub
             ? 'Follow the six KDFWR-listed access legs from North Beckley to Cliffside, or choose the separately published full-corridor trip. The picker keeps every endpoint combination available with its own mileage, access, gauge, and hazard notes.'
             : `Plan a paddle across ${group.regions.length} ${areaLabel}. ${scoredRouteCount ? 'Compare distance, difficulty, and current scores where available before choosing your stretch.' : 'Compare distance, difficulty, and access. These planning routes have no live conditions score.'}`}
@@ -1309,6 +1322,8 @@ const groupStructuredData = [
               ? `Compare all ${group.routeCount} Floyds Fork choices here. Thirteen detailed guides cover 11 routes published by KDFWR or The Parklands plus two longer options; the other eight combinations remain selectable with their own route details.`
               : isSaukRiverHub
               ? `Compare all ${group.routeCount} Sauk River endpoint choices here. Seven focused guides cover the DNR-recommended trips, its Frogtown extension, and useful St. Martin and lower-river access pairs; the other 14 combinations stay selectable with their own mileage, access, and hazard details.`
+              : isTruckeeHub
+              ? `Compare all ${group.routeCount} Truckee River choices here. Six source-documented pages cover the upper Floriston run, three Reno–Sparks sections, and two lower-river reaches. The other 18 endpoint combinations remain selectable with their own distance, access, gauge, and hazard details.`
               : `Compare ${group.routeCount} ${routeLabel} (${scoredRouteCount} scored · ${planningRouteCount} planning) across ${regionSummary}. Open a route page for put-in, take-out, distance, source confidence, and access notes.`}
           </p>
         </article>
@@ -1368,6 +1383,52 @@ const groupStructuredData = [
 
           <p>
             Compare the current <a href="https://fw.ky.gov/Fish/Pages/floyds-fork.aspx" target="_blank" rel="noopener noreferrer">KDFWR access and level guide</a> with <a href="https://theparklands.org/app/uploads/2020/11/TheParklands_PaddlingMap_Public.pdf" target="_blank" rel="noopener noreferrer">The Parklands recommended-route map</a> and its <a href="https://theparklands.org/find-an-activity/paddling/" target="_blank" rel="noopener noreferrer">current paddling and access notices</a>. The sources differ slightly on some adjacent-leg mileages; each route guide keeps the source for its exact endpoints and distance.
+          </p>
+        </div>
+      ) : null}
+
+      {isTruckeeHub ? (
+        <div class="river-hub-context__source-guide" aria-labelledby="truckee-river-sections-title">
+          <div class="river-group-page__section-head">
+            <div>
+              <p class="eyebrow section-label">Nevada Trail Finder and local river maps</p>
+              <h3 class="section-title" id="truckee-river-sections-title">Choose a Truckee River reach</h3>
+            </div>
+            <p class="muted river-group-page__section-note">
+              Six documented sections keep focused guides. Every other endpoint pair stays selectable below.
+            </p>
+          </div>
+
+          <div class="river-hub-context__grid">
+            <article class="river-hub-context__item">
+              <h3>Floriston–Verdi · technical whitewater</h3>
+              <p>The roughly 10-mile Floriston I-80 launch to Crystal Peak Park run is a Class III–IV reach. It has a separate gauge at Farad; treat it as a technical trip with its own skill and flow requirements.</p>
+              <a href={routeSlugHref('truckee-river-floriston-crystal-peak')}>Review Floriston to Crystal Peak Park</a>
+            </article>
+            <article class="river-hub-context__item">
+              <h3>Reno–Sparks · public park access and diversion structures</h3>
+              <ul>
+                <li><a href={routeSlugHref('truckee-river-crystal-peak-mayberry')}>Crystal Peak Park to Mayberry Park</a> · about 8 mi</li>
+                <li><a href={routeSlugHref('truckee-river-mayberry-cottonwood')}>Mayberry Park to Cottonwood Park</a> · about 10 mi</li>
+                <li><a href={routeSlugHref('truckee-river-cottonwood-lockwood')}>Cottonwood Park to Lockwood Trailhead Park</a> · about 5 mi</li>
+              </ul>
+              <p>Downtown and Sparks routes can include diversion dams, portages, and engineered whitewater features. Check the notes for the exact start and take-out, and scout features before entering them.</p>
+            </article>
+            <article class="river-hub-context__item">
+              <h3>Lower Truckee · Derby Dam and Wadsworth access</h3>
+              <ul>
+                <li><a href={routeSlugHref('truckee-river-lockwood-usa-parkway')}>Lockwood to USA Parkway</a> · about 12 mi</li>
+                <li><a href={routeSlugHref('truckee-river-usa-parkway-wadsworth')}>USA Parkway to Wadsworth Bridge</a> · about 14.7 mi</li>
+              </ul>
+              <p>Portage left at historic Derby Dam. The Wadsworth Bridge take-out is on Pyramid Lake Paiute Tribal land; the Nevada map says a tribal boating permit is required for the USA Parkway–Wadsworth reach and that all river users must take out at Wadsworth Bridge.</p>
+            </article>
+          </div>
+
+          <p>
+            The <a href="https://files.aptuitivcdn.com/mVq57ky5p9-1707/docs/trails/map/TruckeeRiver11x17-10.1773313608.pdf" target="_blank" rel="noopener noreferrer">Nevada Truckee floatable-reaches map</a> identifies the upper, Reno–Sparks, and lower sections, dams, access points, and permit boundary. The Nevada Trail Finder page for Mayberry–Cottonwood currently lists 5.1 miles, while its map lists 10.8 miles and American Whitewater’s reach detail places Cottonwood Park 10.41 miles below Mayberry. This guide uses about 10 miles, supported by the reach map and detailed river feature distances, and flags the conflicting listing rather than hiding it.
+          </p>
+          <p>
+            Use the gauge attached to each trip: <a href="https://waterdata.usgs.gov/monitoring-location/USGS-10346000/" target="_blank" rel="noopener noreferrer">Farad</a> for the upper run, <a href="https://waterdata.usgs.gov/monitoring-location/USGS-10348000/" target="_blank" rel="noopener noreferrer">Reno</a> for the central corridor, <a href="https://waterdata.usgs.gov/monitoring-location/USGS-10350000/" target="_blank" rel="noopener noreferrer">Vista</a> near the Lockwood–USA Parkway section, and <a href="https://waterdata.usgs.gov/monitoring-location/USGS-10351600/" target="_blank" rel="noopener noreferrer">below Derby Dam near Wadsworth</a> for the final reach. The Nevada map warns that higher flows make the runs more dangerous; a gauge reading alone does not clear hazards or authorize access.
           </p>
         </div>
       ) : null}
