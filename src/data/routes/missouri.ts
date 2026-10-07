@@ -1893,13 +1893,13 @@ export const missouriRoutes: River[] = [
       "seasonNotes": "The upper Jacks Fork is seasonal and can become scrape-prone in dry spells. Current NPS materials still frame the corridor as a chain of floatable access points, but storms can raise the valley quickly and complicate the remote shuttle.",
       "difficulty": "moderate",
       "difficultyNotes": "This is a remote upper-river Ozark float with Class I-II moving water, bluff pools, shallow ledges, wood, and limited easy exits between public accesses. It should not be treated like the easier spring-fed lower Jacks Fork.",
-      "confidenceNotes": "Confidence is good enough for a conservative add, with an explicit route-shape caveat: the current NPS Paddle Jacks Fork River page still names both Rymers and Bay Creek as popular put-ins, and the current NPS park brochure places them at river miles 82 and 74 with primitive camping context at both accesses, which is enough map support to infer an approximately 8-mile public segment. USGS 07065200 returned same-day values during this run, and Rivers.MOHERP includes an exact Rymers-to-Bay-Creek low-water row at 33 cfs. The app keeps only the same 100 cfs minimum-only upper-Jacks floor already used by adjacent routes and does not claim an ideal range or high-water cutoff."
+      "confidenceNotes": "Confidence is good enough for a conservative add, with an explicit mileage caveat: the NPS park brochure places Rymers at river mile 82 and Bay Creek at river mile 74, implying about 8 miles, while NPS's estimated float-time table lists Rymers to Bay Creek as 9 miles / 4 hours. The route card reports the source-based 8-to-9-mile range. USGS 07065200 returned same-day values during review, and Rivers.MOHERP includes an exact Rymers-to-Bay-Creek low-water row at 33 cfs. The app keeps only the same 100 cfs minimum-only upper-Jacks floor already used by adjacent routes and does not claim an ideal range or high-water cutoff."
     },
     "evidenceNotes": [
       {
         "label": "Official route shape",
-        "value": "Rymers to Bay Creek, about 8 mi by NPS river miles",
-        "note": "The current NPS park brochure places Rymers at river mile 82 and Bay Creek at river mile 74, while the current Paddle Jacks Fork River page still names both as popular put-ins. That is enough official route-shape support for this access-to-access segment even though the current page no longer gives a standalone float-time row.",
+        "value": "Rymers to Bay Creek, about 8–9 mi by NPS sources",
+        "note": "The NPS park brochure places Rymers at river mile 82 and Bay Creek at river mile 74, implying about 8 miles; NPS's estimated float-time table lists the segment as 9 miles / 4 hours. Both confirm the public access pair but use different mileage references.",
         "sourceUrl": "https://www.nps.gov/ozar/planyourvisit/park-brochure.htm"
       },
       {
@@ -3192,7 +3192,7 @@ export const missouriRoutes: River[] = [
         "private_banks"
       ],
       "safetyNotes": [
-        "NPS identifies Alley Spring to Eminence as the classic four-hour Jacks Fork float but says float times vary with flow and asks visitors to check current river levels or closures before departing.",
+        "NPS identifies Alley Spring to Eminence as the classic Jacks Fork float, says times vary with flow, and asks visitors to check current river levels or closures before departing. Its 2024 estimated float-time table lists 6.3 miles / 3 hours, while the older paddling page lists 4 hours.",
         "Use the signed Alley Spring access and the MDC-listed Joshua T. Chilton landing in Eminence. Keep a shuttle and take-out plan for the cooperative landing; do not substitute a private bank or informal town shoreline near Eminence.",
         "At or below the 200 cfs conservative floor expect shallow riffles and scraping. High or rising water, fresh wood, swimmers, boat traffic, and cold spring water can change the risk quickly; inspect the landing and bends before committing."
       ],
@@ -3232,13 +3232,19 @@ export const missouriRoutes: River[] = [
       "seasonNotes": "NPS says paddling is available year-round but summer is busiest, and portions of the Jacks Fork can be limited by low water. Alley Spring adds dependable water below the spring, but dry spells can still expose shallow riffles and storms can quickly change current, wood, and landing conditions.",
       "difficulty": "easy",
       "difficultyNotes": "This is a Class I lower Jacks Fork day with shoals, clear pools, bluff scenery, heavy summer boat and tube traffic, and motorboat allowances below Alley Spring. It is easier than the upper Jacks Fork, but low water, crowds, private banks near Eminence, and rising water still require judgment.",
-      "confidenceNotes": "Confidence is good for a conservative minimum-only add: NPS identifies Alley Spring to Eminence as the most popular summer Jacks Fork float and lists it as a 4-hour section; MDC confirms Joshua T. Chilton Memorial Landing as a Jacks Fork river access where boats may be used; Rivers.MOHERP shows same-day May 30, 2026 Eminence-gauge conditions and exact lower-Jacks trip rows including Alley Spring-to-Eminence. Southwest Paddler supplies practical access coordinates for Alley Spring and Joshua T. Chilton. The main caveat is threshold precision: the app uses the MoHERP 200 cfs good-condition floor and does not claim an ideal range or high-water cutoff."
+      "confidenceNotes": "Confidence is good for a conservative minimum-only add: NPS identifies Alley Spring to Eminence as its most popular summer Jacks Fork float; its 2024 estimated float-time table lists 6.3 miles / 3 hours while its older Jacks Fork paddling page estimates 4 hours, so the trip card carries a 3-to-4-hour planning range; MDC confirms Joshua T. Chilton Memorial Landing as a Jacks Fork river access where boats may be used; and Rivers.MOHERP has exact lower-Jacks trip rows. Southwest Paddler supplies practical access coordinates for Alley Spring and Joshua T. Chilton. The main caveat is threshold precision: the app uses the MoHERP 200 cfs good-condition floor and does not claim an ideal range or high-water cutoff."
     },
     "evidenceNotes": [
       {
         "label": "NPS route shape",
-        "value": "Alley to Eminence, 4 hr",
-        "note": "NPS says the most popular summer float on the Jacks Fork is Alley Spring to Eminence and lists the estimated float time as 4 hours.",
+        "value": "Alley to Eminence, 6.3 mi / 3–4 hr",
+        "note": "NPS's estimated float-time table, updated August 30, 2024, lists Alley to Eminence as 6.3 miles and 3 hours. Its older Jacks Fork paddling page lists 4 hours and explains that float time varies with river flow; the route card uses a 3-to-4-hour planning range.",
+        "sourceUrl": "https://www.nps.gov/ozar/planyourvisit/floattimes.htm"
+      },
+      {
+        "label": "Older NPS float-time estimate",
+        "value": "About 4 hr",
+        "note": "The NPS Paddle Jacks Fork River page, last updated in 2021, gives a 4-hour estimate for this popular summer section without a distance. NPS says float times vary with flow.",
         "sourceUrl": "https://www.nps.gov/thingstodo/paddle-jacks-fork-river.htm"
       },
       {

@@ -106,6 +106,25 @@ const elevenPointRiverConsolidatedRouteSlugs = [
   'eleven-point-river-whitten-narrows',
 ] as const;
 
+const jacksForkRiverHubPath = '/rivers/by-river/jacks-fork-river/';
+const jacksForkRiverConsolidatedRouteSlugs = [
+  'jacks-fork-river-alley-spring-chilton',
+  'jacks-fork-river-bay-creek-chilton',
+  'jacks-fork-river-bay-creek-alley-spring',
+  'jacks-fork-river-blue-spring-alley-spring',
+  'jacks-fork-river-blue-spring-bay-creek',
+  'jacks-fork-river-blue-spring-chilton',
+  'jacks-fork-river-blue-spring-rymers',
+  'jacks-fork-river-highway-17-chilton',
+  'jacks-fork-river-highway-17-alley-spring',
+  'jacks-fork-river-highway-17-bay-creek',
+  'jacks-fork-river-highway-17-blue-spring',
+  'jacks-fork-river-buck-hollow-rymers',
+  'jacks-fork-river-rymers-alley-spring',
+  'jacks-fork-river-rymers-bay-creek',
+  'jacks-fork-river-rymers-chilton',
+] as const;
+
 const merrimackRiverConsolidatedRouteSlugs = [
   'merrimack-river-sewalls-falls-ferry-street',
   'merrimack-river-everett-arena-ferry-street',
@@ -829,6 +848,7 @@ const consolidatedRouteTargets = new Map<string, string>(
     ...wabashRiverConsolidatedRouteSlugs.map((slug) => [slug, `${wabashRiverHubPath}?route=${slug}#trip-${slug}`] as const),
     ...villageCreekConsolidatedRouteSlugs.map((slug) => [slug, `${villageCreekHubPath}?route=${slug}#trip-${slug}`] as const),
     ...elevenPointRiverConsolidatedRouteSlugs.map((slug) => [slug, `${elevenPointRiverHubPath}?route=${slug}#trip-${slug}`] as const),
+    ...jacksForkRiverConsolidatedRouteSlugs.map((slug) => [slug, `${jacksForkRiverHubPath}?route=${slug}#trip-${slug}`] as const),
     ...saludaRiverConsolidatedRouteSlugs.map((slug) => [slug, `${saludaRiverHubPath}?route=${slug}#trip-${slug}`] as const),
     ...saludaRiverLaunchAliasSlugs.map((slug) => [slug, `${saludaRiverHubPath}?route=saluda-river-saluda-shoals-gardendale#trip-saluda-river-saluda-shoals-gardendale`] as const),
     ...saludaRiverAccessNoteRouteSlugs.map((slug) => [slug, `${saludaRiverHubPath}#saluda-route-access-notes`] as const),

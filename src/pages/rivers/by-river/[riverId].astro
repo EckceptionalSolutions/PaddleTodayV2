@@ -49,6 +49,7 @@ const isSaludaHub = group.riverId === 'saluda-river';
 const isWabashHub = group.riverId === 'wabash-river';
 const isVillageCreekHub = group.riverId === 'village-creek';
 const isElevenPointHub = group.riverId === 'eleven-point-river';
+const isJacksForkHub = group.riverId === 'jacks-fork-river';
 const hasConsolidatedTrips = group.routes.some((route) => routePageConsolidationTarget(route.slug));
 const stateSummary = group.states.join(', ');
 const stateDisplay = group.states.join(' and ');
@@ -63,6 +64,8 @@ const needsRegionInTitle = listRiverGroups().some((other) =>
 const groupTitleLocation = needsRegionInTitle ? `${regionSummary}, ${stateSummary}` : stateSummary;
 const groupTitle = isBroadRiverHub
   ? 'Broad River, South Carolina | Paddling Sections & Access'
+  : isJacksForkHub
+  ? 'Jacks Fork River, Missouri | Float Sections, Gauges & Access'
   : isElevenPointHub
   ? 'Eleven Point River, Missouri | Float Sections & Access'
   : isVillageCreekHub
@@ -120,6 +123,8 @@ const groupTitle = isBroadRiverHub
   : `${group.name}, ${groupTitleLocation} | Paddle Routes & Trip Planning`;
 const groupDescription = isBroadRiverHub
   ? 'Compare eight Paddle SC trips on South Carolina’s Broad River, from Ninety-Nine Islands to Strother Landing and the separate Peak–Harbison reach. Check trip-specific gauges, dam portages, and public access.'
+  : isJacksForkHub
+  ? 'Plan Jacks Fork trips from Buck Hollow through Rymers, Bay Creek, and Alley Spring to Eminence. Compare 15 route options, three USGS gauges, access details, and National Park Service float guidance.'
   : isElevenPointHub
   ? 'Compare 19 Eleven Point River floats by reach, from the upper river to The Narrows. Review Forest Service access, trout reaches, trip distances, and USGS gauge context.'
   : isVillageCreekHub
@@ -581,6 +586,8 @@ const faqItems = [
     question: `Where can I paddle the ${group.name}?`,
     answer: isMerrimackHub
       ? 'Choose from five documented Franklin–Concord routes, the short Sewalls Falls–Everett Arena trip, or lower-valley access pairs from Boscawen through Hooksett. Fourteen overlapping planning combinations remain selectable in the trip picker with their own distance and access notes.'
+      : isJacksForkHub
+      ? 'Choose among 15 endpoint combinations from Buck Hollow and Blue Spring through Rymers, Bay Creek, Alley Spring, and Eminence. The upper river can become too shallow to navigate during dry periods; the popular Alley Spring–Eminence float is a separate lower reach. Check the section guide and use the gauge attached to the exact trip.'
       : isElevenPointHub
       ? 'Choose among 19 public endpoint combinations from Thomasville and Cane Bluff through Greer, Turner Mill, Whitten, Riverton, and Highway 142 / The Narrows. The upper river before Greer Spring, the spring-fed Blue Ribbon Trout Area, and the downstream White Ribbon reach have different character; select a launch and finish within the reach you intend to paddle.'
       : isVillageCreekHub
@@ -643,6 +650,8 @@ const faqItems = [
     question: `How should I check ${group.name} water levels?`,
     answer: isMerrimackHub
       ? 'The 400 cfs runnable floor and 1,500–2,000 cfs preferred range belong to the documented Franklin–Concord run and its USGS 01081500 gauge near Franklin Junction. Lower-valley trips are planning-only; that upstream station is context and does not provide a verified route-specific threshold for each downstream reach.'
+      : isJacksForkHub
+      ? 'Use the station shown on the selected trip: USGS 07065200 near Mountain View for upper reaches, USGS 07065495 at Alley Spring for trips in the middle corridor, and USGS 07066000 at Eminence for the lower finish. NPS warns that parts of the upper river are navigable only at certain times because of low water. The 100 or 200 cfs card floors are conservative community-sourced planning cues, not NPS safe-flow rules; no ideal range or high-flow cutoff is claimed.'
       : isElevenPointHub
       ? 'Paddle Today shows USGS 07071500 near Bardley as conservative same-river context and uses a minimum-only low-water cue; there is no endorsed ideal range or high-flow cutoff for every section. The gauge is downstream of Greer Spring, so it does not describe the smaller upper river by itself. Check the live trend, recent rain, and the selected access and hazard notes before launch.'
       : isVillageCreekHub
@@ -1056,6 +1065,56 @@ const groupStructuredData = [
         </div>
         <p>
           Check the current <a href="https://mdc.mo.gov/fishing/fishing-prospects/areas/eleven-point-river" target="_blank" rel="noopener noreferrer">MDC Eleven Point River reach and access guide</a>, the <a href="https://www.fs.usda.gov/Internet/FSE_DOCUMENTS/stelprdb5200703.pdf" target="_blank" rel="noopener noreferrer">Forest Service Eleven Point Scenic River travel guide</a>, and the <a href="https://www.fws.gov/rivers/river/eleven-point" target="_blank" rel="noopener noreferrer">Wild and Scenic River overview</a>. Much of the corridor borders private land under scenic easement; stay within public accesses and lawful float-camp rules. Use <a href="https://waterdata.usgs.gov/monitoring-location/USGS-07071500/" target="_blank" rel="noopener noreferrer">USGS 07071500 near Bardley</a> as flow context, not a river-wide go/no-go rule.
+        </p>
+      </section>
+    ) : null}
+
+    {isJacksForkHub ? (
+      <section class="river-group-page__panel" id="jacks-fork-section-guide" aria-labelledby="jacks-fork-section-guide-title">
+        <div class="river-group-page__section-head">
+          <div>
+            <p class="eyebrow section-label">Ozark National Scenic Riverways · Missouri</p>
+            <h2 class="section-title" id="jacks-fork-section-guide-title">Choose a Jacks Fork trip by section</h2>
+          </div>
+          <p class="muted river-group-page__section-note">
+            The upper corridor can be seasonal. Each section has its own access pair, gauge, and trip details.
+          </p>
+        </div>
+        <div class="river-hub-context__grid">
+          <article class="river-hub-context__item">
+            <h3>Buck Hollow, Blue Spring, Rymers, and Bay Creek</h3>
+            <p>
+              NPS places 35 miles of the Jacks Fork within the park and says some portions are navigable only at certain times because of low water. Its 2024 float-time table lists Highway 17–Blue Spring at 2.6 miles / 1 hour, Blue Spring–Rymers at 6.6 miles / 3 hours, and Rymers–Bay Creek at 9 miles / 4 hours. These upper choices use the Mountain View gauge for conservative context; check the trend, recent rain, and actual water at the launch.
+            </p>
+            <ul>
+              <li><a href={routeSlugHref('jacks-fork-river-highway-17-blue-spring')}>Buck Hollow / Highway 17 to Blue Spring</a> · 2.6 mi</li>
+              <li><a href={routeSlugHref('jacks-fork-river-blue-spring-rymers')}>Blue Spring to Rymers</a> · 6.6 mi</li>
+              <li><a href={routeSlugHref('jacks-fork-river-rymers-bay-creek')}>Rymers to Bay Creek</a> · NPS sources differ on mileage</li>
+            </ul>
+          </article>
+          <article class="river-hub-context__item">
+            <h3>Bay Creek and Rymers to Alley Spring</h3>
+            <p>
+              Bay Creek to Alley Spring is a source-listed 5.8-mile float. Longer trips from Rymers or Blue Spring combine more of the seasonal upper water before reaching Alley Spring. Use USGS 07065495 at Alley Spring for routes that reach this section; it does not represent the Mountain View or Eminence ends.
+            </p>
+            <ul>
+              <li><a href={routeSlugHref('jacks-fork-river-bay-creek-alley-spring')}>Bay Creek to Alley Spring</a> · 5.8 mi / about 2 hr per NPS</li>
+              <li><a href={routeSlugHref('jacks-fork-river-rymers-alley-spring')}>Rymers to Alley Spring</a> · about 14.8 mi by NPS segment totals</li>
+              <li><a href={routeSlugHref('jacks-fork-river-blue-spring-alley-spring')}>Blue Spring to Alley Spring</a> · about 21.4 mi by NPS segment totals</li>
+            </ul>
+          </article>
+          <article class="river-hub-context__item">
+            <h3>Alley Spring to Eminence</h3>
+            <p>
+              NPS names this the most popular summer float. Its newer float-time table, updated August 2024, lists about 6.3 miles and 3 hours; the older NPS Jacks Fork page lists 4 hours. NPS says its estimates vary with flow; the newer table also factors in breaks, paddling pace, vessel, and wind. The trip card uses a 3-to-4-hour estimate. Keep the landing plan on Joshua T. Chilton Memorial Landing and do not assume private riverbank access around Eminence.
+            </p>
+            <p>
+              <a href={routeSlugHref('jacks-fork-river-alley-spring-chilton')}>Alley Spring to Joshua T. Chilton Memorial Landing</a> · use USGS 07066000 at Eminence for conservative gauge context.
+            </p>
+          </article>
+        </div>
+        <p>
+          The route selector keeps the other public endpoint combinations available with their own distance, shuttle, camping, gauge, and safety notes. See the current <a href="https://www.nps.gov/ozar/planyourvisit/floattimes.htm" target="_blank" rel="noopener noreferrer">NPS estimated float-time table</a>, its <a href="https://www.nps.gov/thingstodo/paddle-jacks-fork-river.htm" target="_blank" rel="noopener noreferrer">Jacks Fork paddling page</a>, and <a href="https://www.nps.gov/ozar/planyourvisit/park-brochure.htm" target="_blank" rel="noopener noreferrer">park access and river-mile information</a> before setting a shuttle. NPS advises checking live levels and closures; route-card flow floors are not official safety limits.
         </p>
       </section>
     ) : null}
@@ -1577,9 +1636,9 @@ const groupStructuredData = [
                       <span data-group-initial-score>{route.scoreEligibility === 'planning' ? 'Planning route' : 'Loading'}</span>
                     </span>
                   </button>
-                  {isWillimanticHub || isMerrimackHub || isSpokaneHub || isSaludaHub || isWabashHub || isVillageCreekHub || isElevenPointHub || isAnimasHub || isHousatonicHub ? (
+                  {isWillimanticHub || isMerrimackHub || isSpokaneHub || isSaludaHub || isWabashHub || isVillageCreekHub || isElevenPointHub || isJacksForkHub || isAnimasHub || isHousatonicHub ? (
                     <details class="route-choice__trip-notes">
-                      <summary>{isAnimasHub || isHousatonicHub ? 'Access, flow, and safety notes' : 'Access, gauge, and safety notes'}</summary>
+                      <summary>{isJacksForkHub ? 'Access, gauge, shuttle, and camping notes' : isAnimasHub || isHousatonicHub ? 'Access, flow, and safety notes' : 'Access, gauge, and safety notes'}</summary>
                       <div>
                         <p>{route.logistics?.summary || route.summary}</p>
                         <p>
@@ -1594,6 +1653,9 @@ const groupStructuredData = [
                             : '.'}
                           {' '}{route.scoreEligibility === 'planning' ? 'No route-specific numeric flow band is verified; treat this station as context and check local conditions.' : 'This is route-specific planning guidance, not a safety guarantee; check the live reading and trend before launch.'}
                         </p>
+                        {isJacksForkHub && route.logistics?.shuttle ? <p><strong>Shuttle:</strong> {route.logistics.shuttle}</p> : null}
+                        {isJacksForkHub && route.logistics?.camping ? <p><strong>Camping:</strong> {route.logistics.camping}</p> : null}
+                        {isJacksForkHub && route.logistics?.permits ? <p><strong>Rules:</strong> {route.logistics.permits}</p> : null}
                         {route.logistics?.accessCaveats?.length ? (
                           <ul>{route.logistics.accessCaveats.map((note) => <li>{note}</li>)}</ul>
                         ) : null}
@@ -1696,7 +1758,9 @@ const groupStructuredData = [
         <article class="river-hub-context__item">
           <h3>Water levels</h3>
           <p>
-            {isElevenPointHub
+            {isJacksForkHub
+              ? 'Jacks Fork options follow one main access corridor, but the upper section is seasonal and trip guidance uses three different stations. The trip cards group every endpoint choice here; use the direct source-backed adjacent floats to anchor a plan, and select the route that matches your launch, take-out, time, and gauge.'
+              : isElevenPointHub
               ? 'Use USGS 07071500 near Bardley only as conservative same-river context. The station is downstream of Greer Spring, so the smaller Thomasville–Cane Bluff section can be shallow even when the lower gauge looks usable. Current route cards show a minimum-only planning cue, not an ideal range or high-water clearance; check rainfall, the live trend, and conditions at the actual put-in.'
               : isSpokaneHub
               ? 'Use the station named for the chosen section. USGS 12419000 near Post Falls gives direct flow telemetry for Harvard–Barker, while the Spokane reading is lower-river context. Neither gauge verifies the dry-prone Barker–Sullivan channel or the Nine Mile pool above its dam; inspect those places locally.'
@@ -1710,7 +1774,9 @@ const groupStructuredData = [
         <article class="river-hub-context__item">
           <h3>Route options</h3>
           <p>
-            {isElevenPointHub
+            {isJacksForkHub
+              ? `Compare all ${group.routeCount} Jacks Fork endpoint choices here. The NPS adjacent float sections provide useful anchors, while longer combinations remain available with their own mileage, shuttle, camping, and hazard notes. Use the gauge assigned to the specific trip: Mountain View upstream, Alley Spring in the middle, or Eminence for the lower finish.`
+              : isElevenPointHub
               ? `Compare all ${group.routeCount} public endpoint choices here, from the upper reaches through Turner Mill, Whitten, Riverton, and The Narrows. The route cards keep their own access pairs, mileage, and safety notes together; choose trips within the river section and gauge context you plan to use.`
               : isRussianRiverHub
               ? `Compare all ${group.routeCount} endpoint combinations here. Six source-backed trips keep standalone pages; the remaining options stay selectable with their own mileage, access, shuttle, and hazard notes. The upper, middle, and lower reaches use different guide and gauge references.`

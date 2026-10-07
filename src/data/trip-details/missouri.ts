@@ -359,7 +359,7 @@ export const missouriRiverTripDetails: Record<string, RiverTripDetails> = {
       "longitude": -91.5018
     },
     "logistics": {
-      "distanceLabel": "About 8 mi by NPS river miles",
+      "distanceLabel": "About 8 to 9 mi by NPS sources",
       "estimatedPaddleTime": "About 4 hr to 5.5 hr depending on level, stops, and low-water dragging",
       "shuttle": "Use a rural two-car or authorized outfitter shuttle between Rymers and Bay Creek. Both accesses rely on gravel-road approaches off Highway M or Highway 106, so inspect the Bay Creek take-out before launching and do not assume navigation apps will choose the right road-end turn.",
       "permits": "No route-specific private-vessel paddling permit is known. Follow Ozark National Scenic Riverways rules, posted access signs, no-glass/no-polystyrene river rules, and any current park river closures or advisories.",
@@ -367,7 +367,7 @@ export const missouriRiverTripDetails: Record<string, RiverTripDetails> = {
       "campingClassification": "endpoint_campground",
       "summary": "Launch at Rymers and take out at Bay Creek for the upper Jacks Fork gap between the already-live Buck Hollow and Bay Creek downstream segments. Use the Mountain View gauge as the same conservative low-water check already used on the adjacent upper-Jacks routes.",
       "accessCaveats": [
-        "This route shape is supported by the current NPS river-mile access inventory rather than a standalone float-time row. Treat the app mileage and paddle-time guidance as conservative planning numbers, not an official promise.",
+        "NPS river-mile markers place the endpoints about 8 miles apart, while its estimated float-time table lists 9 miles and 4 hours for Rymers to Bay Creek. Treat the mileage as an approximate 8-to-9-mile range and paddle-time guidance as a planning estimate.",
         "Rymers and Bay Creek are official NPS river accesses, but the coordinates here are carried forward from the adjacent implemented upper-Jacks routes. Follow current park signs and the actual landing layout on arrival.",
         "Bay Creek is a remote road-end access near primitive backcountry camping. Scout the take-out and parking before committing, especially after storms."
       ],
@@ -487,8 +487,8 @@ export const missouriRiverTripDetails: Record<string, RiverTripDetails> = {
       "longitude": -91.353486
     },
     "logistics": {
-      "distanceLabel": "About 6.6 mi",
-      "estimatedPaddleTime": "About 4 hr, longer with stops, crowds, wind, or low water",
+      "distanceLabel": "About 6.3 mi per NPS float-time table",
+      "estimatedPaddleTime": "About 3 hr to 4 hr by NPS estimates; longer with stops, crowds, wind, or low water",
       "shuttle": "Stage the take-out at Joshua T. Chilton Memorial Landing in Eminence, then drive west on Highway 106 to the Alley Spring access area. Summer weekends can be crowded, so inspect parking, landing room, and any posted park or city rules before launching.",
       "permits": "No route-specific private-vessel paddling permit is known. Follow Ozark National Scenic Riverways rules at Alley Spring, MDC/cooperative-area rules at Joshua T. Chilton, Missouri boating laws, no-glass/no-polystyrene rules, and any posted closures or advisories.",
       "camping": "Treat this as a day float. Alley Spring has developed campground context, but this route ends at Eminence; do not assume private banks, commercial campgrounds, or gravel bars near town are available for camping without a separate legal plan.",
