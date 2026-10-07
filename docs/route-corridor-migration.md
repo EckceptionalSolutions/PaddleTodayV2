@@ -1,10 +1,10 @@
 # Route corridor migration inventory
 
-Generated 2026-10-07T16:40:25.222Z.
+Generated 2026-10-07T16:49:41.809Z.
 
-- Defined corridors: 226
-- Routes covered by a corridor definition: 865
-- Remaining multi-route families: 324
+- Defined corridors: 227
+- Routes covered by a corridor definition: 874
+- Remaining multi-route families: 323
 
 ## Defined corridors
 
@@ -18,6 +18,7 @@ Generated 2026-10-07T16:40:25.222Z.
 | ri-woonasquatucket-paddling-zones | Woonasquatucket River upper and lower paddling zones | condition-family | 28 | 0 |
 | fl-suwannee-wilderness-trail | Suwannee River Wilderness Trail section family | condition-family | 44 | 0 |
 | la-bayou-teche-national-paddle-trail | Bayou Teche National Paddle Trail reach family | condition-family | 44 | 0 |
+| ar-bayou-deview-water-trail | Bayou DeView Water Trail access-chain family | condition-family | 9 | 0 |
 | or-willamette-upper-valley-water-trail | Upper Willamette Valley access and itinerary family | condition-family | 50 | 0 |
 | ca-russian-river-paddling-zones | Russian River upper, middle, and lower paddling condition zones | condition-family | 37 | 0 |
 | mn-cannon-lower | Lower Cannon River access corridor | verified | 3 | 4 |
@@ -296,6 +297,6 @@ Generated 2026-10-07T16:40:25.222Z.
 | Arizona | Salt River | 10 |
 | Kentucky | Upper Cumberland River | 10 |
 | North Carolina | Yadkin River | 10 |
-| Additional families omitted | See route data and overlap audit | 284 |
+| Additional families omitted | See route data and overlap audit | 283 |
 
 This inventory is a migration queue, not an automatic deletion list. Each family still requires source review for continuity, hazards, access legality, gauge boundaries, and explicit trip edges.

@@ -7162,3 +7162,29 @@ export const arkansasRoutes: River[] = [
     ]
   }
 ];
+
+// AGFC gives Bayou DeView a low-water floor and a separate Dagmar Road gate
+// closure. The gate height is not a route-wide upper water-safety threshold.
+// Keep the official low-water guidance, and leave upper-water scoring open.
+const bayouDeViewRouteSummaries: Record<string, string> = {
+  'bayou-deview-benson-creek-bank-of-brinkley': 'Plan the full 15.2-mile Bayou DeView Water Trail from Benson Creek Access to Bank of Brinkley Access. Follow its public access chain through the Delta floodplain with an offline map, a float plan, and current gauge and road checks.',
+  'bayou-deview-hickson-lake-rock-island-road': 'Paddle 2.9 miles from Hickson Lake Access to Rock Island Road Access on the Bayou DeView Water Trail. The flatwater channel winds through floodplain forest, so carry the AGFC georeferenced map and check Dagmar Road access.',
+  'bayou-deview-rock-island-road-apple-lake': 'Paddle 1.5 miles from Rock Island Road Access to Apple Lake Access. This short floodplain section still needs route-finding and the AGFC map; Apple Lake access is seasonal and closes from November 1 through February 15.',
+  'bayou-deview-apple-lake-bank-of-brinkley': 'Paddle 4.3 miles from Apple Lake Access to Bank of Brinkley Access along the lower Bayou DeView Water Trail. Check the Apple Lake seasonal closure, the Brinkley gauge, and the Cache River refuge access rules before launching.',
+};
+
+for (const route of arkansasRoutes.filter((item) => item.slug.startsWith('bayou-deview-'))) {
+  route.profile.thresholdModel = 'minimum-only';
+  delete route.profile.idealMax;
+  delete route.profile.tooHigh;
+  route.statusText = 'AGFC says Bayou DeView needs a gauge height around 14 ft or higher to paddle, warns that high water is dangerous, and closes the Dagmar Road gate at 17 ft. That gate level is an access condition, not a route-wide upper water-safety limit. Check the live gauge, access roads, seasonal closures and the marked channel before departure.';
+  route.profile.confidenceNotes = 'AGFC lists the Bayou DeView Water Trail access chain and says around 14 ft or higher is needed to paddle. It separately warns that high water is dangerous and that the Dagmar Road gate closes at 17 ft. The gate closure is not a route-wide upper water-safety threshold, so Paddle Today shows minimum-only gauge guidance and leaves the upper limit to current local conditions.';
+  route.evidenceNotes = route.evidenceNotes
+    ?.filter((note) => note.label !== 'Recent official gauge reading')
+    .map((note) => note.label === 'Direct gauge threshold'
+      ? { ...note, note: 'AGFC describes about 14 ft as the level needed to paddle and separately states that the Dagmar Road gate closes at 17 ft. It warns that high water is dangerous; the gate closure is not a route-wide upper safety threshold.' }
+      : note);
+
+  const summary = bayouDeViewRouteSummaries[route.slug];
+  if (summary) route.summary = summary;
+}

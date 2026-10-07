@@ -2214,5 +2214,13 @@
     "continuityStatus": "condition-family",
     "nextReview": "2026-10-08",
     "notes": "Reviewed 22 catalog records against the Millers River Watershed Council Blue Trail guide, Town of Erving access and hazard guidance, American Whitewater's Lower Millers reach page, Massachusetts Paddler's reach inventory, and USGS 01166500. Preserve four source-distinct standalone pages: the Athol–Orange flatwater Blue Trail, its long composite itinerary with the mandatory South Main Street Dam portage, the Reach 6 below-dam-to-Arch Street section, and the Erving-to-Millers Falls Lower Millers run. Consolidate 17 overlapping endpoint combinations to their exact hub trip cards and hold one upstream-reversed endpoint order. Keep all options crossing zones or lacking exact reach-scoped scoring planning-only; the Erving score range stays on the documented Lower Millers core run. The 2025 Royalston–Athol launch is a follow-up candidate pending verified route access and conditions. The Blue Trail, portage, Reach 6, and whitewater zones do not share a continuous condition profile."
+  },
+  {
+    "corridorId": "ar-bayou-deview-water-trail",
+    "status": "approved",
+    "owner": "route-data-team",
+    "continuityStatus": "condition-family",
+    "nextReview": "2026-10-08",
+    "notes": "Reviewed nine Bayou DeView records against AGFC's current water-trail guide and georeferenced map. Keep four source-distinct pages: the full 15.2-mile Benson Creek–Bank of Brinkley planner, Hickson Lake–Rock Island (2.9 mi), Rock Island–Apple Lake (1.5 mi), and Apple Lake–Bank of Brinkley (4.3 mi). Consolidate the other five endpoint combinations to their exact hub trip cards while preserving access, seasonal closure, navigation, camping, and gauge notes. AGFC's around-14-ft paddling floor, high-water danger warning, and 17-ft Dagmar Road gate closure describe separate conditions; retain minimum-only scoring and do not treat the gate height as a route-wide upper safety threshold. Remove stale static July 2026 gauge observations and rely on the live USGS reading."
   }
 ]

@@ -19,6 +19,7 @@ export function getStaticPaths() {
 const { group } = Astro.props;
 const isWillimanticHub = group.riverId === 'willimantic-river-connecticut';
 const isMillersHub = group.riverId === 'millers-river-massachusetts';
+const isBayouDeViewHub = group.riverId === 'bayou-deview';
 const isGreenRiverHub = group.riverId === 'green-river-kentucky';
 const isBlackfootHub = group.riverId === 'blackfoot-river-montana';
 const isWillametteHub = group.riverId === 'willamette-river-oregon';
@@ -42,6 +43,8 @@ const needsRegionInTitle = listRiverGroups().some((other) =>
 const groupTitleLocation = needsRegionInTitle ? `${regionSummary}, ${stateSummary}` : stateSummary;
 const groupTitle = isWoonasquatucketHub
   ? 'Woonasquatucket River, Rhode Island | Paddling Zones & Access'
+  : isBayouDeViewHub
+  ? 'Bayou DeView Water Trail, Arkansas | Sections & Access'
   : isGreenRiverHub
   ? 'Green River, Kentucky | Paddling Sections & Access'
   : isBlackfootHub
@@ -57,6 +60,8 @@ const groupTitle = isWoonasquatucketHub
   : `${group.name}, ${groupTitleLocation} | Paddle Routes & Trip Planning`;
 const groupDescription = isWillimanticHub
   ? 'Plan the Willimantic River Water Trail by stretch: upper quickwater, Eagleville Lake, or the lower river after the dam portage. Compare public access, mileage, and USGS stage cues.'
+  : isBayouDeViewHub
+  ? 'Plan the 15.2-mile Bayou DeView Water Trail by access point. Check the live Brinkley gauge, Dagmar Road access, seasonal closures, and the AGFC map for this floodplain channel.'
   : isMillersHub
   ? 'Compare the flatwater Athol–Orange Blue Trail, the South Main Street Dam portage, and the Lower Millers whitewater. The Erving gauge applies to the lower reach, not every trip option.'
   : isGreenRiverHub
@@ -302,6 +307,8 @@ const faqItems = [
     question: `Where can I paddle the ${group.name}?`,
     answer: isRussianRiverHub
       ? 'Start with the named Asti–Alexander and Alexander Valley–Healdsburg upper runs, the Healdsburg–Wohler or Mirabel middle reach, or a lower beach-to-beach trip. The hub keeps every endpoint combination available so you can choose a shorter exit or a longer day.'
+      : isBayouDeViewHub
+      ? 'The AGFC water trail runs 15.2 miles south from Benson Creek Access to Bank of Brinkley Access. Start with that full route or one of the named shorter sections; the trip selector keeps five other endpoint combinations available with their own access and distance details.'
       : isGreenRiverHub
       ? 'Choose among the Upper Green from Tailwater toward Greensburg, the spring-fed Hart County reaches from Lynn Camp to Stovall Park, or the Mammoth Cave trips from Dennison Ferry through Houchin Ferry to Brownsville. Each zone has different access and condition guidance; the hub keeps all 32 endpoint choices available.'
       : isMillersHub
@@ -330,6 +337,8 @@ const faqItems = [
       ? 'Use the source for your exact zone and do not compare the numbers directly: the Upper Green guide uses Green River Lake dam release in cfs, KDFWR lists a separate Greensburg stage gauge in feet and a Munfordville discharge gauge in cfs, and NPS gives Mammoth Cave stage ranges and a park closure threshold. Multi-zone combinations are planning-only because one reading cannot represent all of those conditions.'
       : isMillersHub
       ? 'USGS 01166500 at Erving provides direct flow context for the Lower Millers run. The Athol–Orange Blue Trail is flatwater held by the Orange dam, so the downstream Erving gauge does not describe that reach. Trips that cross the dam are planning-only; verify both sections and the portage separately.'
+      : isBayouDeViewHub
+      ? 'Use the live USGS 07077730 gauge near Brinkley. AGFC says the trail needs a stage around 14 ft or higher, warns that high water is dangerous, and separately says the Dagmar Road gate closes at 17 ft. The gate closure is an access restriction, not an upper safe-water limit; check the roads and seasonal Apple Lake closure before launch.'
       : isWillametteHub
       ? 'The Willamette Kayak and Canoe Club’s 2,000 cfs low, 6,000 cfs optimal, and 20,000 cfs high references apply to the Alton Baker–Harrisburg reach and two shorter options within it. The other trips are planning-only because no route-specific numeric range is verified; their Harrisburg or Corvallis USGS readings are context, not a live recommendation.'
       : scoredRouteCount
@@ -1036,6 +1045,47 @@ const groupStructuredData = [
           </p>
           <p>
             In August 2025, the Massachusetts Office of Fishing and Boating Access opened a separate launch for 6.6 additional river miles from Royalston toward Athol. The current route cards do not yet describe a verified trip on that upstream segment; see the <a href="https://www.mass.gov/news/healey-driscoll-administration-celebrates-new-access-to-outdoor-recreation-on-the-millers-river" target="_blank" rel="noopener noreferrer">state access announcement</a> for the facility details.
+          </p>
+        </div>
+      ) : null}
+
+      {isBayouDeViewHub ? (
+        <div class="river-hub-context__source-guide" id="bayou-deview-trail-sections" aria-labelledby="bayou-deview-trail-sections-title">
+          <div class="river-group-page__section-head">
+            <div>
+              <p class="eyebrow section-label">Arkansas water trail</p>
+              <h3 class="section-title" id="bayou-deview-trail-sections-title">Choose a distance and check the access chain</h3>
+            </div>
+            <p class="muted river-group-page__section-note">
+              Bayou DeView flows south through a bottomland floodplain where the main channel can be difficult to distinguish. Carry AGFC’s georeferenced map offline and plan each put-in, take-out, and road approach.
+            </p>
+          </div>
+
+          <div class="river-hub-context__grid">
+            <article class="river-hub-context__item">
+              <h3>Full trail · Benson Creek to Bank of Brinkley · 15.2 miles</h3>
+              <p>The full route passes the named intermediate accesses at Dark Corner, Hickson Lake, Rock Island Road, and Apple Lake. It is a long flatwater navigation day; use the full trip guide to plan bailout points, daylight, and the shuttle.</p>
+              <a href="/rivers/bayou-deview-benson-creek-bank-of-brinkley/">Open the full trail planner</a>
+            </article>
+            <article class="river-hub-context__item">
+              <h3>Hickson Lake to Rock Island Road · 2.9 miles</h3>
+              <p>A short named water-trail leg with public access at both ends. Check Dagmar Road access and keep a marker or georeferenced map in sight through the floodplain channel.</p>
+              <a href="/rivers/bayou-deview-hickson-lake-rock-island-road/">Open the 2.9-mile section</a>
+            </article>
+            <article class="river-hub-context__item">
+              <h3>Rock Island Road to Apple Lake · 1.5 miles</h3>
+              <p>This short section ends at seasonal Apple Lake access. AGFC closes the Apple Lake Waterfowl Rest Area to access from November 1 through February 15.</p>
+              <a href="/rivers/bayou-deview-rock-island-road-apple-lake/">Open the 1.5-mile section</a>
+            </article>
+            <article class="river-hub-context__item">
+              <h3>Apple Lake to Bank of Brinkley · 4.3 miles</h3>
+              <p>Check the seasonal Apple Lake closure and the downstream Cache River National Wildlife Refuge boundary. Camping is available at marked Dagmar WMA sites; camping is not allowed on the refuge.</p>
+              <a href="/rivers/bayou-deview-apple-lake-bank-of-brinkley/">Open the 4.3-mile section</a>
+            </article>
+          </div>
+
+          <p>
+            AGFC says a gauge height around 14 feet or higher is needed to paddle the trail and warns that high water is dangerous. It separately says the Dagmar Road gate closes at 17 feet; use that as an access check, not a route-wide upper safety threshold. Follow the <a href="https://www.agfc.com/things-to-do/water-trails/bayou-deview-water-trail/" target="_blank" rel="noopener noreferrer">AGFC Bayou DeView guide</a>, carry its <a href="https://www.agfc.com/wp-content/uploads/2023/05/bayoudeviewwatertrail.pdf" target="_blank" rel="noopener noreferrer">georeferenced trail map</a>, and check the <a href="https://waterdata.usgs.gov/monitoring-location/USGS-07077730/" target="_blank" rel="noopener noreferrer">live USGS 07077730 gauge</a> and current road access before departure.
           </p>
         </div>
       ) : null}

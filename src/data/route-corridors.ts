@@ -100,6 +100,13 @@ export const routeCorridorDefinitions: RouteCorridorDefinition[] = [
     segmentEdges: [],
   },
   {
+    corridorId: 'ar-bayou-deview-water-trail',
+    label: 'Bayou DeView Water Trail access-chain family',
+    continuityStatus: 'condition-family',
+    slugPrefix: 'bayou-deview-',
+    segmentEdges: [],
+  },
+  {
     corridorId: 'or-willamette-upper-valley-water-trail',
     label: 'Upper Willamette Valley access and itinerary family',
     continuityStatus: 'condition-family',

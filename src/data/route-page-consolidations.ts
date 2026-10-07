@@ -44,6 +44,7 @@ const bayouTecheHubPath = '/rivers/by-river/bayou-teche-river-louisiana/';
 const willametteHubPath = '/rivers/by-river/willamette-river-oregon/';
 const greenRiverHubPath = '/rivers/by-river/green-river-kentucky/';
 const millersHubPath = '/rivers/by-river/millers-river-massachusetts/';
+const bayouDeViewHubPath = '/rivers/by-river/bayou-deview/';
 
 const blackCreekCompositeRouteSlugs = [
   'black-creek-big-creek-cypress',
@@ -396,6 +397,14 @@ const millersConsolidatedRouteSlugs = [
   'millers-river-south-main-dam-route-2',
 ] as const;
 
+const bayouDeViewConsolidatedRouteSlugs = [
+  'bayou-deview-benson-creek-rock-island-road',
+  'bayou-deview-benson-creek-apple-lake',
+  'bayou-deview-hickson-lake-bank-of-brinkley',
+  'bayou-deview-hickson-lake-apple-lake',
+  'bayou-deview-rock-island-road-bank-of-brinkley',
+] as const;
+
 const consolidatedRouteTargets = new Map<string, string>(
   [
     ...willimanticRouteSlugs.map((slug) => [slug, `${willimanticHubPath}?route=${slug}#trip-${slug}`] as const),
@@ -422,6 +431,7 @@ const consolidatedRouteTargets = new Map<string, string>(
     ...greenRiverConsolidatedRouteSlugs.map((slug) => [slug, `${greenRiverHubPath}?route=${slug}#trip-${slug}`] as const),
     ...millersConsolidatedRouteSlugs.map((slug) => [slug, `${millersHubPath}?route=${slug}#trip-${slug}`] as const),
     ['millers-river-erving-south-main-dam', `${millersHubPath}#millers-route-zones`] as const,
+    ...bayouDeViewConsolidatedRouteSlugs.map((slug) => [slug, `${bayouDeViewHubPath}?route=${slug}#trip-${slug}`] as const),
   ],
 );
 
