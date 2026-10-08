@@ -73,6 +73,7 @@ const isLeafRiverHub = group.riverId === 'leaf-river-mississippi';
 const isPascagoulaHub = group.riverId === 'pascagoula-river-mississippi';
 const isKennebecHub = group.riverId === 'kennebec-river';
 const isPenobscotHub = group.riverId === 'penobscot-river';
+const isAndroscogginMaineHub = group.riverId === 'androscoggin-river';
 const hasConsolidatedTrips = group.routes.some((route) => routePageConsolidationTarget(route.slug));
 const stateSummary = group.states.join(', ');
 const stateDisplay = group.states.join(' and ');
@@ -113,6 +114,8 @@ const groupTitle = isBroadRiverHub
   ? 'Pascagoula River Blueway, Mississippi | Sections & Access'
   : isKennebecHub
   ? 'Kennebec River, Maine | Paddle Sections & Gauge Guidance'
+  : isAndroscogginMaineHub
+  ? 'Androscoggin River, Maine | Paddle Sections & Access'
   : isPenobscotHub
   ? 'Penobscot River, Maine | Sections, Gauges & Access'
   : isCedarRiverAdirondacksHub
@@ -216,6 +219,8 @@ const groupDescription = isBroadRiverHub
   ? 'Compare Pascagoula Blueway sections from Merrill through Wilkerson Ferry, plus Highway 63 to River Park. Review gauge context, public ramp details, and wind, tide, and water-quality notes for your exact reach.'
   : isKennebecHub
   ? 'Compare 15 Kennebec River trips across upper, central, and tide-influenced lower sections. Check North Sidney proxy data upstream, the Gardiner gauge downstream, and route-specific access, release, wind, and tide notes.'
+  : isAndroscogginMaineHub
+  ? 'Plan Androscoggin River trips in Maine by the Mahoosucs and Greenway–Riverlands sections. Compare 11 endpoint choices and check the Rumford falls portage, public access, and tidal conditions with the watershed council.'
   : isPenobscotHub
   ? 'Compare North-central Penobscot sections from T3 R11 and Medway through Lincoln, Howland, Passadumkeag, and Milford, plus the Bangor Valley and tidal estuary. Check West Enfield or Bangor gauge context and public access for your exact trip.'
   : isCedarRiverAdirondacksHub
@@ -2094,7 +2099,9 @@ const groupStructuredData = [
         <article class="river-hub-context__item">
           <h3>Water levels</h3>
           <p>
-            {isYellowBreechesHub
+            {isAndroscogginMaineHub
+              ? 'USGS 01054500 at Rumford is direct telemetry only for its nearby reach and proxy context farther away. It is not a universal Androscoggin cutoff: the Maine route cards remain planning-only, and conditions, dam portages, and tide differ substantially by section.'
+              : isYellowBreechesHub
               ? 'Use USGS 01571500 at Camp Hill as same-creek context. Cumberland County recommends 1.4–2.0 ft for boating and lists 6 ft as action stage and 7 ft as flood stage; the gauge does not guarantee conditions at each access point.'
               : isSaltRiverHub
               ? 'USGS 09502000 below Stewart Mountain Dam is direct telemetry for this Lower Salt reach. HikeArizona gives 500 cfs as a community minimum and 1,000 cfs as desired, but does not publish an upper cutoff; check live trend, current advisories, and local conditions.'
@@ -2116,7 +2123,9 @@ const groupStructuredData = [
         <article class="river-hub-context__item">
           <h3>Route options</h3>
           <p>
-            {isYellowBreechesHub
+            {isAndroscogginMaineHub
+              ? `All ${group.routeCount} access-pair choices remain available on this hub. The individual route pages have been brought together here; choose by section and review the exact endpoint, access, distance, and hazard notes on each card.`
+              : isYellowBreechesHub
               ? `Compare all ${group.routeCount} Yellow Breeches endpoint choices from Simpson Park through McCormick Park, Lower Allen, and Liberty Forge to B6. Six focused trips have dedicated route guides; overlapping combinations remain available here, and the adjacent Simpson–McCormick leg is available as a short option.`
               : isSaltRiverHub
               ? `Compare all ${group.routeCount} Lower Salt endpoint choices from Water Users through Blue Point, Goldfield, and Phon D. Sutton to Granite Reef. Four adjacent sections have dedicated pages; six longer combinations remain selectable here with their own endpoints, mileage, access notes, and shuttle details.`
@@ -2188,6 +2197,52 @@ const groupStructuredData = [
           </p>
         </article>
       </div>
+
+      {isAndroscogginMaineHub ? (
+        <div class="river-hub-context__source-guide" id="androscoggin-maine-sections" aria-labelledby="androscoggin-maine-sections-title">
+          <div class="river-group-page__section-head">
+            <div>
+              <p class="eyebrow section-label">Androscoggin River Watershed Council · Maine</p>
+              <h3 class="section-title" id="androscoggin-maine-sections-title">Choose a section before planning the shuttle</h3>
+            </div>
+            <p class="muted river-group-page__section-note">
+              The trail guide documents more than 50 access sites and presents distinct North Woods, Mahoosucs, and Greenway–Riverlands sections with different river character and logistics. These 11 cards preserve endpoint choices; each card is a planning option, not an official trail itinerary.
+            </p>
+          </div>
+
+          <div class="river-hub-context__grid">
+            <article class="river-hub-context__item">
+              <h3>Mahoosucs · Gilead through Rumford</h3>
+              <p>
+                The watershed council describes a relatively gentle run through Gilead, Bethel, and Hanover before Rumford’s falls and dams. It identifies a popular Gilead-to-Bethel paddle and says the Rumford falls require a significant portage, with a take-out above town. Any longer card that crosses this boundary needs a separate portage and relaunch plan; do not treat it as continuous paddling.
+              </p>
+              <a href="#trip-androscoggin-river-hanover-mexico">Review the Hanover–Mexico access option</a>
+              {' '}
+              <a href="#trip-androscoggin-river-rumford-hanover">Compare the Hanover–Rumford access option</a>
+            </article>
+            <article class="river-hub-context__item">
+              <h3>Mexico–Dixfield–Canton · low-water shallows</h3>
+              <p>
+                Downstream of Rumford, the trail passes Mexico and Dixfield, then turns north toward Canton. The council names Dixfield to Canton as a self-guided paddle and warns that low flows can hide shallow sand and gravel bars. The Mexico–Canton card uses its own listed endpoints; check its exact access and water conditions rather than assuming the Dixfield itinerary is identical.
+              </p>
+              <a href="#trip-androscoggin-river-mexico-canton">Review the Mexico–Canton access option</a>
+            </article>
+            <article class="river-hub-context__item">
+              <h3>Greenway–Riverlands · impoundment, wind, and tide</h3>
+              <p>
+                Farther south, Turner’s Gulf Island Pond is backed up by a dam and has little current, while valley winds can still be strong. Near Brunswick, the council describes a tidal paddle and says upstream travel is easier with the tide; tide and wind can change conditions quickly. Treat these as different plans, and use the specific card’s endpoints and access notes.
+              </p>
+              <a href="#trip-androscoggin-river-turner-durham">Review the Turner–Durham access option</a>
+              {' '}
+              <a href="#trip-androscoggin-river-brunswick-topsham">Review the Brunswick–Topsham access option</a>
+            </article>
+          </div>
+
+          <p>
+            Maine DACF’s launch inventory verifies named public-access anchors, but it does not confirm current openings, parking, or every route mileage. Read the <a href="https://www.androscogginwatershedcouncil.org/general-2" target="_blank" rel="noopener noreferrer">official Androscoggin River Trail section guide</a> and its <a href="https://www.androscogginwatershedcouncil.org/about-6-1" target="_blank" rel="noopener noreferrer">self-guided paddle descriptions</a>, then confirm access through the <a href="https://www.maine.gov/dacf/parks/water_activities/boating/public_boat_launches/boat_sites.shtml" target="_blank" rel="noopener noreferrer">Maine public boat-launch inventory</a>. USGS 01054500 at Rumford is direct only near that station and proxy context elsewhere; it does not set a safe paddling threshold for the whole river.
+          </p>
+        </div>
+      ) : null}
 
       {isFarmingtonHub ? (
         <div class="river-hub-context__source-guide" id="farmington-river-access-notes" aria-labelledby="farmington-river-sections-title">

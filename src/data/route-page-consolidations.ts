@@ -121,6 +121,7 @@ const northForkMaquoketaHubPath = '/rivers/by-river/north-fork-maquoketa-river/'
 const crookedCreekHubPath = '/rivers/by-river/crooked-creek/';
 const southLlanoHubPath = '/rivers/by-river/south-llano-river/';
 const mulberryForkHubPath = '/rivers/by-river/mulberry-fork-alabama/';
+const androscogginMaineHubPath = '/rivers/by-river/androscoggin-river/';
 const buffaloRiverHubPath = '/rivers/by-river/buffalo-river/';
 
 const buffaloRiverConsolidatedRouteSlugs = [
@@ -168,6 +169,20 @@ const southLlanoConsolidatedRouteSlugs = [
 const mulberryForkConsolidatedRouteSlugs = [
   'mulberry-fork-blountville-cr10',
   'mulberry-fork-blountville-garden-city',
+] as const;
+
+const androscogginMaineConsolidatedRouteSlugs = [
+  'androscoggin-river-hanover-bethel',
+  'androscoggin-river-mexico-rumford',
+  'androscoggin-river-hanover-mexico',
+  'androscoggin-river-mexico-canton',
+  'androscoggin-river-canton-turner',
+  'androscoggin-river-turner-durham',
+  'androscoggin-river-durham-lewiston',
+  'androscoggin-river-lewiston-auburn',
+  'androscoggin-river-auburn-brunswick',
+  'androscoggin-river-brunswick-topsham',
+  'androscoggin-river-rumford-hanover',
 ] as const;
 
 const wabashRiverConsolidatedRouteSlugs = [
@@ -1026,6 +1041,7 @@ const consolidatedRouteTargets = new Map<string, string>(
     ...crookedCreekConsolidatedRouteSlugs.map((slug) => [slug, `${crookedCreekHubPath}#trip-${slug}`] as const),
     ...southLlanoConsolidatedRouteSlugs.map((slug) => [slug, `${southLlanoHubPath}#trip-${slug}`] as const),
     ...mulberryForkConsolidatedRouteSlugs.map((slug) => [slug, `${mulberryForkHubPath}#trip-${slug}`] as const),
+    ...androscogginMaineConsolidatedRouteSlugs.map((slug) => [slug, `${androscogginMaineHubPath}#trip-${slug}`] as const),
     ...buffaloRiverConsolidatedRouteSlugs.map((slug) => [slug, `${buffaloRiverHubPath}#trip-${slug}`] as const),
     ...floydsForkConsolidatedRouteSlugs.map((slug) => [slug, `${floydsForkHubPath}#trip-${slug}`] as const),
     ...barrenRiverConsolidatedRouteSlugs.map((slug) => [slug, `${barrenRiverHubPath}#trip-${slug}`] as const),
