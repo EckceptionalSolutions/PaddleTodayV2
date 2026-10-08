@@ -59,6 +59,7 @@ const isBlackstoneHub = group.riverId === 'blackstone-river-rhode-island';
 const isLeafRiverHub = group.riverId === 'leaf-river-mississippi';
 const isPascagoulaHub = group.riverId === 'pascagoula-river-mississippi';
 const isKennebecHub = group.riverId === 'kennebec-river';
+const isPenobscotHub = group.riverId === 'penobscot-river';
 const hasConsolidatedTrips = group.routes.some((route) => routePageConsolidationTarget(route.slug));
 const stateSummary = group.states.join(', ');
 const stateDisplay = group.states.join(' and ');
@@ -85,6 +86,8 @@ const groupTitle = isBroadRiverHub
   ? 'Pascagoula River Blueway, Mississippi | Sections & Access'
   : isKennebecHub
   ? 'Kennebec River, Maine | Paddle Sections & Gauge Guidance'
+  : isPenobscotHub
+  ? 'Penobscot River, Maine | Sections, Gauges & Access'
   : isCedarRiverAdirondacksHub
   ? 'Cedar River in the Adirondacks, New York | Paddle Routes & Access'
   : isCurrentRiverHub
@@ -160,6 +163,8 @@ const groupDescription = isBroadRiverHub
   ? 'Compare Pascagoula Blueway sections from Merrill through Wilkerson Ferry, plus Highway 63 to River Park. Review gauge context, public ramp details, and wind, tide, and water-quality notes for your exact reach.'
   : isKennebecHub
   ? 'Compare 15 Kennebec River trips across upper, central, and tide-influenced lower sections. Check North Sidney proxy data upstream, the Gardiner gauge downstream, and route-specific access, release, wind, and tide notes.'
+  : isPenobscotHub
+  ? 'Compare North-central Penobscot sections from T3 R11 and Medway through Lincoln, Howland, Passadumkeag, and Milford, plus the Bangor Valley and tidal estuary. Check West Enfield or Bangor gauge context and public access for your exact trip.'
   : isCedarRiverAdirondacksHub
   ? 'Compare two Adirondack Cedar River outings: an 8.5-mile Cedar River Flow out-and-back above Wakely Dam and the advanced 18-mile Pelon Road to Outer Gooley wilderness route. Check seasonal access, portages, gauge limits, and egress for the exact trip.'
   : isCedarRiverHub
@@ -849,6 +854,8 @@ const groupStructuredData = [
             ? 'Start with a short access section in the George County Pascagoula blueway, then compare longer options that share intermediate ramps. The Highway 63 to River Park reach is farther downstream in Jackson County; check the exact launch, take-out, gauge context, and wind or tide notes for your trip.'
             : isKennebecHub
             ? 'Choose a reach by area: upper sections around Solon, Madison, Skowhegan, and Norridgewock; central options through Waterville, Sidney, and Augusta; or lower trips toward Bath and Phippsburg. North Sidney is a proxy gauge upstream, while the Gardiner station and tide or wind checks are more relevant downstream.'
+            : isPenobscotHub
+            ? 'Plan by river section: North-central reaches around T3 R11, Medway, Lincoln, Howland, and Passadumkeag use West Enfield gauge context; the Bangor Valley and Bangor-to-Verona reach use the Bangor gauge and add tide, wind, and marine traffic. Check the exact access and take-out notes.'
             : isBlackCreekHub
             ? 'Start with the six documented Black Creek reaches from Churchwell Road through Fairley Bridge. The trip picker also includes longer landing combinations, with intermediate public access points for breaks or shorter exits.'
             : isLamoilleHub

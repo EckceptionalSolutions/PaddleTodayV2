@@ -42,6 +42,7 @@ const blackstoneHubPath = '/rivers/by-river/blackstone-river-rhode-island/';
 const leafRiverHubPath = '/rivers/by-river/leaf-river-mississippi/';
 const pascagoulaHubPath = '/rivers/by-river/pascagoula-river-mississippi/';
 const kennebecHubPath = '/rivers/by-river/kennebec-river/';
+const penobscotHubPath = '/rivers/by-river/penobscot-river/';
 const woonasquatucketHubPath = '/rivers/by-river/woonasquatucket-river-rhode-island/';
 const suwanneeHubPath = '/rivers/by-river/suwannee-river-florida/';
 const bayouTecheHubPath = '/rivers/by-river/bayou-teche-river-louisiana/';
@@ -778,6 +779,13 @@ const kennebecConsolidatedRouteSlugs = [
   'kennebec-river-waterville-augusta',
 ] as const;
 
+const penobscotConsolidatedRouteSlugs = [
+  'penobscot-river-medway-lincoln',
+  'penobscot-river-lincoln-passadumkeag',
+  'penobscot-river-medway-greenbush',
+  'penobscot-river-winn-greenbush',
+] as const;
+
 const millersConsolidatedRouteSlugs = [
   'millers-river-cass-meadow-farley',
   'millers-river-cass-meadow-millers-falls',
@@ -899,6 +907,7 @@ const consolidatedRouteTargets = new Map<string, string>(
     ...leafRiverConsolidatedRouteSlugs.map((slug) => [slug, `${leafRiverHubPath}#trip-${slug}`] as const),
     ...pascagoulaConsolidatedRouteSlugs.map((slug) => [slug, `${pascagoulaHubPath}#trip-${slug}`] as const),
     ...kennebecConsolidatedRouteSlugs.map((slug) => [slug, `${kennebecHubPath}#trip-${slug}`] as const),
+    ...penobscotConsolidatedRouteSlugs.map((slug) => [slug, `${penobscotHubPath}#trip-${slug}`] as const),
     ...millersConsolidatedRouteSlugs.map((slug) => [slug, `${millersHubPath}#trip-${slug}`] as const),
     ['millers-river-erving-south-main-dam', `${millersHubPath}#millers-route-zones`] as const,
     ...bayouDeViewConsolidatedRouteSlugs.map((slug) => [slug, `${bayouDeViewHubPath}#trip-${slug}`] as const),
