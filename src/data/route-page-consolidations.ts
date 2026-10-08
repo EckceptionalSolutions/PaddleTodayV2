@@ -107,6 +107,7 @@ const housatonicRiverHubPath = '/rivers/by-river/housatonic-river-massachusetts/
 const sanJuanRiverHubPath = '/rivers/by-river/san-juan-river-new-mexico/';
 const rioGrandeNewMexicoHubPath = '/rivers/by-river/rio-grande-new-mexico/';
 const crowWingRiverHubPath = '/rivers/by-river/crow-wing-river/';
+const minnesotaRiverHubPath = '/rivers/by-river/minnesota-river/';
 const chattahoocheeHubPath = '/rivers/by-river/chattahoochee-river/';
 const saukRiverHubPath = '/rivers/by-river/sauk-river/';
 const truckeeRiverHubPath = '/rivers/by-river/truckee-river-nevada/';
@@ -443,6 +444,10 @@ const crowWingConsolidatedRouteSlugs = [
   'crow-wing-river-andersons-crossing-cottingham',
   'crow-wing-river-stigmans-mound-cottingham',
   'crow-wing-river-huntersville-stigmans-mound',
+] as const;
+
+const minnesotaRiverConsolidatedRouteSlugs = [
+  'minnesota-river-belle-plaine-carver',
 ] as const;
 
 const chattahoocheeConsolidatedRouteSlugs = [
@@ -1135,6 +1140,7 @@ const consolidatedRouteTargets = new Map<string, string>(
     ...sanJuanConsolidatedRouteSlugs.map((slug) => [slug, `${sanJuanRiverHubPath}#trip-${slug}`] as const),
     ...rioGrandeNewMexicoConsolidatedRouteSlugs.map((slug) => [slug, `${rioGrandeNewMexicoHubPath}#trip-${slug}`] as const),
     ...crowWingConsolidatedRouteSlugs.map((slug) => [slug, `${crowWingRiverHubPath}#trip-${slug}`] as const),
+    ...minnesotaRiverConsolidatedRouteSlugs.map((slug) => [slug, `${minnesotaRiverHubPath}#trip-${slug}`] as const),
     ...chattahoocheeConsolidatedRouteSlugs.map((slug) => [slug, `${chattahoocheeHubPath}#chattahoochee-sections-title`] as const),
     ...saukRiverConsolidatedRouteSlugs.map((slug) => [slug, `${saukRiverHubPath}#trip-${slug}`] as const),
     ...truckeeRiverConsolidatedRouteSlugs.map((slug) => [slug, `${truckeeRiverHubPath}#trip-${slug}`] as const),
