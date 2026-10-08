@@ -263,6 +263,20 @@ const npsChattahoocheeRoutes: River[] = (() => {
   return out;
 })();
 
+const publishedChattahoocheeRouteSlugs = new Set([
+  'chattahoochee-river-lower-pool-abbotts-bridge',
+  'chattahoochee-river-abbotts-bridge-medlock-bridge',
+  'chattahoochee-river-medlock-bridge-jones-bridge',
+  'chattahoochee-river-medlock-bridge-garrard-landing',
+  'chattahoochee-river-island-ford-don-white',
+  'chattahoochee-river-jones-bridge-chattahoochee-river-park',
+  'chattahoochee-river-morgan-falls-park-johnson-ferry',
+  'chattahoochee-river-johnson-ferry-powers-island',
+  'chattahoochee-river-ga115-duncan-bridge',
+  'chattahoochee-river-powers-island-paces-mill',
+  'chattahoochee-river-columbus-whitewater-park',
+]);
+
 type NpsDocumentedFloat = {
   id: string;
   from: string;
@@ -681,4 +695,5 @@ export const georgiaRoutes: River[] = [
   }),
   ...npsDocumentedFloatRoutes,
   ...npsChattahoocheeRoutes,
-].map(applyNpsChattahoocheePutInGauge);
+].map(applyNpsChattahoocheePutInGauge)
+  .filter((route) => !route.id.startsWith('chattahoochee-river-') || publishedChattahoocheeRouteSlugs.has(route.slug));

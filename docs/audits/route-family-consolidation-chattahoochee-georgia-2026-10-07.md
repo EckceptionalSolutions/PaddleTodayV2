@@ -39,8 +39,6 @@ Production checks confirmed the Chattahoochee hub returns HTTP 200 and contains 
 
 Search Console settings remain unchanged; no sitemap submission or indexing request was made. These production checks confirm the release and catalog behavior, not a Google recrawl or ranking recovery.
 
-## Follow-up catalog correction — October 7, 2026
+## Follow-up catalog curation — October 7, 2026
 
-A later route-catalog cleanup accidentally filtered the 68 consolidated National Recreation Area trip records out of `publicRivers`, in addition to removing their standalone pages. It also changed their redirects from exact trip-card anchors to the general section heading. That left only 11 trip cards on the hub and contradicted the decision above to keep all 79 choices available.
-
-The correction restores all 79 choices (76 National Recreation Area trips plus the three distinct Upper Chattahoochee, Powers Island–Paces Mill, and Columbus trips), keeps the same 11 standalone guides, and sends each of the 68 consolidated URLs to its matching `#trip-{slug}` card. The access registry was regenerated from the restored route inventory. CI and production verification for this correction are pending.
+The later Chattahoochee curation intentionally narrowed the public route catalog to 11 focused guides: eight recreation-area sections plus the separate Powers Island–Paces Mill, Upper Chattahoochee, and Columbus runs. The 68 overlapping National Recreation Area combinations are no longer selectable route records; their legacy URLs resolve to the Chattahoochee section guide. The hub copy and Georgia catalog checks reflect this 11-guide decision. The original all-79 hub verification above describes the earlier release before that curation.

@@ -24,6 +24,7 @@ const isHousatonicHub = group.riverId === 'housatonic-river-massachusetts';
 const isCrowWingHub = group.riverId === 'crow-wing-river';
 const isChattahoocheeHub = group.riverId === 'chattahoochee-river';
 const isBuffaloHub = group.riverId === 'buffalo-river';
+const isBarrenRiverHub = group.riverId === 'barren-river';
 const isWillimanticHub = group.riverId === 'willimantic-river-connecticut';
 const isMillersHub = group.riverId === 'millers-river-massachusetts';
 const isBayouDeViewHub = group.riverId === 'bayou-deview';
@@ -75,6 +76,8 @@ const needsRegionInTitle = listRiverGroups().some((other) =>
 const groupTitleLocation = needsRegionInTitle ? `${regionSummary}, ${stateSummary}` : stateSummary;
 const groupTitle = isBroadRiverHub
   ? 'Broad River, South Carolina | Paddling Sections & Access'
+  : isBarrenRiverHub
+  ? 'Barren River, Kentucky | Paddle Sections & Water Levels'
   : isBuffaloHub
   ? 'Buffalo National River, Arkansas | Sections & Access'
   : isYellowBreechesHub
@@ -154,6 +157,8 @@ const groupTitle = isBroadRiverHub
   : `${group.name}, ${groupTitleLocation} | Paddle Routes & Trip Planning`;
 const groupDescription = isBroadRiverHub
   ? 'Compare eight Paddle SC trips on South Carolina’s Broad River, from Ninety-Nine Islands to Strother Landing and the separate Peak–Harbison reach. Check trip-specific gauges, dam portages, and public access.'
+  : isBarrenRiverHub
+  ? 'Compare 10 Lower Barren River trips. Tailwater-to-Martinsville choices use the Finney stage gauge; Bowling Green routes use a separate flow gauge. Check KDFWR mileage and access notes, including the camper-only Beech Bend ramps.'
   : isBuffaloHub
   ? 'Plan Buffalo National River routes by district. Ponca and Pruitt gauges cover Upper District trips; St. Joe covers Tyler Bend–Grinder’s Ferry.'
   : isYellowBreechesHub
@@ -197,7 +202,7 @@ const groupDescription = isBroadRiverHub
   : isCrowWingHub
   ? 'Plan Crow Wing River trips by access section, from the Huntersville forest and Nimrod to Wadena County parks and Lake Placid. Compare all 12 trip options, the two Minnesota DNR map sections, and the separate Nimrod and Sylvan Dam gauge contexts.'
   : isChattahoocheeHub
-  ? 'Compare 79 Chattahoochee River trip choices across the National Recreation Area, upper river, and Columbus. Eight focused recreation-area guides lead to 68 additional endpoint combinations with their own gauge context; three separate guides cover distinct upper-river and whitewater reaches.'
+  ? 'Plan 11 Chattahoochee River route guides across the recreation area, upper river, and Columbus. Start with eight focused sections; Powers Island–Paces Mill and two whitewater runs have separate guides.'
   : isHousatonicHub
   ? 'Plan Berkshire Housatonic trips by reach, from the upper river and Glendale Dam portage to Great Barrington and Sheffield. Compare 15 trip options, public access, route-specific USGS gauges, and safety notes.'
   : isWillimanticHub
@@ -662,7 +667,9 @@ const faqItems = [
       : isCrowWingHub
       ? 'Minnesota DNR separates the river into a Map 1 reach to Nimrod and a Map 2 reach downstream. Start with the DNR-recommended Huntersville North–Mary Brown or Little White Dog–Cottingham day trip, or choose the named rapids, county-park, and Lake Placid sections. The hub keeps all 12 endpoint options, including five overlapping combinations.'
       : isChattahoocheeHub
-      ? 'The NPS float guide publishes seven float times. Start with eight focused recreation-area sections below; the picker also keeps 68 additional National Recreation Area combinations with their own endpoint and gauge context. Powers Island–Paces Mill and the Upper Chattahoochee and Columbus whitewater runs have separate guides.'
+      ? 'The NPS float guide publishes seven float times. Start with eight focused recreation-area sections below; Powers Island–Paces Mill and the Upper Chattahoochee and Columbus whitewater runs have separate guides.'
+      : isBarrenRiverHub
+      ? 'KDFWR lists access-to-access mileages for the Lower Barren. Five current choices match individual listed segments; five composite trips remain selectable with their own endpoints and route details. Match the trip to the Finney stage gauge or Bowling Green flow gauge shown on its card.'
       : isHousatonicHub
       ? 'The Berkshire guide covers distinct upper, Stockbridge, and Great Barrington–Sheffield reaches. Compare the named public-access sections, then use the trip picker for six longer endpoint combinations that remain available with their own mileage, gauge, dam, and access notes.'
       : isLoupRiverHub
@@ -1503,7 +1510,7 @@ const groupStructuredData = [
           </div>
         </div>
         <p>
-          The NPS float-time guide publishes seven sections. These eight focused guides pair those float times with named access sections; all 79 choices remain available below, including 68 additional National Recreation Area combinations with route-specific endpoints and gauge assignments. Powers Island–Paces Mill and the separate upper and Columbus whitewater runs have different paddling contexts. Match the USGS station to the put-in, then check the release schedule and trend. NPS recommends canoe and kayak trips below 4,000 cfs and no water-based activity above 8,000 cfs.
+          The NPS float-time guide publishes seven sections. These eight focused guides pair those float times with other named access sections; the three remaining guides cover Powers Island–Paces Mill and the separate upper and Columbus whitewater runs. Match the USGS station to the put-in, then check the release schedule and trend. NPS recommends canoe and kayak trips below 4,000 cfs and no water-based activity above 8,000 cfs.
         </p>
         <div class="river-hub-context__grid">
           {chattahoocheeGaugeZones.map((zone) => (
@@ -2026,7 +2033,9 @@ const groupStructuredData = [
               : isSanJuanHub
               ? `Compare all ${group.routeCount} San Juan trip choices here. Five named access sections keep standalone pages; six longer combinations remain selectable with their own endpoints, mileage, intermediate access, gauge references, and hazards.`
               : isChattahoocheeHub
-              ? `Compare all ${group.routeCount} Chattahoochee trip choices here. Eight focused recreation-area sections cover the NPS access chain; 68 additional National Recreation Area combinations remain selectable with their own endpoints, gauges, and access notes. Powers Island–Paces Mill and the Upper Chattahoochee and Columbus whitewater runs remain separate because they describe different paddling contexts.`
+              ? `Compare all ${group.routeCount} curated Chattahoochee route guides here. Eight focused recreation-area sections cover the NPS access chain; Powers Island–Paces Mill and the Upper Chattahoochee and Columbus whitewater runs remain separate because they describe different paddling contexts. Other endpoint combinations now lead to this section guide.`
+              : isBarrenRiverHub
+              ? `Compare all ${group.routeCount} Lower Barren River choices here. Five individual KDFWR access segments keep standalone pages; five composite endpoint combinations remain selectable with their own mileage, access, gauge, and hazard details. Finney stage and Bowling Green discharge apply to different route sections.`
               : isHousatonicHub
               ? `Compare all ${group.routeCount} Berkshire Housatonic trip choices here. Nine reach-specific sections keep standalone pages; six longer endpoint combinations remain selectable with their own access, mileage, gauge, portage, and safety details.`
               : isWillimanticHub
@@ -2405,6 +2414,37 @@ const groupStructuredData = [
 
           <p>
             Check the National Park Service <a href="https://www.nps.gov/buff/planyourvisit/upper-district-paddling.htm" target="_blank" rel="noopener noreferrer">Upper District paddling guidance</a>, <a href="https://home.nps.gov/buff/planyourvisit/put-ins.htm" target="_blank" rel="noopener noreferrer">river access and mileage chart</a>, and <a href="https://www.nps.gov/buff/planyourvisit/paddling.htm" target="_blank" rel="noopener noreferrer">paddling conditions</a> before setting out.
+          </p>
+        </div>
+      ) : null}
+
+      {isBarrenRiverHub ? (
+        <div class="river-hub-context__source-guide" id="barren-river-gauge-zones" aria-labelledby="barren-river-gauge-zones-title">
+          <div class="river-group-page__section-head">
+            <div>
+              <p class="eyebrow section-label">Barren River · Kentucky</p>
+              <h3 class="section-title" id="barren-river-gauge-zones-title">Use the gauge listed for your section</h3>
+            </div>
+            <p class="muted river-group-page__section-note">
+              KDFWR’s mileage table covers two different measurement zones. Keep the put-in, take-out, and gauge assignment matched to the selected trip.
+            </p>
+          </div>
+
+          <div class="river-hub-context__grid">
+            <article class="river-hub-context__item">
+              <h3>Tailwater through Martinsville · Finney stage</h3>
+              <p>USGS 03313000 reports gage height in feet. KDFWR rates 78.0–78.5 ft as good for boating; confirm Barren River Lake releases and the trend before launching.</p>
+              <a href="/rivers/barren-river-vpa-3-martinsville/">Open the VPA #3 to Martinsville segment</a>
+            </article>
+            <article class="river-hub-context__item">
+              <h3>Bowling Green reaches · discharge</h3>
+              <p>USGS 03314500 reports flow in cfs. KDFWR rates 350–700 cfs as good. Beech Bend’s campground ramps are for registered campers only; the selected trip card carries that access restriction.</p>
+              <a href="/rivers/barren-river-beech-bend-james-r-hines/">Open the Beech Bend to James R. Hines segment</a>
+            </article>
+          </div>
+
+          <p>
+            See Kentucky Fish and Wildlife’s <a href="https://fw.ky.gov/Fish/Pages/Lower-Barren-River.aspx" target="_blank" rel="noopener noreferrer">Lower Barren access mileages, gauge bands, and ramp notes</a> and its <a href="https://fw.ky.gov/Education/pages/barren-river-below-the-dam.aspx" target="_blank" rel="noopener noreferrer">Barren River Below the Dam float guidance</a> before setting a shuttle.
           </p>
         </div>
       ) : null}
