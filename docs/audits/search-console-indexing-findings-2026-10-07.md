@@ -55,3 +55,13 @@ The route-detail template labeled the four closest routes on any other river as 
 This is a user and internal-link relevance improvement. It is not presented as a confirmed explanation for the indexing totals or traffic decline. Route-family consolidations, including the October 7 Penobscot update, address the larger pattern of overlapping route pages while keeping trip choices and their local planning notes on the river hub.
 
 No sitemap submission, URL Inspection indexing request, or Search Console validation request was made.
+
+## Bartram Canoe Trail route-family review — October 8, 2026
+
+The Bartram Canoe Trail has 13 route choices in one Mobile–Tensaw Delta system. Search Console Performance showed zero clicks and impressions for `/rivers/bartram-` URLs from April 28 through October 5. Its Page indexing report had not discovered the Bartram hub and one route, while another route was reported as unknown to Google. The hub and route inspection records showed no referring page and no prior crawl.
+
+Those stored discovery results do not match the current site graph: the Bartram hub and route pages return 200, are index-follow with self canonicals, and appear in the current sitemap; the Alabama state page and Bartram hub link to the trip cards. Google’s October 8 live test said the Globe Creek route was available and eligible to index. This sample does not identify a current sitemap, robots, or internal-link defect, and it does not explain why Google has not crawled the stored examples.
+
+The 13 standalone route URLs now lead to their corresponding trip cards on `/rivers/by-river/bartram-canoe-trail-alabama/`. All 13 route choices remain available with their separate mileage, waterway, access, gauge, safety, and overnight details. The official brochure documents meaningful differences among routes, including three French’s Lake–Hubbard Landing itineraries: a 6.8-mile Globe Creek day trip, an approximately 11-mile Canal Island platform overnight, and a 16-mile Spoonbill Sandbar campsite overnight. Consolidation reduces the number of indexable landing pages without collapsing these materially different trip plans into one card.
+
+This is a page-selection and site-structure improvement based on low observed search demand, shared geography, and the existing hub’s trip-specific content. It is not evidence that content similarity alone caused the broader indexing or traffic decline.
