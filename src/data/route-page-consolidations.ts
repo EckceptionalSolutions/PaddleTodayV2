@@ -1118,7 +1118,7 @@ const consolidatedRouteTargets = new Map<string, string>(
       willimanticFeaturedRouteSlugs.has(slug) ? `${willimanticHubPath}#trip-${slug}` : willimanticHubPath,
     ] as const),
     ...blackCreekCompositeRouteSlugs.map((slug) => [slug, `${blackCreekHubPath}#black-creek-access-sequence-title`] as const),
-    ...lamoilleCompositeRouteSlugs.map((slug) => [slug, `/rivers/by-river/lamoille-river-vermont/#trip-${slug}`] as const),
+    ...lamoilleCompositeRouteSlugs.map((slug) => [slug, '/rivers/by-river/lamoille-river-vermont/#lamoille-recommended-reaches-title'] as const),
     ...woonasquatucketAccessGapRouteSlugs.map((slug) => [slug, `${woonasquatucketHubPath}#woonasquatucket-access-zones`] as const),
     ...woonasquatucketUpperCompositeRouteSlugs.map((slug) => [slug, `${woonasquatucketHubPath}#trip-${slug}`] as const),
     ...suwanneeConsolidatedRouteSlugs.map((slug) => [

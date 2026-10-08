@@ -19,6 +19,7 @@ export function getStaticPaths() {
 
 const { group: sourceGroup } = Astro.props;
 const isBlackCreekHub = sourceGroup.riverId === 'black-creek-mississippi';
+const isLamoilleHub = sourceGroup.riverId === 'lamoille-river-vermont';
 const blackCreekFeaturedTripSlugs = new Set([
   'black-creek-churchwell-big-creek',
   'black-creek-big-creek-old-highway-49',
@@ -27,11 +28,24 @@ const blackCreekFeaturedTripSlugs = new Set([
   'black-creek-janice-cypress',
   'black-creek-cypress-fairley',
 ]);
+const lamoilleFeaturedTripSlugs = new Set([
+  'lamoille-river-upper-access-morrisville-oxbow',
+  'lamoille-river-cadyville-waterman-brook',
+  'lamoille-river-dog-head-dorothy-smith',
+  'lamoille-river-dorothy-smith-fairfax-falls',
+  'lamoille-river-fairfax-arrowhead',
+]);
 const group = isBlackCreekHub
   ? {
       ...sourceGroup,
       routes: sourceGroup.routes.filter((route) => blackCreekFeaturedTripSlugs.has(route.slug)),
       routeCount: blackCreekFeaturedTripSlugs.size,
+    }
+  : isLamoilleHub
+  ? {
+      ...sourceGroup,
+      routes: sourceGroup.routes.filter((route) => lamoilleFeaturedTripSlugs.has(route.slug)),
+      routeCount: lamoilleFeaturedTripSlugs.size,
     }
   : sourceGroup;
 const isBroadRiverHub = group.riverId === 'broad-river';
@@ -59,7 +73,6 @@ const isFloydsForkHub = group.riverId === 'floyds-fork';
 const isBlackfootHub = group.riverId === 'blackfoot-river-montana';
 const isWillametteHub = group.riverId === 'willamette-river-oregon';
 const isRussianRiverHub = group.riverId === 'russian-river-california';
-const isLamoilleHub = group.riverId === 'lamoille-river-vermont';
 const isWoonasquatucketHub = group.riverId === 'woonasquatucket-river-rhode-island';
 const isSuwanneeHub = group.riverId === 'suwannee-river-florida';
 const isWinooskiHub = group.riverId === 'winooski-river-vermont';
@@ -797,7 +810,7 @@ const faqItems = [
       : isBlackCreekHub
       ? 'This hub focuses on six documented adjacent Black Creek reaches, each with its own distance, access, and route notes. Use the landing sequence to plan a longer outing from consecutive sections.'
       : isLamoilleHub
-      ? `The Lamoille Paddlers Trail names separate day reaches from the upper valley through Johnson and Jeffersonville to Arrowhead Lake. Start with the source-backed day trips below, then compare other access combinations by distance, portage, and local hazards.`
+      ? 'The Lamoille Paddlers’ Trail names separate day reaches from the upper valley through Johnson and Jeffersonville to Arrowhead Lake. This guide focuses on five documented day trips; use the trail map to plan other endpoint combinations, portages, and local hazards.'
       : isWoonasquatucketHub
       ? 'Use this guide for the separate Georgiaville-to-Greystone upper paddle and Manton-to-Providence lower paddles. The WRWC guide says the intervening pond corridor has no public access points and four dam portages that are not well established, so there is no verified continuous through-trip between the zones.'
       : isBayouTecheHub
@@ -1003,7 +1016,7 @@ const groupStructuredData = [
             : isBlackCreekHub
             ? 'Choose among six documented Black Creek reaches from Churchwell Road through Fairley Bridge. Their distances and access notes are specific to each section; plan longer outings by linking consecutive landings and check current water and Forest Service conditions.'
             : isLamoilleHub
-            ? 'Choose a named Lamoille Paddlers’ Trail reach, then check its specific portages, water type, and access. The trail spans quiet water, rock gardens, falls, and Arrowhead Lake; a Johnson gauge reading does not describe every route hazard.'
+            ? 'Choose from five named Lamoille Paddlers’ Trail day trips, then check the selected reach’s portages, water type, and access. The trail spans quiet water, rock gardens, falls, and Arrowhead Lake; a Johnson gauge reading does not describe every route hazard.'
             : isWoonasquatucketHub
             ? 'Plan the upper Georgiaville–Greystone paddle and the lower Manton–Providence paddles as separate zones. The WRWC guide describes an unverified access and portage gap between them; check the source notes before planning a longer trip.'
             : isBayouTecheHub
@@ -1765,7 +1778,7 @@ const groupStructuredData = [
           </div>
         </div>
         <p>
-          The trail guide separates the river into named day reaches with different water types, falls and portages. Start with one of these documented trips, then use the picker for other endpoint combinations. Keep the Johnson gauge, weather, mandatory carries and route-specific access notes in view; the Arrowhead Lake section also has reservoir wind exposure. See the <a href="https://www.lamoilleriverpaddlerstrail.org/recommended-trips/" rel="noopener">Lamoille River Paddlers’ Trail recommended trips</a> and its <a href="https://www.lamoilleriverpaddlerstrail.org/maps/" rel="noopener">maps and access guide</a> for current route context.
+          The trail guide separates the river into named day reaches with different water types, falls and portages. This page highlights five documented trips so the overlapping endpoint combinations are easier to compare. For a longer outing or a different launch and take-out, plan from consecutive reaches with the trail map. Keep the Johnson gauge, weather, mandatory carries and route-specific access notes in view; the Arrowhead Lake section also has reservoir wind exposure. See the <a href="https://www.lamoilleriverpaddlerstrail.org/recommended-trips/" rel="noopener">Lamoille River Paddlers’ Trail recommended trips</a> and its <a href="https://www.lamoilleriverpaddlerstrail.org/maps/" rel="noopener">maps and access guide</a> for current route context.
         </p>
         <ul>
           {lamoilleSegments.map((segment) => segment.route ? (

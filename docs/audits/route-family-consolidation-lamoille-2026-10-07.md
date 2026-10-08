@@ -31,3 +31,9 @@ The [Lamoille River Paddlers’ Trail recommended trips](https://www.lamoilleriv
 ## Rollout and limits
 
 The 23 page URLs leave the generated sitemap after deployment and build. The live sitemap and Google index will change only after deployment and recrawl. This reduces the route-family page count from 28 to five while preserving all trip choices; it does not show that overlapping content caused the wider traffic decline.
+
+## Picker curation follow-up — October 8, 2026
+
+The earlier choice to retain all 28 endpoint combinations in the hub picker is superseded. The public hub now presents the five documented day trips that already have standalone route pages. This cuts visible trip choices from 28 to five while preserving every route record, score, and planner/API entry in the source catalog. The other 23 legacy route URLs lead to the named-reaches guide section rather than an absent trip card.
+
+The Trail guide also describes a longer Cadyville-to-below-Johnson outing and overnight itineraries. The current local endpoint pairs do not map cleanly to that described 10-mile take-out, so the hub does not label a different route as that trip; the Trail's recommended-trip page and access map remain linked for users planning custom or overnight trips. This curation changes only the hub's displayed choices and the destinations for retired route URLs; it does not merge the Lamoille's distinct water sections or alter their gauge and hazard data.
