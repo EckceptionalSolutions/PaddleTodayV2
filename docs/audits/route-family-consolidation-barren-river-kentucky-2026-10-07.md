@@ -26,6 +26,8 @@ Consolidate these five composite route pages to their exact trip cards on `/rive
 
 All 10 choices remain available in the hub selector with their own endpoints, mileage, gauge assignment, access conditions, and hazards. The hub now separates the Finney stage and Bowling Green discharge guidance and links to KDFWR's mileage and access source.
 
+The legacy `/rivers/barren-river-tailwater-vpa-3` URL now redirects directly to the Tailwater–Martinsville trip card, avoiding a redirect through a consolidated-away standalone page.
+
 ## Sources
 
 - Kentucky Department of Fish and Wildlife Resources, [Lower Barren River access mileages, gauge bands, and ramp notes](https://fw.ky.gov/Fish/Pages/Lower-Barren-River.aspx)

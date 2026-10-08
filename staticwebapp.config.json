@@ -409,7 +409,7 @@
     },
     {
       "route": "/rivers/barren-river-tailwater-vpa-3",
-      "redirect": "/rivers/barren-river-tailwater-martinsville/",
+      "redirect": "/rivers/by-river/barren-river/#trip-barren-river-tailwater-martinsville",
       "statusCode": 301
     },
     {
