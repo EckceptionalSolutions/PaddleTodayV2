@@ -5,6 +5,7 @@ const dockGuide = { label: 'TECHE Project Bayou Teche National Paddle Trail dock
 const mapGuide = { label: 'TECHE Project Bayou Teche paddle trail maps and safety information', url: 'https://www.techeproject.org/bayou-teche-paddle-trail/map/', provider: 'local' as const };
 const waterLevels = { label: 'Teche-Vermilion current water levels and USGS links', url: 'https://teche-vermilion.gov/teche-vermilion-water-levels/', provider: 'local' as const };
 const riverGuide = { label: 'TECHE Project Bayou Teche National Paddle Trail overview', url: 'https://www.techeproject.org/', provider: 'local' as const };
+const paddlePlanner = { label: 'TECHE Project Bayou Teche Paddle Trail Planner and estimated travel times', url: 'https://www.techeproject.org/wp-content/uploads/2022/08/PaddlePlanner_spreads.pdf', provider: 'local' as const };
 const gauge = { id: 'usgs-07385450', provider: 'usgs' as const, siteId: '07385450', metric: 'gage_height_ft' as const, unit: 'ft' as const, kind: 'direct' as const, siteName: 'Bayou Teche at Port Barre, LA', detailUrl: 'https://waterdata.usgs.gov/monitoring-location/USGS-07385450/' };
 
 // Parks launch anchor: Bayou Teche Paddle Trail plan lists the 2011/12 motorboat launch at 30°12.813'N, 91°49.746'W; TECHE Project currently lists the official dock at 1019 Periou St.
@@ -30,12 +31,76 @@ const docks = {
   centerville: { name: 'Centerville Schwan Park dock (imagery-derived water-entry edge)', latitude: 29.760737, longitude: -91.419060 },
 };
 
+// TECHE's planner publishes directional estimates for these adjacent trail sections.
+// The Baldwin–Franklin and Franklin–Centerville entries below are estimates for the
+// reverse direction; the source notes that flow can vary near Franklin.
+const plannerDockChain = [
+  { dock: docks.portBarre, hoursFromPrevious: null, reverseEstimate: false },
+  { dock: docks.leonville, hoursFromPrevious: 4, reverseEstimate: false },
+  { dock: docks.arnaudville, hoursFromPrevious: 2.75, reverseEstimate: false },
+  { dock: docks.poche, hoursFromPrevious: 3.75, reverseEstimate: false }, // Arnaudville–Cecilia–Poché Bridge
+  { dock: docks.breaux, hoursFromPrevious: 1.75, reverseEstimate: false },
+  { dock: docks.parks, hoursFromPrevious: 3, reverseEstimate: false },
+  { dock: docks.stMartinville, hoursFromPrevious: 2.5, reverseEstimate: false },
+  { dock: docks.loreauville, hoursFromPrevious: 5, reverseEstimate: false }, // includes the documented portage
+  { dock: docks.newIberia, hoursFromPrevious: 3.75, reverseEstimate: false },
+  { dock: docks.jeanerette, hoursFromPrevious: 4.5, reverseEstimate: false },
+  { dock: docks.charenton, hoursFromPrevious: 3.5, reverseEstimate: false },
+  { dock: docks.baldwin, hoursFromPrevious: 2.25, reverseEstimate: false },
+  { dock: docks.franklin, hoursFromPrevious: 4.75, reverseEstimate: true },
+  { dock: docks.centerville, hoursFromPrevious: 3, reverseEstimate: true },
+] as const;
+
+function formatDuration(hours: number): string {
+  const minutes = Math.round(hours * 60);
+  const wholeHours = Math.floor(minutes / 60);
+  const remainingMinutes = minutes % 60;
+  return remainingMinutes ? `${wholeHours} hr ${remainingMinutes} min` : `${wholeHours} hr`;
+}
+
+function publishedTravelTime(putInName: string, takeOutName: string) {
+  const start = plannerDockChain.findIndex(({ dock }) => dock.name === putInName);
+  const finish = plannerDockChain.findIndex(({ dock }) => dock.name === takeOutName);
+  if (start < 0 || finish <= start) return undefined;
+
+  const segments = plannerDockChain.slice(start + 1, finish + 1);
+  const hours = segments.reduce((total, segment) => total + (segment.hoursFromPrevious ?? 0), 0);
+  const estimate = formatDuration(hours);
+  const reverseEstimate = segments.some((segment) => segment.reverseEstimate);
+  const crossesPortage = start < 7 && finish >= 7;
+  const note = [
+    `TECHE Project's planner lists times for the component sections; together they total about ${estimate} of paddling for these endpoints.`,
+    'Add time for the vehicle shuttle, stops, wind and changing current.',
+    ...(crossesPortage ? ['The estimate includes the St. Martinville portage.'] : []),
+    ...(reverseEstimate ? ['The Baldwin–Franklin and Franklin–Centerville figures come from the reverse direction; TECHE notes that flow can vary near Franklin, so treat this total as a planning reference and check conditions before setting out.'] : []),
+  ].join(' ');
+
+  return {
+    hours,
+    estimate,
+    note,
+    reverseEstimate,
+    crossesPortage,
+  };
+}
+
 const common: Omit<StarterPlanningSpec, 'id' | 'putIn' | 'takeOut' | 'miles' | 'summary'> = {
-  name: 'Bayou Teche', riverId: 'bayou-teche-river-louisiana', state: 'Louisiana', region: 'St. Landry / St. Martin / Iberia parishes', difficulty: 'easy', difficultyNotes: 'Slow-moving bayou with long sightlines and town access, but bridges, boat traffic, strainers, wind-driven reversals and lock or levee structures require active scouting.', seasonMonths: [1,2,3,4,5,6,7,8,9,10,11,12], seasonNotes: 'The bayou is paddleable year-round in principle, but check the latest USGS stage, available flow readings, thunderstorms, heat, water quality, town hours and current dock notices before launch.', gauge, conditionsNote: 'USGS station 07385450 at Port Barre currently reports stage, but its discharge record ended October 26, 2024. The app has no verified stage-based scoring range for this dock chain, so these routes remain planning-only. Review the linked USGS and Teche-Vermilion readings, forecasts and local conditions before launch.', hazards: ['low_water','strainers','fast_rise','flash_flood','private_banks','motorized_traffic'] as StarterPlanningSpec['hazards'], safetyNotes: ['Wear a properly fitted PFD and carry communication, offline navigation, water, sun protection and a shuttle plan.', 'Check the latest USGS stage, flow readings where available, rainfall and flood notices immediately before launch; a slow bayou can rise or reverse after storms, pumps or wind.', 'Stay clear of bridges, low-head or lock structures, levees and commercial traffic. Portage the documented St. Martinville obstruction and do not improvise around private banks.', 'Use only the named public TECHE Project docks, city parks and boat launches. Confirm parking, hours, restrooms, fees and any event closures.'], guide: dockGuide, sources: [mapGuide, waterLevels, riverGuide, { label: 'USGS Port Barre gauge', url: gauge.detailUrl, provider: 'usgs' as const }], coordinateNote: 'TECHE confirms official dock sites and addresses; stored coordinates are public-access-area anchors, not surveyed wet-edge points. Follow posted paths and verify each floating dock, parking area and carry on arrival.', coordinateSourceUrl: dockGuide.url, reviewDate: '2026-09-17', logistics: { estimatedPaddleTime: 'Allow 3–7 hours depending on reach length, wind, current, stops and shuttle timing', shuttle: 'Stage the downstream vehicle at the named public dock, then drive to the upstream dock. Confirm both sites are open before unloading.', permits: 'No backcountry permit is listed for the town docks; confirm city-park parking, event closures and any launch fees.', camping: 'The official paddle trail maps include amenities and camping references, but these day reaches do not assume informal riverbank camping. Book a named campground or private lodging separately.', campingClassification: 'nearby_basecamp', accessCaveats: ['The official dock address may be across a park or boat-launch parcel from the water edge; follow posted paths and verify the floating dock before launch.', 'Do not use private yards, businesses or unlisted banks as alternate access.', 'The route boundary ends at the named dock; downstream lock, levee and Atchafalaya traffic hazards require separate review.'], watchFor: ['Strainers and debris near bends and bridges', 'Wind-driven current reversals and motorized traffic', 'Heat, lightning, fast rises and limited mid-reach bailout'] },
+  name: 'Bayou Teche', riverId: 'bayou-teche-river-louisiana', state: 'Louisiana', region: 'St. Landry / St. Martin / Iberia parishes', difficulty: 'easy', difficultyNotes: 'Slow-moving bayou with long sightlines and town access, but bridges, boat traffic, strainers, wind-driven reversals and lock or levee structures require active scouting.', seasonMonths: [1,2,3,4,5,6,7,8,9,10,11,12], seasonNotes: 'The bayou is paddleable year-round in principle, but check the latest USGS stage, available flow readings, thunderstorms, heat, water quality, town hours and current dock notices before launch.', gauge, conditionsNote: 'USGS station 07385450 at Port Barre still reports gage height, but its discharge record ended October 26, 2024. The available station record does not establish a paddling threshold for these dock-to-dock reaches. Check current water levels, recent rainfall, flood notices and local conditions before launching.', hazards: ['low_water','strainers','fast_rise','flash_flood','private_banks','motorized_traffic'] as StarterPlanningSpec['hazards'], safetyNotes: ['Wear a properly fitted PFD and carry communication, offline navigation, water, sun protection and a shuttle plan.', 'Check the latest USGS stage, flow readings where available, rainfall and flood notices immediately before launch; a slow bayou can rise or reverse after storms, pumps or wind.', 'Stay clear of bridges, low-head or lock structures, levees and commercial traffic. Portage the documented St. Martinville obstruction and do not improvise around private banks.', 'Use only the named public TECHE Project docks, city parks and boat launches. Confirm parking, hours, restrooms, fees and any event closures.'], guide: dockGuide, sources: [mapGuide, waterLevels, riverGuide, paddlePlanner], coordinateNote: 'TECHE confirms official dock sites and addresses; stored coordinates are public-access-area anchors, not surveyed wet-edge points. Follow posted paths and verify each floating dock, parking area and carry on arrival.', coordinateSourceUrl: dockGuide.url, reviewDate: '2026-09-17', logistics: { estimatedPaddleTime: 'Check the route-specific TECHE Project travel-time estimate below; add time for the vehicle shuttle, stops, wind and changing current.', shuttle: 'Stage the downstream vehicle at the named public dock, then drive to the upstream dock. Confirm both sites are open before unloading.', permits: 'No backcountry permit is listed for the town docks; confirm city-park parking, event closures and any launch fees.', camping: 'The official paddle trail maps include amenities and camping references, but these day reaches do not assume informal riverbank camping. Book a named campground or private lodging separately.', campingClassification: 'nearby_basecamp', accessCaveats: ['The official dock address may be across a park or boat-launch parcel from the water edge; follow posted paths and verify the floating dock before launch.', 'Do not use private yards, businesses or unlisted banks as alternate access.', 'The route boundary ends at the named dock; downstream lock, levee and Atchafalaya traffic hazards require separate review.'], watchFor: ['Strainers and debris near bends and bridges', 'Wind-driven current reversals and motorized traffic', 'Heat, lightning, fast rises and limited mid-reach bailout'] },
 };
 
 function buildPlanning(spec: Pick<StarterPlanningSpec, 'id' | 'putIn' | 'takeOut' | 'miles' | 'summary'> & { reach: string; note?: string; difficulty?: 'easy' | 'moderate'; watch?: string[] }): River {
   const route = buildStarterPlanningRoute({ ...common, ...spec });
+  route.evidenceNotes = route.evidenceNotes.filter((item) => item.label !== 'Conditions posture');
+  const travelTime = publishedTravelTime(spec.putIn.name, spec.takeOut.name);
+  if (travelTime && route.logistics) {
+    route.logistics = {
+      ...route.logistics,
+      estimatedPaddleTime: travelTime.hours >= 9
+        ? `Plan a staged, long-day or multi-day itinerary; TECHE's segment estimates total about ${travelTime.estimate} of paddling before stops and the vehicle shuttle.${travelTime.reverseEstimate ? ' The lower-Teche times are published for the reverse direction, and flow can vary near Franklin.' : ''}`
+        : `About ${travelTime.estimate} of paddling per TECHE's published section estimates; add time for stops and the vehicle shuttle.${travelTime.reverseEstimate ? ' The lower-Teche times are published for the reverse direction, and flow can vary near Franklin.' : ''}`,
+    };
+    route.evidenceNotes.push({ label: 'Published travel-time estimate', value: `About ${travelTime.estimate}`, note: travelTime.note, sourceUrl: paddlePlanner.url });
+  }
   if (spec.putIn === docks.baldwin || spec.takeOut === docks.baldwin) {
     route.evidenceNotes.push({ label: 'Baldwin dock coordinate review', value: '2026-09-17', note: 'The official Charenton Road Park dock identity and park ramp imagery support the corrected Baldwin shoreline coordinate. This is an imagery estimate with about 50 feet of uncertainty; other endpoint coordinates retain their existing provenance.', sourceUrl: dockGuide.url });
   }
@@ -52,7 +117,7 @@ function buildPlanning(spec: Pick<StarterPlanningSpec, 'id' | 'putIn' | 'takeOut
     route.logistics = {
       ...route.logistics,
       distanceLabel: `About ${spec.miles} river miles; staged multi-day itinerary`,
-      estimatedPaddleTime: 'Plan a staged multi-day itinerary with confirmed lodging or permitted camping, daylight margin and intermediate bailouts',
+      estimatedPaddleTime: `Plan a staged multi-day itinerary${travelTime ? `; TECHE's segment estimates total about ${travelTime.estimate} of paddling before stops and the vehicle shuttle` : ''}. Confirm lodging or permitted camping, daylight margin and intermediate bailouts.`,
       summary: 'A long access-chain itinerary that should be staged across multiple days rather than attempted as a single day float.',
     };
   }
