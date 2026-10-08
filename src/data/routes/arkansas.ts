@@ -4982,6 +4982,8 @@ export const arkansasRoutes: River[] = [
     "region": "Ozark Highlands",
     "routeType": "whitewater",
     "summary": "Short Wild and Scenic Mulberry River run from the Forest Service Redding Recreation Area to the private-fee Turner Bend landing. American Whitewater ties the exact reach to the USGS Mulberry gauge, but this is rain-sensitive Class I-III water with fast rises and fee-access logistics.",
+    "seoTitle": "Mulberry River Water Levels: Redding to Turner Bend",
+    "seoDescription": "Check the USGS Mulberry gauge for Redding to Turner Bend (3.6 mi). American Whitewater's 1.55–6 ft stage range is a guide; rain can raise it quickly.",
     "statusText": "Use the Mulberry River near Mulberry gauge. American Whitewater marks roughly 1.55 to 6.0 ft as the runnable range for this reach; below that, expect scraping, and above that the route is too high for a Paddle Today recommendation.",
     "latitude": 35.68282778,
     "longitude": -93.78651111,
