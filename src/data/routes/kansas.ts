@@ -240,7 +240,7 @@ export const kansasRoutes: River[] = [
       "seasonNotes": "Spring through fall is the practical season, but the Kaw is a sand-bottom prairie river whose channel, bars, and ramp toes shift after high water. Check De Soto flow, Clinton Reservoir / Wakarusa releases, wind, storms, and ramp conditions before using the Eudora take-out.",
       "difficulty": "moderate",
       "difficultyNotes": "The reach avoids the Lawrence dams by starting below Bowersock, but this is still a big, shallow, moving river with shifting sandbars, wind exposure, wood, private banks, and a tricky upstream turn into the Wakarusa at Eudora. Treat it as a guarded moderate day unless flows are low, weather is calm, and the group already knows Kaw navigation.",
-      "confidenceNotes": "Confidence is high for access and route shape: Friends of the Kaw documents the 8th Street access at river mile 51, the Eudora access at river mile 42, and about 9 miles between them; it also states that all Kansas River ramps are public and that the Kansas, Arkansas, and Missouri Rivers are public rivers in Kansas. Confidence is moderate for scoring because the exact route does not have a route-specific official gauge ladder. The app uses the downstream De Soto USGS gauge as a conservative proxy, Friends of the Kaw safety guidance for the 5,000 / 8,000 cfs high-side bands, and USACE recreation flow-impact ranges for the 1,000 / 1,500 cfs low-side calibration."
+      "confidenceNotes": "Confidence is high for access and route shape: Friends of the Kaw documents the 8th Street access at river mile 51, the Eudora access at river mile 42, and about 9 miles between them; it also states that all Kansas River ramps are public and that the Kansas, Arkansas, and Missouri Rivers are public rivers in Kansas. Confidence is moderate for scoring because the exact route does not have a route-specific official gauge ladder. The downstream De Soto USGS gauge serves as a broad proxy; Friends of the Kaw safety guidance informs the 5,000 / 8,000 cfs high-side bands, and USACE recreation flow impacts inform the 1,000 / 1,500 cfs low-side calibration."
     },
     "evidenceNotes": [
       {
@@ -398,7 +398,7 @@ export const kansasRoutes: River[] = [
       "seasonNotes": "Spring through fall is the practical season. Check De Soto flow, Clinton Reservoir / Wakarusa releases for the launch paddle, wind, storms, rising water, and same-day ramp conditions before committing.",
       "difficulty": "moderate",
       "difficultyNotes": "This is a moderate Kaw day because the route starts with a short downstream Wakarusa paddle, then follows a big shallow sand-bottom river for about 10.7 miles. Shifting sandbars, wind exposure, private banks, wood, and the De Soto ramp sandbar caveat matter even though both endpoints are public ramps.",
-      "confidenceNotes": "Confidence is high for access and route shape: Friends of the Kaw documents Eudora at river mile 42, De Soto at river mile 31.3, both GPS coordinates, and the 10.7-mile downstream access sequence. Confidence is moderate for scoring because the level bands are broad Kansas River guidance rather than a route-specific official ladder. The app uses USGS 06892350 at De Soto as the direct take-out-corridor gauge, Friends of the Kaw safety guidance for the 5,000 / 8,000 cfs high-side bands, and USACE recreation flow-impact ranges for the 1,000 / 1,500 cfs low-side calibration."
+      "confidenceNotes": "Confidence is high for access and route shape: Friends of the Kaw documents Eudora at river mile 42, De Soto at river mile 31.3, both GPS coordinates, and the 10.7-mile downstream access sequence. Confidence is moderate for scoring because the level bands are broad Kansas River guidance rather than a route-specific official ladder. USGS 06892350 at De Soto provides a direct reading near the take-out; Friends of the Kaw safety guidance informs the 5,000 / 8,000 cfs high-side bands, and USACE recreation flow impacts inform the 1,000 / 1,500 cfs low-side calibration."
     },
     "evidenceNotes": [
       {
@@ -579,10 +579,10 @@ export const kansasRoutes: River[] = [
         "sourceUrl": "https://kansasriver.org/river-access-map/"
       },
       {
-        "label": "Current gauge check",
-        "value": "17,300 cfs / 10.50 ft at 2026-07-02 10:30 CDT",
-        "note": "Same-day direct USGS Water Services for station 06892350 at De Soto returned 17,300 cfs and 10.50 ft, well above the conservative recreational band used by the app.",
-        "sourceUrl": "https://waterservices.usgs.gov/nwis/iv/?format=json&sites=06892350&parameterCd=00060,00065&siteStatus=all"
+        "label": "Gauge context",
+        "value": "USGS 06892350 at De Soto",
+        "note": "This gauge lies within the route near De Soto and provides a live reading for that part of the river. Treat it as a reference for the full 32.8-mile trip; check the latest value, trend, and local conditions before launching.",
+        "sourceUrl": "https://waterdata.usgs.gov/monitoring-location/USGS-06892350/"
       },
       {
         "label": "Mandatory portage",
@@ -728,7 +728,7 @@ export const kansasRoutes: River[] = [
       "seasonNotes": "Spring through fall is the practical season. This uppermost Kaw reach starts on the Republican River just above the Smoky Hill confluence, so same-day Milford and upstream-release context, Wamego flow, wind, storms, and ramp checks matter.",
       "difficulty": "moderate",
       "difficultyNotes": "The mileage is within Friends of the Kaw novice-distance guidance, but this is still a big-river route with a confluence current line, shifting sandbars, private banks, wind exposure, possible wood, and a proxy gauge. Treat it as a guarded upper-Kaw day, not a casual park float.",
-      "confidenceNotes": "Confidence is high for access and route shape: Friends of the Kaw documents Junction City at river mile 173, Ogden at river mile 163.4, both GPS coordinates, the Republican-to-Kansas confluence context, and a little over 9 miles to Ogden. Confidence is moderate for scoring because there is not a current direct discharge gauge in the Junction City-to-Ogden reach; the app uses the downstream Wamego USGS gauge as a broad same-river proxy and keeps the mixed Kaw calibration visible."
+      "confidenceNotes": "Confidence is high for access and route shape: Friends of the Kaw documents Junction City at river mile 173, Ogden at river mile 163.4, both GPS coordinates, the Republican-to-Kansas confluence context, and a little over 9 miles to Ogden. Confidence is moderate for scoring because there is no direct discharge gauge in the Junction City-to-Ogden reach; the downstream Wamego USGS gauge serves as a broad same-river proxy alongside the mixed Kaw flow guidance."
     },
     "evidenceNotes": [
       {
@@ -907,10 +907,10 @@ export const kansasRoutes: River[] = [
         "sourceUrl": "https://kansasriver.org/river-access-map/river-mile-173-junction-city-access-ramp/"
       },
       {
-        "label": "Direct live proxy reading",
-        "value": "Wamego gauge 18,800 cfs / 10.60 ft",
-        "note": "USGS Water Services returned 18,800 cfs and 10.60 ft at 2026-06-26 11:30 CDT for Kansas River at Wamego, the downstream same-river proxy used for this route.",
-        "sourceUrl": "https://waterservices.usgs.gov/nwis/iv/?format=json&sites=06887500&parameterCd=00060,00065&siteStatus=all"
+        "label": "Gauge relationship",
+        "value": "USGS 06887500 at Wamego, downstream of this reach",
+        "note": "The Wamego gauge is downstream of this 23-mile route. Use its live reading and trend as broad Kansas River context, then check conditions at Junction City and Manhattan before launching.",
+        "sourceUrl": "https://waterdata.usgs.gov/monitoring-location/USGS-06887500/"
       },
       {
         "label": "Flow safety bands",
@@ -1063,10 +1063,10 @@ export const kansasRoutes: River[] = [
         "sourceUrl": "https://kansasriver.org/river-access-map/river-mile-173-junction-city-access-ramp/"
       },
       {
-        "label": "Direct live proxy reading",
-        "value": "Wamego gauge 18,900 cfs / 10.63 ft",
-        "note": "USGS Water Services returned 18,900 cfs and 10.63 ft at 2026-06-26 12:30 CDT for Kansas River at Wamego, the downstream same-river proxy used for this route.",
-        "sourceUrl": "https://waterservices.usgs.gov/nwis/iv/?format=json&sites=06887500&parameterCd=00060,00065&siteStatus=all"
+        "label": "Gauge relationship",
+        "value": "USGS 06887500 at Wamego, downstream of this reach",
+        "note": "The Wamego gauge is downstream of this long route. Use its live reading and trend as broad Kansas River context, then check conditions at Junction City, Manhattan, and St. George before committing.",
+        "sourceUrl": "https://waterdata.usgs.gov/monitoring-location/USGS-06887500/"
       },
       {
         "label": "Flow safety bands",
@@ -1202,7 +1202,7 @@ export const kansasRoutes: River[] = [
       "seasonNotes": "Spring through fall is the practical season. This reach is upstream of the Big Blue confluence but still needs Wamego flow, nearby reservoir-release context, wind, storms, and ramp-condition checks before committing to a 14-mile day.",
       "difficulty": "moderate",
       "difficultyNotes": "Friends of the Kaw describes Ogden to Manhattan as a beautiful, relatively untouched section, but the 14-mile spacing is beyond its novice day-distance guidance. Treat it as a longer big-river day with shifting sandbars, wind exposure, possible wood, private banks, and limited normal exits.",
-      "confidenceNotes": "Confidence is high for access and route shape: Friends of the Kaw documents Ogden at river mile 163.4, Manhattan K-177 / Fairmont at river mile 150.7, both GPS coordinates, and the about-14-mile downstream spacing. Confidence is moderate for scoring because there is not a current direct discharge gauge in the Ogden-to-Manhattan reach; the closer Manhattan gauge does not compute discharge and was stale in prior review, so the app uses the downstream Wamego USGS gauge as a conservative same-river proxy and keeps the broad Kaw calibration visible."
+      "confidenceNotes": "Confidence is high for access and route shape: Friends of the Kaw documents Ogden at river mile 163.4, Manhattan K-177 / Fairmont at river mile 150.7, both GPS coordinates, and the about-14-mile downstream spacing. Confidence is moderate for scoring because there is no direct discharge gauge in the Ogden-to-Manhattan reach. The nearby Manhattan station reports stage rather than discharge, so the downstream Wamego USGS gauge serves as a broad same-river proxy alongside the published Kaw flow guidance."
     },
     "evidenceNotes": [
       {
@@ -1244,7 +1244,7 @@ export const kansasRoutes: River[] = [
       {
         "label": "Proxy gauge",
         "value": "USGS 06887500 at Wamego",
-        "note": "USGS operates Kansas River at Wamego, KS downstream of this reach. Use it as a same-river proxy; the closer Manhattan gauge does not compute discharge and prior review found stale visible data.",
+        "note": "The Wamego gauge is downstream of this reach, so use its flow and trend as broad same-river context. The nearby Manhattan station reports stage rather than discharge; check local conditions at Ogden and Manhattan as well.",
         "sourceUrl": "https://waterdata.usgs.gov/monitoring-location/USGS-06887500/"
       },
       {
@@ -1381,10 +1381,10 @@ export const kansasRoutes: River[] = [
         "sourceUrl": "https://kansasriver.org/river-access-map/river-mile-163-5-ogden-access-ramp/"
       },
       {
-        "label": "Direct live proxy reading",
-        "value": "Wamego gauge 18,800 cfs / 10.60 ft",
-        "note": "USGS Water Services returned 18,800 cfs and 10.60 ft at 2026-06-26 11:30 CDT for Kansas River at Wamego, the downstream same-river proxy used for this route.",
-        "sourceUrl": "https://waterservices.usgs.gov/nwis/iv/?format=json&sites=06887500&parameterCd=00060,00065&siteStatus=all"
+        "label": "Gauge relationship",
+        "value": "USGS 06887500 at Wamego, downstream of this reach",
+        "note": "The Wamego gauge is downstream of this route. Use its live reading and trend as broad Kansas River context, then check conditions at Ogden, Manhattan, and St. George before launching.",
+        "sourceUrl": "https://waterdata.usgs.gov/monitoring-location/USGS-06887500/"
       },
       {
         "label": "Flow safety bands",
@@ -1537,10 +1537,10 @@ export const kansasRoutes: River[] = [
         "sourceUrl": "https://kansasriver.org/river-access-map/river-mile-163-5-ogden-access-ramp/"
       },
       {
-        "label": "Direct live reading",
-        "value": "Wamego gauge 18,900 cfs / 10.63 ft",
-        "note": "USGS Water Services returned 18,900 cfs and 10.63 ft at 2026-06-26 12:30 CDT for Kansas River at Wamego, the direct same-river gauge used for this route.",
-        "sourceUrl": "https://waterservices.usgs.gov/nwis/iv/?format=json&sites=06887500&parameterCd=00060,00065&siteStatus=all"
+        "label": "Direct gauge",
+        "value": "USGS 06887500 at Wamego",
+        "note": "This USGS station provides direct Kansas River discharge readings near the Wamego take-out. Check the latest value and trend along with weather and local river conditions before launching.",
+        "sourceUrl": "https://waterdata.usgs.gov/monitoring-location/USGS-06887500/"
       },
       {
         "label": "Flow safety bands",
@@ -1678,7 +1678,7 @@ export const kansasRoutes: River[] = [
       "seasonNotes": "Spring through fall is the practical season. This reach starts just downstream of the Topeka Water Plant low-head dam, passes old railroad bridge debris, and ends just upstream of the Tecumseh low-head-dam reach, so same-day gauge, weather, wind, sandbar, ramp, and hazard checks matter.",
       "difficulty": "moderate",
       "difficultyNotes": "Friends of the Kaw says this trip is not recommended for novice paddlers because of in-river hazards. The route has a direct gauge and public ramps, but paddlers must avoid the Topeka dam by launching below it, pass the old bridge remains on the correct side, watch active sand dredging near Seward, and stop before the Tecumseh low-head dam downstream.",
-      "confidenceNotes": "Confidence is high for access, gauge placement, and route shape: Friends of the Kaw documents the Topeka Water Plant access / portage at river mile 87.6 with coordinates, Seward Avenue / Fool's Landing at river mile 77 with coordinates, and the 10.6-mile downstream spacing. Confidence is moderate for scoring because the level bands are broad Kansas River guidance rather than an exact route-specific ladder. The app applies the same conservative Kaw calibration used elsewhere: Friends of the Kaw safety guidance for the 5,000 / 8,000 cfs high-side bands and USACE recreation flow-impact ranges for the 1,000 / 1,500 cfs low-side calibration."
+      "confidenceNotes": "Confidence is high for access, gauge placement, and route shape: Friends of the Kaw documents the Topeka Water Plant access / portage at river mile 87.6 with coordinates, Seward Avenue / Fool's Landing at river mile 77 with coordinates, and the 10.6-mile downstream spacing. Confidence is moderate for scoring because the level bands are broad Kansas River guidance rather than an exact route-specific ladder. The conservative Kaw calibration uses Friends of the Kaw safety guidance for the 5,000 / 8,000 cfs high-side bands and USACE recreation flow impacts for the 1,000 / 1,500 cfs low-side calibration."
     },
     "evidenceNotes": [
       {

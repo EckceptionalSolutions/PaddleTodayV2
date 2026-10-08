@@ -151,7 +151,7 @@ export const kansasRiverTripDetails: Record<string, RiverTripDetails> = {
       "permits": "No special paddling permit is known for private boats on the Kansas River. Use public ramps, follow posted city and county access rules, check Kansas boating/PFD requirements, and respect fishing-license rules if fishing.",
       "camping": "Treat this as a committed through-route, not an overnight corridor. Friends of the Kaw notes the lower controlled reach has almost no sandbars, and the WaterOne portage plus private lower banks make improvised camping a bad assumption.",
       "campingClassification": "none",
-      "summary": "Launch from Eudora and take out at Turner Bridge for a full lower-Kaw continuation that includes De Soto, Edwardsville, and the mandatory WaterOne low-head-dam portage. The app uses the De Soto gauge as the cleanest same-river discharge proxy for this longer route.",
+      "summary": "Launch from Eudora and take out at Turner Bridge for a full lower-Kaw continuation through De Soto and Edwardsville, with a mandatory portage around the WaterOne low-head dam. The De Soto gauge lies within this long route and is a useful flow reference, but conditions can differ across the remaining miles; check its trend and local conditions before launching.",
       "accessCaveats": [
         "The Eudora ramp is on the Wakarusa River about three-quarters of a mile upstream from the Kansas River. Launch there and expect a short downstream Wakarusa lead-in before the mainstem.",
         "De Soto and Edwardsville are the last simple public access points before and after the WaterOne portage. Inspect that contingency before launch rather than assuming you can improvise on private banks.",
@@ -186,7 +186,7 @@ export const kansasRiverTripDetails: Record<string, RiverTripDetails> = {
       "permits": "No special paddling permit is known for private boats on the Kansas River. Use public ramps, follow posted city and county access rules, check Kansas boating/PFD requirements, and respect fishing-license rules if fishing.",
       "camping": "This route is long enough that conservative overnight use may make more sense than a single push. Friends of the Kaw says you can camp on public sandbars between the high-water marks without a special permit, but private banks above that line are off-limits and sandbars become scarce above about 8,000 cfs.",
       "campingClassification": "sandbar_or_gravel_bar",
-      "summary": "Launch at Grant Park in Junction City and take out at the Manhattan K-177 / Fairmont ramp for a long upper-Kaw continuation. The app uses the downstream Wamego gauge as a same-river proxy and expects the current route score to stay conservative when the proxy sits above the broad Kansas comfort band.",
+      "summary": "Launch at Grant Park in Junction City and take out at the Manhattan K-177 / Fairmont ramp for a long upper-Kaw trip. The Wamego gauge is downstream of this reach, so use its flow and trend as broad river context and check local conditions at both endpoints before committing.",
       "accessCaveats": [
         "The Junction City ramp is on the Republican River, not directly on the Kansas River. The Kansas River begins about one-third mile downstream where the Republican and Smoky Hill meet.",
         "The Manhattan K-177 / Fairmont ramp has limited parking and can have a sandbar at the toe, so inspect the landing angle before leaving the shuttle vehicle.",
@@ -220,7 +220,7 @@ export const kansasRiverTripDetails: Record<string, RiverTripDetails> = {
       "permits": "No special paddling permit is known for private boats on the Kansas River. Use public ramps, follow posted city and county access rules, check Kansas boating/PFD requirements, and respect fishing-license rules if fishing.",
       "camping": "This route is long enough that conservative sandbar camping is the honest plan for most paddlers. Friends of the Kaw says you can camp on public sandbars between the high-water marks without a special permit, but private banks above that line are off-limits and sandbars become scarce above about 8,000 cfs.",
       "campingClassification": "sandbar_or_gravel_bar",
-      "summary": "Launch at Grant Park in Junction City and take out at St. George / Boggs Landing for a full upper-Kaw continuation through Ogden and Manhattan. The app uses the downstream Wamego gauge as a same-river proxy and treats this as overnight-capable distance content rather than a casual day route.",
+      "summary": "Launch at Grant Park in Junction City and take out at St. George / Boggs Landing for a long upper-Kaw trip through Ogden and Manhattan. Plan for an overnight or a very long day. The Wamego gauge is downstream, so use its flow and trend as broad river context and check local conditions along the route.",
       "accessCaveats": [
         "The Junction City ramp is on the Republican River, not directly on the Kansas River. The Kansas River begins about one-third mile downstream where the Republican and Smoky Hill meet.",
         "The Manhattan K-177 / Fairmont ramp mid-corridor often has a sandbar at the toe, and nearby Blue River current can change when Tuttle Creek releases rise.",
@@ -254,7 +254,7 @@ export const kansasRiverTripDetails: Record<string, RiverTripDetails> = {
       "shuttle": "Stage the take-out at the Manhattan K-177 / Fairmont ramp below the K-177 bridge, then drive back to the Ogden ramp. Inspect Manhattan first because Friends of the Kaw notes a sandbar often forms at the toe of the ramp as paddlers approach from the west.",
       "permits": "No special paddling permit is known for private boats on the Kansas River. Use public ramps, follow posted city and county access rules, check Kansas boating/PFD requirements, and respect fishing-license rules if fishing.",
       "camping": "Treat this as a long day trip. Sandbars can be legal public river stops under current Kansas Riverkeeper guidance, but banks above the river are private; do not camp, picnic, or portage onto adjacent private land without permission.",
-      "summary": "Launch at Ogden and take out at the Manhattan K-177 / Fairmont ramp for a 14-mile upper-Kaw day. Friends of the Kaw describes this as a beautiful, relatively untouched section near Manhattan, while the app uses the downstream Wamego USGS gauge as a proxy rather than a precise Ogden-stage reading.",
+      "summary": "Launch at Ogden and take out at the Manhattan K-177 / Fairmont ramp for a 14-mile upper-Kaw day. Friends of the Kaw describes this as a beautiful, relatively untouched section near Manhattan. The Wamego gauge is downstream, so use its flow and trend as broad river context rather than a precise Ogden reading, and check local conditions before launching.",
       "accessCaveats": [
         "Ogden has a wide concrete river-left ramp, trailer-capable gravel parking, restrooms, a picnic shelter, trash can, and an informational kiosk, but same-day mud, sand, local parking, and high-water cleanup still control.",
         "The Manhattan K-177 / Fairmont ramp has limited parking and no restroom; do not block the packed gravel approach under the bridge.",
@@ -288,7 +288,7 @@ export const kansasRiverTripDetails: Record<string, RiverTripDetails> = {
       "permits": "No special paddling permit is known for private boats on the Kansas River. Use public ramps, follow posted city and county access rules, check Kansas boating/PFD requirements, and respect fishing-license rules if fishing.",
       "camping": "This route is naturally long enough that conservative sandbar camping may make more sense than a single push. Friends of the Kaw says you can camp on public sandbars between the high-water marks without a special permit, but private banks above that line are off-limits and sandbars become scarce above about 8,000 cfs.",
       "campingClassification": "sandbar_or_gravel_bar",
-      "summary": "Launch at Ogden and take out at St. George / Boggs Landing for a full upper-Kaw continuation past Manhattan. The app uses the downstream Wamego gauge as a same-river proxy and treats this as a committed distance route rather than a casual day float.",
+      "summary": "Launch at Ogden and take out at St. George / Boggs Landing for a long upper-Kaw trip past Manhattan. Allow for the distance, changing conditions, and limited easy exits. The Wamego gauge is downstream, so use its flow and trend as broad river context and check conditions at both endpoints.",
       "accessCaveats": [
         "The Ogden ramp is straightforward, but same-day mud, sand, and trailer traffic still affect launch conditions.",
         "The Manhattan K-177 / Fairmont ramp mid-corridor often has a sandbar at the toe, and nearby Blue River current can change when Tuttle Creek releases rise.",
