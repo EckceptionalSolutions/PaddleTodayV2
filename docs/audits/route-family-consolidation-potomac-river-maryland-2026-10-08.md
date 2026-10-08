@@ -25,7 +25,9 @@ Commit `e328e769a` deployed on October 8. Frontend workflow [37745539713](https:
 
 Production checks confirmed that both `/rivers/potomac-river-taylors-snyders` and its trailing-slash spelling return HTTP 301 to the matching Potomac hub card. The hub returns HTTP 200; the target card is in its server-rendered HTML with trip summary, access, gauge context, shuttle/camping notes, safety notes, and planning-source links. The sitemap index returns HTTP 200 and points to one child sitemap. Its URL count fell from 2,543 to 2,542; the standalone route is absent while the hub and gauge guide remain. `/sitemap.xml` redirects to `/sitemap-index.xml`.
 
-The interactive panel initially omitted the evidence notes and source links after hydration because the general detail API intentionally leaves out those fields. A follow-up change adds them to river-group responses only, preserving the lighter generic detail response; its deployment check is still pending. No Search Console sitemap submission, validation action, or URL indexing request was made.
+The first deployed interactive panel would have omitted evidence notes and source links after hydration because the general detail API intentionally leaves out those fields. Follow-up commit `c74f88aca` adds those fields to river-group responses only, preserving the lighter generic detail response. Frontend workflow [37746931831](https://github.com/EckceptionalSolutions/PaddleTodayV2/actions/runs/37746931831), API workflow [37746931854](https://github.com/EckceptionalSolutions/PaddleTodayV2/actions/runs/37746931854), and Snapshot Worker workflow [37746931819](https://github.com/EckceptionalSolutions/PaddleTodayV2/actions/runs/37746931819) succeeded. The production group endpoint returns HTTP 200 with 11 source links, six evidence notes, and shuttle/camping details for this trip; the hub HTML contains the matching evidence and source sections.
+
+Search Console's indexing and sitemap snapshots have not refreshed since this deployment. No sitemap submission, validation action, or URL indexing request was made.
 
 ## Sources
 
