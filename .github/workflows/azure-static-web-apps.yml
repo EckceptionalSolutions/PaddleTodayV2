@@ -84,6 +84,7 @@ jobs:
           node scripts/assert-firebase-web-config.mjs
           npx astro build
           node --import tsx scripts/emit-route-consolidation-redirects.mjs dist
+          node scripts/emit-sitemap-index-lastmod.mjs dist
           node -e "const fs=require('node:fs'); const config=JSON.parse(fs.readFileSync('staticwebapp.config.json','utf8')); const payload=JSON.stringify(config); const size=Buffer.byteLength(payload); if(size > 20000) throw new Error('Minified Static Web Apps configuration exceeds 20000 bytes: '+size); fs.writeFileSync('dist/staticwebapp.config.json',payload);"
           node -e "const c = require('./dist/staticwebapp.config.json'); const h = c.globalHeaders || {}; if (h['Strict-Transport-Security'] !== 'max-age=31536000; includeSubDomains; preload' || h['Permissions-Policy'] !== 'geolocation=(self), microphone=(), camera=()') throw new Error('Static Web Apps security headers are not configured');"
 
