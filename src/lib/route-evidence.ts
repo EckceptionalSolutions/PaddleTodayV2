@@ -7,7 +7,7 @@ const routeReviewDate = (text: string) =>
   )?.[0];
 
 export function isRecordedGaugeCheck(note: RiverEvidenceNote): boolean {
-  if (/^(?:Current gauge check|Live gauge check|Historical gauge snapshot)$/i.test(note.label)) return true;
+  if (/\b(?:current|live|historical)\b.*\b(?:check|reading|snapshot|observation|values?)\b/i.test(note.label)) return true;
 
   const evidenceText = `${note.label} ${note.value} ${note.note ?? ''}`;
   const hasRecordedDate = Boolean(routeReviewDate(evidenceText));
@@ -15,7 +15,10 @@ export function isRecordedGaugeCheck(note: RiverEvidenceNote): boolean {
   const hasGaugeContext = /\b(?:gauge|USGS|Water Services|river flow|stage)\b/i.test(evidenceText);
   const describesAnObservation = /\b(?:returned|observed|measured|same-day|during this run|during review|latest official values|snapshot)\b/i.test(evidenceText);
 
-  return hasMeasuredReading && hasGaugeContext && (hasRecordedDate || describesAnObservation);
+  return hasGaugeContext && (
+    (hasRecordedDate && hasMeasuredReading) ||
+    (describesAnObservation && (hasRecordedDate || hasMeasuredReading))
+  );
 }
 
 export function evidenceNoteLabel(note: RiverEvidenceNote): string {
