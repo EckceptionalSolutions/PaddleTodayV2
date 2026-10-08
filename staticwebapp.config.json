@@ -188,6 +188,11 @@
       "statusCode": 301
     },
     {
+      "route": "/rivers/potomac-river-taylors-snyders",
+      "redirect": "/rivers/by-river/potomac-river-maryland/#trip-potomac-river-taylors-snyders",
+      "statusCode": 301
+    },
+    {
       "route": "/rivers/mohawk-river-lock-9-freemans-bridge",
       "redirect": "/rivers/erie-canal-rotterdam-junction-freemans-bridge/",
       "statusCode": 301

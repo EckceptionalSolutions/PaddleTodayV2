@@ -1966,6 +1966,9 @@ const groupStructuredData = [
           <div class="river-group-page__route-list" data-group-route-list>
             {staticRoutes.map((route, index) => {
               const active = index === 0;
+              const hasConsolidatedRoutePage = Boolean(routePageConsolidationTarget(route.slug));
+              const hasExistingLogisticsNotes = isJacksForkHub || isCurrentRiverHub || isYellowBreechesHub || isSaltRiverHub || isPenobscotHub || isGooseCreekHub || isKinniconickHub;
+              const showConsolidatedLogisticsNotes = hasConsolidatedRoutePage && !hasExistingLogisticsNotes;
               return (
                 <article
                   id={`trip-${route.slug}`}
@@ -2009,7 +2012,7 @@ const groupStructuredData = [
                       <span data-group-initial-score>{route.scoreEligibility === 'planning' ? 'Planning route' : 'Loading'}</span>
                     </span>
                   </button>
-                  {isWillimanticHub || isMerrimackHub || isSpokaneHub || isSaludaHub || isWabashHub || isGooseCreekHub || isKinniconickHub || isSouthLlanoHub || isVillageCreekHub || isElevenPointHub || isJacksForkHub || isCurrentRiverHub || isYellowBreechesHub || isSaltRiverHub || isAnimasHub || isHousatonicHub || isPenobscotHub ? (
+                  {isWillimanticHub || isMerrimackHub || isSpokaneHub || isSaludaHub || isWabashHub || isGooseCreekHub || isKinniconickHub || isSouthLlanoHub || isVillageCreekHub || isElevenPointHub || isJacksForkHub || isCurrentRiverHub || isYellowBreechesHub || isSaltRiverHub || isAnimasHub || isHousatonicHub || isPenobscotHub || hasConsolidatedRoutePage ? (
                     <details class="route-choice__trip-notes">
                       <summary>{isJacksForkHub || isCurrentRiverHub || isYellowBreechesHub ? 'Access, gauge, shuttle, and camping notes' : isSaltRiverHub || isGooseCreekHub || isKinniconickHub ? 'Access, gauge, shuttle, and safety notes' : isAnimasHub || isHousatonicHub ? 'Access, flow, and safety notes' : isPenobscotHub ? 'Access, gauge, shuttle, camping, and safety notes' : 'Access, gauge, and safety notes'}</summary>
                       <div>
@@ -2051,6 +2054,9 @@ const groupStructuredData = [
                         {isKinniconickHub && route.logistics?.shuttle ? <p><strong>Shuttle:</strong> {route.logistics.shuttle}</p> : null}
                         {isKinniconickHub && route.logistics?.camping ? <p><strong>Camping:</strong> {route.logistics.camping}</p> : null}
                         {isKinniconickHub && route.logistics?.permits ? <p><strong>Rules:</strong> {route.logistics.permits}</p> : null}
+                        {showConsolidatedLogisticsNotes && route.logistics?.shuttle ? <p><strong>Shuttle:</strong> {route.logistics.shuttle}</p> : null}
+                        {showConsolidatedLogisticsNotes && route.logistics?.camping ? <p><strong>Camping:</strong> {route.logistics.camping}</p> : null}
+                        {showConsolidatedLogisticsNotes && route.logistics?.permits ? <p><strong>Rules:</strong> {route.logistics.permits}</p> : null}
                         {route.logistics?.accessCaveats?.length ? (
                           <ul>{route.logistics.accessCaveats.map((note) => <li>{note}</li>)}</ul>
                         ) : null}
@@ -2059,6 +2065,16 @@ const groupStructuredData = [
                         ) : null}
                         {route.safetyProfile?.safetyNotes?.length ? (
                           <ul>{route.safetyProfile.safetyNotes.map((note) => <li>{note}</li>)}</ul>
+                        ) : null}
+                        {hasConsolidatedRoutePage && route.sourceLinks?.length ? (
+                          <div class="route-choice__note-group">
+                            <strong>Planning sources</strong>
+                            <ul>
+                              {route.sourceLinks.filter((source) => /^https?:\/\//i.test(source.url)).map((source) => (
+                                <li><a href={source.url} target="_blank" rel="noopener noreferrer">{source.label}</a></li>
+                              ))}
+                            </ul>
+                          </div>
                         ) : null}
                       </div>
                     </details>

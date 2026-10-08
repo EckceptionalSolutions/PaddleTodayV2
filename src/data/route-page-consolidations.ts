@@ -111,6 +111,8 @@ const saukRiverHubPath = '/rivers/by-river/sauk-river/';
 const truckeeRiverHubPath = '/rivers/by-river/truckee-river-nevada/';
 const farmingtonRiverHubPath = '/rivers/by-river/farmington-river-connecticut/';
 const susquehannaRiverHubPath = '/rivers/by-river/susquehanna-river/';
+const potomacRiverHubPath = '/rivers/by-river/potomac-river-maryland/';
+const potomacRiverConsolidatedRouteSlugs = ['potomac-river-taylors-snyders'] as const;
 const merrimackRiverHubPath = '/rivers/by-river/merrimack-river-new-hampshire/';
 const spokaneRiverHubPath = '/rivers/by-river/spokane-river-washington/';
 const saludaRiverHubPath = '/rivers/by-river/saluda-river/';
@@ -1128,6 +1130,7 @@ const consolidatedRouteTargets = new Map<string, string>(
     ...farmingtonRiverConsolidatedRouteSlugs.map((slug) => [slug, `${farmingtonRiverHubPath}#trip-${slug}`] as const),
     ...farmingtonRiverRetiredRouteSlugs.map((slug) => [slug, `${farmingtonRiverHubPath}#farmington-river-access-notes`] as const),
     ...susquehannaConsolidatedRouteSlugs.map((slug) => [slug, `${susquehannaRiverHubPath}#trip-${slug}`] as const),
+    ...potomacRiverConsolidatedRouteSlugs.map((slug) => [slug, `${potomacRiverHubPath}#trip-${slug}`] as const),
     ...susquehannaLegacyRouteAliases,
     ...merrimackRiverConsolidatedRouteSlugs.map((slug) => [slug, `${merrimackRiverHubPath}#trip-${slug}`] as const),
     ...spokaneRiverConsolidatedRouteSlugs.map((slug) => [slug, `${spokaneRiverHubPath}#trip-${slug}`] as const),

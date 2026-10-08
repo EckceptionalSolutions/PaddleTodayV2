@@ -435,6 +435,20 @@ function routeTripNotesMarkup(route, className = 'route-choice__trip-notes') {
   const noteList = (label, values) => Array.isArray(values) && values.length
     ? `<div class="route-choice__note-group"><strong>${label}</strong><ul>${values.map((value) => `<li>${escapeHtml(value)}</li>`).join('')}</ul></div>`
     : '';
+  const logisticsNotes = [
+    ['Shuttle', route.logistics?.shuttle],
+    ['Camping', route.logistics?.camping],
+    ['Rules', route.logistics?.permits],
+  ].filter(([, value]) => typeof value === 'string' && value.trim());
+  const logisticsNotesMarkup = logisticsNotes
+    .map(([label, value]) => `<p class="route-choice__logistics-note"><strong>${label}:</strong> ${escapeHtml(value)}</p>`)
+    .join('');
+  const sourceLinks = Array.isArray(route.sourceLinks)
+    ? route.sourceLinks.filter((source) => source && /^https?:\/\//i.test(source.url || '') && source.label)
+    : [];
+  const sourceLinksMarkup = sourceLinks.length
+    ? `<div class="route-choice__note-group"><strong>Planning sources</strong><ul>${sourceLinks.map((source) => `<li><a href="${escapeHtml(source.url)}" target="_blank" rel="noopener noreferrer">${escapeHtml(source.label)}</a></li>`).join('')}</ul></div>`
+    : '';
 
   return `
     <details class="${className}">
@@ -446,9 +460,11 @@ function routeTripNotesMarkup(route, className = 'route-choice__trip-notes') {
           <div><span>Take-out</span><strong>${escapeHtml(route.takeOut?.name || 'See linked trail guide')}</strong></div>
         </div>
         <p class="route-choice__gauge-note"><strong>${escapeHtml(route.gaugeSource?.siteName || 'Route gauge')}:</strong> ${gaugeCue}</p>
+        ${logisticsNotesMarkup}
         ${noteList('Access notes', route.logistics?.accessCaveats)}
         ${noteList('Watch for', route.logistics?.watchFor)}
         ${noteList('Safety notes', route.safetyProfile?.safetyNotes)}
+        ${sourceLinksMarkup}
       </div>
     </details>
   `;
