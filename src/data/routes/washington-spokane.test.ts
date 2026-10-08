@@ -47,9 +47,15 @@ describe('Washington Spokane expansion routes', () => {
     expect(washingtonSpokaneExpansionRoutes).toHaveLength(16);
     for (const route of washingtonSpokaneExpansionRoutes) {
       expect(route.state).toBe('Washington');
-      expect(route.scoreEligibility).toBe('planning');
-      expect(route.profile.tooLow).toBeUndefined();
-      expect(route.profile.idealMin).toBeUndefined();
+      if (route.slug === 'spokane-river-harvard-barker') {
+        expect(route.scoreEligibility).toBe('scored');
+        expect(route.profile.tooLow).toBe(1350);
+        expect(route.profile.idealMin).toBe(3000);
+      } else {
+        expect(route.scoreEligibility).toBe('planning');
+        expect(route.profile.tooLow).toBeUndefined();
+        expect(route.profile.idealMin).toBeUndefined();
+      }
       expect(route.gaugeSource).toMatchObject({ siteId: '12419000', kind: 'direct' });
       expect(route.accessPoints).toHaveLength(2);
       for (const point of route.accessPoints ?? []) {
@@ -71,5 +77,6 @@ describe('Washington Spokane expansion routes', () => {
       expect(route.logistics?.campingClassification).toBe('nearby_basecamp');
       expect(route.safetyProfile?.reviewStatus).toBe('reviewed');
     }
+    expect(washingtonSpokaneExpansionRoutes.filter((route) => route.scoreEligibility === 'scored').map((route) => route.slug)).toEqual(['spokane-river-harvard-barker']);
   });
 });
