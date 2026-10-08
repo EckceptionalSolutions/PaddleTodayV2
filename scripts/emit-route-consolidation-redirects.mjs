@@ -1,4 +1,4 @@
-import { mkdir, writeFile } from 'node:fs/promises';
+import { access, mkdir, writeFile } from 'node:fs/promises';
 import { dirname, join, resolve } from 'node:path';
 import { listRoutePageConsolidations } from '../src/data/route-page-consolidations.ts';
 
@@ -19,12 +19,23 @@ for (const { slug, target: targetPath } of routes) {
 
   const target = new URL(targetPath, siteOrigin);
   const selectedRoute = target.searchParams.get('route');
+  const isRiverHubTarget = /^\/rivers\/by-river\/[a-z0-9]+(?:-[a-z0-9]+)*\/$/.test(target.pathname);
+  const isStandaloneRouteTarget = /^\/rivers\/[a-z0-9]+(?:-[a-z0-9]+)*\/$/.test(target.pathname)
+    && !target.search
+    && !target.hash;
   if (
     target.origin !== siteOrigin
-    || !target.pathname.startsWith('/rivers/by-river/')
+    || (!isRiverHubTarget && !isStandaloneRouteTarget)
     || (selectedRoute && target.hash !== `#trip-${selectedRoute}`)
   ) {
-    throw new Error(`Invalid trip-card redirect target for ${slug}: ${target.href}`);
+    throw new Error(`Invalid route consolidation target for ${slug}: ${target.href}`);
+  }
+
+  const targetArtifact = join(outputRoot, target.pathname.slice(1), 'index.html');
+  try {
+    await access(targetArtifact);
+  } catch {
+    throw new Error(`Missing generated redirect target for ${slug}: ${targetArtifact}`);
   }
 
   const canonical = `${siteOrigin}${target.pathname}`;
@@ -42,8 +53,8 @@ for (const { slug, target: targetPath } of routes) {
   <body>
     <main>
       <h1>This trip has moved</h1>
-      <p>Open the river guide to compare current trip options and access notes.</p>
-      <p><a href="${targetHref}">View the river guide</a></p>
+      <p>Open the current trip page for route details and planning information.</p>
+      <p><a href="${targetHref}">View the current trip</a></p>
     </main>
   </body>
 </html>
