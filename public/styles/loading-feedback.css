@@ -103,15 +103,9 @@ body[data-loading-board="refresh"] [data-board-refresh]::before {
 @keyframes ui-skeleton-sweep { to { transform: translateX(100%); } }
 @keyframes ui-navigation-sweep { from { transform: translateX(-110%); } to { transform: translateX(400%); } }
 @media (prefers-reduced-motion: no-preference) {
-  @view-transition { navigation: auto; }
-  .site-header { view-transition-name: site-header; }
-  .main-shell { view-transition-name: page-content; }
-  ::view-transition-old(root), ::view-transition-old(site-header) { display: none; }
-  ::view-transition-new(root), ::view-transition-new(site-header) { animation: none; mix-blend-mode: normal; }
-  ::view-transition-old(page-content) { animation: ui-page-out 150ms ease-out both; }
-  ::view-transition-new(page-content) { animation: ui-page-in 150ms ease-out both; }
+  /* Keep entry feedback independent of cross-document opt-in and snapshot timing. */
+  .main-shell { animation: ui-page-in 150ms ease-out; }
 }
-@keyframes ui-page-out { to { opacity: 0; } }
 @keyframes ui-page-in { from { opacity: 0; } to { opacity: 1; } }
 @media (prefers-reduced-motion: reduce) {
   .ui-skeleton::after, .loading-feedback__indicator, .summary-map-loading::before,
