@@ -70,6 +70,12 @@ const levisaForkConsolidatedRouteSlugs = [
   'levisa-fork-island-creek-thompson-road',
   'levisa-fork-prestonsburg-boat-ramp',
 ] as const;
+const littleForkHubPath = '/rivers/by-river/little-fork-river/';
+const littleForkConsolidatedRouteSlugs = [
+  'little-fork-river-highway-73-silverdale',
+  'little-fork-river-dentaybow-devereaux',
+  'little-fork-river-fiedler-lofgren-park',
+] as const;
 const upperCumberlandHubPath = '/rivers/by-river/upper-cumberland-river/';
 const upperCumberlandConsolidatedRouteSlugs = [
   'upper-cumberland-river-varilla-artemus',
@@ -965,6 +971,7 @@ const consolidatedRouteTargets = new Map<string, string>(
     ...floydsForkConsolidatedRouteSlugs.map((slug) => [slug, `${floydsForkHubPath}#trip-${slug}`] as const),
     ...barrenRiverConsolidatedRouteSlugs.map((slug) => [slug, `${barrenRiverHubPath}#trip-${slug}`] as const),
     ...levisaForkConsolidatedRouteSlugs.map((slug) => [slug, `${levisaForkHubPath}#trip-${slug}`] as const),
+    ...littleForkConsolidatedRouteSlugs.map((slug) => [slug, `${littleForkHubPath}#trip-${slug}`] as const),
     ...upperCumberlandConsolidatedRouteSlugs.map((slug) => [slug, `${upperCumberlandHubPath}#trip-${slug}`] as const),
     ...tradewaterConsolidatedRouteSlugs.map((slug) => [slug, `${tradewaterHubPath}#trip-${slug}`] as const),
     ...blackstoneRiverConsolidatedRouteSlugs.map((slug) => [slug, `${blackstoneHubPath}#trip-${slug}`] as const),

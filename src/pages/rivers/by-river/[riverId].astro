@@ -28,6 +28,7 @@ const isBarrenRiverHub = group.riverId === 'barren-river';
 const isUpperCumberlandHub = group.riverId === 'upper-cumberland-river';
 const isTradewaterHub = group.riverId === 'tradewater-river';
 const isLevisaForkHub = group.riverId === 'levisa-fork';
+const isLittleForkHub = group.riverId === 'little-fork-river';
 const isWillimanticHub = group.riverId === 'willimantic-river-connecticut';
 const isMillersHub = group.riverId === 'millers-river-massachusetts';
 const isBayouDeViewHub = group.riverId === 'bayou-deview';
@@ -87,6 +88,8 @@ const groupTitle = isBroadRiverHub
   ? 'Tradewater River, Kentucky | Sections, Water Levels & Access'
   : isLevisaForkHub
   ? 'Levisa Fork, Kentucky | Paddling Sections & Gauge Guidance'
+  : isLittleForkHub
+  ? 'Little Fork River, Minnesota | Water Trail Trips & Gauge Guidance'
   : isBuffaloHub
   ? 'Buffalo National River, Arkansas | Sections & Access'
   : isYellowBreechesHub
@@ -174,6 +177,8 @@ const groupDescription = isBroadRiverHub
   ? 'Compare nine lower Tradewater trips from Bellville to Granger. KDFWR lists four consecutive access sections with mileages from 6.7 to 10.6 miles; check the Providence gauge and trip-specific access notes.'
   : isLevisaForkHub
   ? 'Compare nine Levisa Fork trips around Pikeville and Prestonsburg. Keep KDFWR’s separate gauge recommendations tied to the right reach and check access for the exact endpoint pair.'
+  : isLittleForkHub
+  ? 'Compare ten Little Fork River trips across Minnesota DNR Water Trail Maps 1 and 2. Start with the two recommended day sections, then choose the exact launch and take-out with the gauge and access notes for that reach.'
   : isBuffaloHub
   ? 'Plan Buffalo National River routes by district. Ponca and Pruitt gauges cover Upper District trips; St. Joe covers Tyler Bend–Grinder’s Ferry.'
   : isYellowBreechesHub
@@ -691,6 +696,8 @@ const faqItems = [
       ? 'KDFWR lists four consecutive public-access sections from Bellville to Granger. Start with a named section or compare the longer trips in the selector; each option keeps its own distance, access, and gauge assignment.'
       : isLevisaForkHub
       ? 'Choose among nine endpoint pairs in two areas: the Pikeville Hatfield-McCoy River Trail around Jubilee, Island Creek, Cedar Creek, and Thompson Road, or the lower Prestonsburg-to-Paintsville access chain. The selector keeps the exact start and finish for each trip.'
+      : isLittleForkHub
+      ? 'Choose among ten trips across two Minnesota DNR map sections. Map 1 includes the recommended Veterans Park–Highway 73 day trip and options near Samuelson and Silverdale. Map 2 includes the recommended Dentaybow–Fiedler full-day run, the Fiedler–Devereaux–Lofgren access chain, and the lower outlet to Kuttes Landing.'
       : isHousatonicHub
       ? 'The Berkshire guide covers distinct upper, Stockbridge, and Great Barrington–Sheffield reaches. Compare the named public-access sections, then use the trip picker for six longer endpoint combinations that remain available with their own mileage, gauge, dam, and access notes.'
       : isLoupRiverHub
@@ -739,6 +746,8 @@ const faqItems = [
       ? 'KDFWR rates 10–15 ft and 5–50 cfs as good at USGS 03384100 near Providence for this lower corridor. Its separate Olney ranges apply farther upstream. The river can rise quickly after rain, and the trip card shows whether the Providence station is direct or proxy context for that route.'
       : isLevisaForkHub
       ? 'KDFWR publishes separate recommendations for Pikeville and Prestonsburg. Use USGS 03209500 near Pikeville for the upper trail’s 800–1,400 cfs / 7.4–8.5 ft band, and USGS 03209800 at Prestonsburg for the downstream 800–1,500 cfs / 3.5–5.0 ft band. These are local recommendations, not interchangeable safety limits; check the station attached to the selected trip.'
+      : isLittleForkHub
+      ? 'Minnesota DNR says Little Fork flow usually peaks in late April and falls through summer; a reading of 3 feet or lower at the river-mile-21.6 USGS gauge means most rapids are too shallow for easy passage. The trip cards use reach-specific Minnesota DNR gauge stations, so check the station shown for the exact route and watch for rapid changes.'
       : isCurrentRiverHub
       ? 'Use the gauge on the selected trip: USGS 07064533 above Akers for upper Current options and USGS 07067000 at Van Buren for lower Current options. The card floors (230 or 300 cfs upper; 700 cfs lower) are conservative community planning cues, not NPS safety limits. Check the park’s current river levels and closure notices; NPS closure stages use gauge height in feet and are a separate check.'
       : isJacksForkHub
@@ -879,6 +888,8 @@ const groupStructuredData = [
             ? 'This guide covers the upper main stem in New York and the North Branch in Pennsylvania. Start with a documented North Branch section below, then compare endpoint choices; gauge and conditions must match the exact reach.'
             : isChattahoocheeHub
             ? 'Choose a source-backed Chattahoochee section, then verify the USGS gauge assigned to your put-in. Buford and Morgan Falls Dam releases can change flow quickly, and the NPS limits vary by craft.'
+            : isLittleForkHub
+            ? 'Choose one of the two DNR map sections, then select the exact launch and take-out. The ten trips include the official 15.2-mile Veterans Park–Highway 73 day trip, the 13.1-mile Dentaybow–Fiedler full-day trip, and shorter or longer access combinations with reach-specific gauge context.'
             : isWillimanticHub
             ? 'Compare five selected Willimantic trips across three distinct stretches: upper quickwater, the Eagleville impoundment, and the river below the dam. Each stretch has different access, gauge cues, and hazards.'
             : isCedarRiverAdirondacksHub
@@ -2067,6 +2078,8 @@ const groupStructuredData = [
               ? `Compare all ${group.routeCount} Upper Cumberland choices here. The three consecutive access legs keep focused route pages; longer combinations remain available as trip cards. Williamsburg-to-Redbird and the downstream Cumberland Falls approaches retain their own pages because the gorge has different flow guidance and hazards.`
               : isTradewaterHub
               ? `Compare all ${group.routeCount} lower Tradewater choices here. Four consecutive KDFWR access sections keep standalone guides; five longer endpoint combinations remain selectable with their own distance, access, and trip-specific gauge context.`
+              : isLittleForkHub
+              ? `Compare all ${group.routeCount} Little Fork trip choices here. Seven reach-specific guides keep standalone pages; three composite endpoint combinations open their exact trip cards on this hub. All ten choices retain their own endpoints, distances, access details, and gauge assignments.`
               : isHousatonicHub
               ? `Compare all ${group.routeCount} Berkshire Housatonic trip choices here. Nine reach-specific sections keep standalone pages; six longer endpoint combinations remain selectable with their own access, mileage, gauge, portage, and safety details.`
               : isWillimanticHub
@@ -2581,6 +2594,50 @@ const groupStructuredData = [
 
           <p>
             See Kentucky Fish &amp; Wildlife’s <a href="https://fw.ky.gov/Fish/Pages/Levisa_Fork.aspx" target="_blank" rel="noopener noreferrer">access mileage, launch descriptions, and separate gauge recommendations</a>, its <a href="https://fw.ky.gov/Education/Pages/Levisa-Fork.aspx" target="_blank" rel="noopener noreferrer">Hatfield–McCoy trail guide</a> and <a href="https://fw.ky.gov/Education/Documents/bluewatertraillevisafork.pdf" target="_blank" rel="noopener noreferrer">detailed trail map</a>. Check <a href="https://waterdata.usgs.gov/monitoring-location/USGS-03209500/" target="_blank" rel="noopener noreferrer">USGS 03209500 at Pikeville</a> for the upper trail or <a href="https://waterdata.usgs.gov/monitoring-location/USGS-03209800/" target="_blank" rel="noopener noreferrer">USGS 03209800 at Prestonsburg</a> for the lower access chain. All nine endpoint pairs remain available in the trip selector.
+          </p>
+        </div>
+      ) : null}
+
+      {isLittleForkHub ? (
+        <div class="river-hub-context__source-guide" id="little-fork-water-trail-sections" aria-labelledby="little-fork-water-trail-sections-title">
+          <div class="river-group-page__section-head">
+            <div>
+              <p class="eyebrow section-label">Minnesota DNR · Little Fork State Water Trail</p>
+              <h3 class="section-title" id="little-fork-water-trail-sections-title">Choose by map, then match the reach</h3>
+            </div>
+            <p class="muted river-group-page__section-note">
+              The two DNR map sections contain ten trip choices. Start with a named day trip, then compare a shorter or longer endpoint pair using that trip card’s gauge and access notes.
+            </p>
+          </div>
+
+          <div class="river-hub-context__grid">
+            <article class="river-hub-context__item">
+              <h3>Map 1 · Veterans Park to Highway 73</h3>
+              <p>
+                DNR’s recommended trip is 15.2 river miles and is intended for paddlers experienced with Class II rapids. Other choices start at Highway 73 and continue to Samuelson Park or Silverdale, including a combined Highway 73–Silverdale trip. DNR identifies the carry-in access and gauge near Silverdale; use the exact trip’s gauge because the whole map is not represented by one local reading.
+              </p>
+              <a href={routeSlugHref('little-fork-river-veterans-park-highway-73')}>Open the recommended 15.2-mile trip</a>
+              <a href={routeSlugHref('little-fork-river-highway-73-silverdale')}>Compare Highway 73 to Silverdale</a>
+            </article>
+            <article class="river-hub-context__item">
+              <h3>Map 2 · Dentaybow through Lofgren Park</h3>
+              <p>
+                DNR’s recommended Dentaybow–Fiedler section is 13.1 miles and a full-day paddle. The map places Fiedler at river mile 44.8, Devereaux at 37.1, and Lofgren Park at 20.8. It describes the stretch from river mile 90 to 57 as wild and nearly inaccessible; check remoteness and the access chain before choosing a longer combination.
+              </p>
+              <a href={routeSlugHref('little-fork-river-dentaybow-fiedler')}>Open the recommended 13.1-mile trip</a>
+              <a href={routeSlugHref('little-fork-river-fiedler-lofgren-park')}>Compare Fiedler to Lofgren Park</a>
+            </article>
+            <article class="river-hub-context__item">
+              <h3>Lower outlet · Lofgren Park to Kuttes Landing</h3>
+              <p>
+                Lofgren Park is a city campground with trailer access, toilets, and drinking water. The Little Fork meets the Rainy River at mile 0; Kuttes Landing is about one mile farther east on the Rainy, so the take-out involves a short paddle beyond the Little Fork confluence.
+              </p>
+              <a href={routeSlugHref('little-fork-river-lofgren-kuttes')}>Open the Lofgren Park to Kuttes trip</a>
+            </article>
+          </div>
+
+          <p>
+            Minnesota DNR says flow usually peaks in late April and falls through summer; rapids may become impassable without heavy rain, and levels can change rapidly. Its map says a 3-foot-or-lower reading at the river-mile-21.6 USGS gauge means most rapids are too shallow for easy passage. Review the <a href="https://www.dnr.state.mn.us/state-water-trails/little-fork-river/segments-maps.html" target="_blank" rel="noopener noreferrer">official segment notes</a>, <a href="https://files.dnr.state.mn.us/maps/canoe_routes/littlefork1.pdf" target="_blank" rel="noopener noreferrer">Map 1</a>, and <a href="https://files.dnr.state.mn.us/maps/canoe_routes/littlefork2.pdf" target="_blank" rel="noopener noreferrer">Map 2</a>. The trip selector keeps all ten endpoint choices available with their own gauge assignments.
           </p>
         </div>
       ) : null}
