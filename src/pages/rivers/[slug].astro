@@ -189,6 +189,7 @@ const distanceMiles = (left: typeof river, right: typeof river) => {
 
   return 2 * earthRadiusMiles * Math.asin(Math.sqrt(haversine));
 };
+const nearbyRouteRadiusMiles = 75;
 const formatDifficulty = (difficulty: string | undefined) => {
   if (!difficulty) {
     return null;
@@ -205,6 +206,7 @@ const nearbyRoutes = allRoutes
     ...candidate,
     distance: distanceMiles(river, candidate),
   }))
+  .filter((candidate) => candidate.distance <= nearbyRouteRadiusMiles)
   .sort((left, right) => left.distance - right.distance)
   .slice(0, 4);
 const hasSameRiverRoutes = siblingRoutes.length > 0;
@@ -2353,7 +2355,7 @@ const routeFaqStructuredData = {
         </p>
         <h2 class="river-detail__chapter-title" id="related-routes-title">More routes to check next</h2>
         <p class="muted river-detail__chapter-copy">
-          Compare another stretch on this river, or jump to nearby options before you pick a plan.
+          Compare another stretch on this river, or explore different rivers within {nearbyRouteRadiusMiles} straight-line miles.
         </p>
       </div>
 
@@ -2420,7 +2422,7 @@ const routeFaqStructuredData = {
         {hasNearbyRoutes ? (
           <section class="route-discovery__group" aria-labelledby="nearby-routes-title">
             <div class="route-discovery__group-head">
-              <h3 id="nearby-routes-title">Nearby routes by distance</h3>
+              <h3 id="nearby-routes-title">Nearby routes within {nearbyRouteRadiusMiles} miles</h3>
             </div>
             <div class="route-discovery__list">
               {nearbyRoutes.map((candidate) => (
@@ -2432,7 +2434,7 @@ const routeFaqStructuredData = {
                 >
                   <span class="route-discovery__route">{candidate.name}</span>
                   <span class="route-discovery__meta">
-                    {candidate.reach} · about {Math.round(candidate.distance)} mi away
+                    {candidate.reach} · about {Math.round(candidate.distance)} straight-line mi away
                   </span>
                   {routeInfoParts(candidate).length > 0 ? (
                     <span class="route-discovery__facts">{routeInfoParts(candidate).join(' · ')}</span>
