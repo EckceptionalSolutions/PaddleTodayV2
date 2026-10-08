@@ -29,6 +29,7 @@ const isUpperCumberlandHub = group.riverId === 'upper-cumberland-river';
 const isTradewaterHub = group.riverId === 'tradewater-river';
 const isLevisaForkHub = group.riverId === 'levisa-fork';
 const isLittleForkHub = group.riverId === 'little-fork-river';
+const isStLouisRiverHub = group.riverId === 'st-louis-river';
 const isWillimanticHub = group.riverId === 'willimantic-river-connecticut';
 const isMillersHub = group.riverId === 'millers-river-massachusetts';
 const isBayouDeViewHub = group.riverId === 'bayou-deview';
@@ -90,6 +91,8 @@ const groupTitle = isBroadRiverHub
   ? 'Levisa Fork, Kentucky | Paddling Sections & Gauge Guidance'
   : isLittleForkHub
   ? 'Little Fork River, Minnesota | Water Trail Trips & Gauge Guidance'
+  : isStLouisRiverHub
+  ? 'St. Louis River, Minnesota | Water Trail Sections & Gauges'
   : isBuffaloHub
   ? 'Buffalo National River, Arkansas | Sections & Access'
   : isYellowBreechesHub
@@ -179,6 +182,8 @@ const groupDescription = isBroadRiverHub
   ? 'Compare nine Levisa Fork trips around Pikeville and Prestonsburg. Keep KDFWR’s separate gauge recommendations tied to the right reach and check access for the exact endpoint pair.'
   : isLittleForkHub
   ? 'Compare ten Little Fork River trips across Minnesota DNR Water Trail Maps 1 and 2. Start with the two recommended day sections, then choose the exact launch and take-out with the gauge and access notes for that reach.'
+  : isStLouisRiverHub
+  ? 'Compare 11 St. Louis River trips across Minnesota DNR Water Trail Maps 1 and 2. Start with the recommended County Road 4–95 or Paupores–Brookston sections, then choose exact endpoints with the correct gauge and access notes.'
   : isBuffaloHub
   ? 'Plan Buffalo National River routes by district. Ponca and Pruitt gauges cover Upper District trips; St. Joe covers Tyler Bend–Grinder’s Ferry.'
   : isYellowBreechesHub
@@ -698,6 +703,8 @@ const faqItems = [
       ? 'Choose among nine endpoint pairs in two areas: the Pikeville Hatfield-McCoy River Trail around Jubilee, Island Creek, Cedar Creek, and Thompson Road, or the lower Prestonsburg-to-Paintsville access chain. The selector keeps the exact start and finish for each trip.'
       : isLittleForkHub
       ? 'Choose among ten trips across two Minnesota DNR map sections. Map 1 includes the recommended Veterans Park–Highway 73 day trip and options near Samuelson and Silverdale. Map 2 includes the recommended Dentaybow–Fiedler full-day run, the Fiedler–Devereaux–Lofgren access chain, and the lower outlet to Kuttes Landing.'
+      : isStLouisRiverHub
+      ? 'Choose among 11 trips across the first two Minnesota DNR map sections. Start with the recommended 7.3-mile County Road 4–95 trip on Map 1 or the 7.9-mile Paupores–Brookston trip on Map 2; the selector keeps shorter access legs and longer combinations with their exact gauge and access details.'
       : isHousatonicHub
       ? 'The Berkshire guide covers distinct upper, Stockbridge, and Great Barrington–Sheffield reaches. Compare the named public-access sections, then use the trip picker for six longer endpoint combinations that remain available with their own mileage, gauge, dam, and access notes.'
       : isLoupRiverHub
@@ -748,6 +755,8 @@ const faqItems = [
       ? 'KDFWR publishes separate recommendations for Pikeville and Prestonsburg. Use USGS 03209500 near Pikeville for the upper trail’s 800–1,400 cfs / 7.4–8.5 ft band, and USGS 03209800 at Prestonsburg for the downstream 800–1,500 cfs / 3.5–5.0 ft band. These are local recommendations, not interchangeable safety limits; check the station attached to the selected trip.'
       : isLittleForkHub
       ? 'Minnesota DNR says Little Fork flow usually peaks in late April and falls through summer; a reading of 3 feet or lower at the river-mile-21.6 USGS gauge means most rapids are too shallow for easy passage. The trip cards use reach-specific Minnesota DNR gauge stations, so check the station shown for the exact route and watch for rapid changes.'
+      : isStLouisRiverHub
+      ? 'Use the station and direct-or-proxy label shown on the selected trip. Upper Map 1 choices use the Forbes gauge context (3.7–7.6 ft medium; below 3 ft scrapable; above 8 ft very high); Map 2 choices use Floodwood (28–37 ft medium; below 24.4 ft scrapable; above 42 ft very high). These interpreted stage bands belong to different stations and are not interchangeable or river-wide thresholds. Verify local depth and conditions at the launch.'
       : isCurrentRiverHub
       ? 'Use the gauge on the selected trip: USGS 07064533 above Akers for upper Current options and USGS 07067000 at Van Buren for lower Current options. The card floors (230 or 300 cfs upper; 700 cfs lower) are conservative community planning cues, not NPS safety limits. Check the park’s current river levels and closure notices; NPS closure stages use gauge height in feet and are a separate check.'
       : isJacksForkHub
@@ -890,6 +899,8 @@ const groupStructuredData = [
             ? 'Choose a source-backed Chattahoochee section, then verify the USGS gauge assigned to your put-in. Buford and Morgan Falls Dam releases can change flow quickly, and the NPS limits vary by craft.'
             : isLittleForkHub
             ? 'Choose one of the two DNR map sections, then select the exact launch and take-out. The ten trips include the official 15.2-mile Veterans Park–Highway 73 day trip, the 13.1-mile Dentaybow–Fiedler full-day trip, and shorter or longer access combinations with reach-specific gauge context.'
+            : isStLouisRiverHub
+            ? 'Choose from the first two DNR map sections, then select the exact launch and take-out. Start with the recommended County Road 4–95 or Paupores–Brookston day trip; use the selected card for its gauge, access, and hazard notes. The separate Highway 2–Lake Superior map describes a different downstream whitewater area.'
             : isWillimanticHub
             ? 'Compare five selected Willimantic trips across three distinct stretches: upper quickwater, the Eagleville impoundment, and the river below the dam. Each stretch has different access, gauge cues, and hazards.'
             : isCedarRiverAdirondacksHub
@@ -2080,6 +2091,8 @@ const groupStructuredData = [
               ? `Compare all ${group.routeCount} lower Tradewater choices here. Four consecutive KDFWR access sections keep standalone guides; five longer endpoint combinations remain selectable with their own distance, access, and trip-specific gauge context.`
               : isLittleForkHub
               ? `Compare all ${group.routeCount} Little Fork trip choices here. Seven reach-specific guides keep standalone pages; three composite endpoint combinations open their exact trip cards on this hub. All ten choices retain their own endpoints, distances, access details, and gauge assignments.`
+              : isStLouisRiverHub
+              ? `Compare all ${group.routeCount} St. Louis River choices here. Eight focused access sections keep their guides; three longer combinations open their exact trip cards on this hub. All eleven choices retain their endpoints, distances, access notes, and route-specific Forbes or Floodwood gauge context.`
               : isHousatonicHub
               ? `Compare all ${group.routeCount} Berkshire Housatonic trip choices here. Nine reach-specific sections keep standalone pages; six longer endpoint combinations remain selectable with their own access, mileage, gauge, portage, and safety details.`
               : isWillimanticHub
@@ -2638,6 +2651,57 @@ const groupStructuredData = [
 
           <p>
             Minnesota DNR says flow usually peaks in late April and falls through summer; rapids may become impassable without heavy rain, and levels can change rapidly. Its map says a 3-foot-or-lower reading at the river-mile-21.6 USGS gauge means most rapids are too shallow for easy passage. Review the <a href="https://www.dnr.state.mn.us/state-water-trails/little-fork-river/segments-maps.html" target="_blank" rel="noopener noreferrer">official segment notes</a>, <a href="https://files.dnr.state.mn.us/maps/canoe_routes/littlefork1.pdf" target="_blank" rel="noopener noreferrer">Map 1</a>, and <a href="https://files.dnr.state.mn.us/maps/canoe_routes/littlefork2.pdf" target="_blank" rel="noopener noreferrer">Map 2</a>. The trip selector keeps all ten endpoint choices available with their own gauge assignments.
+          </p>
+        </div>
+      ) : null}
+
+      {isStLouisRiverHub ? (
+        <div class="river-hub-context__source-guide" id="st-louis-water-trail-sections" aria-labelledby="st-louis-water-trail-sections-title">
+          <div class="river-group-page__section-head">
+            <div>
+              <p class="eyebrow section-label">Minnesota DNR · St. Louis River State Water Trail</p>
+              <h3 class="section-title" id="st-louis-water-trail-sections-title">Start with a map section and its recommended trip</h3>
+            </div>
+            <p class="muted river-group-page__section-note">
+              The 11 trip choices here cover DNR Maps 1 and 2. The maps describe different reaches, access chains, and gauge zones; choose a trip card with matching endpoints before checking conditions.
+            </p>
+          </div>
+
+          <div class="river-hub-context__grid">
+            <article class="river-hub-context__item">
+              <h3>Map 1 · County Road 4 to County Road 95 · 7.3 miles</h3>
+              <p>
+                DNR recommends this upper-river day trip. The put-in is an undeveloped bridge carry-in at river mile 151.9; the take-out is the County Road 95 access at mile 144.6. DNR describes shallow, sandy sections along this trip, so verify the bridge launch and local depth before setting out.
+              </p>
+              <a href={routeSlugHref('st-louis-river-county-road-4-95')}>Open the recommended Map 1 trip</a>
+            </article>
+            <article class="river-hub-context__item">
+              <h3>Map 1 · Forbes to Zim · 12.9 miles</h3>
+              <p>
+                This separate recommended section runs from the Forbes carry-in at river mile 125.9 to Zim at mile 113. DNR notes Class I rapids and a watercraft campsite near mile 121. The Forbes Dam is upstream of this trip’s put-in; trips starting above the dam need a separate river-right portage plan.
+              </p>
+              <a href={routeSlugHref('st-louis-river-forbes-zim')}>Open the recommended Forbes–Zim trip</a>
+            </article>
+            <article class="river-hub-context__item">
+              <h3>Map 2 · Paupores to Brookston · 7.9 miles</h3>
+              <p>
+                DNR recommends this wooded middle-river day trip from river mile 61.8 to 53.9. The map lists Class I–II rapids, some dangerous in high water, and several watercraft campsites. The route card uses Floodwood as an upstream gauge proxy, so pair it with same-day observations at both accesses.
+              </p>
+              <a href={routeSlugHref('st-louis-river-paupores-brookston')}>Open the recommended Map 2 trip</a>
+            </article>
+            <article class="river-hub-context__item">
+              <h3>Longer combinations · choose the exact endpoints</h3>
+              <p>
+                Three longer choices remain available in the trip cards: County Road 95–Zim (31.5 miles), Forbes–Toivola (31.7 miles), and Toivola–Floodwood (22.1 miles). County Road 95–Zim crosses the Forbes Dam boundary and requires the river-right portage; review its card before choosing that itinerary.
+              </p>
+              <a href={routeSlugHref('st-louis-river-county-road-95-zim')}>Compare County Road 95–Zim</a>
+              <a href={routeSlugHref('st-louis-river-forbes-toivola')}>Compare Forbes–Toivola</a>
+              <a href={routeSlugHref('st-louis-river-toivola-floodwood')}>Compare Toivola–Floodwood</a>
+            </article>
+          </div>
+
+          <p>
+            Minnesota DNR divides the full water trail into three maps. Map 3, from Highway 2 to Lake Superior, includes multiple dams and Class I–VI rapids, with parts of Jay Cooke State Park reserved for expert whitewater kayakers; it is a separate paddling area and is not represented by these 11 trips. Review the official <a href="https://www.dnr.state.mn.us/state-water-trails/st-louis-river/segments-maps.html" target="_blank" rel="noopener noreferrer">segment notes</a>, <a href="https://files.dnr.state.mn.us/maps/canoe_routes/stlouis1.pdf" target="_blank" rel="noopener noreferrer">Map 1</a>, and <a href="https://files.dnr.state.mn.us/maps/canoe_routes/stlouis2.pdf" target="_blank" rel="noopener noreferrer">Map 2</a>. Use the gauge assigned to your exact trip: Forbes for the upper corridor and Floodwood for the lower one. Gauge heights from different stations are not directly comparable.
           </p>
         </div>
       ) : null}
