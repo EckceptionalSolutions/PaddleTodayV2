@@ -27,6 +27,7 @@ const isBuffaloHub = group.riverId === 'buffalo-river';
 const isBarrenRiverHub = group.riverId === 'barren-river';
 const isUpperCumberlandHub = group.riverId === 'upper-cumberland-river';
 const isTradewaterHub = group.riverId === 'tradewater-river';
+const isLevisaForkHub = group.riverId === 'levisa-fork';
 const isWillimanticHub = group.riverId === 'willimantic-river-connecticut';
 const isMillersHub = group.riverId === 'millers-river-massachusetts';
 const isBayouDeViewHub = group.riverId === 'bayou-deview';
@@ -84,6 +85,8 @@ const groupTitle = isBroadRiverHub
   ? 'Upper Cumberland River, Kentucky | Sections & Water Levels'
   : isTradewaterHub
   ? 'Tradewater River, Kentucky | Sections, Water Levels & Access'
+  : isLevisaForkHub
+  ? 'Levisa Fork, Kentucky | Paddling Sections & Gauge Guidance'
   : isBuffaloHub
   ? 'Buffalo National River, Arkansas | Sections & Access'
   : isYellowBreechesHub
@@ -169,6 +172,8 @@ const groupDescription = isBroadRiverHub
   ? 'Compare 10 Upper Cumberland River trips by access point. KDFWR lists the Varilla–4 Mile, 4 Mile–Artemus, and Artemus–Barbourville segments; use the Williamsburg gauge and the flow guidance for your exact reach.'
   : isTradewaterHub
   ? 'Compare nine lower Tradewater trips from Bellville to Granger. KDFWR lists four consecutive access sections with mileages from 6.7 to 10.6 miles; check the Providence gauge and trip-specific access notes.'
+  : isLevisaForkHub
+  ? 'Compare nine Levisa Fork trips around Pikeville and Prestonsburg. Keep KDFWR’s separate gauge recommendations tied to the right reach and check access for the exact endpoint pair.'
   : isBuffaloHub
   ? 'Plan Buffalo National River routes by district. Ponca and Pruitt gauges cover Upper District trips; St. Joe covers Tyler Bend–Grinder’s Ferry.'
   : isYellowBreechesHub
@@ -684,6 +689,8 @@ const faqItems = [
       ? 'KDFWR lists the Varilla–4 Mile, 4 Mile–Artemus, and Artemus–Barbourville legs as consecutive public-access segments. Start with a named leg or choose one of the longer combinations in the trip selector; the Williamsburg-to-Redbird and Cumberland Falls approaches remain separate.'
       : isTradewaterHub
       ? 'KDFWR lists four consecutive public-access sections from Bellville to Granger. Start with a named section or compare the longer trips in the selector; each option keeps its own distance, access, and gauge assignment.'
+      : isLevisaForkHub
+      ? 'Choose among nine endpoint pairs in two areas: the Pikeville Hatfield-McCoy River Trail around Jubilee, Island Creek, Cedar Creek, and Thompson Road, or the lower Prestonsburg-to-Paintsville access chain. The selector keeps the exact start and finish for each trip.'
       : isHousatonicHub
       ? 'The Berkshire guide covers distinct upper, Stockbridge, and Great Barrington–Sheffield reaches. Compare the named public-access sections, then use the trip picker for six longer endpoint combinations that remain available with their own mileage, gauge, dam, and access notes.'
       : isLoupRiverHub
@@ -730,6 +737,8 @@ const faqItems = [
       ? 'USGS 03404000 at Williamsburg is the reference for these routes. KDFWR publishes 3.0–3.8 ft (300–700 cfs) for the Upper Cumberland access chain; its separate Cumberland gorge guidance calls 500–1,100 cfs best and up to 2,000 cfs challenging for skilled paddlers. Use the band and hazards on the selected trip because the gorge routes have a different character.'
       : isTradewaterHub
       ? 'KDFWR rates 10–15 ft and 5–50 cfs as good at USGS 03384100 near Providence for this lower corridor. Its separate Olney ranges apply farther upstream. The river can rise quickly after rain, and the trip card shows whether the Providence station is direct or proxy context for that route.'
+      : isLevisaForkHub
+      ? 'KDFWR publishes separate recommendations for Pikeville and Prestonsburg. Use USGS 03209500 near Pikeville for the upper trail’s 800–1,400 cfs / 7.4–8.5 ft band, and USGS 03209800 at Prestonsburg for the downstream 800–1,500 cfs / 3.5–5.0 ft band. These are local recommendations, not interchangeable safety limits; check the station attached to the selected trip.'
       : isCurrentRiverHub
       ? 'Use the gauge on the selected trip: USGS 07064533 above Akers for upper Current options and USGS 07067000 at Van Buren for lower Current options. The card floors (230 or 300 cfs upper; 700 cfs lower) are conservative community planning cues, not NPS safety limits. Check the park’s current river levels and closure notices; NPS closure stages use gauge height in feet and are a separate check.'
       : isJacksForkHub
@@ -2537,6 +2546,41 @@ const groupStructuredData = [
 
           <p>
             See Kentucky Fish and Wildlife’s <a href="https://fw.ky.gov/Fish/Pages/Tradewater_River.aspx" target="_blank" rel="noopener noreferrer">Tradewater access mileages, gauge recommendations, and ramp notes</a> before choosing a reach or shuttle.
+          </p>
+        </div>
+      ) : null}
+
+      {isLevisaForkHub ? (
+        <div class="river-hub-context__source-guide" id="levisa-access-zones" aria-labelledby="levisa-access-zones-title">
+          <div class="river-group-page__section-head">
+            <div>
+              <p class="eyebrow section-label">Kentucky Fish &amp; Wildlife · Levisa Fork</p>
+              <h3 class="section-title" id="levisa-access-zones-title">Choose the Pikeville trail or the lower river</h3>
+            </div>
+            <p class="muted river-group-page__section-note">
+              The nine trip choices fall into two areas with different gauge recommendations. Use the station shown for the exact trip.
+            </p>
+          </div>
+
+          <div class="river-hub-context__grid">
+            <article class="river-hub-context__item">
+              <h3>Hatfield–McCoy River Trail · Pikeville</h3>
+              <p>
+                KDFWR describes an 8.5-mile trail through Jubilee Christian Church, Island Creek, Cedar Creek, and Thompson Road. The first float to Island Creek is nearly four miles; Island Creek to Cedar Creek adds about 1.5 miles. KDFWR’s current mileage page lists Cedar Creek to Thompson Road at 3.0 miles, while its detailed map says 3.2. Jubilee has limited parking and asks paddlers to get permission before using the church lot; Cedar Creek’s gravel approach can be difficult for first-time visitors.
+              </p>
+              <a href={routeSlugHref('levisa-fork-jubilee-thompson-road')}>View the full 8.5-mile trail option</a>
+            </article>
+            <article class="river-hub-context__item">
+              <h3>Lower Levisa · Prestonsburg to Paintsville</h3>
+              <p>
+                KDFWR lists Prestonsburg to Airport at 8.2 miles and Airport to Levisa Fork Boat Ramp at 8.1 miles. Those downstream trips use the Prestonsburg gauge. Do not apply the Pikeville trail’s level band to this lower reach.
+              </p>
+              <a href={routeSlugHref('levisa-fork-prestonsburg-boat-ramp')}>Compare the 16.3-mile lower option</a>
+            </article>
+          </div>
+
+          <p>
+            See Kentucky Fish &amp; Wildlife’s <a href="https://fw.ky.gov/Fish/Pages/Levisa_Fork.aspx" target="_blank" rel="noopener noreferrer">access mileage, launch descriptions, and separate gauge recommendations</a>, its <a href="https://fw.ky.gov/Education/Pages/Levisa-Fork.aspx" target="_blank" rel="noopener noreferrer">Hatfield–McCoy trail guide</a> and <a href="https://fw.ky.gov/Education/Documents/bluewatertraillevisafork.pdf" target="_blank" rel="noopener noreferrer">detailed trail map</a>. Check <a href="https://waterdata.usgs.gov/monitoring-location/USGS-03209500/" target="_blank" rel="noopener noreferrer">USGS 03209500 at Pikeville</a> for the upper trail or <a href="https://waterdata.usgs.gov/monitoring-location/USGS-03209800/" target="_blank" rel="noopener noreferrer">USGS 03209800 at Prestonsburg</a> for the lower access chain. All nine endpoint pairs remain available in the trip selector.
           </p>
         </div>
       ) : null}

@@ -152,6 +152,23 @@ export const routeCorridorDefinitions: RouteCorridorDefinition[] = [
     segmentEdges: [],
   },
   {
+    corridorId: 'ky-levisa-fork-two-gauge-access-family',
+    label: 'Levisa Fork Pikeville Hatfield-McCoy Trail and lower Prestonsburg access chain',
+    continuityStatus: 'condition-family',
+    slugs: [
+      'levisa-fork-jubilee-island-creek',
+      'levisa-fork-island-creek-cedar-creek',
+      'levisa-fork-cedar-creek-thompson-road',
+      'levisa-fork-jubilee-cedar-creek',
+      'levisa-fork-island-creek-thompson-road',
+      'levisa-fork-jubilee-thompson-road',
+      'levisa-fork-prestonsburg-airport',
+      'levisa-fork-airport-boat-ramp',
+      'levisa-fork-prestonsburg-boat-ramp',
+    ],
+    segmentEdges: [],
+  },
+  {
     corridorId: 'ct-willimantic-water-trail',
     label: 'Willimantic River Water Trail three-segment condition family',
     continuityStatus: 'condition-family',
