@@ -74,6 +74,7 @@ export const wisconsinRoutes: River[] = [
   },
   {
     "id": "black-river-hwy-53-hwy-35",
+    "riverId": "black-river-wisconsin",
     "slug": "black-river-hwy-53-hwy-35",
     "name": "Black River",
     "reach": "Highway 53/93 Landing to Highway 35 Landing",
@@ -8589,6 +8590,7 @@ export const wisconsinRoutes: River[] = [
   },
   {
     "id": "black-river-melrose-north-bend",
+    "riverId": "black-river-wisconsin",
     "slug": "black-river-melrose-north-bend",
     "name": "Black River",
     "reach": "Melrose Landing to North Bend Landing",
@@ -19549,6 +19551,7 @@ export const wisconsinRoutes: River[] = [
   },
   {
     "id": "black-river-cormican-irving",
+    "riverId": "black-river-wisconsin",
     "slug": "black-river-cormican-irving",
     "name": "Black River",
     "reach": "Bruce Cormican Landing to David Hansen Memorial Landing / Irving",
@@ -19667,6 +19670,7 @@ export const wisconsinRoutes: River[] = [
   },
   {
     "id": "black-river-irving-melrose",
+    "riverId": "black-river-wisconsin",
     "slug": "black-river-irving-melrose",
     "name": "Black River",
     "reach": "David Hansen Memorial Landing / Irving to Melrose Landing",

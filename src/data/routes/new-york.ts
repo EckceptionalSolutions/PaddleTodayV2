@@ -2601,7 +2601,7 @@ export const newYorkRoutes: River[] = [
   }),
   buildAdditionalNewYorkRoute({
     id: 'buffalo-river-harlem-ohio-street',
-    riverId: 'buffalo-river',
+    riverId: 'buffalo-river-new-york',
     riverName: 'Buffalo River',
     contextImageUrl: 'https://buffaloblueway.com/wp-content/uploads/2026/04/Media-1.jpg',
     sourceLabel: 'NYSDEC Buffalo River Canoe Trail / Buffalo Blueway',
@@ -7646,7 +7646,7 @@ export const newYorkRoutes: River[] = [
   }),
   buildAdditionalNewYorkRoute({
     id: 'buffalo-river-canalside-red-jacket',
-    riverId: 'buffalo-river',
+    riverId: 'buffalo-river-new-york',
     riverName: 'Buffalo River',
     contextImageUrl: 'https://ny.water.usgs.gov/images/StationPictures/0421580305.jpg',
     sourceLabel: 'Erie Canalway National Heritage Corridor Buffalo Water Trail',

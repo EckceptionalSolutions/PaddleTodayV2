@@ -760,6 +760,7 @@ export const illinoisRoutes: River[] = [
   },
   {
     "id": "fox-river-yorkville-whitewater-course",
+    "riverId": "fox-river-illinois",
     "slug": "fox-river-yorkville-whitewater-course",
     "name": "Fox River",
     "reach": "Marge Cline Whitewater Course",

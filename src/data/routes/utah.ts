@@ -726,6 +726,7 @@ export const utahRoutes: River[] = [
   },
   {
     "id": "clear-creek-fish-creek-confluence-clear-creek-road",
+    "riverId": "clear-creek-utah",
     "slug": "clear-creek-fish-creek-confluence-clear-creek-road",
     "name": "Clear Creek",
     "reach": "Fish Creek Confluence to Clear Creek Road",

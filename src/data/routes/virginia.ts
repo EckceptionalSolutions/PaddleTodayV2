@@ -2136,7 +2136,7 @@ export const virginiaRoutes: River[] = [
   },
   {
     id: 'james-river-buchanan-arcadia',
-    riverId: 'james-river',
+    riverId: 'james-river-virginia',
     slug: 'james-river-buchanan-arcadia',
     name: 'James River',
     reach: 'Buchanan to Arcadia',
@@ -2434,7 +2434,7 @@ export const virginiaRoutes: River[] = [
   },
   {
     id: 'james-river-iron-gate-glen-wilton',
-    riverId: 'james-river',
+    riverId: 'james-river-virginia',
     slug: 'james-river-iron-gate-glen-wilton',
     name: 'James River',
     reach: 'Iron Gate/Lick Run to Glen Wilton',
@@ -2583,7 +2583,7 @@ export const virginiaRoutes: River[] = [
   },
   {
     id: 'james-river-bent-creek-state-park',
-    riverId: 'james-river',
+    riverId: 'james-river-virginia',
     slug: 'james-river-bent-creek-state-park',
     name: 'James River',
     reach: 'Bent Creek Boat Ramp to James River State Park',
@@ -3430,7 +3430,7 @@ export const virginiaRoutes: River[] = [
   },
   {
     id: 'james-river-pony-pasture-reedy-creek',
-    riverId: 'james-river',
+    riverId: 'james-river-virginia',
     slug: 'james-river-pony-pasture-reedy-creek',
     name: 'James River',
     reach: 'Pony Pasture Park to Reedy Creek',
