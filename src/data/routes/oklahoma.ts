@@ -133,12 +133,6 @@ export const oklahomaRoutes: River[] = [
         "value": "Honobia WMA/ODWC and free-flowing Glover River context",
         "note": "TravelOK describes Glover as free-flowing and untamed, with low-water and high-water hazards; current WMA permit and endpoint rules must be confirmed.",
         "sourceUrl": "https://www.travelok.com/listings/view.profile/id.3031"
-      },
-      {
-        "label": "Rights-clean image decision",
-        "value": "Use the approved route-photo fallback until a route-specific license is verified",
-        "note": "No external image is copied from American Whitewater, Southwest Paddler, or TravelOK; the route remains eligible with approved fallback imagery.",
-        "sourceUrl": "https://www.americanwhitewater.org/content/River/view/river-detail/2579/main"
       }
     ],
     "sourceLinks": [
@@ -297,12 +291,6 @@ export const oklahomaRoutes: River[] = [
         "value": "36.1303056, -94.5726944 to 36.1042527, -94.7827283",
         "note": "Southwest Paddler publishes the Watts launch coordinates; Chewey Bridge uses the defensible public-access anchor already documented by USGS/Corps and Illinois River outfitter sources.",
         "sourceUrl": "https://www.illinoisriveroutfitters.com/"
-      },
-      {
-        "label": "Rights-clean image decision",
-        "value": "Use the approved route-photo fallback until a route-specific license is verified",
-        "note": "No external image is copied from TravelOK, Southwest Paddler, or outfitters; the route remains eligible with approved fallback imagery.",
-        "sourceUrl": "https://www.travelok.com/listings/view.profile/id.3759"
       }
     ],
     "sourceLinks": [
@@ -494,12 +482,6 @@ export const oklahomaRoutes: River[] = [
         "value": "467 cfs and 1.71 ft at 2026-08-25 20:30 CDT",
         "note": "USGS Water Services returned the latest provisional discharge and gage-height observations during review; the discharge was inside the cited preferred range at review time.",
         "sourceUrl": "https://waterservices.usgs.gov/nwis/iv/?format=json&sites=07339000&parameterCd=00060,00065&siteStatus=all"
-      },
-      {
-        "label": "Rights-clean image decision",
-        "value": "Use the existing approved route-photo fallback until a route-specific license is verified",
-        "note": "No route-specific image is copied from TravelOK or the secondary guide. The route remains eligible for publication with the app's approved fallback imagery; a Wikimedia/agency image can be added later only after explicit rights verification.",
-        "sourceUrl": "https://web2.travelok.com/gb/listings/view.profile/id.4670"
       }
     ],
     "sourceLinks": [
@@ -647,8 +629,7 @@ export const oklahomaRoutes: River[] = [
       {"label": "Direct live gauge", "value": "USGS 07196000 Flint Creek near Kansas", "note": "USGS provides direct discharge and gage-height telemetry for the named reach.", "sourceUrl": "https://waterdata.usgs.gov/monitoring-location/USGS-07196000/"},
       {"label": "Endpoint coordinates", "value": "36.1867733, -94.70680493 to 36.1042527, -94.7827283", "note": "OWRB/Water Quality Portal records the US-412 Flint Creek site; USGS and Corps records provide the Chewey Bridge station coordinates used as a defensible access anchor.", "sourceUrl": "https://www.waterqualitydata.us/provider/STORET/OKWRB-STREAMS_WQX/OKWRB-STREAMS_WQX-121700060010-001AT/"},
       {"label": "Flow planning", "value": "74 cfs minimum; 75–241 cfs conservative planning band", "note": "The band combines American Whitewater's gauge-linked recommended-flow signal, local normal-flow context at the Kansas gauge, and a high-water advisory; it is conservative community guidance, not an official safe limit.", "sourceUrl": "https://illinoisriver.org/articles/page/298/illinois-river-high-water-advisory"},
-      {"label": "Public take-out and logistics", "value": "Chewey Bridge public access with shuttle/outfitter support", "note": "Illinois River outfitters list Chewey Bridge as a public access and shuttle destination; current reservation, fee, parking, and access rules must be checked.", "sourceUrl": "https://www.illinoisriveroutfitters.com/"},
-      {"label": "Rights-clean image decision", "value": "Use approved route-photo fallback until a route-specific license is verified", "note": "No image is copied from American Whitewater, TravelOK, or outfitters; the route remains eligible with approved fallback imagery.", "sourceUrl": "https://www.americanwhitewater.org/content/River/view/river-detail/4461/main"}
+      {"label": "Public take-out and logistics", "value": "Chewey Bridge public access with shuttle/outfitter support", "note": "Illinois River outfitters list Chewey Bridge as a public access and shuttle destination; current reservation, fee, parking, and access rules must be checked.", "sourceUrl": "https://www.illinoisriveroutfitters.com/"}
     ],
     "sourceLinks": [
       {"label": "American Whitewater Flint Creek reach", "url": "https://www.americanwhitewater.org/content/River/view/river-detail/4461/main", "provider": "local"},
@@ -793,12 +774,6 @@ export const oklahomaRoutes: River[] = [
         "value": "49.1 cfs and 5.64 ft at the most recent indexed USGS reading",
         "note": "The indexed USGS page showed low water at review time, below the cited minimum; do not launch at that reading without a materially changed flow and a fresh hazard check.",
         "sourceUrl": "https://waterdata.usgs.gov/ok/nwis/uv/?agency_cd=USGS&site_no=07332390"
-      },
-      {
-        "label": "Rights-clean image decision",
-        "value": "Use the existing approved route-photo fallback until a route-specific license is verified",
-        "note": "No image is copied from TravelOK, American Whitewater, or Southwest Paddler; the route remains eligible with approved fallback imagery.",
-        "sourceUrl": "https://www.travelok.com/listings/view.profile/id.646"
       }
     ],
     "sourceLinks": [

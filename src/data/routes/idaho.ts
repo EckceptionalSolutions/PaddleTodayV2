@@ -1044,12 +1044,6 @@ function makeRoute(spec: Spec): River {
         sourceUrl: spec.sourceUrl,
       },
       {
-        label: "Image decision",
-        value: spec.imageLabel,
-        note: "Approved route-area or same-river context; it does not depict every endpoint or current conditions.",
-        sourceUrl: spec.imageUrl,
-      },
-      {
         label: "Overlap decision",
         value: "Retained as a distinct access-to-access itinerary",
         note: "Adjacent cards use different public endpoints and provide a different trip length, hazard set, skill tier, or operating boundary.",

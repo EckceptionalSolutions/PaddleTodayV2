@@ -1484,7 +1484,6 @@ const northCarolinaCoastalExpansionRoutes: River[] = [
       { label: 'Independent coastal-trail GIS', value: 'Hammocks Beach Paddle Trail, code SC-ON-1', note: 'The North Carolina Coastal Plain Paddle Trails service identifies the trail and Hammocks Beach access as mapped recreation data.', sourceUrl: ncCoastalPaddleTrailsGisUrl },
       { label: 'Regional tidal proxy', value: 'USGS 02092760 White Oak River at Swansboro', note: 'Use current stage and trend only as nearby context. No numeric recreational cutoff is transferred to the Huggins Island route.', sourceUrl: hammocksBeachUspsDetailUrl },
       { label: 'Camping and access boundary', value: 'Day trip by default; designated park sites only', note: 'Primitive and paddle-in camping exists in the park, but reservations and current access rules apply; beaches and marsh edges are not assumed campsites or emergency landings.', sourceUrl: hammocksBeachParkUrl },
-      { label: 'Image decision', value: 'Official Hammocks Beach State Parks context image used; exact Huggins Island conditions not implied', note: 'The image represents the park’s coastal setting and is not evidence of current route or tide conditions.', sourceUrl: hammocksBeachParkUrl },
     ],
     sourceLinks: [
       { label: 'NC State Parks Hammocks Beach State Park', url: hammocksBeachParkUrl, provider: 'local' },
@@ -1609,7 +1608,6 @@ function buildNewRiverStateParkRoute(spec: NewRiverStateParkRouteSpec): River {
       { label: 'Water-entry coordinate control', value: `${spec.putIn.name} and ${spec.takeOut.name} water-access anchors`, note: 'NCWRC-supported access coordinates are retained as water-entry/landing anchors; larger state-park facility GPS and parking coordinates are not silently substituted for the river entry.', sourceUrl: newRiverAccessGuideUrl },
       { label: 'Access and camping controls', value: spec.camping, note: spec.campingHazard, sourceUrl: newRiverStateParkMapSource },
       { label: 'Safety and boundary posture', value: 'Shallow mountain river with mapped minor rapids, portage hazards, and named access boundaries', note: 'Stay within the documented access chain and portage any unscouted obstruction or hazard.', sourceUrl: newRiverStateParkMapSource },
-      { label: 'Image decision', value: 'Approved same-river New River context image used; no endpoint depiction implied', note: 'The existing river-level image is intentionally presented as New River context rather than proof of current access or conditions at this reach.', sourceUrl: newRiverParkUrl },
     ],
     sourceLinks: [
       { label: 'NC State Parks New River State Park', url: newRiverParkUrl, provider: 'local' },
@@ -1792,7 +1790,6 @@ function buildNeuseBluewaySegmentRoute(spec: NeuseBluewaySegmentSpec): River {
       { label: 'Water-entry coordinate control', value: `${spec.putIn.name} (${spec.putIn.latitude}, ${spec.putIn.longitude}) to ${spec.takeOut.name} (${spec.takeOut.latitude}, ${spec.takeOut.longitude})`, note: 'Coordinates are access-area/water-entry anchors corroborated by Raleigh directions and the listed coordinate source set; confirm the physical ramp or carry at travel time.', sourceUrl: spec.coordinateSources[0] },
       { label: 'Safety and access restrictions', value: 'PFD, high-flow/obstruction/thunderstorm controls, dawn-to-dusk use, no overnight vehicles', note: 'Raleigh’s current safety and access page requires PFDs, warns about fast current and obstructions, and prohibits overnight use at river-access parking lots.', sourceUrl: neuseRiverAccessUrl },
       { label: 'Camping posture', value: 'No endpoint or on-route camping; separate lawful basecamp required', note: 'The city does not grant camping rights at the access lots and expressly prohibits overnight use and overnight vehicle parking there.', sourceUrl: neuseRiverAccessUrl },
-      { label: 'Rights-clean image decision', value: 'Approved same-river Neuse River context image used', note: 'The existing Neuse River gallery fallback is presented as river context, not proof of current endpoint or water conditions.', sourceUrl: neuseRiverAccessUrl },
       { label: 'Duplicate separation', value: `Distinct ${spec.reach} section`, note: 'The route has its own consecutive Blueway endpoint pair and is linked to, rather than merged with, the adjacent Blueway sections.', sourceUrl: neuseRiverAccessUrl },
     ],
     sourceLinks: [
@@ -2045,7 +2042,6 @@ export const northCarolinaRoutes: River[] = [
       { label: 'Boone’s Cave Park operations', value: 'Carry-in canoe/kayak access; parking pass required for a vehicle left during a paddle; primitive and semi-primitive camping', note: 'Davidson County publishes the access trail, no-rental/no-shuttle restriction, parking requirement, and campsite information.', sourceUrl: boonesCaveParkUrl },
       { label: 'Station-specific flow table', value: '1.0–4.0 ft and 1,000–5,000 cfs for US 64 to Boone’s Cave Park', note: 'The Daniel Boone Heritage Canoe Trail identifies USGS 02116500 Yadkin River at Yadkin College as its stream-flow source and publishes the segment bounds.', sourceUrl: danielBooneTrailUrl },
       { label: 'Direct live gauge', value: 'USGS 02116500; 1,260 cfs and 1.11 ft at 2026-08-29 17:15 EDT', note: 'The reviewed observation was just above the published lower shoulder; recheck the current value and trend before launch. A reading inside the band does not certify safe conditions.', sourceUrl: yadkinCollegeHydrographUrl },
-      { label: 'Image decision', value: 'Approved same-river Yadkin River context image selected', note: 'The route gallery uses the public-domain Yadkin River at Elkin image as same-river context; it is not presented as an endpoint photograph.', sourceUrl: yadkinElkinImageUrl },
     ],
     sourceLinks: [
       { label: 'Daniel Boone Heritage Canoe Trail flow table', url: danielBooneTrailUrl, provider: 'local' },
@@ -2141,7 +2137,6 @@ export const northCarolinaRoutes: River[] = [
       { label: 'Release and safety guidance', value: 'Controlled recreational releases generally 2,000–3,300 cfs when not in flood control', note: 'Dominion Energy documents the two landings, release-sensitive conditions, and required whitewater equipment. Paddle Today uses 2,000 cfs only as a conservative minimum screen.', sourceUrl: dominionUrl },
       { label: 'Direct live gauge', value: 'USGS 02080500; 2,040 cfs and 2.98 ft at 2026-08-27 14:00 local time', note: 'The current observation was inside the cited controlled-release band when reviewed; recheck the live value and release schedule before launch.', sourceUrl: usgsHydrographUrl },
       { label: 'Whitewater reach context', value: 'Roanoke NC Route 48 to below U.S. 301 / Weldon', note: 'American Whitewater identifies the named Weldon reach and the direct Roanoke Rapids gauge; the stored route ends at the documented pre-rapids outtake.', sourceUrl: americanWhitewaterUrl },
-      { label: 'Image decision', value: 'No route-specific image selected; approved Roanoke River context image used', note: 'No route-specific image was copied into the repository; the preview uses a rights-clean USGS Roanoke River context image and does not imply endpoint coverage.', sourceUrl: rrstUrl },
     ],
     sourceLinks: [
       { label: 'North Carolina Roanoke River State Trail', url: rrstUrl, provider: 'local' },
@@ -2241,7 +2236,6 @@ export const northCarolinaRoutes: River[] = [
       { label: 'Route class and endpoints', value: 'Ronda Access to Crater Park Access, 6.8 miles, Class I–II', note: 'The Yadkin Valley river brochure identifies the named endpoint pair, distance, and class for this section.', sourceUrl: yadkinValleyBrochureUrl },
       { label: 'Station-specific operating guidance', value: 'Elkin near 4 ft is a no-go cue; about 3 ft / 1,500 cfs was a pleasant reference', note: 'Yadkin Riverkeeper reports local outfitter practice and emphasizes checking upstream Kerr Scott release, gauge trend, debris, and visual conditions.', sourceUrl: yrstSafetyUrl },
       { label: 'Direct live gauge', value: 'USGS 02112250 at Elkin; 569 cfs and 1.31 ft at 2026-08-27 15:00 local time', note: 'The reviewed observation was below the conservative product shoulder; recheck current value and trend before any launch. A low reading does not certify safe access or adequate depth.', sourceUrl: yadkinElkinHydrographUrl },
-      { label: 'Image decision', value: 'No route-specific image selected; approved Yadkin River context image used', note: 'No route-specific image was copied into the repository; the preview uses a rights-clean NOAA/NWS Yadkin River context image and does not imply endpoint coverage.', sourceUrl: yrstUrl },
     ],
     sourceLinks: [
       { label: 'North Carolina Yadkin River State Trail', url: yrstUrl, provider: 'local' },
@@ -2341,7 +2335,6 @@ export const northCarolinaRoutes: River[] = [
       { label: 'Endpoint coordinates and route character', value: 'Tailwater 36.1358333, -81.2231667 to Smoot Park 36.164, -81.1348333; about 7 miles, Class I–II', note: 'The Piedmont Triad access brochure publishes coordinates and the connected access sequence; local route material describes the beginner-friendly Class I–II character.', sourceUrl: yadkinAccessBrochureUrl },
       { label: 'Station-specific release guidance', value: 'Upper Yadkin local outfitter screen: dam gauge over 1,000 cfs is a no-go cue', note: 'Yadkin Riverkeeper documents checking the Kerr Scott release and using the dam gauge with downstream gauges before operating.', sourceUrl: yrstSafetyUrl },
       { label: 'Direct live gauge', value: 'USGS 0211139110 below Kerr Scott Dam; 317 cfs and 2.02 ft at 2026-08-27 14:45 local time', note: 'The reviewed tailwater observation was inside the conservative operating screen; recheck the live value, trend, and dam release immediately before launch.', sourceUrl: kerrScottHydrographUrl },
-      { label: 'Image decision', value: 'No route-specific image selected; approved Yadkin River context image used', note: 'No route-specific image was copied into the repository; the preview uses a rights-clean NOAA/NWS Yadkin River context image and does not imply endpoint coverage.', sourceUrl: yrstUrl },
     ],
     sourceLinks: [
       { label: 'North Carolina Yadkin River State Trail access applications', url: yadkinTrailDesignationUrl, provider: 'local' },
@@ -2441,7 +2434,6 @@ export const northCarolinaRoutes: River[] = [
       { label: 'Take-out coordinate anchor', value: '35.895164, -79.257469', note: 'A mapped Union Bridge boat launch supports the practical river-access coordinate; the Haw River Trail address remains the primary access evidence.', sourceUrl: hawUnionBridgeMapUrl },
       { label: 'Direct live gauge', value: 'USGS 02096500; 86.2 cfs and 1.73 ft at 2026-08-27 17:45 EDT', note: 'The reviewed observation was below the Haw River Trail minimum, so the route should not be treated as launch-ready from that snapshot. Recheck the live value and trend before every trip; provisional data are subject to revision.', sourceUrl: hawHydrographUrl },
       { label: 'State-trail context', value: 'Haw River State Trail', note: 'North Carolina\'s state-trail system provides the broader public corridor context; this route is anchored to the partner-managed Haw River Paddle Trail access chain.', sourceUrl: hawStateTrailUrl },
-      { label: 'Image decision', value: 'No route-specific image selected; approved Haw River context image used', note: 'No route-specific image was copied into the repository; the preview uses a rights-clean Haw River context image and labels the Bynum dam view as context rather than an endpoint claim.', sourceUrl: hawTrailUrl },
     ],
     sourceLinks: [
       { label: 'Haw River Trail section', url: hawTrailUrl, provider: 'local' },
@@ -2541,7 +2533,6 @@ export const northCarolinaRoutes: River[] = [
       { label: 'State-park access context', value: 'Anglin Mill / Mayo Beach Access, 108 Mayo Beach Road, Stoneville', note: 'North Carolina State Parks lists the named access, address, paddling activity, and separate management status for U.S. 220.', sourceUrl: mayoParkActivitiesUrl },
       { label: 'Station-specific flow guidance', value: '150 cfs / 1.75 ft minimum cue; 250 cfs / 2.0 ft medium reference; 1,000 cfs / 3.5 ft dangerous cue', note: 'Piedmont Trails supplies local planning references for the Mayo River. Paddle Today stores discharge thresholds and requires same-day visual, weather, debris, and access checks.', sourceUrl: mayoPiedmontUrl },
       { label: 'Direct live gauge', value: 'USGS 02070500; 87.3 cfs and 0.88 ft at 2026-08-27 17:45 EDT', note: 'The reviewed observation was below the local minimum cue, so this route should not be treated as launch-ready from that snapshot. Recheck current provisional telemetry and trend before every trip.', sourceUrl: mayoHydrographUrl },
-      { label: 'Image decision', value: 'No route-specific image selected; approved Mayo River context image used', note: 'No route-specific image was copied into the repository; the preview uses a rights-clean Mayo River State Park context image and does not imply endpoint coverage.', sourceUrl: mayoAnglinAccessUrl },
     ],
     sourceLinks: [
       { label: 'North Carolina State Parks Mayo River activities/accesses', url: mayoParkActivitiesUrl, provider: 'local' },
@@ -2639,7 +2630,6 @@ export const northCarolinaRoutes: River[] = [
       { label: 'Station-tied flow guidance', value: '150 cfs / 1.75 ft minimum cue; 250 cfs / 2.0 ft medium reference; 1,000 cfs / 3.5 ft dangerous cue', note: 'Piedmont Trails supplies local planning references for Dan River paddles. Paddle Today stores discharge thresholds and requires same-day visual, weather, debris, and access checks.', sourceUrl: danPiedmontUrl },
       { label: 'Direct live gauge', value: 'USGS 02071000; 205 cfs and 1.03 ft at 2026-08-27 17:45 EDT', note: 'The reviewed observation was above the local minimum discharge cue but below the stage reference cited by the guide; recheck current provisional telemetry, trend, and visual conditions before launch.', sourceUrl: danHydrographUrl },
       { label: 'State-trail context', value: 'Dan River State Trail', note: 'North Carolina identifies the Dan River as a designated state paddle trail; this route is the documented Hanging Rock to Moratock access section.', sourceUrl: danStateTrailUrl },
-      { label: 'Image decision', value: 'No route-specific image selected; approved Dan River context image used', note: 'No route-specific image was copied into the repository; the preview uses a rights-clean Dan River context image and does not imply endpoint coverage.', sourceUrl: danHangingRockAccessUrl },
     ],
     sourceLinks: [
       { label: 'Dan River Basin river information', url: danRiverInfoUrl, provider: 'local' },
@@ -2737,7 +2727,6 @@ export const northCarolinaRoutes: River[] = [
       { label: 'Current access and obstruction posture', value: 'Both named accesses listed OPEN; check active obstruction and recovery notices', note: 'The Paddle Trail publishes live access status and a separate obstruction map; the route requires a same-day check.', sourceUrl: frenchBroadObstructionsUrl },
       { label: 'Direct live gauge', value: 'USGS 03439000; 102 cfs and 2.07 ft at 2026-08-27 18:15 EDT', note: 'The reviewed observation was below the local preferred and broad minimum cues, so the route should not be treated as launch-ready from that snapshot. Recheck current provisional telemetry and local channel conditions before every trip.', sourceUrl: frenchBroadHydrographUrl },
       { label: 'State-trail context', value: 'French Broad River State Trail', note: 'North Carolina identifies the French Broad as a state paddle trail; the stored route is a bounded public-access section within that corridor.', sourceUrl: frenchBroadTrailUrl },
-      { label: 'Image decision', value: 'No route-specific image selected; approved French Broad context image used', note: 'No route-specific image was copied into the repository; the preview uses a rights-clean French Broad paddling image and does not imply endpoint coverage.', sourceUrl: frenchBroadAccessUrl },
     ],
     sourceLinks: [
       { label: 'French Broad River State Trail', url: frenchBroadTrailUrl, provider: 'local' },
@@ -2836,7 +2825,6 @@ export const northCarolinaRoutes: River[] = [
       { label: 'Endpoint coordinates', value: 'Falls Dam access-area anchor 35.939118, -78.577094; Thornton Road 35.90224, -78.54063', note: 'The Falls coordinate is retained from the older local paddling map and is not a surveyed water-entry point. Current Raleigh directions identify its public launch separately from the USACE Tailrace Fishing Area lot; the Thornton anchor is published in the Mountains-to-Sea access document.', sourceUrl: neuseRiverAccessUrl },
       { label: 'Access and closure posture', value: 'Use Falls Dam to Thornton only after checking current city closures; downstream launches may be independently closed', note: 'Raleigh publishes the access system and separate closure notices; the route deliberately stops at Thornton rather than assuming the full downstream blueway is open.', sourceUrl: neuseClosureUrl },
       { label: 'Direct live gauge', value: 'USGS 02087183; 69.4 cfs and 1.01 ft at 2026-08-27 18:00 EDT', note: 'The reviewed observation was below Raleigh\'s 200 cfs slow-float reference, so it should be treated as slow-moving and rechecked for launch suitability rather than as a go/no-go certification.', sourceUrl: neuseHydrographUrl },
-      { label: 'Image decision', value: 'No route-specific image selected; approved Neuse River context image used', note: 'No route-specific image was copied into the repository; the preview uses a rights-clean Raleigh-area Neuse River context image and does not imply endpoint coverage.', sourceUrl: neuseRiverAccessUrl },
     ],
     sourceLinks: [
       { label: 'City of Raleigh Neuse River access system', url: neuseRiverAccessUrl, provider: 'local' },
@@ -2958,7 +2946,6 @@ export const northCarolinaRoutes: River[] = [
       { label: 'Station-linked flow screen', value: '100–2,500 cfs on USGS 03161000', note: 'CanWePaddle ties this range to the South Fork New River near Jefferson gauge and labels it an informational estimate rather than a go/no-go authority; the product stores the station as a same-river proxy.', sourceUrl: newRiverFlowUrl },
       { label: 'Direct telemetry context', value: 'USGS 03161000 returned 153 cfs and 1.80 ft at 2026-09-02 06:30 EDT', note: 'The live reading was inside the community-estimated range but near its lower shoulder; recheck trend, rainfall, debris, and visual conditions before launch.', sourceUrl: newRiverHydrographUrl },
       { label: 'Safety and camping posture', value: 'Class II moving water; park camping is separate from endpoint access', note: 'NC State Parks describes the river as shallow and gentle with paddle-in campgrounds, while the section guide identifies wave trains, small rapids, and low/high-flow consequences. Post-storm facility status and local signs control on the day.', sourceUrl: newRiverParkMapUrl },
-      { label: 'Image decision', value: 'Approved New River context image used; no endpoint image implied', note: 'The existing rights-clean New River context photo is a same-river visual fallback and does not claim to depict Todd Island Park or Wagoner Access.', sourceUrl: newRiverParkUrl },
     ],
     sourceLinks: [
       { label: 'CanWePaddle Todd-to-Wagoner section and flow estimate', url: newRiverFlowUrl, provider: 'local' },
@@ -3080,7 +3067,6 @@ export const northCarolinaRoutes: River[] = [
       { label: 'Station-linked flow screen', value: '200–5,000 cfs on USGS 02102500 at Lillington', note: 'CanWePaddle ties this range to the Lillington gauge and labels it an informational estimate rather than a go/no-go authority; the product stores the station as direct because it is at the named lower endpoint.', sourceUrl: capeFearFlowUrl },
       { label: 'Direct telemetry context', value: 'USGS 02102500 returned 578 cfs and 2.38 ft on 2026-09-02', note: 'The reviewed reading was inside the community-estimated range; recheck trend, rainfall, debris, and visual conditions before launch.', sourceUrl: capeFearHydrographUrl },
       { label: 'Safety and camping posture', value: 'Lanier Rapids, Fish Traps Rapids, Northington Lock and Dam remains; separate paddle-in Canoe Camp', note: 'Raven Rock State Park documents the named river features and six-site Canoe Camp, while the access page says no kayak/canoe launch is inside the park.', sourceUrl: capeFearCampingUrl },
-      { label: 'Image decision', value: 'Approved Cape Fear context image used; no endpoint image implied', note: 'The rights-clean Raven Rock image depicts the same river in the route area and is labeled as same-river context rather than proof of endpoint access.', sourceUrl: 'https://commons.wikimedia.org/wiki/File%3ARaven_Rock_State_Park_Cape_Fear_River.jpg' },
     ],
     sourceLinks: [
       { label: 'CanWePaddle Raven Rock to Lillington section and flow estimate', url: capeFearFlowUrl, provider: 'local' },
@@ -3202,7 +3188,6 @@ export const northCarolinaRoutes: River[] = [
       { label: 'Station-linked flow screen', value: '500–2,500 cfs on USGS 03510577 at Barker’s Creek', note: 'CanWePaddle ties this range to the Barker’s Creek gauge and labels it an informational estimate rather than a go/no-go authority.', sourceUrl: tuckasegeeFlowUrl },
       { label: 'Direct telemetry context', value: 'USGS 03510577 is an active discharge and stage station at Barker’s Creek; a recent crawl showed 230 cfs and 3.13 ft on 2026-09-01', note: 'The referenced reading was below the community-estimated runnable range; recheck current releases and trend rather than treating a low reading as a launch recommendation.', sourceUrl: tuckasegeeHydrographUrl },
       { label: 'Safety and logistics posture', value: 'Regulated Class II reach with Dillsboro dam/release and cold-water hazards; day trip only', note: 'The Jackson County blue-trail map and USGS site context support the reach, while local guidance requires structure portage and release awareness.', sourceUrl: tuckasegeeBlueTrailUrl },
-      { label: 'Image decision', value: 'Approved Tuckasegee River context image used; no endpoint depiction implied', note: 'The rights-clean Commons image overlooks the Tuckasegee River in Dillsboro and is labeled same-river context rather than endpoint proof.', sourceUrl: 'https://commons.wikimedia.org/wiki/File%3AUS_23_and_US_441_cross_the_Tuckasegee_River_in_Dillsboro%2C_North_Carolina.jpg' },
     ],
     sourceLinks: [
       { label: 'CanWePaddle Dillsboro-to-Barker’s Creek section and flow estimate', url: tuckasegeeFlowUrl, provider: 'local' },
@@ -3290,7 +3275,6 @@ export const northCarolinaRoutes: River[] = [
       { label: 'Station-linked flow screen', value: '60–1,000 cfs on USGS 03550000 at Tomotla', note: 'CanWePaddle ties this range to the Tomotla gauge and labels it an informational estimate rather than a go/no-go authority.', sourceUrl: valleyRiverFlowUrl },
       { label: 'River hazards', value: 'Shallow low water, strainers, rainfall-driven rise, and barbed wire/fence warning below Main Street in Andrews', note: 'The regional Valley River planning resource provides the specific wire and strainer warnings; visually confirm the line and portage any obstruction.', sourceUrl: valleyRiverPlanUrl },
       { label: 'Camping and logistics posture', value: 'Day trip; no endpoint camping claim', note: 'Nearby lodging/campgrounds may support a basecamp, but public fishing/canoe access and the USGS gauge do not authorize overnight use.', sourceUrl: valleyRiverParkUrl },
-      { label: 'Image decision', value: 'Approved Valley River context image used; no endpoint depiction implied', note: 'The rights-clean Commons image depicts the Valley River in Murphy and is labeled same-river context rather than endpoint proof.', sourceUrl: 'https://commons.wikimedia.org/wiki/File%3AValley_River_in_Murphy%2C_N.C.%2C_on_July_3%2C_2023.jpg' },
     ],
     sourceLinks: [
       { label: 'CanWePaddle Andrews-to-Murphy section and flow estimate', url: valleyRiverFlowUrl, provider: 'local' },

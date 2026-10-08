@@ -432,7 +432,6 @@ const upperColoradoSectionRoute = (spec: UpperColoradoSectionSpec): River => ({
     { label: 'Lawful water access', value: `${spec.putIn.name} to ${spec.takeOut.name}`, note: spec.accessNote, sourceUrl: spec.sourceLinks[0]?.url },
     { label: 'Safety boundary', value: `${spec.difficulty} moving-water section; PFD, cold-water, rescue, weather, and wood checks required`, note: 'Current BLM guidance warns of dangerous rapids and changing access/parking conditions on the Upper Colorado corridor.', sourceUrl: upperColoradoRecreationBlmUrl },
     { label: 'Camping and logistics', value: spec.camping, note: 'Only designated or explicitly fee-based camping is included; no private-bank or dispersed camping is inferred.', sourceUrl: spec.sourceLinks[1]?.url },
-    { label: 'Rights-clean image decision', value: spec.imageSourceLabel, note: 'The image is current official recreation-site imagery used as route-corridor context, not a claim about live water conditions.', sourceUrl: spec.imageUrl },
     { label: 'Duplicate separation', value: 'Distinct endpoint pair and river-mile section within the Upper Colorado corridor', note: 'This record is a shorter named section for trip planning and discovery; it preserves the existing macro-reach records and their endpoint boundaries.', sourceUrl: upperColoradoSectionsGuideUrl },
   ],
   sourceLinks: spec.sourceLinks,
@@ -640,7 +639,6 @@ export const coloradoRoutes: River[] = [
       { label: 'Access coordinate evidence', value: 'Parkdale AW access coordinate and OSM canoe access link within Centennial Park', note: 'The Parkdale point is published by American Whitewater. The take-out coordinate follows the OSM canoe access link mapped inside Centennial Park; verify the marked ramp before launch.', sourceUrl: arkansasRoyalGorgeOsmAccessUrl },
       { label: 'Safety boundary', value: 'Mandatory Centennial Park exit before the separate Cañon City Town Run', note: 'American Whitewater lists Centennial Park to Mackenzie as a separate downstream reach. Keep this route bounded to the Royal Gorge corridor.', sourceUrl: arkansasRoyalGorgeAwUrl },
       { label: 'Camping and logistics', value: 'No endpoint camping assumed; day-use access and separate lawful lodging required', note: 'CPW and the city establish river access and facilities but do not establish endpoint camping for this route.', sourceUrl: arkansasRoyalGorgeCityUrl },
-      { label: 'Rights-clean image decision', value: 'Wikimedia Commons Royal Gorge context image approved with attribution/license retained', note: 'Use the image as corridor context rather than a precise endpoint photograph and retain the Commons license terms.', sourceUrl: arkansasRoyalGorgeImageUrl },
       { label: 'Duplicate separation', value: 'Distinct Parkdale-to-Centennial Royal Gorge corridor above the separate Cañon City Town Run and Browns Canyon reach', note: 'The endpoints, gauge, gorge rapids, and mandatory take-out distinguish this route from the existing Granite-to-Buena Vista and Browns Canyon routes.', sourceUrl: arkansasRoyalGorgeAwUrl },
     ],
     sourceLinks: [
@@ -792,12 +790,6 @@ export const coloradoRoutes: River[] = [
         sourceUrl: arkansasBrownsCanyonAccessUrl,
       },
       {
-        label: 'Rights-clean image decision',
-        value: "Wikimedia Commons Brown's Canyon Bridge image approved as route-context imagery",
-        note: 'The image is used as corridor context rather than a precise endpoint photograph and retains its Commons attribution/license terms.',
-        sourceUrl: arkansasBrownsCanyonImageUrl,
-      },
-      {
         label: 'Duplicate separation',
         value: 'Distinct Browns Canyon corridor below the separate Granite-to-Buena Vista route',
         note: "Fisherman's Bridge-to-Stone Bridge has distinct endpoints, gauge context, rapids, and take-out boundary from the published Granite Boat Chute-to-Buena Vista route.",
@@ -913,7 +905,6 @@ export const coloradoRoutes: River[] = [
       { label: 'Water-entry coordinate corroboration', value: 'OSM-mapped Salida slipway at 38.5380505, -105.9910653', note: 'The coordinate is a water-entry/access-area anchor corroborating the named Riverside Park/F Street access; confirm the current physical ramp and carry on site rather than treating the map node as a guarantee.', sourceUrl: arkansasSalidaTownOsmAccessUrl },
       { label: 'Safety and mandatory take-out', value: 'Scout the Salida engineered features and exit at the named city access before the separate downstream corridor', note: 'The City’s Scout Wave project page directs boaters to scout from the river-right Coors boat ramp; the route is bounded at Salida rather than extended into Salida-to-Rincon.', sourceUrl: arkansasSalidaTownScoutWaveUrl },
       { label: 'Camping and logistics', value: 'No endpoint camping assumed; separate AHRA camping at Salida East, Point Barr, and Rincon', note: 'CPW identifies designated camping/access sites along the broader Salida-to-Vallie corridor. Reservations, fees, fire rules, and seasonal conditions apply independently of this day-run endpoint.', sourceUrl: arkansasSalidaTownCpwUrl },
-      { label: 'Rights-clean image decision', value: 'USGS Arkansas River in Colorado image approved as public-domain route-context imagery', note: 'Use the USGS image as river-context imagery rather than claiming it depicts the exact Stone Bridge or Salida endpoint.', sourceUrl: arkansasSalidaTownImageUrl },
       { label: 'Duplicate separation', value: 'Distinct downstream Stone Bridge-to-Salida corridor below Browns Canyon and above the separate Salida-to-Rincon corridor', note: 'This route begins at the Browns Canyon take-out and ends at the Salida city access; it is not a duplicate of either adjacent route.', sourceUrl: arkansasSalidaTownAwUrl },
     ],
     sourceLinks: [
@@ -1014,7 +1005,6 @@ export const coloradoRoutes: River[] = [
       { label: 'Salida endpoint access', value: 'Riverside Park/F Street access beside Salida Whitewater Park', note: 'American Whitewater publishes the Riverside Park access and the City of Salida documents the public whitewater park and boat ramp.', sourceUrl: arkansasSalidaTownAccessUrl },
       { label: 'Rincon endpoint access and camping', value: 'CPW/AHRA Rincon boat ramp, river access, parking, fee site, and campground', note: 'CPW lists the site amenities and the route page identifies Rincon as the take-out for mellow floaters; the coordinate is corroborated by an OSM-mapped slipway.', sourceUrl: arkansasSalidaTownCpwUrl },
       { label: 'Safety', value: 'Bear Creek Rapid, cold water, Class II–III canyon moving water, mandatory Rincon exit', note: 'American Whitewater supplies the Bear Creek hazard context; CPW supplies the canyon and access posture. Require current scouting and rescue readiness.', sourceUrl: arkansasSalidaRinconAwUrl },
-      { label: 'Rights-clean image decision', value: 'USGS Arkansas River in Colorado image approved as public-domain route-context imagery', note: 'Use the public-domain USGS image as corridor context rather than claiming it depicts the exact Salida or Rincon endpoint.', sourceUrl: arkansasSalidaTownImageUrl },
       { label: 'Duplicate separation', value: 'Distinct Salida-to-Rincon corridor below the Salida town run and above Rincon-to-Pinnacle Rock', note: 'The endpoint pair, 10-mile reach, Bear Creek features, and mandatory Rincon exit distinguish this route from adjacent records.', sourceUrl: arkansasSalidaRinconAwUrl },
     ],
     sourceLinks: [
@@ -1086,7 +1076,6 @@ export const coloradoRoutes: River[] = [
       { label: 'Direct gauge and route-specific flow guidance', value: 'USGS 07094500; official 300–5,000 cfs planning band', note: 'The Colorado hazards technical report explicitly links Rincon to Pinnacle Rock to the Parkdale gauge and band.', sourceUrl: arkansasSalidaTownCwcbUrl },
       { label: 'Endpoint access and camping', value: 'Rincon and Pinnacle Rock AHRA public ramps, river access, and camping', note: 'CPW’s access listing identifies both public endpoint sites and their amenities; confirm current facilities and fees.', sourceUrl: arkansasSalidaTownCpwUrl },
       { label: 'Safety', value: 'Three Rocks and long canyon reach; CPW ranger rescue documented near Pinnacle Rock', note: 'American Whitewater documents the reach hazard and rescue context; require current scouting and rescue readiness.', sourceUrl: 'https://www.americanwhitewater.org/accident/jul-18-2017-arkansas/' },
-      { label: 'Rights-clean image decision', value: 'USGS Arkansas River in Colorado image approved as public-domain route-context imagery', note: 'Use the public-domain USGS image as corridor context, not as an exact Pinnacle Rock endpoint photograph.', sourceUrl: arkansasSalidaTownImageUrl },
       { label: 'Duplicate separation', value: 'Distinct Rincon-to-Pinnacle corridor above the Salida-to-Rincon run and below Pinnacle Rock-to-Parkdale', note: 'The endpoint pair, 19.5-mile reach, Parkdale gauge, and mandatory Pinnacle Rock exit distinguish this route from adjacent records.', sourceUrl: arkansasRinconPinnacleAwUrl },
     ],
     sourceLinks: [
@@ -1159,7 +1148,6 @@ export const coloradoRoutes: River[] = [
       { label: 'Direct gauge and route-specific flow guidance', value: 'USGS 07094500; official 300–5,000 cfs planning band', note: 'The Colorado hazards technical report explicitly links Pinnacle Rock to Parkdale to the Parkdale gauge and band.', sourceUrl: arkansasSalidaTownCwcbUrl },
       { label: 'Endpoint access and camping', value: 'Pinnacle Rock and Parkdale AHRA public ramps, river access, and designated camping', note: 'CPW lists the endpoint amenities and American Whitewater names Parkdale as the standard reach boundary.', sourceUrl: 'https://cpw.state.co.us/state-parks/arkansas-headwaters-recreation-area/arkansas-headwaters-recreation-area-vallie-bridge' },
       { label: 'Safety boundary', value: 'Mandatory Parkdale exit before the separate Class IV–V Royal Gorge', note: 'CPW describes the Royal Gorge as extremely difficult to scout or portage; keep this route bounded at Parkdale.', sourceUrl: arkansasRoyalGorgeCpwUrl },
-      { label: 'Rights-clean image decision', value: 'USGS Arkansas River in Colorado image approved as public-domain route-context imagery', note: 'Use the public-domain USGS image as corridor context rather than as an exact endpoint photograph.', sourceUrl: arkansasSalidaTownImageUrl },
       { label: 'Duplicate separation', value: 'Distinct Pinnacle Rock-to-Parkdale Class III approach above the Royal Gorge', note: 'The route ends at the Parkdale access boundary and does not duplicate the existing Parkdale-to-Centennial Royal Gorge record.', sourceUrl: arkansasPinnacleParkdaleAwUrl },
     ],
     sourceLinks: [
@@ -1268,7 +1256,6 @@ export const coloradoRoutes: River[] = [
       { label: 'Buena Vista access-area coordinate', value: '38.8472488, -106.1222166 (CPW facilities GIS feature 2120)', note: 'CPW maps a Boat Ramp feature within the Buena Vista SWA access area; its AHRA page lists Buena Vista Whitewater Park as a public boat-ramp/slide site managed by the town. This point locates the launch area and is not a surveyed ramp-toe coordinate.', sourceUrl: 'https://services5.arcgis.com/ttNGmDvKQA7oeDQ3/arcgis/rest/services/CPWAdminData/FeatureServer/0/query?where=FID%3D2120&outFields=FID%2CPROPNAME%2CFAC_NAME%2Cd_FAC_TYPE%2Cd_TYPE_DET%2CCOMMENTS%2CGlobalID&outSR=4326&returnGeometry=true&f=pjson' },
       { label: 'Safety boundary', value: 'Advanced Class III-V; marked chute/portage only; exit at Buena Vista', note: 'CPW identifies the class and named rapids; the route must preserve the diversion/portage boundary and current same-day scouting requirement.', sourceUrl: arkansasGraniteBuenaVistaCpwUrl },
       { label: 'Camping and logistics', value: 'AHRA camping at selected sites; separate reservation/compliance required', note: 'CPW documents Railroad Bridge and selected AHRA camping while the endpoint pages establish public access. Do not infer private-bank or unrestricted dispersed camping.', sourceUrl: arkansasGraniteBuenaVistaCpwUrl },
-      { label: 'Rights-clean image decision', value: 'Approved Wikimedia Commons CC BY 4.0 Granite Boat Chute context image', note: 'The selected Granite Boat Chute image is published under CC BY 4.0 and retains author/license attribution; it is context imagery rather than a coordinate claim.', sourceUrl: arkansasGraniteBuenaVistaImageUrl },
       { label: 'Duplicate separation', value: 'Distinct Upper Arkansas Numbers/Fractions reach', note: 'This route is separate from the existing Upper Colorado, Clear Creek, and Cache la Poudre routes by river, endpoints, gauge, and hazard boundary.', sourceUrl: arkansasGraniteBuenaVistaBrochureUrl },
     ],
     sourceLinks: [
@@ -1417,12 +1404,6 @@ export const coloradoRoutes: River[] = [
         value: 'Designated Pumphouse camping; State Bridge day use only; federal fees',
         note: 'BLM requires camping and day-use fee compliance at the federal sites. No dispersed or private-bank camping is implied.',
         sourceUrl: stateBridgeBlmUrl,
-      },
-      {
-        label: 'Rights-clean image decision',
-        value: 'Approved Wikimedia Commons CC BY 2.0 Upper Colorado context image',
-        note: 'The selected image is Colorado Recreational River by Bob Wick / Bureau of Land Management, licensed CC BY 2.0 on Wikimedia Commons. It is route-context imagery, not a claim that the frame depicts either endpoint; attribution and license link are retained.',
-        sourceUrl: upperColoradoImageUrl,
       },
       {
         label: 'Duplicate separation',
@@ -1581,12 +1562,6 @@ export const coloradoRoutes: River[] = [
         value: 'Designated Catamount endpoint camping; State Bridge and Catamount access/parking rules apply',
         note: 'The current BLM Catamount page lists five campsites and seasonal parking/visitor limits. No dispersed, sandbar, or private-bank camping is inferred.',
         sourceUrl: upperColoradoStateBridgeCatamountBlmUrl,
-      },
-      {
-        label: 'Rights-clean image decision',
-        value: 'Approved Wikimedia Commons CC BY 2.0 Upper Colorado context image',
-        note: 'The selected Bob Wick / Bureau of Land Management image is licensed CC BY 2.0 on Wikimedia Commons. It is route-corridor context rather than a claim that the frame depicts either endpoint; attribution and license link are retained.',
-        sourceUrl: upperColoradoStateBridgeCatamountImageUrl,
       },
       {
         label: 'Duplicate separation',
@@ -1752,12 +1727,6 @@ export const coloradoRoutes: River[] = [
         sourceUrl: eagleRiverCampHaleRedCliffCampgroundUrl,
       },
       {
-        label: 'Rights-clean image decision',
-        value: 'Approved public-domain NARA Camp Hale Memorial context image via Wikimedia Commons',
-        note: 'The selected Camp Hale Memorial image is identified as public domain on Wikimedia Commons because it is a U.S. federal government work. It is historical/corridor context rather than a claim that it depicts the river access or rapids.',
-        sourceUrl: eagleRiverCampHaleRedCliffImageUrl,
-      },
-      {
         label: 'Duplicate separation',
         value: 'Distinct upper Eagle River Camp Hale-to-Red Cliff reach before the separate Gilman Gorge route',
         note: 'This route uses the direct Red Cliff gauge and the Camp Hale/Red Cliff endpoints; it is bounded before the separate Red Cliff-to-Tigiwon Road/Gilman Gorge reach and is not a duplicate of the downstream Minturn and Eagle routes.',
@@ -1917,12 +1886,6 @@ export const coloradoRoutes: River[] = [
         value: 'Nearby Gold Park Campground basecamp; no on-route or riverbank camping assumed',
         note: 'The Forest Service campground page documents 12 sites, restrooms, no potable water, food-storage requirements, and Highway 24/Homestake Road access. Confirm current availability and restrictions separately from the river decision.',
         sourceUrl: homestakeCreekGoldParkForestServiceUrl,
-      },
-      {
-        label: 'Rights-clean image decision',
-        value: 'Approved public-domain NARA Camp Hale Memorial context image via Wikimedia Commons',
-        note: 'The selected federal image is public domain and provides nearby upper Eagle River watershed context. It is not presented as a precise Homestake Creek rapid or endpoint photograph.',
-        sourceUrl: homestakeCreekGoldParkImageUrl,
       },
       {
         label: 'Duplicate separation',
@@ -2088,12 +2051,6 @@ export const coloradoRoutes: River[] = [
         sourceUrl: eagleRiverMinturnTownRunForestMapUrl,
       },
       {
-        label: 'Rights-clean image decision',
-        value: 'Approved CC BY 4.0 Eagle River at Minturn context image via Wikimedia Commons',
-        note: 'The selected image is a clearly attributed Creative Commons photograph of the Eagle River at Minturn. It is used as corridor context, not as a claim that it depicts the exact bridge, rapid, or endpoint.',
-        sourceUrl: eagleRiverMinturnTownRunImageUrl,
-      },
-      {
         label: 'Duplicate separation',
         value: 'Distinct FR 707-to-Forest Service Visitor Center town reach, separate from Camp Hale–Red Cliff, Gilman Gorge, Dowd Chute, and downstream Eagle routes',
         note: 'This route uses direct USGS 09064600 telemetry and the 4.6-mile Minturn endpoint pair. It is bounded at the Forest Service Visitor Center before the separate Dowd Chute reach and is not a duplicate of the existing upper Eagle or Homestake routes.',
@@ -2196,7 +2153,6 @@ export const coloradoRoutes: River[] = [
       { label: 'Endpoint access and coordinates', value: 'Rollans Park 38.152,-107.752 to Ridgway Reservoir 38.191,-107.748', note: 'American Whitewater publishes the exact endpoint anchors. Ridgway local materials identify Rollans Park as a river-side public park; CPW documents the nearby state-park/reservoir facilities. Confirm the final waterline landing.', sourceUrl: uncompahgreRidgwayAwUrl },
       { label: 'Safety boundary', value: 'Scout Ridgway Whitewater Park and shallow cobble; mandatory reservoir take-out', note: 'The route includes instream features and a reservoir transition. Preserve the reservoir endpoint as a hard boundary and treat published flow bands as planning evidence only.', sourceUrl: uncompahgreRidgwayFlowUrl },
       { label: 'Camping and logistics', value: 'Nearby designated Ridgway State Park camping; no endpoint camping', note: 'CPW documents designated campgrounds and facilities at Ridgway State Park. Rollans Park and the route endpoint remain day-use access areas.', sourceUrl: uncompahgreRidgwayCpwUrl },
-      { label: 'Rights-clean image decision', value: 'Approved CC BY 4.0 Wikimedia Commons Uncompahgre River at Ridgway image', note: 'The selected image has explicit author and CC BY 4.0 metadata and depicts the Uncompahgre River at Ridgway. Use it as corridor context, not as a guarantee of current access conditions.', sourceUrl: uncompahgreRidgwayImageUrl },
       { label: 'Duplicate separation', value: 'Distinct Rollans Park-to-reservoir town corridor, separate from Ouray/Uncompahgre Gorge and downstream Uncompahgre opportunities', note: 'The exact Rollans Park/reservoir endpoint pair, direct Ridgway gauge, town-run features, and reservoir boundary distinguish this route from other Uncompahgre reaches.', sourceUrl: uncompahgreRidgwayAwUrl },
     ],
     sourceLinks: [
@@ -2294,7 +2250,6 @@ export const coloradoRoutes: River[] = [
       { label: 'Endpoint access and coordinates', value: 'San Miguel County Down Valley Park GIS anchor 37.998985,-108.034683 to BLM Specie Creek Boat Launch 38.03007,-108.11093', note: 'The county facility page/site map document the public Down Valley Park service-road ramp and designated parking; BLM publishes the Specie Creek boat-launch coordinate, directions, parking, and day-use posture.', sourceUrl: sanMiguelDownValleyMapUrl },
       { label: 'Hazard and safety boundary', value: 'Class III blind corners, changing strainers/wood, cold water, and mandatory Specie Creek take-out', note: 'BLM documents blind corners and the broader San Miguel guidance warns of changing spring-flood strainers and downed wood. American Whitewater reports a log in the main flow near Specie Creek; treat wood as a current scouting gate and end at the BLM boundary.', sourceUrl: sanMiguelDownValleyHazardsUrl },
       { label: 'Camping and logistics', value: 'No endpoint camping; Down Valley Park and Specie Creek are day-use access sites', note: 'San Miguel County prohibits overnight camping at Down Valley Park, and BLM identifies Specie Creek as day use only. The shuttle must account for county unload/park procedure and the M44 Road approach.', sourceUrl: sanMiguelDownValleyPolicyUrl },
-      { label: 'Rights-clean image decision', value: 'Approved CC BY 4.0 Wikimedia Commons photograph of the San Miguel River in Placerville', note: 'The selected photo is explicitly licensed CC BY 4.0, identifies its author, and was taken in Placerville within the route corridor. It is context imagery and not a guarantee of current ramp or hazard conditions.', sourceUrl: sanMiguelDownValleyImageUrl },
       { label: 'Duplicate separation', value: 'Distinct Down Valley Park-to-Specie Creek San Miguel Canyon corridor, separate from the adjacent Sawpit, Specie Creek-to-Beaver Creek, Norwood Canyon, and lower San Miguel reaches', note: 'The route uses a distinct named American Whitewater segment and endpoint pair, a dedicated direct gauge, a county ramp gate, and the BLM Specie Creek boundary.', sourceUrl: sanMiguelDownValleyAwUrl },
     ],
     sourceLinks: [
@@ -2395,7 +2350,6 @@ export const coloradoRoutes: River[] = [
       { label: 'Endpoint access and coordinates', value: 'BLM Specie Creek Boat Launch 38.030917,-108.112915 to BLM Upper Beaver Creek Recreation Site 38.106897,-108.187138', note: 'BLM documents Specie Creek as a public boat launch/day-use site and Upper Beaver as a public boat-launch site with restroom, cabanas, picnic tables, no fee, and day-use posture; the AW endpoint coordinates match the BLM locations.', sourceUrl: sanMiguelSpecieBeaverUpperBeaverUrl },
       { label: 'Hazard and safety boundary', value: 'Class II+/III current, cold water, changing wood/brush, and mandatory Upper Beaver take-out', note: 'BLM identifies Class II+ to III boating on the San Miguel and warns of dangerous channel changes, dense trees, and brush; BLM and the route record establish Upper Beaver as the endpoint for this reach.', sourceUrl: sanMiguelSpecieBeaverHazardsUrl },
       { label: 'Camping and logistics', value: 'No endpoint camping; Specie Creek and Upper Beaver are day-use sites, with nearby BLM camping options at Caddis Flats/Lower Beaver', note: 'BLM publishes day-use rules for the launch sites and separately documents developed camping in the San Miguel corridor. Treat nearby campgrounds as separate reservations/availability decisions.', sourceUrl: sanMiguelSpecieBeaverCampingUrl },
-      { label: 'Rights-clean image decision', value: 'Approved CC BY 4.0 Wikimedia Commons photograph of the nearby San Miguel River in Placerville', note: 'The selected photo is explicitly licensed CC BY 4.0, identifies its author, and is used as nearby San Miguel corridor context upstream of the Specie Creek launch. It is not a claim about the exact route channel, current ramp, or current hazard conditions.', sourceUrl: sanMiguelSpecieBeaverImageUrl },
       { label: 'Duplicate separation', value: 'Distinct Specie Creek-to-Beaver Creek Lower San Miguel Canyon corridor, separate from Down Valley Park-to-Specie Creek and Beaver Creek-to-Pinon Bridge', note: 'The route uses the named AW section, a dedicated endpoint pair, direct gauge relationship, and Upper Beaver boundary.', sourceUrl: sanMiguelSpecieBeaverAwUrl },
     ],
     sourceLinks: [
@@ -2498,7 +2452,6 @@ export const coloradoRoutes: River[] = [
       { label: 'Endpoint access and coordinates', value: 'Edwards Water Treatment Plant to Chambers Park / Eagle River Park boat ramp at 100 Fairgrounds Road', note: 'The Edwards endpoint is an existing verified route access anchor. The Town of Eagle identifies Chambers Park’s boat ramp; the coordinate is a near-water park/ramp anchor, not a surveyed landing, so confirm carry and water entry on site.', sourceUrl: eagleRiverLowerTownPlanUrl },
       { label: 'Hazard and safety boundary', value: 'Trestle Rapid, Interstate Rapid, Dead Cow, park structures, and mandatory Chambers Park take-out before Rumble Seat', note: 'Use the named Lower Eagle hazard inventory and preserve the hard downstream boundary; do not infer that a favorable gauge removes rapid, structure, or cold-water risk.', sourceUrl: eagleRiverLowerAwUrl },
       { label: 'Camping and logistics', value: 'Seasonal BLM Wolcott Campground is nearby mid-route basecamp context; no endpoint camping', note: 'BLM documents the Wolcott campground and seasonal boat ramp along the Eagle River. Camping does not authorize changing the endpoints or landing on private banks.', sourceUrl: eagleRiverLowerBlmWolcottUrl },
-      { label: 'Rights-clean image decision', value: 'Approved CC BY 4.0 Wikimedia Commons Chambers Park river-context image', note: 'The selected image identifies the Eagle River at Chambers Park and provides explicit author/license metadata. It is corridor context, not a guarantee of current ramp condition.', sourceUrl: eagleRiverLowerImageUrl },
       { label: 'Duplicate separation', value: 'Distinct Edwards-to-Eagle lower mainstem reach, separate from Riverbend-to-Edwards upstream and the downstream Rumble Seat/Gypsum continuation', note: 'The shared Edwards boundary, direct Wolcott gauge, longer Lower Eagle hazard set, and Chambers Park take-out make this a distinct route rather than a duplicate.', sourceUrl: eagleRiverLowerAwUrl },
     ],
     sourceLinks: [
@@ -2653,12 +2606,6 @@ export const coloradoRoutes: River[] = [
         sourceUrl: eagleRiverRiverbendEdwardsAccessTakeOutUrl,
       },
       {
-        label: 'Rights-clean image decision',
-        value: 'Approved CC0 Eagle River valley near Edwards context image via Wikimedia Commons',
-        note: 'The selected image is credited to Jeremy Thomas and published as CC0 on the route source page. It is used as corridor context, not as a claim that it depicts a specific diversion, rapid, or endpoint.',
-        sourceUrl: eagleRiverRiverbendEdwardsImageUrl,
-      },
-      {
         label: 'Duplicate separation',
         value: 'Distinct Riverbend-to-Edwards mainstem reach, separate from Minturn/Dowd Chute upstream and Lower Eagle downstream packages',
         note: 'This route uses direct USGS 09067020 and ends at Edwards before the separate Lower Eagle reach. The Avon Whitewater Park is an in-route feature, not a substitute endpoint or a duplicate route.',
@@ -2762,7 +2709,6 @@ export const coloradoRoutes: River[] = [
       { label: 'Endpoint coordinates', value: 'Put-in 39.565000,-106.416000; take-out 39.569900,-106.410000', note: 'American Whitewater publishes both access-point coordinates. Its endpoint pages provide no prose access description, so physical bank, carry, parking, signage, and land-boundary verification remain launch gates.', sourceUrl: crossCreekMinturnAwUrl },
       { label: 'Trailhead and seasonal access', value: 'Cross Creek Trailhead from Tigiwon Road / FDR 707; motor-vehicle closure May 1–June 21', note: 'The Town of Minturn identifies the Cross Creek Trailhead and the annual Tigiwon Road motor-vehicle closure. Use this as access context, not as blanket permission for every bank or endpoint movement.', sourceUrl: crossCreekMinturnTrailsUrl },
       { label: 'Wilderness and camping context', value: 'Holy Cross Wilderness corridor; nearby Half Moon designated campground', note: 'Forest Service material identifies the Holy Cross Wilderness/Tigiwon access and current overnight-registration and sanitation expectations. Minturn identifies Half Moon as the nearest camping context; no endpoint camping is assumed.', sourceUrl: crossCreekMinturnForestUrl },
-      { label: 'Rights-clean image decision', value: 'Public-domain Mount of the Holy Cross watershed-context image via Wikimedia Commons', note: 'The selected NARA image is public domain and is explicitly used as watershed context, not as a claim that it depicts the Cross Creek drops or endpoint.', sourceUrl: crossCreekMinturnImageUrl },
       { label: 'Duplicate separation', value: 'Distinct Cross Creek tributary reach, separate from Eagle River Minturn Town Run and adjacent Dowd Chute', note: 'This route uses direct USGS 09065100 and the 0.68-mile Cross Creek endpoint pair. It ends before the Eagle River and is not a duplicate of the 09064600 Eagle mainstem route.', sourceUrl: crossCreekMinturnAwUrl },
     ],
     sourceLinks: [
@@ -2911,12 +2857,6 @@ export const coloradoRoutes: River[] = [
         value: 'Separate developed Weller/Difficult campground context; no endpoint camping; vehicle shuttle required',
         note: 'Developed campgrounds are nearby planning options only. Confirm current reservations, seasonal operations, access roads, and Forest Service restrictions separately; never infer riverbank camping rights from campground proximity.',
         sourceUrl: upperRoaringForkWellerDifficultForestGuideUrl,
-      },
-      {
-        label: 'Rights-clean image decision',
-        value: 'Approved Wikimedia Commons CC BY 2.0 upper Roaring Fork context image',
-        note: 'The selected Grottos Day Use Area image is a nearby upper Roaring Fork corridor context image, not a claim that it depicts either endpoint or the Class V+ drops. Retain the Commons attribution and license terms.',
-        sourceUrl: upperRoaringForkWellerDifficultImageUrl,
       },
       {
         label: 'Duplicate separation',
@@ -3071,12 +3011,6 @@ export const coloradoRoutes: River[] = [
         value: 'Day-use preserve; no endpoint camping; limited parking and active-loading-only take-out',
         note: 'North Star is a protected preserve with limited parking and designated access. Use separate lawful lodging or camping and plan the shuttle before arriving; do not infer camping rights from river access.',
         sourceUrl: roaringForkSouthGateNorthStarPlanUrl,
-      },
-      {
-        label: 'Rights-clean image decision',
-        value: 'Approved Wikimedia Commons CC BY 2.0 South Gate access image',
-        note: 'The selected image depicts the North Star South Gate entrance and is used as access/corridor context, not as a claim that it shows the take-out or water conditions. Retain the Commons attribution and license terms.',
-        sourceUrl: roaringForkSouthGateNorthStarImageUrl,
       },
       {
         label: 'Duplicate separation',
@@ -3238,12 +3172,6 @@ export const coloradoRoutes: River[] = [
         value: 'No endpoint camping; public parks, easements, wildlife, and private-bank boundaries',
         note: 'The gorge contains public open spaces and conservation/fishing easements alongside private parcels. Use only the named public endpoints and separately confirmed lawful lodging or campground options; river access does not grant bank access everywhere.',
         sourceUrl: roaringForkSlaughterhouseGorgePlanUrl,
-      },
-      {
-        label: 'Rights-clean image decision',
-        value: 'Approved Wikimedia Commons CC BY-SA 4.0 Roaring Fork corridor image',
-        note: 'The selected Rhododendrites photograph is used as general Roaring Fork-in-Aspen corridor context, not as a claim that it depicts Slaughterhouse Falls or either launch. Retain the Commons attribution and share-alike terms.',
-        sourceUrl: roaringForkSlaughterhouseImageUrl,
       },
       {
         label: 'Duplicate separation',
@@ -3410,12 +3338,6 @@ export const coloradoRoutes: River[] = [
         sourceUrl: roaringForkBasaltCarbondaleUserGuideUrl,
       },
       {
-        label: 'Rights-clean image decision',
-        value: 'Approved Wikimedia Commons CC BY 4.0 Roaring Fork River in Basalt image',
-        note: 'The selected Jeffrey Beall photograph depicts the Roaring Fork in Basalt and is used as corridor context, not as a claim that it shows a specific rapid or the Bob Terrell ramp. Retain the Commons attribution and CC BY 4.0 terms.',
-        sourceUrl: roaringForkBasaltCarbondaleImageUrl,
-      },
-      {
         label: 'Duplicate separation',
         value: 'Distinct Basalt-to-Carbondale 09081000 reach ending at Bob Terrell before lower Roaring Fork/Colorado River routes',
         note: 'This route is separate from the upper 09076300 Slaughterhouse gorge and 09073400 North Star float, and it ends at Bob Terrell before the lower Roaring Fork and Colorado River route families. The station-tied assessment and endpoint pair define a separate reach.',
@@ -3576,12 +3498,6 @@ export const coloradoRoutes: River[] = [
         value: 'No endpoint camping; CPW/roadside access and separate lodging required',
         note: 'RiverBrain marks both documented access contexts as no-camping, and the lower-river user guide states camping is prohibited in the managed corridor. Black Bridge requires a vehicle suitability and parking check; use a separate lawful campground or lodging reservation.',
         sourceUrl: roaringForkPinkToBlackUserGuideUrl,
-      },
-      {
-        label: 'Rights-clean image decision',
-        value: 'Approved Wikimedia Commons CC BY 3.0 Satank Bridge corridor image',
-        note: 'The selected Jeffrey Beall photograph depicts Satank Bridge over the Roaring Fork near Carbondale/Glenwood Springs and is used as lower-corridor context, not as a claim that it shows either endpoint. Retain the CC BY 3.0 attribution and license link.',
-        sourceUrl: roaringForkPinkToBlackImageUrl,
       },
       {
         label: 'Duplicate separation',
@@ -3750,12 +3666,6 @@ export const coloradoRoutes: River[] = [
         sourceUrl: crystalRiverMarbleRedstoneCoordinatesUrl,
       },
       {
-        label: 'Rights-clean image decision',
-        value: 'Approved Wikimedia Commons CC BY 4.0 Crystal River corridor image',
-        note: 'The selected photograph depicts the Crystal River from a bridge between Marble and Highway 133 and is used as corridor context, not as a claim that it shows a specific rapid or endpoint. Retain the Commons attribution and CC BY 4.0 terms.',
-        sourceUrl: crystalRiverMarbleRedstoneImageUrl,
-      },
-      {
         label: 'Duplicate separation',
         value: 'Distinct Crystal River Marble-to-Redstone reach ending before downstream Crystal sections',
         note: 'The station-tied assessment identifies Marble to Redstone as a separate reach from Crystal Gorge, Meatgrinder, The Narrows, Avalanche Creek to BRB Campground, and BRB Campground to the Roaring Fork. This route is also separate from the unrelated Wisconsin Crystal River proxy route.',
@@ -3913,12 +3823,6 @@ export const coloradoRoutes: River[] = [
         sourceUrl: grizzlyCreekTwoRiversTwoRiversUrl,
       },
       {
-        label: 'Rights-clean image decision',
-        value: 'Approved Wikimedia Commons CC BY 4.0 Two Rivers Park boat-ramp image',
-        note: 'The selected endpoint image is Jeffrey Beall’s Two Rivers Park boat-ramp photograph, licensed CC BY 4.0 on Wikimedia Commons. Retain attribution and license terms; use it as endpoint context rather than claiming it depicts the Grizzly Creek launch.',
-        sourceUrl: grizzlyCreekTwoRiversImageUrl,
-      },
-      {
         label: 'Duplicate separation',
         value: 'Distinct Grizzly Creek-to-Two Rivers corridor above the existing Two Rivers-to-South-Canyon route',
         note: 'This route ends at Two Rivers and uses direct 09070500. The existing lower route begins at the same city endpoint but uses 09085100 and continues downstream to South Canyon; the shared boundary endpoint does not make the reaches duplicates.',
@@ -4074,12 +3978,6 @@ export const coloradoRoutes: River[] = [
         value: 'No endpoint camping; city commercial permit; separate lodging/campground required',
         note: 'Two Rivers rules prohibit overnight camping/parking; BLM prohibits camping at South Canyon. Glenwood-area campgrounds are separate logistics and must be reserved or confirmed independently.',
         sourceUrl: lowerColoradoTwoRiversSouthCanyonPermitUrl,
-      },
-      {
-        label: 'Rights-clean image decision',
-        value: 'Approved Wikimedia Commons CC BY 4.0 Two Rivers boat-ramp image',
-        note: 'The selected endpoint image is Jeffrey Beall’s Two Rivers Park boat-ramp photograph, licensed CC BY 4.0 on Wikimedia Commons. Retain attribution and the license link; it is endpoint context, not a claim that it depicts South Canyon.',
-        sourceUrl: 'https://commons.wikimedia.org/wiki/File%3ATwo_Rivers_Park_boat_ramp.JPG',
       },
       {
         label: 'Duplicate separation',
@@ -4240,12 +4138,6 @@ export const coloradoRoutes: River[] = [
         sourceUrl: coloradoRiverBigSurAwUrl,
       },
       {
-        label: 'Rights-clean image decision',
-        value: 'Approved USGS public-domain Cameo webcam image',
-        note: 'USGS identifies the 09095500 webcam image as public domain. Use it as current Cameo corridor context, not as a claim that it depicts the Big Sur wave or either endpoint; retain the USGS source attribution.',
-        sourceUrl: 'https://www.usgs.gov/media/webcams/colorado-river-near-cameo-co-09095500',
-      },
-      {
         label: 'Duplicate separation',
         value: 'Distinct Cameo high-water feature below the Glenwood/South Canyon route family',
         note: 'This route is separate from the existing Grizzly Creek-to-Two Rivers and Two Rivers-to-South Canyon corridors: it uses the direct Cameo station 09095500, a different named high-water feature, and a separate Beaver Tail/Roller Dam endpoint pair.',
@@ -4401,12 +4293,6 @@ export const coloradoRoutes: River[] = [
         value: 'Day-use endpoints; no route camping; CPW Corn Lake vehicle-pass and no-camping rules apply',
         note: 'CPW identifies Corn Lake as day-use only and expressly prohibits camping. Stage a lawful vehicle shuttle and arrange separate lodging or a designated campground.',
         sourceUrl: coloradoRiverRiverbendCornLakeCpwUrl,
-      },
-      {
-        label: 'Rights-clean image decision',
-        value: 'Approved USGS public-domain Colorado River near Grand Junction image',
-        note: 'USGS identifies the Colorado River near Grand Junction image as public domain. Use it as Grand Valley river-corridor context, not as a claim that it depicts the exact Riverbend ramp, Corn Lake ramp, or submerged hazard.',
-        sourceUrl: 'https://www.usgs.gov/media/images/colorado-river-near-grand-junction-colorado',
       },
       {
         label: 'Duplicate separation',
@@ -4571,12 +4457,6 @@ export const coloradoRoutes: River[] = [
         sourceUrl: coloradoRiverCornLakeRedlandsCpwUrl,
       },
       {
-        label: 'Rights-clean image decision',
-        value: 'Approved USGS public-domain Grand Junction corridor image',
-        note: 'Use the existing USGS public-domain Grand Junction corridor image only as regional context, not as a claim that it depicts the Corn Lake ramp, Redlands ramp, confluence, or 29 Road rapid.',
-        sourceUrl: 'https://www.usgs.gov/media/images/colorado-river-near-grand-junction-colorado',
-      },
-      {
         label: 'Duplicate separation',
         value: 'Distinct downstream Corn Lake-to-Redlands section using above-Gunnison 09106485',
         note: 'This route begins where the existing 09106150 Riverbend-to-Corn-Lake route ends and continues through the named Corn Lake-to-Redlands section. It uses the separate 09106485 station near the downstream endpoint and includes the Gunnison confluence/29 Road safety boundary.',
@@ -4739,12 +4619,6 @@ export const coloradoRoutes: River[] = [
         sourceUrl: clearCreekPlacesUrl,
       },
       {
-        label: 'Rights-clean image decision',
-        value: 'Approved Wikimedia Commons CC BY 2.0 Clear Creek context image',
-        note: 'The selected Clear Creek image is licensed CC BY 2.0 on Wikimedia Commons with attribution and license link retained. It is river-context imagery, not a claim that the frame depicts the Kermit\'s or County Line endpoints.',
-        sourceUrl: clearCreekImageUrl,
-      },
-      {
         label: 'Duplicate separation',
         value: 'Distinct upper Clear Creek Kermit\'s-to-County-Line reach',
         note: 'This route is separate from Clear Creek access points farther upstream and downstream and from the existing Colorado River routes; it uses its own named reach, endpoints, and USGS station-linked guidance.',
@@ -4905,12 +4779,6 @@ export const coloradoRoutes: River[] = [
         sourceUrl: goldenWhitewaterCityUrl,
       },
       {
-        label: 'Rights-clean image decision',
-        value: 'Approved Wikimedia Commons CC BY 2.0 Clear Creek context image',
-        note: 'The selected image is licensed CC BY 2.0 on Wikimedia Commons with attribution and license link retained. It is river-context imagery, not a claim that the frame depicts either Golden endpoint.',
-        sourceUrl: goldenWhitewaterImageUrl,
-      },
-      {
         label: 'Duplicate separation',
         value: 'Distinct Golden urban park course',
         note: 'This short park-and-play reach is separate from the Upper Clear Creek Kermit\'s-to-County-Line Class IV route and from lower Clear Creek reaches by endpoint pair, corridor length, difficulty, and station context.',
@@ -5064,12 +4932,6 @@ export const coloradoRoutes: River[] = [
         sourceUrl: poudreFortCollinsLegacyUrl,
       },
       {
-        label: 'Rights-clean image decision',
-        value: 'Approved Wikimedia Commons Cache la Poudre context image used by the route gallery',
-        note: 'The Wikimedia file is river-context imagery and must retain its Commons attribution/license terms; it is not presented as a precise endpoint photograph.',
-        sourceUrl: poudreFortCollinsImageUrl,
-      },
-      {
         label: 'Duplicate separation',
         value: 'Distinct Fort Collins urban play reach',
         note: 'This corridor is separate from the Clear Creek routes and from North Fork Cache la Poudre reaches by river, endpoints, gauge, and hazard boundary.',
@@ -5170,7 +5032,6 @@ export const coloradoRoutes: River[] = [
       { label: 'Lawful endpoint access', value: 'Pillar Park / Chapa Place public access to Union Avenue', note: 'The City of Pueblo publishes the main access and take-out; SCARF materials document public river participation from Waterworks/Pillar Park and required PFDs.', sourceUrl: puebloWhitewaterCityUrl },
       { label: 'Safety boundaries', value: 'Scout all eight drops, wear PFD, monitor restrictions, exit at Union Avenue', note: 'City, county, and course-evaluation materials describe engineered features and river hazards; the sheriff/county release documents high-flow danger and mandatory PFD use.', sourceUrl: puebloWhitewaterSafetyUrl },
       { label: 'Camping and logistics', value: 'No endpoint camping; urban day-use access and walk-back trail', note: 'The city establishes park access and trail context but no overnight camping. Keep lodging/camping separate and lawful.', sourceUrl: puebloWhitewaterScarfUrl },
-      { label: 'Rights-clean image decision', value: 'Approved Wikimedia Commons CC BY 2.0 Whitewater Park context image', note: 'The Commons file depicts the Pueblo Whitewater Park and is licensed CC BY 2.0; retain attribution and license link.', sourceUrl: puebloWhitewaterImageUrl },
       { label: 'Duplicate separation', value: 'Distinct downtown Pueblo Whitewater Park play reach', note: 'The short engineered park corridor and Moffat Street gauge are distinct from the existing Arkansas River Granite, Browns Canyon, and Royal Gorge reaches.', sourceUrl: puebloWhitewaterAwUrl },
     ],
     sourceLinks: [
@@ -5321,12 +5182,6 @@ export const coloradoRoutes: River[] = [
         value: 'No route camping; use separate developed campground or lawful lodging',
         note: 'Forest Service camping guidance restricts dispersed camping in the Taylor River Canyon corridor and near the river. Developed campground support exists nearby, but no endpoint camping is part of this route.',
         sourceUrl: taylorRiver748PieplantCampingOrderUrl,
-      },
-      {
-        label: 'Rights-clean image decision',
-        value: 'Approved Wikimedia Commons CC BY-SA 3.0 Taylor River corridor image',
-        note: 'Use the Commons Taylor River image as corridor context, not as a claim that it depicts the specific bridge, rapid, or take-out. Retain the author and CC BY-SA attribution.',
-        sourceUrl: taylorRiver748PieplantImageUrl,
       },
       {
         label: 'Duplicate separation',
@@ -5487,12 +5342,6 @@ export const coloradoRoutes: River[] = [
         sourceUrl: taylorRiver748PieplantCampingOrderUrl,
       },
       {
-        label: 'Rights-clean image decision',
-        value: 'Approved Wikimedia Commons CC BY-SA 3.0 Taylor River corridor image',
-        note: 'Reuse the Commons Taylor River image as corridor context, not as a claim that it depicts Todd’s Slot or either endpoint; retain author and CC BY-SA attribution.',
-        sourceUrl: taylorRiver748PieplantImageUrl,
-      },
-      {
         label: 'Duplicate separation',
         value: 'Distinct downstream Taylor Canyon 09109000 feature, separate from the upper Taylor Park 09107000 CR 748-to-Pieplant route',
         note: 'This bounded Todd’s Slot feature uses the below-reservoir gauge and a different access pair; it stops before the lower Taylor private-property and Almont corridor.',
@@ -5648,12 +5497,6 @@ export const coloradoRoutes: River[] = [
         value: 'Nearby developed campground/basecamp only; no on-route camping or private-bank extension',
         note: 'GMUG corridor restrictions prohibit dispersed camping in the Lower Taylor area. Use a separately verified developed campground or lawful lodging and obey current posted access boundaries.',
         sourceUrl: taylorRiver748PieplantCampingOrderUrl,
-      },
-      {
-        label: 'Rights-clean image decision',
-        value: 'Approved Wikimedia Commons CC BY-SA 3.0 Taylor River corridor image',
-        note: 'Reuse the Commons Taylor River image as corridor context, not as a claim that it depicts Five Mile Access or the Almont takeout; retain the author and CC BY-SA attribution.',
-        sourceUrl: taylorRiver748PieplantImageUrl,
       },
       {
         label: 'Duplicate separation',
@@ -5814,12 +5657,6 @@ export const coloradoRoutes: River[] = [
         sourceUrl: eastRiverLowerAwUrl,
       },
       {
-        label: 'Rights-clean image decision',
-        value: 'Approved USGS public-domain East River corridor image from nearby 09110500 site',
-        note: 'Use the USGS image as nearby East River corridor context, not as a claim that it depicts this exact gauge or endpoint; retain USGS credit.',
-        sourceUrl: eastRiverLowerImageUrl,
-      },
-      {
         label: 'Duplicate separation',
         value: 'Distinct East River 09112200 corridor, separate from Taylor River 09109000/09110000 routes',
         note: 'This route follows East River from CB South to Almont and uses the East River gauge; it is not a duplicate of either Taylor River route despite the shared final confluence area.',
@@ -5974,12 +5811,6 @@ export const coloradoRoutes: River[] = [
         value: 'Day-use course; nearby Shady Island camping is separate and rules-controlled',
         note: 'Gunnison County documents the nearby River Park’s designated walk-in camping and paid parking; do not treat the whitewater course or its banks as camping areas.',
         sourceUrl: gunnisonWhitewaterParkCountyUrl,
-      },
-      {
-        label: 'Rights-clean image decision',
-        value: 'Approved USGS public-domain Gunnison River corridor image from Spann Diversion',
-        note: 'Use the USGS image as nearby Gunnison River context, not as a claim that it depicts the engineered course or either endpoint; retain USGS credit.',
-        sourceUrl: gunnisonWhitewaterParkImageUrl,
       },
       {
         label: 'Duplicate separation',
@@ -6141,12 +5972,6 @@ export const coloradoRoutes: River[] = [
         sourceUrl: gunnisonTownRunLocalBoatingUrl,
       },
       {
-        label: 'Rights-clean image decision',
-        value: 'Approved USGS public-domain Gunnison River corridor image from Spann Diversion',
-        note: 'Use the USGS image as nearby Gunnison River corridor context, not as a claim that it depicts these exact endpoints; retain USGS credit.',
-        sourceUrl: gunnisonTownRunImageUrl,
-      },
-      {
         label: 'Duplicate separation',
         value: 'Distinct Gunnison River 09114500 corridor, separate from the East River 09112200 and Taylor River 09110000 routes',
         note: 'This segment begins at the Almont Gunnison confluence access and ends at North Bridge before the whitewater park, so it is not a duplicate of the upstream Taylor or East River routes.',
@@ -6301,12 +6126,6 @@ export const coloradoRoutes: River[] = [
         value: 'Expert-only Class III–IV; mandatory scout/portage and rescue-readiness language',
         note: 'The route explicitly preserves Chukar, Red Canyon, Gate Keeper, and other BLM-named rapid hazards. A listing does not imply that any rapid is runnable for a given crew or flow.',
         sourceUrl: 'https://www.nps.gov/blca/planyourvisit/kayaking.htm',
-      },
-      {
-        label: 'Image decision',
-        value: 'Approved USGS public-domain Gunnison River corridor image used as same-river context',
-        note: 'The route gallery reuses the rights-clean USGS Gunnison corridor photograph already approved for other Gunnison routes; it is not presented as a Chukar or Gunnison Forks endpoint photograph.',
-        sourceUrl: 'https://www.usgs.gov/media/images/gunnison-river-spann-diversion',
       },
       {
         label: 'Duplicate separation',
@@ -6464,12 +6283,6 @@ export const coloradoRoutes: River[] = [
         sourceUrl: yampaRiverBrochureUrl,
       },
       {
-        label: 'Image decision',
-        value: 'Rights-cleared Yampa River State Park boat-ramp photograph used as same-river context',
-        note: 'The gallery uses a CC BY 4.0 photograph of the Headquarters boat ramp and does not claim it depicts the pump-station endpoint or current conditions.',
-        sourceUrl: yampaImageUrl,
-      },
-      {
         label: 'Duplicate separation',
         value: 'Distinct CPW Site 1–2 Yampa section; separate from Headquarters–Dorsey and all existing Colorado routes',
         note: 'The endpoints, 13-mile distance, direct gauge context, and named diversion make this a distinct Yampa reach. It is deliberately bounded before the separate 7-mile Headquarters-to-Dorsey section.',
@@ -6625,12 +6438,6 @@ export const coloradoRoutes: River[] = [
         sourceUrl: yampaRiverBrochureUrl,
       },
       {
-        label: 'Image decision',
-        value: 'Rights-cleared Yampa River State Park boat-ramp photograph used as same-river context',
-        note: 'The gallery uses a CC BY 4.0 photograph of the Headquarters boat ramp and does not claim it depicts the Dorsey endpoint or current conditions.',
-        sourceUrl: yampaImageUrl,
-      },
-      {
         label: 'Duplicate separation',
         value: 'Distinct CPW Site 2–3 Yampa section; separate from Pump Station–Headquarters and all existing Colorado routes',
         note: 'The endpoints and seven-mile distance are explicitly separated from the upstream 13-mile route; shared Headquarters access is intentional and represents the CPW section boundary rather than a duplicate record.',
@@ -6724,7 +6531,6 @@ export const coloradoRoutes: River[] = [
       { label: 'Water access coordinates', value: 'Golf Course 40.4969673, -107.5218658; Loudy Simpson 40.4961291, -107.5578321', note: 'Coordinates are from current CPW directions map links and are stored as access-area anchors rather than surveyed wetted-edge points.', sourceUrl: yampaRiverDirectionsUrl },
       { label: 'Camping and logistics', value: 'Loudy Simpson camping by county permission; no Golf Course overnight claim', note: 'CPW and the brochure distinguish access ownership and camping permission. The route uses endpoint-campground classification without implying free riverside camping.', sourceUrl: yampaRiverBrochureUrl },
       { label: 'Safety and ownership boundary', value: 'Undeveloped joint-owned launch, county ramp, private banks, and flow-dependent Class I–V', note: 'Keep users within the two named public accesses and the channel; confirm current hours, construction, and land boundaries.', sourceUrl: yampaCraigSectionsUrl },
-      { label: 'Image decision', value: 'Rights-cleared Yampa State Park boat-ramp photograph used as same-river context', note: 'CC BY 4.0 image is labeled as context and not as either Craig endpoint or current conditions.', sourceUrl: yampaImageUrl },
       { label: 'Duplicate separation', value: 'Distinct CPW Site 4–5 Craig section; separate from Headquarters–Dorsey and Loudy–South Beach', note: 'The 3.5-mile endpoint pair is explicitly bounded and does not duplicate the adjacent section records.', sourceUrl: yampaRiverSectionsUrl },
     ],
     sourceLinks: [
@@ -6812,7 +6618,6 @@ export const coloradoRoutes: River[] = [
       { label: 'Water access coordinates', value: 'Loudy Simpson 40.4961291, -107.5578321; South Beach 40.4796656, -107.6162596', note: 'Loudy Simpson comes from the current CPW map link; South Beach comes from the CPW boat-drop-off map link and is cross-checked against the Water Quality Portal station nearby. Both are access-area anchors.', sourceUrl: yampaSouthBeachCoordinateUrl },
       { label: 'Camping and logistics', value: 'Loudy Simpson permission; South Beach limited primitive camping by permit', note: 'CPW and the brochure describe the different county and State Park camping rules; this route does not imply informal bank camping.', sourceUrl: yampaRiverBrochureUrl },
       { label: 'Safety and ownership boundary', value: 'Industrial intake restriction, private access road, limited vehicle access, and flow-dependent Class I–V', note: 'Use the west parking lot ramp only and follow current private-property and CPW signs.', sourceUrl: yampaCraigSectionsUrl },
-      { label: 'Image decision', value: 'Rights-cleared Yampa State Park boat-ramp photograph used as same-river context', note: 'CC BY 4.0 image is labeled as context and not as either Craig endpoint or current conditions.', sourceUrl: yampaImageUrl },
       { label: 'Duplicate separation', value: 'Distinct CPW Site 5–6 Craig section; separate from Golf Course–Loudy Simpson and downstream Little Yampa Canyon', note: 'The 5.5-mile endpoint pair is explicitly bounded at the two named access sites.', sourceUrl: yampaRiverSectionsUrl },
     ],
     sourceLinks: [
@@ -6882,7 +6687,6 @@ export const coloradoRoutes: River[] = [
       { label: 'Water access coordinates', value: 'Duffy 40.4192778, -107.8695; Juniper 40.4766667, -107.9652222', note: 'Coordinates come from current CPW map links and are stored as access-area anchors.', sourceUrl: yampaDuffySectionsUrl },
       { label: 'High-class rapid handling', value: 'Class III–IV Juniper Canyon diversion; portage required for inexperienced/open-canoe crews', note: 'The route preserves CPW’s explicit portage warning and does not market the reach as a casual float.', sourceUrl: yampaDuffySectionsUrl },
       { label: 'Camping and logistics', value: 'Duffy one primitive site; Juniper five primitive sites; permits and passes required', note: 'Camping is on designated sites only and never inferred for private banks.', sourceUrl: yampaRiverBrochureUrl },
-      { label: 'Image decision', value: 'Rights-cleared Yampa State Park boat-ramp photo used as same-river context', note: 'CC BY 4.0 image is not presented as Duffy or Juniper current conditions.', sourceUrl: yampaImageUrl },
       { label: 'Duplicate separation', value: 'Distinct CPW Site 7–8 section; separate from South Beach–Duffy and Juniper–Maybell', note: 'The 12-mile endpoint pair follows the official CPW section boundary.', sourceUrl: yampaRiverSectionsUrl },
     ],
     sourceLinks: [
@@ -6950,7 +6754,6 @@ export const coloradoRoutes: River[] = [
       { label: 'Water access coordinates', value: 'Juniper 40.4766667, -107.9652222; Maybell 40.5013658, -108.032923', note: 'Coordinates come from current CPW map links and are stored as access-area anchors.', sourceUrl: yampaDuffySectionsUrl },
       { label: 'High-class rapid handling', value: 'Class III–IV Juniper diversion at launch; portage plan required', note: 'The route is advanced planning coverage and does not imply that the diversion is runnable for every craft or crew.', sourceUrl: yampaDuffySectionsUrl },
       { label: 'Camping and logistics', value: 'Juniper five primitive sites; Maybell six primitive sites; permits and passes required', note: 'Designated sites only; no private-bank camping is claimed.', sourceUrl: yampaRiverBrochureUrl },
-      { label: 'Image decision', value: 'Rights-cleared Yampa State Park boat-ramp photo used as same-river context', note: 'CC BY 4.0 image is not presented as Juniper or Maybell current conditions.', sourceUrl: yampaImageUrl },
       { label: 'Duplicate separation', value: 'Distinct CPW Site 8–9 section; separate from Duffy–Juniper and Maybell–Sunbeam', note: 'The 13-mile endpoint pair follows the official CPW section boundary.', sourceUrl: yampaRiverSectionsUrl },
     ],
     sourceLinks: [

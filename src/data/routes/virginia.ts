@@ -351,7 +351,6 @@ const makeSmithBluewayFollowupRoute = (spec: SmithBluewayFollowupSpec): River =>
     { label: 'Gauge and release guidance', value: 'USGS 02072500 at Bassett; 65–1,400 cfs release context and Philpott generation hotline', note: 'The Blueway and local access pages direct paddlers to the direct gauge and generation schedule; no station-specific recreational cutoff is inferred.', sourceUrl: smithUsgsHydrographUrl },
     { label: 'Endpoint access and coordinates', value: `${spec.putIn.name} (${spec.putIn.latitude}, ${spec.putIn.longitude}) to ${spec.takeOut.name} (${spec.takeOut.latitude}, ${spec.takeOut.longitude})`, note: 'Official tourism and county records identify both public access areas. Coordinates are access-area/address anchors and require exact wetted-edge confirmation.', sourceUrl: spec.putInSource },
     { label: 'Safety and camping posture', value: `${spec.classLabel}; cold water; Philpott release changes; ${spec.campingClassification === 'nearby_basecamp' ? 'nearby basecamp only' : 'no on-route camping'}`, note: 'Official Blueway and access guidance requires PFDs, cold-water preparation, release checks, legal public access, and a separate camping decision.', sourceUrl: smithCountyBrochureUrl },
-    { label: 'Rights-clean image decision', value: 'Approved CC BY-SA 3.0 same-river Smith River image used as route context', note: 'The existing rights-clean Smith River image is used as same-river context, not as proof of current endpoint or flow conditions.', sourceUrl: smithImageUrl },
     { label: 'Duplicate separation', value: `Distinct ${spec.reach} section with named endpoint boundary`, note: 'The route has its own Blueway endpoint pair and is adjacent to, rather than overlapping, the other Smith River segments.', sourceUrl: smithBluewayUrl },
   ],
   sourceLinks: [
@@ -471,7 +470,6 @@ const makeRoanokeBluewaySegmentRoute = (spec: RoanokeBluewaySegmentSpec): River 
     { label: 'Direct live gauge and threshold', value: `USGS 02054530; ${spec.minimumFlow} cfs minimum recommendation`, note: 'The Blueway access and water-level pages tie the published minimum recommendation to the direct Glenvar gauge; the value is a planning gate, not a guarantee of safe passage.', sourceUrl: roanokeBluewayWaterLevelUrl },
     { label: 'Access and hazard documentation', value: 'Designated public ramps/shoreline accesses, private-bank controls, and documented portage hazards', note: 'The Blueway publishes access type, amenities, minimum flow, and the next-access distance, while its hazard page documents bridge and low-water hazards.', sourceUrl: roanokeBluewayHazardsUrl },
     { label: 'Camping and shuttle logistics', value: 'Day-use only; separate lawful basecamp required', note: 'The urban endpoint accesses provide launch facilities but do not grant shoreline or park camping rights. Verify parking, operating hours, and any closure or event notice before travel.', sourceUrl: roanokeBluewayAccessUrl },
-    { label: 'Rights-clean image decision', value: 'Approved public-domain Roanoke River context image used', note: 'The existing USGS/Wikimedia image is same-river context and is not presented as a current endpoint photograph.', sourceUrl: roanokePublicDomainImageUrl },
     { label: 'Duplicate separation', value: `Distinct ${spec.reach} access-to-access section`, note: 'This segment is bounded by its own consecutive Blueway endpoints and is adjacent to, rather than overlapping, the other Roanoke segmented records.', sourceUrl: roanokeBluewayAccessUrl },
   ],
   sourceLinks: [
@@ -629,12 +627,6 @@ export const virginiaRoutes: River[] = [
         note: 'DWR’s public-access rules prohibit camping at maintained boating access sites. Use separately managed lodging or a lawful campground.',
         sourceUrl: nottowayDwrAccessUrl,
       },
-      {
-        label: 'Rights-clean image decision',
-        value: 'Approved same-river Nottoway River image used as route context, not endpoint proof',
-        note: 'The Wikimedia Commons image is credited to Kubigula under CC BY-SA 3.0 and is not presented as current Double Bridge or Route 630 conditions.',
-        sourceUrl: nottowayImageUrl,
-      },
     ],
     sourceLinks: [
       { label: 'Virginia DWR Nottoway River float guidance', url: nottowayDwrUrl, provider: 'local' },
@@ -776,12 +768,6 @@ export const virginiaRoutes: River[] = [
         value: 'Daylight-only public portage parks; no camping or open flames; nearby basecamp only',
         note: 'Wythe County expressly prohibits camping and open-flame fires at the Blueway parks.',
         sourceUrl: reedCreekBluewayUrl,
-      },
-      {
-        label: 'Rights-clean image decision',
-        value: 'Approved public-domain Reed Creek wood hazard image used as route context, not current endpoint proof',
-        note: 'The Wikimedia Commons image is credited to the United States Forest Service and is used to reinforce the route’s wood/debris hazard posture; it does not certify current conditions.',
-        sourceUrl: reedCreekImageUrl,
       },
     ],
     sourceLinks: [
@@ -1085,12 +1071,6 @@ export const virginiaRoutes: River[] = [
         note: 'Virginia State Parks documents a year-round primitive campground at Natural Bridge; it is a separate basecamp, not on-route camping.',
         sourceUrl: 'https://www.dcr.virginia.gov/state-parks/natural-bridge',
       },
-      {
-        label: 'Rights-clean image decision',
-        value: 'Use the approved PaddleToday route-photo fallback',
-        note: 'No image is copied from DWR, USGS, Virginia State Parks, or American Whitewater. A route-specific photo can be added only after its reuse rights are verified.',
-        sourceUrl: mauryGuideUrl,
-      },
     ],
     sourceLinks: [
       { label: 'Virginia DWR Maury River Float Guide', url: mauryGuideUrl, provider: 'local' },
@@ -1373,12 +1353,6 @@ export const virginiaRoutes: River[] = [
         note: 'Virginia State Parks documents reservation-required endpoint camping and warns of dangerous current and underwater hazards.',
         sourceUrl: newRiverParkUrl,
       },
-      {
-        label: 'Rights-clean image decision',
-        value: 'Use the approved PaddleToday route-photo fallback',
-        note: 'No image is copied from Virginia State Parks, USGS, or American Whitewater. Add a route-specific photo only after reuse rights are verified.',
-        sourceUrl: newRiverParkUrl,
-      },
     ],
     sourceLinks: [
       { label: 'Virginia State Parks New River Trail', url: newRiverParkUrl, provider: 'local' },
@@ -1515,12 +1489,6 @@ export const virginiaRoutes: River[] = [
         value: 'Class I–III tailwater, cold water, rapid releases, dam hazards, nearby basecamp only',
         note: 'Official Blueway and access sources require PFDs, cold-water preparation, release checks, and legal public accesses; no endpoint camping is claimed.',
         sourceUrl: smithDwrReportUrl,
-      },
-      {
-        label: 'Rights-clean image decision',
-        value: 'Approved CC BY-SA 3.0 same-river Smith River image used as route context',
-        note: 'The existing rights-clean Smith River image is used as same-river context, not as proof of current tailrace conditions.',
-        sourceUrl: smithImageUrl,
       },
       {
         label: 'Duplicate separation',
@@ -1667,12 +1635,6 @@ export const virginiaRoutes: River[] = [
         sourceUrl: smithDwrReportUrl,
       },
       {
-        label: 'Rights-clean image decision',
-        value: 'Approved CC BY-SA 3.0 same-river Smith River image used as route context',
-        note: 'The existing rights-clean Smith River image is used as same-river context, not as proof of current conditions.',
-        sourceUrl: smithImageUrl,
-      },
-      {
         label: 'Duplicate separation',
         value: 'Distinct Great Road–Fieldale section, separate from Bassett–Great Road and Fieldale–Doe Run options',
         note: 'This short Blueway section has its own named public endpoint pair and ends at Fieldale before the dam boundary.',
@@ -1817,12 +1779,6 @@ export const virginiaRoutes: River[] = [
         note: 'Henry County access pages provide PFD, cold-water, slippery-launch, moving-water, and release warnings; use separate lawful lodging or camping.',
         sourceUrl: smithDwrReportUrl,
       },
-      {
-        label: 'Rights-clean image decision',
-        value: 'Approved CC BY-SA 3.0 same-river Smith River image used as route context',
-        note: 'The image depicts the Smith River in Henry County and is used only as route-level context, not as current endpoint or flow evidence.',
-        sourceUrl: smithImageUrl,
-      },
     ],
     sourceLinks: [
       { label: 'Smith River Blueway access points', url: smithBluewayUrl, provider: 'local' },
@@ -1961,12 +1917,6 @@ export const virginiaRoutes: River[] = [
         value: 'High-flow caution; no access-site camping; Clinch River State Park day-use context',
         note: 'Use PFDs and moving-water judgment, respect private banks and sensitive habitat, and arrange separate lawful lodging or camping away from the access points.',
         sourceUrl: clinchStateParkUrl,
-      },
-      {
-        label: 'Rights-clean image decision',
-        value: 'Use the approved Clinch River public-domain context image',
-        note: 'The existing approved same-river public-domain image is route context only and does not certify current access or conditions.',
-        sourceUrl: clinchAwUrl,
       },
     ],
     sourceLinks: [
@@ -2117,12 +2067,6 @@ export const virginiaRoutes: River[] = [
         note: 'Natural Tunnel currently offers two campgrounds, cabins, yurts, and primitive camping. It is a separate regional basecamp, not part of the river corridor.',
         sourceUrl: naturalTunnelUrl,
       },
-      {
-        label: 'Rights-clean image decision',
-        value: 'Use the approved PaddleToday route-photo fallback',
-        note: 'No image is copied from DWR, DCR, USGS, or American Whitewater. Add a route-specific photo only after reuse rights are verified.',
-        sourceUrl: clinchAwUrl,
-      },
     ],
     sourceLinks: [
       { label: 'Virginia DWR Russell County public boating access', url: clinchDwrAccessUrl, provider: 'local' },
@@ -2262,12 +2206,6 @@ export const virginiaRoutes: River[] = [
         value: 'No on-route camping assumed; Natural Bridge regional basecamp',
         note: 'Camping is kept separate from the route. Any stay at Blue Hollow requires current state-park availability and rules.',
         sourceUrl: 'https://www.dcr.virginia.gov/state-parks/natural-bridge',
-      },
-      {
-        label: 'Rights-clean image decision',
-        value: 'Use the approved PaddleToday route-photo fallback',
-        note: 'No image is copied from the water trail, American Whitewater, USGS, or Virginia State Parks. Add a route-specific photo only after reuse rights are verified.',
-        sourceUrl: upperJamesMapUrl,
       },
     ],
     sourceLinks: [
@@ -2413,12 +2351,6 @@ export const virginiaRoutes: River[] = [
         note: 'Chesterfield documents the Radcliffe hand-carry launch and whitewater warning; Petersburg documents Ferndale’s canoeing access; FOLAR documents the Patton Park trip and bridge/dam hazards.',
         sourceUrl: lowerAppomattoxChesterfieldLaunchUrl,
       },
-      {
-        label: 'Rights-clean image decision',
-        value: 'No route-specific image copied; use approved PaddleToday fallback until compatible reuse rights are verified',
-        note: 'No image is copied from American Whitewater, FOLAR, Chesterfield County, Petersburg, or map providers.',
-        sourceUrl: lowerAppomattoxFolarActivitiesUrl,
-      },
     ],
     sourceLinks: [
       { label: 'American Whitewater Appomattox Chesdin Dam to Petersburg', url: lowerAppomattoxAwUrl, provider: 'american_whitewater' },
@@ -2560,12 +2492,6 @@ export const virginiaRoutes: River[] = [
         value: 'No route camping; Douthat State Park regional basecamp',
         note: 'DWR access sites are not campsites. Douthat is a separate reservable campground/cabin option and is not presented as part of the river corridor.',
         sourceUrl: douthatStateParkUrl,
-      },
-      {
-        label: 'Rights-clean image decision',
-        value: 'Use the approved PaddleToday route-photo fallback',
-        note: 'No image is copied from the water trail, American Whitewater, USGS, DWR, or Virginia State Parks. Add route-specific imagery only after reuse rights are verified.',
-        sourceUrl: upperJamesSuggestedFloatsUrl,
       },
     ],
     sourceLinks: [
@@ -2718,12 +2644,6 @@ export const virginiaRoutes: River[] = [
         value: 'Reservable endpoint camping at James River State Park',
         note: 'Camping is kept within separately managed state-park facilities and is not implied at Bent Creek, islands, or private banks.',
         sourceUrl: jamesRiverStateParkUrl,
-      },
-      {
-        label: 'Rights-clean image decision',
-        value: 'Approved route-specific James River State Park image',
-        note: 'Virginia State Parks staff released the selected exact-corridor image under CC BY 2.0 on Wikimedia Commons; PaddleToday stores an optimized local copy and preserves attribution.',
-        sourceUrl: jamesRiverStateParkCommonsImageUrl,
       },
     ],
     sourceLinks: [
@@ -2885,12 +2805,6 @@ export const virginiaRoutes: River[] = [
         note: 'Rector Tract is day use and WMA rules prohibit camping within 300 feet of boat ramps. Any separate state-park stay requires current availability and rules.',
         sourceUrl: shenandoahRiverParkUrl,
       },
-      {
-        label: 'Rights-clean image decision',
-        value: 'Use the approved PaddleToday route-photo fallback',
-        note: 'No image is copied from Fauquier County, Virginia DWR, American Whitewater, USGS, or Virginia State Parks. Add a route-specific photo only after reuse rights are verified.',
-        sourceUrl: rappahannockRectorUrl,
-      },
     ],
     sourceLinks: [
       { label: 'Fauquier County Rector Tract launch', url: rappahannockRectorUrl, provider: 'local' },
@@ -3031,12 +2945,6 @@ export const virginiaRoutes: River[] = [
         label: 'Camping logistics',
         value: 'No on-route camping; separate regional basecamp required',
         note: 'The named endpoints are day-use city/DWR facilities and do not grant shoreline camping rights.',
-        sourceUrl: rappahannockOldMillUrl,
-      },
-      {
-        label: 'Rights-clean image decision',
-        value: 'Use the approved PaddleToday route-photo fallback',
-        note: 'No image is copied from American Whitewater, USGS, Virginia DWR, or the City of Fredericksburg. Add a route-specific image only after reuse rights are verified.',
         sourceUrl: rappahannockOldMillUrl,
       },
     ],
@@ -3258,12 +3166,6 @@ export const virginiaRoutes: River[] = [
         note: "DWR's current North Fork guide warns about summer cyanobacteria and dense algae, identifies private banks and low-water bridges, and says portaging Chapman's Dam is not advised. Seven Bends is day-use only.",
         sourceUrl: northForkDwrWaterbodyUrl,
       },
-      {
-        label: 'Rights-clean image decision',
-        value: 'Approved North Fork image near Woodstock',
-        note: 'The selected same-river image is CC BY-SA 4.0 on Wikimedia Commons. It is labeled as downstream river-corridor context rather than exact endpoint documentation.',
-        sourceUrl: northForkCommonsImageUrl,
-      },
     ],
     sourceLinks: [
       { label: 'Virginia DWR North Fork boating access', url: northForkDwrAccessUrl, provider: 'local' },
@@ -3409,12 +3311,6 @@ export const virginiaRoutes: River[] = [
         note: 'The route preserves American Whitewater\'s unresolved bridge/tree warning as a hard route boundary and uses current DWR WMA rules for permits and primitive camping.',
         sourceUrl: hardwareWmaRulesUrl,
       },
-      {
-        label: 'Rights-clean image decision',
-        value: 'Approved Hardware River aqueduct image',
-        note: 'The selected exact-named-river historic image is CC BY-SA 4.0 on Wikimedia Commons. It is labeled as lower-river context and does not document either route endpoint.',
-        sourceUrl: hardwareCommonsImageUrl,
-      },
     ],
     sourceLinks: [
       { label: 'American Whitewater Hardware River', url: hardwareAwUrl, provider: 'american_whitewater' },
@@ -3557,12 +3453,6 @@ export const virginiaRoutes: River[] = [
         value: 'James River Watch bacteria map plus Richmond CSO information',
         note: 'JRA says conditions can change quickly, weekly bacteria samples can be overtaken by rain or other events, and Richmond paddlers should also review current combined-sewer-overflow releases.',
         sourceUrl: richmondCsoMapUrl,
-      },
-      {
-        label: 'Rights-clean image decision',
-        value: 'Approved public-domain James River image from Reedy Creek',
-        note: 'The exact takeout-area view is released to the public domain on Wikimedia Commons and stored locally with source credit.',
-        sourceUrl: richmondReedyCreekCommonsImageUrl,
       },
     ],
     sourceLinks: [
@@ -3718,12 +3608,6 @@ export const virginiaRoutes: River[] = [
         note: 'The Town and FAR blueway materials describe a day trail and do not grant shoreline camping rights.',
         sourceUrl: farmvilleBluewayUrl,
       },
-      {
-        label: 'Rights-clean image decision',
-        value: 'No route-specific image copied; use approved PaddleToday fallback until reuse rights are verified',
-        note: 'No image is copied from Farmville, FAR-VA, USGS, or OpenStreetMap. Add route-specific imagery only after a compatible license or public-domain release is verified.',
-        sourceUrl: farmvilleOsmParkUrl,
-      },
     ],
     sourceLinks: [
       { label: 'Town of Farmville Blueway page', url: farmvilleBluewayUrl, provider: 'local' },
@@ -3858,12 +3742,6 @@ export const virginiaRoutes: River[] = [
         label: 'Public endpoint and camping context',
         value: 'North River Campground and Camp May Flather Forest Service corridor',
         note: 'North River Campground is an official Forest Service recreation site; endpoint access remains carry-in and same-day verification rather than a guaranteed trailer ramp.',
-        sourceUrl: northRiverCampgroundUrl,
-      },
-      {
-        label: 'Rights-clean image decision',
-        value: 'No route-specific image copied; use approved PaddleToday fallback until reuse rights are verified',
-        note: 'No image is copied from Forest Service, American Whitewater, USGS, or third-party map pages.',
         sourceUrl: northRiverCampgroundUrl,
       },
     ],
@@ -4006,12 +3884,6 @@ export const virginiaRoutes: River[] = [
         note: 'The city trail is a day-use urban water trail and does not grant shoreline or park camping rights.',
         sourceUrl: waynesboroWaterTrailUrl,
       },
-      {
-        label: 'Rights-clean image decision',
-        value: 'No route-specific image copied; use approved PaddleToday fallback until reuse rights are verified',
-        note: 'No image is copied from Waynesboro, DCR, USGS, or Augusta County sources.',
-        sourceUrl: ridgeviewParkUrl,
-      },
     ],
     sourceLinks: [
       { label: 'City of Waynesboro Water Trail', url: waynesboroWaterTrailUrl, provider: 'local' },
@@ -4151,12 +4023,6 @@ export const virginiaRoutes: River[] = [
         value: 'No on-route camping assumed; nearby basecamp only',
         note: 'The public accesses are day-use launch/take-out facilities; arrange separate lawful lodging or campground reservations.',
         sourceUrl: newRiverBaywoodUrl,
-      },
-      {
-        label: 'Rights-clean image decision',
-        value: 'No route-specific image copied; approved New River context image used',
-        note: 'The preview uses the approved same-river New River context image from the route gallery; it is not presented as an endpoint photograph.',
-        sourceUrl: newRiverIndependenceDwrUrl,
       },
     ],
     sourceLinks: [
@@ -4299,12 +4165,6 @@ export const virginiaRoutes: River[] = [
         note: 'The documented accesses are day-use launch/take-out facilities; arrange separate lawful lodging or camping.',
         sourceUrl: newRiverRadfordAccessUrl,
       },
-      {
-        label: 'Rights-clean image decision',
-        value: 'No route-specific image copied; approved New River context image used',
-        note: 'The preview uses the approved same-river New River context image from the route gallery; it is not presented as an endpoint photograph.',
-        sourceUrl: newRiverRadfordDwrUrl,
-      },
     ],
     sourceLinks: [
       { label: 'Virginia DWR New River waterbody guidance', url: newRiverRadfordDwrUrl, provider: 'local' },
@@ -4444,12 +4304,6 @@ export const virginiaRoutes: River[] = [
         value: 'No on-route camping assumed; nearby basecamp only',
         note: 'The documented accesses are day-use facilities; arrange separate lawful lodging or camping.',
         sourceUrl: newRiverGlenLynDwrAccessUrl,
-      },
-      {
-        label: 'Rights-clean image decision',
-        value: 'No route-specific image copied; approved New River context image used',
-        note: 'The preview uses the approved same-river New River context image from the route gallery; it is not presented as an endpoint photograph.',
-        sourceUrl: newRiverGlenLynWaterTrailUrl,
       },
     ],
     sourceLinks: [
@@ -4607,12 +4461,6 @@ export const virginiaRoutes: River[] = [
         sourceUrl: roanokeRmaKayaksUrl,
       },
       {
-        label: 'Rights-clean image decision',
-        value: 'No route-specific image copied; approved public-domain Roanoke River context image used',
-        note: 'The Wikimedia Commons Roanoke River view is identified as a USGS public-domain source. The preview uses it as same-river context, not as a route-specific endpoint photograph.',
-        sourceUrl: roanokePublicDomainImageUrl,
-      },
-      {
         label: 'Duplicate separation',
         value: 'Distinct upper reach from Salem Rotary Park to Wasena Park',
         note: 'This card starts approximately 4.1 miles upstream at Eastern Montgomery Park and ends at Wayside Park; the existing Salem Rotary–Wasena card is a separate lower urban reach with a different direct gauge (02055000) and 120 cfs guidance.',
@@ -4768,12 +4616,6 @@ export const virginiaRoutes: River[] = [
         note: 'The named endpoints are urban day-use accesses and do not grant shoreline or park camping rights.',
         sourceUrl: roanokeBluewayAccessUrl,
       },
-      {
-        label: 'Rights-clean image decision',
-        value: 'No route-specific image copied; approved public-domain Roanoke River context image used',
-        note: 'The preview uses the approved USGS public-domain Roanoke River context image from the route gallery; it is not presented as a route-specific endpoint photograph.',
-        sourceUrl: roanokeBluewayBrochureUrl,
-      },
     ],
     sourceLinks: [
       { label: 'Roanoke River Blueway access points', url: roanokeBluewayAccessUrl, provider: 'local' },
@@ -4912,12 +4754,6 @@ export const virginiaRoutes: River[] = [
         value: 'No on-route or access-site camping assumed; separate regional basecamp',
         note: 'The named endpoints are day-use Blueway and park accesses and do not grant shoreline or park camping rights.',
         sourceUrl: roanokeBluewayAccessUrl,
-      },
-      {
-        label: 'Rights-clean image decision',
-        value: 'No route-specific image copied; approved public-domain Roanoke River context image used',
-        note: 'The preview uses the approved USGS public-domain Roanoke River context image from the route gallery; it is not presented as a route-specific endpoint photograph.',
-        sourceUrl: roanokeBluewayBrochureUrl,
       },
     ],
     sourceLinks: [
@@ -5528,12 +5364,6 @@ export const virginiaRoutes: River[] = [
         note: 'Waid and Lynch publish dawn-to-dusk hours and access amenities but do not grant overnight river-corridor camping. Lynch has no restrooms.',
         sourceUrl: piggLynchFacilityUrl,
       },
-      {
-        label: 'Rights-clean image decision',
-        value: 'Approved same-river Blackwater River context image used; no endpoint image implied',
-        note: 'The existing rights-clean Blackwater River canoe image is used as river context for this Pigg route. It is not presented as a Waid or Lynch endpoint photograph.',
-        sourceUrl: blackwaterPublicDomainImageUrl,
-      },
     ],
     sourceLinks: [
       { label: 'Franklin County Blueway access maps', url: piggBluewayAccessUrl, provider: 'local' },
@@ -5676,12 +5506,6 @@ export const virginiaRoutes: River[] = [
         note: 'The named endpoints are day-use Blueway accesses and do not grant shoreline or park camping rights.',
         sourceUrl: blackwaterAccessUrl,
       },
-      {
-        label: 'Rights-clean image decision',
-        value: 'No route-specific image copied; approved public-domain Blackwater River context image used',
-        note: 'The Wikimedia Commons canoeing image is identified as public domain and depicts the Blackwater River in Virginia. The preview uses it as same-river context, not as a route-specific endpoint photograph.',
-        sourceUrl: blackwaterPublicDomainImageUrl,
-      },
     ],
     sourceLinks: [
       { label: 'Franklin County Blueway access maps', url: blackwaterAccessUrl, provider: 'local' },
@@ -5818,12 +5642,6 @@ export const virginiaRoutes: River[] = [
         note: 'DWR explicitly requires landowner permission before camping or picnicking on adjoining bottomland.',
         sourceUrl: stauntonRiverDwrUrl,
       },
-      {
-        label: 'Rights-clean image decision',
-        value: 'No route-specific image copied; approved public-domain Brookneal river context image used',
-        note: 'The preview uses the approved public-domain Brookneal Roanoke River image as same-river context for the Staunton reach; it is not presented as a full endpoint photograph.',
-        sourceUrl: stauntonRiverDwrUrl,
-      },
     ],
     sourceLinks: [
       { label: 'Virginia DWR Staunton River waterbody', url: stauntonRiverDwrUrl, provider: 'local' },
@@ -5958,12 +5776,6 @@ export const virginiaRoutes: River[] = [
         value: 'One Class I–II drop, novice section, fast-rise/debris/cold-water controls, day-use landings, no on-route camping',
         note: 'DWR supplies the route character and landing sequence. No camping entitlement is inferred from the public landings or surrounding banks.',
         sourceUrl: rivannaFloatMapUrl,
-      },
-      {
-        label: 'Rights-clean image decision',
-        value: 'Approved public-domain Rivanna River image from Crofton/Union Mills used as same-river context',
-        note: 'The Wikimedia Commons image is identified as looking downstream from Crofton Boat Ramp and is used only as route context, not as current endpoint or flow evidence.',
-        sourceUrl: rivannaImageUrl,
       },
     ],
     sourceLinks: [
@@ -6107,12 +5919,6 @@ export const virginiaRoutes: River[] = [
         value: 'Nearby basecamp only; no endpoint or on-route camping claimed',
         note: 'The Blueway FAQ says there are no campsites along the Jackson River and asks paddlers to stop only at public access points.',
         sourceUrl: 'https://visitalleghanyhighlands.com/uniquely-alleghany/alleghany-highlands-blueway/faqs/',
-      },
-      {
-        label: 'Image decision',
-        value: 'Approved Jackson River context image used; endpoint depiction not implied',
-        note: 'The route uses a rights-clean Jackson River context image as a river-level visual fallback rather than treating it as proof of current endpoint conditions.',
-        sourceUrl: 'https://visitalleghanyhighlands.com/paddling-along-the-jackson-cowpasture-rivers/',
       },
     ],
     sourceLinks: [
@@ -6258,12 +6064,6 @@ export const virginiaRoutes: River[] = [
         note: 'The Blueway plan identifies camping at regional campgrounds, while the city ramps and private shorelines are day-use access points.',
         sourceUrl: 'https://visitalleghanyhighlands.com/uniquely-alleghany/alleghany-highlands-blueway/plan-a-trip/',
       },
-      {
-        label: 'Image decision',
-        value: 'Approved public-domain Jackson River context photo used; endpoint depiction not implied',
-        note: 'The route gallery uses a public-domain Jackson River photograph from Hidden Valley as same-river context rather than proof of current endpoint conditions.',
-        sourceUrl: 'https://commons.wikimedia.org/wiki/File:Jackson_River_in_Hidden_Valley,_upstream.jpg',
-      },
     ],
     sourceLinks: [
       { label: 'Alleghany Highlands Blueway trip plan', url: 'https://visitalleghanyhighlands.com/uniquely-alleghany/alleghany-highlands-blueway/plan-a-trip/', provider: 'local' },
@@ -6407,12 +6207,6 @@ export const virginiaRoutes: River[] = [
         value: 'Nearby basecamp / separately verified primitive camping only',
         note: 'The Blueway mentions primitive camping along portions of the Cowpasture but does not establish a specific campsite at these endpoints; do not infer a right to camp on private farms or at the accesses.',
         sourceUrl: 'https://visitalleghanyhighlands.com/uniquely-alleghany/alleghany-highlands-blueway/plan-a-trip/',
-      },
-      {
-        label: 'Image decision',
-        value: 'Approved public-domain Cowpasture River context photo used; endpoint depiction not implied',
-        note: 'The route gallery uses a rights-clean Cowpasture River photograph as same-river context rather than proof of current endpoint or water-level conditions.',
-        sourceUrl: 'https://commons.wikimedia.org/wiki/File:Cowpasture_River.jpg',
       },
       {
         label: 'Duplicate separation',

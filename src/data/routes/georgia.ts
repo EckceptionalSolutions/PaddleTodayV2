@@ -120,7 +120,6 @@ function buildGeorgiaRoute(spec: GeorgiaRouteSpec): River {
       { label: 'Camping classification', value: spec.campingClassification, note: spec.camping },
       { label: 'Public access control', value: 'Use only named public or managed access points', note: 'No private-bank, roadside, or inferred access is included in the route plan.' },
       { label: 'Seasonality', value: 'March–November planning window', note: spec.seasonNotes },
-      { label: 'Image decision', value: 'Approved same-river Wikimedia Commons context photo', note: 'The route gallery labels the image as same-river context rather than exact-reach photography.' },
       { label: 'Overlap decision', value: 'Distinct access-to-access itinerary', note: 'The route is retained because its endpoint pair and trip purpose are materially distinct from other Georgia candidates.' },
     ],
     sourceLinks: [

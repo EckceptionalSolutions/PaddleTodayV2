@@ -98,11 +98,6 @@ export const iowaRoutes: River[] = [
         "value": "USGS 05465000 Cedar River near Conesville",
         "note": "USGS provides discharge and gage-height telemetry for the Cedar River corridor; check same-day conditions before launch.",
         "sourceUrl": "https://waterdata.usgs.gov/monitoring-location/USGS-05465000/"
-      },
-      {
-        "label": "Image decision",
-        "value": "No third-party image bundled",
-        "note": "The route uses linked county, Iowa DNR, and USGS sources without copying an unlicensed promotional image."
       }
     ],
     "sourceLinks": [
@@ -16417,11 +16412,6 @@ export const iowaRoutes: River[] = [
         "value": "Cedar Valley Park, Cedar Valley Road / Garfield Avenue",
         "note": "Cedar County documents a paved Cedar River ramp, electric and primitive camping, restrooms, water, and posted park hours.",
         "sourceUrl": "https://www.mycountyparks.com/county/Cedar/Park/Cedar-Valley-Park"
-      },
-      {
-        "label": "Image decision",
-        "value": "No third-party image bundled",
-        "note": "The route uses linked county, Iowa DNR, scouting, and USGS evidence without copying an unlicensed promotional image."
       }
     ],
     "sourceLinks": [
@@ -16559,11 +16549,6 @@ export const iowaRoutes: River[] = [
         "value": "Normal low-water summer float; about 2.5 river miles between Welter loops",
         "note": "Des Moines County describes the Skunk as a shallow, slow summer float and identifies Cottonwood-to-Sycamore as the upstream/downstream Welter corridor; its event material also documents longer Cottonwood floats.",
         "sourceUrl": "https://desmoinescounty.iowa.gov/conservation/blog/beat-the-heat-at-these-local-waters/"
-      },
-      {
-        "label": "Image decision",
-        "value": "No third-party image bundled",
-        "note": "The route uses linked county, USGS, Iowa Code, and safety evidence without copying an unlicensed promotional image."
       }
     ],
     "sourceLinks": [
@@ -16690,11 +16675,6 @@ export const iowaRoutes: River[] = [
         "value": "South Skunk River water trail; avoid dams and snags, respect private property",
         "note": "The Iowa DNR map and safety material identify public accesses, hazards, shallow/narrow sections, and the need to portage dangerous obstructions.",
         "sourceUrl": "https://www.iowadnr.gov/portals/idnr/uploads/riverprograms/map_skunk%20north%20and%20south.pdf"
-      },
-      {
-        "label": "Image decision",
-        "value": "No third-party image bundled",
-        "note": "The route uses linked county, DNR, USGS, and public-guide evidence without copying an unlicensed promotional image."
       }
     ],
     "sourceLinks": [

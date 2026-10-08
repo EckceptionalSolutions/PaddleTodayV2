@@ -116,12 +116,6 @@ export const texasRoutes: River[] = [
         "value": "Riverbed/gravel-bar camping allowed within state-owned bed and banks; no public campgrounds on the reach",
         "note": "BRA states camping is allowed when confined to the bed and banks and warns about private adjoining property and rapid rises. Rochelle's says there are no parks or public camping facilities; carry all gear and use only lawful riverbed sites.",
         "sourceUrl": "https://brazos.org/about-us/news/news-room/resource-library/recreation-on-the-brazos-river"
-      },
-      {
-        "label": "Image decision",
-        "value": "No route-gallery image selected",
-        "note": "The implementation ships without a gallery image until a route-specific, rights-clean asset is verified; no third-party image was copied into the repository.",
-        "sourceUrl": "https://txrivers.org/discover-texas-rivers/brazos-river/upper-middle-brazos-hwy-16-to-hwy-4-19-5-miles/"
       }
     ],
     "sourceLinks": [
@@ -275,12 +269,6 @@ export const texasRoutes: River[] = [
         "value": "No on-route camping; nearby Waco basecamp only",
         "note": "The official trail package documents day-use ramps and docks, not overnight riverbank camping. Do not infer camping from city parks or the navigable streambed.",
         "sourceUrl": "https://tpwd.texas.gov/boating/paddling-trails/prairies-and-lakes/bosque-bluffs-and-brazos-bridges/"
-      },
-      {
-        "label": "Image decision",
-        "value": "No route-gallery image selected",
-        "note": "The package ships without a gallery image until a rights-clean, route-specific asset is verified; the USGS station image is public domain but is not a route-context image.",
-        "sourceUrl": "https://www.usgs.gov/media/images/streamflow-gaging-station-08096500-brazos-river-waco"
       }
     ],
     "sourceLinks": [
@@ -417,12 +405,6 @@ export const texasRoutes: River[] = [
         "value": "No route camping; urban basecamp only",
         "note": "The launch parks and urban greenway are day-use facilities; do not infer overnight camping on the bayou banks or in the channel corridor.",
         "sourceUrl": "https://houstontx.gov/parks/parksitesA-F.html"
-      },
-      {
-        "label": "Image decision",
-        "value": "No route-gallery image selected",
-        "note": "The route package ships without a gallery image until a rights-clean, route-specific asset is verified.",
-        "sourceUrl": "https://commons.wikimedia.org/wiki/Special:Search?search=Brays+Bayou+kayak+Houston"
       }
     ],
     "sourceLinks": [
@@ -558,12 +540,6 @@ export const texasRoutes: River[] = [
         "value": "No route camping; nearby basecamp only",
         "note": "No designated overnight site is documented along this reach. Do not infer camping from the lake or private banks; use separately verified nearby lodging/campgrounds only.",
         "sourceUrl": "https://tpwd.texas.gov/publications/pwdpubs/media/lake_survey/pwd_rp_t3200_2733_2024.pdf"
-      },
-      {
-        "label": "Image decision",
-        "value": "No route-gallery image selected",
-        "note": "The route package ships without a gallery image until a rights-clean, route-specific asset is verified.",
-        "sourceUrl": "https://commons.wikimedia.org/wiki/Special:Search?search=Big+Cypress+Bayou+Jefferson+Texas+kayak"
       }
     ],
     "sourceLinks": [
@@ -1073,12 +1049,6 @@ export const texasRoutes: River[] = [
         "value": "Long Class I-III Upper Guadalupe run, private banks, fast rises and simple access anchors",
         "note": "TRPA warns that the Upper Guadalupe is rain dependent and private-property sensitive. Kendall County and Bergheim endpoint rules add dawn-to-dusk, fee, landing, shuttle, and no-dog constraints that must be checked before launch.",
         "sourceUrl": "https://txrivers.org/discover-texas-rivers/guadalupe-river/"
-      },
-      {
-        "label": "Image decision",
-        "value": "No route-gallery image selected",
-        "note": "Bounded TRPA, Kendall County, Bergheim, Boerne, Commons, USGS, and same-route web review found route-context photos and social trip imagery but no clearly rights-clean exact Kreutzberg-to-Bergheim paddling asset selected for local reuse.",
-        "sourceUrl": "https://commons.wikimedia.org/wiki/Special:Search?search=Kreutzberg+Canyon+Bergheim+Guadalupe+River+kayak"
       }
     ],
     "sourceLinks": [
@@ -1225,12 +1195,6 @@ export const texasRoutes: River[] = [
         "value": "Class II rock gardens, Edge Falls Road low-water crossing, private banks",
         "note": "American Whitewater identifies Rock Pile, Dog Leg, and Edge Falls Road as route features, and warns that the low-water crossing can collect debris and has a documented entrapment drowning history.",
         "sourceUrl": "https://www.americanwhitewater.org/content/River/view/river-detail/1811/main"
-      },
-      {
-        "label": "Image decision",
-        "value": "No route-gallery image selected",
-        "note": "Bounded American Whitewater, TPWD, Bergheim Campground, Commons, USGS, and same-route image review found route context and maps but no clearly rights-clean exact FM-3351-to-State-Park paddling asset selected for local reuse.",
-        "sourceUrl": "https://commons.wikimedia.org/wiki/Special:Search?search=Guadalupe+River+Bergheim+State+Park+kayak"
       }
     ],
     "sourceLinks": [
@@ -1377,12 +1341,6 @@ export const texasRoutes: River[] = [
         "value": "Endpoint campground",
         "note": "Guadalupe River State Park has drive-up campsites with electricity, walk-in tent sites, and primitive sites at the put-in; no private-bank or informal on-route camping is inferred for the five-mile route.",
         "sourceUrl": "https://tpwd.texas.gov/state-parks/guadalupe-river/fees-facilities/campsites"
-      },
-      {
-        "label": "Image decision",
-        "value": "No route-gallery image selected",
-        "note": "Bounded TPWD, state-park, TRPA, WORD, Commons, USGS, and same-route image review found route context and maps but no clearly rights-clean exact Guadalupe-State-Park-to-Nichol's-Landing paddling asset selected for local reuse.",
-        "sourceUrl": "https://commons.wikimedia.org/wiki/Special:Search?search=Guadalupe+River+State+Park+Nichol%27s+Landing+kayak"
       }
     ],
     "sourceLinks": [
@@ -1519,12 +1477,6 @@ export const texasRoutes: River[] = [
         "value": "Nearby basecamp only",
         "note": "TPWD lists local outfitters and campgrounds around the trail, but the route package does not infer legal on-route camping from proximity to the river or private banks.",
         "sourceUrl": "https://tpwd.texas.gov/boating/paddling-trails/hill-country/upper-guadalupe/"
-      },
-      {
-        "label": "Image decision",
-        "value": "No route-gallery image selected",
-        "note": "Bounded TPWD, WORD, Commons, USGS, and same-route image review found route maps and contextual media but no clearly rights-clean exact Nichol's-Landing-to-Rebecca-Creek paddling asset selected for local reuse.",
-        "sourceUrl": "https://commons.wikimedia.org/wiki/Special:Search?search=Upper+Guadalupe+Nichol%27s+Landing+Rebecca+Creek+kayak"
       }
     ],
     "sourceLinks": [
@@ -1661,12 +1613,6 @@ export const texasRoutes: River[] = [
         "value": "No route camping",
         "note": "New Braunfels park rules prohibit camping and overnight lodging in all city parks; the route does not infer legal camping from riverfront proximity.",
         "sourceUrl": "https://newbraunfels.gov/3615/Park-Rules-and-Policies"
-      },
-      {
-        "label": "Image decision",
-        "value": "No route-gallery image selected",
-        "note": "Bounded New Braunfels, NRT, American Whitewater, Floating Texas, Commons, USGS, and same-route image review found route-context photos but no clearly rights-clean exact Hinman-Island-to-Last-Public-Exit paddling asset selected for local reuse.",
-        "sourceUrl": "https://commons.wikimedia.org/wiki/Special:Search?search=Comal+River+Water+Trail+New+Braunfels+kayak"
       }
     ],
     "sourceLinks": [
@@ -1821,12 +1767,6 @@ export const texasRoutes: River[] = [
         "value": "No route camping",
         "note": "City rules require non-motorized vessels to be removed at the end of each day and limit Mission Reach use to sunrise-to-sunset water recreation; no legal route camping is inferred from nearby parks or the river corridor.",
         "sourceUrl": "https://www.sanantonio.gov/ParksAndRec/Programs-Classes-Fun/Fun-On-Your-Own/Paddling"
-      },
-      {
-        "label": "Image decision",
-        "value": "No route-gallery image selected",
-        "note": "Bounded SARA, TPWD, City, Commons, San Antonio Report, USGS, and same-route image review found route-context images and one rights-clean general Mission Reach trail photo, but no clearly rights-clean exact paddling asset selected for local reuse.",
-        "sourceUrl": "https://commons.wikimedia.org/wiki/File:San_Antonio_River_Mission_Reach_and_Trail.jpg"
       }
     ],
     "sourceLinks": [
@@ -1972,12 +1912,6 @@ export const texasRoutes: River[] = [
         "value": "Endpoint campground",
         "note": "SARA's Helton Nature Park page lists campgrounds, river and paddle-trail access, and campground reservations with an overnight fee at the take-out.",
         "sourceUrl": "https://www.sariverauthority.org/parks-trails/john-william-helton-san-antonio-river-nature-park/"
-      },
-      {
-        "label": "Image decision",
-        "value": "No route-gallery image selected",
-        "note": "Bounded SARA, TPWD, Commons, National Rivers Project, San Antonio Report, and same-route web review found route-context images but no clearly rights-clean exact River-Crossing-to-Helton paddling asset selected for local reuse.",
-        "sourceUrl": "https://commons.wikimedia.org/wiki/Category:San_Antonio_River"
       }
     ],
     "sourceLinks": [
@@ -2128,12 +2062,6 @@ export const texasRoutes: River[] = [
         "value": "Endpoint campground",
         "note": "SARA's Helton Nature Park page lists campgrounds, river and paddle-trail access, and campground reservations with an overnight fee at the take-out.",
         "sourceUrl": "https://www.sariverauthority.org/parks-trails/john-william-helton-san-antonio-river-nature-park/"
-      },
-      {
-        "label": "Image decision",
-        "value": "No route-gallery image selected",
-        "note": "Bounded SARA, TPWD, Commons, National Rivers Project, San Antonio Report, and same-route web review found route-context images but no clearly rights-clean exact CR-125-to-Helton paddling asset selected for local reuse.",
-        "sourceUrl": "https://commons.wikimedia.org/wiki/Category:San_Antonio_River"
       }
     ],
     "sourceLinks": [
@@ -2285,12 +2213,6 @@ export const texasRoutes: River[] = [
         "value": "Endpoint campground",
         "note": "Goliad State Park publishes walk-in and developed campsites near the route finish; the route package does not infer legal sandbar, soft-bank, or private-bank camping along the river.",
         "sourceUrl": "https://tpwd.texas.gov/state-parks/goliad/fees-facilities/campsites"
-      },
-      {
-        "label": "Image decision",
-        "value": "No route-gallery image selected",
-        "note": "Bounded SARA, TPWD, Commons, USGS, and same-route review found route context and public web imagery but no clearly rights-clean exact Riverdale-to-Goliad paddling asset selected for local reuse.",
-        "sourceUrl": "https://commons.wikimedia.org/wiki/Special:Search?search=Goliad+Paddling+Trail+San+Antonio+River+kayak"
       }
     ],
     "sourceLinks": [
@@ -2462,12 +2384,6 @@ export const texasRoutes: River[] = [
         "value": "Flash-flood and post-2015 debris caution",
         "note": "John Knox Ranch describes 2015 flood impacts and active river monitoring, while American Whitewater warns that post-flood conditions and downstream strainers/root wads can change the character of this Blanco corridor.",
         "sourceUrl": "https://johnknoxranch.org/floodmonitoring"
-      },
-      {
-        "label": "Image decision",
-        "value": "No route-gallery image selected",
-        "note": "A USGS public-domain Fischer Store webcam page exists for exact put-in context, but the live-camera asset was not selected as a stable reusable gallery image; bounded TPWD, AW, Commons, USGS, and same-route review found no stable exact-route paddling asset for local reuse.",
-        "sourceUrl": "https://www.usgs.gov/media/webcams/blanco-river-fischer-store-road-near-fischer-texas"
       }
     ],
     "sourceLinks": [
@@ -2619,12 +2535,6 @@ export const texasRoutes: River[] = [
         "value": "Class II-II+, fast rises, wood, public-crossing limits, and private banks",
         "note": "TRPA lists the Llano as Class II-II+ and warns paddlers to use proper river-safety judgment; the route package records Hill Country storm response, strainers, low-water scraping, and private-bank discipline.",
         "sourceUrl": "https://txrivers.org/discover-texas-rivers/south-llano/"
-      },
-      {
-        "label": "Image decision",
-        "value": "No route-gallery image selected",
-        "note": "Bounded TRPA, Commons, USGS, and same-route web image review found route-context photos but no clearly rights-clean exact James-River-to-Martin/Simonsville reusable paddling asset selected for local reuse.",
-        "sourceUrl": "https://commons.wikimedia.org/wiki/Special:Search?search=Llano+River+James+River+Crossing+Martin+Simonsville+kayak"
       }
     ],
     "sourceLinks": [
@@ -2766,12 +2676,6 @@ export const texasRoutes: River[] = [
         "value": "Class II-II+, fast rises, wood, US-87 bank condition, and private banks",
         "note": "TRPA lists the Llano as Class II-II+ and notes Keller's Landing has steep, muddy access; the route package records Hill Country storm response, strainers, low-water scraping, and private-bank discipline.",
         "sourceUrl": "https://txrivers.org/discover-texas-rivers/south-llano/"
-      },
-      {
-        "label": "Image decision",
-        "value": "No route-gallery image selected",
-        "note": "Bounded TRPA, Commons, USGS, and same-route web image review found route-context photos but no clearly rights-clean exact Martin/Simonsville-to-Keller's reusable paddling asset selected for local reuse.",
-        "sourceUrl": "https://commons.wikimedia.org/wiki/Special:Search?search=Llano+River+Martin+Simonsville+Keller%27s+Landing+kayak"
       }
     ],
     "sourceLinks": [
@@ -2920,12 +2824,6 @@ export const texasRoutes: River[] = [
         "value": "Class II-II+, steep muddy put-in, fast rises and private banks",
         "note": "TRPA lists the Llano as Class II-II+, describes steep muddy access at US-87, and links river-safety guidance; the route also carries Hill Country storm and private-bank caveats.",
         "sourceUrl": "https://txrivers.org/discover-texas-rivers/south-llano/"
-      },
-      {
-        "label": "Image decision",
-        "value": "No route-gallery image selected",
-        "note": "Bounded TRPA, TPWD, American Whitewater, Commons, USGS, and same-route web review found route-context photos but no clearly rights-clean exact Keller's-to-Castell paddling asset selected for local reuse.",
-        "sourceUrl": "https://commons.wikimedia.org/wiki/Special:Search?search=Llano+River+Keller%27s+Landing+Castell+kayak"
       }
     ],
     "sourceLinks": [
@@ -3073,12 +2971,6 @@ export const texasRoutes: River[] = [
         "value": "Endpoint campground only by reservation or group/day-use rules",
         "note": "San Marcos River Retreat is a private campground and day-use RACA access site; route camping is not inferred from private banks or city parks, and the normal paddle should be treated as a day route unless separate campground arrangements are made.",
         "sourceUrl": "https://sanmarcosriverretreat.com/"
-      },
-      {
-        "label": "Image decision",
-        "value": "No route-gallery image selected",
-        "note": "Bounded TRPA, City of San Marcos, San Marcos River Retreat, Commons, USGS, and same-route web review found route-context photos but no clearly rights-clean exact City-Park-to-SMRR paddling asset selected for local reuse.",
-        "sourceUrl": "https://commons.wikimedia.org/wiki/Special:Search?search=San+Marcos+River+City+Park+Westerfield+Crossing+kayak"
       }
     ],
     "sourceLinks": [
@@ -3229,12 +3121,6 @@ export const texasRoutes: River[] = [
         "value": "No route camping inferred",
         "note": "The TPWD lease pages describe daylight public-use access, fees, reservations, gate code, and parking rules, but do not publish route camping rights for the public lease use. San Marcos River Retreat is a separate private campground, so overnight use requires separate campground arrangements.",
         "sourceUrl": "https://tpwd.texas.gov/fishboat/fish/recreational/rivers/lease_access/sanmarcos_retreat.phtml"
-      },
-      {
-        "label": "Image decision",
-        "value": "No route-gallery image selected",
-        "note": "Bounded TPWD, TRPA, American Whitewater, Commons, USGS, and same-route web review found maps/context and no clearly rights-clean exact SMRR-to-Scull paddling asset selected for local reuse.",
-        "sourceUrl": "https://commons.wikimedia.org/wiki/Special:Search?search=San+Marcos+River+Retreat+Scull+Road+kayak"
       }
     ],
     "sourceLinks": [
@@ -3516,12 +3402,6 @@ export const texasRoutes: River[] = [
         "value": "Endpoint campground at Texas River School",
         "note": "TPWD publishes eight primitive campsites at Texas River School with reservation, fee, gate-code, fire, pet, and pack-in/pack-out rules. FM 973 is not a campground, and route camping is not inferred from private banks, islands, or sandbars.",
         "sourceUrl": "https://tpwd.texas.gov/fishboat/fish/recreational/rivers/lease_access/riverschool.phtml"
-      },
-      {
-        "label": "Image decision",
-        "value": "No route-gallery image selected",
-        "note": "Bounded TPWD, Texas River School, LCRA, Commons, USGS, and same-route web image review found route-context photos but no clearly rights-clean exact Texas-River-School-to-FM-973 paddling asset selected for local reuse.",
-        "sourceUrl": "https://commons.wikimedia.org/wiki/Special:Search?search=Texas+River+School+FM+973+Colorado+River+kayak"
       }
     ],
     "sourceLinks": [
@@ -3658,12 +3538,6 @@ export const texasRoutes: River[] = [
         "value": "Endpoint campground at Texas River School",
         "note": "Texas River School publishes eight primitive campsites with reservation, fee, fire, parking, and pack-in/pack-out rules at the put-in. The downstream route remains private-bank-sensitive, and Little Webberville prohibits camping.",
         "sourceUrl": "https://texasriverschool.org/programs/campground-and-colorado-river-access/"
-      },
-      {
-        "label": "Image decision",
-        "value": "No route-gallery image selected",
-        "note": "Bounded TPWD, Texas River School, LCRA, Travis County, Commons, USGS, and same-route web image review found route-context photos but no clearly rights-clean exact Texas-River-School-to-Little-Webberville paddling asset selected for local reuse.",
-        "sourceUrl": "https://commons.wikimedia.org/wiki/Special:Search?search=Texas+River+School+Little+Webberville+kayak"
       }
     ],
     "sourceLinks": [
@@ -3810,12 +3684,6 @@ export const texasRoutes: River[] = [
         "value": "No route camping selected",
         "note": "Travis County prohibits camping at Little Webberville, and LCRA does not identify FM 973 / Del Valle Bridge as a campground. Do not infer legal camping from private banks, islands, or sandbars on this shorter public-access route.",
         "sourceUrl": "https://parks.traviscountytx.gov/parks/little-webberville"
-      },
-      {
-        "label": "Image decision",
-        "value": "No route-gallery image selected",
-        "note": "Bounded LCRA, Travis County, TPWD, Commons, USGS, and same-route web image review found route-context photos but no clearly rights-clean exact FM-973-to-Little-Webberville paddling asset selected for local reuse.",
-        "sourceUrl": "https://commons.wikimedia.org/wiki/Special:Search?search=Colorado+River+FM+973+Little+Webberville+kayak"
       }
     ],
     "sourceLinks": [
@@ -3952,12 +3820,6 @@ export const texasRoutes: River[] = [
         "value": "No route camping",
         "note": "Travis County Parks lists camping as prohibited at both Little Webberville Park and Webberville Park, so this ships as a day-use route with no inferred island, sandbar, or private-bank camping.",
         "sourceUrl": "https://parks.traviscountytx.gov/parks/little-webberville"
-      },
-      {
-        "label": "Image decision",
-        "value": "No route-gallery image selected",
-        "note": "Bounded LCRA, Travis County, Commons, USGS, and same-route web image review found route-context photos but no clearly rights-clean exact Little-Webberville-to-Webberville paddling asset selected for local reuse.",
-        "sourceUrl": "https://commons.wikimedia.org/wiki/Special:Search?search=Little+Webberville+Colorado+River+kayak"
       }
     ],
     "sourceLinks": [
@@ -4099,12 +3961,6 @@ export const texasRoutes: River[] = [
         "value": "No route camping",
         "note": "Webberville Park is open during posted day-use boat-ramp hours, FM 969 is a bridge access, and no LCRA, Travis County, TPWD, or TRPA source supports legal camping for this 14-mile day segment.",
         "sourceUrl": "https://parks.traviscountytx.gov/parks/webberville"
-      },
-      {
-        "label": "Image decision",
-        "value": "No route-gallery image selected",
-        "note": "Bounded LCRA, Travis County, TRPA, Commons, USGS, and same-route web image review found route-context photos but no clearly rights-clean exact Webberville-to-Utley paddling asset selected for local reuse.",
-        "sourceUrl": "https://commons.wikimedia.org/wiki/Special:Search?search=Colorado+River+Webberville+Utley+kayak"
       }
     ],
     "sourceLinks": [
@@ -4246,12 +4102,6 @@ export const texasRoutes: River[] = [
         "value": "No route camping",
         "note": "Horseshoe is published as a daily leased-access site from 30 minutes before sunrise to 30 minutes after sunset, and no TPWD, LCRA, or route-manager source supports legal camping for this selected day segment.",
         "sourceUrl": "https://tpwd.texas.gov/fishboat/fish/recreational/rivers/lease_access/horseshoe_colorado.phtml"
-      },
-      {
-        "label": "Image decision",
-        "value": "No route-gallery image selected",
-        "note": "Bounded TPWD, TPW Magazine, LCRA, Commons, USGS, and same-route web image review found route-context imagery but no clearly rights-clean exact Horseshoe-to-Utley paddling asset selected for local reuse.",
-        "sourceUrl": "https://commons.wikimedia.org/wiki/Special:Search?search=Colorado+River+Horseshoe+Utley+kayak"
       }
     ],
     "sourceLinks": [
@@ -4666,12 +4516,6 @@ export const texasRoutes: River[] = [
         "value": "Long, wide, slow-moving river with wind and access-spacing caveats",
         "note": "Southwest Paddler describes this reach as wide and slow-moving with few whitewater hazards, while calling out strong southeasterly headwinds and many miles between public accesses. LCRA private-property guidance limits stops away from public access or direct hazard portages.",
         "sourceUrl": "https://southwestpaddler.com/docs/colorado5.html"
-      },
-      {
-        "label": "Image decision",
-        "value": "No route-gallery image selected",
-        "note": "Bounded LCRA, Bastrop County, Visit Smithville, Southwest Paddler, Commons, and USGS review found route-context imagery but no clearly rights-clean exact Lost-Pines-to-Riverbend paddling asset selected for local reuse.",
-        "sourceUrl": "https://commons.wikimedia.org/wiki/Special:Search?search=Colorado+River+Bastrop+Smithville+kayak"
       }
     ],
     "sourceLinks": [
@@ -4817,10 +4661,9 @@ export const texasRoutes: River[] = [
         "sourceUrl": "https://lcraparks.com/paddle-the-colorado"
       },
       {
-        "label": "Distinct corridor and image decision",
-        "value": "Distinct from existing Smithville/Plum and Columbus/Bay City cards; no gallery image selected",
-        "note": "The existing scored route inventory does not contain the FM 960-to-Hollywood reach. A bounded rights review found no clearly rights-clean exact route-context image selected for local reuse, so the route ships without a gallery image until one is verified.",
-        "sourceUrl": "src/data/routes/texas.ts"
+        "label": "Route distinction",
+        "value": "A separate stretch from the existing Smithville/Plum and Columbus/Bay City trips",
+        "note": "This FM 960-to-Hollywood reach is not included in those neighboring trip options."
       }
     ],
     "sourceLinks": [
@@ -5094,9 +4937,9 @@ export const texasRoutes: River[] = [
         "sourceUrl": "https://thcc.clubexpress.com/content.aspx?club_id=496051&module_id=518249&page_id=22"
       },
       {
-        "label": "Camping and image decision",
-        "value": "Endpoint campground only; no route-gallery image selected",
-        "note": "LCRA allows Plum Park camping by river arrival or prior arrangement, but this route does not infer legal camping on islands, sandbars, or private banks. Bounded LCRA, City, Commons, USGS, and same-route image review found no clearly rights-clean exact Plum-to-La-Grange paddling asset selected for local reuse.",
+        "label": "Camping",
+        "value": "No on-route camping documented",
+        "note": "Plan for nearby lodging or confirm a separate campground before your trip.",
         "sourceUrl": "https://lcraparks.com/parks/plum-park-on-the-colorado"
       }
     ],
@@ -5384,12 +5227,6 @@ export const texasRoutes: River[] = [
         "value": "Riverside camp/picnic sites; Spivey private accommodations; dam-release warning",
         "note": "USACE documents Riverside camp/picnic facilities, TPWD describes Spivey RV/cabin/cottage services as adjacent private accommodations, and TPWD warns Lake Whitney Dam releases can cause rapid rises and swift current.",
         "sourceUrl": "https://tpwd.texas.gov/fishboat/fish/recreational/rivers/lease_access/spivey_crossing.phtml"
-      },
-      {
-        "label": "Image decision",
-        "value": "No route-gallery image selected",
-        "note": "Bounded TPWD RACA, USACE, BRA, Commons, USGS, Southwest Paddler, and same-route web review found route-context images but no clearly rights-clean exact Riverside-to-Spivey paddling asset selected for local reuse.",
-        "sourceUrl": "https://commons.wikimedia.org/wiki/Special:Search?search=Brazos+River+Riverside+Park+Spivey+Crossing+kayak"
       }
     ],
     "sourceLinks": [
@@ -5546,12 +5383,6 @@ export const texasRoutes: River[] = [
         "value": "Nearby basecamp only; release, primitive-access, and private-bank caveats",
         "note": "TPWD describes adjacent Spivey RV/cabin/cottage services but only daylight public lease use for the route endpoints, warns Whitney releases can cause rapid rises, and describes BRNC as primitive with no restrooms or potable water.",
         "sourceUrl": "https://tpwd.texas.gov/fishboat/fish/recreational/rivers/lease_access/brazos_river_nature_center.phtml"
-      },
-      {
-        "label": "Image decision",
-        "value": "No route-gallery image selected",
-        "note": "Bounded TPWD, BRA, Commons, USGS, and same-route web review found route-context pages but no clearly rights-clean exact Spivey-to-Brazos-River-Nature-Center paddling asset selected for local reuse.",
-        "sourceUrl": "https://commons.wikimedia.org/wiki/Special:Search?search=Brazos+River+Spivey+Crossing+Brazos+River+Nature+Center+kayak"
       }
     ],
     "sourceLinks": [
@@ -5691,12 +5522,6 @@ export const texasRoutes: River[] = [
         "value": "Advance contact, daylight access, liability form, separate private accommodations",
         "note": "TPWD requires advance contact and liability forms at both leased-access sites, limits access to daylight windows, and describes lodging or accommodations as separate private-property services rather than route camping rights.",
         "sourceUrl": "https://tpwd.texas.gov/fishboat/fish/recreational/rivers/lease_access/fullers_folly.phtml"
-      },
-      {
-        "label": "Image decision",
-        "value": "No route-gallery image selected",
-        "note": "Bounded TPWD, BRA, Commons, USGS, and same-route web review found route-context imagery but no clearly rights-clean exact Fuller's-Folly-to-Sandy-Bottoms paddling asset selected for local reuse.",
-        "sourceUrl": "https://commons.wikimedia.org/wiki/Special:Search?search=Brazos+River+Fuller%27s+Folly+Sandy+Bottoms+kayak"
       }
     ],
     "sourceLinks": [
@@ -5831,12 +5656,6 @@ export const texasRoutes: River[] = [
         "value": "Advance text, daylight access, liability form, separate private accommodations",
         "note": "TPWD requires advance text contact and liability forms for Sandy Bottoms access, limits use to daylight windows, and describes private accommodations as separate reservation-based services rather than public route camping rights.",
         "sourceUrl": "https://tpwd.texas.gov/fishboat/fish/recreational/rivers/lease_access/sandy_bottoms.phtml"
-      },
-      {
-        "label": "Image decision",
-        "value": "No route-gallery image selected",
-        "note": "Bounded TPWD, BRA, Commons, USGS, and same-route web review found route-context imagery but no clearly rights-clean exact Sandy-Bottoms-to-Chavez-Access paddling asset selected for local reuse.",
-        "sourceUrl": "https://commons.wikimedia.org/wiki/Special:Search?search=Brazos+River+Sandy+Bottoms+Chavez+Access+kayak"
       }
     ],
     "sourceLinks": [
@@ -5985,12 +5804,6 @@ export const texasRoutes: River[] = [
         "value": "Daylight leased access only; no route camping selected",
         "note": "TPWD requires prearrival contact for gate codes and site conditions, says Area 2 access is about one mile from parking through bottomland forest, and allows temporary closure for wet or muddy sites. No public route-camping right is published for the selected day-use route.",
         "sourceUrl": "https://tpwd.texas.gov/fishboat/fish/recreational/rivers/lease_access/brazos_milam.phtml"
-      },
-      {
-        "label": "Image decision",
-        "value": "No route-gallery image selected",
-        "note": "Bounded TPWD, BRA, Commons, USGS, and same-route web review found route-context imagery but no clearly rights-clean exact Milam County Area-1-to-Area-2 paddling asset selected for local reuse.",
-        "sourceUrl": "https://commons.wikimedia.org/wiki/Special:Search?search=Brazos+River+Milam+County+kayak"
       }
     ],
     "sourceLinks": [
@@ -8233,12 +8046,6 @@ export const texasRoutes: River[] = [
         "value": "No route camping",
         "note": "Houston Parks says camping in the city park system is permitted only at Lake Houston Wilderness Park, and Harris County publishes Terry Hershey Park as a day-use park with daily hours rather than overnight river-camping support.",
         "sourceUrl": "https://www.houstontx.gov/parks/parkrules.html"
-      },
-      {
-        "label": "Image decision",
-        "value": "No route-gallery image selected",
-        "note": "Bounded TPWD, Save Buffalo Bayou, Commons, USGS, and same-route image review found route-context photos, including a rights-clean general Terry Hershey bayou image, but no clearly rights-clean exact Highway-6-to-Beltway-8 paddling asset selected for local reuse.",
-        "sourceUrl": "https://commons.wikimedia.org/wiki/Special:Search?search=Buffalo+Bayou+Highway+6+Terry+Hershey+kayak"
       }
     ],
     "sourceLinks": [
@@ -8398,12 +8205,6 @@ export const texasRoutes: River[] = [
         "value": "No route camping",
         "note": "Houston Parks says camping in the city park system is permitted only at Lake Houston Wilderness Park, so this urban Buffalo Bayou connector is treated as day-use only with no inferred riverbank camping.",
         "sourceUrl": "https://www.houstontx.gov/parks/parkrules.html"
-      },
-      {
-        "label": "Image decision",
-        "value": "No route-gallery image selected",
-        "note": "Bounded TPWD, Save Buffalo Bayou, Buffalo Bayou Partnership, Commons, USGS, and same-route image review found route-context photos and maps, but no clearly rights-clean exact West-Sam-Houston-to-Woodway paddling asset selected for local reuse.",
-        "sourceUrl": "https://commons.wikimedia.org/wiki/Special:Search?search=Buffalo+Bayou+West+Sam+Houston+Woodway+kayak"
       }
     ],
     "sourceLinks": [
@@ -8546,12 +8347,6 @@ export const texasRoutes: River[] = [
         "value": "No route camping",
         "note": "Houston Parks says camping in the city park system is permitted only at Lake Houston Wilderness Park, so Buffalo Bayou Park and Memorial Park access points are treated as day-use paddling anchors only.",
         "sourceUrl": "https://www.houstontx.gov/parks/parkrules.html"
-      },
-      {
-        "label": "Image decision",
-        "value": "No route-gallery image selected",
-        "note": "Bounded TPWD, Save Buffalo Bayou, Buffalo Bayou Partnership, Commons, USGS, and same-route image review found route-context photos and maps, but no clearly rights-clean exact Woodway-to-Sabine paddling asset selected for local reuse.",
-        "sourceUrl": "https://commons.wikimedia.org/wiki/Special:Search?search=Buffalo+Bayou+Woodway+Sabine+Street+kayak"
       }
     ],
     "sourceLinks": [
@@ -8694,12 +8489,6 @@ export const texasRoutes: River[] = [
         "value": "No route camping",
         "note": "Houston Parks says camping in the city park system is permitted only at Lake Houston Wilderness Park, so Buffalo Bayou Park and downtown access points are treated as day-use paddling anchors only.",
         "sourceUrl": "https://www.houstontx.gov/parks/parkrules.html"
-      },
-      {
-        "label": "Image decision",
-        "value": "No route-gallery image selected",
-        "note": "Bounded TPWD, Save Buffalo Bayou, Buffalo Bayou Partnership, Commons, USGS, and same-route image review found route-context photos and maps, but no clearly rights-clean exact Sabine-to-Allen's paddling asset selected for local reuse.",
-        "sourceUrl": "https://commons.wikimedia.org/wiki/Special:Search?search=Buffalo+Bayou+Sabine+Allen%27s+Landing+kayak"
       }
     ],
     "sourceLinks": [
@@ -8850,12 +8639,6 @@ export const texasRoutes: River[] = [
         "value": "No route camping",
         "note": "TPWD publishes park-hour access windows for the Greens Bayou launches, and Houston Parks says camping in the city park system is permitted only at Lake Houston Wilderness Park, so the Greens Bayou launch parks are treated as day-use paddling anchors.",
         "sourceUrl": "https://www.houstontx.gov/parks/parkrules.html"
-      },
-      {
-        "label": "Image decision",
-        "value": "No route-gallery image selected",
-        "note": "Bounded TPWD, Greens Bayou Coalition, Houston Canoe Club, Commons, USGS, and same-route image review found route-context pages and photos, but no clearly rights-clean exact Brock-to-Thomas-Bell-Foster paddling asset selected for local reuse.",
-        "sourceUrl": "https://commons.wikimedia.org/wiki/Special:Search?search=Greens+Bayou+Brock+Adventure+Thomas+Bell+Foster+kayak"
       }
     ],
     "sourceLinks": [
@@ -9001,12 +8784,6 @@ export const texasRoutes: River[] = [
         "value": "Endpoint primitive campground near, not along, the river",
         "note": "LLELA publishes nine primitive campsites near but not along the river, designated-only camping rules, no riverbank campsites due to flooding, and current campground availability.",
         "sourceUrl": "https://www.llela.org/visit/things-to-do-or-see/camping"
-      },
-      {
-        "label": "Image decision",
-        "value": "No route-gallery image selected",
-        "note": "Bounded LLELA, Trinity Coalition, TRPA, Commons, USGS, Visit The Colony, KayakPower, and same-route image review found route-context photos and maps, but no clearly rights-clean exact LLELA-to-Hebron paddling asset selected for local reuse.",
-        "sourceUrl": "https://commons.wikimedia.org/wiki/Special:Search?search=Elm+Fork+Trinity+River+LLELA+Hebron+kayak"
       }
     ],
     "sourceLinks": [
@@ -9162,12 +8939,6 @@ export const texasRoutes: River[] = [
         "value": "No route camping",
         "note": "This card starts below LLELA's designated campsite area and ends at Carrollton park/open-space access. No reviewed Trinity Coalition, LLELA, Carrollton, Dallas County, or TRPA source supports overnight route camping between Hebron and McInnish.",
         "sourceUrl": "https://www.dallascounty.org/departments/plandev/openspaces/locations/02-elm-fork.php"
-      },
-      {
-        "label": "Image decision",
-        "value": "No route-gallery image selected",
-        "note": "Bounded Trinity Coalition, TRPA, LLELA, Carrollton, Dallas County, Commons, USGS, and same-route image review found route-context maps and photos but no clearly rights-clean exact Hebron-to-McInnish paddling asset selected for local reuse.",
-        "sourceUrl": "https://commons.wikimedia.org/wiki/Special:Search?search=Elm+Fork+Trinity+Hebron+McInnish+kayak"
       }
     ],
     "sourceLinks": [
@@ -9317,12 +9088,6 @@ export const texasRoutes: River[] = [
         "value": "No route camping",
         "note": "Fort Worth publishes city park hours of 5 a.m. to 10 p.m. unless posted otherwise, and no reviewed Trinity Coalition, TRPA, Trinity Trails, or Fort Worth source supports overnight route camping on this urban leg.",
         "sourceUrl": "https://www.fortworthtexas.gov/departments/parks/parks-and-trails/park-rules"
-      },
-      {
-        "label": "Image decision",
-        "value": "No route-gallery image selected",
-        "note": "Bounded Trinity Coalition, TRPA, Trinity Trails, Fort Worth, Commons, USGS, and same-route image review found route-context maps and photos but no clearly rights-clean exact Art-Cowsen-to-Bryant-Irvin paddling asset selected for local reuse.",
-        "sourceUrl": "https://commons.wikimedia.org/wiki/Special:Search?search=Clear+Fork+Trinity+Art+Cowsen+Bryant+Irvin+kayak"
       }
     ],
     "sourceLinks": [
@@ -9472,12 +9237,6 @@ export const texasRoutes: River[] = [
         "value": "No route camping",
         "note": "Fort Worth publishes city park hours of 5 a.m. to 10 p.m. unless posted otherwise, and no reviewed Trinity Coalition, TRPA, Trinity Trails, or Fort Worth source supports overnight route camping on this urban leg.",
         "sourceUrl": "https://www.fortworthtexas.gov/departments/parks/parks-and-trails/park-rules"
-      },
-      {
-        "label": "Image decision",
-        "value": "No route-gallery image selected",
-        "note": "Bounded Trinity Coalition, TRPA, Trinity Trails, Fort Worth, Commons, USGS, and same-route image review found route-context maps and photos but no clearly rights-clean exact Bryant-Irvin-to-Rogers-Road paddling asset selected for local reuse.",
-        "sourceUrl": "https://commons.wikimedia.org/wiki/Special:Search?search=Clear+Fork+Trinity+Bryant+Irvin+Rogers+Road+kayak"
       }
     ],
     "sourceLinks": [
@@ -9629,12 +9388,6 @@ export const texasRoutes: River[] = [
         "value": "No route camping",
         "note": "Fort Worth publishes city park hours of 5 a.m. to 10 p.m. unless posted otherwise, and no reviewed Trinity Coalition, Trinity Trails, TRPA, or Fort Worth source supports overnight route camping on this short urban leg.",
         "sourceUrl": "https://www.fortworthtexas.gov/departments/parks/parks-and-trails/park-rules"
-      },
-      {
-        "label": "Image decision",
-        "value": "No route-gallery image selected",
-        "note": "Bounded Trinity Coalition, TRPA, Trinity Trails, Fort Worth, Commons, USGS, and same-route image review found route-context maps and photos but no clearly rights-clean exact Rogers-Road-to-Trinity-Park paddling asset selected for local reuse.",
-        "sourceUrl": "https://commons.wikimedia.org/wiki/Special:Search?search=Clear+Fork+Trinity+Rogers+Road+Trinity+Park+kayak"
       }
     ],
     "sourceLinks": [
@@ -9785,12 +9538,6 @@ export const texasRoutes: River[] = [
         "value": "No route camping",
         "note": "Carrollton posts day-use park hours for its parks, California Crossing is a Dallas community park with parking but no campground, and no reviewed Trinity Coalition, TRPA, Carrollton, or Dallas source supports route camping.",
         "sourceUrl": "https://www.cityofcarrollton.com/parks"
-      },
-      {
-        "label": "Image decision",
-        "value": "No route-gallery image selected",
-        "note": "Bounded Trinity Coalition, TRPA, City of Carrollton, Dallas Parks, Commons, USGS, and same-route image review found route-context maps and photos but no clearly rights-clean exact McInnish-to-California-Crossing paddling asset selected for local reuse.",
-        "sourceUrl": "https://commons.wikimedia.org/wiki/Special:Search?search=Elm+Fork+Trinity+McInnish+California+Crossing+kayak"
       }
     ],
     "sourceLinks": [
@@ -9942,12 +9689,6 @@ export const texasRoutes: River[] = [
         "value": "No route camping",
         "note": "Dallas park rules close public parks from 11 p.m. to 5 a.m. and prohibit overnight camping on park property except by special permit. No reviewed Trinity Coalition, TRPA, or Dallas source supports route camping on this segment.",
         "sourceUrl": "https://www.dallasparks.org/115/Park-Rules-Ordinances"
-      },
-      {
-        "label": "Image decision",
-        "value": "No route-gallery image selected",
-        "note": "Bounded Trinity Coalition, TRPA, Dallas Parks, Commons, USGS, and same-route image review found route-context maps and photos but no clearly rights-clean exact California-Crossing-to-Frasier-Dam paddling asset selected for local reuse.",
-        "sourceUrl": "https://commons.wikimedia.org/wiki/Special:Search?search=Elm+Fork+Trinity+California+Crossing+Frasier+Dam+kayak"
       }
     ],
     "sourceLinks": [
@@ -10109,12 +9850,6 @@ export const texasRoutes: River[] = [
         "value": "No route camping",
         "note": "Irving posts Trinity View Park hours as sunrise to sunset; Dallas park rules close public parks overnight and prohibit overnight camping on park property except by special permit. No reviewed source supports route camping on this urban connector.",
         "sourceUrl": "https://irvingtx.gov/index.php?project=73&projectsection=13&section=park-facilities"
-      },
-      {
-        "label": "Image decision",
-        "value": "No route-gallery image selected",
-        "note": "Bounded Trinity Coalition, TRPA, Irving, Dallas Parks, Commons, USGS, and same-route image review found route-context maps and photos but no clearly rights-clean exact Trinity-View-to-Trammell-Crow paddling asset selected for local reuse.",
-        "sourceUrl": "https://commons.wikimedia.org/wiki/Special:Search?search=Elm+Fork+Trinity+View+Trammell+Crow+kayak"
       }
     ],
     "sourceLinks": [
@@ -10267,12 +10002,6 @@ export const texasRoutes: River[] = [
         "value": "No route camping",
         "note": "Fort Worth park code restricts city park and recreation-area use outside posted open hours or permit contexts, and no reviewed trail source supports informal overnight river camping on this urban connector.",
         "sourceUrl": "https://codelibrary.amlegal.com/codes/ftworth/latest/ftworth_tx/0-0-0-25702"
-      },
-      {
-        "label": "Image decision",
-        "value": "No route-gallery image selected",
-        "note": "Bounded Trinity Coalition, TRWD, Trinity Trails, TRPA, Commons, USGS, and same-route image review found route-context maps and photos but no clearly rights-clean exact White-Settlement-to-Panther-Island paddling asset selected for local reuse.",
-        "sourceUrl": "https://commons.wikimedia.org/wiki/Special:Search?search=West+Fork+Trinity+White+Settlement+Panther+Island+kayak"
       }
     ],
     "sourceLinks": [
@@ -10425,12 +10154,6 @@ export const texasRoutes: River[] = [
         "value": "No route camping",
         "note": "Fort Worth city code makes it unlawful to camp in a city park or recreation area outside allowed contexts, and Trinity Trails generally posts public trail hours rather than overnight river-camping support, so this urban segment is treated as day-use only.",
         "sourceUrl": "https://codelibrary.amlegal.com/codes/ftworth/latest/ftworth_tx/0-0-0-25702"
-      },
-      {
-        "label": "Image decision",
-        "value": "No route-gallery image selected",
-        "note": "Bounded Trinity Coalition, TRWD, TRPA, Commons, USGS, and same-route image review found route-context maps and photos but no clearly rights-clean exact Panther-Island-to-Handley paddling asset selected for local reuse.",
-        "sourceUrl": "https://commons.wikimedia.org/wiki/Special:Search?search=West+Fork+Trinity+River+Panther+Island+Handley+Ederville+kayak"
       }
     ],
     "sourceLinks": [
@@ -10590,12 +10313,6 @@ export const texasRoutes: River[] = [
         "value": "Dam awareness, muddy banks, log jams, and changing access",
         "note": "Trinity Coalition says all dams on the trail should be avoided and checked on the interactive map; TRPA notes steep muddy banks, log jams, a narrow channel, high-water hazards, and water-quality concerns.",
         "sourceUrl": "https://trinitycoalition.org/paddling-trail"
-      },
-      {
-        "label": "Image decision",
-        "value": "No route-gallery image selected",
-        "note": "Bounded Trinity Coalition, TPWD, River Legacy, TRPA, Commons, USGS, and same-route image review found route-context maps and photos but no clearly rights-clean exact Handley-to-River-Legacy paddling asset selected for local reuse.",
-        "sourceUrl": "https://commons.wikimedia.org/wiki/Special:Search?search=West+Fork+Trinity+River+Handley+River+Legacy+kayak"
       }
     ],
     "sourceLinks": [
@@ -10746,12 +10463,6 @@ export const texasRoutes: River[] = [
         "value": "No route camping",
         "note": "Dallas city code prohibits overnight camping on park property except by special permit; no route, trail, or park source supports informal riverbank camping on this urban day route.",
         "sourceUrl": "https://codelibrary.amlegal.com/codes/dallas/latest/dallas_tx/0-0-0-115006"
-      },
-      {
-        "label": "Image decision",
-        "value": "No route-gallery image selected",
-        "note": "Bounded TPWD, Trinity Coalition, TRPA, Commons, USGS, and same-route image review found route-context photos and maps but no clearly rights-clean exact Trammell-Crow-to-Loop-12 paddling asset selected for local reuse.",
-        "sourceUrl": "https://commons.wikimedia.org/wiki/Special:Search?search=Dallas+Trinity+Paddling+Trail+Trammell+Crow+Loop+12+kayak"
       }
     ],
     "sourceLinks": [
@@ -10906,12 +10617,6 @@ export const texasRoutes: River[] = [
         "value": "Long mileage, dam awareness, muddy banks, log jams, and changing access",
         "note": "Trinity Coalition says all dams on the trail should be avoided and checked on the interactive map; TRPA notes steep muddy banks, log jams, a narrow channel, high-water hazards, and water-quality concerns.",
         "sourceUrl": "https://trinitycoalition.org/paddling-trail"
-      },
-      {
-        "label": "Image decision",
-        "value": "No route-gallery image selected",
-        "note": "Bounded Trinity Coalition, TPWD, River Legacy, Dallas Parks, TRPA, Commons, USGS, and same-route image review found route-context maps and photos but no clearly rights-clean exact River-Legacy-to-Trammell-Crow paddling asset selected for local reuse.",
-        "sourceUrl": "https://commons.wikimedia.org/wiki/Special:Search?search=West+Fork+Trinity+River+River+Legacy+Trammell+Crow+kayak"
       }
     ],
     "sourceLinks": [
@@ -11068,12 +10773,6 @@ export const texasRoutes: River[] = [
         "value": "Remote roads, Rock Pile, Tight Squeeze, heat, sudden rises",
         "note": "NPS warns about rough River Road access and remote logistics; American Whitewater identifies Rock Pile and Tight Squeeze as the main named Class II features, and NPS river regulations require self-sufficient safety gear and rapid scouting.",
         "sourceUrl": "https://www.nps.gov/rigr/planyourvisit/mariscal_cyn.htm"
-      },
-      {
-        "label": "Image decision",
-        "value": "No route-gallery image selected",
-        "note": "Bounded NPS, American Whitewater, TRPA, Commons, USGS, and same-route review found route-context photos but no clearly rights-clean exact Talley-to-Solis paddling asset selected for local reuse.",
-        "sourceUrl": "https://commons.wikimedia.org/wiki/Special:Search?search=Mariscal+Canyon+Talley+Solis+kayak"
       }
     ],
     "sourceLinks": [
@@ -11240,12 +10939,6 @@ export const texasRoutes: River[] = [
         "value": "Rock Slide, named rapids, heat, sudden rises, remote canyon",
         "note": "NPS highlights Rock Slide as the largest rapid and Class IV at certain levels; American Whitewater details Class II approach rapids, Rock Slide hazards, undercut rocks, sieves, and scout/portage handling.",
         "sourceUrl": "https://www.nps.gov/bibe/planyourvisit/secyn.htm"
-      },
-      {
-        "label": "Image decision",
-        "value": "No route-gallery image selected",
-        "note": "Bounded NPS, American Whitewater, Commons, USGS, and same-route image review found route-context photos but no clearly rights-clean exact Lajitas-to-Santa-Elena paddling asset selected for local reuse.",
-        "sourceUrl": "https://commons.wikimedia.org/wiki/Special:Search?search=Santa+Elena+Canyon+Rio+Grande+kayak"
       }
     ],
     "sourceLinks": [
@@ -11394,12 +11087,6 @@ export const texasRoutes: River[] = [
         "value": "Remote desert canyon, Class I-II, heat and sudden rises",
         "note": "NPS river regulations and river-trip guidance require self-sufficient safety gear and current conditions checks; American Whitewater identifies Arroyo del Veinte as the main Class II feature in the lower canyon.",
         "sourceUrl": "https://www.nps.gov/bibe/planyourvisit/river-trips.htm"
-      },
-      {
-        "label": "Image decision",
-        "value": "No route-gallery image selected",
-        "note": "Bounded NPS, American Whitewater, Commons, USGS, and same-route image review found route-context photos but no clearly rights-clean exact Rio-Grande-Village-to-Heath-Canyon paddling asset selected for local reuse.",
-        "sourceUrl": "https://commons.wikimedia.org/wiki/Special:Search?search=Boquillas+Canyon+Rio+Grande+kayak"
       }
     ],
     "sourceLinks": [
@@ -11552,12 +11239,6 @@ export const texasRoutes: River[] = [
         "value": "Low water, heat, high-clearance access, permit and border rules",
         "note": "NPS documents low-water paddling, River Road mud and high-clearance requirements, mandatory river permits, no Mexico entry, required PFDs, storm/high-water caution, and day-only camping limits.",
         "sourceUrl": "https://www.nps.gov/rigr/planyourvisit/riverregs.htm"
-      },
-      {
-        "label": "Image decision",
-        "value": "No route-gallery image selected",
-        "note": "Bounded NPS, Commons, USGS, and same-route review found route-context photos but no clearly rights-clean exact Gravel-Pit-to-Rio-Grande-Village paddling asset selected for local reuse.",
-        "sourceUrl": "https://commons.wikimedia.org/wiki/Special:Search?search=Hot+Springs+Canyon+Rio+Grande+kayak"
       }
     ],
     "sourceLinks": [
@@ -11700,12 +11381,6 @@ export const texasRoutes: River[] = [
         "value": "Class I-III, North Prong drops, low-water crossings, private banks, drought, floods and wood",
         "note": "TRPA frames the Medina corridor as Class I-III, says the North Prong is known for whitewater after rain, calls out Chamblee Falls and a second drop, warns that high flows above about 300 cfs require stronger navigation skill, and says all low-water crossings are potential hazards.",
         "sourceUrl": "https://txrivers.org/discover-texas-rivers/medina-river/"
-      },
-      {
-        "label": "Image decision",
-        "value": "No route-gallery image selected",
-        "note": "Bounded TRPA, Commons, USGS, Medina/Bandera local tourism, and same-route web review found route-context photos but no clearly rights-clean exact 3rd-Crossing-to-Freeman-Crossing paddling asset selected for local reuse.",
-        "sourceUrl": "https://commons.wikimedia.org/wiki/Special:Search?search=North+Prong+Medina+3rd+Crossing+Freeman+Crossing+kayak"
       }
     ],
     "sourceLinks": [
@@ -11846,12 +11521,6 @@ export const texasRoutes: River[] = [
         "value": "Class I-III, low-water crossings, private banks, drought, floods and wood",
         "note": "TRPA frames the Medina corridor as Class I-III, says high flows above about 300 cfs require stronger navigation skills, warns of drought dragging and floods, and says all low-water crossings are potential hazards.",
         "sourceUrl": "https://txrivers.org/discover-texas-rivers/medina-river/"
-      },
-      {
-        "label": "Image decision",
-        "value": "No route-gallery image selected",
-        "note": "Bounded TRPA, Commons, USGS, Medina/Bandera local tourism, and same-route web review found route-context photos but no clearly rights-clean exact Freeman-Crossing-to-Moffett-Park paddling asset selected for local reuse.",
-        "sourceUrl": "https://commons.wikimedia.org/wiki/Special:Search?search=North+Prong+Medina+Freeman+Crossing+Moffett+Park+kayak"
       }
     ],
     "sourceLinks": [
@@ -11991,12 +11660,6 @@ export const texasRoutes: River[] = [
         "value": "Private banks, low water, floods, wood and road-crossing access",
         "note": "TRPA warns that almost all adjacent property is private, public road crossings should be used for access, low flows can mean dragging, and high flows over about 300 cfs require stronger navigation skills.",
         "sourceUrl": "https://txrivers.org/discover-texas-rivers/medina-river/"
-      },
-      {
-        "label": "Image decision",
-        "value": "No route-gallery image selected",
-        "note": "Bounded TRPA, Commons, USGS, local tourism, and same-route web review found route-context photos but no clearly rights-clean exact Moffett-Park-to-Bandina-Camp-Road paddling asset selected for local reuse.",
-        "sourceUrl": "https://commons.wikimedia.org/wiki/Special:Search?search=Medina+River+Moffett+Park+Bandina+Camp+kayak"
       }
     ],
     "sourceLinks": [
@@ -12148,12 +11811,6 @@ export const texasRoutes: River[] = [
         "value": "Private banks, low water, floods, wood and road-crossing access",
         "note": "TRPA warns that almost all adjacent property is private, public road crossings should be used for access, low flows can mean dragging, and high flows over about 300 cfs require stronger navigation skills.",
         "sourceUrl": "https://txrivers.org/discover-texas-rivers/medina-river/"
-      },
-      {
-        "label": "Image decision",
-        "value": "No route-gallery image selected",
-        "note": "Bounded TRPA, Commons, USGS, local tourism, and same-route web review found route-context photos but no clearly rights-clean exact Bandina-Camp-Road-to-Peaceful-Valley paddling asset selected for local reuse.",
-        "sourceUrl": "https://commons.wikimedia.org/wiki/Special:Search?search=Medina+River+Bandina+Peaceful+Valley+kayak"
       }
     ],
     "sourceLinks": [
@@ -12310,12 +11967,6 @@ export const texasRoutes: River[] = [
         "value": "Private banks, low water, floods, wood and road-crossing access",
         "note": "TRPA warns that almost all adjacent property is private, public road crossings should be used for access, low flows can mean dragging, and high flows over about 300 cfs require stronger navigation skills.",
         "sourceUrl": "https://txrivers.org/discover-texas-rivers/medina-river/"
-      },
-      {
-        "label": "Image decision",
-        "value": "No route-gallery image selected",
-        "note": "Bounded TRPA, Commons, USGS, local tourism, and same-route web review found route-context photos but no clearly rights-clean exact Peaceful-Valley-to-Ranger-Crossing paddling asset selected for local reuse.",
-        "sourceUrl": "https://commons.wikimedia.org/wiki/Special:Search?search=Medina+River+Peaceful+Valley+Ranger+Crossing+kayak"
       }
     ],
     "sourceLinks": [
@@ -12463,12 +12114,6 @@ export const texasRoutes: River[] = [
         "value": "Low-water crossings, low bridges, private banks and mandatory city-park exit",
         "note": "American Whitewater flags low-water crossings and Bandera low bridges as hazards, while Bandera City Park rules prohibit swimming near or standing on the dam. The route package requires taking out at the park and not extending into the dam corridor without a separate source-backed plan.",
         "sourceUrl": "https://www.americanwhitewater.org/content/River/view/river-detail/1815/main"
-      },
-      {
-        "label": "Image decision",
-        "value": "No route-gallery image selected",
-        "note": "Bounded American Whitewater, TRPA, Commons, USGS, Bandera city/local tourism, and same-route web review found route-context photos but no clearly rights-clean exact Ranger-Crossing-to-Bandera-City-Park paddling asset selected for local reuse.",
-        "sourceUrl": "https://commons.wikimedia.org/wiki/Special:Search?search=Medina+River+Ranger+Crossing+Bandera+City+Park+kayak"
       }
     ],
     "sourceLinks": [
@@ -12620,12 +12265,6 @@ export const texasRoutes: River[] = [
         "value": "Do-not-run dam, private banks, low water, floods and long-day exposure",
         "note": "TRPA flags the City Park dam with a do-not-run warning and warns that low water can require dragging while high flows require strong navigation skills; Bandera City Park rules also prohibit standing or swimming near the dam.",
         "sourceUrl": "https://txrivers.org/discover-texas-rivers/medina-river/"
-      },
-      {
-        "label": "Image decision",
-        "value": "No route-gallery image selected",
-        "note": "Bounded TRPA, Bandera city, Commons, USGS, local tourism, trip-report, and same-route web review found route-context photos but no clearly rights-clean exact Bandera-to-English-Crossing paddling asset selected for local reuse.",
-        "sourceUrl": "https://commons.wikimedia.org/wiki/Special:Search?search=Medina+River+Bandera+English+Crossing+kayak"
       }
     ],
     "sourceLinks": [
@@ -12720,7 +12359,7 @@ export const texasRoutes: River[] = [
       {"label": "Take-out access", "value": "Red Bud Lane / CR 122, 30.53082, -97.61374", "note": "The Brushy Creek RUAA records a public dirt/gravel access under Red Bud Lane; verify current construction, parking, and bank conditions before committing.", "sourceUrl": "https://eportfolio.uhcl.edu/environmental-institute/research/publications/documents/10-006-brushy-creek-comp-ruaa-final-report.pdf"},
       {"label": "Direct live gauge", "value": "USGS 08105888 at Kenney Fort Boulevard", "note": "USGS Water Services returned direct discharge and stage telemetry for the route-associated station during this review.", "sourceUrl": "https://waterservices.usgs.gov/nwis/iv/?format=json&sites=08105888&parameterCd=00060,00065&siteStatus=all"},
       {"label": "Flow posture", "value": "About 200 cfs scrape-prone floor; about 400 cfs fun local reference", "note": "American Whitewater reports local paddler beta; treat these as conservative planning cues, not a safety certification.", "sourceUrl": "https://www.americanwhitewater.org/content/River/view/river-detail/2776/main"},
-      {"label": "Camping and image decision", "value": "Urban day route; no on-route camping documented; no gallery image selected", "note": "Use city/urban lodging or a separately verified campground. No third-party image was copied into the repository.", "sourceUrl": "https://www.wilcotx.gov/1288/Brushy-Creek-Regional-Trail"}
+      {"label": "Camping", "value": "No on-route camping documented", "note": "Plan for nearby lodging or confirm a separate campground before your trip.", "sourceUrl": "https://www.wilcotx.gov/1288/Brushy-Creek-Regional-Trail"}
     ],
     "sourceLinks": [
       {"label": "American Whitewater Brushy Creek reach", "url": "https://www.americanwhitewater.org/content/River/view/river-detail/2776/main", "provider": "american_whitewater"},
@@ -12853,12 +12492,6 @@ export const texasRoutes: River[] = [
         "value": "Long day, limited exits, primitive FM 580 carry, park reservation",
         "note": "American Whitewater notes steep cliffs and light rapids; TPWD notes the primitive FM 580 carry and park access/camping rules. Private camps and banks are not treated as public access or camping.",
         "sourceUrl": "https://tpwd.texas.gov/publications/pwdpubs/media/pwd_rp_t3200_1958.pdf"
-      },
-      {
-        "label": "Image decision",
-        "value": "No route-gallery image selected",
-        "note": "The bounded review did not identify a clearly rights-clean exact FM 580-to-Colorado Bend paddling image for local reuse; the route ships without a gallery asset.",
-        "sourceUrl": "https://commons.wikimedia.org/wiki/Special:Search?search=Colorado+Bend+State+Park+Colorado+River+kayak"
       }
     ],
     "sourceLinks": [

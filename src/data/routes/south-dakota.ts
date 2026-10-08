@@ -1938,12 +1938,6 @@ export const southDakotaRoutes: River[] = [
         "value": "Class II town reach with waterfall and ledges",
         "note": "American Whitewater describes the town section, waterfall concerns, and low-head structures; scout all features and portage when needed.",
         "sourceUrl": "https://www.americanwhitewater.org/content/River/view/river-detail/3959/main"
-      },
-      {
-        "label": "Rights-clean image decision",
-        "value": "Use public-domain USGS gage imagery only; no third-party route photo selected",
-        "note": "The route package does not copy a commercial or user photo. A public-domain USGS streamgage image is available if a route image is later needed.",
-        "sourceUrl": "https://www.usgs.gov/media/images/spearfish-creek-spearfish-sd-usgs-streamgage-06431500"
       }
     ],
     "sourceLinks": [

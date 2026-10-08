@@ -86,7 +86,6 @@ function makeRoute(spec: Spec): River {
       { label: 'Public access control', value: `${spec.putIn.name} to ${spec.takeOut.name}`, note: 'Named agency/park access points are retained, including any intentional parking or campground offset from the shoreline.', sourceUrl: spec.mapUrl },
       { label: 'Safety and land management', value: 'PFD, AIS, water temperature, current hazards, and current closures govern the decision', note: 'Review current agency rules, dam/release notices, wind, debris, and private-bank restrictions before launching.', sourceUrl: spec.sourceUrl },
       { label: 'Camping classification', value: spec.campingClassification, note: spec.camping, sourceUrl: spec.sourceUrl },
-      { label: 'Image decision', value: spec.imageLabel, note: imageNote, sourceUrl: spec.image },
       { label: 'Overlap decision', value: 'Retained as a distinct access-to-access card', note: 'Adjacent cards have different launch/take-out pairs, operational boundaries, difficulty, or trip length; no duplicate corridor was found in the Wyoming baseline.', sourceUrl: spec.sourceUrl },
     ],
     sourceLinks: [

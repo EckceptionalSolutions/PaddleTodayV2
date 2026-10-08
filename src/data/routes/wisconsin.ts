@@ -61,8 +61,7 @@ export const wisconsinRoutes: River[] = [
       {"label":"Direct live gauge","value":"USGS 04077630 at Morgan Road","note":"USGS provides direct discharge telemetry for the Morgan Road station; use the current reading and trend with an on-site Weed Dam release check.","sourceUrl":"https://waterdata.usgs.gov/monitoring-location/USGS-04077630/"},
       {"label":"Public access corroboration","value":"Gresham Lower Red River Park and Zeimer's access","note":"American Whitewater describes the public put-in and favored Zeimer's take-out; Wisconsin DNR explains public-trust access and permission boundaries.","sourceUrl":"https://www.americanwhitewater.org/project/red-river-wi/"},
       {"label":"Flow guidance","value":"80 cfs lower floor; 150-500 cfs practical intermediate band; >1,000 cfs not recommended","note":"Community flow ladder from Wisconsin Trail Guide; never treat the range as a guarantee and always scout current features.","sourceUrl":"https://wisconsintrailguide.com/paddle/red-river.html"},
-      {"label":"Endpoint coordinates","value":"44.84168, -88.76063 to 44.84287, -88.72289","note":"WGS84 coordinates are published in the route guide for the Lower Red River Park and Zeimer's Falls access points.","sourceUrl":"https://wisconsintrailguide.com/2024/paddle/pdf/guide-red.pdf"},
-      {"label":"Image decision","value":"No third-party image bundled","note":"Use source links and the route geometry; do not copy promotional imagery without a rights-clean license."}
+      {"label":"Endpoint coordinates","value":"44.84168, -88.76063 to 44.84287, -88.72289","note":"WGS84 coordinates are published in the route guide for the Lower Red River Park and Zeimer's Falls access points.","sourceUrl":"https://wisconsintrailguide.com/2024/paddle/pdf/guide-red.pdf"}
     ],
     "sourceLinks": [
       {"label":"Wisconsin Trail Guide Red River R1","url":"https://wisconsintrailguide.com/paddle/red-river.html","provider":"wisconsin_trail_guide"},
@@ -122,8 +121,7 @@ export const wisconsinRoutes: River[] = [
       {"label":"Official access context","value":"Wisconsin DNR and DOT maintain Highway 53 access; DNR maintains lower Black River access","note":"Wisconsin DNR identifies canoe/kayak use and maintained access at the Highway 53 bridge, Van Loon, North Bend, and Melrose.","sourceUrl":"https://dnr.wisconsin.gov/topic/Watersheds/basins/bbt/black/blackriver.html"},
       {"label":"Direct live gauge","value":"USGS 05382000 near Galesville","note":"USGS station has a long record and telemetered discharge data near the Highway 53 reach.","sourceUrl":"https://waterdata.usgs.gov/monitoring-location/USGS-05382000/"},
       {"label":"Flow guidance","value":"380 cfs conservative minimum-only reference","note":"The route report describes 380 cfs as a little too shallow; use it as a conservative minimum-only screen, not a guarantee or high-water limit.","sourceUrl":"https://www.wisconsinrivertrips.com/segments/black-river/hwy-53"},
-      {"label":"Distinctness check","value":"Lower Highway 53-to-35 corridor is separate from existing Black River routes upstream of Melrose and North Bend","note":"Existing app routes cover upstream Lower Black reaches; this downstream island and sandbank segment is a distinct access pair and gauge context.","sourceUrl":"https://www.wisconsinrivertrips.com/segments/black-river/hwy-53"},
-      {"label":"Image decision","value":"No third-party image bundled","note":"The route uses linked public agency and trip-report sources only; no unlicensed promotional image is copied into the product."}
+      {"label":"Distinctness check","value":"Lower Highway 53-to-35 corridor is separate from existing Black River routes upstream of Melrose and North Bend","note":"Existing app routes cover upstream Lower Black reaches; this downstream island and sandbank segment is a distinct access pair and gauge context.","sourceUrl":"https://www.wisconsinrivertrips.com/segments/black-river/hwy-53"}
     ],
     "sourceLinks": [
       {"label":"Wisconsin River Trips Black River Hwy 53 to Hwy 35","url":"https://www.wisconsinrivertrips.com/segments/black-river/hwy-53","provider":"manual"},
@@ -24307,12 +24305,6 @@ export const wisconsinRoutes: River[] = [
         "value": "Class II-III rapids; no South Fork canoe camp on this segment",
         "note": "DNR and Wisconsin Trail Guide identify named rapids, seasonal variability, and the downstream Little Falls hazard; DNR's camping page lists canoe camps below the forks rather than on this South Fork segment.",
         "sourceUrl": "https://dnr.wisconsin.gov/topic/StateForests/flambeauriver/recreation/camping"
-      },
-      {
-        "label": "Image rights",
-        "value": "No third-party image added",
-        "note": "The route is documented with official/source links and defensible coordinates; no image asset is required for publication.",
-        "sourceUrl": "https://dnr.wisconsin.gov/topic/StateForests/flambeauriver/recreation/paddle"
       }
     ],
     "sourceLinks": [
@@ -24451,12 +24443,6 @@ export const wisconsinRoutes: River[] = [
         "value": "Four Appleton locks; portage unless current authority confirms passage",
         "note": "The Fox River Navigational System Authority publishes lock operations and boating rules; paddlers must follow current notices and never approach dam hazards.",
         "sourceUrl": "https://foxlocks.org/wp-content/uploads/2023/02/2023-Lock-Season-jc1.pdf"
-      },
-      {
-        "label": "Image rights",
-        "value": "No third-party image added",
-        "note": "Route publication relies on official/source links and coordinates; no image asset is required.",
-        "sourceUrl": "https://www.foxcities.org/directory/lutz-park/"
       }
     ],
     "sourceLinks": [
@@ -24594,11 +24580,6 @@ export const wisconsinRoutes: River[] = [
         "value": "350 cfs minimum-only screen; no invented high-flow cutoff",
         "note": "The screen reflects the station's documented historical low-flow range and the route source's observed Berlin reference flows; rising/flood conditions require a same-day visual decision.",
         "sourceUrl": "https://pubs.usgs.gov/wdr/1971/wi-71-1-2/report.pdf"
-      },
-      {
-        "label": "Image rights",
-        "value": "No third-party image added",
-        "note": "Publication relies on official access sources, coordinates, and canonical geometry rather than an unlicensed image asset."
       }
     ],
     "sourceLinks": [

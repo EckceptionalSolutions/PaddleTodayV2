@@ -364,7 +364,6 @@ export const newYorkRoutes: River[] = [
       { label: 'Station-specific flow guidance', value: '3–4 ft generally optimal; below 2.1 ft too low; above 5 ft experienced only; above 8 ft off water', note: 'These are the published itinerary’s planning thresholds at the Bainbridge USGS station, not a safety certification.', sourceUrl: waterTrailUrl },
       { label: 'Direct live gauge', value: 'USGS 01502632, Susquehanna River at Bainbridge, NY', note: 'USGS provides continuous stage and discharge data at the route take-out corridor.', sourceUrl: usgsHydrographUrl },
       { label: 'Camping and safety', value: 'General Clinton Park endpoint camping, restrooms, and showers; current, bridges, shallows, and private-bank cautions', note: 'The water-trail itinerary documents the endpoint facilities and route hazards; New York access law is kept explicit in the logistics caveats.', sourceUrl: decNavigationUrl },
-      { label: 'Image decision', value: 'Approved same-river context image reused from the Susquehanna gallery', note: 'The image is labeled as river-level context because it depicts the Susquehanna elsewhere, not this exact Sidney–Bainbridge reach.', sourceUrl: contextImageUrl },
     ],
     sourceLinks: [
       { label: 'NY Susquehanna Basin Water Trail Sidney to Bainbridge itinerary', url: waterTrailUrl, provider: 'local' },
@@ -1152,7 +1151,6 @@ export const newYorkRoutes: River[] = [
       { label: 'Downstream flow proxy', value: 'USGS 01346000 West Canada Creek at Kast Bridge, NY', note: 'USGS provides current same-river stage/discharge downstream; Hinckley Reservoir and power operations mean local timing and channel conditions must be checked separately.', sourceUrl: 'https://waterdata.usgs.gov/monitoring-location/USGS-01346000/' },
       { label: 'Route-specific flow screen', value: 'Below 300 cfs poor floating; 301–900 cfs good floating; higher flow fast', note: 'West Canada Creek tubing guidance provides a practical planning screen for moving-water conditions, not a safety certification for this access-study reach.', sourceUrl: 'https://westcanadacreek.brookfieldusprojects.com/wp-content/uploads/sites/26/2021/01/20210111-WCC-USR-Filing.pdf' },
       { label: 'Camping context', value: 'Nearby West Canada Creek Campground; no on-route camping claimed', note: 'Use the campground only as separately permitted lodging/basecamp; public river access does not establish shoreline camping rights.', sourceUrl: 'https://westcanadacreekcampground.com/' },
-      { label: 'Image decision', value: 'Approved same-river Kast Bridge USGS station context image', note: 'The image is labeled as West Canada Creek gauge context rather than an exact Partridge Hill rapid or Route 28 landing photograph.', sourceUrl: 'https://ny.water.usgs.gov/images/StationPictures/01346000.jpg' },
     ],
   }),
   buildAdditionalNewYorkRoute({
@@ -1391,7 +1389,6 @@ export const newYorkRoutes: River[] = [
       { label: 'Intermediate public launch', value: 'Town of Perinton Boat Launch / Ayrault Road Launch, 426 Ayrault Road', note: 'The official guide documents the concrete ramp, portable toilet, limited parking, and no overnight parking; the point is retained as a conditional alternate/bailout anchor.', sourceUrl: 'https://eriecanalway.org/application/files/7816/6611/7563/3_WTGuide2E_Erie_Rochester-to-Syracuse_p84-132.pdf' },
       { label: 'Bushnell’s Basin public water access', value: 'Floating dock and canal amenity center at 43.06250, -77.47855', note: 'The guide and NYSDEC identify the public Bushnell’s Basin dock/hand-launch context with limited parking and boater amenities. Verify current dock and parking rules.', sourceUrl: 'https://dec.ny.gov/things-to-do/boating/launch-sites/monroe-county' },
       { label: 'Proxy live gauge', value: 'USGS 04218700 Erie (Barge) Canal west of Genesee River at Rochester', note: 'USGS provides current canal-system stage/discharge context, but the station is west of Fairport and does not capture local wind, wakes, bridge, dock, or navigation conditions.', sourceUrl: 'https://waterdata.usgs.gov/nwis/uv?legacy=1&site_no=04218700' },
-      { label: 'Image decision', value: 'Approved Bushnell’s Basin dock photograph used for Erie Canal route context', note: 'The route image depicts the documented Bushnell’s Basin destination and is credited to the Erie Canalway National Heritage Corridor.', sourceUrl: 'https://eriecanalway.org/application/files/4916/3007/5859/BushnellsBasin_docks_JMackay12.jpg' },
     ],
   }),
   buildAdditionalNewYorkRoute({
@@ -2351,7 +2348,6 @@ export const newYorkRoutes: River[] = [
       { label: 'Route-specific safety posture', value: 'Variable levels, beaver dams, downed trees, daylight-only non-motorized boating', note: 'The refuge explicitly warns that this waterway is not regularly groomed and can contain obstructions. No numeric threshold is asserted.', sourceUrl: 'https://www.fws.gov/refuge/iroquois/visit-us/activities/boating---non-motorized' },
       { label: 'Direct same-creek gauge', value: 'USGS 0422018610, Oak Orchard Creek at The Bridges, NY', note: 'USGS provides current stage, discharge, and water-quality telemetry at The Bridges; use it for trend context and still inspect the actual swamp reach.', sourceUrl: 'https://waterdata.usgs.gov/nwis/uv?agency_cd=USGS&legacy=1&site_no=0422018610' },
       { label: 'Camping and logistics', value: 'Nearby road-access basecamp only; no route camping claimed', note: 'The refuge route is a daylight paddling segment without published water-access camping. Confirm any separate campground or lodging before relying on it.', sourceUrl: 'https://www.orleanscountytourism.com/play/paddling' },
-      { label: 'Image decision', value: 'Approved same-creek USGS station image used for route presentation', note: 'The image is labeled as Oak Orchard Creek context and does not claim to depict the exact launch or every obstruction on this reach.', sourceUrl: 'https://ny.water.usgs.gov/images/StationPictures/0422018610.jpg' },
     ],
   }),
   buildAdditionalNewYorkRoute({
@@ -2675,7 +2671,6 @@ export const newYorkRoutes: River[] = [
       { label: 'Route-specific safety posture', value: 'Stay near shore, yield to larger craft, and inspect traffic/wind/wakes/water quality', note: 'The Blueway identifies high-traffic Buffalo River water near RiverWorks and public launch/egress conditions; no numeric recreational threshold is asserted.', sourceUrl: 'https://buffaloblueway.com/plan-your-trip/' },
       { label: 'Direct lower-river gauge', value: 'USGS 0421560108, Buffalo River below Cazenovia Creek at Buffalo, NY', note: 'USGS provides direct lower-river telemetry; use it for trend/flood context rather than as a complete urban-navigation clearance.', sourceUrl: 'https://waterdata.usgs.gov/monitoring-location/USGS-0421560108/all-graphs/' },
       { label: 'Camping and logistics', value: 'Nearby road-access basecamp only; no route camping claimed', note: 'The urban Blueway and DEC launch listings establish day-use water access but do not authorize overnight shoreline camping.', sourceUrl: 'https://buffaloblueway.com/plan-your-trip/' },
-      { label: 'Image decision', value: 'Approved current Buffalo Blueway Harlem Road launch image used for route presentation', note: 'The image is the Blueway’s current Harlem Road public-access context photo and is labeled as access context rather than a guarantee of daily conditions.', sourceUrl: 'https://buffaloblueway.com/wp-content/uploads/2026/04/Media-1.jpg' },
     ],
   }),
   buildAdditionalNewYorkRoute({
@@ -3160,7 +3155,6 @@ export const newYorkRoutes: River[] = [
       { label: 'Public downstream canoe access', value: 'H. Pierson Mapes Flat Rock Park, 101 Torne Valley Road', note: 'Rockland County documents canoeing and the park’s role as the best public Ramapo access; the stored coordinate follows the paddling access point and remains limited/hand-carry.', sourceUrl: 'https://legislature.rocklandcountyny.gov/Home/Components/FacilityDirectory/FacilityDirectory/18/89?npage=2-134&widgetId=134' },
       { label: 'Proxy live gauge', value: 'USGS 01387420, Ramapo River at Suffern, NY', note: 'USGS provides continuous stage and discharge telemetry downstream of the route; diversion and Lake Sebago regulation are retained as reasons to compare the reading with local conditions.', sourceUrl: 'https://waterdata.usgs.gov/monitoring-location/USGS-01387420/' },
       { label: 'Route-specific flow and safety guidance', value: 'Recent 2.9-ft trip reference; low-water scratch, dams, wood, strainers, and cold-water hazards', note: 'American Whitewater supplies the route-specific flow observations, named hazards, portage locations, and access sequence. These are planning inputs, not a safety guarantee.', sourceUrl: 'https://www.americanwhitewater.org/content/River/view/river-detail/1384/main' },
-      { label: 'Image decision', value: 'Approved USGS same-river station context image used for route presentation', note: 'The image is labeled as Suffern gauge context and does not claim to depict every Tuxedo-to-Hillburn feature.', sourceUrl: 'https://ny.water.usgs.gov/images/StationPictures/01387420.jpg' },
     ],
     routeType: 'whitewater',
     scoreEligibility: 'planning',
@@ -3237,7 +3231,6 @@ export const newYorkRoutes: River[] = [
       { label: 'Public downstream water access', value: 'Echo Canoe Launch, Croton-on-Hudson', note: 'The Empire State Water Trail lists Echo as a trailer/cartop launch with day-use facilities; use it as the mandatory take-out only after checking current operations.', sourceUrl: 'https://empirestatewatertrail.org/findaccesssites.php' },
       { label: 'Municipal access context', value: 'Village of Croton-on-Hudson Echo Canoe Boat Launch', note: 'The Village describes Echo as access for canoes, kayaks, and small boats; current hours, parking, and any rack/launch restrictions still require verification.', sourceUrl: 'https://www.crotononhudson-ny.gov/parks' },
       { label: 'Safety and flow guidance', value: 'Class II–III reach with Class IV consequences, low-head dams, wood, and stage-specific feature notes', note: 'American Whitewater supplies the route-specific hazard and flow observations; those notes are preserved as planning guidance and do not replace expert judgment or scouting.', sourceUrl: 'https://www.americanwhitewater.org/content/River/view/river-detail/5015/main' },
-      { label: 'Image decision', value: 'Approved USGS same-river station context image used for route presentation', note: 'The image is labeled as New Croton Dam gauge context, not as a claim that it depicts every rapid or the Echo landing.', sourceUrl: 'https://ny.water.usgs.gov/images/StationPictures/01375000.jpg' },
     ],
     routeType: 'whitewater',
     scoreEligibility: 'planning',
@@ -3309,7 +3302,6 @@ export const newYorkRoutes: River[] = [
       { label: 'Public lower access and camping', value: 'Noblewood Park cartop launch at the Boquet mouth; three primitive tent sites listed', note: 'The Empire State Water Trail lists Noblewood as a cartop launch, while Lakes to Locks identifies canoe/kayak access and three primitive tent sites. Verify current seasonal operations before travel.', sourceUrl: 'https://empirestatewatertrail.org/findaccesssites.php' },
       { label: 'Direct live gauge', value: 'USGS 04276500, Boquet River at Willsboro, NY', note: 'USGS provides continuous discharge and gage-height telemetry at Willsboro, approximately three miles upstream of the mouth. This route uses the station directly but retains a visual/no-numeric low-water posture.', sourceUrl: 'https://waterdata.usgs.gov/monitoring-location/USGS-04276500/' },
       { label: 'Flow and safety decision', value: 'Shallow/slow lower river; visual depth, debris, wind, and mouth conditions control', note: 'Regional paddling guidance describes the lower Boquet as shallow and slow-moving; the route intentionally avoids presenting an unsupported cfs threshold.', sourceUrl: 'https://www.lakechamplainregion.com/fishing/boquet-river-main-stem' },
-      { label: 'Image decision', value: 'Approved same-river USGS context image used for route presentation', note: 'The image is labeled as Willsboro gauge context rather than a claim that it depicts the full Nature Preserve-to-Noblewood reach.', sourceUrl: 'https://ny.water.usgs.gov/images/StationPictures/04276500.jpg' },
     ],
   }),
   buildAdditionalNewYorkRoute({
@@ -3381,7 +3373,6 @@ export const newYorkRoutes: River[] = [
       { label: 'Official upper access', value: 'NYSDEC Buskirk Hoosic River hand launch; 10-car parking', note: 'NYSDEC’s current Rensselaer County launch directory lists the Buskirk hand launch and its parking capacity.', sourceUrl: 'https://dec.ny.gov/things-to-do/boating/launch-sites/rensselaer-county' },
       { label: 'Johnsonville take-out facility', value: 'Signed upstream car-top access above Johnsonville Dam', note: 'The watershed guide documents the signed parking/take-out and the Hoosic River Project recreation plan describes the car-top boat launch and portage facility at the dam.', sourceUrl: 'https://lowimpacthydro.org/wp-content/uploads/2020/07/Hoosic-River-Recertification-Report-110819.pdf' },
       { label: 'Direct flow context', value: 'Live USGS 01334500 Eagle Bridge discharge and stage; visual/local checks control; no fixed cutoff', note: 'USGS provides the live same-river station, while the watershed guide emphasizes fast-changing rainfall and water-level conditions.', sourceUrl: 'https://waterdata.usgs.gov/monitoring-location/USGS-01334500/' },
-      { label: 'Image decision', value: 'Existing USGS public-domain Hoosic River station image reused as labeled context', note: 'The image is labeled as Eagle Bridge gauge context and is not presented as a photograph of the full Buskirk–Johnsonville reach.', sourceUrl: 'https://ny.water.usgs.gov/images/StationPictures/01334500.jpg' },
     ],
   }),
   buildAdditionalNewYorkRoute({
@@ -3582,7 +3573,6 @@ export const newYorkRoutes: River[] = [
       { label: 'Public access and boundary', value: 'Old Outer Gooley access to North River Take-out Parking Area', note: 'NYSDEC publishes the Outer Gooley and North River access/carry anchors; American Whitewater describes how the Old Gooley path functions as the gorge put-in and cautions against private rafter pullouts.', sourceUrl: 'https://dec.ny.gov/places/hudson-gorge-wilderness' },
       { label: 'Gauge and release posture', value: 'North Creek stage is live context; Indian Lake release schedule is a separate required check', note: 'The route is intentionally planning-only because gorge difficulty and start conditions depend on releases and local scouting rather than a single numeric band.', sourceUrl: 'https://waterdata.usgs.gov/monitoring-location/USGS-01315500/' },
       { label: 'Water-only camping', value: 'Designated primitive tent sites along the Hudson River', note: 'NYSDEC lists marked water-access-only sites in and around the gorge and requires state-land camping compliance.', sourceUrl: 'https://dec.ny.gov/places/hudson-gorge-wilderness' },
-      { label: 'Image decision', value: 'Approved Hudson River USGS station context image used for route presentation', note: 'The image is labeled as same-river gauge context rather than an exact gorge photograph.', sourceUrl: 'https://ny.water.usgs.gov/images/StationPictures/01315500.jpg' },
     ],
   }),
   buildAdditionalNewYorkRoute({
@@ -3655,7 +3645,6 @@ export const newYorkRoutes: River[] = [
       { label: 'Public water access', value: 'Town of Newcomb launch, Polaris Bridge hand launch, and Outer Gooley river take-out', note: 'NYSDEC publishes the named access points, coordinates for the launch/parking anchors, and the carry distances to the river landings.', sourceUrl: 'https://dec.ny.gov/places/hudson-gorge-wilderness' },
       { label: 'Direct stage screen', value: 'Below 4 ft at USGS 01315500 requires considerable portaging, dragging, and lining', note: 'This is a DEC low-water planning screen, not a safety certification or a complete runnable range.', sourceUrl: 'https://dec.ny.gov/places/hudson-gorge-wilderness' },
       { label: 'Water-only camping', value: 'Designated primitive tent sites along the Hudson River, including Polaris Bridge and Cedar River', note: 'NYSDEC lists designated water-access-only sites and requires compliance with state-land camping rules.', sourceUrl: 'https://dec.ny.gov/places/hudson-gorge-wilderness' },
-      { label: 'Image decision', value: 'Approved Hudson River USGS context image used for route presentation', note: 'The image is labeled as same-river gauge context rather than a claim that it depicts the exact wilderness reach.', sourceUrl: 'https://ny.water.usgs.gov/images/StationPictures/01312000.jpg' },
     ],
   }),
   buildAdditionalNewYorkRoute({
@@ -3804,7 +3793,6 @@ export const newYorkRoutes: River[] = [
       { label: 'Flow posture', value: 'No numeric runnable range; live downstream gauge is context only', note: 'CanWePaddle explicitly omits a threshold for this canal-controlled reach and directs paddlers to use the live reading and local conditions without grading it.', sourceUrl: 'https://canwepaddle.com/rivers/new-york/mohawk-river-herkimer-to-little-falls/' },
       { label: 'Lock and navigation boundary', value: 'Lock 17 / Rotary Park is the downstream take-out boundary', note: 'The route source identifies the Lock 17 context; the route is not presented as a through-lock or restricted-infrastructure run.', sourceUrl: 'https://canwepaddle.com/rivers/new-york/mohawk-river-herkimer-to-little-falls/' },
       { label: 'Camping and logistics', value: 'Nearby Herkimer/Little Falls services; no route camping documented', note: 'The route has public launches and community services but no documented permission to camp along the canal or at the endpoints.', sourceUrl: 'https://dec.ny.gov/things-to-do/boating/launch-sites/herkimer-county' },
-      { label: 'Image decision', value: 'Approved USGS Mohawk River station image used for river context', note: 'The image is credited to USGS and is presented as river-level context rather than a guaranteed exact-reach photograph.', sourceUrl: 'https://ny.water.usgs.gov/images/StationPictures/01347000.jpg' },
     ],
   }),
   buildAdditionalNewYorkRoute({
@@ -3876,7 +3864,6 @@ export const newYorkRoutes: River[] = [
       { label: 'Lock and route structure', value: 'Lower lock between Second Pond and Oseetah Lake; portage or operator-directed passage required', note: 'NYSDEC identifies two Saranac River locks and states that they are not operational in winter; NFCT describes the lower-lock transition toward Lake Flower.', sourceUrl: 'https://dec.ny.gov/places/saranac-lakes-wild-forest' },
       { label: 'Gauge posture', value: 'Historical USGS 04272512 context only; no current continuous feed or numeric threshold', note: 'USGS lists only historical field measurements for the Saranac River at Saranac Lake site. The route remains unscored and requires current visual and operational checks.', sourceUrl: 'https://waterdata.usgs.gov/monitoring-location/USGS-04272512/' },
       { label: 'Camping and logistics', value: 'Separate reservation-based Saranac Lake Islands Campground context at the Second Pond end; no dispersed route camping', note: 'DEC identifies the campground context and Adirondack rules; camping is not implied at the lock, along the lakes, or at the Lake Flower launch.', sourceUrl: 'https://dec.ny.gov/places/saranac-lakes-wild-forest' },
-      { label: 'Image decision', value: 'Northern Forest Canoe Trail Saranac paddling image used for route context', note: 'The image is credited to the route-source organization and is presented as connected Saranac-waterway context rather than a surveyed endpoint photograph.', sourceUrl: 'https://www.northernforestcanoetrail.org/a-fall-cruise-on-the-saranac/' },
     ],
   }),
   buildAdditionalNewYorkRoute({
@@ -4098,7 +4085,6 @@ export const newYorkRoutes: River[] = [
       { label: 'Whitewater classification', value: 'American Whitewater New York index: East Branch Ausable, Hulls Falls to Keene, IV(V)', note: 'The index confirms this is a distinct high-consequence whitewater reach separate from the downstream Keene-to-Upper-Jay section.', sourceUrl: 'https://www.americanwhitewater.org/content/River/view/river-index/state/USA-NYO' },
       { label: 'Same-system proxy gauge', value: 'USGS 04275500, Ausable River near Au Sable Forks, NY', note: 'USGS provides live stage and discharge downstream of the East/West Branch confluence; it is retained only as trend context and does not establish a local runnable threshold.', sourceUrl: 'https://waterdata.usgs.gov/monitoring-location/USGS-04275500/' },
       { label: 'Safety and access context', value: 'Ausable branch paddling, cold-water, private-bank, and road-access safeguards', note: 'The APA guide and NYSDEC paddling guidance support conservative access, cold-water, and local-inspection controls; neither converts a bridge or fishing-rights area into a launch.', sourceUrl: 'https://apa.ny.gov/Documents/Flyers/WilmingtonVisitorsGuide.pdf' },
-      { label: 'Image decision', value: 'Approved same-river Au Sable Forks USGS station context image', note: 'The public-domain image is labeled as Ausable River context and does not claim to depict Hulls Falls, current flow, or the exact access pins.', sourceUrl: 'https://ny.water.usgs.gov/images/StationPictures/04275500.jpg' },
     ],
   }),
   buildAdditionalNewYorkRoute({
@@ -4169,7 +4155,6 @@ export const newYorkRoutes: River[] = [
       { label: 'Route-specific flow posture', value: 'No numeric runnable range published; live gauge is context only', note: 'CanWePaddle explicitly omits a runnable threshold because this reach is calm and lake-regulated. The product preserves that limitation rather than inventing a band.', sourceUrl: 'https://canwepaddle.com/rivers/new-york/raquette-river-axton-landing-to-the-crusher/' },
       { label: 'Same-river proxy gauge', value: 'USGS 04266500, Raquette River at Piercefield, NY', note: 'USGS provides live stage and discharge telemetry downstream from the route; local wind, lake regulation, and reach conditions can diverge materially.', sourceUrl: 'https://waterdata.usgs.gov/monitoring-location/USGS-04266500/' },
       { label: 'Camping and safety context', value: 'Adirondack state-land access, river camping, cold water, motorboat, and private-shoreline rules', note: 'NYSDEC and regional paddling sources document the state-land setting, camping posture, access rules, and boating constraints.', sourceUrl: 'https://dec.ny.gov/places/saranac-lakes-wild-forest' },
-      { label: 'Image decision', value: 'Approved route-level Axton Landing context image used for route presentation', note: 'The image depicts the named Axton Landing/Raquette River corridor and is credited to the regional tourism source in the gallery metadata.', sourceUrl: 'https://www.tupperlake.com/fishing/raquette-river' },
     ],
   }),
   buildAdditionalNewYorkRoute({
@@ -4244,7 +4229,6 @@ export const newYorkRoutes: River[] = [
       { label: 'Whitewater and portage guidance', value: 'Class II–IV broader section; two dangerous falls and several long, hard carries', note: 'NYSDEC explicitly advises experienced paddlers, scouting, and portage decisions; no numeric flow band is published.', sourceUrl: 'https://dec.ny.gov/places/raquette-boreal-complex' },
       { label: 'Regulated proxy gauge', value: 'USGS 04267500, Raquette River at South Colton, NY', note: 'USGS provides live stage/discharge but notes regulation by Carry Falls Reservoir and a downstream station position, so this is trend context only.', sourceUrl: 'https://waterdata.usgs.gov/monitoring-location/USGS-04267500/' },
       { label: 'Camping and endpoint support', value: 'Designated primitive camping and Jamestown Falls campsite/privy context', note: 'NYSDEC identifies designated campsites and the accessible Jamestown Falls campsite area; use only marked legal sites.', sourceUrl: 'https://dec.ny.gov/places/raquette-boreal-complex' },
-      { label: 'Image decision', value: 'Approved same-river South Colton USGS station context image', note: 'The image is labeled as Raquette River context rather than an exact Dead Creek-to-Jamestown rapid photograph.', sourceUrl: 'https://ny.water.usgs.gov/images/StationPictures/04267500.jpg' },
     ],
   }),
   buildAdditionalNewYorkRoute({
@@ -4322,7 +4306,6 @@ export const newYorkRoutes: River[] = [
       { label: 'Route-specific flow guidance', value: 'About 3.9 ft or higher as a practical minimum; higher water changes the feature hazards', note: 'American Whitewater and local paddling guidance describe the level-sensitive Class II–III character. Preserve the minimum-only posture rather than fabricating a hard upper cutoff.', sourceUrl: 'https://www.americanwhitewater.org/content/River/view/river-detail/1423/main' },
       { label: 'Direct gauge', value: 'USGS 01317000, Schroon River at Riverbank, NY', note: 'USGS provides current gage height at Riverbank, downstream of Starbuckville Dam; current stage is the best available direct telemetry but still requires local scouting.', sourceUrl: 'https://waterdata.usgs.gov/monitoring-location/USGS-01317000/' },
       { label: 'Camping and basecamp context', value: 'Nearby DEC campgrounds; no route water-access camping claimed', note: 'DEC campground pages provide nearby road-access camping and shoreline recreation; they do not authorize camping on the whitewater reach.', sourceUrl: 'https://dec.ny.gov/places/sharp-bridge-campground-and-day-use-area' },
-      { label: 'Image decision', value: 'Approved same-river Riverbank USGS station context image', note: 'The image is labeled as Schroon River context rather than an exact Starbuckville rapid photograph.', sourceUrl: 'https://ny.water.usgs.gov/images/StationPictures/01317000.jpg' },
     ],
   }),
   buildAdditionalNewYorkRoute({
@@ -4401,7 +4384,6 @@ export const newYorkRoutes: River[] = [
       { label: 'Direct live gauge', value: 'USGS 01349700 East Kill near Jewett Center, NY', note: 'USGS provides direct same-river stage and discharge telemetry from the Mill Hollow Road bridge, with a long record and provisional current data.', sourceUrl: 'https://waterdata.usgs.gov/monitoring-location/USGS-01349700/' },
       { label: 'Route-specific flow guidance', value: 'Approximately 300–1,200 cfs planning band', note: 'American Whitewater correlates the reach to USGS 01349700 and publishes the route-specific low/high planning thresholds; use local scouting and trend checks as the final decision.', sourceUrl: 'https://www.americanwhitewater.org/content/River/view/river-detail/1296/main' },
       { label: 'Camping and safety context', value: 'Separate Catskills basecamp; no route camping claim', note: 'NYSDEC provides campground and primitive-camping rules; Devil’s Tombstone is a road-access basecamp option, not an East Kill shoreline campsite.', sourceUrl: 'https://dec.ny.gov/places/devils-tombstone-campground-and-day-use-area' },
-      { label: 'Image decision', value: 'Approved same-river East Kill USGS station context image', note: 'The image is labeled as East Kill gauge context rather than an exact Beaches Corners rapid photograph.', sourceUrl: 'https://ny.water.usgs.gov/images/StationPictures/01349700.jpg' },
     ],
   }),
   buildAdditionalNewYorkRoute({
@@ -4479,7 +4461,6 @@ export const newYorkRoutes: River[] = [
       { label: 'Public stream/access context', value: 'NYSDEC East Canada Creek public-fishing-rights mapping', note: 'DEC identifies PFR segments and parking context in the East Canada Creek corridor, but its fishing-rights notice does not authorize every boat launch or shoreline use.', sourceUrl: 'https://extapps.dec.ny.gov/docs/fish_marine_pdf/pfrecanadack.pdf' },
       { label: 'Dolgeville hazards', value: 'Dam, narrow bridge channels, vertical walls, and ice/debris-jam risk', note: 'The East Canada Creek basin assessment documents the Dolgeville dam and bridge complex; scout and portage according to current legal access and posted conditions.', sourceUrl: 'https://oneidacountyny.gov/assets/Planning/Environment-Water/East-Canada-Creek-Basin-Assessment-FINAL.pdf' },
       { label: 'Camping and basecamp context', value: 'Separate Spruce Creek Campground near Dolgeville; no route camping claim', note: 'The campground is a road-access lodging option and does not authorize East Canada Creek shoreline camping.', sourceUrl: 'https://sprucecreekcampground.com/' },
-      { label: 'Image decision', value: 'Approved same-river East Canada Creek USGS station context image', note: 'The image is labeled as East Canada Creek context rather than an exact Dolgeville rapid or Route 5 landing photograph.', sourceUrl: 'https://ny.water.usgs.gov/images/StationPictures/01348000.jpg' },
     ],
   }),
   buildAdditionalNewYorkRoute({
@@ -4557,7 +4538,6 @@ export const newYorkRoutes: River[] = [
       { label: 'Direct flow guidance', value: '600–10,000 cfs recommended range at USGS 01346000', note: 'American Whitewater publishes the range and warns that Hinckley Reservoir and power operations can create rapid changes; the range remains planning guidance and not a safety certification.', sourceUrl: 'https://www.americanwhitewater.org/content/River/view/river-detail/1453/main' },
       { label: 'Direct gauge', value: 'USGS 01346000, West Canada Creek at Kast Bridge, NY', note: 'USGS provides continuous discharge and stage at the downstream endpoint, with documented reservoir regulation and diurnal powerplant fluctuation.', sourceUrl: 'https://waterdata.usgs.gov/monitoring-location/USGS-01346000/' },
       { label: 'Camping context', value: 'Nearby West Canada Creek Campground; no on-route camping claimed', note: 'The private campground documents riverfront tent/RV/cabin options in the broader corridor. Reservation and facility permission are separate from river access.', sourceUrl: 'https://westcanadacreekcampground.com/' },
-      { label: 'Image decision', value: 'Approved same-river Kast Bridge USGS station context image', note: 'The image is labeled as West Canada Creek gauge context rather than an exact Middleville rapid photograph.', sourceUrl: 'https://ny.water.usgs.gov/images/StationPictures/01346000.jpg' },
     ],
   }),
   buildAdditionalNewYorkRoute({
@@ -4634,7 +4614,6 @@ export const newYorkRoutes: River[] = [
       { label: 'Water-adjacent endpoint basecamp', value: 'Town of Waverly St. Regis Falls Scenic Campsite', note: 'The town documents tent, RV, cabin, and lean-to camping beside the river; obtain current permission before using it as the launch/basecamp.', sourceUrl: 'https://www.townofwaverlyny.org/campsite' },
       { label: 'Proxy flow context', value: 'USGS 04268800 West Branch St. Regis River near Parishville', note: 'American Whitewater and USGS provide live West Branch telemetry used as same-watershed context only; it is not a local Middle Branch waterline.', sourceUrl: 'https://waterdata.usgs.gov/monitoring-location/USGS-04268800/' },
       { label: 'Endpoint map support', value: 'St. Regis Falls and Fort Jackson map-derived water-entry anchors', note: 'The route map publishes the endpoint coordinates; current landing, parking, and private-property conditions remain field checks.', sourceUrl: 'https://www.riverfacts.com/maps/12266.html' },
-      { label: 'Image decision', value: 'Approved same-river USGS West Branch station context image', note: 'The image is labeled as St. Regis River context rather than an exact Silver Staircase rapid photograph.', sourceUrl: 'https://ny.water.usgs.gov/images/StationPictures/04268800.jpg' },
     ],
   }),
   buildAdditionalNewYorkRoute({
@@ -4712,7 +4691,6 @@ export const newYorkRoutes: River[] = [
       { label: 'Route-specific flow guidance', value: 'Route 178 bridge waterline minimum; no established maximum', note: 'American Whitewater describes the bridge-abutment observation, notes that the minimum makes for a long paddle, and reports that the maximum is not established.', sourceUrl: 'https://www.americanwhitewater.org/content/River/view/river-detail/1424/main' },
       { label: 'Direct gauge context', value: 'USGS 04250750, Sandy Creek near Adams, NY', note: 'USGS provides direct stage and discharge telemetry near Adams, but the station is upstream of the mouth and not a feature-level waterline for the entire reach.', sourceUrl: 'https://waterdata.usgs.gov/monitoring-location/USGS-04250750/' },
       { label: 'Public-rights and endpoint support', value: 'South Sandy Creek PFR and Lakeview WMA access facilities', note: 'DEC public-rights mapping and the Lakeview WMA management plan document public access, cartop launching, parking, fishing facilities, and seasonal-use conditions.', sourceUrl: 'https://dec.ny.gov/sites/default/files/2026-02/pfrssandyck.pdf' },
-      { label: 'Image decision', value: 'Approved same-river Sandy Creek near Adams USGS station context image', note: 'The image is labeled as South Sandy Creek system context rather than an exact Lorraine Gulf rapid photograph.', sourceUrl: 'https://ny.water.usgs.gov/images/StationPictures/04250750.jpg' },
     ],
   }),
   buildAdditionalNewYorkRoute({
@@ -4786,7 +4764,6 @@ export const newYorkRoutes: River[] = [
       { label: 'Mandatory transition and portage', value: 'Portage around Otsego Lake Dam before the Mill Street Bridge', note: 'The itinerary directs paddlers to take out river left before the dam, carry around the obstruction, and re-enter downstream; this is not a through-dam route.', sourceUrl: 'https://paddle607.com/itineraries/cooperstown-phoenix-mills' },
       { label: 'Flow posture', value: 'No numeric runnable range; no live local gauge', note: 'USGS 01496352 is a nearby historical station with no current continuous or daily data. The source itinerary instead requires current visual assessment of shallow water, rapids, debris, weather, and take-out conditions.', sourceUrl: 'https://waterdata.usgs.gov/monitoring-location/USGS-01496352/' },
       { label: 'Camping and local logistics', value: 'Nearby Cooperstown lodging, dining, supplies; no route camping documented', note: 'The route source identifies nearby community lodging and services but does not grant camping at either access, the portage, or private riverbanks.', sourceUrl: 'https://paddle607.com/itineraries/cooperstown-phoenix-mills' },
-      { label: 'Image decision', value: 'Approved Susquehanna River context image used for route presentation', note: 'The image is labeled as same-river context because it depicts the Susquehanna elsewhere, not this exact upper New York reach.', sourceUrl: contextImageUrl },
     ],
   }),
   buildAdditionalNewYorkRoute({
@@ -4860,7 +4837,6 @@ export const newYorkRoutes: River[] = [
       { label: 'Flow posture', value: 'No numeric runnable range; no live local gauge', note: 'USGS 01497500 is a nearby historical station with no current continuous or daily data. The itinerary describes nearly undetectable current and requires local assessment of wind, water level, recent rain, shallow areas, coves, and debris.', sourceUrl: 'https://waterdata.usgs.gov/monitoring-location/USGS-01497500/' },
       { label: 'Dam and route boundary', value: 'Stay east/left of Goodyear Lake channel and take out before Colliers Dam', note: 'The itinerary identifies the floating-rope warning and directs paddlers toward the Silliman Cove side rather than the dam.', sourceUrl: 'https://paddle607.com/itineraries/crumhorn-pond-sillman-cove' },
       { label: 'Camping and logistics', value: 'Susquehanna State Forest and nearby communities; no route camping documented', note: 'The itinerary describes forest, picnic, fishing, and nearby outfitter context but does not grant camping at the launches or along private shoreline.', sourceUrl: 'https://dec.ny.gov/places/susquehanna-state-forest' },
-      { label: 'Image decision', value: 'Approved Susquehanna River context image used for route presentation', note: 'The image is labeled as same-river context because it depicts the Susquehanna elsewhere, not this exact upper New York reach.', sourceUrl: contextImageUrl },
     ],
   }),
   buildAdditionalNewYorkRoute({
@@ -5838,7 +5814,6 @@ export const newYorkRoutes: River[] = [
       { label: 'Route-specific flow guidance', value: '80–1,500 cfs estimated planning range at downstream proxy USGS 04262000', note: 'CanWePaddle publishes the route band and labels the reading informational; this product explicitly treats the station as a downstream same-river proxy for the remote route.', sourceUrl: 'https://canwepaddle.com/rivers/new-york/oswegatchie-river-inlet-to-high-falls/' },
       { label: 'Same-river proxy gauge', value: 'USGS 04262000, Oswegatchie River near Oswegatchie, NY', note: 'USGS provides live stage and discharge telemetry on the same river, but the remote upper route can diverge because of distance, tributaries, local rainfall, beaver obstructions, and wilderness conditions.', sourceUrl: 'https://waterdata.usgs.gov/monitoring-location/USGS-04262000/' },
       { label: 'Wilderness safety and rules', value: 'Remote rescue posture, Leave No Trace, designated camping, portage at High Falls', note: 'NYSDEC wilderness guidance sets the camping, access, and paddling context; the route preserves the High Falls portage boundary and avoids treating the proxy gauge as launch authority.', sourceUrl: 'https://dec.ny.gov/places/five-ponds-and-pepperbox-wildernesses' },
-      { label: 'Image decision', value: 'Approved same-river USGS context image used for route presentation', note: 'The image is labeled as same-river gauge context rather than a claim that it depicts the remote High Falls reach.', sourceUrl: 'https://ny.water.usgs.gov/images/StationPictures/04262000.jpg' },
     ],
   }),
   buildAdditionalNewYorkRoute({

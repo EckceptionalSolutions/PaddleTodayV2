@@ -143,7 +143,6 @@ export function buildMaineRoute(spec: MaineRouteSpec): River {
       { label: 'Access controls', value: 'Named public, state, municipal, or managed access only', note: 'Maine launch records provide the access inventory; exact carry paths, parking, fees, closures, and shoreline condition must be rechecked before launch.', sourceUrl: boatingSitesUrl },
       { label: 'Camping classification', value: spec.campingClassification, note: spec.camping, sourceUrl: spec.routeUrl },
       { label: 'Safety posture', value: spec.risk === 'advanced' ? 'Advanced planning route' : 'Reviewed planning route', note: spec.safety.join(' ') },
-      { label: 'Image decision', value: spec.imageLabel, note: `${spec.imageCredit}; ${spec.imageTaken}. The gallery caption identifies this as route, same-river, or regional context rather than claiming exact-reach photography.`, sourceUrl: spec.imageUrl },
       { label: 'Overlap decision', value: spec.consolidation ? `${spec.consolidation.role} route retained in ${spec.consolidation.group}` : 'Distinct access-to-access itinerary retained', note: spec.consolidation?.note ?? 'The endpoint pair, trip length, or operational setting is materially different from the other Maine routes in this batch.' },
     ],
     sourceLinks,

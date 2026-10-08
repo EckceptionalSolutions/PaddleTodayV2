@@ -103,12 +103,6 @@ export const utahRoutes: River[] = [
         "value": "No route camping",
         "note": "Ogden City code prohibits camping on public property outside approved campgrounds, and this short urban route is framed as a same-day parkway run.",
         "sourceUrl": "https://codelibrary.amlegal.com/codes/ogdencityut/latest/ogdencity_ut/0-0-0-11411"
-      },
-      {
-        "label": "Image decision",
-        "value": "No route-gallery image selected",
-        "note": "Bounded Ogden City, AW, Weber State, Commons, and same-route web review found route context but no clearly rights-clean exact Lorin-Farr-to-Crystal-Wave paddling asset selected for local reuse.",
-        "sourceUrl": "https://www.ogdencity.gov/DocumentCenter/View/6665/Crystal-Wave-Kayak-Park"
       }
     ],
     "sourceLinks": [
@@ -238,12 +232,6 @@ export const utahRoutes: River[] = [
         "value": "PFD-required South Fork floating plus AW whitewater hazards",
         "note": "Forest Service South Fork pages require life jackets for floating/tubing, while AW reports Class II-III(IV) character, strainers, low bridges, and private-sensitive lower take-out history on the broader reach.",
         "sourceUrl": "https://www.fs.usda.gov/r04/uinta-wasatch-cache/recreation/south-fork-ogden-river"
-      },
-      {
-        "label": "Image decision",
-        "value": "No route-gallery image selected",
-        "note": "Bounded Forest Service, AW, Commons, and same-route web review found route/context photos but no clearly rights-clean exact Willows-to-Magpie paddling asset selected for local reuse.",
-        "sourceUrl": "https://commons.wikimedia.org/wiki/Special:Search?search=South+Fork+Ogden+River+kayak"
       }
     ],
     "sourceLinks": [
@@ -371,12 +359,6 @@ export const utahRoutes: River[] = [
         "value": "Minimum-only at 2,000 cfs",
         "note": "Published Moab Daily guide context gives 2,000 cfs as the recommended low end. The app uses that as a floor only because BLM does not publish a formal scoring ladder.",
         "sourceUrl": "https://www.whitewaterguidebook.com/utah/moab-daily/"
-      },
-      {
-        "label": "Image decision",
-        "value": "No route-gallery image selected",
-        "note": "Bounded BLM, AW, Commons, and same-route web review found useful context photos but no clearly rights-clean exact Hittle-Bottom-to-Takeout-Beach paddling asset selected for local reuse.",
-        "sourceUrl": "https://www.blm.gov/sites/default/files/documents/files/MoabDailyMap.pdf"
       }
     ],
     "sourceLinks": [
@@ -678,12 +660,6 @@ export const utahRoutes: River[] = [
         "value": "2026 hourly release fluctuations",
         "note": "The Bureau of Reclamation says Flaming Gorge releases can fluctuate hourly and that elevated releases can make the Green River below the dam colder, higher, and swifter.",
         "sourceUrl": "https://www.usbr.gov/uc/water/crsp/cs/fgd.html"
-      },
-      {
-        "label": "Image decision",
-        "value": "No route-gallery image selected",
-        "note": "Bounded Forest Service, BLM, Recreation.gov, Commons, and same-route web review found public-agency context images but no exact Section B paddling asset selected for local reuse in this pass.",
-        "sourceUrl": "https://www.blm.gov/visit/indian-crossing-campground"
       }
     ],
     "sourceLinks": [
@@ -819,12 +795,6 @@ export const utahRoutes: River[] = [
         "value": "Roadside access only; no trespass",
         "note": "Utah DWR warns that public-water recreation does not authorize walking on private streambeds or crossing posted private land. Confirm parking and road status before launch.",
         "sourceUrl": "https://wildlife.utah.gov/streamaccess"
-      },
-      {
-        "label": "Image decision",
-        "value": "No route-gallery image selected",
-        "note": "No clearly rights-clean exact-run image was selected during the bounded review.",
-        "sourceUrl": "https://www.riverbrain.com/runs/139"
       }
     ],
     "sourceLinks": [
