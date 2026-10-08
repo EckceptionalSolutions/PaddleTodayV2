@@ -19,6 +19,21 @@
       "statusCode": 301
     },
     {
+      "route": "/rivers/wabash-river-linn-grove-white-bridge",
+      "redirect": "/rivers/by-river/wabash-river/#trip-wabash-river-linn-grove-white-bridge",
+      "statusCode": 301
+    },
+    {
+      "route": "/rivers/green-river-american-legion-greensburg",
+      "redirect": "/rivers/by-river/green-river-kentucky/#trip-green-river-american-legion-greensburg",
+      "statusCode": 301
+    },
+    {
+      "route": "/rivers/eleven-point-river-greer-crossing-riverton",
+      "redirect": "/rivers/by-river/eleven-point-river/#trip-eleven-point-river-greer-crossing-riverton",
+      "statusCode": 301
+    },
+    {
       "route": "/rivers/willimantic-river-commuter-nye-holman",
       "redirect": "/rivers/by-river/willimantic-river-connecticut/#trip-willimantic-river-commuter-nye-holman",
       "statusCode": 301

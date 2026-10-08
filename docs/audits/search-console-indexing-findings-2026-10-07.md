@@ -79,3 +79,9 @@ For April 28–October 5, 2026, Search Console Performance showed zero clicks an
 Seven additional endpoint-pair URLs now lead to their exact trip cards on the river hub. The cards remain available with their distances, intermediate exits, and access notes. Three source-documented routes remain standalone: Bartlett–Cooks Crossing (Wilderness Portal, 5.3 miles, Class I–II), First Bridge–Davis Park (AMC, 8.5 miles, Class I), and Davis Park–Smith-Eastman (AMC, 2.5 miles, Class II). The hub now explains the two Conway reaches, the Powerline Rapid take-out boundary, and current access checks.
 
 This selective change removes repeated landing pages while preserving named routes that have direct source support and materially different skill or waterway context. The zero-impression observation and indexing state do not prove that duplication caused the family’s search performance or the wider traffic decline.
+
+## Redirect delivery follow-up — October 8, 2026
+
+Production checks of current Search Console crawled-not-indexed examples found that the retired Wabash Linn Grove–White Bridge, Green River American Legion–Greensburg, and Eleven Point Greer Crossing–Riverton URLs still returned HTTP 200 pages with immediate meta refreshes to their exact trip cards on the current river hubs. The destinations and card anchors exist, and the retired paths are absent from the current sitemap. A comparable retired Goose Creek route already returns an HTTP 301.
+
+Added exact HTTP 301 rules for those three known retired URLs in `staticwebapp.config.json`, pointing to their matching hub trip-card anchors. The config is 15,545 bytes, below Azure Static Web Apps’ documented 20 KB configuration limit. Deployment and production response verification are pending; after deployment, check both slash and no-slash forms for a single 301 and confirm each target returns 200. No Search Console indexing request or validation action was made.
