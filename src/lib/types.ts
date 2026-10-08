@@ -178,6 +178,8 @@ export interface River {
   state: string;
   region: string;
   summary: string;
+  seoTitle?: string;
+  seoDescription?: string;
   statusText: string;
   latitude: number;
   longitude: number;

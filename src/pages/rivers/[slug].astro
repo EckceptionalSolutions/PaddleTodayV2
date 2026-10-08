@@ -226,11 +226,11 @@ const routeUrl = new URL(`/rivers/${river.slug}/`, siteUrl).href;
 const tripGpxHref = `/api/rivers/${encodeURIComponent(river.slug)}/trip.gpx?putin=${encodeURIComponent(putIn?.id ?? '')}&takeout=${encodeURIComponent(takeOut?.id ?? '')}`;
 const tripIcsHref = `/api/rivers/${encodeURIComponent(river.slug)}/trip.ics?putin=${encodeURIComponent(putIn?.id ?? '')}&takeout=${encodeURIComponent(takeOut?.id ?? '')}`;
 const riverHubUrl = riverHubHref ? new URL(riverHubHref, siteUrl).href : null;
-const routeSeoTitle = isLittleMiamiKelleyMilford
-  ? 'Little Miami River: Kelley to Milford, Ohio | Water Levels & Access'
-  : isPlanningRoute
+const routeSeoTitle =
+  river.seoTitle ??
+  (isPlanningRoute
     ? `${river.name}: ${river.reach}, ${river.state} | Paddle Route`
-    : `${river.name}: ${river.reach}, ${river.state} | Paddle Conditions`;
+    : `${river.name}: ${river.reach}, ${river.state} | Paddle Conditions`);
 const seoDescriptionSuffix = isPlanningRoute
   ? ' Planning only; verify water and access.'
   : ' Check current water, weather, and access.';
@@ -253,13 +253,13 @@ const routeSummaryExcerpt = (() => {
   const end = lastWordBoundary >= seoDescriptionCoreLimit * 0.65 ? lastWordBoundary : excerpt.length;
   return `${excerpt.slice(0, end).trimEnd().replace(/[.!?;:,]+$/, '')}…`;
 })();
-const routeSeoDescription = isLittleMiamiKelleyMilford
-  ? `Little Miami: 4.9 miles from Kelley Nature Preserve to Jim Terrell Park. Check the USGS Milford gauge, 5.5–7.5 ft best-play band, access and hazards.`
-  : routeSummaryExcerpt
+const routeSeoDescription =
+  river.seoDescription ??
+  (routeSummaryExcerpt
     ? `${routeSummaryExcerpt}${seoDescriptionSuffix}`
     : isPlanningRoute
       ? `Plan ${river.reach} on ${river.name} with route distance, difficulty, access details and source links. Planning only; no live route score.`
-      : `Check today's paddle conditions for ${river.name}, including water level, weather, route distance, difficulty, and access details for ${river.reach}.`;
+      : `Check today's paddle conditions for ${river.name}, including water level, weather, route distance, difficulty, and access details for ${river.reach}.`);
 const routeIntro = isLittleMiamiKelleyMilford
   ? `This 4.9-mile route follows the Little Miami River from Kelley Nature Preserve to Jim Terrell Park near Milford, Ohio. It is listed as moderate and includes Class I–II features, low-head-dam remnants, strainers, and cold-water hazards.`
   : river.summary || `Plan ${river.reach} on ${river.name} in ${river.state}, with access details, gauge context, and route guidance.`;

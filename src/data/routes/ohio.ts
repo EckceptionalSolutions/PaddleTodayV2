@@ -1094,6 +1094,8 @@ export const ohioRoutes: River[] = [
     "state": "Ohio",
     "region": "Southwest Ohio",
     "summary": "This 4.9-mile Class I-II run goes from Kelley Nature Preserve to Jim Terrell Park in Milford. Scout Boathouse Rapid and the old low-head-dam remnants; American Whitewater's 5.5-7.5 ft Milford band is its best-play range, not a safety guarantee or tubing-depth target.",
+    "seoTitle": "Little Miami River: Kelley to Milford, Ohio | Water Levels & Access",
+    "seoDescription": "Little Miami: 4.9 miles from Kelley Nature Preserve to Jim Terrell Park. Check the USGS Milford gauge, 5.5–7.5 ft best-play band, access and hazards.",
     "statusText": "Guarded Class I-II play route. Use the Milford gauge; treat 5.5 to 7.5 ft as the best window, 4.6 ft as the low runnable floor, and 9 ft as the upper app ceiling before the run becomes sketchy or flood-prone.",
     "latitude": 39.20997,
     "longitude": -84.30608,

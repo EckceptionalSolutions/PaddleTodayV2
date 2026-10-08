@@ -5141,6 +5141,8 @@ export const arkansasRoutes: River[] = [
     "region": "Ouachita Mountains",
     "routeType": "whitewater",
     "summary": "About 5.9 miles from Remmel Dam to Rockport Whitewater Park; allow 3–4 hours on a recreational release. Check Entergy for current release timing; cold tailwater, Rockport Ledge, and a fast left-bank take-out before I-30 require a deliberate exit plan.",
+    "seoTitle": "Ouachita River: Remmel Dam Releases & Whitewater Park",
+    "seoDescription": "5.9-mile route from Remmel Dam to Rockport Whitewater Park. Check Entergy release timing and USGS flow; 3,500–4,000 cfs is the normal recreation range.",
     "statusText": "Use the Ouachita River at Remmel Dam gauge. Around 200 cfs is only a scrape-through floor, 3,500 to 4,000 cfs is the normal recreational release window, and flows above 4,000 cfs are not recommended for floating.",
     "latitude": 34.426111,
     "longitude": -92.890833,
