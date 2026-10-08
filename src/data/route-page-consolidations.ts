@@ -34,6 +34,13 @@ const willimanticRouteSlugs = [
   'willimantic-river-merrow-route-66',
   'willimantic-river-river-park-route-66',
 ] as const;
+const willimanticFeaturedRouteSlugs = new Set<string>([
+  'willimantic-river-commuter-nye-holman',
+  'willimantic-river-heron-cove-pecks-mill',
+  'willimantic-river-river-park-eagleville-lake',
+  'willimantic-river-eagleville-route-66',
+  'willimantic-river-commuter-route-66',
+]);
 
 const willimanticHubPath = '/rivers/by-river/willimantic-river-connecticut/';
 const blackCreekHubPath = '/rivers/by-river/black-creek-mississippi/';
@@ -879,7 +886,11 @@ const verdeRiverAccessReviewRouteSlugs = [
 
 const consolidatedRouteTargets = new Map<string, string>(
   [
-    ...willimanticRouteSlugs.map((slug) => [slug, `${willimanticHubPath}#trip-${slug}`] as const),
+    // Keep the five selected options anchored to their cards; older endpoint combinations go to the hub for a fresh choice.
+    ...willimanticRouteSlugs.map((slug) => [
+      slug,
+      willimanticFeaturedRouteSlugs.has(slug) ? `${willimanticHubPath}#trip-${slug}` : willimanticHubPath,
+    ] as const),
     ...blackCreekCompositeRouteSlugs.map((slug) => [slug, `${blackCreekHubPath}#trip-${slug}`] as const),
     ...lamoilleCompositeRouteSlugs.map((slug) => [slug, `/rivers/by-river/lamoille-river-vermont/#trip-${slug}`] as const),
     ...woonasquatucketAccessGapRouteSlugs.map((slug) => [slug, `${woonasquatucketHubPath}#woonasquatucket-access-zones`] as const),

@@ -3,7 +3,7 @@ import { connecticutWillimanticRoutes } from './connecticut-willimantic';
 
 describe('Connecticut Willimantic River routes', () => {
   it('publishes the scored, access-bounded water-trail reaches', () => {
-    expect(connecticutWillimanticRoutes).toHaveLength(34);
+    expect(connecticutWillimanticRoutes).toHaveLength(5);
     for (const route of connecticutWillimanticRoutes) {
       expect(route.scoreEligibility).toBe('scored');
       expect(route.state).toBe('Connecticut');
