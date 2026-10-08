@@ -1,11 +1,56 @@
 /* Home-specific layout and controls. Home map styling lives in home-map.css. */
-.home-featured__method-link {
-  justify-self: start;
+.home-how-it-works {
+  grid-column: 1 / -1;
+  display: grid;
+  gap: 0.7rem;
+  margin-top: 0.25rem;
+  padding-top: 1rem;
+  border-top: 1px solid rgba(30, 115, 151, 0.16);
+}
+.home-how-it-works h2 {
+  margin: 0;
+  font-family: var(--serif);
+  font-size: 1.15rem;
+  line-height: 1.3;
+}
+.home-how-it-works__steps {
+  display: grid;
+  gap: 0.55rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+.home-how-it-works__steps li {
+  display: grid;
+  grid-template-columns: 1rem minmax(0, 1fr);
+  gap: 0.6rem;
+  align-items: start;
+}
+.home-how-it-works__steps li > span {
+  display: flex;
+  padding-top: 0.15rem;
   color: var(--river-deep);
+}
+.home-how-it-works__steps p {
+  margin: 0;
+  color: var(--ink-soft);
   font-size: 0.82rem;
+  line-height: 1.5;
+}
+.home-how-it-works__steps strong {
+  color: var(--ink);
+}
+html body.page-home .home-how-it-works__note {
+  margin: 0;
+  color: var(--muted);
+  font-size: 0.78rem;
+  line-height: 1.5;
+}
+.home-how-it-works__note a {
+  color: var(--river-deep);
   text-underline-offset: 0.2em;
 }
-.home-featured__method-link:focus-visible {
+.home-how-it-works__note a:focus-visible {
   outline: 3px solid var(--river-deep);
   outline-offset: 3px;
   border-radius: 3px;

@@ -389,6 +389,27 @@ const homepageStructuredData = [
           </div>
         </div>
         </details>
+        <section class="home-how-it-works" aria-labelledby="home-how-it-works-title">
+          <h2 id="home-how-it-works-title">How recommendations work</h2>
+          <ul class="home-how-it-works__steps">
+            <li>
+              <span aria-hidden="true"><FeatureIcon name="gauge" size={16} /></span>
+              <p><strong>Conditions.</strong> For live-scored routes, we compare gauge readings, recent trends, weather, and route-specific guidance.</p>
+            </li>
+            <li>
+              <span aria-hidden="true"><FeatureIcon name="car" size={16} /></span>
+              <p><strong>Nearby routes.</strong> Add a city or ZIP to sort options by estimated drive time.</p>
+            </li>
+            <li>
+              <span aria-hidden="true"><FeatureIcon name="compass" size={16} /></span>
+              <p><strong>Your trip.</strong> Use the preferences above to narrow routes to the paddle you have in mind.</p>
+            </li>
+          </ul>
+          <p class="home-how-it-works__note">
+            Scores are planning aids, not safety advice. Check source times, weather alerts, access notices, and local conditions before launching.
+            {" "}<a href="/about/#how-scoring-works">Read the scoring guide</a>.
+          </p>
+        </section>
       </section>
     </div>
 
@@ -503,7 +524,6 @@ const homepageStructuredData = [
                   </div>
                 </div>
               </details>
-              <a class="home-featured__method-link" href="/about/#how-scoring-works">How recommendations work</a>
             </div>
           </div>
 
