@@ -2924,13 +2924,13 @@ export const texasRiverTripDetails: Record<string, RiverTripDetails> = {
     "logistics": {
       "distanceLabel": "About 9.3 mi",
       "estimatedPaddleTime": "About 4 hr to 6 hr at a casual kayak or canoe pace, longer at lower water or with fishing stops",
-      "shuttle": "Stage the take-out at South Llano River State Park first, then drive back to the gated Cupgrass lease site. Confirm Cupgrass parking by text before launch and reserve state-park entry or camping ahead of time during busy periods.",
-      "permits": "No route-specific paddling permit is published. Cupgrass parking must be arranged with TPWD, and South Llano River State Park often recommends advance reservations for day use and camping.",
+      "shuttle": "Confirm current Cupgrass lease and public-launch status with TPWD before planning this shuttle: its individual access page lists a term through August 31, 2026, while the current leased-access index still lists the site. If access is confirmed, stage the take-out at South Llano River State Park first, then follow TPWD's current parking instructions for the gated Cupgrass site.",
+      "permits": "No route-specific paddling permit is published. Cupgrass access depends on a current TPWD lease and parking authorization; confirm both before travel. South Llano River State Park often recommends advance reservations for day use and camping.",
       "camping": "South Llano River State Park has developed campsites with hookups, walk-in sites, and primitive hike-in sites. This route can finish directly into that campground setting.",
       "campingClassification": "endpoint_campground",
       "summary": "Launch through Bailey Creek at the TPWD Cupgrass access and paddle down to South Llano River State Park for a spring-fed Hill Country day with quiet pools, riffles, wildlife, and a campground finish.",
       "accessCaveats": [
-        "TPWD says Cupgrass parking is by advance text reservation and that boats launch via Bailey Creek before entering the South Llano proper.",
+        "TPWD's Cupgrass page describes a gated leased access and launch via Bailey Creek, but its published lease term ends August 31, 2026. The current TPWD leased-access index still lists Cupgrass; confirm the lease and launch are active before relying on this put-in.",
         "South Llano River State Park is a popular destination that can reach capacity, so day-use or camping reservations are the cleanest way to secure the take-out plan.",
         "Use only the named public access points and direct river-portage paths because most of the shoreline between them remains private."
       ],
@@ -3077,13 +3077,13 @@ export const texasRiverTripDetails: Record<string, RiverTripDetails> = {
     "logistics": {
       "distanceLabel": "About 15.6 mi",
       "estimatedPaddleTime": "About 6 hr to 8.5 hr at a casual kayak or canoe pace, longer at lower water or with fishing stops",
-      "shuttle": "Stage the take-out at Junction City Park first, then drive back to the gated Cupgrass lease site. This is the longest South Llano day route in the current app, so start early and leave real margin for the midpoint state-park bridge portage.",
-      "permits": "No route-specific paddling permit is published. Cupgrass parking must be arranged with TPWD by text, and South Llano River State Park or Junction-area logistics still depend on current public-hours and normal Texas boating rules.",
+      "shuttle": "Confirm current Cupgrass lease and public-launch status with TPWD before planning this shuttle: its individual access page lists a term through August 31, 2026, while the current leased-access index still lists the site. If access is confirmed, stage the take-out at Junction City Park first, then follow TPWD's current parking instructions for the gated Cupgrass site. Leave real margin for the midpoint state-park bridge portage.",
+      "permits": "No route-specific paddling permit is published. Cupgrass access depends on a current TPWD lease and parking authorization; confirm both before travel. Follow current park, public-hours, and Texas boating rules at the other endpoints.",
       "camping": "South Llano River State Park sits directly on the route corridor with developed and primitive campsites, so this long continuation has real on-route overnight support even if most paddlers treat it as a big day float.",
       "campingClassification": "on_route_campsite",
-      "summary": "Launch through Bailey Creek at TPWD Cupgrass Access and continue to Junction City Park for the longest current public South Llano day route. The spring-fed water stays gentle overall, but the long mileage and midpoint state-park portage make this a real planning route rather than a casual hour float.",
+      "summary": "If TPWD confirms Cupgrass access is active, launch through Bailey Creek and continue to Junction City Park for a 15.6-mile South Llano day route. The spring-fed water stays gentle overall, but the long mileage and midpoint state-park portage make this a real planning route rather than a casual hour float.",
       "accessCaveats": [
-        "TPWD says Cupgrass parking is by advance text reservation and that boats launch via Bailey Creek before entering the South Llano proper.",
+        "TPWD's Cupgrass page describes a gated leased access and launch via Bailey Creek, but its published lease term ends August 31, 2026. The current TPWD leased-access index still lists Cupgrass; confirm the lease and launch are active before relying on this put-in.",
         "At South Llano River State Park, paddlers must exit at the designated location before the damaged bridge, portage around it, and reenter downstream.",
         "Use Junction City Park as the intended public finish and avoid treating nearby private or bridge-adjacent banks as alternate take-outs."
       ],
@@ -3101,7 +3101,7 @@ export const texasRiverTripDetails: Record<string, RiverTripDetails> = {
         "longitude": -99.886693,
         "mileFromStart": 0,
         "segmentKind": "creek",
-        "note": "Canonical upstream start for the longest current South Llano route."
+        "note": "TPWD-listed upstream access for the longest South Llano route; confirm current lease and launch status before planning."
       },
       {
         "id": "south-llano-river-state-park",

@@ -7417,7 +7417,7 @@ export const texasRoutes: River[] = [
     ],
     "state": "Texas",
     "region": "Texas Hill Country",
-    "summary": "Spring-fed Hill Country float from the TPWD Cupgrass lease site to South Llano River State Park. TPWD publishes the exact public access pair and 9.3-mile route shape, while the Junction gauge offers direct same-day flow support for a conservative minimum-only model.",
+    "summary": "Potential spring-fed Hill Country float from TPWD-listed Cupgrass access to South Llano River State Park. TPWD publishes the 9.3-mile route shape, but the access page's lease term ended August 31, 2026; confirm the lease and launch are active before planning this put-in.",
     "statusText": "Use the South Llano gauge at Flat Rock Lane near Junction. Treat 65 cfs as the conservative community floor, and expect a better glide above roughly 100 cfs. TPWD says the South Llano averages around 75 cfs and paddles best when it is on a slight rise.",
     "latitude": 30.393543,
     "longitude": -99.886693,
@@ -7472,7 +7472,7 @@ export const texasRoutes: River[] = [
       "seasonNotes": "The South Llano is one of the more reliable spring-fed Texas runs and can work year-round when weather and gauge conditions cooperate. Even so, shallow riffles appear sooner near the 65 cfs floor, while storms can raise the current quickly.",
       "difficulty": "moderate",
       "difficultyNotes": "The current is generally gentle, but this is still a 9.3-mile moving-water day with shallow riffles, line choice around wood, bright sun exposure, and a public-park finish that deserves some planning.",
-      "confidenceNotes": "Confidence is good for a conservative add: TPWD publishes the exact Cupgrass coordinates, the 9.3-mile distance to South Llano River State Park, the park access coordinates, and current gauge linkage to USGS 08149900. Same-day direct USGS Water Services returned 51.6 cfs and 2.14 ft on July 11, 2026, while flow guidance remains weaker than the access package, so the route ships with a minimum-only model that uses the conservative 65 cfs floor from Texas paddling-community references and TPWD's older note that the South Llano averages about 75 cfs and is best on a slight rise."
+      "confidenceNotes": "TPWD publishes Cupgrass coordinates and the 9.3-mile distance to South Llano River State Park, but current public access is unresolved: the individual access page lists a lease term ending August 31, 2026, while TPWD's leased-access index still lists Cupgrass. Confirm the lease and launch are active before planning. USGS 08149900 provides direct gauge data; the 65 cfs floor remains community-sourced planning guidance, not a TPWD safety limit."
     },
     "evidenceNotes": [
       {
@@ -7496,8 +7496,14 @@ export const texasRoutes: River[] = [
       {
         "label": "Put-in access",
         "value": "Cupgrass Access, 30.393543, -99.886693",
-        "note": "TPWD publishes Cupgrass coordinates and says paddlers launch through Bailey Creek after reserving parking by text.",
+        "note": "TPWD publishes Cupgrass coordinates and Bailey Creek access instructions, but its individual page lists a lease term ending August 31, 2026. TPWD's leased-access index still lists Cupgrass; confirm current launch permission before travel.",
         "sourceUrl": "https://tpwd.texas.gov/fishboat/fish/recreational/rivers/lease_access/south_llano_cupgrass.phtml"
+      },
+      {
+        "label": "Current lease status",
+        "value": "Confirm with TPWD before using Cupgrass",
+        "note": "The individual Cupgrass access page lists a lease term through August 31, 2026, while TPWD's leased-access program index still includes Cupgrass. The public launch status is ambiguous and needs direct confirmation.",
+        "sourceUrl": "https://tpwd.texas.gov/fishboat/fish/recreational/rivers/lease_access/index.phtml"
       },
       {
         "label": "Take-out access",
@@ -7522,6 +7528,11 @@ export const texasRoutes: River[] = [
       {
         "label": "TPWD Cupgrass access",
         "url": "https://tpwd.texas.gov/fishboat/fish/recreational/rivers/lease_access/south_llano_cupgrass.phtml",
+        "provider": "local"
+      },
+      {
+        "label": "TPWD leased-access program index",
+        "url": "https://tpwd.texas.gov/fishboat/fish/recreational/rivers/lease_access/index.phtml",
         "provider": "local"
       },
       {
@@ -7970,7 +7981,7 @@ export const texasRoutes: River[] = [
     ],
     "state": "Texas",
     "region": "Texas Hill Country",
-    "summary": "Longest current public South Llano continuation from TPWD Cupgrass Access to Junction City Park. TPWD publishes the Cupgrass-to-state-park mileage and the full 6.3-mile state-park-to-town trail, so the route can be chained with explicit midpoint portage guidance instead of guessed map math.",
+    "summary": "Long South Llano continuation from TPWD-listed Cupgrass Access to Junction City Park. TPWD publishes the Cupgrass-to-state-park mileage and full state-park trail, supporting an about 15.6-mile chained route; confirm Cupgrass lease and public-launch status before planning the put-in.",
     "statusText": "Use the South Llano gauge at Flat Rock Lane near Junction. Treat 65 cfs as the conservative floor and expect a better glide above roughly 100 cfs. This is the longest South Llano day route in the app and it includes the required bridge portage in the state park.",
     "latitude": 30.393543,
     "longitude": -99.886693,
@@ -8026,7 +8037,7 @@ export const texasRoutes: River[] = [
       "seasonNotes": "This long South Llano day route can work year-round when weather and gauge conditions cooperate, but it is most realistic in seasons with manageable heat and enough flow to reduce dragging. After storms, the same gentle spring-fed corridor can speed up quickly enough to deserve a harder same-day decision.",
       "difficulty": "moderate",
       "difficultyNotes": "The river is mostly gentle, but the longer mileage, mandatory midpoint portage, and fewer practical bailout points make this a more committed day than the shorter state-park or Junction-area options.",
-      "confidenceNotes": "Confidence is good for a conservative chained add: TPWD publishes Cupgrass to South Llano River State Park as about 9.3 miles and South Llano River State Park to Junction City Park as 6.3 miles, while also naming the exact public endpoints and the required state-park bridge portage. Same-day direct USGS values were available at the Flat Rock Lane gauge, but the numeric floor remains community-sourced, so the route keeps a minimum-only model."
+      "confidenceNotes": "TPWD publishes Cupgrass to South Llano River State Park as about 9.3 miles and the state-park-to-Junction trail as 6.3 miles, and documents the required bridge portage. Current public access at Cupgrass is unresolved: its individual access page lists a lease term ending August 31, 2026, while TPWD's leased-access index still lists the site. Confirm the lease and launch are active before planning. The 65 cfs floor remains community-sourced planning guidance, not a safety limit."
     },
     "evidenceNotes": [
       {
@@ -8044,8 +8055,14 @@ export const texasRoutes: River[] = [
       {
         "label": "Put-in access",
         "value": "TPWD Cupgrass Access, 30.393543, -99.886693",
-        "note": "TPWD publishes Cupgrass coordinates and says paddlers launch through Bailey Creek after arranging parking by text.",
+        "note": "TPWD publishes Cupgrass coordinates and Bailey Creek access instructions, but its individual page lists a lease term ending August 31, 2026. TPWD's leased-access index still lists Cupgrass; confirm current launch permission before travel.",
         "sourceUrl": "https://tpwd.texas.gov/fishboat/fish/recreational/rivers/lease_access/south_llano_cupgrass.phtml"
+      },
+      {
+        "label": "Current lease status",
+        "value": "Confirm with TPWD before using Cupgrass",
+        "note": "The individual Cupgrass access page lists a lease term through August 31, 2026, while TPWD's leased-access program index still includes Cupgrass. The public launch status is ambiguous and needs direct confirmation.",
+        "sourceUrl": "https://tpwd.texas.gov/fishboat/fish/recreational/rivers/lease_access/index.phtml"
       },
       {
         "label": "Take-out access",
@@ -8070,6 +8087,11 @@ export const texasRoutes: River[] = [
       {
         "label": "TPWD Cupgrass access",
         "url": "https://tpwd.texas.gov/fishboat/fish/recreational/rivers/lease_access/south_llano_cupgrass.phtml",
+        "provider": "local"
+      },
+      {
+        "label": "TPWD leased-access program index",
+        "url": "https://tpwd.texas.gov/fishboat/fish/recreational/rivers/lease_access/index.phtml",
         "provider": "local"
       },
       {

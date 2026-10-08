@@ -58,6 +58,7 @@ const isGooseCreekHub = group.riverId === 'goose-creek';
 const isKinniconickHub = group.riverId === 'kinniconick-creek';
 const isNorthForkMaquoketaHub = group.riverId === 'north-fork-maquoketa-river';
 const isCrookedCreekHub = group.riverId === 'crooked-creek';
+const isSouthLlanoHub = group.riverId === 'south-llano-river';
 const isVillageCreekHub = group.riverId === 'village-creek';
 const isElevenPointHub = group.riverId === 'eleven-point-river';
 const isJacksForkHub = group.riverId === 'jacks-fork-river';
@@ -133,6 +134,8 @@ const groupTitle = isBroadRiverHub
   ? 'North Fork Maquoketa River, Iowa | Paddle Sections & Access'
   : isCrookedCreekHub
   ? 'Crooked Creek, Arkansas | Water Trail Sections & Access'
+  : isSouthLlanoHub
+  ? 'South Llano River, Texas | Paddle Sections & Access'
   : isSpokaneHub
   ? 'Spokane River, Washington | Paddling Sections, Gauges & Access'
   : isSaludaHub
@@ -234,6 +237,8 @@ const groupDescription = isBroadRiverHub
   ? 'Compare six North Fork Maquoketa trips from Cascade to Caven. Review the Cascade dam portage, remote middle reach, and access details for each section.'
   : isCrookedCreekHub
   ? 'Compare six Crooked Creek Water Trail trips from Lower Pyatt through Snow and Mark Oliver to Kelley’s Slab. Check AGFC mileage, the Kelly Crossing gauge, and camping details.'
+  : isSouthLlanoHub
+  ? 'Compare five South Llano trips near Junction, Texas: the Cupgrass extension, the full 6.3-mile TPWD paddling trail, and shorter access sections. Confirm Cupgrass lease status before planning a launch there.'
   : isSpokaneHub
   ? 'Plan the Spokane River by its distinct upper reaches, lower whitewater and Nine Mile flatwater pool. Compare six focused Water Trail sections and 20 alternate endpoint choices, with local access, gauge context and safety notes.'
   : isSaludaHub
@@ -703,6 +708,8 @@ const faqItems = [
       ? 'The five trips follow one lower-Manchester access chain from Jacks/Bowling Branch through Tobacco Road and Dump Hollow to Laurel Branch. KDFWR rates 175–514 cfs or 7.4–8.5 feet as “Good,” but explicitly presents these as recommendations, not safety limits. Dump Hollow is a ford-side access where high water can make crossing or turning around difficult or dangerous.'
       : isKinniconickHub
       ? 'KDFWR maps a connected access chain from Leatherwood Branch through McDowells Creek and Mill Pond Creek to Garrison. Compare the three focused sections first; three additional endpoint combinations remain selectable on the hub with their own distance and shuttle details.'
+      : isSouthLlanoHub
+      ? 'The South Llano choices connect TPWD’s Cupgrass lease access with the state-park-to-Junction paddling trail. The state-park trail has two official shorter sections; Cupgrass routes depend on current lease access, which paddlers should confirm with TPWD before setting a shuttle.'
       : isSpokaneHub
       ? 'Start with the Water Trail’s six distinct sections: Harvard–Barker (2 miles, Class I), Barker–Mirabeau (4.5 miles, Class II), Mirabeau–Plante’s Ferry (1 mile, mostly flatwater), Plante’s Ferry–Boulder Beach (4.5 miles, mostly flatwater), TJ Meenach–Plese Flats (expert Class III–IV), and Plese Flats–Nine Mile Dam (5 miles, flatwater). Twenty other endpoint choices remain available as trip cards.'
       : isSaludaHub
@@ -933,6 +940,8 @@ const groupStructuredData = [
             ? 'Choose among five trips along one lower-Manchester access chain: Jacks/Bowling Branch, Tobacco Road, Dump Hollow, and Laurel Branch. All use the Manchester gauge context. KDFWR’s 175–514 cfs and 7.4–8.5 ft “Good” bands are recommendations, not safety limits; Dump Hollow is a ford-side access that can be difficult or dangerous at high water.'
             : isKinniconickHub
             ? 'Choose a section along Kinniconick Creek from Leatherwood Branch to Garrison. The Tygarts Creek gauge is only a proxy for local conditions; KDFWR’s “Good” bands are planning recommendations. Expect a semi-shallow stream with rock bars and woody debris, and use the named public access sites because much of the surrounding land is private.'
+            : isSouthLlanoHub
+            ? 'Compare the source-named South Llano sections by mileage and endpoints. The 6.3-mile state-park-to-Junction trip has a required bridge portage; Cupgrass access availability needs confirmation because TPWD’s published lease dates conflict with its current program listing.'
             : isWillimanticHub
             ? 'Compare five selected Willimantic trips across three distinct stretches: upper quickwater, the Eagleville impoundment, and the river below the dam. Each stretch has different access, gauge cues, and hazards.'
             : isCedarRiverAdirondacksHub
@@ -1936,7 +1945,7 @@ const groupStructuredData = [
                       <span data-group-initial-score>{route.scoreEligibility === 'planning' ? 'Planning route' : 'Loading'}</span>
                     </span>
                   </button>
-                  {isWillimanticHub || isMerrimackHub || isSpokaneHub || isSaludaHub || isWabashHub || isGooseCreekHub || isKinniconickHub || isVillageCreekHub || isElevenPointHub || isJacksForkHub || isCurrentRiverHub || isYellowBreechesHub || isSaltRiverHub || isAnimasHub || isHousatonicHub || isPenobscotHub ? (
+                  {isWillimanticHub || isMerrimackHub || isSpokaneHub || isSaludaHub || isWabashHub || isGooseCreekHub || isKinniconickHub || isSouthLlanoHub || isVillageCreekHub || isElevenPointHub || isJacksForkHub || isCurrentRiverHub || isYellowBreechesHub || isSaltRiverHub || isAnimasHub || isHousatonicHub || isPenobscotHub ? (
                     <details class="route-choice__trip-notes">
                       <summary>{isJacksForkHub || isCurrentRiverHub || isYellowBreechesHub ? 'Access, gauge, shuttle, and camping notes' : isSaltRiverHub || isGooseCreekHub || isKinniconickHub ? 'Access, gauge, shuttle, and safety notes' : isAnimasHub || isHousatonicHub ? 'Access, flow, and safety notes' : isPenobscotHub ? 'Access, gauge, shuttle, camping, and safety notes' : 'Access, gauge, and safety notes'}</summary>
                       <div>
@@ -2972,6 +2981,47 @@ const groupStructuredData = [
 
           <p>
             Check AGFC’s <a href="https://www.agfc.com/things-to-do/water-trails/crooked-creek/" target="_blank" rel="noopener noreferrer">Crooked Creek Water Trail access, mileage, conditions, and camping guidance</a> before choosing a trip.
+          </p>
+        </div>
+      ) : null}
+
+      {isSouthLlanoHub ? (
+        <div class="river-hub-context__source-guide" id="south-llano-sections" aria-labelledby="south-llano-sections-title">
+          <div class="river-group-page__section-head">
+            <div>
+              <p class="eyebrow section-label">TPWD paddling trail · Kimble County, Texas</p>
+              <h3 class="section-title" id="south-llano-sections-title">Choose a South Llano section by distance</h3>
+            </div>
+            <p class="muted river-group-page__section-note">
+              The full state-park trail and its short splits share the same access chain. Cupgrass adds a longer upstream section, but its launch status needs direct confirmation.
+            </p>
+          </div>
+
+          <div class="river-hub-context__grid">
+            <article class="river-hub-context__item">
+              <h3>Official trail sections</h3>
+              <ul>
+                <li><a href={routeSlugHref('south-llano-river-state-park-junction-city-park')}>State Park to Junction City Park · 6.3 miles</a></li>
+                <li><a href={routeSlugHref('south-llano-river-state-park-flatrock-lane')}>State Park to Flatrock Lane · 4.7 miles</a></li>
+                <li><a href={routeSlugHref('south-llano-river-flatrock-lane-junction-city-park')}>Flatrock Lane to Junction City Park · 1.6 miles</a></li>
+              </ul>
+              <p>
+                TPWD identifies the two short sections as alternate ways to use its 6.3-mile trail. The state-park start requires paddlers to exit before the closed bridge apron, portage at the designated location, and reenter downstream. Low water can expose snags; heavy rain can create dangerous flows.
+              </p>
+            </article>
+            <article class="river-hub-context__item">
+              <h3>Cupgrass access and current verification</h3>
+              <p>
+                TPWD describes Cupgrass as a gated leased access reached by paddling from Bailey Creek, with advance parking arrangements and a 9.3-mile float to the state park. Its individual page lists a lease period ending August 31, 2026, while TPWD’s leased-access program index still lists Cupgrass. Confirm that the lease and public launch are active before relying on Cupgrass or arranging a shuttle. If TPWD confirms access, follow its current parking instructions; the listed contact number is (512) 407-9357.
+              </p>
+              <p>
+                Check the <a href="https://waterdata.usgs.gov/monitoring-location/USGS-08149900/" target="_blank" rel="noopener noreferrer">USGS 08149900 gauge at Flat Rock Lane</a> with its latest observation time and recent rainfall. The 65 cfs floor shown on route cards is community guidance, not a TPWD safety limit. Respect private banks and use only confirmed public accesses.
+              </p>
+            </article>
+          </div>
+
+          <p>
+            Review TPWD’s <a href="https://tpwd.texas.gov/boating/paddling-trails/hill-country/south-llano/" target="_blank" rel="noopener noreferrer">South Llano Paddling Trail map, mileage, bridge-portage, and private-property guidance</a>, the <a href="https://tpwd.texas.gov/fishboat/fish/recreational/rivers/lease_access/south_llano_cupgrass.phtml" target="_blank" rel="noopener noreferrer">Cupgrass access page</a>, and the <a href="https://tpwd.texas.gov/fishboat/fish/recreational/rivers/lease_access/index.phtml" target="_blank" rel="noopener noreferrer">current leased-access program index</a> before choosing a route.
           </p>
         </div>
       ) : null}
