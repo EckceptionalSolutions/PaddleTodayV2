@@ -1,7 +1,7 @@
 # Consolidated route redirect delivery
 
 **Reviewed:** October 7, 2026
-**Status:** candidate verified locally; not deployed
+**Status:** deployed and production-verified on October 8, 2026
 
 ## Deployment constraint
 
@@ -22,7 +22,11 @@ Google Search Central documents a zero-second meta refresh as a permanent redire
 - Duplicate route headings/descriptions: none. Audit errors and warnings: none.
 - `staticwebapp.config.json`: 5,395 bytes, below the documented 20 KB cap.
 
-The build workflow emits these redirect pages after Astro completes, then runs the normal indexability audit against the packaged output. Production and Search Console remain unchanged until deployment and subsequent recrawling.
+The build workflow emits these redirect pages after Astro completes, then runs the normal indexability audit against the packaged output. At the time of this candidate review, production and Search Console were unchanged; production deployment status is recorded below.
+
+## Production verification — October 8, 2026
+
+The implementation was included in the frontend deployment for `9e46e68b1` (workflow run [37739264058](https://github.com/EckceptionalSolutions/PaddleTodayV2/actions/runs/37739264058)), which completed successfully. The built search-indexability audits and deployed-origin response check passed. Live GET checks returned `200` for the Winooski and Saco hubs and representative consolidated and access-review route URLs. These retired-route responses are the generated zero-second meta-refresh pages described above, with a visible fallback link; they are not HTTP `301` responses. No sitemap submission or Search Console validation request was made.
 
 ## References
 

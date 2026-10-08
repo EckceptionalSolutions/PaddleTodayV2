@@ -29,7 +29,7 @@ The route records and all 33 currently public endpoint options remain in the hub
 
 ## Redirect repairs
 
-Twelve legacy URLs that appeared as 404s in the reviewed Search Console exports now redirect to their nearest current section planner. Two additional held Sayre URLs redirect to the Susquehanna hub while their route geometry remains unpublished. Existing redirects for Canal Park–Wetlands and Test Track–Bloomsburg also lead to current guides.
+The twelve legacy URLs from the reviewed Search Console exports redirect to their nearest current section planner. Two additional held Sayre URLs redirect to the Susquehanna hub while their route geometry remains unpublished. Existing redirects for Canal Park–Wetlands and Test Track–Bloomsburg also lead to current guides. An October 8 Search Console 404 example exposed one missed legacy path, Laceyville–Meshoppen. Production returned 404 for it; the source redirect map now sends it to the Laceyville–West Falls planner, which includes Meshoppen among its intermediate access choices. This additional mapping is pending deployment.
 
 Legacy 404 mappings:
 
@@ -39,6 +39,7 @@ Legacy 404 mappings:
 | Bloomsburg–Danville | Test Track–Danville planner |
 | Sayre–Hornbrook | Susquehanna hub |
 | Meshoppen–Tunkhannock | Laceyville–West Falls planner |
+| Laceyville–Meshoppen | Laceyville–West Falls planner |
 | Bloomsburg–Indian Head | Test Track–Danville planner |
 | Sayre–Ulster Bridge | Susquehanna hub |
 | White’s Ferry–West Falls | Laceyville–West Falls planner |
@@ -52,6 +53,7 @@ Legacy 404 mappings:
 
 - Added a North Branch section guide to the Susquehanna hub, grouped from Bradford County through Shikellamy, with direct PFBC and Susquehanna Greenway source links.
 - Added the eight consolidated route URLs to the route-page redirect map; each redirect selects the matching retained trip card.
+- Added the Search Console-discovered Laceyville–Meshoppen legacy URL to the nearest current section planner; this mapping is pending deployment.
 - Added permanent redirects for the 12 reported legacy 404s and the two withheld Sayre page URLs. Updated the Test Track–Bloomsburg redirect to land on the Test Track–Danville planner.
 - No Search Console indexing request or sitemap submission was made as part of this change.
 

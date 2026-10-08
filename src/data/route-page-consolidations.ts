@@ -383,6 +383,9 @@ const susquehannaConsolidatedRouteSlugs = [
   'susquehanna-river-wrays-shikellamy-west',
   'susquehanna-river-test-track-indian-head',
 ] as const;
+const susquehannaLegacyRouteAliases = [
+  ['susquehanna-river-laceyville-meshoppen', '/rivers/susquehanna-river-laceyville-west-falls/'],
+] as const;
 
 const farmingtonRiverConsolidatedRouteSlugs = [
   'farmington-river-riverton-peoples-forest',
@@ -1125,6 +1128,7 @@ const consolidatedRouteTargets = new Map<string, string>(
     ...farmingtonRiverConsolidatedRouteSlugs.map((slug) => [slug, `${farmingtonRiverHubPath}#trip-${slug}`] as const),
     ...farmingtonRiverRetiredRouteSlugs.map((slug) => [slug, `${farmingtonRiverHubPath}#farmington-river-access-notes`] as const),
     ...susquehannaConsolidatedRouteSlugs.map((slug) => [slug, `${susquehannaRiverHubPath}#trip-${slug}`] as const),
+    ...susquehannaLegacyRouteAliases,
     ...merrimackRiverConsolidatedRouteSlugs.map((slug) => [slug, `${merrimackRiverHubPath}#trip-${slug}`] as const),
     ...spokaneRiverConsolidatedRouteSlugs.map((slug) => [slug, `${spokaneRiverHubPath}#trip-${slug}`] as const),
     ...wabashRiverConsolidatedRouteSlugs.map((slug) => [slug, `${wabashRiverHubPath}#trip-${slug}`] as const),
