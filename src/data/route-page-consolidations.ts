@@ -1212,8 +1212,6 @@ const hubOverviewOnlyRouteSlugs = new Set<string>([
   ...willametteConsolidatedRouteSlugs,
   ...greenRiverConsolidatedRouteSlugs,
   ...millersConsolidatedRouteSlugs,
-  // Keep route records for planning and redirects, but list only the six documented adjacent reaches on Black Creek.
-  ...blackCreekCompositeRouteSlugs,
   // Keep source records for audits and legacy redirects; list only the 11 official adjacent legs on the public Teche hub.
   ...bayouTecheConsolidatedRouteSlugs,
 ]);

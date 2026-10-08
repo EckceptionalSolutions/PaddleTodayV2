@@ -17,7 +17,23 @@ export function getStaticPaths() {
     }));
 }
 
-const { group } = Astro.props;
+const { group: sourceGroup } = Astro.props;
+const isBlackCreekHub = sourceGroup.riverId === 'black-creek-mississippi';
+const blackCreekFeaturedTripSlugs = new Set([
+  'black-creek-churchwell-big-creek',
+  'black-creek-big-creek-old-highway-49',
+  'black-creek-old-highway-49-moodys',
+  'black-creek-moodys-janice',
+  'black-creek-janice-cypress',
+  'black-creek-cypress-fairley',
+]);
+const group = isBlackCreekHub
+  ? {
+      ...sourceGroup,
+      routes: sourceGroup.routes.filter((route) => blackCreekFeaturedTripSlugs.has(route.slug)),
+      routeCount: blackCreekFeaturedTripSlugs.size,
+    }
+  : sourceGroup;
 const isBroadRiverHub = group.riverId === 'broad-river';
 const isAnimasHub = group.riverId === 'animas-river-new-mexico';
 const isSanJuanHub = group.riverId === 'san-juan-river-new-mexico';
@@ -43,7 +59,6 @@ const isFloydsForkHub = group.riverId === 'floyds-fork';
 const isBlackfootHub = group.riverId === 'blackfoot-river-montana';
 const isWillametteHub = group.riverId === 'willamette-river-oregon';
 const isRussianRiverHub = group.riverId === 'russian-river-california';
-const isBlackCreekHub = group.riverId === 'black-creek-mississippi';
 const isLamoilleHub = group.riverId === 'lamoille-river-vermont';
 const isWoonasquatucketHub = group.riverId === 'woonasquatucket-river-rhode-island';
 const isSuwanneeHub = group.riverId === 'suwannee-river-florida';
@@ -77,7 +92,7 @@ const isPascagoulaHub = group.riverId === 'pascagoula-river-mississippi';
 const isKennebecHub = group.riverId === 'kennebec-river';
 const isPenobscotHub = group.riverId === 'penobscot-river';
 const isAndroscogginMaineHub = group.riverId === 'androscoggin-river';
-const hasConsolidatedTrips = group.routes.some((route) => routePageConsolidationTarget(route.slug));
+const hasConsolidatedTrips = sourceGroup.routes.some((route) => routePageConsolidationTarget(route.slug));
 const stateSummary = group.states.join(', ');
 const stateDisplay = group.states.join(' and ');
 const regionSummary = group.regions.join(', ');
