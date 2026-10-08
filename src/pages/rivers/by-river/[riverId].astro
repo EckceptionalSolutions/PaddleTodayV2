@@ -26,6 +26,7 @@ const isChattahoocheeHub = group.riverId === 'chattahoochee-river';
 const isBuffaloHub = group.riverId === 'buffalo-river';
 const isBarrenRiverHub = group.riverId === 'barren-river';
 const isUpperCumberlandHub = group.riverId === 'upper-cumberland-river';
+const isTradewaterHub = group.riverId === 'tradewater-river';
 const isWillimanticHub = group.riverId === 'willimantic-river-connecticut';
 const isMillersHub = group.riverId === 'millers-river-massachusetts';
 const isBayouDeViewHub = group.riverId === 'bayou-deview';
@@ -81,6 +82,8 @@ const groupTitle = isBroadRiverHub
   ? 'Barren River, Kentucky | Paddle Sections & Water Levels'
   : isUpperCumberlandHub
   ? 'Upper Cumberland River, Kentucky | Sections & Water Levels'
+  : isTradewaterHub
+  ? 'Tradewater River, Kentucky | Sections, Water Levels & Access'
   : isBuffaloHub
   ? 'Buffalo National River, Arkansas | Sections & Access'
   : isYellowBreechesHub
@@ -164,6 +167,8 @@ const groupDescription = isBroadRiverHub
   ? 'Compare 10 Lower Barren River trips. Tailwater-to-Martinsville choices use the Finney stage gauge; Bowling Green routes use a separate flow gauge. Check KDFWR mileage and access notes, including the camper-only Beech Bend ramps.'
   : isUpperCumberlandHub
   ? 'Compare 10 Upper Cumberland River trips by access point. KDFWR lists the Varilla–4 Mile, 4 Mile–Artemus, and Artemus–Barbourville segments; use the Williamsburg gauge and the flow guidance for your exact reach.'
+  : isTradewaterHub
+  ? 'Compare nine lower Tradewater trips from Bellville to Granger. KDFWR lists four consecutive access sections with mileages from 6.7 to 10.6 miles; check the Providence gauge and trip-specific access notes.'
   : isBuffaloHub
   ? 'Plan Buffalo National River routes by district. Ponca and Pruitt gauges cover Upper District trips; St. Joe covers Tyler Bend–Grinder’s Ferry.'
   : isYellowBreechesHub
@@ -677,6 +682,8 @@ const faqItems = [
       ? 'KDFWR lists access-to-access mileages for the Lower Barren. Five current choices match individual listed segments; five composite trips remain selectable with their own endpoints and route details. Match the trip to the Finney stage gauge or Bowling Green flow gauge shown on its card.'
       : isUpperCumberlandHub
       ? 'KDFWR lists the Varilla–4 Mile, 4 Mile–Artemus, and Artemus–Barbourville legs as consecutive public-access segments. Start with a named leg or choose one of the longer combinations in the trip selector; the Williamsburg-to-Redbird and Cumberland Falls approaches remain separate.'
+      : isTradewaterHub
+      ? 'KDFWR lists four consecutive public-access sections from Bellville to Granger. Start with a named section or compare the longer trips in the selector; each option keeps its own distance, access, and gauge assignment.'
       : isHousatonicHub
       ? 'The Berkshire guide covers distinct upper, Stockbridge, and Great Barrington–Sheffield reaches. Compare the named public-access sections, then use the trip picker for six longer endpoint combinations that remain available with their own mileage, gauge, dam, and access notes.'
       : isLoupRiverHub
@@ -721,6 +728,8 @@ const faqItems = [
       ? 'The 400 cfs runnable floor and 1,500–2,000 cfs preferred range belong to the documented Franklin–Concord run and its USGS 01081500 gauge near Franklin Junction. Lower-valley trips are planning-only; that upstream station is context and does not provide a verified route-specific threshold for each downstream reach.'
       : isUpperCumberlandHub
       ? 'USGS 03404000 at Williamsburg is the reference for these routes. KDFWR publishes 3.0–3.8 ft (300–700 cfs) for the Upper Cumberland access chain; its separate Cumberland gorge guidance calls 500–1,100 cfs best and up to 2,000 cfs challenging for skilled paddlers. Use the band and hazards on the selected trip because the gorge routes have a different character.'
+      : isTradewaterHub
+      ? 'KDFWR rates 10–15 ft and 5–50 cfs as good at USGS 03384100 near Providence for this lower corridor. Its separate Olney ranges apply farther upstream. The river can rise quickly after rain, and the trip card shows whether the Providence station is direct or proxy context for that route.'
       : isCurrentRiverHub
       ? 'Use the gauge on the selected trip: USGS 07064533 above Akers for upper Current options and USGS 07067000 at Van Buren for lower Current options. The card floors (230 or 300 cfs upper; 700 cfs lower) are conservative community planning cues, not NPS safety limits. Check the park’s current river levels and closure notices; NPS closure stages use gauge height in feet and are a separate check.'
       : isJacksForkHub
@@ -2047,6 +2056,8 @@ const groupStructuredData = [
               ? `Compare all ${group.routeCount} Lower Barren River choices here. Five individual KDFWR access segments keep standalone pages; five composite endpoint combinations remain selectable with their own mileage, access, gauge, and hazard details. Finney stage and Bowling Green discharge apply to different route sections.`
               : isUpperCumberlandHub
               ? `Compare all ${group.routeCount} Upper Cumberland choices here. The three consecutive access legs keep focused route pages; longer combinations remain available as trip cards. Williamsburg-to-Redbird and the downstream Cumberland Falls approaches retain their own pages because the gorge has different flow guidance and hazards.`
+              : isTradewaterHub
+              ? `Compare all ${group.routeCount} lower Tradewater choices here. Four consecutive KDFWR access sections keep standalone guides; five longer endpoint combinations remain selectable with their own distance, access, and trip-specific gauge context.`
               : isHousatonicHub
               ? `Compare all ${group.routeCount} Berkshire Housatonic trip choices here. Nine reach-specific sections keep standalone pages; six longer endpoint combinations remain selectable with their own access, mileage, gauge, portage, and safety details.`
               : isWillimanticHub
@@ -2492,6 +2503,40 @@ const groupStructuredData = [
 
           <p>
             See Kentucky Fish and Wildlife’s <a href="https://fw.ky.gov/Fish/Pages/Upper_Cumberland.aspx" target="_blank" rel="noopener noreferrer">Upper Cumberland access mileages and gauge recommendations</a> and its <a href="https://fw.ky.gov/Education/Pages/Cumberland-River.aspx" target="_blank" rel="noopener noreferrer">Cumberland gorge paddling guidance</a> before setting a shuttle.
+          </p>
+        </div>
+      ) : null}
+
+      {isTradewaterHub ? (
+        <div class="river-hub-context__source-guide" id="tradewater-access-chain" aria-labelledby="tradewater-access-chain-title">
+          <div class="river-group-page__section-head">
+            <div>
+              <p class="eyebrow section-label">Lower Tradewater · Kentucky</p>
+              <h3 class="section-title" id="tradewater-access-chain-title">Choose a section along the published access chain</h3>
+            </div>
+            <p class="muted river-group-page__section-note">
+              KDFWR gives four consecutive mileages between Bellville and Granger. Choose a single section or compare the longer combinations in the trip selector.
+            </p>
+          </div>
+
+          <div class="river-hub-context__grid">
+            <article class="river-hub-context__item">
+              <h3>Four consecutive sections · 36.0 miles total</h3>
+              <p>Bellville to Montezuma is 9.2 miles, Montezuma to Fishtrap is 6.7, Fishtrap to VFW Bridge is 9.5, and VFW Bridge to Granger Landing is 10.6 miles.</p>
+              <a href={routeSlugHref('tradewater-river-bellville-montezuma')}>Open Bellville to Montezuma</a>
+              <a href={routeSlugHref('tradewater-river-montezuma-fishtrap')}>Open Montezuma to Fishtrap</a>
+              <a href={routeSlugHref('tradewater-river-fishtrap-vfw-bridge')}>Open Fishtrap to VFW Bridge</a>
+              <a href={routeSlugHref('tradewater-river-vfw-bridge-granger-landing')}>Open VFW Bridge to Granger Landing</a>
+            </article>
+            <article class="river-hub-context__item">
+              <h3>Providence gauge · lower-corridor context</h3>
+              <p>KDFWR lists 10–15 ft and 5–50 cfs as good at USGS 03384100 near Providence. It publishes a different Olney range for the upstream river. Tradewater is flashy and can rise quickly after rain, so check the trend and the direct-versus-proxy label on the selected trip.</p>
+              <a href="https://waterdata.usgs.gov/monitoring-location/USGS-03384100/" target="_blank" rel="noopener noreferrer">Check USGS 03384100 near Providence</a>
+            </article>
+          </div>
+
+          <p>
+            See Kentucky Fish and Wildlife’s <a href="https://fw.ky.gov/Fish/Pages/Tradewater_River.aspx" target="_blank" rel="noopener noreferrer">Tradewater access mileages, gauge recommendations, and ramp notes</a> before choosing a reach or shuttle.
           </p>
         </div>
       ) : null}
