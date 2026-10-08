@@ -54,6 +54,7 @@ const isMerrimackHub = group.riverId === 'merrimack-river-new-hampshire';
 const isSpokaneHub = group.riverId === 'spokane-river-washington';
 const isSaludaHub = group.riverId === 'saluda-river';
 const isWabashHub = group.riverId === 'wabash-river';
+const isGooseCreekHub = group.riverId === 'goose-creek';
 const isVillageCreekHub = group.riverId === 'village-creek';
 const isElevenPointHub = group.riverId === 'eleven-point-river';
 const isJacksForkHub = group.riverId === 'jacks-fork-river';
@@ -121,6 +122,8 @@ const groupTitle = isBroadRiverHub
   ? 'Village Creek Paddling Trail, Texas | Sections & Access'
   : isWabashHub
   ? 'Wabash River near Bluffton, Indiana | Paddle Trips & Access'
+  : isGooseCreekHub
+  ? 'Goose Creek, Kentucky | Paddling Sections, Gauge & Access'
   : isSpokaneHub
   ? 'Spokane River, Washington | Paddling Sections, Gauges & Access'
   : isSaludaHub
@@ -214,6 +217,8 @@ const groupDescription = isBroadRiverHub
   ? 'Compare eight Village Creek trips from five public access points. Review trail sections, overnight planning, Kountze gauge context, and one source distance discrepancy.'
   : isWabashHub
   ? 'Compare four Wabash River trips near Bluffton, from Linn Grove Park and Vera Cruz to White Bridge, Kehoe Park, and Hale Street. Check public access, distance, the Bluffton gauge, and local stage guidance.'
+  : isGooseCreekHub
+  ? 'Compare five Goose Creek trips in Clay County, Kentucky. See KDFWR mileages, Manchester gauge recommendations, roadside access notes, and the Dump Hollow ford warning.'
   : isSpokaneHub
   ? 'Plan the Spokane River by its distinct upper reaches, lower whitewater and Nine Mile flatwater pool. Compare six focused Water Trail sections and 20 alternate endpoint choices, with local access, gauge context and safety notes.'
   : isSaludaHub
@@ -679,6 +684,8 @@ const faqItems = [
       ? 'The Village Creek Paddling Trail has five public access points from FM 418 to Village Creek State Park. Start with one of the four consecutive trail sections or compare longer options that combine adjacent sections. Choose by exact launch, take-out, time commitment, and shuttle; the full trail is an overnight-scale trip.'
       : isWabashHub
       ? 'Choose among four trips on the same Wells County access chain: Linn Grove to White Bridge, Vera Cruz to Kehoe Park, Vera Cruz to Hale Street, or Linn Grove to Hale Street. These share river miles and public access points, but differ in launch, take-out, total distance, and shuttle plan.'
+      : isGooseCreekHub
+      ? 'The five trips follow one lower-Manchester access chain from Jacks/Bowling Branch through Tobacco Road and Dump Hollow to Laurel Branch. KDFWR rates 175–514 cfs or 7.4–8.5 feet as “Good,” but explicitly presents these as recommendations, not safety limits. Dump Hollow is a ford-side access where high water can make crossing or turning around difficult or dangerous.'
       : isSpokaneHub
       ? 'Start with the Water Trail’s six distinct sections: Harvard–Barker (2 miles, Class I), Barker–Mirabeau (4.5 miles, Class II), Mirabeau–Plante’s Ferry (1 mile, mostly flatwater), Plante’s Ferry–Boulder Beach (4.5 miles, mostly flatwater), TJ Meenach–Plese Flats (expert Class III–IV), and Plese Flats–Nine Mile Dam (5 miles, flatwater). Twenty other endpoint choices remain available as trip cards.'
       : isSaludaHub
@@ -767,6 +774,8 @@ const faqItems = [
       ? 'Use USGS 08041500 near Kountze with the local guidance from Big Thicket National Preserve: below about 3 feet, expect exposed sandbars and logs; at 10 feet or higher, swift current can be hazardous. Village Creek is free-flowing and responds to rain, so check the gauge trend and flood notices before launch; these are planning cues, not an all-clear.'
       : isWabashHub
       ? 'Wells County Trails calls 1.5–3 feet the ideal kayaking height, warns that low water may require dragging, and says to stay off the river during Action or Flood Stage. Check USGS 03323000 at Bluffton and the local flood-stage status before setting out; a gauge reading alone is not a safety guarantee.'
+      : isGooseCreekHub
+      ? 'Use USGS 03281100 at Manchester with KDFWR’s local recommendations: 175–514 cfs or 7.4–8.5 feet is rated “Good.” KDFWR says those ratings are recommendations, not safety limits. Compare the live reading, stage, recent rain, and trend; this small creek can change quickly, and high water makes the Dump Hollow ford less forgiving.'
       : isSpokaneHub
       ? 'Use USGS 12419000 near Post Falls for the short Harvard–Barker section; it is upstream context for the rest of the upper river and does not confirm local water near Barker and Sullivan. USGS 12422500 at Spokane provides lower-river context. The TJ Meenach–Plese expert run, upper combinations beyond Barker, and the Nine Mile pool are planning-only because their conditions cannot be represented safely by one live score.'
       : isSaludaHub
@@ -901,6 +910,8 @@ const groupStructuredData = [
             ? 'Choose one of the two DNR map sections, then select the exact launch and take-out. The ten trips include the official 15.2-mile Veterans Park–Highway 73 day trip, the 13.1-mile Dentaybow–Fiedler full-day trip, and shorter or longer access combinations with reach-specific gauge context.'
             : isStLouisRiverHub
             ? 'Choose from the first two DNR map sections, then select the exact launch and take-out. Start with the recommended Forbes–Zim or Paupores–Brookston day trip; use the selected card for its gauge, access, and hazard notes. The separate Highway 2–Lake Superior map describes a different downstream whitewater area.'
+            : isGooseCreekHub
+            ? 'Choose among five trips along one lower-Manchester access chain: Jacks/Bowling Branch, Tobacco Road, Dump Hollow, and Laurel Branch. All use the Manchester gauge context. KDFWR’s 175–514 cfs and 7.4–8.5 ft “Good” bands are recommendations, not safety limits; Dump Hollow is a ford-side access that can be difficult or dangerous at high water.'
             : isWillimanticHub
             ? 'Compare five selected Willimantic trips across three distinct stretches: upper quickwater, the Eagleville impoundment, and the river below the dam. Each stretch has different access, gauge cues, and hazards.'
             : isCedarRiverAdirondacksHub
@@ -1904,9 +1915,9 @@ const groupStructuredData = [
                       <span data-group-initial-score>{route.scoreEligibility === 'planning' ? 'Planning route' : 'Loading'}</span>
                     </span>
                   </button>
-                  {isWillimanticHub || isMerrimackHub || isSpokaneHub || isSaludaHub || isWabashHub || isVillageCreekHub || isElevenPointHub || isJacksForkHub || isCurrentRiverHub || isYellowBreechesHub || isSaltRiverHub || isAnimasHub || isHousatonicHub || isPenobscotHub ? (
+                  {isWillimanticHub || isMerrimackHub || isSpokaneHub || isSaludaHub || isWabashHub || isGooseCreekHub || isVillageCreekHub || isElevenPointHub || isJacksForkHub || isCurrentRiverHub || isYellowBreechesHub || isSaltRiverHub || isAnimasHub || isHousatonicHub || isPenobscotHub ? (
                     <details class="route-choice__trip-notes">
-                      <summary>{isJacksForkHub || isCurrentRiverHub || isYellowBreechesHub ? 'Access, gauge, shuttle, and camping notes' : isSaltRiverHub ? 'Access, gauge, shuttle, and safety notes' : isAnimasHub || isHousatonicHub ? 'Access, flow, and safety notes' : isPenobscotHub ? 'Access, gauge, shuttle, camping, and safety notes' : 'Access, gauge, and safety notes'}</summary>
+                      <summary>{isJacksForkHub || isCurrentRiverHub || isYellowBreechesHub ? 'Access, gauge, shuttle, and camping notes' : isSaltRiverHub || isGooseCreekHub ? 'Access, gauge, shuttle, and safety notes' : isAnimasHub || isHousatonicHub ? 'Access, flow, and safety notes' : isPenobscotHub ? 'Access, gauge, shuttle, camping, and safety notes' : 'Access, gauge, and safety notes'}</summary>
                       <div>
                         <p>{route.logistics?.summary || route.summary}</p>
                         <p>
@@ -1936,6 +1947,9 @@ const groupStructuredData = [
                         {isPenobscotHub && route.logistics?.shuttle ? <p><strong>Shuttle:</strong> {route.logistics.shuttle}</p> : null}
                         {isPenobscotHub && route.logistics?.camping ? <p><strong>Camping:</strong> {route.logistics.camping}</p> : null}
                         {isPenobscotHub && route.logistics?.permits ? <p><strong>Rules:</strong> {route.logistics.permits}</p> : null}
+                        {isGooseCreekHub && route.logistics?.shuttle ? <p><strong>Shuttle:</strong> {route.logistics.shuttle}</p> : null}
+                        {isGooseCreekHub && route.logistics?.camping ? <p><strong>Camping:</strong> {route.logistics.camping}</p> : null}
+                        {isGooseCreekHub && route.logistics?.permits ? <p><strong>Rules:</strong> {route.logistics.permits}</p> : null}
                         {route.logistics?.accessCaveats?.length ? (
                           <ul>{route.logistics.accessCaveats.map((note) => <li>{note}</li>)}</ul>
                         ) : null}
@@ -2766,6 +2780,47 @@ const groupStructuredData = [
 
           <p>
             For the separate remote Penobscot River Corridor, DACF warns about changing releases, remote roads, limited cell coverage, and Class III–V rapids in the Lower Penobscot River Corridor; those conditions do not describe the whole mainstem or tidal trail. Review <a href="https://www.maine.gov/dacf/parks/water_activities/prc-river-conditions.shtml" target="_blank" rel="noopener noreferrer">DACF corridor conditions</a>, the <a href="https://www.penobscotriverpaddlingtrail.org/index.php/campsites-and-access-points/" target="_blank" rel="noopener noreferrer">official access and campsite table</a>, and the <a href="https://www.penobscotriverpaddlingtrail.org/index.php/elementor-1142/" target="_blank" rel="noopener noreferrer">official day-trip guide</a>. Use West Enfield or Bangor readings only as the route card describes, then check local conditions, tide, weather, and current access notices.
+          </p>
+        </div>
+      ) : null}
+
+      {isGooseCreekHub ? (
+        <div class="river-hub-context__source-guide" id="goose-creek-access-chain" aria-labelledby="goose-creek-access-chain-title">
+          <div class="river-group-page__section-head">
+            <div>
+              <p class="eyebrow section-label">Clay County · Kentucky</p>
+              <h3 class="section-title" id="goose-creek-access-chain-title">Choose a trip along the lower-Manchester access chain</h3>
+            </div>
+            <p class="muted river-group-page__section-note">
+              Five choices cover the same local corridor from Jacks/Bowling Branch through Tobacco Road and Dump Hollow to Laurel Branch. Compare each card’s endpoints, distance, and shuttle plan.
+            </p>
+          </div>
+
+          <div class="river-hub-context__grid">
+            <article class="river-hub-context__item">
+              <h3>KDFWR’s three mapped access legs</h3>
+              <p>
+                KDFWR lists Jacks/Bowling Branch to Tobacco Road at 2.2 miles, Tobacco Road to Dump Hollow at 0.8 miles, and Dump Hollow to Laurel Branch at 4.8 miles. The trip picker also keeps the 3.0-mile Jacks-to-Dump and 7.8-mile Jacks-to-Laurel combinations; every option retains its own endpoints and logistics.
+              </p>
+              <ul>
+                <li><a href="#trip-goose-creek-jacks-tobacco-road">Jacks/Bowling Branch to Tobacco Road · 2.2 miles</a></li>
+                <li><a href="#trip-goose-creek-tobacco-road-dump-hollow">Tobacco Road to Dump Hollow · 0.8 miles</a></li>
+                <li><a href="#trip-goose-creek-dump-hollow-laurel-branch">Dump Hollow to Laurel Branch · 4.8 miles</a></li>
+              </ul>
+            </article>
+            <article class="river-hub-context__item">
+              <h3>One gauge corridor, with a ford-side caution</h3>
+              <p>
+                KDFWR rates 175–514 cfs or 7.4–8.5 feet at Manchester as “Good.” Those are recommendations, not safety limits. All five options start at Jacks or farther downstream, past the Rawlings and Stinson Park access where KDFWR warns of a low-head dam 1.3 miles downstream. That warning applies to trips launched at Rawlings and Stinson, not these route cards. Dump Hollow is a ford crossing with very limited parking; high water can make the crossing or vehicle turn-around difficult or dangerous.
+              </p>
+              <p>
+                The named carry-down sites have limited roadside parking and no amenities. Use the selected card’s shuttle and access notes, and check the live <a href="https://waterdata.usgs.gov/monitoring-location/03281100/" target="_blank" rel="noopener noreferrer">USGS Goose Creek at Manchester gauge</a> and recent rain before launch.
+              </p>
+            </article>
+          </div>
+
+          <p>
+            Review KDFWR’s <a href="https://fw.ky.gov/Fish/Pages/Goose_Creek.aspx" target="_blank" rel="noopener noreferrer">Goose Creek mileages, level recommendations, and access descriptions</a> and its <a href="https://app.fw.ky.gov/fisheries/accesssitedetail.aspx?asid=1197" target="_blank" rel="noopener noreferrer">Dump Hollow Ford access notes</a> before planning the route.
           </p>
         </div>
       ) : null}

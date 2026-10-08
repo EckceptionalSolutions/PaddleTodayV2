@@ -131,7 +131,10 @@ const buffaloRiverConsolidatedRouteSlugs = [
 ] as const;
 
 const gooseCreekConsolidatedRouteSlugs = [
+  'goose-creek-jacks-tobacco-road',
   'goose-creek-jacks-dump-hollow',
+  'goose-creek-tobacco-road-dump-hollow',
+  'goose-creek-dump-hollow-laurel-branch',
   'goose-creek-jacks-laurel-branch',
 ] as const;
 
