@@ -373,11 +373,6 @@
       "statusCode": 301
     },
     {
-      "route": "/rivers/buffalo-river-tyler-bend-gilbert",
-      "redirect": "/rivers/by-river/buffalo-river/",
-      "statusCode": 301
-    },
-    {
       "route": "/rivers/juniata-river-mifflin-walker",
       "redirect": "/rivers/by-river/juniata-river/",
       "statusCode": 301

@@ -45,6 +45,10 @@ for (const value of urls) {
   if (url.origin !== origin || url.search || url.hash) errors.push(`Noncanonical sitemap URL: ${value}`);
   if (paths.has(url.pathname)) errors.push(`Duplicate sitemap URL: ${value}`);
   paths.add(url.pathname);
+  const configuredRedirect = redirects.get(url.pathname.replace(/\/$/, ''));
+  if (configuredRedirect) {
+    errors.push(`Sitemap URL has a configured redirect: ${value} -> ${configuredRedirect}`);
+  }
   let html: string;
   try { html = await readFile(fileFor(url.pathname), 'utf8'); }
   catch { errors.push(`Sitemap page missing from build: ${value}`); continue; }
