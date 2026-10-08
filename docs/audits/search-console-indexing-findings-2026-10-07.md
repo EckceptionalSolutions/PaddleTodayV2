@@ -26,6 +26,8 @@ Two recent “Crawled – currently not indexed” examples were inspected:
 
 The Search Console Performance filter for the three Volga River route URLs showed 8 impressions, 0 clicks, and average position 6.8 from April 28 through October 5. That is a small sample, but it is enough to avoid treating this three-section family as an obvious consolidation target based only on zero impressions.
 
+The same report showed 291 impressions, 5 clicks, and average position 6.5 for the Big Sioux route URL pattern. Although `big-sioux-river-farm-field-rotary` appeared in the crawled-not-indexed examples, the family-level signal argues against consolidating or removing the whole river’s route pages as one unit.
+
 These samples point to Google’s selection of pages for indexing, rather than a fetch, robots, or self-canonical failure. They do not prove that content similarity is the only cause.
 
 ## External reference signal
