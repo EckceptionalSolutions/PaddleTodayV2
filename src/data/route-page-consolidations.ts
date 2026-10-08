@@ -116,6 +116,7 @@ const spokaneRiverHubPath = '/rivers/by-river/spokane-river-washington/';
 const saludaRiverHubPath = '/rivers/by-river/saluda-river/';
 const wabashRiverHubPath = '/rivers/by-river/wabash-river/';
 const gooseCreekHubPath = '/rivers/by-river/goose-creek/';
+const kinniconickCreekHubPath = '/rivers/by-river/kinniconick-creek/';
 const buffaloRiverHubPath = '/rivers/by-river/buffalo-river/';
 
 const buffaloRiverConsolidatedRouteSlugs = [
@@ -136,6 +137,12 @@ const gooseCreekConsolidatedRouteSlugs = [
   'goose-creek-tobacco-road-dump-hollow',
   'goose-creek-dump-hollow-laurel-branch',
   'goose-creek-jacks-laurel-branch',
+] as const;
+
+const kinniconickCreekConsolidatedRouteSlugs = [
+  'kinniconick-creek-leatherwood-branch-mill-pond-creek',
+  'kinniconick-creek-mcdowells-creek-garrison',
+  'kinniconick-creek-leatherwood-branch-garrison',
 ] as const;
 
 const wabashRiverConsolidatedRouteSlugs = [
@@ -989,6 +996,7 @@ const consolidatedRouteTargets = new Map<string, string>(
     ...blackfootLegacyRouteAliases.map(([legacySlug, currentSlug]) => [legacySlug, `${blackfootHubPath}#trip-${currentSlug}`] as const),
     ...greenRiverConsolidatedRouteSlugs.map((slug) => [slug, `${greenRiverHubPath}#trip-${slug}`] as const),
     ...gooseCreekConsolidatedRouteSlugs.map((slug) => [slug, `${gooseCreekHubPath}#trip-${slug}`] as const),
+    ...kinniconickCreekConsolidatedRouteSlugs.map((slug) => [slug, `${kinniconickCreekHubPath}#trip-${slug}`] as const),
     ...buffaloRiverConsolidatedRouteSlugs.map((slug) => [slug, `${buffaloRiverHubPath}#trip-${slug}`] as const),
     ...floydsForkConsolidatedRouteSlugs.map((slug) => [slug, `${floydsForkHubPath}#trip-${slug}`] as const),
     ...barrenRiverConsolidatedRouteSlugs.map((slug) => [slug, `${barrenRiverHubPath}#trip-${slug}`] as const),

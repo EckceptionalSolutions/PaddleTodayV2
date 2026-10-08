@@ -611,6 +611,25 @@ export const routeCorridorDefinitions: RouteCorridorDefinition[] = [
     ],
   },
   {
+    corridorId: 'ky-kinniconick-creek-lewis-county',
+    label: 'Kinniconick Creek public access chain',
+    continuityStatus: 'verified',
+    canonicalSlug: 'kinniconick-creek-leatherwood-branch-mcdowells-creek',
+    slugs: [
+      'kinniconick-creek-leatherwood-branch-mcdowells-creek',
+      'kinniconick-creek-leatherwood-branch-mill-pond-creek',
+      'kinniconick-creek-mcdowells-creek-mill-pond-creek',
+      'kinniconick-creek-mill-pond-creek-garrison',
+      'kinniconick-creek-mcdowells-creek-garrison',
+      'kinniconick-creek-leatherwood-branch-garrison',
+    ],
+    segmentEdges: [
+      { fromId: 'leatherwood-branch-park-access', toId: 'mcdowells-creek-park-access', status: 'verified' },
+      { fromId: 'mcdowells-creek-park-access', toId: 'mill-pond-creek-access', status: 'verified' },
+      { fromId: 'mill-pond-creek-access', toId: 'garrison-ramp', status: 'verified' },
+    ],
+  },
+  {
     corridorId: 'in-wabash-wells-county',
     label: 'Wells County Wabash River access corridor',
     continuityStatus: 'verified',

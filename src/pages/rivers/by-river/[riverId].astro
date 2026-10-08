@@ -55,6 +55,7 @@ const isSpokaneHub = group.riverId === 'spokane-river-washington';
 const isSaludaHub = group.riverId === 'saluda-river';
 const isWabashHub = group.riverId === 'wabash-river';
 const isGooseCreekHub = group.riverId === 'goose-creek';
+const isKinniconickHub = group.riverId === 'kinniconick-creek';
 const isVillageCreekHub = group.riverId === 'village-creek';
 const isElevenPointHub = group.riverId === 'eleven-point-river';
 const isJacksForkHub = group.riverId === 'jacks-fork-river';
@@ -124,6 +125,8 @@ const groupTitle = isBroadRiverHub
   ? 'Wabash River near Bluffton, Indiana | Paddle Trips & Access'
   : isGooseCreekHub
   ? 'Goose Creek, Kentucky | Paddling Sections, Gauge & Access'
+  : isKinniconickHub
+  ? 'Kinniconick Creek, Kentucky | Paddle Sections, Mileage & Gauge'
   : isSpokaneHub
   ? 'Spokane River, Washington | Paddling Sections, Gauges & Access'
   : isSaludaHub
@@ -219,6 +222,8 @@ const groupDescription = isBroadRiverHub
   ? 'Compare four Wabash River trips near Bluffton, from Linn Grove Park and Vera Cruz to White Bridge, Kehoe Park, and Hale Street. Check public access, distance, the Bluffton gauge, and local stage guidance.'
   : isGooseCreekHub
   ? 'Compare five Goose Creek trips in Clay County, Kentucky. See KDFWR mileages, Manchester gauge recommendations, roadside access notes, and the Dump Hollow ford warning.'
+  : isKinniconickHub
+  ? 'Compare six Kinniconick Creek trips in Lewis County, Kentucky. See KDFWR access mileage, Tygarts Creek proxy gauge recommendations, route distances, and carry-down access notes.'
   : isSpokaneHub
   ? 'Plan the Spokane River by its distinct upper reaches, lower whitewater and Nine Mile flatwater pool. Compare six focused Water Trail sections and 20 alternate endpoint choices, with local access, gauge context and safety notes.'
   : isSaludaHub
@@ -686,6 +691,8 @@ const faqItems = [
       ? 'Choose among four trips on the same Wells County access chain: Linn Grove to White Bridge, Vera Cruz to Kehoe Park, Vera Cruz to Hale Street, or Linn Grove to Hale Street. These share river miles and public access points, but differ in launch, take-out, total distance, and shuttle plan.'
       : isGooseCreekHub
       ? 'The five trips follow one lower-Manchester access chain from Jacks/Bowling Branch through Tobacco Road and Dump Hollow to Laurel Branch. KDFWR rates 175–514 cfs or 7.4–8.5 feet as “Good,” but explicitly presents these as recommendations, not safety limits. Dump Hollow is a ford-side access where high water can make crossing or turning around difficult or dangerous.'
+      : isKinniconickHub
+      ? 'KDFWR maps a connected access chain from Leatherwood Branch through McDowells Creek and Mill Pond Creek to Garrison. Compare the three focused sections first; three additional endpoint combinations remain selectable on the hub with their own distance and shuttle details.'
       : isSpokaneHub
       ? 'Start with the Water Trail’s six distinct sections: Harvard–Barker (2 miles, Class I), Barker–Mirabeau (4.5 miles, Class II), Mirabeau–Plante’s Ferry (1 mile, mostly flatwater), Plante’s Ferry–Boulder Beach (4.5 miles, mostly flatwater), TJ Meenach–Plese Flats (expert Class III–IV), and Plese Flats–Nine Mile Dam (5 miles, flatwater). Twenty other endpoint choices remain available as trip cards.'
       : isSaludaHub
@@ -776,6 +783,8 @@ const faqItems = [
       ? 'Wells County Trails calls 1.5–3 feet the ideal kayaking height, warns that low water may require dragging, and says to stay off the river during Action or Flood Stage. Check USGS 03323000 at Bluffton and the local flood-stage status before setting out; a gauge reading alone is not a safety guarantee.'
       : isGooseCreekHub
       ? 'Use USGS 03281100 at Manchester with KDFWR’s local recommendations: 175–514 cfs or 7.4–8.5 feet is rated “Good.” KDFWR says those ratings are recommendations, not safety limits. Compare the live reading, stage, recent rain, and trend; this small creek can change quickly, and high water makes the Dump Hollow ford less forgiving.'
+      : isKinniconickHub
+      ? 'KDFWR says no current stream gage is available on Kinniconick Creek and uses USGS 03217000 on Tygarts Creek near Greenup as a proxy because it closely mimics Kinniconick levels. Its 2.5–3.5 ft and 50–130 cfs “Good” bands are recommendations, not safety limits. If stage and discharge disagree, treat conditions as marginal and check local water, recent rain, and trend.'
       : isSpokaneHub
       ? 'Use USGS 12419000 near Post Falls for the short Harvard–Barker section; it is upstream context for the rest of the upper river and does not confirm local water near Barker and Sullivan. USGS 12422500 at Spokane provides lower-river context. The TJ Meenach–Plese expert run, upper combinations beyond Barker, and the Nine Mile pool are planning-only because their conditions cannot be represented safely by one live score.'
       : isSaludaHub
@@ -912,6 +921,8 @@ const groupStructuredData = [
             ? 'Choose from the first two DNR map sections, then select the exact launch and take-out. Start with the recommended Forbes–Zim or Paupores–Brookston day trip; use the selected card for its gauge, access, and hazard notes. The separate Highway 2–Lake Superior map describes a different downstream whitewater area.'
             : isGooseCreekHub
             ? 'Choose among five trips along one lower-Manchester access chain: Jacks/Bowling Branch, Tobacco Road, Dump Hollow, and Laurel Branch. All use the Manchester gauge context. KDFWR’s 175–514 cfs and 7.4–8.5 ft “Good” bands are recommendations, not safety limits; Dump Hollow is a ford-side access that can be difficult or dangerous at high water.'
+            : isKinniconickHub
+            ? 'Choose a section along Kinniconick Creek from Leatherwood Branch to Garrison. The Tygarts Creek gauge is only a proxy for local conditions; KDFWR’s “Good” bands are planning recommendations. Expect a semi-shallow stream with rock bars and woody debris, and use the named public access sites because much of the surrounding land is private.'
             : isWillimanticHub
             ? 'Compare five selected Willimantic trips across three distinct stretches: upper quickwater, the Eagleville impoundment, and the river below the dam. Each stretch has different access, gauge cues, and hazards.'
             : isCedarRiverAdirondacksHub
@@ -1915,9 +1926,9 @@ const groupStructuredData = [
                       <span data-group-initial-score>{route.scoreEligibility === 'planning' ? 'Planning route' : 'Loading'}</span>
                     </span>
                   </button>
-                  {isWillimanticHub || isMerrimackHub || isSpokaneHub || isSaludaHub || isWabashHub || isGooseCreekHub || isVillageCreekHub || isElevenPointHub || isJacksForkHub || isCurrentRiverHub || isYellowBreechesHub || isSaltRiverHub || isAnimasHub || isHousatonicHub || isPenobscotHub ? (
+                  {isWillimanticHub || isMerrimackHub || isSpokaneHub || isSaludaHub || isWabashHub || isGooseCreekHub || isKinniconickHub || isVillageCreekHub || isElevenPointHub || isJacksForkHub || isCurrentRiverHub || isYellowBreechesHub || isSaltRiverHub || isAnimasHub || isHousatonicHub || isPenobscotHub ? (
                     <details class="route-choice__trip-notes">
-                      <summary>{isJacksForkHub || isCurrentRiverHub || isYellowBreechesHub ? 'Access, gauge, shuttle, and camping notes' : isSaltRiverHub || isGooseCreekHub ? 'Access, gauge, shuttle, and safety notes' : isAnimasHub || isHousatonicHub ? 'Access, flow, and safety notes' : isPenobscotHub ? 'Access, gauge, shuttle, camping, and safety notes' : 'Access, gauge, and safety notes'}</summary>
+                      <summary>{isJacksForkHub || isCurrentRiverHub || isYellowBreechesHub ? 'Access, gauge, shuttle, and camping notes' : isSaltRiverHub || isGooseCreekHub || isKinniconickHub ? 'Access, gauge, shuttle, and safety notes' : isAnimasHub || isHousatonicHub ? 'Access, flow, and safety notes' : isPenobscotHub ? 'Access, gauge, shuttle, camping, and safety notes' : 'Access, gauge, and safety notes'}</summary>
                       <div>
                         <p>{route.logistics?.summary || route.summary}</p>
                         <p>
@@ -1930,7 +1941,11 @@ const groupStructuredData = [
                           {route.scoreEligibility !== 'planning' && typeof (route.profile.idealMin ?? route.profile.tooLow) === 'number'
                             ? `; use ${route.profile.idealMin ?? route.profile.tooLow} ${route.gaugeSource.unit} as this route’s published planning floor.`
                             : '.'}
-                          {' '}{route.scoreEligibility === 'planning' ? 'No route-specific numeric flow band is verified; treat this station as context and check local conditions.' : 'This is route-specific planning guidance, not a safety guarantee; check the live reading and trend before launch.'}
+                          {' '}{route.scoreEligibility === 'planning'
+                            ? isKinniconickHub
+                              ? 'KDFWR publishes proxy-gauge recommendations, but this trip has no live score; use the reading as planning context and check local conditions.'
+                              : 'No route-specific numeric flow band is verified; treat this station as context and check local conditions.'
+                            : 'This is route-specific planning guidance, not a safety guarantee; check the live reading and trend before launch.'}
                         </p>
                         {isJacksForkHub && route.logistics?.shuttle ? <p><strong>Shuttle:</strong> {route.logistics.shuttle}</p> : null}
                         {isJacksForkHub && route.logistics?.camping ? <p><strong>Camping:</strong> {route.logistics.camping}</p> : null}
@@ -1950,6 +1965,9 @@ const groupStructuredData = [
                         {isGooseCreekHub && route.logistics?.shuttle ? <p><strong>Shuttle:</strong> {route.logistics.shuttle}</p> : null}
                         {isGooseCreekHub && route.logistics?.camping ? <p><strong>Camping:</strong> {route.logistics.camping}</p> : null}
                         {isGooseCreekHub && route.logistics?.permits ? <p><strong>Rules:</strong> {route.logistics.permits}</p> : null}
+                        {isKinniconickHub && route.logistics?.shuttle ? <p><strong>Shuttle:</strong> {route.logistics.shuttle}</p> : null}
+                        {isKinniconickHub && route.logistics?.camping ? <p><strong>Camping:</strong> {route.logistics.camping}</p> : null}
+                        {isKinniconickHub && route.logistics?.permits ? <p><strong>Rules:</strong> {route.logistics.permits}</p> : null}
                         {route.logistics?.accessCaveats?.length ? (
                           <ul>{route.logistics.accessCaveats.map((note) => <li>{note}</li>)}</ul>
                         ) : null}
@@ -2821,6 +2839,47 @@ const groupStructuredData = [
 
           <p>
             Review KDFWR’s <a href="https://fw.ky.gov/Fish/Pages/Goose_Creek.aspx" target="_blank" rel="noopener noreferrer">Goose Creek mileages, level recommendations, and access descriptions</a> and its <a href="https://app.fw.ky.gov/fisheries/accesssitedetail.aspx?asid=1197" target="_blank" rel="noopener noreferrer">Dump Hollow Ford access notes</a> before planning the route.
+          </p>
+        </div>
+      ) : null}
+
+      {isKinniconickHub ? (
+        <div class="river-hub-context__source-guide" id="kinniconick-access-chain" aria-labelledby="kinniconick-access-chain-title">
+          <div class="river-group-page__section-head">
+            <div>
+              <p class="eyebrow section-label">Lewis County · Kentucky</p>
+              <h3 class="section-title" id="kinniconick-access-chain-title">Choose a section along the Kinniconick access chain</h3>
+            </div>
+            <p class="muted river-group-page__section-note">
+              The three focused trips cover the long upper run to McDowells Creek and the two short access legs toward Garrison. Longer combinations remain available in the trip picker.
+            </p>
+          </div>
+
+          <div class="river-hub-context__grid">
+            <article class="river-hub-context__item">
+              <h3>KDFWR’s access mileages</h3>
+              <p>
+                KDFWR lists Leatherwood Branch to Puncheon/Pipe Lick at 13.1 miles, Puncheon/Pipe Lick to McDowells Creek at 14.1 miles, McDowells Creek to Mill Pond Creek at 1.6 miles, and Mill Pond Creek to Garrison Ramp at 2.7 miles. The route cards combine these mapped legs into six endpoint choices; each card keeps its own distance, shuttle, and access notes.
+              </p>
+              <ul>
+                <li><a href="#trip-kinniconick-creek-leatherwood-branch-mcdowells-creek">Leatherwood Branch to McDowells Creek · 27.2 miles</a></li>
+                <li><a href="#trip-kinniconick-creek-mcdowells-creek-mill-pond-creek">McDowells Creek to Mill Pond Creek · 1.6 miles</a></li>
+                <li><a href="#trip-kinniconick-creek-mill-pond-creek-garrison">Mill Pond Creek to Garrison · 2.7 miles</a></li>
+              </ul>
+            </article>
+            <article class="river-hub-context__item">
+              <h3>Proxy gauge and access limits</h3>
+              <p>
+                KDFWR says there is no current stream gage on Kinniconick Creek and uses USGS 03217000 on Tygarts Creek near Greenup as a proxy. Its “Good” bands are 2.5–3.5 feet or 50–130 cfs, and are recommendations rather than safety limits. KDFWR describes a semi-shallow creek with rock bars, woody debris, riffles, and pools; check recent rain and the live trend before launch.
+              </p>
+              <p>
+                KDFWR warns that most Kentucky streams border private property. Stay at the named public access sites; check each trip card for the carry-down, parking, shuttle, and no-camping notes. Review the live <a href="https://waterdata.usgs.gov/monitoring-location/03217000/" target="_blank" rel="noopener noreferrer">Tygarts Creek near Greenup gauge</a> with recent rain and trend before launch.
+              </p>
+            </article>
+          </div>
+
+          <p>
+            Review KDFWR’s <a href="https://fw.ky.gov/Fish/Pages/Kinniconick_Creek.aspx" target="_blank" rel="noopener noreferrer">Kinniconick Creek mileages, recommended levels, and access descriptions</a> before choosing a trip.
           </p>
         </div>
       ) : null}
