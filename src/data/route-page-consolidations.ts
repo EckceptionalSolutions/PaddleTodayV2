@@ -846,9 +846,22 @@ const kennebecConsolidatedRouteSlugs = [
 ] as const;
 
 const penobscotConsolidatedRouteSlugs = [
+  'penobscot-river-bangor-hampden',
+  'penobscot-river-bangor-verona',
+  'penobscot-river-brewer-bangor',
+  'penobscot-river-eddington-orrington',
+  'penobscot-river-hampden-eddington',
+  'penobscot-river-howland-passadumkeag',
+  'penobscot-river-lincoln-howland',
   'penobscot-river-medway-lincoln',
   'penobscot-river-lincoln-passadumkeag',
   'penobscot-river-medway-greenbush',
+  'penobscot-river-milford-bangor',
+  'penobscot-river-milford-orono',
+  'penobscot-river-orono-brewer',
+  'penobscot-river-passadumkeag-milford',
+  'penobscot-river-t3r11-medway',
+  'penobscot-river-winn-lincoln',
   'penobscot-river-winn-greenbush',
 ] as const;
 

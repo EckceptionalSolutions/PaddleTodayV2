@@ -1904,9 +1904,9 @@ const groupStructuredData = [
                       <span data-group-initial-score>{route.scoreEligibility === 'planning' ? 'Planning route' : 'Loading'}</span>
                     </span>
                   </button>
-                  {isWillimanticHub || isMerrimackHub || isSpokaneHub || isSaludaHub || isWabashHub || isVillageCreekHub || isElevenPointHub || isJacksForkHub || isCurrentRiverHub || isYellowBreechesHub || isSaltRiverHub || isAnimasHub || isHousatonicHub ? (
+                  {isWillimanticHub || isMerrimackHub || isSpokaneHub || isSaludaHub || isWabashHub || isVillageCreekHub || isElevenPointHub || isJacksForkHub || isCurrentRiverHub || isYellowBreechesHub || isSaltRiverHub || isAnimasHub || isHousatonicHub || isPenobscotHub ? (
                     <details class="route-choice__trip-notes">
-                      <summary>{isJacksForkHub || isCurrentRiverHub || isYellowBreechesHub ? 'Access, gauge, shuttle, and camping notes' : isSaltRiverHub ? 'Access, gauge, shuttle, and safety notes' : isAnimasHub || isHousatonicHub ? 'Access, flow, and safety notes' : 'Access, gauge, and safety notes'}</summary>
+                      <summary>{isJacksForkHub || isCurrentRiverHub || isYellowBreechesHub ? 'Access, gauge, shuttle, and camping notes' : isSaltRiverHub ? 'Access, gauge, shuttle, and safety notes' : isAnimasHub || isHousatonicHub ? 'Access, flow, and safety notes' : isPenobscotHub ? 'Access, gauge, shuttle, camping, and safety notes' : 'Access, gauge, and safety notes'}</summary>
                       <div>
                         <p>{route.logistics?.summary || route.summary}</p>
                         <p>
@@ -1933,6 +1933,9 @@ const groupStructuredData = [
                         {isSaltRiverHub && route.logistics?.shuttle ? <p><strong>Shuttle:</strong> {route.logistics.shuttle}</p> : null}
                         {isSaltRiverHub && route.logistics?.camping ? <p><strong>Camping:</strong> {route.logistics.camping}</p> : null}
                         {isSaltRiverHub && route.logistics?.permits ? <p><strong>Rules:</strong> {route.logistics.permits}</p> : null}
+                        {isPenobscotHub && route.logistics?.shuttle ? <p><strong>Shuttle:</strong> {route.logistics.shuttle}</p> : null}
+                        {isPenobscotHub && route.logistics?.camping ? <p><strong>Camping:</strong> {route.logistics.camping}</p> : null}
+                        {isPenobscotHub && route.logistics?.permits ? <p><strong>Rules:</strong> {route.logistics.permits}</p> : null}
                         {route.logistics?.accessCaveats?.length ? (
                           <ul>{route.logistics.accessCaveats.map((note) => <li>{note}</li>)}</ul>
                         ) : null}
@@ -2093,6 +2096,8 @@ const groupStructuredData = [
               ? `Compare all ${group.routeCount} Little Fork trip choices here. Seven reach-specific guides keep standalone pages; three composite endpoint combinations open their exact trip cards on this hub. All ten choices retain their own endpoints, distances, access details, and gauge assignments.`
               : isStLouisRiverHub
               ? `Compare all ${group.routeCount} public St. Louis River choices here. Six focused access sections keep their guides; three longer combinations open their exact trip cards on this hub. Each choice retains its endpoints, distance, access notes, and route-specific Forbes or Floodwood gauge context.`
+              : isPenobscotHub
+              ? `Compare all ${group.routeCount} Penobscot trip choices here. The hub keeps each endpoint pair and its access, gauge, shuttle, camping, and hazard notes together. Start with the trail section guide below: the West Enfield Dam portage, Bangor Valley rapids, and tidal lower river need different plans.`
               : isHousatonicHub
               ? `Compare all ${group.routeCount} Berkshire Housatonic trip choices here. Nine reach-specific sections keep standalone pages; six longer endpoint combinations remain selectable with their own access, mileage, gauge, portage, and safety details.`
               : isWillimanticHub
@@ -2663,7 +2668,7 @@ const groupStructuredData = [
               <h3 class="section-title" id="st-louis-water-trail-sections-title">Start with a map section and its recommended trip</h3>
             </div>
             <p class="muted river-group-page__section-note">
-              The 11 trip choices here cover DNR Maps 1 and 2. The maps describe different reaches, access chains, and gauge zones; choose a trip card with matching endpoints before checking conditions.
+              The nine selectable trip choices here cover DNR Maps 1 and 2. The maps describe different reaches, access chains, and gauge zones; choose a trip card with matching endpoints before checking conditions.
             </p>
           </div>
 
@@ -2702,6 +2707,65 @@ const groupStructuredData = [
 
           <p>
             Minnesota DNR divides the full water trail into three maps. Map 3, from Highway 2 to Lake Superior, includes multiple dams and Class I–VI rapids, with parts of Jay Cooke State Park reserved for expert whitewater kayakers; it is a separate paddling area and is not represented by these nine selectable trips. Review the official <a href="https://www.dnr.state.mn.us/state-water-trails/st-louis-river/segments-maps.html" target="_blank" rel="noopener noreferrer">segment notes</a>, <a href="https://files.dnr.state.mn.us/maps/canoe_routes/stlouis1.pdf" target="_blank" rel="noopener noreferrer">Map 1</a>, and <a href="https://files.dnr.state.mn.us/maps/canoe_routes/stlouis2.pdf" target="_blank" rel="noopener noreferrer">Map 2</a>. Use the gauge assigned to your exact trip: Forbes for the upper corridor and Floodwood for the lower one. Gauge heights from different stations are not directly comparable.
+          </p>
+        </div>
+      ) : null}
+
+      {isPenobscotHub ? (
+        <div class="river-hub-context__source-guide" id="penobscot-water-trail-sections" aria-labelledby="penobscot-water-trail-sections-title">
+          <div class="river-group-page__section-head">
+            <div>
+              <p class="eyebrow section-label">Maine · Penobscot River Paddling Trail</p>
+              <h3 class="section-title" id="penobscot-water-trail-sections-title">Choose the river section before checking a gauge</h3>
+            </div>
+            <p class="muted river-group-page__section-note">
+              The 17 trip cards span north-central Maine, the West Enfield Dam transfer, the Bangor Valley, and the tidal estuary. These are distinct planning areas; a gauge or access note for one should not be applied to the others.
+            </p>
+          </div>
+
+          <div class="river-hub-context__grid">
+            <article class="river-hub-context__item">
+              <h3>North-central trail · Medway to Greenbush</h3>
+              <p>
+                The official access table places Medway at river mile 0, Winn at 17, Lincoln at 28, Passadumkeag at 43.8, and Greenbush at 54.5. The hub offers shorter endpoint choices and longer staged itineraries along this access chain. The separate T3 R11 WELS–Medway card begins in the remote corridor; confirm road access and designated campsite rules, and treat West Enfield as proxy context rather than a safe-flow cutoff.
+              </p>
+              <a href="#trip-penobscot-river-t3r11-medway">Review T3 R11–Medway access notes</a>
+              {' '}
+              <a href="#trip-penobscot-river-medway-lincoln">Compare a Medway–Lincoln trip</a>
+              {' '}
+              <a href="https://www.penobscotriverpaddlingtrail.org/index.php/campsites-and-access-points/" target="_blank" rel="noopener noreferrer">Official access and campsite table</a>
+            </article>
+            <article class="river-hub-context__item">
+              <h3>West Enfield Dam · take out and portage</h3>
+              <p>
+                The trail identifies Merrill Brook at river mile 38.2 as the take-out above the dam and Howland at mile 39.6 as the downstream relaunch. Plan a legal land transfer between them; river-mile totals that cross this boundary are not continuous paddle distances. The documented day trips split at Merrill Brook and resume at Howland.
+              </p>
+              <a href="#trip-penobscot-river-lincoln-howland">Review the Lincoln–Howland transfer notes</a>
+              {' '}
+              <a href="https://www.penobscotriverpaddlingtrail.org/index.php/elementor-1142/" target="_blank" rel="noopener noreferrer">Official one-day trip descriptions</a>
+            </article>
+            <article class="river-hub-context__item">
+              <h3>Old Town and Bangor Valley · rapids and developed shore</h3>
+              <p>
+                The trail’s Old Town-to-Bangor/Brewer day-trip descriptions include a whitewater reach. Read the exact card for its endpoints, gauge, access, and hazards; developed or industrial shoreline, current, wood, and landing hours make this a different plan from the north-central trail. Do not transfer the Lower West Branch’s remote-corridor Class III–V warning to every Bangor Valley mile.
+              </p>
+              <a href="#trip-penobscot-river-milford-bangor">Compare the Milford–Bangor option</a>
+              {' '}
+              <a href="#trip-penobscot-river-orono-brewer">Compare the Orono–Brewer option</a>
+            </article>
+            <article class="river-hub-context__item">
+              <h3>Below Bangor · tide, wind, and marine traffic</h3>
+              <p>
+                The head of tide is near Eddington Bend, and the lower estuary needs a marine plan for tide, wind, current, traffic, and daylight. The Bangor gauge provides local stage context, not a tide forecast or a universal launch threshold. Check conditions and take-out access for the exact trip card.
+              </p>
+              <a href="#trip-penobscot-river-bangor-verona">Compare the Bangor–Verona option</a>
+              {' '}
+              <a href="https://www.penobscotriverpaddlingtrail.org/index.php/elementor-1142/" target="_blank" rel="noopener noreferrer">Official lower-river trip notes</a>
+            </article>
+          </div>
+
+          <p>
+            For the separate remote Penobscot River Corridor, DACF warns about changing releases, remote roads, limited cell coverage, and Class III–V rapids in the Lower Penobscot River Corridor; those conditions do not describe the whole mainstem or tidal trail. Review <a href="https://www.maine.gov/dacf/parks/water_activities/prc-river-conditions.shtml" target="_blank" rel="noopener noreferrer">DACF corridor conditions</a>, the <a href="https://www.penobscotriverpaddlingtrail.org/index.php/campsites-and-access-points/" target="_blank" rel="noopener noreferrer">official access and campsite table</a>, and the <a href="https://www.penobscotriverpaddlingtrail.org/index.php/elementor-1142/" target="_blank" rel="noopener noreferrer">official day-trip guide</a>. Use West Enfield or Bangor readings only as the route card describes, then check local conditions, tide, weather, and current access notices.
           </p>
         </div>
       ) : null}
