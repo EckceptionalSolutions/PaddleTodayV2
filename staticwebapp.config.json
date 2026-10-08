@@ -149,7 +149,7 @@
     },
     {
       "route": "/rivers/susquehanna-river-canal-park-wetlands",
-      "redirect": "/rivers/susquehanna-river-canal-park-test-track/",
+      "redirect": "/rivers/by-river/susquehanna-river/#trip-susquehanna-river-canal-park-test-track",
       "statusCode": 301
     },
     {
@@ -164,17 +164,17 @@
     },
     {
       "route": "/rivers/susquehanna-river-tunkhannock-west-falls",
-      "redirect": "/rivers/susquehanna-river-laceyville-west-falls/",
+      "redirect": "/rivers/by-river/susquehanna-river/#trip-susquehanna-river-laceyville-west-falls",
       "statusCode": 301
     },
     {
       "route": "/rivers/susquehanna-river-laceyville-meshoppen",
-      "redirect": "/rivers/susquehanna-river-laceyville-west-falls/",
+      "redirect": "/rivers/by-river/susquehanna-river/#trip-susquehanna-river-laceyville-west-falls",
       "statusCode": 301
     },
     {
       "route": "/rivers/susquehanna-river-bloomsburg-danville",
-      "redirect": "/rivers/susquehanna-river-test-track-danville/",
+      "redirect": "/rivers/by-river/susquehanna-river/#trip-susquehanna-river-test-track-danville",
       "statusCode": 301
     },
     {
@@ -184,12 +184,12 @@
     },
     {
       "route": "/rivers/susquehanna-river-meshoppen-tunkhannock",
-      "redirect": "/rivers/susquehanna-river-laceyville-west-falls/",
+      "redirect": "/rivers/by-river/susquehanna-river/#trip-susquehanna-river-laceyville-west-falls",
       "statusCode": 301
     },
     {
       "route": "/rivers/susquehanna-river-bloomsburg-indian-head",
-      "redirect": "/rivers/susquehanna-river-test-track-danville/",
+      "redirect": "/rivers/by-river/susquehanna-river/#trip-susquehanna-river-test-track-danville",
       "statusCode": 301
     },
     {
@@ -199,32 +199,32 @@
     },
     {
       "route": "/rivers/susquehanna-river-whites-ferry-west-falls",
-      "redirect": "/rivers/susquehanna-river-laceyville-west-falls/",
+      "redirect": "/rivers/by-river/susquehanna-river/#trip-susquehanna-river-laceyville-west-falls",
       "statusCode": 301
     },
     {
       "route": "/rivers/susquehanna-river-wetlands-test-track",
-      "redirect": "/rivers/susquehanna-river-canal-park-test-track/",
+      "redirect": "/rivers/by-river/susquehanna-river/#trip-susquehanna-river-canal-park-test-track",
       "statusCode": 301
     },
     {
       "route": "/rivers/susquehanna-river-pfbc-union-township-wetlands",
-      "redirect": "/rivers/susquehanna-river-canal-park-test-track/",
+      "redirect": "/rivers/by-river/susquehanna-river/#trip-susquehanna-river-canal-park-test-track",
       "statusCode": 301
     },
     {
       "route": "/rivers/susquehanna-river-tunkhannock-whites-ferry",
-      "redirect": "/rivers/susquehanna-river-laceyville-west-falls/",
+      "redirect": "/rivers/by-river/susquehanna-river/#trip-susquehanna-river-laceyville-west-falls",
       "statusCode": 301
     },
     {
       "route": "/rivers/susquehanna-river-indian-head-danville",
-      "redirect": "/rivers/susquehanna-river-test-track-danville/",
+      "redirect": "/rivers/by-river/susquehanna-river/#trip-susquehanna-river-test-track-danville",
       "statusCode": 301
     },
     {
       "route": "/rivers/susquehanna-river-canal-park-pfbc-union-township",
-      "redirect": "/rivers/susquehanna-river-canal-park-test-track/",
+      "redirect": "/rivers/by-river/susquehanna-river/#trip-susquehanna-river-canal-park-test-track",
       "statusCode": 301
     },
     {
@@ -339,7 +339,7 @@
     },
     {
       "route": "/rivers/susquehanna-river-test-track-bloomsburg",
-      "redirect": "/rivers/susquehanna-river-test-track-danville/",
+      "redirect": "/rivers/by-river/susquehanna-river/#trip-susquehanna-river-test-track-danville",
       "statusCode": 301
     },
     {

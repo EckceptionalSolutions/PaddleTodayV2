@@ -417,7 +417,7 @@ const susquehannaConsolidatedRouteSlugs = [
   'susquehanna-river-test-track-indian-head',
 ] as const;
 const susquehannaLegacyRouteAliases = [
-  ['susquehanna-river-laceyville-meshoppen', '/rivers/susquehanna-river-laceyville-west-falls/'],
+  ['susquehanna-river-laceyville-meshoppen', `${susquehannaRiverHubPath}#trip-susquehanna-river-laceyville-west-falls`],
 ] as const;
 
 const farmingtonRiverConsolidatedRouteSlugs = [
