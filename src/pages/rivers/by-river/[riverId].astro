@@ -197,7 +197,7 @@ const groupDescription = isBroadRiverHub
   : isCrowWingHub
   ? 'Plan Crow Wing River trips by access section, from the Huntersville forest and Nimrod to Wadena County parks and Lake Placid. Compare all 12 trip options, the two Minnesota DNR map sections, and the separate Nimrod and Sylvan Dam gauge contexts.'
   : isChattahoocheeHub
-  ? 'Plan 11 Chattahoochee River route guides across the recreation area, upper river, and Columbus. Start with eight focused sections; Powers Island–Paces Mill and two whitewater runs have separate guides.'
+  ? 'Compare 79 Chattahoochee River trip choices across the National Recreation Area, upper river, and Columbus. Eight focused recreation-area guides lead to 68 additional endpoint combinations with their own gauge context; three separate guides cover distinct upper-river and whitewater reaches.'
   : isHousatonicHub
   ? 'Plan Berkshire Housatonic trips by reach, from the upper river and Glendale Dam portage to Great Barrington and Sheffield. Compare 15 trip options, public access, route-specific USGS gauges, and safety notes.'
   : isWillimanticHub
@@ -662,7 +662,7 @@ const faqItems = [
       : isCrowWingHub
       ? 'Minnesota DNR separates the river into a Map 1 reach to Nimrod and a Map 2 reach downstream. Start with the DNR-recommended Huntersville North–Mary Brown or Little White Dog–Cottingham day trip, or choose the named rapids, county-park, and Lake Placid sections. The hub keeps all 12 endpoint options, including five overlapping combinations.'
       : isChattahoocheeHub
-      ? 'The NPS float guide publishes seven float times. Start with eight focused recreation-area sections below; Powers Island–Paces Mill and the Upper Chattahoochee and Columbus whitewater runs have separate guides.'
+      ? 'The NPS float guide publishes seven float times. Start with eight focused recreation-area sections below; the picker also keeps 68 additional National Recreation Area combinations with their own endpoint and gauge context. Powers Island–Paces Mill and the Upper Chattahoochee and Columbus whitewater runs have separate guides.'
       : isHousatonicHub
       ? 'The Berkshire guide covers distinct upper, Stockbridge, and Great Barrington–Sheffield reaches. Compare the named public-access sections, then use the trip picker for six longer endpoint combinations that remain available with their own mileage, gauge, dam, and access notes.'
       : isLoupRiverHub
@@ -1503,7 +1503,7 @@ const groupStructuredData = [
           </div>
         </div>
         <p>
-          The NPS float-time guide publishes seven sections. These eight focused guides pair those float times with other named access sections; the three remaining guides cover Powers Island–Paces Mill and the separate upper and Columbus whitewater runs. Match the USGS station to the put-in, then check the release schedule and trend. NPS recommends canoe and kayak trips below 4,000 cfs and no water-based activity above 8,000 cfs.
+          The NPS float-time guide publishes seven sections. These eight focused guides pair those float times with named access sections; all 79 choices remain available below, including 68 additional National Recreation Area combinations with route-specific endpoints and gauge assignments. Powers Island–Paces Mill and the separate upper and Columbus whitewater runs have different paddling contexts. Match the USGS station to the put-in, then check the release schedule and trend. NPS recommends canoe and kayak trips below 4,000 cfs and no water-based activity above 8,000 cfs.
         </p>
         <div class="river-hub-context__grid">
           {chattahoocheeGaugeZones.map((zone) => (
@@ -2026,7 +2026,7 @@ const groupStructuredData = [
               : isSanJuanHub
               ? `Compare all ${group.routeCount} San Juan trip choices here. Five named access sections keep standalone pages; six longer combinations remain selectable with their own endpoints, mileage, intermediate access, gauge references, and hazards.`
               : isChattahoocheeHub
-              ? `Compare all ${group.routeCount} curated Chattahoochee route guides here. Eight focused recreation-area sections cover the NPS access chain; Powers Island–Paces Mill and the Upper Chattahoochee and Columbus whitewater runs remain separate because they describe different paddling contexts. Other endpoint combinations now lead to this section guide.`
+              ? `Compare all ${group.routeCount} Chattahoochee trip choices here. Eight focused recreation-area sections cover the NPS access chain; 68 additional National Recreation Area combinations remain selectable with their own endpoints, gauges, and access notes. Powers Island–Paces Mill and the Upper Chattahoochee and Columbus whitewater runs remain separate because they describe different paddling contexts.`
               : isHousatonicHub
               ? `Compare all ${group.routeCount} Berkshire Housatonic trip choices here. Nine reach-specific sections keep standalone pages; six longer endpoint combinations remain selectable with their own access, mileage, gauge, portage, and safety details.`
               : isWillimanticHub

@@ -38,3 +38,9 @@ Commit `c2395a6a5ece9d34e6564f8e60277107cfe032e9` deployed successfully. Fronten
 Production checks confirmed the Chattahoochee hub returns HTTP 200 and contains all 79 trip-card links. Each of the 68 consolidated NRA route paths serves its exact hub selection, preserving the route query and fragment; all eight retained NRA guides and the three separate Upper Chattahoochee, Powers Island–Paces Mill, and Columbus guides remain. The sitemap index and child sitemap return HTTP 200; the child contains 2,819 URLs, includes the hub and all 11 retained guides, and excludes the 68 consolidated pages. The put-in gauge assignments were included in the deployed hub and route records.
 
 Search Console settings remain unchanged; no sitemap submission or indexing request was made. These production checks confirm the release and catalog behavior, not a Google recrawl or ranking recovery.
+
+## Follow-up catalog correction — October 7, 2026
+
+A later route-catalog cleanup accidentally filtered the 68 consolidated National Recreation Area trip records out of `publicRivers`, in addition to removing their standalone pages. It also changed their redirects from exact trip-card anchors to the general section heading. That left only 11 trip cards on the hub and contradicted the decision above to keep all 79 choices available.
+
+The correction restores all 79 choices (76 National Recreation Area trips plus the three distinct Upper Chattahoochee, Powers Island–Paces Mill, and Columbus trips), keeps the same 11 standalone guides, and sends each of the 68 consolidated URLs to its matching `#trip-{slug}` card. The access registry was regenerated from the restored route inventory. CI and production verification for this correction are pending.
