@@ -1,0 +1,121 @@
+/* Shared motion: quiet, local to the pending work, and never input-blocking. */
+.loading-feedback[hidden], .navigation-feedback[hidden] { display: none !important; }
+.loading-feedback { min-width: 0; }
+.loading-feedback__status {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.55rem;
+  margin: 0 0 0.7rem;
+  color: var(--ink-soft);
+  font: 600 0.82rem/1.5 var(--sans);
+}
+.loading-feedback__indicator, .summary-map-loading::before {
+  content: '';
+  display: inline-block;
+  flex: 0 0 auto;
+  width: 0.85rem;
+  height: 0.85rem;
+  margin-top: 0.15rem;
+  border: 2px solid rgba(30, 115, 151, 0.2);
+  border-top-color: var(--river-deep);
+  border-radius: 50%;
+  animation: ui-loading-turn 1s linear infinite;
+}
+.summary-map-loading::before { margin: 0 0.5rem -0.1rem 0; }
+body[data-loading-board="refresh"] [data-board-refresh]::before {
+  content: '';
+  display: inline-block;
+  width: 0.75rem;
+  height: 0.75rem;
+  margin-right: 0.45rem;
+  vertical-align: -0.1rem;
+  border: 2px solid currentColor;
+  border-right-color: transparent;
+  border-radius: 50%;
+  animation: ui-loading-turn 1s linear infinite;
+}
+.loading-feedback__cards { display: grid; gap: 0.6rem; }
+.loading-feedback__card {
+  display: flex;
+  align-items: center;
+  gap: 0.7rem;
+  min-height: 5.5rem;
+  padding: 0.8rem;
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  background: var(--panel);
+}
+.ui-skeleton {
+  position: relative;
+  display: block;
+  overflow: hidden;
+  background: #e6eef0;
+  border-radius: 5px;
+}
+.ui-skeleton::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(100deg, transparent 20%, rgba(255,255,255,0.65) 50%, transparent 80%);
+  transform: translateX(-100%);
+  animation: ui-skeleton-sweep 1.8s ease-in-out 0.3s infinite;
+}
+.loading-feedback__score { flex: 0 0 2.5rem; height: 2.5rem; border-radius: 50%; }
+.loading-feedback__lines { display: grid; gap: 0.5rem; flex: 1; min-width: 0; }
+.loading-feedback__line { height: 0.7rem; width: 85%; }
+.loading-feedback__line--short { width: 60%; }
+.loading-feedback__line--detail { height: 0.5rem; width: 72%; }
+.loading-feedback[data-mode="refresh"] .loading-feedback__cards { display: none; }
+.loading-feedback[data-mode="initial"]:not([hidden]) + [data-summary-map-results] { display: none; }
+.navigation-feedback { position: fixed; inset: 0 0 auto; z-index: 10000; pointer-events: none; }
+.navigation-feedback__track { height: 3px; overflow: hidden; background: rgba(30,115,151,0.12); }
+.navigation-feedback__bar {
+  display: block;
+  width: 35%;
+  height: 100%;
+  background: linear-gradient(90deg, var(--river-deep), #72b6c5);
+  animation: ui-navigation-sweep 1.4s ease-in-out infinite;
+}
+.navigation-feedback__message {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+}
+.navigation-feedback[data-long-wait] .navigation-feedback__message {
+  position: fixed;
+  right: 1rem;
+  bottom: 1rem;
+  width: auto;
+  height: auto;
+  max-width: min(25rem, calc(100vw - 2rem));
+  padding: 0.7rem 1rem;
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  background: var(--panel);
+  box-shadow: var(--shadow);
+  color: var(--ink);
+  font: 600 0.85rem/1.5 var(--sans);
+  clip-path: none;
+}
+@keyframes ui-loading-turn { to { transform: rotate(360deg); } }
+@keyframes ui-skeleton-sweep { to { transform: translateX(100%); } }
+@keyframes ui-navigation-sweep { from { transform: translateX(-110%); } to { transform: translateX(400%); } }
+@media (prefers-reduced-motion: no-preference) {
+  @view-transition { navigation: auto; }
+  .site-header { view-transition-name: site-header; }
+  .main-shell { view-transition-name: page-content; }
+  ::view-transition-old(root), ::view-transition-old(site-header) { display: none; }
+  ::view-transition-new(root), ::view-transition-new(site-header) { animation: none; mix-blend-mode: normal; }
+  ::view-transition-old(page-content) { animation: ui-page-out 150ms ease-out both; }
+  ::view-transition-new(page-content) { animation: ui-page-in 150ms ease-out both; }
+}
+@keyframes ui-page-out { to { opacity: 0; } }
+@keyframes ui-page-in { from { opacity: 0; } to { opacity: 1; } }
+@media (prefers-reduced-motion: reduce) {
+  .ui-skeleton::after, .loading-feedback__indicator, .summary-map-loading::before,
+  .navigation-feedback__bar, body[data-loading-board="refresh"] [data-board-refresh]::before { animation: none; }
+  .ui-skeleton::after { display: none; }
+  .navigation-feedback__bar { width: 100%; opacity: 0.7; }
+}

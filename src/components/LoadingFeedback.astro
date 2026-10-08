@@ -1,0 +1,25 @@
+---
+const {
+  name,
+  label = 'Finding routes and current conditions…',
+  waiting = 'Still fetching current conditions. Your controls are ready to use.',
+  skeleton = true,
+} = Astro.props;
+---
+
+<div class="loading-feedback" data-loading-feedback={name} data-loading-label={label} data-loading-waiting={waiting} hidden>
+  <p class="loading-feedback__status" role="status" aria-live="polite">
+    <span class="loading-feedback__indicator" aria-hidden="true"></span>
+    <span data-loading-message>{label}</span>
+  </p>
+  {skeleton && <div class="loading-feedback__cards" aria-hidden="true">
+    {[0, 1, 2].map(() => <div class="loading-feedback__card">
+      <span class="ui-skeleton loading-feedback__score"></span>
+      <div class="loading-feedback__lines">
+        <span class="ui-skeleton loading-feedback__line"></span>
+        <span class="ui-skeleton loading-feedback__line loading-feedback__line--short"></span>
+        <span class="ui-skeleton loading-feedback__line loading-feedback__line--detail"></span>
+      </div>
+    </div>)}
+  </div>}
+</div>

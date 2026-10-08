@@ -1,5 +1,7 @@
 import { savedRouteSnapshot, savedRouteChanges, parseSavedRouteSnapshots, advanceSavedRouteSnapshot } from '@paddletoday/api-contract';
 import { bindFavoriteNotes } from './favorite-notes.js';
+import { createLoadingFeedback } from './loading-feedback.js';
+
 import { freshnessLabel, readCachedPayload, writeCachedPayload } from './client-cache.js';
 import { decorateFavoriteButton, bindFavoriteButtons, refreshFavoriteButtons } from './favorites-ui.js';
 import { readFavorites, readFavoritesStatus, subscribeFavorites, savedRoutesScope } from './favorites-store.js';
@@ -45,6 +47,7 @@ function recordSavedRouteVisit(results) {
   try { localStorage.setItem(CHANGES_KEY, JSON.stringify({ version: 1, routes })); } catch {}
 }
 
+const favoritesLoadingFeedback = createLoadingFeedback('favorites');
 const SUMMARY_CACHE_KEY = 'river-summary:v2';
 const root = document.querySelector('[data-favorites-page]');
 const summary = document.querySelector('[data-favorites-summary]');
@@ -705,6 +708,9 @@ async function loadFavorites() {
   if (storageLoadFailed) return;
   const { requestId, controller } = favoritesRequestGuard.begin();
   loading = true;
+  const finishFeedback = readFavorites().length
+    ? favoritesLoadingFeedback.start({ refreshing: true })
+    : () => {};
   updateSummaryLine(readFavorites());
 
   try {
@@ -739,6 +745,7 @@ async function loadFavorites() {
     renderFavorites(latestResults);
     console.error('Failed to load favorites summary.', error);
   } finally {
+    finishFeedback();
     loading = false;
     updateSummaryLine(readFavorites());
     favoritesRequestGuard.finish(controller);

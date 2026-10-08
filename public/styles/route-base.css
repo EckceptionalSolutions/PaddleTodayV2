@@ -529,6 +529,7 @@
   color: transparent !important;
   border-color: transparent;
   overflow: hidden;
+  background: #e6eef0;
 }
 
 .river-detail--loading [data-skeleton]::after {
@@ -536,10 +537,15 @@
   position: absolute;
   inset: 0;
   border-radius: inherit;
-  background:
-    linear-gradient(100deg, rgba(234, 240, 242, 0.88) 20%, rgba(255, 255, 255, 0.96) 50%, rgba(234, 240, 242, 0.88) 80%);
-  background-size: 220% 100%;
-  animation: river-skeleton-shimmer 1.25s ease-in-out infinite;
+  background: linear-gradient(100deg, transparent 20%, rgba(255,255,255,0.65) 50%, transparent 80%);
+  transform: translateX(-100%);
+  animation: ui-skeleton-sweep 1.8s ease-in-out 0.3s infinite;
+}
+
+.river-detail--loading :is(span, strong)[data-skeleton] {
+  display: inline-block;
+  min-width: 3ch;
+  vertical-align: middle;
 }
 
 .river-detail--loading .river-detail__summary[data-skeleton] {
@@ -891,5 +897,5 @@
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .river-detail--loading [data-skeleton]::after { animation: none; }
+  .river-detail--loading [data-skeleton]::after { animation: none; display: none; }
 }

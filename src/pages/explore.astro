@@ -2,6 +2,7 @@
 import BaseLayout from '../layouts/BaseLayout.astro';
 import FeatureIcon from '../components/FeatureIcon.astro';
 import SummaryMapPanel from '../components/SummaryMapPanel.astro';
+import LoadingFeedback from '../components/LoadingFeedback.astro';
 import RouteBoardCardTemplate from '../components/RouteBoardCardTemplate.astro';
 import { listRiverGroups, listRiverStateGroups, listRivers } from '../lib/rivers';
 
@@ -307,6 +308,7 @@ const trackedRiverCount = riverGroups.length;
               <p class="muted explore-workspace__list-note">Click a marker or a result to compare both views together.</p>
             </div>
             <div class="explore-grid-shell" data-explore-shell>
+              <LoadingFeedback name="board" />
               <div class="explore-empty-state" data-explore-empty hidden>
                 <p class="muted" data-explore-empty-message role="status"></p>
                 <button class="filter-chip" type="button" data-explore-clear-search hidden>Clear search</button>

@@ -8,6 +8,7 @@ import { webFeatureFlags } from '../../lib/web-feature-flags';
 import FeatureIcon from '../../components/FeatureIcon.astro';
 import GaugeBand from '../../components/GaugeBand.astro';
 import WeatherDayStrip from '../../components/WeatherDayStrip.astro';
+import LoadingFeedback from '../../components/LoadingFeedback.astro';
 import { getRouteGalleryPhotos, getRoutePreviewPhoto } from '../../data/route-gallery';
 import { getRouteSocialCard } from '../../data/route-social-cards';
 import { FAVORITE_STAR_PATH } from '../../lib/favorites-icon.js';
@@ -476,6 +477,7 @@ const routeFaqStructuredData = {
           </div>
         </div>
 
+        <LoadingFeedback name="detail" label="Checking current river conditions…" waiting="Still fetching river conditions. Route information and access details remain available below." skeleton={false} />
         <div class="route-overview-primary">
           <div class="river-detail__hero-map-shell" data-detail-hero-map-shell>
             <div class="river-detail__hero-map-frame">
@@ -564,11 +566,11 @@ const routeFaqStructuredData = {
                 <p class="eyebrow">Trip quality</p>
                 <div class="river-call-panel__scoreline">
                   <div class="score-orb score-orb--featured" role="img" aria-label="Live score loading">
-                    <span class="score-orb__score" data-field="score">--</span>
-                    <span class="score-orb__rating" data-field="rating">Checking</span>
+                    <span class="score-orb__score" data-field="score" data-skeleton>--</span>
+                    <span class="score-orb__rating" data-field="rating" data-skeleton>Checking</span>
                   </div>
                 </div>
-                <p class="river-call-panel__statement" data-field="decision-line">Checking today's read.</p>
+                <p class="river-call-panel__statement" data-field="decision-line" data-skeleton>Checking today's read.</p>
                 <details class="river-score-tooltip route-today-score__breakdown">
                   <summary class="river-score-tooltip__summary">
                     <span>Score breakdown</span>
@@ -638,7 +640,7 @@ const routeFaqStructuredData = {
                       <span class="route-condition-card__source" data-field="top-gauge-source">Checking source</span>
                     </div>
                     <div class="route-condition-card__value-row">
-                      <strong data-field="gauge-now">Checking</strong>
+                      <strong data-field="gauge-now" data-skeleton>Checking</strong>
                       <span data-field="flow-band">Checking window</span>
                     </div>
                     <p class="route-condition-card__interpretation" data-field="top-gauge-interpretation" hidden></p>
@@ -657,8 +659,8 @@ const routeFaqStructuredData = {
                   <article class="route-condition-card route-condition-card--weather">
                     <span class="route-condition-card__label">Weather</span>
                     <div class="route-condition-card__value-row">
-                      <strong data-field="weather-condition">Loading</strong>
-                      <span data-field="weather-air-temp-summary">Air: Checking</span>
+                      <strong data-field="weather-condition" data-skeleton>Loading</strong>
+                      <span data-field="weather-air-temp-summary" data-skeleton>Air: Checking</span>
                     </div>
                     <p><span data-field="weather-wind-summary">Checking wind</span> · <span data-field="weather-rain-risk">Checking rain</span></p>
                     <WeatherDayStrip compact />

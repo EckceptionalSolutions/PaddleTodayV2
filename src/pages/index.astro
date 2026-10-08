@@ -418,6 +418,20 @@ const homepageStructuredData = [
         class="hero-call home-featured home-featured--locked"
         data-home-featured
       >
+        <div class="home-featured__pending" aria-hidden="true">
+          <p class="eyebrow">Finding your best nearby paddle</p>
+          <span class="ui-skeleton home-featured__pending-title"></span>
+          <span class="ui-skeleton home-featured__pending-reach"></span>
+          <div class="home-featured__pending-score">
+            <span class="ui-skeleton home-featured__pending-orb"></span>
+            <div class="loading-feedback__lines">
+              <span class="ui-skeleton loading-feedback__line"></span>
+              <span class="ui-skeleton loading-feedback__line loading-feedback__line--short"></span>
+            </div>
+          </div>
+          <span class="ui-skeleton home-featured__pending-photo"></span>
+          <p class="home-featured__pending-note">Still fetching current conditions. You can adjust your preferences while we check.</p>
+        </div>
         <div class="home-featured__lock">
           <span class="home-featured__lock-icon" aria-hidden="true"><FeatureIcon name="compass" size={36} /></span>
           <p class="home-featured__lock-label">Today&apos;s Best</p>

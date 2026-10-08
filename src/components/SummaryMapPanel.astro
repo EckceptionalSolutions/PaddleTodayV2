@@ -1,6 +1,7 @@
 ---
 import FeatureIcon from './FeatureIcon.astro';
 import MapScoreLegendItems from './MapScoreLegendItems.astro';
+import LoadingFeedback from './LoadingFeedback.astro';
 
 const {
   id = 'route-map',
@@ -99,6 +100,11 @@ const shellClass = [mode === 'nearby' ? 'summary-map-shell summary-map-shell--ne
           </div>
           <p class="muted summary-map-results__note" data-summary-map-results-note>{note}</p>
         </div>
+        {!Astro.url.pathname.startsWith('/explore') && <LoadingFeedback
+          name={Astro.url.pathname.startsWith('/weekend') ? 'weekend' : 'board'}
+          label={Astro.url.pathname.startsWith('/weekend') ? 'Building your weekend shortlist…' : 'Finding routes and current conditions…'}
+          waiting={Astro.url.pathname.startsWith('/weekend') ? 'Still fetching the weekend outlook. Forecasts can take a little longer to arrive.' : 'Still fetching current conditions. Your controls are ready to use.'}
+        />}
         <div class="summary-map-results" data-summary-map-results aria-live="polite"></div>
 
       </div>

@@ -37,6 +37,9 @@ import {
 } from '../lib/weekend-planning.ts';
 import { ratingToneKey } from '@paddletoday/api-contract';
 import { getBrowserApiClient } from './browser-api-client.js';
+import { createLoadingFeedback } from './loading-feedback.js';
+
+const weekendLoadingFeedback = createLoadingFeedback('weekend');
 
 const AUTO_REFRESH_MS = 5 * 60 * 1000;
 const WEEKEND_CACHE_KEY = 'weekend-summary:v1';
@@ -1528,6 +1531,7 @@ async function loadWeekend({ silent = false } = {}) {
     renderUnavailable({ expired: true });
   }
   const { requestId, controller } = weekendRequestGuard.begin();
+  const finishFeedback = weekendLoadingFeedback.start({ refreshing: Boolean(latestWeekendPayload), silent });
   if (retryButton instanceof HTMLButtonElement) {
     retryButton.disabled = true;
     retryButton.textContent = 'Retrying…';
@@ -1575,6 +1579,7 @@ async function loadWeekend({ silent = false } = {}) {
 
     renderUnavailable();
   } finally {
+    finishFeedback();
     if (weekendRequestGuard.isCurrent(requestId) && retryButton instanceof HTMLButtonElement) {
       retryButton.disabled = false;
       retryButton.textContent = 'Retry weekend forecast';

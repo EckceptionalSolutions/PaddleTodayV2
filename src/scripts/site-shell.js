@@ -1,6 +1,9 @@
 import { prepareSearchIndex, findSearchMatches } from './site-search.js';
 import { favoriteCount, subscribeFavorites } from './favorites-store.js';
 import { trackEvent } from './analytics.js';
+import { initNavigationFeedback } from './navigation-feedback.js';
+
+initNavigationFeedback();
 
 const favoritesLink = document.querySelector('[data-site-favorites-link]');
 const favoritesCount = document.querySelector('[data-site-favorites-count]');

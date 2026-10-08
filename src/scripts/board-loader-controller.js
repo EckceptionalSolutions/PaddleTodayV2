@@ -5,6 +5,7 @@ import {
 } from './client-cache.js';
 import { getBrowserApiClient } from './browser-api-client.js';
 import { createRequestGuard, isAbortError } from './request-guard.js';
+import { createLoadingFeedback } from './loading-feedback.js';
 
 export function createBoardLoaderController({
   cacheKey,
@@ -19,6 +20,7 @@ export function createBoardLoaderController({
   showInitialFailure,
   requestGuard = createRequestGuard(),
   apiClient = getBrowserApiClient(),
+  loadingFeedback = createLoadingFeedback('board'),
   writeCache = writeCachedPayload,
   readCache = readCachedPayload,
   formatFreshness = freshnessLabel,
@@ -63,6 +65,7 @@ export function createBoardLoaderController({
   } = {}) {
     const { requestId, controller } = requestGuard.begin();
     const stateAtStart = getState();
+    const finishFeedback = loadingFeedback.start({ refreshing: stateAtStart.hasLoadedBoardOnce, silent });
 
     if (!silent) {
       setRefreshState('loading');
@@ -140,6 +143,7 @@ export function createBoardLoaderController({
       showInitialFailure();
       updateFreshness({ unavailable: true });
     } finally {
+      finishFeedback();
       requestGuard.finish(controller);
     }
   }

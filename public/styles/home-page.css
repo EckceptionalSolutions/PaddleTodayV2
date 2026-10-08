@@ -1,4 +1,26 @@
 /* Home-specific layout and controls. Home map styling lives in home-map.css. */
+.home-featured__pending { display: none; }
+body[data-loading-board="initial"] .home-hero:has(.home-location-bar--set) .home-featured--locked .home-featured__pending {
+  display: grid;
+  gap: 0.85rem;
+}
+body[data-loading-board="initial"] .home-hero:has(.home-location-bar--set) .home-featured--locked .home-featured__lock { display: none !important; }
+.home-featured__pending-title { height: 1.8rem; width: 65%; }
+.home-featured__pending-reach { height: 0.8rem; width: 80%; }
+.home-featured__pending-score { display: flex; align-items: center; gap: 1rem; padding-block: 0.75rem; }
+.home-featured__pending-orb { width: 6rem; height: 6rem; border-radius: 50%; flex-shrink: 0; }
+.home-featured__pending-photo { height: 11rem; width: 100%; border-radius: 18px; }
+.home-featured__pending-note { display: none; }
+body[data-loading-board-waiting] .home-featured__pending-note {
+  display: block;
+  color: var(--ink-soft);
+  font: 600 0.82rem/1.5 var(--sans);
+}
+@media (max-width: 760px) {
+  body[data-loading-board="initial"] .home-hero:has(.home-location-bar--set) .home-featured--locked {
+    padding: 1rem !important;
+  }
+}
 .home-how-it-works {
   grid-column: 1 / -1;
   display: grid;

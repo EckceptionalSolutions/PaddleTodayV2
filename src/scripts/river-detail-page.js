@@ -15,6 +15,8 @@
 import { readCachedPayload, writeCachedPayload } from './client-cache.js';
 import { bindFavoriteButtons } from './favorites-ui.js';
 import { trackEvent } from './analytics.js';
+import { createLoadingFeedback } from './loading-feedback.js';
+
 import { isCurrentCallUnavailable } from '../lib/current-call-availability.js';
 import { staticAssetUrl } from '../lib/static-asset-url.js';
 import {
@@ -43,6 +45,7 @@ import { createSubmissionCooldown } from './submission-cooldown.js';
 import { buildFloatPlanMessage } from '@paddletoday/trip-pack';
 import { buildRoutePlannerHref } from '../lib/route-segments.ts';
 
+const detailLoadingFeedback = createLoadingFeedback('detail');
 const SCORING_DECISION_POLICY_REVISION = 'publication-scoring-2026-09-04';
 
 const root = document.querySelector('[data-river-detail]');
@@ -5042,6 +5045,7 @@ async function loadHistory() {
 
 async function loadDetail({ silent = false } = {}) {
   const { requestId, controller } = detailRequestGuard.begin();
+  const finishFeedback = detailLoadingFeedback.start({ refreshing: hasLoadedDetailOnce, silent });
 
   if (!silent) {
     setDetailRefreshState('loading');
@@ -5053,7 +5057,7 @@ async function loadDetail({ silent = false } = {}) {
       signal: controller.signal,
     });
     const result = payload?.result;
-    if (!result) return;
+    if (!result) throw new Error('Route conditions were missing from the response.');
     if (!detailRequestGuard.isCurrent(requestId)) {
       return;
     }
@@ -5263,6 +5267,7 @@ async function loadDetail({ silent = false } = {}) {
       warnings: ['Data confidence is unavailable because live data could not be loaded.'],
     });
   } finally {
+    finishFeedback();
     detailRequestGuard.finish(controller);
   }
 }

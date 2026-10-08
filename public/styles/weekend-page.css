@@ -383,12 +383,27 @@
 
 }
 .weekend-hero__featured[aria-busy="true"] :is(.hero-call__state, .hero-call__title, .hero-call__reach, .hero-call__verdict, .hero-call__reason, .hero-call__signal-line, .score-orb__score, .score-orb__rating) {
+  position: relative;
+  overflow: hidden;
   display: block;
   min-height: 1.2em;
   min-width: 3ch;
   border-radius: 0.3rem;
   background: rgba(30, 115, 151, 0.1);
   color: transparent;
+}
+
+.weekend-hero__featured[aria-busy="true"] :is(.hero-call__state, .hero-call__title, .hero-call__reach, .hero-call__verdict, .hero-call__reason, .hero-call__signal-line, .score-orb__score, .score-orb__rating)::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(100deg, transparent 20%, rgba(255,255,255,0.65) 50%, transparent 80%);
+  transform: translateX(-100%);
+  animation: ui-skeleton-sweep 1.8s ease-in-out 0.3s infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .weekend-hero__featured[aria-busy="true"] ::after { animation: none; display: none; }
 }
 
 .weekend-hero__featured[aria-busy="true"] :is(.hero-call__reach, .hero-call__reason) {
