@@ -3336,6 +3336,46 @@ const groupStructuredData = [
         </div>
       ) : null}
 
+      {group.riverId === 'saco-river-new-hampshire' ? (
+        <div class="river-hub-context__source-guide" aria-labelledby="saco-section-guide-title">
+          <div class="river-group-page__section-head">
+            <div>
+              <p class="eyebrow section-label">Appalachian Mountain Club · Town of Conway</p>
+              <h3 class="section-title" id="saco-section-guide-title">Choose a Saco reach by skill and take-out</h3>
+            </div>
+            <p class="muted river-group-page__section-note">
+              The Conway options connect, but the final 2.5 miles include Class II whitewater and have no easy take-out before Powerline Rapid.
+            </p>
+          </div>
+
+          <p>
+            The Appalachian Mountain Club documents two adjacent Conway day trips. First Bridge to Davis Park is 8.5 miles of Class I water; Davis Park to Smith-Eastman is 2.5 miles with Conway Rips and Powerline Rapid. The longer endpoint combinations remain selectable below, with their own distances and intermediate exits.
+          </p>
+
+          <div class="river-hub-context__grid">
+            <article class="river-hub-context__item">
+              <h3>First Bridge to Davis Park · 8.5 miles · Class I</h3>
+              <p>This popular North Conway float follows the Saco past mountain views. AMC notes that shallow water can limit maneuvering and high water can strengthen the current.</p>
+              <a href={routeSlugHref('saco-river-first-bridge-davis-park')}>View the documented Class I reach</a>
+            </article>
+            <article class="river-hub-context__item">
+              <h3>Davis Park to Smith-Eastman · 2.5 miles · Class II</h3>
+              <p>AMC describes Conway Rips and Powerline Rapid and says there is no easy take-out before Powerline. Choose this reach only if the group is comfortable with whitewater.</p>
+              <a href={routeSlugHref('saco-river-davis-park-smith-eastman')}>Review the Class II reach and take-out</a>
+            </article>
+            <article class="river-hub-context__item">
+              <h3>Bartlett to Cooks Crossing · 5.3 miles · Class I–II</h3>
+              <p>Wilderness Portal documents this distinct White Mountain reach. Confirm current public parking and a lawful water entry at Cooks Crossing before staging.</p>
+              <a href={routeSlugHref('saco-river-bartlett-cooks-crossing')}>View the Bartlett day route</a>
+            </article>
+          </div>
+
+          <p>
+            The Town of Conway lists First Bridge, Davis Park, and Smith-Eastman among its public-use properties; check current posted hours, parking, and water entry. Read the <a href="https://www.outdoors.org/resources/amc-outdoors/destinations-travel/5-easy-day-paddles-on-the-saco-river/" target="_blank" rel="noopener noreferrer">AMC Saco day-paddle guide</a>, <a href="https://ecode360.com/29475968" target="_blank" rel="noopener noreferrer">Conway public-use rules</a>, and <a href="https://www.wildernessportal.com/routes/saco-river-bartlett-to-cooks-crossing" target="_blank" rel="noopener noreferrer">Bartlett–Cooks Crossing route guide</a> before choosing a trip.
+          </p>
+        </div>
+      ) : null}
+
       {group.riverId === 'bartram-canoe-trail-alabama' ? (
         <div class="river-hub-context__source-guide" aria-labelledby="bartram-itinerary-title">
           <div class="river-group-page__section-head">

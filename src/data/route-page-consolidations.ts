@@ -202,6 +202,17 @@ const alabamaBartramConsolidatedRouteSlugs = [
   'bartram-canal-dead-french-upper-bryant',
 ] as const;
 
+const newHampshireSacoHubPath = '/rivers/by-river/saco-river-new-hampshire/';
+const newHampshireSacoConsolidatedRouteSlugs = [
+  'saco-river-first-bridge-smith-eastman',
+  'saco-river-bartlett-davis-park',
+  'saco-river-bartlett-smith-eastman',
+  'saco-river-cooks-crossing-davis-park',
+  'saco-river-cooks-crossing-smith-eastman',
+  'saco-river-bartlett-first-bridge',
+  'saco-river-cooks-crossing-first-bridge',
+] as const;
+
 const wabashRiverConsolidatedRouteSlugs = [
   'wabash-river-linn-grove-white-bridge',
   'wabash-river-vera-cruz-kehoe-park',
@@ -1060,6 +1071,7 @@ const consolidatedRouteTargets = new Map<string, string>(
     ...mulberryForkConsolidatedRouteSlugs.map((slug) => [slug, `${mulberryForkHubPath}#trip-${slug}`] as const),
     ...androscogginMaineConsolidatedRouteSlugs.map((slug) => [slug, `${androscogginMaineHubPath}#trip-${slug}`] as const),
     ...alabamaBartramConsolidatedRouteSlugs.map((slug) => [slug, `${alabamaBartramHubPath}#trip-${slug}`] as const),
+    ...newHampshireSacoConsolidatedRouteSlugs.map((slug) => [slug, `${newHampshireSacoHubPath}#trip-${slug}`] as const),
     ...buffaloRiverConsolidatedRouteSlugs.map((slug) => [slug, `${buffaloRiverHubPath}#trip-${slug}`] as const),
     ...floydsForkConsolidatedRouteSlugs.map((slug) => [slug, `${floydsForkHubPath}#trip-${slug}`] as const),
     ...barrenRiverConsolidatedRouteSlugs.map((slug) => [slug, `${barrenRiverHubPath}#trip-${slug}`] as const),
