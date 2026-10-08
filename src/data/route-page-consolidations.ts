@@ -1131,12 +1131,12 @@ const consolidatedRouteTargets = new Map<string, string>(
         ? `${bayouTecheHubPath}#bayou-teche-access-notices`
         : `${bayouTecheHubPath}#trip-${slug}`,
     ] as const),
-    ...willametteConsolidatedRouteSlugs.map((slug) => [slug, `${willametteHubPath}#trip-${slug}`] as const),
+    ...willametteConsolidatedRouteSlugs.map((slug) => [slug, willametteHubPath] as const),
     ...broadRiverConsolidatedRouteSlugs.map((slug) => [slug, `${broadRiverHubPath}#trip-${slug}`] as const),
     ...russianRiverConsolidatedRouteSlugs.map((slug) => [slug, `/rivers/by-river/russian-river-california/#trip-${slug}`] as const),
     ...blackfootConsolidatedRouteSlugs.map((slug) => [slug, `${blackfootHubPath}#trip-${slug}`] as const),
     ...blackfootLegacyRouteAliases.map(([legacySlug, currentSlug]) => [legacySlug, `${blackfootHubPath}#trip-${currentSlug}`] as const),
-    ...greenRiverConsolidatedRouteSlugs.map((slug) => [slug, `${greenRiverHubPath}#trip-${slug}`] as const),
+    ...greenRiverConsolidatedRouteSlugs.map((slug) => [slug, greenRiverHubPath] as const),
     ...gooseCreekConsolidatedRouteSlugs.map((slug) => [slug, `${gooseCreekHubPath}#trip-${slug}`] as const),
     ...turkeyRiverConsolidatedRouteSlugs.map((slug) => [slug, `${turkeyRiverHubPath}#trip-${slug}`] as const),
     ...kinniconickCreekConsolidatedRouteSlugs.map((slug) => [slug, `${kinniconickCreekHubPath}#trip-${slug}`] as const),
@@ -1165,7 +1165,7 @@ const consolidatedRouteTargets = new Map<string, string>(
     ...pascagoulaConsolidatedRouteSlugs.map((slug) => [slug, `${pascagoulaHubPath}#trip-${slug}`] as const),
     ...kennebecConsolidatedRouteSlugs.map((slug) => [slug, `${kennebecHubPath}#trip-${slug}`] as const),
     ...penobscotConsolidatedRouteSlugs.map((slug) => [slug, `${penobscotHubPath}#trip-${slug}`] as const),
-    ...millersConsolidatedRouteSlugs.map((slug) => [slug, `${millersHubPath}#trip-${slug}`] as const),
+    ...millersConsolidatedRouteSlugs.map((slug) => [slug, millersHubPath] as const),
     ['millers-river-erving-south-main-dam', `${millersHubPath}#millers-route-zones`] as const,
     ...bayouDeViewConsolidatedRouteSlugs.map((slug) => [slug, `${bayouDeViewHubPath}#trip-${slug}`] as const),
     ...americanRiverConsolidatedRouteSlugs.map((slug) => [slug, `${americanRiverHubPath}#trip-${slug}`] as const),
@@ -1204,6 +1204,13 @@ const consolidatedRouteTargets = new Map<string, string>(
   ],
 );
 
+// Keep old source records for audits, but do not expose these retired combinations as hub trip cards.
+const hubOverviewOnlyRouteSlugs = new Set<string>([
+  ...willametteConsolidatedRouteSlugs,
+  ...greenRiverConsolidatedRouteSlugs,
+  ...millersConsolidatedRouteSlugs,
+]);
+
 export function routePageConsolidationTarget(slug: string): string | undefined {
   return consolidatedRouteTargets.get(slug);
 }
@@ -1221,6 +1228,10 @@ export function routePageHref(slug: string, params = new URLSearchParams()): str
 
 export function hasStandaloneRoutePage(slug: string): boolean {
   return !consolidatedRouteTargets.has(slug);
+}
+
+export function isHubOverviewOnlyRoute(slug: string): boolean {
+  return hubOverviewOnlyRouteSlugs.has(slug);
 }
 
 export function listRoutePageConsolidations() {

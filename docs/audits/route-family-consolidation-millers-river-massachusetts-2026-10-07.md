@@ -4,7 +4,7 @@
 
 Treat the Millers River catalog as a condition family with three distinct zones: the Athol–Orange impounded Blue Trail, the South Main Street Dam portage boundary, and the Lower Millers whitewater reaches. The catalog contains 22 endpoint records. Retain four source-distinct route pages, consolidate 17 overlapping endpoint combinations to the Millers River hub's matching trip cards, and withhold one route whose listed endpoints run upstream against the river.
 
-All underlying trip options remain available on the hub. The Erving gauge's 600–2,000 cfs planning range remains attached only to the named Erving-to-Millers Falls Lower Millers run. The alternate endpoint combinations, Blue Trail, Reach 6, and long cross-zone itinerary receive no route-specific Paddle Today score or numeric flow band.
+The original hub kept all 21 public trip options available. The October 8 curation removes the 17 overlapping composites from public selection and retains the four source-distinct trips. The Erving gauge's 600–2,000 cfs planning range remains attached only to the named Erving-to-Millers Falls Lower Millers run. The alternate endpoint combinations, Blue Trail, Reach 6, and long cross-zone itinerary receive no route-specific Paddle Today score or numeric flow band.
 
 ## Retained route pages
 
@@ -15,7 +15,7 @@ All underlying trip options remain available on the hub. The Erving gauge's 600�
 
 ## Consolidated and withheld records
 
-- 17 alternate endpoint combinations redirect to their corresponding selected trip option on the river hub. Route names, distance, access details, hazards, portages, and gauge context are preserved in trip details.
+- The 17 alternate endpoint combinations previously redirected to matching trip cards. Their source records remain in the internal route inventory, but the public URLs now redirect directly to the hub root and the combinations are not shown as separate trips.
 - `millers-river-erving-south-main-dam` is withheld from the trip selector. Its catalog starts at Erving and ends at Orange Riverfront Park, which reverses the river's downstream direction. Its retired URL points to the hub's reach guide without selecting that route.
 - The 2025 Royalston-to-Athol launch adds a potential upstream route area, but this catalog does not yet contain a source-verified trip record for that new access. Do not infer endpoints from the launch announcement alone.
 
@@ -28,8 +28,15 @@ All underlying trip options remain available on the hub. The Erving gauge's 600�
 - [USGS 01166500 at Erving](https://waterdata.usgs.gov/monitoring-location/USGS-01166500/) locates the gauge in the downstream Erving section, below the Blue Trail and Arch Street endpoint.
 - [Massachusetts 2025 Royalston–Athol access announcement](https://www.mass.gov/news/healey-driscoll-administration-celebrates-new-access-to-outdoor-recreation-on-the-millers-river) describes a new 6.6-mile upstream access stretch and its relationship to the downstream Blue Trail.
 
-## Implementation checks
+## Prior implementation checks, before the 2026-10-08 curation
 
-The hub identifies the distinct zones before the trip selector and links each zone to its source guide. Planning-only route pages say that no route-specific score or flow band is available. Trip details retain endpoint-specific access and hazard notes. The reversed route is held by the access review registry.
+The hub identifies the distinct zones before the trip selector and links each zone to its source guide. Planning-only route pages say that no route-specific score or flow band is available. The reversed route is held by the access review registry. The 17 alternate composites still appeared as trip cards at that time.
 
 The candidate build generated 2,982 pages, a 2,970-URL sitemap, and 321 exact trip redirects. The indexability audit checked 2,908 internal route links and found no orphaned pages, duplicate route headings, duplicate route descriptions, warnings, or errors. Route-data, route corridor, route deprecation, and route TypeScript audits passed. No automated tests were run for this data and presentation change.
+
+## Curation follow-up (2026-10-08)
+
+- The public Millers River hub now offers four named trips: Cass Meadow–Orange, Cass Meadow–Arch Street, below-dam Reach 6 to Arch Street, and Erving–Millers Falls.
+- The 17 alternate endpoint combinations are no longer distinct public trips. Their exact historical route URLs redirect to the Millers River hub root, avoiding anchors for cards that are no longer shown.
+- The reversed Erving-to-dam record remains withheld, and the hub retains its guidance for the separate Blue Trail, required dam portage, and Lower Millers whitewater zones.
+- All source records remain in the internal route inventory for maintenance and audits. A fresh site build and rendered-page audit remain for CI to verify after this change is pushed.

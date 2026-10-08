@@ -7,13 +7,13 @@
 
 The 32 options span three distinct paddling areas and multiple condition references. The catalog had treated most access-to-access combinations as separate pages and applied a score band inherited from one gauge/source to some long composites. That makes page content repetitive and risks presenting a local reading as if it described an entire multi-zone trip.
 
-The source-reviewed hub keeps all 32 choices and their endpoint, distance, access, shuttle, and hazard details, while retaining eight named trips as standalone pages:
+The initial source-reviewed hub kept all 32 choices in its picker, while retaining eight named trips as standalone pages:
 
 - Upper Green: Tailwater–Roachville and Tailwater–Greensburg.
 - Hart County: Lynn Camp Creek–Rio Carrydown, Rio Carrydown–H.H. Wilson, and H.H. Wilson–Stovall Park.
 - Mammoth Cave: Dennison Ferry–Green River Ferry, Green River Ferry–Houchin Ferry, and Houchin Ferry–Brownsville.
 
-The other 24 route URLs now redirect to the matching trip option on the Green River hub. The choices remain in the route picker and map.
+That left 24 overlapping composite choices in the picker. The October 8 curation removes those combinations from the public route catalog while keeping all eight named trips selectable.
 
 ## Condition zones and source scope
 
@@ -48,10 +48,17 @@ The source-backed named runs retain their existing route-specific score models, 
 - [NPS Mammoth Cave river safety, skill ranges, ferry rules, and closure](https://www.nps.gov/maca/planyourvisit/river-safety-and-regulations.htm)
 - [USGS Green River at Mammoth Cave, site 03309000](https://waterdata.usgs.gov/monitoring-location/USGS-03309000/)
 
-## Validation
+## Prior validation, before the 2026-10-08 curation
 
-The candidate build contains 2,988 sitemap URLs and 2,548 standalone route pages. The 24 retired Green River URLs have generated redirect pages that preserve their selected hub option; all 32 choices remain available on the hub. The indexability audit checked 2,926 route links, found no orphaned public pages or missing state/hub links, found unique standalone route H1s and descriptions, and returned no errors or warnings. The compact Azure configuration is 5,395 bytes. Production and Search Console remain unchanged. See [redirect delivery notes](route-consolidation-redirect-delivery-2026-10-07.md) for why these are generated instant meta refresh pages rather than per-route Azure 301 rules.
+The candidate build contained 2,988 sitemap URLs and 2,548 standalone route pages. The 24 retired Green River URLs had generated redirect pages that preserved their selected hub options; all 32 choices were available on the hub at that time. The indexability audit checked 2,926 route links, found no orphaned public pages or missing state/hub links, found unique standalone route H1s and descriptions, and returned no errors or warnings. The compact Azure configuration was 5,395 bytes. Production and Search Console were unchanged. See [redirect delivery notes](route-consolidation-redirect-delivery-2026-10-07.md) for why these are generated instant meta refresh pages rather than per-route Azure 301 rules.
 
 ## Search Console follow-up
 
-On October 7, Search Console's stale 404 sample still included the retired `/rivers/by-river/green-river/` hub URL. Commit `242c61d1e636b63d254e37ec46c58919580da42b` adds an Azure Static Web Apps 301 from the old hub path to the current 32-trip hub. Production now returns that 301 for both slash and non-slash forms; the old URL is not in the sitemap.
+On October 7, Search Console's stale 404 sample still included the retired `/rivers/by-river/green-river/` hub URL. Commit `242c61d1e636b63d254e37ec46c58919580da42b` adds an Azure Static Web Apps 301 from the old hub path to the current hub, which then listed 32 trips. Production returned that 301 for both slash and non-slash forms; the old URL was not in the sitemap.
+
+## Curation follow-up (2026-10-08)
+
+- The public Green River catalog now exposes the eight KDFWR and NPS named trips above. Those routes preserve the Upper Green, Hart County, and Mammoth Cave condition zones and their separate flow guidance.
+- The 24 former composite URLs remain covered by exact-path redirects, now directly to the Green River hub root; they are no longer trip-picker or map choices.
+- The hub’s descriptive copy now reflects the eight-route catalog and its three distinct condition zones.
+- All 32 source records remain available in the internal route inventory for audits; the public route index exposes only the eight selected trips. A fresh site build and rendered-page audit remain for CI to verify after this change is pushed.

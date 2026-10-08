@@ -1,6 +1,6 @@
 import type { River } from '../lib/types';
 import { enforceHighConsequencePlanning, isPublicRoute, isScoreEligible } from './route-publication';
-import { hasStandaloneRoutePage } from './route-page-consolidations';
+import { hasStandaloneRoutePage, isHubOverviewOnlyRoute } from './route-page-consolidations';
 import { arkansasRoutes } from './routes/arkansas';
 import { coloradoRoutes } from './routes/colorado';
 import { illinoisRoutes } from './routes/illinois';
@@ -2395,4 +2395,4 @@ export const routeInventory: River[] = routeOrder.map((slug) => {
 // Direct-gauge routes are score-eligible. Proxy-gauge routes remain public as
 // planning coverage, but are excluded from live scoring and recommendations.
 export const rivers: River[] = routeInventory.filter(isScoreEligible);
-export const publicRivers: River[] = routeInventory.filter(isPublicRoute);
+export const publicRivers: River[] = routeInventory.filter((route) => isPublicRoute(route) && !isHubOverviewOnlyRoute(route.slug));

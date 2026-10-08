@@ -297,7 +297,7 @@ const groupDescription = isOuachitaHub
   : isRussianRiverHub
   ? 'Compare Russian River trips from Asti and Healdsburg through Forestville and Guerneville. Check the right flow gauge for each stretch, seasonal access, and current dam notices.'
   : isWillametteHub
-  ? 'Compare Willamette Water Trail trips from Eugene through Corvallis. See which reaches have source-backed flow guidance, and compare planning-only options with nearby USGS context, distances, access, and hazards.'
+  ? 'Compare five curated Willamette Water Trail trips from Eugene through Corvallis, with route distances, access, hazards, and source-backed flow guidance where available.'
   : isLamoilleHub
   ? 'Plan a Lamoille River Paddlers’ Trail trip by reach. Compare the named day trips, mandatory falls and dam portages, Johnson gauge context, and route-specific access notes.'
   : isWoonasquatucketHub
@@ -772,13 +772,13 @@ const faqItems = [
       : isBayouDeViewHub
       ? 'The AGFC water trail runs 15.2 miles south from Benson Creek Access to Bank of Brinkley Access. Start with that full route or one of the named shorter sections; the trip selector keeps five other endpoint combinations available with their own access and distance details.'
       : isGreenRiverHub
-      ? 'Choose among the Upper Green from Tailwater toward Greensburg, the spring-fed Hart County reaches from Lynn Camp to Stovall Park, or the Mammoth Cave trips from Dennison Ferry through Houchin Ferry to Brownsville. Each zone has different access and condition guidance; the hub keeps all 32 endpoint choices available.'
+      ? 'Choose among eight named Green River trips across the Upper Green, Hart County, and Mammoth Cave. Each zone has different access and condition guidance, and the hub keeps those source-backed routes distinct.'
       : isMillersHub
       ? 'Start with the six-mile Cass Meadow-to-Orange flatwater Blue Trail, the Lower Millers whitewater from Erving toward Millers Falls, or a longer trip that uses the marked South Main Street Dam portage. These are separate sections with different conditions and access checks.'
       : isWillimanticHub
       ? `This guide highlights five selected trips across the Willimantic Water Trail's three distinct stretches. Choose a trip below to compare its distance, access, gauge cue, and hazards.`
       : isWillametteHub
-      ? 'The Water Trail documents distinct trips from Alton Baker to Harrisburg, Marshall Island to Harrisburg, Harrisburg to Peoria, Peoria to Crystal Lake, and Michael’s Landing to Hyak. Other endpoint combinations remain selectable below with their own distance, access, and hazard details.'
+      ? 'The Water Trail documents five distinct trips: Alton Baker to Harrisburg, Marshall Island to Harrisburg, Harrisburg to Peoria, Peoria to Crystal Lake, and Michael’s Landing to Hyak. Each has its own distance, access, and hazard notes; other endpoint combinations are no longer listed as separate trips.'
       : isBlackCreekHub
       ? `This hub keeps all ${group.routeCount} Black Creek landing combinations together. Start with the six documented adjacent reaches, or choose a longer trip that includes intermediate public landings.`
       : isLamoilleHub
@@ -856,7 +856,7 @@ const faqItems = [
       : isBayouDeViewHub
       ? 'Use the live USGS 07077730 gauge near Brinkley. AGFC says the trail needs a stage around 14 ft or higher, warns that high water is dangerous, and separately says the Dagmar Road gate closes at 17 ft. The gate closure is an access restriction, not an upper safe-water limit; check the roads and seasonal Apple Lake closure before launch.'
       : isWillametteHub
-      ? 'The Willamette Kayak and Canoe Club’s 2,000 cfs low, 6,000 cfs optimal, and 20,000 cfs high references apply to the Alton Baker–Harrisburg reach and two shorter options within it. The other trips are planning-only because no route-specific numeric range is verified; their Harrisburg or Corvallis USGS readings are context, not a live recommendation.'
+      ? 'The Willamette Kayak and Canoe Club’s 2,000 cfs low, 6,000 cfs optimal, and 20,000 cfs high references apply to the Alton Baker–Harrisburg reach and its selected Marshall Island–Harrisburg subreach. The other three selected trips are planning-only; their Harrisburg or Corvallis USGS readings are context, not a live recommendation.'
       : isTruckeeHub
       ? 'Use the gauge and flow notes attached to your selected route. USGS stations at Farad, Reno, Vista, and below Derby Dam cover different parts of the river. Truckee flow is regulated and varies by season; one station does not represent every reach or clear a dam portage, whitewater feature, or access restriction.'
       : isFarmingtonHub
@@ -2235,7 +2235,7 @@ const groupStructuredData = [
               : isSaludaHub
               ? 'One trip card represents the 3.5-mile reach from two alternative public launch ramps to the Gardendale carry-in take-out. The short cross-bank pair and I-26 endpoint combinations are not listed as trips because they add little route value or rely on an undocumented take-out.'
               : isGreenRiverHub
-              ? `Compare all ${group.routeCount} Green River trip choices across the Upper Green, Hart County, and Mammoth Cave. Eight source-backed trips keep standalone pages; the other 24 remain available here with their endpoint, mileage, access, and hazard details. Eleven cross-zone combinations are planning-only because their gauge guidance cannot be combined into one route score.`
+              ? 'Compare eight source-backed Green River trips across the Upper Green, Hart County, and Mammoth Cave. Each trip keeps its own endpoints, mileage, access, hazards, and local flow guidance.'
               : isBlackfootHub
               ? `Compare all ${group.routeCount} endpoint combinations here. Five source-documented runs keep standalone pages; the other 31 remain selectable as trip options. Route-specific flow scores are limited to those five named reaches; the rest show the Bonner gauge as context only.`
               : isAnimasHub
@@ -2261,7 +2261,7 @@ const groupStructuredData = [
               : isWillimanticHub
               ? 'Compare five selected trips across the three official water-trail stretches. The linked water-trail map shows additional public access points; check current access and conditions when planning your endpoints.'
               : isWillametteHub
-              ? `Compare all ${group.routeCount} endpoint combinations here. Five source-backed trips keep standalone pages; the other 45 remain selectable here with their own mileage, access, camping, and hazard notes. Three trips within the Alton Baker–Harrisburg flow-guidance reach have scores; the rest are planning-only.`
+              ? 'Compare five source-backed Willamette trips here. Each option keeps its own endpoints, mileage, access, and hazard notes. Alton Baker–Harrisburg and Marshall Island–Harrisburg have source-backed flow guidance; the other three trips are planning-only.'
               : isBuffaloHub
               ? 'Compare all 12 Buffalo National River endpoint choices. Ponca–Steel Creek and Pruitt–Hasty keep guides to NPS-named Upper District floats; Tyler Bend–Grinder’s Ferry covers the separate Middle District. The other nine combinations remain selectable with their own endpoints, mileage, gauge context, and hazards.'
               : isBlackCreekHub
@@ -2647,7 +2647,7 @@ const groupStructuredData = [
               <h3 class="section-title" id="millers-route-zones-title">Choose a reach before choosing a take-out</h3>
             </div>
             <p class="muted river-group-page__section-note">
-              These trips span a dam boundary and very different water types. Start with the section guide below, then compare the verified endpoint choices in the trip selector.
+              These four named trips span a dam boundary and very different water types. Start with the section guide below, then compare their verified endpoints and access notes in the trip selector.
             </p>
           </div>
 
@@ -3547,7 +3547,7 @@ const groupStructuredData = [
               <h3 class="section-title" id="green-river-sections-title">Choose a Green River zone first</h3>
             </div>
             <p class="muted river-group-page__section-note">
-              Eight source-backed trips keep standalone pages. The other 24 endpoint combinations remain available in the trip picker with their own route details.
+              The trip picker focuses on eight named routes with source-backed guidance. The other 24 former endpoint combinations now resolve to this hub overview.
             </p>
           </div>
 
