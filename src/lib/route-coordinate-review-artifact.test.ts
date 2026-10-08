@@ -2,6 +2,7 @@ import { readFileSync } from 'node:fs';
 import path from 'node:path';
 import { describe, expect, it } from 'vitest';
 import { routeAccessReviewHolds } from '../data/route-access-review-holds';
+import { routeCoordinateReviewReleases } from '../data/route-coordinate-review-releases';
 
 type ReviewEndpoint = {
   routeId: string;
@@ -414,7 +415,7 @@ describe('generated route coordinate review dashboard', () => {
     });
   });
 
-  it('releases only the official Upper Tyler Bend launch while preserving its separate parking anchor', () => {
+  it('releases the corrected Tyler Bend to Gilbert route after the official access review', () => {
     const endpointName = 'Tyler Bend river access';
     const routeIds = [
       'buffalo-river-tyler-bend-gilbert',
@@ -429,10 +430,13 @@ describe('generated route coordinate review dashboard', () => {
       routeIds.includes(suggestion.routeId) && suggestion.endpointName === endpointName)).toEqual([]);
     expect(payload.endpoints.filter((endpoint) =>
       routeIds.includes(endpoint.routeId) && endpoint.endpointName === endpointName)).toEqual([]);
-    // A verified put-in does not clear an independent take-out hold.
+    // The NPS river-access feature corrected the Gilbert take-out; the old hold is no longer valid.
     expect(withheldSource).not.toContain('"buffalo-river-tyler-bend-grinders-ferry"');
-    expect(withheldSource).toContain('"buffalo-river-tyler-bend-gilbert"');
-    expect(routeAccessReviewHolds['buffalo-river-tyler-bend-gilbert']).toContain('Gilbert horse-trailhead');
+    expect(withheldSource).not.toContain('"buffalo-river-tyler-bend-gilbert"');
+    expect(routeAccessReviewHolds['buffalo-river-tyler-bend-gilbert']).toBeUndefined();
+    expect(routeCoordinateReviewReleases['buffalo-river-tyler-bend-gilbert']).toContain(
+      'NPS Buffalo River Accesses GIS',
+    );
     expect(validation.results.filter((result) =>
       routeIds.includes(result.routeId) && result.endpointName === endpointName)
       .map((result) => result.passed)).toEqual([true, true]);
