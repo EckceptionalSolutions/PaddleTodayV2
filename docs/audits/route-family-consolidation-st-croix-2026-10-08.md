@@ -29,4 +29,8 @@ Keep the other St. Croix route pages as separate guides. NPS maps 4–10 divide 
 - Wisconsin Trail Guide, [St. Croix River section III](https://milespaddled.com/st-croix-river-iii/); supports the Fox Landing–Highway 70 endpoints and conservative low-water floor.
 - USGS, [St. Croix River near Danbury](https://waterdata.usgs.gov/monitoring-location/USGS-05333500/).
 
-`st-croix-river-fox-highway-70` now resolves to `/rivers/by-river/st-croix-river/#trip-st-croix-river-fox-highway-70`. The public route option remains in the 12-choice family and retains its route record and detailed planning data. Production and Search Console verification are pending deployment.
+`st-croix-river-fox-highway-70` now resolves to `/rivers/by-river/st-croix-river/#trip-st-croix-river-fox-highway-70`. The public route option remains in the 12-choice family and retains its route record and detailed planning data.
+
+## Deployment verification
+
+The October 8 frontend, API, Snapshot Worker, and River Alerts workflows all succeeded. Production serves the old route URL with an immediate fallback link to the exact trip card; the St. Croix hub returns HTTP 200 and includes that card. The sitemap index resolves to the canonical sitemap index, and its current child sitemap returns HTTP 200 with 2,536 URLs. It includes the St. Croix hub and omits the consolidated standalone route page. No Search Console sitemap submission or indexing request was made.

@@ -383,6 +383,126 @@
       "statusCode": 301
     },
     {
+      "route": "/rivers/juniata-river-walker-muskrat-springs",
+      "redirect": "/rivers/by-river/juniata-river/",
+      "statusCode": 301
+    },
+    {
+      "route": "/rivers/juniata-river-portstown-park-riverside-park",
+      "redirect": "/rivers/by-river/juniata-river/",
+      "statusCode": 301
+    },
+    {
+      "route": "/rivers/juniata-river-portstown-park-newton-hamilton",
+      "redirect": "/rivers/by-river/juniata-river/",
+      "statusCode": 301
+    },
+    {
+      "route": "/rivers/juniata-river-portstown-park-juniata-point",
+      "redirect": "/rivers/by-river/juniata-river/",
+      "statusCode": 301
+    },
+    {
+      "route": "/rivers/juniata-river-lewistown-narrows-walker",
+      "redirect": "/rivers/by-river/juniata-river/",
+      "statusCode": 301
+    },
+    {
+      "route": "/rivers/juniata-river-mt-union-newton-hamilton",
+      "redirect": "/rivers/by-river/juniata-river/",
+      "statusCode": 301
+    },
+    {
+      "route": "/rivers/juniata-river-mifflintown-walker",
+      "redirect": "/rivers/by-river/juniata-river/",
+      "statusCode": 301
+    },
+    {
+      "route": "/rivers/juniata-river-granville-lewistown-narrows",
+      "redirect": "/rivers/by-river/juniata-river/",
+      "statusCode": 301
+    },
+    {
+      "route": "/rivers/juniata-river-riverside-park-newton-hamilton",
+      "redirect": "/rivers/by-river/juniata-river/",
+      "statusCode": 301
+    },
+    {
+      "route": "/rivers/juniata-river-victory-park-lewistown-narrows",
+      "redirect": "/rivers/by-river/juniata-river/",
+      "statusCode": 301
+    },
+    {
+      "route": "/rivers/juniata-river-riverside-park-mt-union",
+      "redirect": "/rivers/by-river/juniata-river/",
+      "statusCode": 301
+    },
+    {
+      "route": "/rivers/juniata-river-newport-amity-hall",
+      "redirect": "/rivers/by-river/juniata-river/",
+      "statusCode": 301
+    },
+    {
+      "route": "/rivers/juniata-river-green-valley-amity-hall",
+      "redirect": "/rivers/by-river/juniata-river/",
+      "statusCode": 301
+    },
+    {
+      "route": "/rivers/juniata-river-newport-howe-township",
+      "redirect": "/rivers/by-river/juniata-river/",
+      "statusCode": 301
+    },
+    {
+      "route": "/rivers/juniata-river-juniata-point-newton-hamilton",
+      "redirect": "/rivers/by-river/juniata-river/",
+      "statusCode": 301
+    },
+    {
+      "route": "/rivers/juniata-river-granville-victory-park",
+      "redirect": "/rivers/by-river/juniata-river/",
+      "statusCode": 301
+    },
+    {
+      "route": "/rivers/juniata-river-shawmut-newton-hamilton",
+      "redirect": "/rivers/by-river/juniata-river/",
+      "statusCode": 301
+    },
+    {
+      "route": "/rivers/juniata-river-howe-township-amity-hall",
+      "redirect": "/rivers/by-river/juniata-river/",
+      "statusCode": 301
+    },
+    {
+      "route": "/rivers/juniata-river-juniata-point-riverside-park",
+      "redirect": "/rivers/by-river/juniata-river/",
+      "statusCode": 301
+    },
+    {
+      "route": "/rivers/juniata-river-lewistown-narrows-mifflin",
+      "redirect": "/rivers/by-river/juniata-river/",
+      "statusCode": 301
+    },
+    {
+      "route": "/rivers/juniata-river-riverside-park-shawmut",
+      "redirect": "/rivers/by-river/juniata-river/",
+      "statusCode": 301
+    },
+    {
+      "route": "/rivers/juniata-river-victory-park-mifflintown",
+      "redirect": "/rivers/by-river/juniata-river/",
+      "statusCode": 301
+    },
+    {
+      "route": "/rivers/juniata-river-granville-mifflin",
+      "redirect": "/rivers/by-river/juniata-river/",
+      "statusCode": 301
+    },
+    {
+      "route": "/rivers/juniata-river-juniata-point-mt-union",
+      "redirect": "/rivers/by-river/juniata-river/",
+      "statusCode": 301
+    },
+    {
       "route": "/rivers/cedar-river-dreisner-riverwood",
       "redirect": "/rivers/by-river/cedar-river/",
       "statusCode": 301
