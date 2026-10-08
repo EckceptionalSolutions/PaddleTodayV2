@@ -298,6 +298,41 @@
       "statusCode": 301
     },
     {
+      "route": "/rivers/kansas-river-de-soto-edwardsville",
+      "redirect": "/rivers/by-river/kansas-river/",
+      "statusCode": 301
+    },
+    {
+      "route": "/rivers/kansas-river-edwardsville-turner-bridge",
+      "redirect": "/rivers/by-river/kansas-river/",
+      "statusCode": 301
+    },
+    {
+      "route": "/rivers/kansas-river-turner-bridge-kaw-point",
+      "redirect": "/rivers/by-river/kansas-river/",
+      "statusCode": 301
+    },
+    {
+      "route": "/rivers/kansas-river-manhattan-st-george",
+      "redirect": "/rivers/by-river/kansas-river/",
+      "statusCode": 301
+    },
+    {
+      "route": "/rivers/kansas-river-manhattan-wamego",
+      "redirect": "/rivers/by-river/kansas-river/",
+      "statusCode": 301
+    },
+    {
+      "route": "/rivers/kansas-river-st-george-wamego",
+      "redirect": "/rivers/by-river/kansas-river/",
+      "statusCode": 301
+    },
+    {
+      "route": "/rivers/kansas-river-wamego-belvue",
+      "redirect": "/rivers/by-river/kansas-river/",
+      "statusCode": 301
+    },
+    {
       "route": "/rivers/kansas-river-seward-lecompton",
       "redirect": "/rivers/by-river/kansas-river/",
       "statusCode": 301
