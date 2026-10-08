@@ -58,6 +58,7 @@ const isCedarRiverHub = group.riverId === 'cedar-river';
 const isBlackstoneHub = group.riverId === 'blackstone-river-rhode-island';
 const isLeafRiverHub = group.riverId === 'leaf-river-mississippi';
 const isPascagoulaHub = group.riverId === 'pascagoula-river-mississippi';
+const isKennebecHub = group.riverId === 'kennebec-river';
 const hasConsolidatedTrips = group.routes.some((route) => routePageConsolidationTarget(route.slug));
 const stateSummary = group.states.join(', ');
 const stateDisplay = group.states.join(' and ');
@@ -82,6 +83,8 @@ const groupTitle = isBroadRiverHub
   ? 'Blackstone River, Rhode Island | Paddle Routes & Dam Portages'
   : isPascagoulaHub
   ? 'Pascagoula River Blueway, Mississippi | Sections & Access'
+  : isKennebecHub
+  ? 'Kennebec River, Maine | Paddle Sections & Gauge Guidance'
   : isCedarRiverAdirondacksHub
   ? 'Cedar River in the Adirondacks, New York | Paddle Routes & Access'
   : isCurrentRiverHub
@@ -150,11 +153,13 @@ const groupDescription = isBroadRiverHub
   : isSaltRiverHub
   ? 'Compare Lower Salt River trips from Water Users to Granite Reef. Review four distinct river sections, longer trip options, the Stewart Mountain Dam gauge, and current Tonto access notices.'
   : isLeafRiverHub
-  ? 'Compare the designated Upper Leaf Blueway from Eastabuchie to Chain Park and the Middle Blueway from Chain Park to Sims Road, with additional Highway 588 and 590 launch choices and longer endpoint combinations. Review route-specific distance, gauge context, and public access details.'
+  ? 'Compare the Upper Leaf Blueway from Eastabuchie to Chain Park and the Middle Blueway to Sims Road. Review Highway 588 and 590 launches, trip distance, gauge context, and public access.'
   : isBlackstoneHub
-  ? 'Compare Blackstone River routes from Rivers Edge and Manville through Sycamore and Albion toward Kelly House and Pratt. Review Albion and Pratt Dam portage notes, public launch details, and the access status for your exact endpoints before planning.'
+  ? 'Compare Blackstone River trips from Rivers Edge and Manville through Sycamore and Albion to Kelly House and Pratt. Review dam portages, public launches, and access notes for your exact reach.'
   : isPascagoulaHub
-  ? 'Compare Pascagoula River Blueway access pairs from Merrill through Game Management Road, Highway 26, Big Creek, and Wilkerson Ferry, plus the separate Highway 63 to Pascagoula River Park reach. Review public ramp details, USGS 02479310 context, and wind, tide, and water-quality notes for your exact section.'
+  ? 'Compare Pascagoula Blueway sections from Merrill through Wilkerson Ferry, plus Highway 63 to River Park. Review gauge context, public ramp details, and wind, tide, and water-quality notes for your exact reach.'
+  : isKennebecHub
+  ? 'Compare 15 Kennebec River trips across upper, central, and tide-influenced lower sections. Check North Sidney proxy data upstream, the Gardiner gauge downstream, and route-specific access, release, wind, and tide notes.'
   : isCedarRiverAdirondacksHub
   ? 'Compare two Adirondack Cedar River outings: an 8.5-mile Cedar River Flow out-and-back above Wakely Dam and the advanced 18-mile Pelon Road to Outer Gooley wilderness route. Check seasonal access, portages, gauge limits, and egress for the exact trip.'
   : isCedarRiverHub
@@ -842,6 +847,8 @@ const groupStructuredData = [
             ? 'Follow the Blackstone access chain from Rivers Edge and Manville through Sycamore and Albion toward Kelly House and Pratt. Albion and Pratt require careful portage planning; confirm the access notes and exact endpoints for the selected reach.'
             : isPascagoulaHub
             ? 'Start with a short access section in the George County Pascagoula blueway, then compare longer options that share intermediate ramps. The Highway 63 to River Park reach is farther downstream in Jackson County; check the exact launch, take-out, gauge context, and wind or tide notes for your trip.'
+            : isKennebecHub
+            ? 'Choose a reach by area: upper sections around Solon, Madison, Skowhegan, and Norridgewock; central options through Waterville, Sidney, and Augusta; or lower trips toward Bath and Phippsburg. North Sidney is a proxy gauge upstream, while the Gardiner station and tide or wind checks are more relevant downstream.'
             : isBlackCreekHub
             ? 'Start with the six documented Black Creek reaches from Churchwell Road through Fairley Bridge. The trip picker also includes longer landing combinations, with intermediate public access points for breaks or shorter exits.'
             : isLamoilleHub
