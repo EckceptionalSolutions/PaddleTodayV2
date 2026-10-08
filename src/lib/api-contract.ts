@@ -288,8 +288,28 @@ export function serializeRiverGroupResult(args: {
       heroPhoto: getRiverGroupHeroPhoto(args.riverId, allRoutes),
     },
     routes: [
-      ...args.routes.map(serializeDetailResult),
-      ...(args.planningRoutes ?? []).map((route) => serializePlanningRoute(route)),
+      ...args.routes.map((result) => {
+        const detail = serializeDetailResult(result);
+        return {
+          ...detail,
+          river: {
+            ...detail.river,
+            sourceLinks: result.river.sourceLinks,
+            evidenceNotes: result.river.evidenceNotes,
+          },
+        };
+      }),
+      ...(args.planningRoutes ?? []).map((route) => {
+        const detail = serializePlanningRoute(route);
+        return {
+          ...detail,
+          river: {
+            ...detail.river,
+            sourceLinks: route.sourceLinks,
+            evidenceNotes: route.evidenceNotes,
+          },
+        };
+      }),
     ],
   };
 }

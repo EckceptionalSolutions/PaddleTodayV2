@@ -236,6 +236,19 @@ export interface RiverRouteLogistics {
   watchFor: string[];
 }
 
+export interface RiverRouteSourceLink {
+  label: string;
+  url: string;
+  provider?: string;
+}
+
+export interface RiverRouteEvidenceNote {
+  label: string;
+  value: string;
+  note?: string;
+  sourceUrl?: string;
+}
+
 export type RiverSummaryLogistics = Pick<RiverRouteLogistics, 'campingClassification'>;
 
 export interface RouteSafetyProfile {
@@ -674,6 +687,8 @@ export interface RiverDetailApiResult {
     accessPoints?: RiverRouteAccessPoint[];
     segmentEdges?: import('./route-planning').RouteSegmentEdge[];
     logistics?: RiverRouteLogistics;
+    sourceLinks?: RiverRouteSourceLink[];
+    evidenceNotes?: RiverRouteEvidenceNote[];
   };
   sources?: RiverSummaryApiItem['sources'];
   score: number;

@@ -449,6 +449,15 @@ function routeTripNotesMarkup(route, className = 'route-choice__trip-notes') {
   const sourceLinksMarkup = sourceLinks.length
     ? `<div class="route-choice__note-group"><strong>Planning sources</strong><ul>${sourceLinks.map((source) => `<li><a href="${escapeHtml(source.url)}" target="_blank" rel="noopener noreferrer">${escapeHtml(source.label)}</a></li>`).join('')}</ul></div>`
     : '';
+  const evidenceNotes = Array.isArray(route.evidenceNotes) ? route.evidenceNotes : [];
+  const evidenceNotesMarkup = evidenceNotes.length
+    ? `<div class="route-choice__note-group"><strong>Route evidence</strong><ul>${evidenceNotes.map((note) => {
+      const sourceLink = /^https?:\/\//i.test(note.sourceUrl || '')
+        ? ` <a href="${escapeHtml(note.sourceUrl)}" target="_blank" rel="noopener noreferrer">Source</a>`
+        : '';
+      return `<li><strong>${escapeHtml(note.label)}:</strong> ${escapeHtml(note.value)}${note.note ? ` ${escapeHtml(note.note)}` : ''}${sourceLink}</li>`;
+    }).join('')}</ul></div>`
+    : '';
 
   return `
     <details class="${className}">
@@ -464,6 +473,7 @@ function routeTripNotesMarkup(route, className = 'route-choice__trip-notes') {
         ${noteList('Access notes', route.logistics?.accessCaveats)}
         ${noteList('Watch for', route.logistics?.watchFor)}
         ${noteList('Safety notes', route.safetyProfile?.safetyNotes)}
+        ${evidenceNotesMarkup}
         ${sourceLinksMarkup}
       </div>
     </details>
@@ -1674,6 +1684,8 @@ function normalizeRoutes(routes) {
     segmentEdges: route.river.segmentEdges,
     gauge: route.gauge,
     weather: route.weather,
+    sourceLinks: route.river.sourceLinks,
+    evidenceNotes: route.river.evidenceNotes,
   }));
 }
 

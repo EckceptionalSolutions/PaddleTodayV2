@@ -21,7 +21,11 @@ The current Potomac hub already contains the exact `#trip-potomac-river-taylors-
 
 ## Verification
 
-The production route and hub returned HTTP 200 before the change; the hub contained the target trip anchor and both access names. The built-page indexability audit and deployed redirect checks will be recorded after CI deployment. No Search Console sitemap submission, validation action, or URL indexing request was made.
+Commit `e328e769a` deployed on October 8. Frontend workflow [37745539713](https://github.com/EckceptionalSolutions/PaddleTodayV2/actions/runs/37745539713), API workflow [37745539718](https://github.com/EckceptionalSolutions/PaddleTodayV2/actions/runs/37745539718), and Snapshot Worker workflow [37745539798](https://github.com/EckceptionalSolutions/PaddleTodayV2/actions/runs/37745539798) succeeded. The frontend completed its tests, production build, both built-page indexability audits, and live-origin checks.
+
+Production checks confirmed that both `/rivers/potomac-river-taylors-snyders` and its trailing-slash spelling return HTTP 301 to the matching Potomac hub card. The hub returns HTTP 200; the target card is in its server-rendered HTML with trip summary, access, gauge context, shuttle/camping notes, safety notes, and planning-source links. The sitemap index returns HTTP 200 and points to one child sitemap. Its URL count fell from 2,543 to 2,542; the standalone route is absent while the hub and gauge guide remain. `/sitemap.xml` redirects to `/sitemap-index.xml`.
+
+The interactive panel initially omitted the evidence notes and source links after hydration because the general detail API intentionally leaves out those fields. A follow-up change adds them to river-group responses only, preserving the lighter generic detail response; its deployment check is still pending. No Search Console sitemap submission, validation action, or URL indexing request was made.
 
 ## Sources
 

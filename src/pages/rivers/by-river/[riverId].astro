@@ -2066,6 +2066,19 @@ const groupStructuredData = [
                         {route.safetyProfile?.safetyNotes?.length ? (
                           <ul>{route.safetyProfile.safetyNotes.map((note) => <li>{note}</li>)}</ul>
                         ) : null}
+                        {hasConsolidatedRoutePage && route.evidenceNotes?.length ? (
+                          <div class="route-choice__note-group">
+                            <strong>Route evidence</strong>
+                            <ul>
+                              {route.evidenceNotes.map((note) => (
+                                <li>
+                                  <strong>{note.label}:</strong> {note.value} {note.note}
+                                  {note.sourceUrl && /^https?:\/\//i.test(note.sourceUrl) ? <a href={note.sourceUrl} target="_blank" rel="noopener noreferrer"> Source</a> : null}
+                                </li>
+                              ))}
+                            </ul>
+                          </div>
+                        ) : null}
                         {hasConsolidatedRoutePage && route.sourceLinks?.length ? (
                           <div class="route-choice__note-group">
                             <strong>Planning sources</strong>
