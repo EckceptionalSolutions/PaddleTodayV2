@@ -19,6 +19,26 @@
       "statusCode": 301
     },
     {
+      "route": "/rivers/rio-grande-taos-junction-lone-juniper",
+      "redirect": "/rivers/by-river/rio-grande-new-mexico/#trip-rio-grande-taos-junction-lone-juniper",
+      "statusCode": 301
+    },
+    {
+      "route": "/rivers/rio-grande-taos-junction-county-line",
+      "redirect": "/rivers/by-river/rio-grande-new-mexico/#trip-rio-grande-taos-junction-county-line",
+      "statusCode": 301
+    },
+    {
+      "route": "/rivers/rio-grande-lone-juniper-county-line",
+      "redirect": "/rivers/by-river/rio-grande-new-mexico/#trip-rio-grande-lone-juniper-county-line",
+      "statusCode": 301
+    },
+    {
+      "route": "/rivers/rio-grande-lone-juniper-quartzite",
+      "redirect": "/rivers/by-river/rio-grande-new-mexico/#trip-rio-grande-lone-juniper-quartzite",
+      "statusCode": 301
+    },
+    {
       "route": "/rivers/wabash-river-linn-grove-white-bridge",
       "redirect": "/rivers/by-river/wabash-river/#trip-wabash-river-linn-grove-white-bridge",
       "statusCode": 301

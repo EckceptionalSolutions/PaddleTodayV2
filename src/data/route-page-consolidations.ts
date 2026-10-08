@@ -105,6 +105,7 @@ const broadRiverHubPath = '/rivers/by-river/broad-river/';
 const animasRiverHubPath = '/rivers/by-river/animas-river-new-mexico/';
 const housatonicRiverHubPath = '/rivers/by-river/housatonic-river-massachusetts/';
 const sanJuanRiverHubPath = '/rivers/by-river/san-juan-river-new-mexico/';
+const rioGrandeNewMexicoHubPath = '/rivers/by-river/rio-grande-new-mexico/';
 const crowWingRiverHubPath = '/rivers/by-river/crow-wing-river/';
 const chattahoocheeHubPath = '/rivers/by-river/chattahoochee-river/';
 const saukRiverHubPath = '/rivers/by-river/sauk-river/';
@@ -425,6 +426,15 @@ const sanJuanConsolidatedRouteSlugs = [
   'san-juan-river-among-waters-lions-park',
   'san-juan-river-vereda-westland-park',
   'san-juan-river-vereda-lions-park',
+] as const;
+
+// Keep one source-backed landing page for the Orilla Verde reach and one for the Class III Racecourse.
+// The overlapping Lone Juniper and full-length combinations remain selectable as detailed hub trips.
+const rioGrandeNewMexicoConsolidatedRouteSlugs = [
+  'rio-grande-taos-junction-lone-juniper',
+  'rio-grande-taos-junction-county-line',
+  'rio-grande-lone-juniper-county-line',
+  'rio-grande-lone-juniper-quartzite',
 ] as const;
 
 const crowWingConsolidatedRouteSlugs = [
@@ -1123,6 +1133,7 @@ const consolidatedRouteTargets = new Map<string, string>(
     ...animasConsolidatedRouteSlugs.map((slug) => [slug, `${animasRiverHubPath}#trip-${slug}`] as const),
     ...housatonicConsolidatedRouteSlugs.map((slug) => [slug, `${housatonicRiverHubPath}#trip-${slug}`] as const),
     ...sanJuanConsolidatedRouteSlugs.map((slug) => [slug, `${sanJuanRiverHubPath}#trip-${slug}`] as const),
+    ...rioGrandeNewMexicoConsolidatedRouteSlugs.map((slug) => [slug, `${rioGrandeNewMexicoHubPath}#trip-${slug}`] as const),
     ...crowWingConsolidatedRouteSlugs.map((slug) => [slug, `${crowWingRiverHubPath}#trip-${slug}`] as const),
     ...chattahoocheeConsolidatedRouteSlugs.map((slug) => [slug, `${chattahoocheeHubPath}#chattahoochee-sections-title`] as const),
     ...saukRiverConsolidatedRouteSlugs.map((slug) => [slug, `${saukRiverHubPath}#trip-${slug}`] as const),
