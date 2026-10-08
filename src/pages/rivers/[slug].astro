@@ -14,6 +14,7 @@ import { FAVORITE_STAR_PATH } from '../../lib/favorites-icon.js';
 import { listRivers, listRiverStateGroups } from '../../lib/rivers';
 import { hasStandaloneRoutePage, routePageConsolidationTarget } from '../../data/route-page-consolidations';
 import { gaugeDisplayForSource } from '../../lib/source-adapters';
+import { evidenceNoteDetail, evidenceNoteLabel } from '../../lib/route-evidence';
 import {
   buildRiverDetailLogisticsViewModel,
   buildRouteSafetyViewModel,
@@ -30,34 +31,6 @@ export function getStaticPaths() {
 const { river } = Astro.props;
 const isPlanningRoute = river.scoreEligibility === 'planning';
 const isLittleMiamiKelleyMilford = river.slug === 'little-miami-river-kelley-milford';
-// Dated route evidence is a review snapshot; do not present it as live telemetry.
-const routeReviewDate = (text: string) =>
-  text.match(/\b20\d{2}-\d{2}-\d{2}\b/)?.[0] ??
-  text.match(
-    /\b(?:Jan(?:uary)?|Feb(?:ruary)?|Mar(?:ch)?|Apr(?:il)?|May|Jun(?:e)?|Jul(?:y)?|Aug(?:ust)?|Sep(?:tember)?|Oct(?:ober)?|Nov(?:ember)?|Dec(?:ember)?)\.?\s+\d{1,2},?\s+20\d{2}\b/i,
-  )?.[0];
-const isRecordedGaugeCheck = (note: { label: string; value: string; note?: string }) => {
-  if (note.label === 'Current gauge check' || note.label === 'Historical gauge snapshot') return true;
-
-  const evidenceText = `${note.value} ${note.note ?? ''}`;
-  const hasRecordedDate = Boolean(routeReviewDate(evidenceText));
-  const hasMeasuredReading = /\b\d[\d,]*(?:\.\d+)?\s*(?:cfs|ft|cms)\b/i.test(evidenceText);
-
-  return /gauge|flow|stage/i.test(note.label) && hasRecordedDate && hasMeasuredReading;
-};
-const evidenceNoteLabel = (note: { label: string; value: string; note?: string }) => {
-  if (!isRecordedGaugeCheck(note)) return note.label;
-  const evidenceText = `${note.value} ${note.note ?? ''}`;
-  const capturedDate = routeReviewDate(evidenceText);
-  return capturedDate
-    ? `Gauge check during route review · ${capturedDate}`
-    : 'Gauge check recorded during route review';
-};
-const evidenceNoteDetail = (note: { label: string; value: string; note?: string }) =>
-  isRecordedGaugeCheck(note)
-    ? 'This static check records gauge data observed during route review; it is not live telemetry. Check the current gauge and local conditions before paddling.'
-    : note.note;
-
 const gaugeDisplay = gaugeDisplayForSource(river.gaugeSource);
 const thresholdConfidenceLabel = isPlanningRoute
   ? 'Planning only; no route-specific scoring range'

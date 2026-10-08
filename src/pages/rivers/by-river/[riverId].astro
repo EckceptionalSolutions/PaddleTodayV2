@@ -6,6 +6,7 @@ import { getRiverGroupHeroPhoto } from '../../../data/river-group-hero';
 import { routePageConsolidationTarget } from '../../../data/route-page-consolidations';
 import { listRiverGroups } from '../../../lib/rivers';
 import type { River } from '../../../lib/types';
+import { evidenceNoteDetail, evidenceNoteLabel } from '../../../lib/route-evidence';
 
 export function getStaticPaths() {
   return listRiverGroups()
@@ -2072,7 +2073,7 @@ const groupStructuredData = [
                             <ul>
                               {route.evidenceNotes.map((note) => (
                                 <li>
-                                  <strong>{note.label}:</strong> {note.value} {note.note}
+                                  <strong>{evidenceNoteLabel(note)}:</strong> {note.value} {evidenceNoteDetail(note)}
                                   {note.sourceUrl && /^https?:\/\//i.test(note.sourceUrl) ? <a href={note.sourceUrl} target="_blank" rel="noopener noreferrer"> Source</a> : null}
                                 </li>
                               ))}
