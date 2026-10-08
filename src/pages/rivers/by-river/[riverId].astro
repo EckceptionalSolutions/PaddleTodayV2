@@ -25,6 +25,7 @@ const isCrowWingHub = group.riverId === 'crow-wing-river';
 const isChattahoocheeHub = group.riverId === 'chattahoochee-river';
 const isBuffaloHub = group.riverId === 'buffalo-river';
 const isBarrenRiverHub = group.riverId === 'barren-river';
+const isUpperCumberlandHub = group.riverId === 'upper-cumberland-river';
 const isWillimanticHub = group.riverId === 'willimantic-river-connecticut';
 const isMillersHub = group.riverId === 'millers-river-massachusetts';
 const isBayouDeViewHub = group.riverId === 'bayou-deview';
@@ -78,6 +79,8 @@ const groupTitle = isBroadRiverHub
   ? 'Broad River, South Carolina | Paddling Sections & Access'
   : isBarrenRiverHub
   ? 'Barren River, Kentucky | Paddle Sections & Water Levels'
+  : isUpperCumberlandHub
+  ? 'Upper Cumberland River, Kentucky | Sections & Water Levels'
   : isBuffaloHub
   ? 'Buffalo National River, Arkansas | Sections & Access'
   : isYellowBreechesHub
@@ -159,6 +162,8 @@ const groupDescription = isBroadRiverHub
   ? 'Compare eight Paddle SC trips on South Carolina’s Broad River, from Ninety-Nine Islands to Strother Landing and the separate Peak–Harbison reach. Check trip-specific gauges, dam portages, and public access.'
   : isBarrenRiverHub
   ? 'Compare 10 Lower Barren River trips. Tailwater-to-Martinsville choices use the Finney stage gauge; Bowling Green routes use a separate flow gauge. Check KDFWR mileage and access notes, including the camper-only Beech Bend ramps.'
+  : isUpperCumberlandHub
+  ? 'Compare 10 Upper Cumberland River trips by access point. KDFWR lists the Varilla–4 Mile, 4 Mile–Artemus, and Artemus–Barbourville segments; use the Williamsburg gauge and the flow guidance for your exact reach.'
   : isBuffaloHub
   ? 'Plan Buffalo National River routes by district. Ponca and Pruitt gauges cover Upper District trips; St. Joe covers Tyler Bend–Grinder’s Ferry.'
   : isYellowBreechesHub
@@ -670,6 +675,8 @@ const faqItems = [
       ? 'The NPS float guide publishes seven float times. Start with eight focused recreation-area sections below; Powers Island–Paces Mill and the Upper Chattahoochee and Columbus whitewater runs have separate guides.'
       : isBarrenRiverHub
       ? 'KDFWR lists access-to-access mileages for the Lower Barren. Five current choices match individual listed segments; five composite trips remain selectable with their own endpoints and route details. Match the trip to the Finney stage gauge or Bowling Green flow gauge shown on its card.'
+      : isUpperCumberlandHub
+      ? 'KDFWR lists the Varilla–4 Mile, 4 Mile–Artemus, and Artemus–Barbourville legs as consecutive public-access segments. Start with a named leg or choose one of the longer combinations in the trip selector; the Williamsburg-to-Redbird and Cumberland Falls approaches remain separate.'
       : isHousatonicHub
       ? 'The Berkshire guide covers distinct upper, Stockbridge, and Great Barrington–Sheffield reaches. Compare the named public-access sections, then use the trip picker for six longer endpoint combinations that remain available with their own mileage, gauge, dam, and access notes.'
       : isLoupRiverHub
@@ -712,6 +719,8 @@ const faqItems = [
     question: `How should I check ${group.name} water levels?`,
     answer: isMerrimackHub
       ? 'The 400 cfs runnable floor and 1,500–2,000 cfs preferred range belong to the documented Franklin–Concord run and its USGS 01081500 gauge near Franklin Junction. Lower-valley trips are planning-only; that upstream station is context and does not provide a verified route-specific threshold for each downstream reach.'
+      : isUpperCumberlandHub
+      ? 'USGS 03404000 at Williamsburg is the reference for these routes. KDFWR publishes 3.0–3.8 ft (300–700 cfs) for the Upper Cumberland access chain; its separate Cumberland gorge guidance calls 500–1,100 cfs best and up to 2,000 cfs challenging for skilled paddlers. Use the band and hazards on the selected trip because the gorge routes have a different character.'
       : isCurrentRiverHub
       ? 'Use the gauge on the selected trip: USGS 07064533 above Akers for upper Current options and USGS 07067000 at Van Buren for lower Current options. The card floors (230 or 300 cfs upper; 700 cfs lower) are conservative community planning cues, not NPS safety limits. Check the park’s current river levels and closure notices; NPS closure stages use gauge height in feet and are a separate check.'
       : isJacksForkHub
@@ -2036,6 +2045,8 @@ const groupStructuredData = [
               ? `Compare all ${group.routeCount} curated Chattahoochee route guides here. Eight focused recreation-area sections cover the NPS access chain; Powers Island–Paces Mill and the Upper Chattahoochee and Columbus whitewater runs remain separate because they describe different paddling contexts. Other endpoint combinations now lead to this section guide.`
               : isBarrenRiverHub
               ? `Compare all ${group.routeCount} Lower Barren River choices here. Five individual KDFWR access segments keep standalone pages; five composite endpoint combinations remain selectable with their own mileage, access, gauge, and hazard details. Finney stage and Bowling Green discharge apply to different route sections.`
+              : isUpperCumberlandHub
+              ? `Compare all ${group.routeCount} Upper Cumberland choices here. The three consecutive access legs keep focused route pages; longer combinations remain available as trip cards. Williamsburg-to-Redbird and the downstream Cumberland Falls approaches retain their own pages because the gorge has different flow guidance and hazards.`
               : isHousatonicHub
               ? `Compare all ${group.routeCount} Berkshire Housatonic trip choices here. Nine reach-specific sections keep standalone pages; six longer endpoint combinations remain selectable with their own access, mileage, gauge, portage, and safety details.`
               : isWillimanticHub
@@ -2445,6 +2456,42 @@ const groupStructuredData = [
 
           <p>
             See Kentucky Fish and Wildlife’s <a href="https://fw.ky.gov/Fish/Pages/Lower-Barren-River.aspx" target="_blank" rel="noopener noreferrer">Lower Barren access mileages, gauge bands, and ramp notes</a> and its <a href="https://fw.ky.gov/Education/pages/barren-river-below-the-dam.aspx" target="_blank" rel="noopener noreferrer">Barren River Below the Dam float guidance</a> before setting a shuttle.
+          </p>
+        </div>
+      ) : null}
+
+      {isUpperCumberlandHub ? (
+        <div class="river-hub-context__source-guide" id="upper-cumberland-sections" aria-labelledby="upper-cumberland-sections-title">
+          <div class="river-group-page__section-head">
+            <div>
+              <p class="eyebrow section-label">Upper Cumberland · Kentucky</p>
+              <h3 class="section-title" id="upper-cumberland-sections-title">Start with the published access sections</h3>
+            </div>
+            <p class="muted river-group-page__section-note">
+              KDFWR’s access chain gives clear segment mileages through Pineville and Barbourville. The Williamsburg-to-Falls gorge has different flow guidance and hazards, so choose that route by its own finish.
+            </p>
+          </div>
+
+          <div class="river-hub-context__grid">
+            <article class="river-hub-context__item">
+              <h3>Upper access chain · Williamsburg gauge</h3>
+              <p>Varilla to 4 Mile is 13.8 miles, 4 Mile to Artemus is 9.8 miles, and Artemus to Barbourville is 5.1 miles. KDFWR’s Upper Cumberland range is 3.0–3.8 ft (300–700 cfs) at USGS 03404000.</p>
+              <a href={routeSlugHref('upper-cumberland-river-varilla-4-mile')}>Open the Varilla to 4 Mile guide</a>
+              <a href={routeSlugHref('upper-cumberland-river-4-mile-artemus')}>Open the 4 Mile to Artemus guide</a>
+              <a href={routeSlugHref('upper-cumberland-river-artemus-barbourville')}>Open the Artemus to Barbourville guide</a>
+            </article>
+            <article class="river-hub-context__item">
+              <h3>Williamsburg to Cumberland Falls · gorge reach</h3>
+              <p>KDFWR’s separate gorge guide calls 500–1,100 cfs best for paddling and says flows up to 2,000 cfs are challenging for skilled paddlers. Long Bottom, Thunderstruck, and the mandatory take-out above the falls are distinct finishes with their own route notes.</p>
+              <a href={routeSlugHref('upper-cumberland-river-williamsburg-redbird')}>Open the Williamsburg to Redbird guide</a>
+              <a href={routeSlugHref('upper-cumberland-river-williamsburg-longbottom')}>Open the Williamsburg to Long Bottom guide</a>
+              <a href={routeSlugHref('upper-cumberland-river-williamsburg-thunderstruck')}>Open the Williamsburg to Thunderstruck guide</a>
+              <a href={routeSlugHref('upper-cumberland-river-williamsburg-cumberland-falls')}>Open the Williamsburg to Cumberland Falls guide</a>
+            </article>
+          </div>
+
+          <p>
+            See Kentucky Fish and Wildlife’s <a href="https://fw.ky.gov/Fish/Pages/Upper_Cumberland.aspx" target="_blank" rel="noopener noreferrer">Upper Cumberland access mileages and gauge recommendations</a> and its <a href="https://fw.ky.gov/Education/Pages/Cumberland-River.aspx" target="_blank" rel="noopener noreferrer">Cumberland gorge paddling guidance</a> before setting a shuttle.
           </p>
         </div>
       ) : null}

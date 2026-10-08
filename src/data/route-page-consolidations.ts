@@ -64,6 +64,12 @@ const barrenRiverConsolidatedRouteSlugs = [
   'barren-river-state-street-james-r-hines',
   'barren-river-state-street-lonnie-white',
 ] as const;
+const upperCumberlandHubPath = '/rivers/by-river/upper-cumberland-river/';
+const upperCumberlandConsolidatedRouteSlugs = [
+  'upper-cumberland-river-varilla-artemus',
+  'upper-cumberland-river-varilla-barbourville',
+  'upper-cumberland-river-4-mile-barbourville',
+] as const;
 const millersHubPath = '/rivers/by-river/millers-river-massachusetts/';
 const bayouDeViewHubPath = '/rivers/by-river/bayou-deview/';
 const americanRiverHubPath = '/rivers/by-river/american-river-california/';
@@ -944,6 +950,7 @@ const consolidatedRouteTargets = new Map<string, string>(
     ...buffaloRiverConsolidatedRouteSlugs.map((slug) => [slug, `${buffaloRiverHubPath}#trip-${slug}`] as const),
     ...floydsForkConsolidatedRouteSlugs.map((slug) => [slug, `${floydsForkHubPath}#trip-${slug}`] as const),
     ...barrenRiverConsolidatedRouteSlugs.map((slug) => [slug, `${barrenRiverHubPath}#trip-${slug}`] as const),
+    ...upperCumberlandConsolidatedRouteSlugs.map((slug) => [slug, `${upperCumberlandHubPath}#trip-${slug}`] as const),
     ...blackstoneRiverConsolidatedRouteSlugs.map((slug) => [slug, `${blackstoneHubPath}#trip-${slug}`] as const),
     ...leafRiverConsolidatedRouteSlugs.map((slug) => [slug, `${leafRiverHubPath}#trip-${slug}`] as const),
     ...pascagoulaConsolidatedRouteSlugs.map((slug) => [slug, `${pascagoulaHubPath}#trip-${slug}`] as const),
