@@ -41,4 +41,8 @@ The Seven Rivers Canoe Club guide lists the adjacent landing sequence from Churc
 
 The Black Creek hub now presents the six documented adjacent reaches as its trip choices. The 22 composite route records and their route-specific conditions remain available in the public route/API catalog but are omitted from this hub picker; their old URLs lead to the landing-sequence guide instead of an unavailable trip-card anchor. The Ashe Nursery alternative remains explicitly noted as an access point under endpoint review. This reduces the hub picker from 28 combinations to six source-backed sections without removing composite route data; it does not prove that duplicate content caused the site-wide traffic decline.
 
-Production verification for this curation is pending deployment.
+## Production verification (2026-10-08)
+
+Frontend workflow [37808755238](https://github.com/EckceptionalSolutions/PaddleTodayV2/actions/runs/37808755238), API workflow [37808755295](https://github.com/EckceptionalSolutions/PaddleTodayV2/actions/runs/37808755295), and Snapshot Worker workflow [37808755259](https://github.com/EckceptionalSolutions/PaddleTodayV2/actions/runs/37808755259) succeeded.
+
+On production, the Black Creek hub returns HTTP 200 and renders six trip cards. The retired Big Creek–Cypress Creek route page returns HTTP 200 with its fallback link targeting the landing-sequence guide. The public route catalog and its detail API both return HTTP 200 and still include that composite route, confirming that picker curation did not remove API availability. The sitemap index and child sitemap return HTTP 200; the child contains 2,521 URLs, includes the Black Creek hub, and omits the retired composite route page.
