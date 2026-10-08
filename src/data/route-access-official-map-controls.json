@@ -724,6 +724,38 @@
       ]
     },
     {
+      "id": "nps_buffalo_gilbert_primary_river_access",
+      "name": "National Park Service Buffalo River Accesses GIS — Gilbert",
+      "state": "Arkansas",
+      "sourceUrl": "https://services1.arcgis.com/fBc8EJBxQRMcHlei/arcgis/rest/services/BUFF_River_Accesses/FeatureServer/0/query?where=Name%20%3D%20%27Gilbert%27&outFields=Name&returnGeometry=true&outSR=4326&f=pjson",
+      "sourceType": "official-geospatial-feature-service",
+      "sourceDocumentDate": null,
+      "sourceSha256": null,
+      "coordinateRole": "authoritative-access-anchor",
+      "method": "The official NPS BUFF_River_Accesses feature service lists Gilbert as one of Buffalo National River's primary river accesses (FID 15; GlobalID 7e0761a3-ed35-4d45-a8ba-501870694d16) at 35.9865582969,-92.7149355047. The published site point is within 99 feet of the named NHD Buffalo River flowline and 64 feet of NHD waterbody. Retain it as the managed access-area anchor, not a surveyed water-entry edge; follow current NPS signs and inspect the gravel-bar landing on arrival.",
+      "controls": [
+        {
+          "featureId": "7e0761a3-ed35-4d45-a8ba-501870694d16",
+          "name": "Gilbert primary river access",
+          "aliases": [
+            "Gilbert river access",
+            "Gilbert access",
+            "Gilbert Launch"
+          ],
+          "waterbody": "Buffalo River",
+          "routeIds": [
+            "buffalo-river-tyler-bend-gilbert"
+          ],
+          "latitude": 35.98655829691864,
+          "longitude": -92.71493550470916,
+          "uncertaintyFeet": 100,
+          "accessAvailability": "public",
+          "accessCondition": "Follow current National Park Service signs and confirm the public gravel-bar approach and landing before launching.",
+          "coordinateText": "NPS BUFF_River_Accesses primary river-access feature FID 15 / GlobalID 7e0761a3-ed35-4d45-a8ba-501870694d16. Access-area anchor; not a surveyed water-edge coordinate."
+        }
+      ]
+    },
+    {
       "id": "nps_buff_tyler_bend_upper_access_anchor",
       "name": "National Park Service Tyler Bend upper launch parking area",
       "state": "Arkansas",

@@ -4588,7 +4588,7 @@ export const arkansasRoutes: River[] = [
       "seasonNotes": "NPS says the Buffalo is largely rainfall dependent and that paddling seasons move downstream as dry weather arrives. The middle district usually holds water longer than the upper district, but same-day level and trend still matter.",
       "difficulty": "hard",
       "difficultyNotes": "NPS calls Tyler Bend to Gilbert the most popular middle-district float and describes Tyler Bend to Grinder's Ferry as mostly flat, but American Whitewater rates the full Tyler Bend-to-Gilbert reach I-II. The route is marked whitewater so casual discovery does not hide the swiftwater and high-stage hazards.",
-      "confidenceNotes": "Confidence is good for a guarded minimum-only add: NPS identifies Tyler Bend to Gilbert as the popular 5.5-mile middle-district float, documents Tyler Bend launch logistics, and lists 5.4 miles from Tyler Bend to Gilbert in the access mileage chart; NPS coordinate tables identify Tyler Bend and Gilbert anchors; USGS 07056000 showed same-day May 31, 2026 discharge and gage-height values during review; AW matches the exact Tyler Bend-to-Gilbert I-II reach to the St. Joe gauge; and Rivers.MOHERP publishes St. Joe low/high bands plus same-route Tyler Bend-to-Gilbert good-condition evidence. The threshold remains community-calibrated, so the app uses only a conservative 120 cfs floor and does not claim an ideal range."
+      "confidenceNotes": "Confidence is good for a guarded minimum-only add: NPS identifies Tyler Bend to Gilbert as the popular 5.5-mile middle-district float, documents Tyler Bend launch logistics, and lists 5.4 miles from Tyler Bend to Gilbert in the access mileage chart; the official NPS Buffalo River Accesses GIS layer identifies Gilbert's primary river-access anchor at 35.986558, -92.714936, distinct from the separately listed horse trailhead; USGS 07056000 showed same-day May 31, 2026 discharge and gage-height values during review; AW matches the exact Tyler Bend-to-Gilbert I-II reach to the St. Joe gauge; and Rivers.MOHERP publishes St. Joe low/high bands plus same-route Tyler Bend-to-Gilbert good-condition evidence. The threshold remains community-calibrated, so the app uses only a conservative 120 cfs floor and does not claim an ideal range."
     },
     "evidenceNotes": [
       {
@@ -4629,9 +4629,9 @@ export const arkansasRoutes: River[] = [
       },
       {
         "label": "Access coordinates",
-        "value": "Tyler Bend 35.986715, -92.763903; Gilbert 35.987738, -92.715563",
-        "note": "NPS Getting Around lists Tyler Bend campground coordinates and a Gilbert trail/access coordinate. Use these as practical access-area anchors and make a same-day visual landing check.",
-        "sourceUrl": "https://home.nps.gov/buff/planyourvisit/getting-around.htm"
+        "value": "Gilbert primary river-access anchor 35.986558, -92.714936",
+        "note": "The NPS Buffalo River Accesses GIS layer identifies this Gilbert point as a primary river access. It is an official access-area anchor, not a surveyed water-edge coordinate; follow posted access directions and confirm the landing on arrival.",
+        "sourceUrl": "https://services1.arcgis.com/fBc8EJBxQRMcHlei/arcgis/rest/services/BUFF_River_Accesses/FeatureServer/0/query?where=Name%20%3D%20%27Gilbert%27&outFields=Name&returnGeometry=true&outSR=4326&f=pjson"
       }
     ],
     "sourceLinks": [
@@ -4651,8 +4651,13 @@ export const arkansasRoutes: River[] = [
         "provider": "nps"
       },
       {
-        "label": "NPS Buffalo getting around / coordinates",
+        "label": "NPS Buffalo access navigation guidance",
         "url": "https://home.nps.gov/buff/planyourvisit/getting-around.htm",
+        "provider": "nps"
+      },
+      {
+        "label": "NPS Buffalo River Accesses GIS layer — Gilbert",
+        "url": "https://services1.arcgis.com/fBc8EJBxQRMcHlei/arcgis/rest/services/BUFF_River_Accesses/FeatureServer/0/query?where=Name%20%3D%20%27Gilbert%27&outFields=Name&returnGeometry=true&outSR=4326&f=pjson",
         "provider": "nps"
       },
       {

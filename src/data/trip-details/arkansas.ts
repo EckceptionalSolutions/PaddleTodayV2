@@ -1455,8 +1455,8 @@ export const arkansasRiverTripDetails: Record<string, RiverTripDetails> = {
     "takeOut": {
       "id": "gilbert-access",
       "name": "Gilbert river access",
-      "latitude": 35.987738,
-      "longitude": -92.715563
+      "latitude": 35.98655829691864,
+      "longitude": -92.71493550470916
     },
     "logistics": {
       "distanceLabel": "About 5.4 to 5.5 mi",
@@ -1467,7 +1467,7 @@ export const arkansasRiverTripDetails: Record<string, RiverTripDetails> = {
       "summary": "Launch at Tyler Bend and take out at Gilbert for the popular 5.5-mile middle Buffalo float. Use the St. Joe USGS gauge as a conservative low-water check, and skip the route when water is rising fast or already in high/flood-stage bands for casual groups.",
       "accessCaveats": [
         "The current NPS concession operating plan says only the Upper Tyler Bend access is available until further notice. This route's marker is the upper gravel slipway; use its connected parking area and follow current signs rather than the separate downstream gravel-bar feature.",
-        "Gilbert is a rural river access on a gravel bar. Inspect the take-out before launching and avoid blocking local traffic, outfitter operations, or posted areas.",
+        "The take-out marker uses the NPS Buffalo River Accesses GIS point for Gilbert (35.986558, -92.714936), an official access-area anchor rather than a surveyed water-edge point. Follow current signs and confirm the public gravel-bar landing and approach before launching.",
         "NPS says access roads may be unpaved, rocky, or unreliable for GPS navigation, and no road follows the river. Carry a real map and do not assume cell service.",
         "This route uses a community-calibrated minimum-only threshold from MOHERP, supported by NPS route/access evidence and AW reach matching. It is not a full ideal-range recommendation."
       ],

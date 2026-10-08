@@ -1,0 +1,51 @@
+{
+  "schemaVersion": 1,
+  "reviewedOn": "2026-10-08",
+  "routeId": "buffalo-river-tyler-bend-gilbert",
+  "decision": "release",
+  "previousHold": {
+    "reason": "The stored Gilbert coordinate matched the NPS horse-trailhead coordinate rather than a verified river access point.",
+    "coordinate": [35.987738, -92.715563]
+  },
+  "approvedTakeOut": {
+    "name": "Gilbert primary river access",
+    "coordinate": [35.98655829691864, -92.71493550470916],
+    "coordinateRole": "authoritative-access-anchor",
+    "uncertaintyFeet": 100,
+    "source": "NPS BUFF_River_Accesses FeatureServer, FID 15, GlobalID 7e0761a3-ed35-4d45-a8ba-501870694d16",
+    "finding": "The NPS layer identifies Gilbert as one of the primary river accesses. This is a managed access-area anchor, not a surveyed water-edge coordinate; follow current signs and inspect the public gravel-bar approach on arrival."
+  },
+  "hydrographyReview": {
+    "matchedRiver": "Buffalo River",
+    "distanceToNamedFlowlineFeet": 99,
+    "distanceToWaterbodyFeet": 63,
+    "endpointOnWaterbody": true,
+    "severity": "review",
+    "sourceIssues": []
+  },
+  "routeGeometryReview": {
+    "source": "USGS NHD Flowline",
+    "traceMode": "network-traced",
+    "endpointSnapMaxFeet": 140,
+    "coordinateCount": 1270,
+    "unmatchedRouteIds": [],
+    "finding": "The regenerated route follows one connected Buffalo River network trace between the Tyler Bend upper launch and the NPS Gilbert access-area anchor. Both endpoint audit results are review-only; neither is suspicious, a failure, or unknown."
+  },
+  "searchImpact": {
+    "gscWindow": "2026-07-06 through 2026-10-05",
+    "routeClicks": 6,
+    "routeImpressions": 137,
+    "familyClicks": 8,
+    "familyImpressions": 437,
+    "inspectionFinding": "Search Console's latest recorded crawl (2026-09-25) reported a 404. At review time the production URL redirected to the Buffalo River hub because this route was withheld."
+  },
+  "publicationAction": "Release the specific Tyler Bend-to-Gilbert page. Keep it distinct from Tyler Bend-to-Grinder's Ferry: NPS describes the former as a popular 5.5-mile full-day Middle District float, while the latter is a separate short reach of about 1.7 miles from the currently available upper launch.",
+  "sources": [
+    "https://catalog.data.gov/dataset/buff_river_accesses",
+    "https://services1.arcgis.com/fBc8EJBxQRMcHlei/arcgis/rest/services/BUFF_River_Accesses/FeatureServer/0/query?where=Name%20%3D%20%27Gilbert%27&outFields=Name&returnGeometry=true&outSR=4326&f=pjson",
+    "https://www.nps.gov/buff/planyourvisit/full-day-adventure-middle-district.htm",
+    "https://www.nps.gov/buff/planyourvisit/river-accesses-mileage.htm",
+    "https://www.nps.gov/buff/planyourvisit/paddling.htm",
+    "https://www.nps.gov/buff/learn/management/appendix.htm"
+  ]
+}
