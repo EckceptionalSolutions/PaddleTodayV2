@@ -9,7 +9,10 @@ describe('New Hampshire Merrimack River planning routes', () => {
       expect(route.scoreEligibility).toBe('planning');
       expect(route.gaugeSource).toMatchObject({ siteId: '01081500', kind: 'direct' });
       expect(route.accessPoints).toHaveLength(2);
-      expect(route.accessPoints?.every((point) => point.name.toLowerCase().includes('water-entry edge'))).toBe(true);
+      expect(route.accessPoints?.every((point) => /water-entry edge|Allenstown residents/i.test(point.name))).toBe(true);
+      if (route.accessPoints?.some((point) => point.name.includes('Allenstown residents'))) {
+        expect(route.logistics?.accessCaveats?.some((note) => note.includes('current vehicle sticker'))).toBe(true);
+      }
       expect(route.logistics?.campingClassification).toBe('nearby_basecamp');
       expect(route.safetyProfile?.hazards).toContain('dam');
       expect(route.sourceLinks?.length).toBeGreaterThanOrEqual(5);

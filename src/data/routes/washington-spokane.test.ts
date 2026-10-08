@@ -2,16 +2,21 @@ import { describe, expect, it } from 'vitest';
 import { washingtonSpokaneRoutes } from './washington-spokane';
 import { washingtonSpokaneExpansionRoutes } from './washington-spokane';
 
-describe('Washington Spokane River scored routes', () => {
-  it('publishes researched public-access cards with documented flow thresholds', () => {
+describe('Washington Spokane River routes', () => {
+  it('publishes reviewed public-access cards with thresholds only where scoring is supported', () => {
     expect(washingtonSpokaneRoutes).toHaveLength(15);
     for (const route of washingtonSpokaneRoutes) {
       expect(route.state).toBe('Washington');
-      expect(route.scoreEligibility).toBe('scored');
+      expect(['planning', 'scored']).toContain(route.scoreEligibility);
       expect(route.gaugeSource?.kind).toBe('direct');
       expect(route.profile.thresholdModel).toBe('minimum-only');
-      expect(route.profile.tooLow).toBe(1350);
-      expect(route.profile.idealMin).toBe(2500);
+      if (route.scoreEligibility === 'scored') {
+        expect(route.profile.tooLow).toBe(1350);
+        expect(route.profile.idealMin).toBe(route.gaugeSource?.siteId === '12419000' ? 3000 : 2500);
+      } else {
+        expect(route.profile.tooLow).toBeUndefined();
+        expect(route.profile.idealMin).toBeUndefined();
+      }
       expect(route.accessPoints).toHaveLength(2);
       for (const point of route.accessPoints ?? []) {
         if (point.name.startsWith('Mission Ave.')) {
@@ -33,16 +38,19 @@ describe('Washington Spokane River scored routes', () => {
       expect(route.safetyProfile?.hazards).toContain('dam');
       expect(route.sourceLinks?.length).toBeGreaterThanOrEqual(6);
     }
+    expect(washingtonSpokaneRoutes.find((route) => route.slug === 'spokane-river-tj-meenach-plese-flats')?.scoreEligibility).toBe('planning');
   });
 });
 
 describe('Washington Spokane expansion routes', () => {
-  it('publishes the documented upper launch pairs with scored safety metadata', () => {
-    expect(washingtonSpokaneExpansionRoutes).toHaveLength(14);
+  it('publishes documented upper launch pairs as planning-only choices with reviewed safety metadata', () => {
+    expect(washingtonSpokaneExpansionRoutes).toHaveLength(16);
     for (const route of washingtonSpokaneExpansionRoutes) {
       expect(route.state).toBe('Washington');
-      expect(route.scoreEligibility).toBe('scored');
-      expect(route.gaugeSource).toMatchObject({ siteId: '12422500', kind: 'direct' });
+      expect(route.scoreEligibility).toBe('planning');
+      expect(route.profile.tooLow).toBeUndefined();
+      expect(route.profile.idealMin).toBeUndefined();
+      expect(route.gaugeSource).toMatchObject({ siteId: '12419000', kind: 'direct' });
       expect(route.accessPoints).toHaveLength(2);
       for (const point of route.accessPoints ?? []) {
         if (point.name.startsWith('Mission Ave.')) {

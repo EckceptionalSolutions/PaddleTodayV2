@@ -2,7 +2,7 @@ import { describe, expect, it } from 'vitest';
 import { readFileSync } from 'node:fs';
 import { southCarolinaSaludaRoutes } from './south-carolina-saluda';
 import { listRivers } from '../../lib/rivers';
-import { rivers } from '../rivers';
+import { publicRivers } from '../rivers';
 import { auditRouteSafety } from '../../lib/route-safety-audit';
 
 describe('Lower Saluda upper reach', () => {
@@ -10,7 +10,7 @@ describe('Lower Saluda upper reach', () => {
     expect(southCarolinaSaludaRoutes).toHaveLength(1);
     for (const route of southCarolinaSaludaRoutes) {
       expect(listRivers().find(r => r.slug === route.slug)?.scoreEligibility).toBe('planning');
-      expect(rivers.some(r => r.slug === route.slug)).toBe(true);
+      expect(publicRivers.some(r => r.slug === route.slug)).toBe(true);
       expect(auditRouteSafety([route])).toEqual([]);
       expect(route.gaugeSource).toMatchObject({ siteId: '02168504', metric: 'discharge_cfs', unit: 'cfs', kind: 'direct' });
       expect(route.reach).toContain('Hope Ferry Landing');
