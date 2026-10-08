@@ -97,7 +97,6 @@ import {
   regionStateText,
   routeDifficultyLabel,
   routeEstimatedTimeLabel,
-  routeLengthLabel,
   summaryParts,
 } from './board-presenters.js';
 import {
@@ -223,10 +222,6 @@ const featuredCompareLink = document.querySelector('[data-featured-compare-link]
 const featuredJumpLink = document.querySelector('.home-featured__jump-link');
 const featuredConfidence = document.querySelector('[data-field="featured-confidence"]');
 const featuredDistance = document.querySelector('[data-field="featured-distance"]');
-const featuredPreview = document.querySelector('[data-featured-preview]');
-const homeShortlist = document.querySelector('[data-home-shortlist]');
-const homeShortlistList = document.querySelector('[data-home-shortlist-list]');
-let featuredPreviewItem = null;
 const featuredSegment = document.querySelector('[data-field="featured-segment"]');
 const featuredReason = document.querySelector('[data-field="featured-reason"]');
 const featuredWeather = document.querySelector('[data-featured-weather]');
@@ -1497,23 +1492,6 @@ function updateFeaturedHero(nearbyItems, overallItems) {
   const nearbyReady = locationReady && preferredNearbyItems.length > 0;
   const item = nearbyReady ? preferredNearbyItems[0] : locationReady ? null : overallItems[0] ?? null;
   const activePreferenceText = homePreferenceSummaryTextClean();
-  featuredPreviewItem = nearbyReady || featuredMapAlwaysVisible ? item : null;
-  if (featuredPreview instanceof HTMLDetailsElement) {
-    featuredPreview.hidden = !featuredPreviewItem;
-  }
-  if (homeShortlist instanceof HTMLElement && homeShortlistList instanceof HTMLElement) {
-    const alternatives = nearbyReady ? preferredNearbyItems.slice(1, 3) : [];
-    homeShortlist.hidden = alternatives.length === 0;
-    homeShortlistList.innerHTML = alternatives.map((alternative) => {
-      const action = boardRouteActionModel(alternative).route;
-      if (!action) return '';
-      return `<li><a class="home-shortlist__route" href="${escapeHtml(action.href)}">
-        <strong>${escapeHtml(alternative.cardRoute.river.name)}</strong>
-        <span class="home-shortlist__reach">${escapeHtml(featuredRouteLabelForItem(alternative))}</span>
-        <span class="home-shortlist__facts"><b>${escapeHtml(recommendationVerdict(alternative))}</b><span>${escapeHtml(formatTravelLabel(alternative.travelMinutes))}</span><span>${escapeHtml(routeLengthLabel(alternative))}</span></span>
-      </a></li>`;
-    }).join('');
-  }
   updateFeaturedHeroAnimation(item?.key || (locationReady ? 'empty' : 'locked'));
   if (!item) {
     renderFeaturedMap(null, { visible: false, status: '' });
@@ -1622,7 +1600,7 @@ function updateFeaturedHero(nearbyItems, overallItems) {
     renderScoreBreakdownDisclosure(featuredPanel, null);
     return;
   }
-  renderFeaturedMap(item, { visible: Boolean(featuredPreview?.open && featuredPreviewItem), status: regionStateText(item) });
+  renderFeaturedMap(item, { visible: nearbyReady || featuredMapAlwaysVisible, status: regionStateText(item) });
   const callUnavailable = isCurrentCallUnavailable(item.cardRoute);
   const ratingKey = callUnavailable ? 'pending' : ratingToneKey(item.cardRoute.rating);
   if (featuredPanel instanceof HTMLElement) {
@@ -2709,13 +2687,6 @@ function renderHomepage(results, { preserveMapViewport = false, animateResults =
 function saveHomePaddleLengthFilter(value) {
   localStorage.setItem(STORAGE_HOME_PADDLE_LENGTH_KEY, JSON.stringify(normalizeHomePaddleLengthFilters(value)));
 }
-
-featuredPreview?.addEventListener('toggle', () => {
-  renderFeaturedMap(featuredPreviewItem, {
-    visible: Boolean(featuredPreview.open && featuredPreviewItem),
-    status: featuredPreviewItem ? regionStateText(featuredPreviewItem) : '',
-  });
-});
 
 function saveHomeCampingFilter(value) {
   localStorage.setItem(STORAGE_HOME_CAMPING_KEY, normalizeHomeCampingFilter(value));

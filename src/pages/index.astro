@@ -144,7 +144,7 @@ const homepageStructuredData = [
           hidden
         ></p>
 
-        <details class="home-preferences" data-home-preferences>
+        <details class="home-preferences" data-home-preferences open>
         <summary class="home-location-bar__refine" data-home-refine-row>
           <div class="home-location-bar__refine-copy">
             <p class="home-location-bar__step home-location-bar__step--refine">
@@ -390,13 +390,6 @@ const homepageStructuredData = [
         </div>
         </details>
       </section>
-      <section class="home-shortlist" data-home-shortlist aria-labelledby="home-shortlist-title" hidden>
-        <div class="home-shortlist__heading">
-          <h2 id="home-shortlist-title">More routes in your range</h2>
-          <a href="#best-options">Compare all</a>
-        </div>
-        <ul class="home-shortlist__list" data-home-shortlist-list></ul>
-      </section>
     </div>
 
     <aside class="home-hero__rail" aria-label="Today's best pick">
@@ -534,8 +527,6 @@ const homepageStructuredData = [
             </a>
           </div>
 
-          <details class="home-featured__preview" data-featured-preview>
-            <summary>Photo and route map</summary>
           <figure class="home-featured__gallery route-photo-preview" data-featured-gallery hidden>
             <img
               class="home-featured__gallery-image"
@@ -580,8 +571,6 @@ const homepageStructuredData = [
               </p>
             </div>
           </div>
-
-          </details>
 
           <section class="home-featured__facts" aria-label="Featured facts">
             <p

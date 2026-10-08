@@ -92,14 +92,8 @@ if ('requestIdleCallback' in window) {
 
 const preferences = document.querySelector('[data-home-preferences]');
 if (preferences instanceof HTMLDetailsElement) {
-  try {
-    const storedPreference = localStorage.getItem('paddletoday:home-preferences-open');
-    preferences.open = storedPreference === 'true';
-  } catch {
-    preferences.open = false;
-  }
+  preferences.open = true;
   preferences.addEventListener('toggle', () => {
-    try { localStorage.setItem('paddletoday:home-preferences-open', String(preferences.open)); } catch {}
     if (preferences.open) void hydrateHomepage();
   });
 }
