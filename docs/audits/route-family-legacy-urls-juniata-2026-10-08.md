@@ -44,4 +44,4 @@ Added 24 exact permanent redirects in `staticwebapp.config.json` from the retire
 
 ## Verification
 
-Before deployment, each of the 24 paths was confirmed to return HTTP 404. Verify after deployment that all return HTTP 301 to the hub, both slash forms are handled, and the hub returns HTTP 200. No Search Console sitemap submission, validation, or URL indexing request was made.
+Before deployment, each of the 24 paths was confirmed to return HTTP 404. Deployment run [37763987749](https://github.com/EckceptionalSolutions/PaddleTodayV2/actions/runs/37763987749) completed successfully. After deployment, all 27 Juniata-to-hub redirect rules (the 24 new repairs plus three existing aliases) returned HTTP 301 to the canonical hub in both slash forms (54 variants checked). The hub returns HTTP 200, and none of these retired paths appears in the live sitemap. No Search Console sitemap submission, validation, or URL indexing request was made.
