@@ -82,6 +82,11 @@ const stLouisRiverConsolidatedRouteSlugs = [
   'st-louis-river-forbes-toivola',
   'st-louis-river-toivola-floodwood',
 ] as const;
+const stCroixRiverHubPath = '/rivers/by-river/st-croix-river/';
+const stCroixRiverConsolidatedRouteSlugs = [
+  // This 9.75-mile option is a nested start on the higher-performing NPS Map 6 corridor.
+  'st-croix-river-fox-highway-70',
+] as const;
 const upperCumberlandHubPath = '/rivers/by-river/upper-cumberland-river/';
 const upperCumberlandConsolidatedRouteSlugs = [
   'upper-cumberland-river-varilla-artemus',
@@ -1105,6 +1110,7 @@ const consolidatedRouteTargets = new Map<string, string>(
     ...gooseCreekConsolidatedRouteSlugs.map((slug) => [slug, `${gooseCreekHubPath}#trip-${slug}`] as const),
     ...kinniconickCreekConsolidatedRouteSlugs.map((slug) => [slug, `${kinniconickCreekHubPath}#trip-${slug}`] as const),
     ...northForkMaquoketaConsolidatedRouteSlugs.map((slug) => [slug, `${northForkMaquoketaHubPath}#trip-${slug}`] as const),
+    ...stCroixRiverConsolidatedRouteSlugs.map((slug) => [slug, `${stCroixRiverHubPath}#trip-${slug}`] as const),
     ...crookedCreekConsolidatedRouteSlugs.map((slug) => [slug, `${crookedCreekHubPath}#trip-${slug}`] as const),
     ...southLlanoConsolidatedRouteSlugs.map((slug) => [slug, `${southLlanoHubPath}#trip-${slug}`] as const),
     ...mulberryForkConsolidatedRouteSlugs.map((slug) => [slug, `${mulberryForkHubPath}#trip-${slug}`] as const),
