@@ -19,3 +19,12 @@ Before the change, the production Hancock–Callicoon page returned HTTP 200 wit
 - NPS [River Safety](https://www.nps.gov/upde/planyourvisit/river-safety.htm) provides the route-family safety guidance.
 
 No Search Console sitemap submission, URL indexing request, or validation request was made.
+
+## Production verification (2026-10-08)
+
+- Commit `4bbd619bf` deployed successfully. Frontend workflow [37804096626](https://github.com/EckceptionalSolutions/PaddleTodayV2/actions/runs/37804096626), API workflow [37804096699](https://github.com/EckceptionalSolutions/PaddleTodayV2/actions/runs/37804096699), and Snapshot Worker workflow [37804096596](https://github.com/EckceptionalSolutions/PaddleTodayV2/actions/runs/37804096596) all succeeded.
+- The old Hancock–Callicoon URL now returns HTTP 301 to `/rivers/by-river/delaware-river/#trip-delaware-river-hancock-callicoon`. The Delaware hub returns HTTP 200 and contains the matching trip-card anchor and 27-mile option.
+- Lordville–Long Eddy returns HTTP 200 with approximately 6 river miles and a 3-hour NPS planning time; the page shows the corrected Long Eddy river-mile location near mile 315.
+- The sitemap index and child sitemap return HTTP 200. The child contains 2,521 URLs, includes the Delaware hub, and omits the retired Hancock–Callicoon standalone route.
+
+Google Search Console was not submitted or asked to validate the change; Google must recrawl the updated sitemap and redirect.

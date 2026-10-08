@@ -1131,7 +1131,7 @@ const consolidatedRouteTargets = new Map<string, string>(
       slug,
       bayouTecheAccessReviewRouteSlugs.has(slug)
         ? `${bayouTecheHubPath}#bayou-teche-access-notices`
-        : `${bayouTecheHubPath}#trip-${slug}`,
+        : `${bayouTecheHubPath}#bayou-teche-documented-sections`,
     ] as const),
     ...willametteConsolidatedRouteSlugs.map((slug) => [slug, willametteHubPath] as const),
     ...broadRiverConsolidatedRouteSlugs.map((slug) => [slug, `${broadRiverHubPath}#trip-${slug}`] as const),
@@ -1212,6 +1212,8 @@ const hubOverviewOnlyRouteSlugs = new Set<string>([
   ...willametteConsolidatedRouteSlugs,
   ...greenRiverConsolidatedRouteSlugs,
   ...millersConsolidatedRouteSlugs,
+  // Keep source records for audits and legacy redirects; list only the 11 official adjacent legs on the public Teche hub.
+  ...bayouTecheConsolidatedRouteSlugs,
 ]);
 
 export function routePageConsolidationTarget(slug: string): string | undefined {
