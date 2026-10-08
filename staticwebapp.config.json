@@ -98,6 +98,16 @@
       "statusCode": 301
     },
     {
+      "route": "/rivers/goose-creek-jacks-dump-hollow",
+      "redirect": "/rivers/by-river/goose-creek/#trip-goose-creek-jacks-dump-hollow",
+      "statusCode": 301
+    },
+    {
+      "route": "/rivers/goose-creek-jacks-laurel-branch",
+      "redirect": "/rivers/by-river/goose-creek/#trip-goose-creek-jacks-laurel-branch",
+      "statusCode": 301
+    },
+    {
       "route": "/rivers/susquehanna-river-canal-park-wetlands",
       "redirect": "/rivers/susquehanna-river-canal-park-test-track/",
       "statusCode": 301
