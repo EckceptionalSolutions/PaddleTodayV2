@@ -12,7 +12,13 @@ This change retires one standalone page while preserving the trip's individual e
 
 ## Implementation
 
-Added the Belle Plaine–Carver slug to the route-page consolidation map, targeting `#trip-minnesota-river-belle-plaine-carver` on `/rivers/by-river/minnesota-river/`. Route data and trip details stay in the planner catalog, while the route-page generator omits this URL from the sitemap and emits its generated redirect page. The production build's search-indexability audit must confirm that the hub contains the target card and that the retired path is absent from the sitemap.
+Added the Belle Plaine–Carver slug to the route-page consolidation map, targeting `#trip-minnesota-river-belle-plaine-carver` on `/rivers/by-river/minnesota-river/`. Route data and trip details stay in the planner catalog, while the route-page generator omits this URL from the sitemap and emits its generated redirect page.
+
+## Production verification
+
+Frontend workflow [37758822590](https://github.com/EckceptionalSolutions/PaddleTodayV2/actions/runs/37758822590), including tests, production build, both search-indexability audits, and deployed-origin checks, succeeded. API workflow [37758822611](https://github.com/EckceptionalSolutions/PaddleTodayV2/actions/runs/37758822611) and Snapshot Worker workflow [37758822614](https://github.com/EckceptionalSolutions/PaddleTodayV2/actions/runs/37758822614) also succeeded.
+
+The live retired route returns HTTP 200 with a zero-second meta refresh and visible fallback link to the exact selected trip card. The Minnesota River hub returns HTTP 200 and contains the matching trip anchor, endpoints, and distance. The production sitemap index and child sitemap return HTTP 200; the child contains 2,537 URLs, includes the river hub, and excludes the retired Belle Plaine–Carver route page. Search Console was not changed; its indexing report predates this deployment.
 
 ## Sources reviewed
 
