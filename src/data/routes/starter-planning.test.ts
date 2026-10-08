@@ -2,6 +2,7 @@ import { describe, expect, it } from 'vitest';
 import { floridaRoutes } from './florida';
 import { oregonRoutes } from './oregon';
 import { listRivers } from '../../lib/rivers';
+import { isHubOverviewOnlyRoute } from '../route-page-consolidations';
 import { auditRouteSafety } from '../../lib/route-safety-audit';
 import { rivers as scoredRoutes } from '../rivers';
 import { readFileSync } from 'node:fs';
@@ -9,7 +10,8 @@ import { readFileSync } from 'node:fs';
 describe('starter planning publication', () => {
   it('exposes reviewed starter trips without admitting them into scored routes', () => {
     const publicRoutes = listRivers();
-    for (const route of [...floridaRoutes, ...oregonRoutes].filter(item => item.scoreEligibility === 'planning')) {
+    for (const route of [...floridaRoutes, ...oregonRoutes].filter(item =>
+      item.scoreEligibility === 'planning' && !isHubOverviewOnlyRoute(item.slug))) {
       const published = publicRoutes.find(item => item.slug === route.slug);
       expect(published?.scoreEligibility).toBe('planning');
       expect(published?.logistics?.distanceLabel).toBeTruthy();
