@@ -7869,9 +7869,9 @@ export const iowaRoutes: River[] = [
         "sourceUrl": "https://www.wisconsinrivertrips.com/segments/north-fork-maquoketa-river"
       },
       {
-        "label": "Current gauge check",
+        "label": "Gauge snapshot · July 6, 2026",
         "value": "USGS 05418400 at 943 cfs / 5.04 ft",
-        "note": "USGS Water Services returned current North Fork Maquoketa River near Fulton values of 943 cfs and 5.04 ft at 2026-07-06 11:00 CDT.",
+        "note": "USGS Water Services returned these North Fork Maquoketa River near Fulton values at 2026-07-06 11:00 CDT. This is a historical snapshot, not today's reading; check the latest USGS observation timestamp before using the gauge for a trip.",
         "sourceUrl": "https://waterdata.usgs.gov/monitoring-location/USGS-05418400/"
       },
       {
@@ -8009,9 +8009,9 @@ export const iowaRoutes: River[] = [
         "sourceUrl": "https://www.wisconsinrivertrips.com/segments/north-fork-maquoketa-river"
       },
       {
-        "label": "Current gauge check",
+        "label": "Gauge snapshot · July 6, 2026",
         "value": "USGS 05418400 at 939 cfs / 5.03 ft",
-        "note": "USGS Water Services returned current North Fork Maquoketa River near Fulton values of 939 cfs and 5.03 ft at 2026-07-06 12:00 CDT.",
+        "note": "USGS Water Services returned these North Fork Maquoketa River near Fulton values at 2026-07-06 12:00 CDT. This is a historical snapshot, not today's reading; check the latest USGS observation timestamp before using the gauge for a trip.",
         "sourceUrl": "https://waterdata.usgs.gov/monitoring-location/USGS-05418400/"
       },
       {
@@ -8150,9 +8150,9 @@ export const iowaRoutes: River[] = [
         "sourceUrl": "https://www.wisconsinrivertrips.com/segments/north-fork-maquoketa-river"
       },
       {
-        "label": "Current gauge check",
+        "label": "Gauge snapshot · July 6, 2026",
         "value": "USGS 05418400 at 943 cfs / 5.04 ft",
-        "note": "USGS Water Services returned current North Fork Maquoketa River near Fulton values of 943 cfs and 5.04 ft at 2026-07-06 11:00 CDT.",
+        "note": "USGS Water Services returned these North Fork Maquoketa River near Fulton values at 2026-07-06 11:00 CDT. This is a historical snapshot, not today's reading; check the latest USGS observation timestamp before using the gauge for a trip.",
         "sourceUrl": "https://waterdata.usgs.gov/monitoring-location/USGS-05418400/"
       }
     ],
@@ -8409,9 +8409,9 @@ export const iowaRoutes: River[] = [
         "sourceUrl": "https://www.wisconsinrivertrips.com/segments/north-fork-maquoketa-river/ozark-wildlife-area"
       },
       {
-        "label": "Current gauge check",
+        "label": "Gauge snapshot · July 6, 2026",
         "value": "USGS 05418400 at 939 cfs / 5.03 ft",
-        "note": "USGS Water Services returned current North Fork Maquoketa River near Fulton values of 939 cfs and 5.03 ft at 2026-07-06 12:00 CDT.",
+        "note": "USGS Water Services returned these North Fork Maquoketa River near Fulton values at 2026-07-06 12:00 CDT. This is a historical snapshot, not today's reading; check the latest USGS observation timestamp before using the gauge for a trip.",
         "sourceUrl": "https://waterdata.usgs.gov/monitoring-location/USGS-05418400/"
       },
       {
@@ -8555,9 +8555,9 @@ export const iowaRoutes: River[] = [
         "sourceUrl": "https://www.wisconsinrivertrips.com/segments/north-fork-maquoketa-river/ozark-wildlife-area"
       },
       {
-        "label": "Current gauge check",
+        "label": "Gauge snapshot · July 6, 2026",
         "value": "USGS 05418400 at 939 cfs / 5.03 ft",
-        "note": "USGS Water Services returned current North Fork Maquoketa River near Fulton values of 939 cfs and 5.03 ft at 2026-07-06 12:00 CDT.",
+        "note": "USGS Water Services returned these North Fork Maquoketa River near Fulton values at 2026-07-06 12:00 CDT. This is a historical snapshot, not today's reading; check the latest USGS observation timestamp before using the gauge for a trip.",
         "sourceUrl": "https://waterdata.usgs.gov/monitoring-location/USGS-05418400/"
       }
     ],

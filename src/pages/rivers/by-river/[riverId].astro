@@ -56,6 +56,7 @@ const isSaludaHub = group.riverId === 'saluda-river';
 const isWabashHub = group.riverId === 'wabash-river';
 const isGooseCreekHub = group.riverId === 'goose-creek';
 const isKinniconickHub = group.riverId === 'kinniconick-creek';
+const isNorthForkMaquoketaHub = group.riverId === 'north-fork-maquoketa-river';
 const isVillageCreekHub = group.riverId === 'village-creek';
 const isElevenPointHub = group.riverId === 'eleven-point-river';
 const isJacksForkHub = group.riverId === 'jacks-fork-river';
@@ -127,6 +128,8 @@ const groupTitle = isBroadRiverHub
   ? 'Goose Creek, Kentucky | Paddling Sections, Gauge & Access'
   : isKinniconickHub
   ? 'Kinniconick Creek, Kentucky | Paddle Sections, Mileage & Gauge'
+  : isNorthForkMaquoketaHub
+  ? 'North Fork Maquoketa River, Iowa | Paddle Sections & Access'
   : isSpokaneHub
   ? 'Spokane River, Washington | Paddling Sections, Gauges & Access'
   : isSaludaHub
@@ -224,6 +227,8 @@ const groupDescription = isBroadRiverHub
   ? 'Compare five Goose Creek trips in Clay County, Kentucky. See KDFWR mileages, Manchester gauge recommendations, roadside access notes, and the Dump Hollow ford warning.'
   : isKinniconickHub
   ? 'Compare six Kinniconick Creek trips in Lewis County, Kentucky. See KDFWR access mileage, Tygarts Creek proxy gauge recommendations, route distances, and carry-down access notes.'
+  : isNorthForkMaquoketaHub
+  ? 'Compare six North Fork Maquoketa trips from Cascade to Caven. Review the Cascade dam portage, remote middle reach, and access details for each section.'
   : isSpokaneHub
   ? 'Plan the Spokane River by its distinct upper reaches, lower whitewater and Nine Mile flatwater pool. Compare six focused Water Trail sections and 20 alternate endpoint choices, with local access, gauge context and safety notes.'
   : isSaludaHub
@@ -2880,6 +2885,47 @@ const groupStructuredData = [
 
           <p>
             Review KDFWR’s <a href="https://fw.ky.gov/Fish/Pages/Kinniconick_Creek.aspx" target="_blank" rel="noopener noreferrer">Kinniconick Creek mileages, recommended levels, and access descriptions</a> before choosing a trip.
+          </p>
+        </div>
+      ) : null}
+
+      {isNorthForkMaquoketaHub ? (
+        <div class="river-hub-context__source-guide" id="north-fork-maquoketa-sections" aria-labelledby="north-fork-maquoketa-sections-title">
+          <div class="river-group-page__section-head">
+            <div>
+              <p class="eyebrow section-label">Iowa · North Fork Maquoketa water trail</p>
+              <h3 class="section-title" id="north-fork-maquoketa-sections-title">Choose a section and plan the access gaps</h3>
+            </div>
+            <p class="muted river-group-page__section-note">
+              Three focused trips divide the Cascade-to-Caven corridor. Longer combinations remain available as trip cards, where each keeps its own distance, shuttle, access, and hazard notes.
+            </p>
+          </div>
+
+          <div class="river-hub-context__grid">
+            <article class="river-hub-context__item">
+              <h3>Three distinct sections</h3>
+              <ul>
+                <li><a href="#trip-north-fork-maquoketa-river-cascade-d61">Cascade to D61 · 7.8 miles</a></li>
+                <li><a href="#trip-north-fork-maquoketa-river-d61-ozark">D61 to Ozark · about 12.1 miles</a></li>
+                <li><a href="#trip-north-fork-maquoketa-river-ozark-caven">Ozark to Caven · 4.4 miles</a></li>
+              </ul>
+              <p>
+                D61 is on Whitewater Creek, so the selected route includes a short move between the creek and the North Fork. Ozark-to-Caven is the short lower section through Ozark Wildlife Area; Iowa DNR rounds this water-trail reach to five miles on its map.
+              </p>
+            </article>
+            <article class="river-hub-context__item">
+              <h3>Dam, remoteness, and public access</h3>
+              <p>
+                Portage around the low-head dam in Cascade and stay clear of the structure. Jones County describes roughly 18 miles of remote river between access points and directs paddlers to neighboring-county access maps. Treat the middle reach as a committed trip: practical exits are limited, and undeveloped bridge approaches can be muddy or privately owned.
+              </p>
+              <p>
+                The City of Cascade lists a canoe and kayak landing with parking near River View Park, and the Iowa DNR map marks Cascade City Park. Jones County's page says there is no access from a spot in its county, so confirm current signs and parking with the city before launching. Check recent rain and the <a href="https://waterdata.usgs.gov/monitoring-location/USGS-05418400/" target="_blank" rel="noopener noreferrer">USGS North Fork near Fulton gauge</a>; inspect its latest observation timestamp because the station's reporting can lag, and treat its reading as corridor context rather than a safety limit.
+              </p>
+            </article>
+          </div>
+
+          <p>
+            Review the City of Cascade's <a href="https://www.cityofcascade.org/vnews/display.v/ART/5e94c9f386f55" target="_blank" rel="noopener noreferrer">River View Park and landing information</a>, the <a href="https://www.iowadnr.gov/portals/idnr/uploads/fish/maps/RMR28.pdf" target="_blank" rel="noopener noreferrer">Iowa DNR North Fork and Whitewater Creek map</a>, the <a href="https://www.iowadnr.gov/Portals/idnr/uploads/riverprograms/watertrails/watertrail_northfolk.pdf" target="_blank" rel="noopener noreferrer">Jackson County water-trail map</a>, and <a href="https://www.jonescountyiowa.gov/conservation/rivers/maquoketa_river_north_fork/" target="_blank" rel="noopener noreferrer">Jones County’s North Fork access and dam guidance</a> before choosing endpoints.
           </p>
         </div>
       ) : null}
