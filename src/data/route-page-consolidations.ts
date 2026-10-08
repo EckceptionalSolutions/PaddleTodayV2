@@ -402,6 +402,11 @@ const saludaRiverAccessNoteRouteSlugs = [
 ] as const;
 
 const susquehannaConsolidatedRouteSlugs = [
+  'susquehanna-river-towanda-laceyville',
+  'susquehanna-river-laceyville-west-falls',
+  'susquehanna-river-canal-park-test-track',
+  'susquehanna-river-test-track-danville',
+  'susquehanna-river-pfbc-danville-shikellamy-west',
   'susquehanna-river-hornbrook-wysox-township-park',
   'susquehanna-river-ulster-bridge-terrytown',
   'susquehanna-river-hornbrook-terrytown',
