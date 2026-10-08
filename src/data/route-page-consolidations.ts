@@ -1117,7 +1117,7 @@ const consolidatedRouteTargets = new Map<string, string>(
       slug,
       willimanticFeaturedRouteSlugs.has(slug) ? `${willimanticHubPath}#trip-${slug}` : willimanticHubPath,
     ] as const),
-    ...blackCreekCompositeRouteSlugs.map((slug) => [slug, `${blackCreekHubPath}#trip-${slug}`] as const),
+    ...blackCreekCompositeRouteSlugs.map((slug) => [slug, `${blackCreekHubPath}#black-creek-access-sequence-title`] as const),
     ...lamoilleCompositeRouteSlugs.map((slug) => [slug, `/rivers/by-river/lamoille-river-vermont/#trip-${slug}`] as const),
     ...woonasquatucketAccessGapRouteSlugs.map((slug) => [slug, `${woonasquatucketHubPath}#woonasquatucket-access-zones`] as const),
     ...woonasquatucketUpperCompositeRouteSlugs.map((slug) => [slug, `${woonasquatucketHubPath}#trip-${slug}`] as const),
@@ -1212,6 +1212,8 @@ const hubOverviewOnlyRouteSlugs = new Set<string>([
   ...willametteConsolidatedRouteSlugs,
   ...greenRiverConsolidatedRouteSlugs,
   ...millersConsolidatedRouteSlugs,
+  // Keep route records for planning and redirects, but list only the six documented adjacent reaches on Black Creek.
+  ...blackCreekCompositeRouteSlugs,
   // Keep source records for audits and legacy redirects; list only the 11 official adjacent legs on the public Teche hub.
   ...bayouTecheConsolidatedRouteSlugs,
 ]);

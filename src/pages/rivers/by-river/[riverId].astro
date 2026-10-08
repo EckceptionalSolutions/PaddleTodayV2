@@ -780,7 +780,7 @@ const faqItems = [
       : isWillametteHub
       ? 'The Water Trail documents five distinct trips: Alton Baker to Harrisburg, Marshall Island to Harrisburg, Harrisburg to Peoria, Peoria to Crystal Lake, and Michael’s Landing to Hyak. Each has its own distance, access, and hazard notes; other endpoint combinations are no longer listed as separate trips.'
       : isBlackCreekHub
-      ? `This hub keeps all ${group.routeCount} Black Creek landing combinations together. Start with the six documented adjacent reaches, or choose a longer trip that includes intermediate public landings.`
+      ? 'This hub focuses on six documented adjacent Black Creek reaches, each with its own distance, access, and route notes. Use the landing sequence to plan a longer outing from consecutive sections.'
       : isLamoilleHub
       ? `The Lamoille Paddlers Trail names separate day reaches from the upper valley through Johnson and Jeffersonville to Arrowhead Lake. Start with the source-backed day trips below, then compare other access combinations by distance, portage, and local hazards.`
       : isWoonasquatucketHub
@@ -986,7 +986,7 @@ const groupStructuredData = [
             : isPenobscotHub
             ? 'Plan by river section: North-central reaches around T3 R11, Medway, Lincoln, Howland, and Passadumkeag use West Enfield gauge context; the Bangor Valley and Bangor-to-Verona reach use the Bangor gauge and add tide, wind, and marine traffic. Check the exact access and take-out notes.'
             : isBlackCreekHub
-            ? 'Start with the six documented Black Creek reaches from Churchwell Road through Fairley Bridge. The trip picker also includes longer landing combinations, with intermediate public access points for breaks or shorter exits.'
+            ? 'Choose among six documented Black Creek reaches from Churchwell Road through Fairley Bridge. Their distances and access notes are specific to each section; plan longer outings by linking consecutive landings and check current water and Forest Service conditions.'
             : isLamoilleHub
             ? 'Choose a named Lamoille Paddlers’ Trail reach, then check its specific portages, water type, and access. The trail spans quiet water, rock gardens, falls, and Arrowhead Lake; a Johnson gauge reading does not describe every route hazard.'
             : isWoonasquatucketHub
@@ -1731,7 +1731,7 @@ const groupStructuredData = [
           </div>
         </div>
         <p>
-          Seven Rivers Canoe Club documents a chain of launch and take-out options from Churchwell Road through Big Creek, Old Highway 49, Ashe Nursery Road, Moody Landing, Janice and Cypress Creek to Fairley Bridge. These adjacent trips follow its published reach distances. Longer trips in the picker combine those sections, so their mileage and travel time are approximate; check water level, wood, daylight, landing access and Forest Service notices before launch. See the <a href="https://www.sevenriverscanoe.com/black-creek" rel="noopener">Black Creek access and trip guide</a> for its landing notes.
+          Seven Rivers Canoe Club documents adjacent trips from Churchwell Road through Big Creek, Old Highway 49, Moody’s Landing, Janice and Cypress Creek to Fairley Bridge. These six public options follow its published reach distances and keep each section’s launch, take-out and logistics clear. The club describes Ashe Nursery as an alternative landing about 1.3 miles below Old Highway 49; its endpoint remains under review and is not a separate trip choice. For a longer outing, use the landing sequence to plan consecutive sections; check water level, wood, daylight, landing access and Forest Service notices before launch. See the <a href="https://www.sevenriverscanoe.com/black-creek" rel="noopener">Black Creek access and trip guide</a> for current landing notes.
         </p>
         <ul>
           {blackCreekSegments.map((segment) => segment.route ? (
@@ -2265,7 +2265,7 @@ const groupStructuredData = [
               : isBuffaloHub
               ? 'Compare all 12 Buffalo National River endpoint choices. Ponca–Steel Creek and Pruitt–Hasty keep guides to NPS-named Upper District floats; Tyler Bend–Grinder’s Ferry covers the separate Middle District. The other nine combinations remain selectable with their own endpoints, mileage, gauge context, and hazards.'
               : isBlackCreekHub
-              ? `Compare all ${group.routeCount} landing combinations here. The six adjacent reaches documented by Seven Rivers have individual pages; longer combinations and the Ashe Nursery alternative remain available as trip options.`
+              ? 'Compare six documented Black Creek trips here. Each covers one adjacent reach with published distance and access details; follow the landing sequence to plan a longer itinerary.'
               : isFloydsForkHub
               ? `Compare all ${group.routeCount} Floyds Fork choices here. Thirteen detailed guides cover 11 routes published by KDFWR or The Parklands plus two longer options; the other eight combinations remain selectable with their own route details.`
               : isSaukRiverHub
