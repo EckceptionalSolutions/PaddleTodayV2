@@ -495,6 +495,7 @@ let summaryMapRenderVersion = 0;
 let summaryMapRenderTimer = 0;
 let pendingSummaryMapItems = null;
 let pendingSummaryMapPreserveViewport = false;
+let pendingSummaryMapTrackPerformance = false;
 let selectedSummaryMapKey = null;
 let pendingSummaryMapOpenKey = null;
 let selectedSummaryMapZoneKey = null;
@@ -546,7 +547,7 @@ const exploreGeometryLoader = createExploreGeometryLoader({
     // Merge concurrent detail completions into one refresh after the camera settles.
     summaryGeometryRefreshTimer = window.setTimeout(() => {
       summaryGeometryRefreshTimer = 0;
-      scheduleSummaryMapRender(lastExploreItems, { preserveViewport: true });
+      scheduleSummaryMapRender(lastExploreItems, { preserveViewport: true, trackPerformance: false });
     }, 120);
   },
 });
@@ -2415,7 +2416,7 @@ function bindSummaryMapLayerRefresh() {
     syncSummaryRouteLine();
     updateSummaryMarkerZoomMode();
     if (isRiverFirstExploreMap()) {
-      scheduleSummaryMapRender(lastExploreItems, { preserveViewport: true });
+      scheduleSummaryMapRender(lastExploreItems, { preserveViewport: true, trackPerformance: false });
     }
   });
 }
@@ -3650,9 +3651,10 @@ function scrollToHomeTarget(targetId) {
   }, 45);
 }
 
-function scheduleSummaryMapRender(items, { preserveViewport = false } = {}) {
+function scheduleSummaryMapRender(items, { preserveViewport = false, trackPerformance = true } = {}) {
   pendingSummaryMapItems = items;
   pendingSummaryMapPreserveViewport = pendingSummaryMapPreserveViewport || preserveViewport;
+  pendingSummaryMapTrackPerformance = pendingSummaryMapTrackPerformance || trackPerformance;
   if (summaryMapRenderTimer) return;
 
   const render = () => {
@@ -3663,9 +3665,11 @@ function scheduleSummaryMapRender(items, { preserveViewport = false } = {}) {
     summaryMapRenderTimer = 0;
     const nextItems = pendingSummaryMapItems || [];
     const nextPreserveViewport = pendingSummaryMapPreserveViewport;
+    const nextTrackPerformance = pendingSummaryMapTrackPerformance;
     pendingSummaryMapItems = null;
     pendingSummaryMapPreserveViewport = false;
-    renderSummaryMap(nextItems, { preserveViewport: nextPreserveViewport });
+    pendingSummaryMapTrackPerformance = false;
+    renderSummaryMap(nextItems, { preserveViewport: nextPreserveViewport, trackPerformance: nextTrackPerformance });
   };
 
   if (typeof window.requestIdleCallback === 'function') {
@@ -3710,7 +3714,7 @@ function requestSummaryRouteDetails() {
   exploreGeometryLoader.setDetailRoutes([...new Set([...selected, ...visible].map((route) => route.river.slug))].slice(0, 200));
 }
 
-async function renderSummaryMap(items, { preserveViewport = false } = {}) {
+async function renderSummaryMap(items, { preserveViewport = false, trackPerformance = true } = {}) {
   preserveViewport = preserveViewport || Boolean(restoredExplorePosition?.camera);
   if (!(summaryMap instanceof HTMLElement)) {
     return;
@@ -3917,11 +3921,13 @@ async function renderSummaryMap(items, { preserveViewport = false } = {}) {
         summaryMapController.closePopups(mapMarkersByKey);
       }
       summaryMapStatusController.ready({ message: summaryMapOverviewStatus(mapItems), backgroundMap: mapRuntime });
-      trackExplorePerformance('Explore map render', mapRenderStartedAt, {
-        status: 'ready',
-        result_count: summaryMapSourceItemCount,
-        interactive_result_count: mapItems.length,
-      });
+      if (trackPerformance) {
+        trackExplorePerformance('Explore map render', mapRenderStartedAt, {
+          status: 'ready',
+          result_count: summaryMapSourceItemCount,
+          interactive_result_count: mapItems.length,
+        });
+      }
       return;
     }
 
@@ -3938,11 +3944,13 @@ async function renderSummaryMap(items, { preserveViewport = false } = {}) {
       nearby: isNearbySummaryMapMode(),
       ...(items.length ? { message: 'No routes in this map area. Pan or zoom out to find routes.' } : {}),
     });
-    trackExplorePerformance('Explore map render', mapRenderStartedAt, {
-      status: 'empty',
-      result_count: 0,
-      interactive_result_count: 0,
-    });
+    if (trackPerformance) {
+      trackExplorePerformance('Explore map render', mapRenderStartedAt, {
+        status: 'empty',
+        result_count: 0,
+        interactive_result_count: 0,
+      });
+    }
   } catch (error) {
     if (renderVersion !== summaryMapRenderVersion) return;
     console.error('Failed to load summary map.', error);
@@ -3962,11 +3970,13 @@ async function renderSummaryMap(items, { preserveViewport = false } = {}) {
       summaryMapController.setView('list');
       summaryMapController.updateView();
     }
-    trackExplorePerformance('Explore map render', mapRenderStartedAt, {
-      status: 'error',
-      result_count: summaryMapSourceItemCount,
-      interactive_result_count: 0,
-    });
+    if (trackPerformance) {
+      trackExplorePerformance('Explore map render', mapRenderStartedAt, {
+        status: 'error',
+        result_count: summaryMapSourceItemCount,
+        interactive_result_count: 0,
+      });
+    }
   } finally {
     if (renderVersion === summaryMapRenderVersion && summaryMapRetry instanceof HTMLButtonElement) {
       const unavailable = summaryMapStatus?.getAttribute('data-map-state') === 'unavailable';
