@@ -827,59 +827,59 @@ const verdeRiverAccessReviewRouteSlugs = [
 
 const consolidatedRouteTargets = new Map<string, string>(
   [
-    ...willimanticRouteSlugs.map((slug) => [slug, `${willimanticHubPath}?route=${slug}#trip-${slug}`] as const),
-    ...blackCreekCompositeRouteSlugs.map((slug) => [slug, `${blackCreekHubPath}?route=${slug}#trip-${slug}`] as const),
-    ...lamoilleCompositeRouteSlugs.map((slug) => [slug, `/rivers/by-river/lamoille-river-vermont/?route=${slug}#trip-${slug}`] as const),
+    ...willimanticRouteSlugs.map((slug) => [slug, `${willimanticHubPath}#trip-${slug}`] as const),
+    ...blackCreekCompositeRouteSlugs.map((slug) => [slug, `${blackCreekHubPath}#trip-${slug}`] as const),
+    ...lamoilleCompositeRouteSlugs.map((slug) => [slug, `/rivers/by-river/lamoille-river-vermont/#trip-${slug}`] as const),
     ...woonasquatucketAccessGapRouteSlugs.map((slug) => [slug, `${woonasquatucketHubPath}#woonasquatucket-access-zones`] as const),
-    ...woonasquatucketUpperCompositeRouteSlugs.map((slug) => [slug, `${woonasquatucketHubPath}?route=${slug}#trip-${slug}`] as const),
+    ...woonasquatucketUpperCompositeRouteSlugs.map((slug) => [slug, `${woonasquatucketHubPath}#trip-${slug}`] as const),
     ...suwanneeConsolidatedRouteSlugs.map((slug) => [
       slug,
       suwanneeAccessNoticeRouteSlugs.has(slug)
         ? `${suwanneeHubPath}#suwannee-current-access-notices`
-        : `${suwanneeHubPath}?route=${slug}#trip-${slug}`,
+        : `${suwanneeHubPath}#trip-${slug}`,
     ] as const),
     ...bayouTecheConsolidatedRouteSlugs.map((slug) => [
       slug,
       bayouTecheAccessReviewRouteSlugs.has(slug)
         ? `${bayouTecheHubPath}#bayou-teche-access-notices`
-        : `${bayouTecheHubPath}?route=${slug}#trip-${slug}`,
+        : `${bayouTecheHubPath}#trip-${slug}`,
     ] as const),
-    ...willametteConsolidatedRouteSlugs.map((slug) => [slug, `${willametteHubPath}?route=${slug}#trip-${slug}`] as const),
-    ...broadRiverConsolidatedRouteSlugs.map((slug) => [slug, `${broadRiverHubPath}?route=${slug}#trip-${slug}`] as const),
-    ...russianRiverConsolidatedRouteSlugs.map((slug) => [slug, `/rivers/by-river/russian-river-california/?route=${slug}#trip-${slug}`] as const),
-    ...blackfootConsolidatedRouteSlugs.map((slug) => [slug, `${blackfootHubPath}?route=${slug}#trip-${slug}`] as const),
-    ...blackfootLegacyRouteAliases.map(([legacySlug, currentSlug]) => [legacySlug, `${blackfootHubPath}?route=${currentSlug}#trip-${currentSlug}`] as const),
-    ...greenRiverConsolidatedRouteSlugs.map((slug) => [slug, `${greenRiverHubPath}?route=${slug}#trip-${slug}`] as const),
-    ...floydsForkConsolidatedRouteSlugs.map((slug) => [slug, `${floydsForkHubPath}?route=${slug}#trip-${slug}`] as const),
-    ...millersConsolidatedRouteSlugs.map((slug) => [slug, `${millersHubPath}?route=${slug}#trip-${slug}`] as const),
+    ...willametteConsolidatedRouteSlugs.map((slug) => [slug, `${willametteHubPath}#trip-${slug}`] as const),
+    ...broadRiverConsolidatedRouteSlugs.map((slug) => [slug, `${broadRiverHubPath}#trip-${slug}`] as const),
+    ...russianRiverConsolidatedRouteSlugs.map((slug) => [slug, `/rivers/by-river/russian-river-california/#trip-${slug}`] as const),
+    ...blackfootConsolidatedRouteSlugs.map((slug) => [slug, `${blackfootHubPath}#trip-${slug}`] as const),
+    ...blackfootLegacyRouteAliases.map(([legacySlug, currentSlug]) => [legacySlug, `${blackfootHubPath}#trip-${currentSlug}`] as const),
+    ...greenRiverConsolidatedRouteSlugs.map((slug) => [slug, `${greenRiverHubPath}#trip-${slug}`] as const),
+    ...floydsForkConsolidatedRouteSlugs.map((slug) => [slug, `${floydsForkHubPath}#trip-${slug}`] as const),
+    ...millersConsolidatedRouteSlugs.map((slug) => [slug, `${millersHubPath}#trip-${slug}`] as const),
     ['millers-river-erving-south-main-dam', `${millersHubPath}#millers-route-zones`] as const,
-    ...bayouDeViewConsolidatedRouteSlugs.map((slug) => [slug, `${bayouDeViewHubPath}?route=${slug}#trip-${slug}`] as const),
-    ...americanRiverConsolidatedRouteSlugs.map((slug) => [slug, `${americanRiverHubPath}?route=${slug}#trip-${slug}`] as const),
-    ...loupRiverConsolidatedRouteSlugs.map((slug) => [slug, `${loupRiverHubPath}?route=${slug}#trip-${slug}`] as const),
+    ...bayouDeViewConsolidatedRouteSlugs.map((slug) => [slug, `${bayouDeViewHubPath}#trip-${slug}`] as const),
+    ...americanRiverConsolidatedRouteSlugs.map((slug) => [slug, `${americanRiverHubPath}#trip-${slug}`] as const),
+    ...loupRiverConsolidatedRouteSlugs.map((slug) => [slug, `${loupRiverHubPath}#trip-${slug}`] as const),
     ...loupRiverCoordinateReviewRouteSlugs.map((slug) => [slug, `${loupRiverHubPath}#loup-coordinate-review`] as const),
-    ...verdeRiverConsolidatedRouteSlugs.map((slug) => [slug, `${verdeRiverHubPath}?route=${slug}#trip-${slug}`] as const),
+    ...verdeRiverConsolidatedRouteSlugs.map((slug) => [slug, `${verdeRiverHubPath}#trip-${slug}`] as const),
     ...verdeRiverAccessReviewRouteSlugs.map((slug) => [slug, `${verdeRiverHubPath}#verde-coordinate-review`] as const),
-    ...animasConsolidatedRouteSlugs.map((slug) => [slug, `${animasRiverHubPath}?route=${slug}#trip-${slug}`] as const),
-    ...housatonicConsolidatedRouteSlugs.map((slug) => [slug, `${housatonicRiverHubPath}?route=${slug}#trip-${slug}`] as const),
-    ...sanJuanConsolidatedRouteSlugs.map((slug) => [slug, `${sanJuanRiverHubPath}?route=${slug}#trip-${slug}`] as const),
-    ...crowWingConsolidatedRouteSlugs.map((slug) => [slug, `${crowWingRiverHubPath}?route=${slug}#trip-${slug}`] as const),
-    ...chattahoocheeConsolidatedRouteSlugs.map((slug) => [slug, `${chattahoocheeHubPath}?route=${slug}#trip-${slug}`] as const),
-    ...saukRiverConsolidatedRouteSlugs.map((slug) => [slug, `${saukRiverHubPath}?route=${slug}#trip-${slug}`] as const),
-    ...truckeeRiverConsolidatedRouteSlugs.map((slug) => [slug, `${truckeeRiverHubPath}?route=${slug}#trip-${slug}`] as const),
-    ...farmingtonRiverConsolidatedRouteSlugs.map((slug) => [slug, `${farmingtonRiverHubPath}?route=${slug}#trip-${slug}`] as const),
+    ...animasConsolidatedRouteSlugs.map((slug) => [slug, `${animasRiverHubPath}#trip-${slug}`] as const),
+    ...housatonicConsolidatedRouteSlugs.map((slug) => [slug, `${housatonicRiverHubPath}#trip-${slug}`] as const),
+    ...sanJuanConsolidatedRouteSlugs.map((slug) => [slug, `${sanJuanRiverHubPath}#trip-${slug}`] as const),
+    ...crowWingConsolidatedRouteSlugs.map((slug) => [slug, `${crowWingRiverHubPath}#trip-${slug}`] as const),
+    ...chattahoocheeConsolidatedRouteSlugs.map((slug) => [slug, `${chattahoocheeHubPath}#trip-${slug}`] as const),
+    ...saukRiverConsolidatedRouteSlugs.map((slug) => [slug, `${saukRiverHubPath}#trip-${slug}`] as const),
+    ...truckeeRiverConsolidatedRouteSlugs.map((slug) => [slug, `${truckeeRiverHubPath}#trip-${slug}`] as const),
+    ...farmingtonRiverConsolidatedRouteSlugs.map((slug) => [slug, `${farmingtonRiverHubPath}#trip-${slug}`] as const),
     ...farmingtonRiverRetiredRouteSlugs.map((slug) => [slug, `${farmingtonRiverHubPath}#farmington-river-access-notes`] as const),
-    ...susquehannaConsolidatedRouteSlugs.map((slug) => [slug, `${susquehannaRiverHubPath}?route=${slug}#trip-${slug}`] as const),
-    ...merrimackRiverConsolidatedRouteSlugs.map((slug) => [slug, `${merrimackRiverHubPath}?route=${slug}#trip-${slug}`] as const),
-    ...spokaneRiverConsolidatedRouteSlugs.map((slug) => [slug, `${spokaneRiverHubPath}?route=${slug}#trip-${slug}`] as const),
-    ...wabashRiverConsolidatedRouteSlugs.map((slug) => [slug, `${wabashRiverHubPath}?route=${slug}#trip-${slug}`] as const),
-    ...villageCreekConsolidatedRouteSlugs.map((slug) => [slug, `${villageCreekHubPath}?route=${slug}#trip-${slug}`] as const),
-    ...elevenPointRiverConsolidatedRouteSlugs.map((slug) => [slug, `${elevenPointRiverHubPath}?route=${slug}#trip-${slug}`] as const),
-    ...jacksForkRiverConsolidatedRouteSlugs.map((slug) => [slug, `${jacksForkRiverHubPath}?route=${slug}#trip-${slug}`] as const),
-    ...currentRiverConsolidatedRouteSlugs.map((slug) => [slug, `${currentRiverHubPath}?route=${slug}#trip-${slug}`] as const),
-    ...yellowBreechesConsolidatedRouteSlugs.map((slug) => [slug, `${yellowBreechesHubPath}?route=${slug}#trip-${slug}`] as const),
-    ...saltRiverConsolidatedRouteSlugs.map((slug) => [slug, `${saltRiverHubPath}?route=${slug}#trip-${slug}`] as const),
-    ...saludaRiverConsolidatedRouteSlugs.map((slug) => [slug, `${saludaRiverHubPath}?route=${slug}#trip-${slug}`] as const),
-    ...saludaRiverLaunchAliasSlugs.map((slug) => [slug, `${saludaRiverHubPath}?route=saluda-river-saluda-shoals-gardendale#trip-saluda-river-saluda-shoals-gardendale`] as const),
+    ...susquehannaConsolidatedRouteSlugs.map((slug) => [slug, `${susquehannaRiverHubPath}#trip-${slug}`] as const),
+    ...merrimackRiverConsolidatedRouteSlugs.map((slug) => [slug, `${merrimackRiverHubPath}#trip-${slug}`] as const),
+    ...spokaneRiverConsolidatedRouteSlugs.map((slug) => [slug, `${spokaneRiverHubPath}#trip-${slug}`] as const),
+    ...wabashRiverConsolidatedRouteSlugs.map((slug) => [slug, `${wabashRiverHubPath}#trip-${slug}`] as const),
+    ...villageCreekConsolidatedRouteSlugs.map((slug) => [slug, `${villageCreekHubPath}#trip-${slug}`] as const),
+    ...elevenPointRiverConsolidatedRouteSlugs.map((slug) => [slug, `${elevenPointRiverHubPath}#trip-${slug}`] as const),
+    ...jacksForkRiverConsolidatedRouteSlugs.map((slug) => [slug, `${jacksForkRiverHubPath}#trip-${slug}`] as const),
+    ...currentRiverConsolidatedRouteSlugs.map((slug) => [slug, `${currentRiverHubPath}#trip-${slug}`] as const),
+    ...yellowBreechesConsolidatedRouteSlugs.map((slug) => [slug, `${yellowBreechesHubPath}#trip-${slug}`] as const),
+    ...saltRiverConsolidatedRouteSlugs.map((slug) => [slug, `${saltRiverHubPath}#trip-${slug}`] as const),
+    ...saludaRiverConsolidatedRouteSlugs.map((slug) => [slug, `${saludaRiverHubPath}#trip-${slug}`] as const),
+    ...saludaRiverLaunchAliasSlugs.map((slug) => [slug, `${saludaRiverHubPath}#trip-saluda-river-saluda-shoals-gardendale`] as const),
     ...saludaRiverAccessNoteRouteSlugs.map((slug) => [slug, `${saludaRiverHubPath}#saluda-route-access-notes`] as const),
   ],
 );
@@ -888,11 +888,14 @@ export function routePageConsolidationTarget(slug: string): string | undefined {
   return consolidatedRouteTargets.get(slug);
 }
 
-/** Build a route link while preserving trip selection and optional planner filters. */
+/** Preserve trip selection on consolidated hubs and planner filters on standalone routes. */
 export function routePageHref(slug: string, params = new URLSearchParams()): string {
-  const destination = routePageConsolidationTarget(slug) ?? `/rivers/${encodeURIComponent(slug)}/`;
+  const consolidated = consolidatedRouteTargets.has(slug);
+  const destination = consolidatedRouteTargets.get(slug) ?? `/rivers/${encodeURIComponent(slug)}/`;
   const url = new URL(destination, 'https://paddletoday.invalid');
-  for (const [key, value] of params) url.searchParams.set(key, value);
+  if (!consolidated) {
+    for (const [key, value] of params) url.searchParams.set(key, value);
+  }
   return `${url.pathname}${url.search}${url.hash}`;
 }
 

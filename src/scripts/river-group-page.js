@@ -152,7 +152,6 @@ function activeFilterTotal() {
 function syncPickerUrl() {
   const url = new URL(window.location.href);
   const params = [
-    ['route', selectedSlug],
     ['distance', distanceFilter === 'all' ? null : distanceFilter],
     ['difficulty', difficultyFilter === 'all' ? null : difficultyFilter],
     ['camping', campingFilter === 'all' ? null : campingFilter],
@@ -168,6 +167,12 @@ function syncPickerUrl() {
     } else {
       url.searchParams.delete(key);
     }
+  }
+  url.searchParams.delete('route');
+  if (selectedSlug) {
+    url.hash = `trip-${selectedSlug}`;
+  } else if (/^#trip-/.test(url.hash)) {
+    url.hash = '';
   }
   window.history.replaceState({}, '', url);
 }
