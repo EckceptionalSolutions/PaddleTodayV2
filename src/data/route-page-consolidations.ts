@@ -118,6 +118,7 @@ const wabashRiverHubPath = '/rivers/by-river/wabash-river/';
 const gooseCreekHubPath = '/rivers/by-river/goose-creek/';
 const kinniconickCreekHubPath = '/rivers/by-river/kinniconick-creek/';
 const northForkMaquoketaHubPath = '/rivers/by-river/north-fork-maquoketa-river/';
+const crookedCreekHubPath = '/rivers/by-river/crooked-creek/';
 const buffaloRiverHubPath = '/rivers/by-river/buffalo-river/';
 
 const buffaloRiverConsolidatedRouteSlugs = [
@@ -150,6 +151,11 @@ const northForkMaquoketaConsolidatedRouteSlugs = [
   'north-fork-maquoketa-river-cascade-ozark',
   'north-fork-maquoketa-river-d61-caven',
   'north-fork-maquoketa-river-cascade-caven',
+] as const;
+
+const crookedCreekConsolidatedRouteSlugs = [
+  'crooked-creek-lower-pyatt-kelleys-slab',
+  'crooked-creek-snow-kelleys-slab',
 ] as const;
 
 const wabashRiverConsolidatedRouteSlugs = [
@@ -1005,6 +1011,7 @@ const consolidatedRouteTargets = new Map<string, string>(
     ...gooseCreekConsolidatedRouteSlugs.map((slug) => [slug, `${gooseCreekHubPath}#trip-${slug}`] as const),
     ...kinniconickCreekConsolidatedRouteSlugs.map((slug) => [slug, `${kinniconickCreekHubPath}#trip-${slug}`] as const),
     ...northForkMaquoketaConsolidatedRouteSlugs.map((slug) => [slug, `${northForkMaquoketaHubPath}#trip-${slug}`] as const),
+    ...crookedCreekConsolidatedRouteSlugs.map((slug) => [slug, `${crookedCreekHubPath}#trip-${slug}`] as const),
     ...buffaloRiverConsolidatedRouteSlugs.map((slug) => [slug, `${buffaloRiverHubPath}#trip-${slug}`] as const),
     ...floydsForkConsolidatedRouteSlugs.map((slug) => [slug, `${floydsForkHubPath}#trip-${slug}`] as const),
     ...barrenRiverConsolidatedRouteSlugs.map((slug) => [slug, `${barrenRiverHubPath}#trip-${slug}`] as const),

@@ -57,6 +57,7 @@ const isWabashHub = group.riverId === 'wabash-river';
 const isGooseCreekHub = group.riverId === 'goose-creek';
 const isKinniconickHub = group.riverId === 'kinniconick-creek';
 const isNorthForkMaquoketaHub = group.riverId === 'north-fork-maquoketa-river';
+const isCrookedCreekHub = group.riverId === 'crooked-creek';
 const isVillageCreekHub = group.riverId === 'village-creek';
 const isElevenPointHub = group.riverId === 'eleven-point-river';
 const isJacksForkHub = group.riverId === 'jacks-fork-river';
@@ -130,6 +131,8 @@ const groupTitle = isBroadRiverHub
   ? 'Kinniconick Creek, Kentucky | Paddle Sections, Mileage & Gauge'
   : isNorthForkMaquoketaHub
   ? 'North Fork Maquoketa River, Iowa | Paddle Sections & Access'
+  : isCrookedCreekHub
+  ? 'Crooked Creek, Arkansas | Water Trail Sections & Access'
   : isSpokaneHub
   ? 'Spokane River, Washington | Paddling Sections, Gauges & Access'
   : isSaludaHub
@@ -229,6 +232,8 @@ const groupDescription = isBroadRiverHub
   ? 'Compare six Kinniconick Creek trips in Lewis County, Kentucky. See KDFWR access mileage, Tygarts Creek proxy gauge recommendations, route distances, and carry-down access notes.'
   : isNorthForkMaquoketaHub
   ? 'Compare six North Fork Maquoketa trips from Cascade to Caven. Review the Cascade dam portage, remote middle reach, and access details for each section.'
+  : isCrookedCreekHub
+  ? 'Compare six Crooked Creek Water Trail trips from Lower Pyatt through Snow and Mark Oliver to Kelley’s Slab. Check AGFC mileage, the Kelly Crossing gauge, and camping details.'
   : isSpokaneHub
   ? 'Plan the Spokane River by its distinct upper reaches, lower whitewater and Nine Mile flatwater pool. Compare six focused Water Trail sections and 20 alternate endpoint choices, with local access, gauge context and safety notes.'
   : isSaludaHub
@@ -2926,6 +2931,47 @@ const groupStructuredData = [
 
           <p>
             Review the City of Cascade's <a href="https://www.cityofcascade.org/vnews/display.v/ART/5e94c9f386f55" target="_blank" rel="noopener noreferrer">River View Park and landing information</a>, the <a href="https://www.iowadnr.gov/portals/idnr/uploads/fish/maps/RMR28.pdf" target="_blank" rel="noopener noreferrer">Iowa DNR North Fork and Whitewater Creek map</a>, the <a href="https://www.iowadnr.gov/Portals/idnr/uploads/riverprograms/watertrails/watertrail_northfolk.pdf" target="_blank" rel="noopener noreferrer">Jackson County water-trail map</a>, and <a href="https://www.jonescountyiowa.gov/conservation/rivers/maquoketa_river_north_fork/" target="_blank" rel="noopener noreferrer">Jones County’s North Fork access and dam guidance</a> before choosing endpoints.
+          </p>
+        </div>
+      ) : null}
+
+      {isCrookedCreekHub ? (
+        <div class="river-hub-context__source-guide" id="crooked-creek-water-trail" aria-labelledby="crooked-creek-water-trail-title">
+          <div class="river-group-page__section-head">
+            <div>
+              <p class="eyebrow section-label">AGFC water trail · Marion County, Arkansas</p>
+              <h3 class="section-title" id="crooked-creek-water-trail-title">Choose a section on the Crooked Creek Water Trail</h3>
+            </div>
+            <p class="muted river-group-page__section-note">
+              Start with the three published legs from Lower Pyatt through Snow and Mark Oliver to Kelley’s Slab. Longer endpoint combinations remain selectable in the trip cards.
+            </p>
+          </div>
+
+          <div class="river-hub-context__grid">
+            <article class="river-hub-context__item">
+              <h3>AGFC’s mapped sections</h3>
+              <ul>
+                <li><a href="#trip-crooked-creek-lower-pyatt-snow">Lower Pyatt to Snow · 6.7 miles</a></li>
+                <li><a href="#trip-crooked-creek-snow-mark-oliver">Snow to Mark Oliver · 5.2 miles</a></li>
+                <li><a href="#trip-crooked-creek-mark-oliver-kelleys-slab">Mark Oliver to Kelley’s Slab · 6.6 miles</a></li>
+              </ul>
+              <p>
+                The three legs total about 18.5 miles to Kelley’s Slab. The route cards also include a Lower Pyatt-to-Mark Oliver day and other endpoint choices; each retains its own distance, shuttle, and access notes.
+              </p>
+            </article>
+            <article class="river-hub-context__item">
+              <h3>Rain, gauge, and private land</h3>
+              <p>
+                AGFC describes Crooked Creek as rainfall dependent and warns that it can rise quickly. Its 12–12.5 ft reading at the Kelly Crossing gauge is a moderate floating band, not a complete high-water safety ladder. Check the <a href="https://waterdata.usgs.gov/monitoring-location/USGS-07055607/" target="_blank" rel="noopener noreferrer">live USGS 07055607 gauge</a>, recent rain, and the observation time; scout conditions before launching. AGFC flags Kelley’s Slab as hazardous under some conditions.
+              </p>
+              <p>
+                Almost all creekside property is private. Use the named public accesses; primitive camping is available at Snow and Brooksher Preserve, while Fred Berry requires the center manager’s permission. Camping is limited to one night per campsite. Brooksher has no road access, so plan around its river-only location.
+              </p>
+            </article>
+          </div>
+
+          <p>
+            Check AGFC’s <a href="https://www.agfc.com/things-to-do/water-trails/crooked-creek/" target="_blank" rel="noopener noreferrer">Crooked Creek Water Trail access, mileage, conditions, and camping guidance</a> before choosing a trip.
           </p>
         </div>
       ) : null}
