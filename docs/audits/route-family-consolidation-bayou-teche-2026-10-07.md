@@ -35,4 +35,8 @@ The public hub and picker now expose those 11 adjacent sections. The 24 composit
 
 Sources checked for this follow-up: [TECHE Project overview](https://www.techeproject.org/), [current dock locations and mile markers](https://www.techeproject.org/bayou-teche-paddle-trail/dock-locations/), [paddle-trail maps and parish safety notes](https://www.techeproject.org/bayou-teche-paddle-trail/map/), and [Paddle Planner information](https://www.techeproject.org/bayou-teche-paddle-trail/paddle-planner/).
 
-Production verification for this curation is pending deployment.
+## Production verification (2026-10-08)
+
+Frontend workflow [37806444604](https://github.com/EckceptionalSolutions/PaddleTodayV2/actions/runs/37806444604) and API workflow [37806444593](https://github.com/EckceptionalSolutions/PaddleTodayV2/actions/runs/37806444593) succeeded. The Snapshot Worker workflow [37805848319](https://github.com/EckceptionalSolutions/PaddleTodayV2/actions/runs/37805848319), triggered by the catalog change, also succeeded.
+
+On production, the Bayou Teche hub returns HTTP 200 and renders exactly 11 public trip cards. The Port Barre–St. Martinville composite URL returns the generated redirect page targeting the dock-to-dock section guide; a Poche’s Bridge route under access review points to the access notice. The sitemap index and child sitemap both return HTTP 200. The child sitemap contains 2,521 URLs, includes the Bayou Teche hub, and omits the retired composite route page.
