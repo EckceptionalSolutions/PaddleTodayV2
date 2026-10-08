@@ -37,11 +37,50 @@ export function createBoardLocationController({
 }) {
   let locationRequestId = 0;
   let locationLookup = null;
+  let lookupStatusTarget = null;
+  let validationStatusTarget = null;
+
+  function clearLocationValidation() {
+    locationInput?.removeAttribute?.('aria-invalid');
+    if (validationStatusTarget) {
+      const descriptions = (locationInput?.getAttribute?.('aria-describedby') || '').split(/\s+/)
+        .filter((id) => id && id !== validationStatusTarget.id);
+      if (descriptions.length) locationInput?.setAttribute?.('aria-describedby', descriptions.join(' '));
+      else locationInput?.removeAttribute?.('aria-describedby');
+      if (validationStatusTarget.dataset) delete validationStatusTarget.dataset.locationError;
+      validationStatusTarget.textContent = '';
+      validationStatusTarget.hidden = true;
+      validationStatusTarget = null;
+    }
+  }
+
+  function reportLocationError(statusTarget, message, { invalid = true } = {}) {
+    setStatusText(statusTarget, message);
+    if (!statusTarget) return;
+    validationStatusTarget = statusTarget;
+    if (statusTarget.dataset) statusTarget.dataset.locationError = 'true';
+    if (!statusTarget.id) statusTarget.id = 'location-search-feedback';
+    statusTarget.setAttribute?.('role', 'status');
+    const descriptions = new Set((locationInput?.getAttribute?.('aria-describedby') || '').split(/\s+/).filter(Boolean));
+    descriptions.add(statusTarget.id);
+    locationInput?.setAttribute?.('aria-describedby', [...descriptions].join(' '));
+    if (invalid) locationInput?.setAttribute?.('aria-invalid', 'true');
+  }
+
+  locationInput?.addEventListener?.('input', () => {
+    cancelLocationLookup();
+    clearLocationValidation();
+  });
 
   function cancelLocationLookup() {
     locationRequestId += 1;
     locationLookup?.abort();
     locationLookup = null;
+    if (lookupStatusTarget?.textContent === 'Looking up that location...') {
+      lookupStatusTarget.textContent = '';
+      lookupStatusTarget.hidden = true;
+    }
+    lookupStatusTarget = null;
   }
 
   function distanceForResult(result) {
@@ -76,6 +115,7 @@ export function createBoardLocationController({
 
   function setUserLocation(location) {
     cancelLocationLookup();
+    clearLocationValidation();
     setLocationState(location, 'ready');
     saveLocation(location);
     if (useNearbySort() && getSortMode() === 'best-now') {
@@ -128,6 +168,7 @@ export function createBoardLocationController({
 
   function clearUserLocation() {
     cancelLocationLookup();
+    clearLocationValidation();
     setLocationState(null, 'idle');
     onLocationCleared();
     removeLocation();
@@ -155,21 +196,25 @@ export function createBoardLocationController({
     statusTarget = getDefaultStatusTarget(),
   ) {
     cancelLocationLookup();
+    clearLocationValidation();
     const requestId = locationRequestId;
     const trimmedQuery = typeof query === 'string' ? query.trim() : '';
     if (!trimmedQuery) {
       onEmptyQuery();
+      reportLocationError(statusTarget, 'Enter a city or ZIP code to find nearby routes.');
+      locationInput?.focus?.({ preventScroll: true });
       return;
     }
 
     setStatusText(statusTarget, 'Looking up that location...');
+    lookupStatusTarget = statusTarget;
     locationLookup = new AbortController();
 
     try {
       const match = await locationService.geocodeManualLocation(trimmedQuery, { signal: locationLookup.signal });
       if (requestId !== locationRequestId) return;
       if (!match) {
-        setStatusText(statusTarget, 'That city or ZIP was not found.');
+        reportLocationError(statusTarget, 'That city or ZIP was not found.');
         return;
       }
 
@@ -177,9 +222,12 @@ export function createBoardLocationController({
     } catch (error) {
       if (requestId !== locationRequestId) return;
       logError(error);
-      setStatusText(statusTarget, 'That place could not be looked up right now.');
+      reportLocationError(statusTarget, 'That place could not be looked up right now.', { invalid: false });
     } finally {
-      if (requestId === locationRequestId) locationLookup = null;
+      if (requestId === locationRequestId) {
+        locationLookup = null;
+        lookupStatusTarget = null;
+      }
     }
   }
 

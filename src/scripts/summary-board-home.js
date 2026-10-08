@@ -42,6 +42,7 @@ import {
   mixedResultsTitle,
 } from './board-copy.js';
 import { bindFavoriteButtons, decorateFavoriteButton, refreshFavoriteButtons } from './favorites-ui.js';
+import { flashInteraction } from './interaction-feedback.js';
 import { conditionTierDisplayLabel, ratingDisplayLabel } from './ui-taxonomy.js';
 import {
   callStateForDecision,
@@ -203,7 +204,6 @@ const homeResultsRail = document.querySelector('[data-home-results-rail]');
 const homeResultsEmpty = document.querySelector('[data-home-results-empty]');
 const homeSetupNote = document.querySelector('[data-home-setup-note]');
 const homeSetupPills = document.querySelector('[data-home-setup-pills]');
-const homeRecommendationsMapBlock = document.querySelector('.home-recommendations__map-block');
 const glanceFilterButtons = Array.from(document.querySelectorAll('[data-glance-filter]'));
 const exploreGrid = document.querySelector('[data-explore-grid]');
 const exploreShell = document.querySelector('[data-explore-shell]');
@@ -375,7 +375,6 @@ let exploreLayoutKey = '';
       : 'list'
     : 'map';
   let initialized = false;
-let homeMapRefreshClassTimeout = 0;
 let hoveredSummaryMapKey = null;
 const { renderFeaturedMap } = createBoardFeaturedMapController({
   elements: {
@@ -868,17 +867,18 @@ function renderHomeSetupBar() {
   }
 }
 
+let lastHomeResultsSetup = '';
 function pulseHomeResultsSurface() {
-  if (!(homeRecommendationsMapBlock instanceof HTMLElement)) {
-    return;
-  }
-
-  homeRecommendationsMapBlock.classList.add('home-recommendations__map-block--refreshing');
-
-  window.clearTimeout(homeMapRefreshClassTimeout);
-  homeMapRefreshClassTimeout = window.setTimeout(() => {
-    homeRecommendationsMapBlock.classList.remove('home-recommendations__map-block--refreshing');
-  }, 260);
+  const setup = JSON.stringify([
+    userLocation?.latitude, userLocation?.longitude, selectedRadiusMiles,
+    selectedHomeDifficulties, selectedHomePaddleTimes, selectedHomePaddleLengths,
+    selectedHomeCamping, activeFilters.rating,
+  ]);
+  const changed = lastHomeResultsSetup && lastHomeResultsSetup !== setup;
+  lastHomeResultsSetup = setup;
+  if (!changed) return;
+  flashInteraction(recommendationTitle);
+  flashInteraction(featuredName);
 }
 
 function updateHomeRailSelection(key) {

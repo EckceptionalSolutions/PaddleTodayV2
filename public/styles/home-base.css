@@ -710,13 +710,6 @@
   margin-top: 0;
 }
 
-.home-recommendations__map-block--refreshing {
-  border-color: rgba(30, 115, 151, 0.2);
-  box-shadow:
-    0 0 0 1px rgba(30, 115, 151, 0.08),
-    0 20px 46px rgba(16, 35, 45, 0.08);
-}
-
 .home-recommendations__setup {
   display: grid;
   gap: 0.55rem;

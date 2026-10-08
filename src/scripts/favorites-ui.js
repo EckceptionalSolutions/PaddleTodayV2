@@ -9,6 +9,7 @@ import {
 } from './favorites-store.js';
 import { trackEvent } from './analytics.js';
 import { showActionFeedback } from './action-feedback.js';
+import { flashInteraction } from './interaction-feedback.js';
 
 const FAVORITE_BUTTON_SELECTOR = '[data-favorite-button]';
 const boundRoots = new WeakSet();
@@ -129,6 +130,7 @@ export function bindFavoriteButtons(root = document, { onToggle } = {}) {
         .find((candidate) => candidate.dataset.favoriteSlug === favorite.slug),
     });
     refreshFavoriteButtons(root);
+    if (saved) flashInteraction(button, 'interaction-saved', 420);
     trackEvent('Toggle favorite', {
       route: favorite.slug,
       river: favorite.name,

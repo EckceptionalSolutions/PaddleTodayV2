@@ -1,0 +1,74 @@
+/* Give explicit jumps and completed actions a quiet, consistent visual cue. */
+[data-location-form] { scroll-margin-block: 6rem; }
+[data-location-form].interaction-highlight {
+  border-radius: 14px;
+  outline: 2px solid rgba(30, 115, 151, 0.48);
+  outline-offset: 6px;
+}
+html body [data-location-input]:focus {
+  outline: 2px solid var(--river-deep, #1e7397);
+  outline-offset: 3px;
+}
+html body [data-location-input][aria-invalid="true"] {
+  border-color: #a43830;
+  outline: 2px solid #a43830;
+  outline-offset: 2px;
+  background-color: #fff8f6;
+}
+html body [data-location-error="true"] { color: #913229; }
+[data-recommendation-title].interaction-highlight,
+[data-field="featured-title-link"].interaction-highlight {
+  border-radius: 6px;
+  box-shadow: 0 0 0 5px rgba(30, 115, 151, 0.12);
+  background-color: rgba(30, 115, 151, 0.08);
+}
+
+/* Do not animate marker transforms: MapLibre owns their screen positioning. */
+html body :is(.summary-map-result, .weekend-result-row, .river-card, .score-map-marker) {
+  transition: border-color 180ms ease, background-color 180ms ease, box-shadow 180ms ease;
+}
+html body .river-card {
+  transition: transform 180ms ease, border-color 180ms ease, background-color 180ms ease, box-shadow 180ms ease;
+}
+html body :is(.summary-map-result.summary-map-result--active, .weekend-result-row.weekend-result-row--active, .river-card.river-card--map-active) {
+  border-color: rgba(30, 115, 151, 0.55);
+  box-shadow: inset 0 0 0 1px rgba(30, 115, 151, 0.18), 0 3px 12px rgba(30, 115, 151, 0.08);
+}
+html body .river-card--map-active { transform: none; }
+html body .score-map-marker--selected {
+  border-color: #1e7397;
+  box-shadow: 0 0 0 5px rgba(30, 115, 151, 0.18), 0 8px 20px rgba(16, 35, 45, 0.18);
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  [data-location-form].interaction-highlight { animation: interaction-arrival 1400ms ease-out both; }
+  [data-recommendation-title].interaction-highlight,
+  [data-field="featured-title-link"].interaction-highlight { animation: interaction-result 1400ms ease-out both; }
+  [data-favorite-button].interaction-saved :is(.favorite-toggle__icon, .route-action-button__icon) { animation: interaction-save 420ms ease-out; }
+}
+@keyframes interaction-arrival {
+  0%, 35% { outline-color: rgba(30, 115, 151, 0.48); box-shadow: 0 0 0 7px rgba(30, 115, 151, 0.1); }
+  100% { outline-color: transparent; box-shadow: 0 0 0 7px transparent; }
+}
+@keyframes interaction-result {
+  0%, 25% { background-color: rgba(30, 115, 151, 0.08); box-shadow: 0 0 0 5px rgba(30, 115, 151, 0.12); }
+  100% { background-color: transparent; box-shadow: 0 0 0 5px transparent; }
+}
+@keyframes interaction-save {
+  0% { transform: scale(1); }
+  40% { transform: scale(1.18); }
+  100% { transform: scale(1); }
+}
+@media (prefers-reduced-motion: reduce) {
+  html body :is(.summary-map-result, .weekend-result-row, .river-card, .score-map-marker, .favorite-toggle) {
+    transition: none;
+  }
+}
+@media (forced-colors: active) {
+  [data-location-form].interaction-highlight { outline-color: Highlight; }
+  html body [data-location-input][aria-invalid="true"] { outline-color: Mark; }
+  html body :is(.summary-map-result--active, .weekend-result-row--active, .river-card--map-active, .score-map-marker--selected) {
+    outline: 2px solid Highlight;
+    outline-offset: -2px;
+  }
+}

@@ -9,6 +9,15 @@ function harness({
   const indicator = { hidden: true, dataset: { state: '' } };
   const indicatorLabel = { hidden: true, textContent: '' };
   const statusTarget = { hidden: true, textContent: '' };
+  const attributes = new Map([['aria-describedby', 'location-hint']]);
+  const inputListeners = new Map();
+  const locationInput = {
+    focus: vi.fn(),
+    setAttribute: (name, value) => attributes.set(name, value),
+    getAttribute: (name) => attributes.get(name),
+    removeAttribute: (name) => attributes.delete(name),
+    addEventListener: (name, callback) => inputListeners.set(name, callback),
+  };
   const geocodeManualLocation = geocodeError
     ? vi.fn().mockRejectedValue(geocodeError)
     : vi.fn().mockResolvedValue(geocodeResult);
@@ -23,6 +32,7 @@ function harness({
     getLocationState: () => locationState,
     indicator,
     indicatorLabel,
+    locationInput,
     ...callbacks,
   });
   return {
@@ -32,10 +42,46 @@ function harness({
     statusTarget,
     geocodeManualLocation,
     callbacks,
+    attributes,
+    locationInput,
+    inputListeners,
   };
 }
 
 describe('board location controller', () => {
+  it('connects inline errors to the input, preserves its hint, and clears errors when editing', async () => {
+    const { controller, attributes, locationInput, inputListeners, statusTarget } = harness();
+    await controller.submitManualLocation('');
+    expect(attributes.get('aria-invalid')).toBe('true');
+    expect(attributes.get('aria-describedby')).toBe('location-hint location-search-feedback');
+    expect(locationInput.focus).toHaveBeenCalledOnce();
+    expect(statusTarget.textContent).toContain('Enter a city or ZIP');
+    inputListeners.get('input')();
+    expect(attributes.has('aria-invalid')).toBe(false);
+    expect(attributes.get('aria-describedby')).toBe('location-hint');
+    expect(statusTarget.hidden).toBe(true);
+  });
+
+  it('does not mark a valid query invalid or steal focus for a service failure', async () => {
+    const { controller, attributes, locationInput, statusTarget } = harness({ geocodeError: new Error('offline') });
+    await controller.submitManualLocation('Duluth');
+    expect(attributes.has('aria-invalid')).toBe(false);
+    expect(locationInput.focus).not.toHaveBeenCalled();
+    expect(statusTarget.textContent).toContain('could not be looked up');
+  });
+
+  it('editing cancels a pending lookup so its response cannot overwrite the new input', async () => {
+    const { controller, geocodeManualLocation, callbacks, inputListeners, statusTarget } = harness();
+    let finish: (value: unknown) => void;
+    geocodeManualLocation.mockImplementationOnce(() => new Promise(resolve => { finish = resolve; }));
+    const pending = controller.submitManualLocation('Duluth');
+    inputListeners.get('input')();
+    expect(statusTarget.hidden).toBe(true);
+    finish!({ label: 'Duluth, MN' });
+    await pending;
+    expect(callbacks.onLocationResolved).not.toHaveBeenCalled();
+  });
+
   it('ignores an older lookup that resolves after the latest choice', async () => {
     const { controller, geocodeManualLocation, callbacks } = harness();
     let finishFirst: (value: unknown) => void;

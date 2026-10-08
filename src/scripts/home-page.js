@@ -1,6 +1,8 @@
 // Keep the initial homepage module tiny so the browser can paint the static
 // hero and location UI before loading the recommendation board and map code.
 // Hydration still starts immediately when a user focuses or touches a control.
+import { focusLocationControls } from './interaction-feedback.js';
+
 let hydrationPromise;
 let homepageReady = false;
 let pendingLocationAction = 0;
@@ -43,6 +45,28 @@ const hydrateOnInteraction = (event) => {
 
 document.addEventListener('pointerdown', hydrateOnInteraction, { passive: true });
 document.addEventListener('focusin', hydrateOnInteraction);
+
+async function revealLocationControls() {
+  const activeBeforeInit = document.activeElement;
+  const ready = await hydrateHomepage();
+  // If initialization took time, do not interrupt someone who has already moved on.
+  if (!ready || document.activeElement !== activeBeforeInit) return;
+  const panel = document.querySelector('[data-nearby-location-panel]');
+  if (panel?.classList.contains('home-location-bar--set') && !panel.classList.contains('home-location-bar--editing')) {
+    panel.querySelector('[data-location-edit-trigger]')?.click();
+  }
+  focusLocationControls(document.querySelector('[data-location-form]'), document.querySelector('[data-location-input]'));
+}
+
+document.addEventListener('click', (event) => {
+  const link = event.target instanceof Element ? event.target.closest('a[href="#home-location"]') : null;
+  if (!link || event.defaultPrevented || event.button !== 0 || event.metaKey || event.ctrlKey || event.shiftKey || event.altKey) return;
+  event.preventDefault();
+  void revealLocationControls();
+});
+
+// Weekend and Explore also link directly to the location step on Today.
+if (window.location.hash === '#home-location') void revealLocationControls();
 
 document.addEventListener('click', async (event) => {
   const button = event.target instanceof Element ? event.target.closest('[data-location-use]') : null;
