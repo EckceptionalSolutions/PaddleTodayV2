@@ -11,6 +11,9 @@ it('keeps retired-route redirects unique and directed to published destinations'
     ...listRiverGroups().map(group => `/rivers/by-river/${group.riverId}/`),
     ...listRiverStateGroups().map(state => `/states/${state.slug}/`),
     ...listRoutePageConsolidations().map(({ target }) => target),
+    // Astro's sitemap integration emits these XML destinations outside the page catalog.
+    '/sitemap-index.xml',
+    '/sitemap-0.xml',
     // Authored guide pages are published separately from the route catalog.
     '/guides/minnehaha-creek-paddling/',
   ]);
