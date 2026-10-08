@@ -52,6 +52,7 @@ const isElevenPointHub = group.riverId === 'eleven-point-river';
 const isJacksForkHub = group.riverId === 'jacks-fork-river';
 const isCurrentRiverHub = group.riverId === 'current-river';
 const isYellowBreechesHub = group.riverId === 'yellow-breeches-creek';
+const isSaltRiverHub = group.riverId === 'salt-river-arizona';
 const hasConsolidatedTrips = group.routes.some((route) => routePageConsolidationTarget(route.slug));
 const stateSummary = group.states.join(', ');
 const stateDisplay = group.states.join(' and ');
@@ -68,6 +69,8 @@ const groupTitle = isBroadRiverHub
   ? 'Broad River, South Carolina | Paddling Sections & Access'
   : isYellowBreechesHub
   ? 'Yellow Breeches Creek, Pennsylvania | Paddling Trips & Access'
+  : isSaltRiverHub
+  ? 'Lower Salt River, Arizona | Paddling Sections & Access'
   : isCurrentRiverHub
   ? 'Current River, Missouri | Upper & Lower Float Sections'
   : isJacksForkHub
@@ -131,6 +134,8 @@ const groupDescription = isBroadRiverHub
   ? 'Compare eight Paddle SC trips on South Carolina’s Broad River, from Ninety-Nine Islands to Strother Landing and the separate Peak–Harbison reach. Check trip-specific gauges, dam portages, and public access.'
   : isYellowBreechesHub
   ? 'Compare 10 Yellow Breeches Creek trips from Simpson Park through McCormick Park, Lower Allen, and Liberty Forge to Yellow Breeches Park. Review route mileage, the Camp Hill gauge, bridge access, camping rules, and the county’s B6 take-out advisory.'
+  : isSaltRiverHub
+  ? 'Compare Lower Salt River trips from Water Users to Granite Reef. Review four distinct river sections, longer trip options, the Stewart Mountain Dam gauge, and current Tonto access notices.'
   : isCurrentRiverHub
   ? 'Compare 16 Current River trips in Ozark National Scenic Riverways, from Cedar Grove and Akers to Van Buren and Gooseneck. Review upper and lower sections, two gauge contexts, NPS float estimates, and access details.'
   : isJacksForkHub
@@ -1226,6 +1231,54 @@ const groupStructuredData = [
       </section>
     ) : null}
 
+    {isSaltRiverHub ? (
+      <section class="river-group-page__panel" id="salt-river-sections" aria-labelledby="salt-river-sections-title">
+        <div class="river-group-page__section-head">
+          <div>
+            <p class="eyebrow section-label">Lower Salt River · Tonto National Forest</p>
+            <h2 class="section-title" id="salt-river-sections-title">Choose a Lower Salt trip by reach</h2>
+          </div>
+          <p class="muted river-group-page__section-note">
+            Four adjacent sections have dedicated guides. All 10 endpoint combinations remain in the trip picker.
+          </p>
+        </div>
+        <div class="river-hub-context__grid">
+          <article class="river-hub-context__item">
+            <h3>Water Users to Goldfield · busy upper corridor</h3>
+            <p>
+              The 6.5-mile upper reach is the most popular tubing stretch and can be crowded in season. The Water Users–Blue Point section is short, but HikeArizona describes a sharp Class II riffle near mile 0.4 and a shallow alternate channel. Blue Point is at about mile 2.5; Pebble Beach is a separate access at about mile 2.0.
+            </p>
+            <ul>
+              <li><a href={routeSlugHref('salt-river-water-users-blue-point')}>Water Users to Blue Point</a> · 2.5 mi</li>
+              <li><a href={routeSlugHref('salt-river-blue-point-goldfield')}>Blue Point to Goldfield</a> · 4.0 mi</li>
+            </ul>
+          </article>
+          <article class="river-hub-context__item">
+            <h3>Goldfield to Granite Reef · channel changes and slower water</h3>
+            <p>
+              The lower five miles are generally better suited to paddlers than passive floats. Between Goldfield and Phon D. Sutton, shallow channels and the Coon Bluff access are useful planning landmarks. Below Phon D. Sutton, the current fades over the final stretch and paddling becomes more important on the way to Granite Reef.
+            </p>
+            <ul>
+              <li><a href={routeSlugHref('salt-river-goldfield-phon-d')}>Goldfield to Phon D. Sutton</a> · 2.4 mi</li>
+              <li><a href={routeSlugHref('salt-river-phon-d-granite-reef')}>Phon D. Sutton to Granite Reef</a> · 3.1 mi</li>
+            </ul>
+          </article>
+          <article class="river-hub-context__item">
+            <h3>Flow, parking, and day-of checks</h3>
+            <p>
+              HikeArizona gives 500 cfs as a community minimum and 1,000 cfs as a desired flow, but does not publish an upper limit. Its route description was contributed in 2016, so use it for river-mile context and verify current conditions separately. USGS 09502000 is a direct gauge below Stewart Mountain Dam. Check the trend, local conditions, heat, crowding, and access notices for both ends of your trip. This picker focuses on five route endpoints; the source also lists Pebble Beach and Coon Bluff as intermediate access points.
+            </p>
+            <p>
+              Review the <a href="https://hikearizona.com/decoder.php?ZTN=20324" target="_blank" rel="noopener noreferrer">Lower Salt access and flow guide</a>, the <a href="https://waterdata.usgs.gov/monitoring-location/USGS-09502000/" target="_blank" rel="noopener noreferrer">USGS Salt River gauge</a>, the <a href="https://www.fs.usda.gov/ivm/" target="_blank" rel="noopener noreferrer">Forest Service Interactive Visitor Map</a>, and current <a href="https://www.fs.usda.gov/r03/tonto/alerts" target="_blank" rel="noopener noreferrer">Tonto National Forest alerts</a> and <a href="https://www.fs.usda.gov/r03/tonto/passes" target="_blank" rel="noopener noreferrer">pass information</a> before setting a shuttle.
+            </p>
+          </article>
+        </div>
+        <p>
+          The four named guides focus on distinct adjacent sections. The other six cards combine those reaches and stay available here with exact endpoints, mileage, access notes, and shuttle details; their retired route URLs select the matching trip card.
+        </p>
+      </section>
+    ) : null}
+
     {isMerrimackHub ? (
       <section class="river-group-page__panel" aria-labelledby="merrimack-river-sections-title">
         <div class="river-group-page__section-head">
@@ -1743,9 +1796,9 @@ const groupStructuredData = [
                       <span data-group-initial-score>{route.scoreEligibility === 'planning' ? 'Planning route' : 'Loading'}</span>
                     </span>
                   </button>
-                  {isWillimanticHub || isMerrimackHub || isSpokaneHub || isSaludaHub || isWabashHub || isVillageCreekHub || isElevenPointHub || isJacksForkHub || isCurrentRiverHub || isYellowBreechesHub || isAnimasHub || isHousatonicHub ? (
+                  {isWillimanticHub || isMerrimackHub || isSpokaneHub || isSaludaHub || isWabashHub || isVillageCreekHub || isElevenPointHub || isJacksForkHub || isCurrentRiverHub || isYellowBreechesHub || isSaltRiverHub || isAnimasHub || isHousatonicHub ? (
                     <details class="route-choice__trip-notes">
-                      <summary>{isJacksForkHub || isCurrentRiverHub || isYellowBreechesHub ? 'Access, gauge, shuttle, and camping notes' : isAnimasHub || isHousatonicHub ? 'Access, flow, and safety notes' : 'Access, gauge, and safety notes'}</summary>
+                      <summary>{isJacksForkHub || isCurrentRiverHub || isYellowBreechesHub ? 'Access, gauge, shuttle, and camping notes' : isSaltRiverHub ? 'Access, gauge, shuttle, and safety notes' : isAnimasHub || isHousatonicHub ? 'Access, flow, and safety notes' : 'Access, gauge, and safety notes'}</summary>
                       <div>
                         <p>{route.logistics?.summary || route.summary}</p>
                         <p>
@@ -1769,6 +1822,9 @@ const groupStructuredData = [
                         {isYellowBreechesHub && route.logistics?.shuttle ? <p><strong>Shuttle:</strong> {route.logistics.shuttle}</p> : null}
                         {isYellowBreechesHub && route.logistics?.camping ? <p><strong>Camping:</strong> {route.logistics.camping}</p> : null}
                         {isYellowBreechesHub && route.logistics?.permits ? <p><strong>Rules:</strong> {route.logistics.permits}</p> : null}
+                        {isSaltRiverHub && route.logistics?.shuttle ? <p><strong>Shuttle:</strong> {route.logistics.shuttle}</p> : null}
+                        {isSaltRiverHub && route.logistics?.camping ? <p><strong>Camping:</strong> {route.logistics.camping}</p> : null}
+                        {isSaltRiverHub && route.logistics?.permits ? <p><strong>Rules:</strong> {route.logistics.permits}</p> : null}
                         {route.logistics?.accessCaveats?.length ? (
                           <ul>{route.logistics.accessCaveats.map((note) => <li>{note}</li>)}</ul>
                         ) : null}
@@ -1873,6 +1929,8 @@ const groupStructuredData = [
           <p>
             {isYellowBreechesHub
               ? 'Use USGS 01571500 at Camp Hill as same-creek context. Cumberland County recommends 1.4–2.0 ft for boating and lists 6 ft as action stage and 7 ft as flood stage; the gauge does not guarantee conditions at each access point.'
+              : isSaltRiverHub
+              ? 'USGS 09502000 below Stewart Mountain Dam is direct telemetry for this Lower Salt reach. HikeArizona gives 500 cfs as a community minimum and 1,000 cfs as desired, but does not publish an upper cutoff; check live trend, current advisories, and local conditions.'
               : isCurrentRiverHub
               ? 'The Current River guide separates the Upper Current between Cedar Grove and Round Spring from the Lower Current around Waymeyer, Van Buren, Big Spring, Cataract, and Gooseneck. USGS 07064533 above Akers and USGS 07067000 at Van Buren describe different reaches; select the gauge shown on the exact trip card.'
               : isJacksForkHub
@@ -1893,6 +1951,8 @@ const groupStructuredData = [
           <p>
             {isYellowBreechesHub
               ? `Compare all ${group.routeCount} Yellow Breeches endpoint choices from Simpson Park through McCormick Park, Lower Allen, and Liberty Forge to B6. Six focused trips have dedicated route guides; overlapping combinations remain available here, and the adjacent Simpson–McCormick leg is available as a short option.`
+              : isSaltRiverHub
+              ? `Compare all ${group.routeCount} Lower Salt endpoint choices from Water Users through Blue Point, Goldfield, and Phon D. Sutton to Granite Reef. Four adjacent sections have dedicated pages; six longer combinations remain selectable here with their own endpoints, mileage, access notes, and shuttle details.`
               : isCurrentRiverHub
               ? `Compare all ${group.routeCount} Current River endpoint choices here. The picker keeps the two NPS-described sections separate and preserves every trip with its own endpoints, gauge, distance, shuttle, camping, and safety details.`
               : isJacksForkHub

@@ -141,6 +141,16 @@ const yellowBreechesConsolidatedRouteSlugs = [
   'yellow-breeches-creek-lower-allen-community-park-yellow-breeches-park',
 ] as const;
 
+const saltRiverHubPath = '/rivers/by-river/salt-river-arizona/';
+const saltRiverConsolidatedRouteSlugs = [
+  'salt-river-water-users-goldfield',
+  'salt-river-water-users-phon-d',
+  'salt-river-water-users-granite-reef',
+  'salt-river-blue-point-phon-d',
+  'salt-river-blue-point-granite-reef',
+  'salt-river-goldfield-granite-reef',
+] as const;
+
 const merrimackRiverConsolidatedRouteSlugs = [
   'merrimack-river-sewalls-falls-ferry-street',
   'merrimack-river-everett-arena-ferry-street',
@@ -867,6 +877,7 @@ const consolidatedRouteTargets = new Map<string, string>(
     ...jacksForkRiverConsolidatedRouteSlugs.map((slug) => [slug, `${jacksForkRiverHubPath}?route=${slug}#trip-${slug}`] as const),
     ...currentRiverConsolidatedRouteSlugs.map((slug) => [slug, `${currentRiverHubPath}?route=${slug}#trip-${slug}`] as const),
     ...yellowBreechesConsolidatedRouteSlugs.map((slug) => [slug, `${yellowBreechesHubPath}?route=${slug}#trip-${slug}`] as const),
+    ...saltRiverConsolidatedRouteSlugs.map((slug) => [slug, `${saltRiverHubPath}?route=${slug}#trip-${slug}`] as const),
     ...saludaRiverConsolidatedRouteSlugs.map((slug) => [slug, `${saludaRiverHubPath}?route=${slug}#trip-${slug}`] as const),
     ...saludaRiverLaunchAliasSlugs.map((slug) => [slug, `${saludaRiverHubPath}?route=saluda-river-saluda-shoals-gardendale#trip-saluda-river-saluda-shoals-gardendale`] as const),
     ...saludaRiverAccessNoteRouteSlugs.map((slug) => [slug, `${saludaRiverHubPath}#saluda-route-access-notes`] as const),
