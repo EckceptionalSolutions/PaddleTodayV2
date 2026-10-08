@@ -118,12 +118,14 @@ const saukRiverHubPath = '/rivers/by-river/sauk-river/';
 const truckeeRiverHubPath = '/rivers/by-river/truckee-river-nevada/';
 const farmingtonRiverHubPath = '/rivers/by-river/farmington-river-connecticut/';
 const susquehannaRiverHubPath = '/rivers/by-river/susquehanna-river/';
+const delawareRiverHubPath = '/rivers/by-river/delaware-river/';
 const edistoRiverHubPath = '/rivers/by-river/edisto-river-south-carolina/';
 const edistoRiverConsolidatedRouteSlugs = [
   // Keep the useful longer itineraries in the trip picker while consolidating their overlapping detail pages.
   'edisto-river-mars-oldfield-messervy',
   'edisto-river-mars-oldfield-good-hope',
 ] as const;
+const delawareRiverConsolidatedRouteSlugs = ['delaware-river-hancock-callicoon'] as const;
 const potomacRiverHubPath = '/rivers/by-river/potomac-river-maryland/';
 const potomacRiverConsolidatedRouteSlugs = ['potomac-river-taylors-snyders'] as const;
 const merrimackRiverHubPath = '/rivers/by-river/merrimack-river-new-hampshire/';
@@ -1186,6 +1188,7 @@ const consolidatedRouteTargets = new Map<string, string>(
     ...farmingtonRiverConsolidatedRouteSlugs.map((slug) => [slug, `${farmingtonRiverHubPath}#trip-${slug}`] as const),
     ...farmingtonRiverRetiredRouteSlugs.map((slug) => [slug, `${farmingtonRiverHubPath}#farmington-river-access-notes`] as const),
     ...susquehannaConsolidatedRouteSlugs.map((slug) => [slug, `${susquehannaRiverHubPath}#trip-${slug}`] as const),
+    ...delawareRiverConsolidatedRouteSlugs.map((slug) => [slug, `${delawareRiverHubPath}#trip-${slug}`] as const),
     ...edistoRiverConsolidatedRouteSlugs.map((slug) => [slug, `${edistoRiverHubPath}#trip-${slug}`] as const),
     ...potomacRiverConsolidatedRouteSlugs.map((slug) => [slug, `${potomacRiverHubPath}#trip-${slug}`] as const),
     ...susquehannaLegacyRouteAliases,

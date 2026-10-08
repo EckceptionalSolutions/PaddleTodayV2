@@ -19,6 +19,11 @@
       "statusCode": 301
     },
     {
+      "route": "/rivers/delaware-river-hancock-callicoon",
+      "redirect": "/rivers/by-river/delaware-river/#trip-delaware-river-hancock-callicoon",
+      "statusCode": 301
+    },
+    {
       "route": "/rivers/minnesota-river-judson-riverside-st-peter",
       "redirect": "/rivers/by-river/minnesota-river/",
       "statusCode": 301
