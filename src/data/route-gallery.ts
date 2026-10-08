@@ -7568,6 +7568,14 @@ const commonsRiverPhoto = (file: string): string =>
   `https://commons.wikimedia.org/wiki/Special:Redirect/file/${file}?width=1600`;
 
 const approvedRiverContextPhotosByRiverId: Record<string, RouteGalleryPhoto> = {
+  'james-river-virginia': {
+    id: 'james-river-virginia-state-park-context',
+    src: '/gallery/james-river-bent-creek-state-park/james-river-state-park.jpg',
+    alt: 'The James River reflects autumn foliage beside a bench at James River State Park.',
+    caption: 'James River at James River State Park; same-river context, not an endpoint or current-conditions photograph',
+    credit: 'Virginia State Parks staff via Wikimedia Commons',
+    takenLabel: 'Wikimedia Commons: CC BY 2.0',
+  },
   'ichetucknee-river-florida': {
     id: 'ichetucknee-river-florida-commons',
     src: commonsRiverPhoto('IchetuckneeRiv2006.jpg'),
