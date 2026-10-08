@@ -227,7 +227,7 @@ function updateWeekendControls(plan) {
   }
   if (weekendLocationLabel instanceof HTMLElement) {
     weekendLocationLabel.textContent = userLocation
-      ? `Planning from ${userLocation.label}`
+      ? userLocation.label
       : 'Plan from your location';
   }
   if (weekendLocationHint instanceof HTMLElement) {

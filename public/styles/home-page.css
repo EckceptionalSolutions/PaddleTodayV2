@@ -1,4 +1,15 @@
 /* Home-specific layout and controls. Home map styling lives in home-map.css. */
+.home-featured__method-link {
+  justify-self: start;
+  color: var(--river-deep);
+  font-size: 0.82rem;
+  text-underline-offset: 0.2em;
+}
+.home-featured__method-link:focus-visible {
+  outline: 3px solid var(--river-deep);
+  outline-offset: 3px;
+  border-radius: 3px;
+}
 .home-featured .score-orb__label {
   font-size: 0.7rem;
   font-weight: 700;

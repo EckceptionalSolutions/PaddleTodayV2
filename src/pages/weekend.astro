@@ -122,50 +122,49 @@ const structuredData = [
         <p class="eyebrow">Plan around the drive</p>
         <h2 class="section-title" id="weekend-planner-title">Filter weekend routes</h2>
       </div>
-      <p class="muted weekend-planner__summary" data-weekend-filter-summary>
+      <p class="muted weekend-planner__summary" data-weekend-filter-summary role="status">
         Add your location to sort by estimated drive time and set a weekend range.
       </p>
     </div>
-    <p class="muted weekend-planner__estimate-note">
-      Drive times are estimates based on straight-line distance at 50 mph. Check road directions on the route page before planning travel. A route can appear in more than one shortlist category.
-    </p>
-
-    <div class="weekend-location-strip" data-weekend-location-strip>
-      <div class="weekend-location-strip__copy">
-        <p class="weekend-location-strip__label" data-weekend-location-label>Plan from your location</p>
-        <p class="muted weekend-location-strip__hint" data-weekend-location-hint>
-          Use your location to include drive time in the weekend ranking.
-        </p>
+    <div class="weekend-planner__controls">
+      <div class="weekend-location-strip" data-weekend-location-strip>
+        <div class="weekend-location-strip__copy">
+          <p class="weekend-planner__control-label">Starting point</p>
+          <p class="weekend-location-strip__label" data-weekend-location-label>Plan from your location</p>
+          <p class="muted weekend-location-strip__hint" data-weekend-location-hint>
+            Use your location to include drive time in the weekend ranking.
+          </p>
+        </div>
+        <div class="weekend-location-strip__actions">
+          <button class="filter-chip filter-chip--primary" type="button" data-weekend-location-use>
+            Use my location
+          </button>
+          <button class="filter-chip filter-chip--quiet" type="button" data-weekend-location-clear hidden>
+            Clear location
+          </button>
+          <a class="weekend-location-strip__link" href="/#home-location">Set a city or ZIP on Today</a>
+        </div>
       </div>
-      <div class="weekend-location-strip__actions">
-        <button class="filter-chip filter-chip--primary" type="button" data-weekend-location-use>
-          Use my location
-        </button>
-        <button class="filter-chip filter-chip--quiet" type="button" data-weekend-location-clear hidden>
-          Clear location
-        </button>
-        <a class="weekend-location-strip__link" href="/#home-location">Set a city or ZIP on Today</a>
-      </div>
-    </div>
 
-    <div class="weekend-distance" data-weekend-distance hidden>
-      <p class="weekend-planner__control-label">Weekend range</p>
-      <div class="weekend-distance__options" role="group" aria-label="Weekend driving range">
-        <button class="filter-chip filter-chip--subtle" type="button" data-weekend-distance-option="100">100 mi</button>
-        <button class="filter-chip filter-chip--subtle" type="button" data-weekend-distance-option="200">200 mi</button>
-        <button class="filter-chip filter-chip--subtle" type="button" data-weekend-distance-option="300">300 mi</button>
-        <button class="filter-chip filter-chip--subtle" type="button" data-weekend-distance-option="500">500 mi</button>
-        <button class="filter-chip filter-chip--subtle" type="button" data-weekend-distance-option="any">Any</button>
+      <div class="weekend-distance" data-weekend-distance hidden>
+        <p class="weekend-planner__control-label">Weekend range</p>
+        <div class="weekend-distance__options" role="group" aria-label="Weekend search range">
+          <button class="filter-chip filter-chip--subtle" type="button" data-weekend-distance-option="100">100 mi</button>
+          <button class="filter-chip filter-chip--subtle" type="button" data-weekend-distance-option="200">200 mi</button>
+          <button class="filter-chip filter-chip--subtle" type="button" data-weekend-distance-option="300">300 mi</button>
+          <button class="filter-chip filter-chip--subtle" type="button" data-weekend-distance-option="500">500 mi</button>
+          <button class="filter-chip filter-chip--subtle" type="button" data-weekend-distance-option="any">Any</button>
+        </div>
       </div>
     </div>
 
     <div class="weekend-plan-lanes-wrap">
-      <p class="weekend-planner__control-label">Route type</p>
-      <div class="weekend-plan-lanes" role="group" aria-label="Weekend route type">
+      <p class="weekend-planner__control-label">Show routes</p>
+      <div class="weekend-plan-lanes" role="group" aria-label="Weekend route views">
         <button class="weekend-plan-lane" type="button" data-weekend-filter="all" aria-pressed="true">
           <strong data-weekend-filter-count="all">0</strong>
           <span>Shortlist</span>
-          <small>Curated weekend routes</small>
+          <small>A mix of weekend options</small>
         </button>
         <button class="weekend-plan-lane" type="button" data-weekend-filter="day-trips" aria-pressed="false">
           <strong data-weekend-filter-count="day-trips">0</strong>
@@ -175,15 +174,18 @@ const structuredData = [
         <button class="weekend-plan-lane" type="button" data-weekend-filter="camping" aria-pressed="false">
           <strong data-weekend-filter-count="camping">0</strong>
           <span>Camping</span>
-          <small>Camp support noted</small>
+          <small>Camping options noted</small>
         </button>
         <button class="weekend-plan-lane" type="button" data-weekend-filter="rechecks" aria-pressed="false">
           <strong data-weekend-filter-count="rechecks">0</strong>
           <span>Watch</span>
-          <small>Watch closely before committing</small>
+          <small>Re-check before committing</small>
         </button>
       </div>
     </div>
+    <p class="muted weekend-planner__estimate-note">
+      Range uses straight-line miles. Drive times are estimates; check road directions before you go. Routes can appear in more than one view.
+    </p>
   </section>
 
   <div class="weekend-results-panel" data-weekend-map-section>
