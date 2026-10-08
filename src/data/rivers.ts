@@ -1,5 +1,6 @@
 import type { River } from '../lib/types';
 import { enforceHighConsequencePlanning, isPublicRoute, isScoreEligible } from './route-publication';
+import { hasStandaloneRoutePage } from './route-page-consolidations';
 import { arkansasRoutes } from './routes/arkansas';
 import { coloradoRoutes } from './routes/colorado';
 import { illinoisRoutes } from './routes/illinois';
@@ -336,7 +337,10 @@ const routeOrder = [
   "etowah-river-highway136-kelly-bridge",
   "toccoa-river-deep-hole-sandy-bottoms",
   "flint-river-sprewell-bluff-po-biddy",
-  ...georgiaRoutes.filter((route) => (route.id.startsWith('chattahoochee-river-') || route.id.startsWith('ocmulgee-river-')) && !['chattahoochee-river-ga115-duncan-bridge', 'chattahoochee-river-powers-island-paces-mill', 'chattahoochee-river-columbus-whitewater-park'].includes(route.id)).map((route) => route.id),
+  ...georgiaRoutes.filter((route) =>
+    (route.id.startsWith('ocmulgee-river-') || route.id.startsWith('chattahoochee-river-') && hasStandaloneRoutePage(route.slug)) &&
+    !['chattahoochee-river-ga115-duncan-bridge', 'chattahoochee-river-powers-island-paces-mill', 'chattahoochee-river-columbus-whitewater-park'].includes(route.id)
+  ).map((route) => route.id),
   "arkansas-river-parkdale-royal-gorge",
   "arkansas-river-browns-canyon-fishermans-stone",
   "arkansas-river-stone-bridge-salida",

@@ -19,6 +19,85 @@
       "statusCode": 301
     },
     {
+      "route": "/rivers/willimantic-river-commuter-nye-holman",
+      "redirect": "/rivers/by-river/willimantic-river-connecticut/#trip-willimantic-river-commuter-nye-holman",
+      "statusCode": 301
+    },
+    {
+      "route": "/rivers/willimantic-river-heron-cove-pecks-mill",
+      "redirect": "/rivers/by-river/willimantic-river-connecticut/#trip-willimantic-river-heron-cove-pecks-mill",
+      "statusCode": 301
+    },
+    {
+      "route": "/rivers/willimantic-river-river-park-eagleville-lake",
+      "redirect": "/rivers/by-river/willimantic-river-connecticut/#trip-willimantic-river-river-park-eagleville-lake",
+      "statusCode": 301
+    },
+    {
+      "route": "/rivers/willimantic-river-eagleville-route-66",
+      "redirect": "/rivers/by-river/willimantic-river-connecticut/#trip-willimantic-river-eagleville-route-66",
+      "statusCode": 301
+    },
+    {
+      "route": "/rivers/willimantic-river-commuter-route-66",
+      "redirect": "/rivers/by-river/willimantic-river-connecticut/#trip-willimantic-river-commuter-route-66",
+      "statusCode": 301
+    },
+    {
+      "route": "/rivers/willimantic-river-*",
+      "redirect": "/rivers/by-river/willimantic-river-connecticut/",
+      "statusCode": 301
+    },
+    {
+      "route": "/rivers/chattahoochee-river-lower-pool-abbotts-bridge",
+      "rewrite": "/rivers/chattahoochee-river-lower-pool-abbotts-bridge/index.html"
+    },
+    {
+      "route": "/rivers/chattahoochee-river-abbotts-bridge-medlock-bridge",
+      "rewrite": "/rivers/chattahoochee-river-abbotts-bridge-medlock-bridge/index.html"
+    },
+    {
+      "route": "/rivers/chattahoochee-river-medlock-bridge-jones-bridge",
+      "rewrite": "/rivers/chattahoochee-river-medlock-bridge-jones-bridge/index.html"
+    },
+    {
+      "route": "/rivers/chattahoochee-river-medlock-bridge-garrard-landing",
+      "rewrite": "/rivers/chattahoochee-river-medlock-bridge-garrard-landing/index.html"
+    },
+    {
+      "route": "/rivers/chattahoochee-river-island-ford-don-white",
+      "rewrite": "/rivers/chattahoochee-river-island-ford-don-white/index.html"
+    },
+    {
+      "route": "/rivers/chattahoochee-river-jones-bridge-chattahoochee-river-park",
+      "rewrite": "/rivers/chattahoochee-river-jones-bridge-chattahoochee-river-park/index.html"
+    },
+    {
+      "route": "/rivers/chattahoochee-river-morgan-falls-park-johnson-ferry",
+      "rewrite": "/rivers/chattahoochee-river-morgan-falls-park-johnson-ferry/index.html"
+    },
+    {
+      "route": "/rivers/chattahoochee-river-johnson-ferry-powers-island",
+      "rewrite": "/rivers/chattahoochee-river-johnson-ferry-powers-island/index.html"
+    },
+    {
+      "route": "/rivers/chattahoochee-river-ga115-duncan-bridge",
+      "rewrite": "/rivers/chattahoochee-river-ga115-duncan-bridge/index.html"
+    },
+    {
+      "route": "/rivers/chattahoochee-river-powers-island-paces-mill",
+      "rewrite": "/rivers/chattahoochee-river-powers-island-paces-mill/index.html"
+    },
+    {
+      "route": "/rivers/chattahoochee-river-columbus-whitewater-park",
+      "rewrite": "/rivers/chattahoochee-river-columbus-whitewater-park/index.html"
+    },
+    {
+      "route": "/rivers/chattahoochee-river-*",
+      "redirect": "/rivers/by-river/chattahoochee-river/",
+      "statusCode": 301
+    },
+    {
       "route": "/rivers/susquehanna-river-canal-park-wetlands",
       "redirect": "/rivers/susquehanna-river-canal-park-test-track/",
       "statusCode": 301

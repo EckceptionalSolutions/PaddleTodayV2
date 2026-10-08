@@ -159,35 +159,65 @@ const npsChattahoocheePutInGauges: Record<string, { id: string; siteName: string
   'Whitewater Creek': { id: '02335815', siteName: 'Chattahoochee River below Morgan Falls Dam, GA' },
 };
 
+// NPS publishes no put-in-to-gauge assignment for these access points. Keep a
+// nearby station as context, but never treat it as route-specific telemetry.
+const npsChattahoocheeProxyPutInGauges: Record<string, { id: string; siteName: string }> = {
+  'Bowmans Island': { id: '02334430', siteName: 'Chattahoochee River below Buford Dam, GA' },
+  'Lower Pool Park': { id: '02334430', siteName: 'Chattahoochee River below Buford Dam, GA' },
+  'Chattahoochee Pointe': { id: '02334430', siteName: 'Chattahoochee River below Buford Dam, GA' },
+  'Azalea Park': { id: '02335450', siteName: 'Chattahoochee River above Roswell, GA' },
+  'Morgan Falls Park': { id: '02335815', siteName: 'Chattahoochee River below Morgan Falls Dam, GA' },
+};
+
 function applyNpsChattahoocheePutInGauge(route: River): River {
   if (route.riverId !== 'chattahoochee-river' || route.region !== 'Chattahoochee River National Recreation Area') return route;
 
   const putInName = route.putIn?.name?.replace(/\s+public(?:\s+river)?\s+(?:launch|access)$/i, '').trim();
-  const station = putInName ? npsChattahoocheePutInGauges[putInName] : undefined;
+  const directStation = putInName ? npsChattahoocheePutInGauges[putInName] : undefined;
+  const proxyStation = !directStation && putInName ? npsChattahoocheeProxyPutInGauges[putInName] : undefined;
+  const station = directStation ?? proxyStation;
   if (!station) return route;
 
   const previousSiteId = route.gaugeSource.siteId;
   const gaugeUrl = `https://waterdata.usgs.gov/monitoring-location/USGS-${station.id}/`;
   const hydrographUrl = `https://waterdata.usgs.gov/nwis/uv?legacy=1&site_no=${station.id}`;
   const currentUrl = `https://waterservices.usgs.gov/nwis/iv/?format=json&sites=${station.id}&parameterCd=00060,00065&siteStatus=all`;
-  const gaugeChanged = previousSiteId !== station.id || route.gaugeSource.siteName !== station.siteName;
+  const gaugeKind = proxyStation ? 'proxy' : 'direct';
+  const gaugeChanged = previousSiteId !== station.id || route.gaugeSource.siteName !== station.siteName || route.gaugeSource.kind !== gaugeKind;
   if (!gaugeChanged) return route;
 
   return {
     ...route,
-    statusText: route.statusText.replaceAll(previousSiteId, station.id),
+    summary: proxyStation
+      ? route.summary.replaceAll('direct USGS corridor gauge', 'nearby proxy gauge context').replaceAll('direct USGS gauge', 'nearby proxy gauge context')
+      : route.summary,
+    statusText: proxyStation
+      ? `The NPS flow table does not assign a gauge to ${putInName}. USGS ${station.id} is nearby corridor context only, not a confirmed reading for this put-in. Confirm the correct station with the park and check its release notices before launching; this route is not scored.`
+      : route.statusText.replaceAll(previousSiteId, station.id),
+    ...(proxyStation ? { scoreEligibility: 'planning' as const, scoreEligibilityReason: 'proxy_gauge' as const } : {}),
     gaugeSource: {
       ...route.gaugeSource,
       id: `usgs-${station.id}`,
       siteId: station.id,
       siteName: station.siteName,
+      kind: gaugeKind,
       detailUrl: gaugeUrl,
       hydrographUrl,
     },
+    profile: proxyStation
+      ? {
+          ...route.profile,
+          confidenceNotes: `${route.profile.confidenceNotes.replaceAll('direct USGS gauge', 'USGS proxy context').replaceAll('direct USGS corridor gauge', 'USGS proxy context')} The NPS flow table does not assign a station to ${putInName}; confirm the applicable gauge with the park before making a flow decision.`,
+        }
+      : route.profile,
     evidenceNotes: route.evidenceNotes?.map((note) => ({
       ...note,
+      ...(proxyStation && note.label === 'Direct live gauge' ? {
+        label: 'Proxy flow context',
+        note: `USGS ${station.id} is nearby context only. NPS does not assign a station to ${putInName}; confirm the applicable gauge with the park.`,
+      } : {}),
       value: note.value.replaceAll(previousSiteId, station.id),
-      note: note.note?.replaceAll(previousSiteId, station.id),
+      ...(!proxyStation && note.label !== 'Direct live gauge' ? { note: note.note?.replaceAll(previousSiteId, station.id) } : {}),
       sourceUrl: note.label === 'Direct live gauge' ? currentUrl : note.sourceUrl?.replaceAll(previousSiteId, station.id),
     })),
     sourceLinks: route.sourceLinks?.map((link) => link.provider === 'usgs'
@@ -232,6 +262,20 @@ const npsChattahoocheeRoutes: River[] = (() => {
   }
   return out;
 })();
+
+const publishedChattahoocheeRouteSlugs = new Set([
+  'chattahoochee-river-lower-pool-abbotts-bridge',
+  'chattahoochee-river-abbotts-bridge-medlock-bridge',
+  'chattahoochee-river-medlock-bridge-jones-bridge',
+  'chattahoochee-river-medlock-bridge-garrard-landing',
+  'chattahoochee-river-island-ford-don-white',
+  'chattahoochee-river-jones-bridge-chattahoochee-river-park',
+  'chattahoochee-river-morgan-falls-park-johnson-ferry',
+  'chattahoochee-river-johnson-ferry-powers-island',
+  'chattahoochee-river-ga115-duncan-bridge',
+  'chattahoochee-river-powers-island-paces-mill',
+  'chattahoochee-river-columbus-whitewater-park',
+]);
 
 type NpsDocumentedFloat = {
   id: string;
@@ -651,4 +695,5 @@ export const georgiaRoutes: River[] = [
   }),
   ...npsDocumentedFloatRoutes,
   ...npsChattahoocheeRoutes,
-].map(applyNpsChattahoocheePutInGauge);
+].map(applyNpsChattahoocheePutInGauge)
+  .filter((route) => !route.id.startsWith('chattahoochee-river-') || publishedChattahoocheeRouteSlugs.has(route.slug));

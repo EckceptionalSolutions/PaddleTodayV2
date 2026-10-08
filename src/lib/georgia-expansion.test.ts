@@ -1,6 +1,7 @@
 import { describe, expect, it } from 'vitest';
 import { getRoutePreviewPhoto } from '../data/route-gallery';
 import { corridorForSlug } from '../data/route-corridors';
+import { listRoutePageConsolidations } from '../data/route-page-consolidations';
 import { publicRivers } from '../data/rivers';
 import { georgiaRoutes } from '../data/routes/georgia';
 
@@ -16,19 +17,24 @@ const expectedIds = [
 
 describe('Georgia statewide paddling expansion', () => {
   it('keeps the researched Georgia batch and identifiers stable', () => {
-    expect(georgiaRoutes).toHaveLength(86);
+    expect(georgiaRoutes).toHaveLength(18);
     expect(georgiaRoutes.slice(0, expectedIds.length).map((route) => route.id)).toEqual(expectedIds);
     expect(georgiaRoutes.slice(expectedIds.length).every((route) => route.id.startsWith('chattahoochee-river-') || route.id.startsWith('ocmulgee-river-'))).toBe(true);
     expect(new Set(georgiaRoutes.map((route) => route.id)).size).toBe(georgiaRoutes.length);
     expect(new Set(georgiaRoutes.map((route) => route.slug)).size).toBe(georgiaRoutes.length);
   });
 
-  it('publishes every reviewed Georgia route as a scored direct-gauge route', () => {
+  it('publishes curated Georgia routes and keeps proxy-gauge trips planning-only', () => {
     const publicIds = new Set(publicRivers.filter((route) => route.state === 'Georgia').map((route) => route.id));
     expect([...publicIds].sort()).toEqual(georgiaRoutes.map((route) => route.id).sort());
-    expect(georgiaRoutes.every((route) => route.gaugeSource.kind === 'direct')).toBe(true);
     expect(georgiaRoutes.every((route) => route.gaugeSource.provider === 'usgs')).toBe(true);
-    expect(georgiaRoutes.every((route) => route.scoreEligibility !== 'planning')).toBe(true);
+    const proxyRoutes = georgiaRoutes.filter((route) => route.gaugeSource.kind === 'proxy');
+    expect(proxyRoutes.map((route) => route.putIn?.name).sort()).toEqual([
+      'Lower Pool Park public launch',
+      'Morgan Falls Park public launch',
+    ]);
+    expect(proxyRoutes.every((route) => route.scoreEligibility === 'planning' && route.scoreEligibilityReason === 'proxy_gauge')).toBe(true);
+    expect(georgiaRoutes.filter((route) => route.gaugeSource.kind === 'direct').every((route) => route.scoreEligibility !== 'planning')).toBe(true);
   });
 
   it('has complete endpoint, access, safety, camping, evidence, and image records', () => {
@@ -55,18 +61,23 @@ describe('Georgia statewide paddling expansion', () => {
     }
   });
 
-  it('models overlapping Georgia access cards as corridor families without collapsing route cards', () => {
+  it('curates Chattahoochee choices and redirects the retired overlapping combinations', () => {
     const chattahoochee = georgiaRoutes.filter((route) => route.id.startsWith('chattahoochee-river-'));
     const ocmulgee = georgiaRoutes.filter((route) => route.id.startsWith('ocmulgee-river-'));
-    expect(chattahoochee).toHaveLength(79);
+    expect(chattahoochee).toHaveLength(11);
     expect(ocmulgee).toHaveLength(3);
     expect(chattahoochee.every((route) => corridorForSlug(route.slug)?.corridorId === 'ga-chattahoochee-public-launch-chain')).toBe(true);
     expect(ocmulgee.every((route) => corridorForSlug(route.slug)?.corridorId === 'ga-ocmulgee-public-access-chain')).toBe(true);
     expect(new Set(chattahoochee.map((route) => `${route.putIn?.name}|${route.takeOut?.name}`)).size).toBe(chattahoochee.length);
+    const retiredChattahoocheeRoutes = listRoutePageConsolidations().filter(({ slug }) => slug.startsWith('chattahoochee-river-'));
+    expect(retiredChattahoocheeRoutes).toHaveLength(68);
+    expect(new Set(retiredChattahoocheeRoutes.map(({ target }) => target))).toEqual(new Set([
+      '/rivers/by-river/chattahoochee-river/#chattahoochee-sections-title',
+    ]));
   });
 
   it('keeps Georgia-specific gauge and safety distinctions', () => {
-    expect(georgiaRoutes.filter((route) => route.gaugeSource.metric === 'discharge_cfs')).toHaveLength(84);
+    expect(georgiaRoutes.filter((route) => route.gaugeSource.metric === 'discharge_cfs')).toHaveLength(16);
     expect(georgiaRoutes.filter((route) => route.gaugeSource.metric === 'gage_height_ft')).toHaveLength(2);
     expect(georgiaRoutes.find((route) => route.id === 'chattahoochee-river-ga115-duncan-bridge')?.gaugeSource.metric).toBe('gage_height_ft');
     expect(georgiaRoutes.find((route) => route.id === 'chattahoochee-river-ga115-duncan-bridge')?.routeType).toBe('whitewater');

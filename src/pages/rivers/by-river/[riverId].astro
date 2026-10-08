@@ -192,7 +192,7 @@ const groupDescription = isBroadRiverHub
   : isCrowWingHub
   ? 'Plan Crow Wing River trips by access section, from the Huntersville forest and Nimrod to Wadena County parks and Lake Placid. Compare all 12 trip options, the two Minnesota DNR map sections, and the separate Nimrod and Sylvan Dam gauge contexts.'
   : isChattahoocheeHub
-  ? 'Plan 79 Chattahoochee River trips from metro Atlanta to Columbus. Compare National Park Service float sections, five put-in-specific USGS gauges, dam releases, and route-by-route access.'
+  ? 'Plan 11 Chattahoochee River route guides across the recreation area, upper river, and Columbus. Start with eight focused sections; Powers Island–Paces Mill and two whitewater runs have separate guides.'
   : isHousatonicHub
   ? 'Plan Berkshire Housatonic trips by reach, from the upper river and Glendale Dam portage to Great Barrington and Sheffield. Compare 15 trip options, public access, route-specific USGS gauges, and safety notes.'
   : isWillimanticHub
@@ -657,7 +657,7 @@ const faqItems = [
       : isCrowWingHub
       ? 'Minnesota DNR separates the river into a Map 1 reach to Nimrod and a Map 2 reach downstream. Start with the DNR-recommended Huntersville North–Mary Brown or Little White Dog–Cottingham day trip, or choose the named rapids, county-park, and Lake Placid sections. The hub keeps all 12 endpoint options, including five overlapping combinations.'
       : isChattahoocheeHub
-      ? 'The NPS float guide names seven sections between Buford Dam and Paces Mill. Start with the source-backed sections below, then choose from all 79 trip options in the picker. The 76 NRA choices include different put-ins, take-outs, and flow zones; Columbus and the Upper Chattahoochee are separate paddling contexts.'
+      ? 'The NPS float guide publishes seven float times. Start with eight focused recreation-area sections below; Powers Island–Paces Mill and the Upper Chattahoochee and Columbus whitewater runs have separate guides.'
       : isHousatonicHub
       ? 'The Berkshire guide covers distinct upper, Stockbridge, and Great Barrington–Sheffield reaches. Compare the named public-access sections, then use the trip picker for six longer endpoint combinations that remain available with their own mileage, gauge, dam, and access notes.'
       : isLoupRiverHub
@@ -1498,7 +1498,7 @@ const groupStructuredData = [
           </div>
         </div>
         <p>
-          The NPS float-time guide names seven sections in the recreation area. All 79 trip options remain selectable below, but the 76 NRA combinations do not share one gauge: choose the USGS station for the put-in, then check the release schedule and trend. NPS recommends canoe and kayak trips below 4,000 cfs and recommends no water-based activity above 8,000 cfs.
+          The NPS float-time guide publishes seven sections. These eight focused guides pair those float times with other named access sections; the three remaining guides cover Powers Island–Paces Mill and the separate upper and Columbus whitewater runs. Match the USGS station to the put-in, then check the release schedule and trend. NPS recommends canoe and kayak trips below 4,000 cfs and no water-based activity above 8,000 cfs.
         </p>
         <div class="river-hub-context__grid">
           {chattahoocheeGaugeZones.map((zone) => (
@@ -1516,7 +1516,7 @@ const groupStructuredData = [
           ) : null)}
         </ul>
         <p>
-          Check the NPS <a href="https://home.nps.gov/chat/planyourvisit/river-flow-rate.htm" rel="noopener">put-in-to-gauge table</a>, its <a href="https://www.nps.gov/chat/planyourvisit/floattimes.htm" rel="noopener">seven float times</a>, and current <a href="https://home.nps.gov/chat/planyourvisit/conditions.htm" rel="noopener">park conditions and release notices</a>. The NPS table does not assign a station to Bowmans Island, Lower Pool Park, Chattahoochee Pointe, or Morgan Falls Park. Confirm the applicable flow station with the park before relying on the gauge shown for trips starting at those access points.
+          Check the NPS <a href="https://www.nps.gov/chat/planyourvisit/river-flow-rate.htm" rel="noopener">put-in-to-gauge table</a>, its <a href="https://www.nps.gov/chat/planyourvisit/floattimes.htm" rel="noopener">seven published float sections</a>, and current <a href="https://www.nps.gov/chat/planyourvisit/conditions.htm" rel="noopener">park conditions and release notices</a>. The NPS table does not assign a station to Bowmans Island, Lower Pool Park, Chattahoochee Pointe, Azalea Park, or Morgan Falls Park. Nearby gauges for these starts are proxy context only; confirm the applicable flow station with the park before relying on them.
         </p>
       </section>
     ) : null}
@@ -2021,7 +2021,7 @@ const groupStructuredData = [
               : isSanJuanHub
               ? `Compare all ${group.routeCount} San Juan trip choices here. Five named access sections keep standalone pages; six longer combinations remain selectable with their own endpoints, mileage, intermediate access, gauge references, and hazards.`
               : isChattahoocheeHub
-              ? `Compare all 79 Chattahoochee trips here. Eight focused recreation-area sections keep standalone guides; 68 overlapping NRA combinations remain selectable as route cards. The Upper Chattahoochee, Powers Island–Paces Mill, and Columbus routes keep separate guides for their different paddling contexts.`
+              ? `Compare all ${group.routeCount} curated Chattahoochee route guides here. Eight focused recreation-area sections cover the NPS access chain; Powers Island–Paces Mill and the Upper Chattahoochee and Columbus whitewater runs remain separate because they describe different paddling contexts. Other endpoint combinations now lead to this section guide.`
               : isHousatonicHub
               ? `Compare all ${group.routeCount} Berkshire Housatonic trip choices here. Nine reach-specific sections keep standalone pages; six longer endpoint combinations remain selectable with their own access, mileage, gauge, portage, and safety details.`
               : isWillimanticHub
