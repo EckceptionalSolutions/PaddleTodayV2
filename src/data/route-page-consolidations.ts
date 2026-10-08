@@ -926,6 +926,7 @@ const leafRiverConsolidatedRouteSlugs = [
 ] as const;
 
 const pascagoulaConsolidatedRouteSlugs = [
+  'pascagoula-river-game-management-big-creek',
   'pascagoula-river-game-management-wilkerson-ferry',
   'pascagoula-river-merrill-big-creek',
   'pascagoula-river-merrill-wilkerson-ferry',
