@@ -80,6 +80,14 @@ Seven additional endpoint-pair URLs now lead to their exact trip cards on the ri
 
 This selective change removes repeated landing pages while preserving named routes that have direct source support and materially different skill or waterway context. The zero-impression observation and indexing state do not prove that duplication caused the family’s search performance or the wider traffic decline.
 
+## Search Console penalty check and route-family demand screen — October 8, 2026
+
+Search Console’s Manual actions and Security issues reports both showed “No issues detected.” This rules out a reported manual penalty or security compromise in these reports, but it does not rule out algorithmic ranking changes or weak site authority.
+
+I screened three high-count Iowa/Minnesota families over April 28–October 5. Cedar River (Iowa, 27 public routes) had 10 clicks and 446 impressions across 24 reporting URLs; six route pages accounted for all ten clicks. Minnesota River (19 routes) had 15 clicks and 560 impressions, with six click-bearing route pages. Sauk River (21 routes) had 7 clicks and 295 impressions. These figures support preserving the route-specific landing pages that already earn visits and argue against blanket consolidation of the entire river families.
+
+The Erie Canal group is a better candidate for a structural review: its catalog has 37 public route records, including seven planning-only proxy-gauge routes. Production sitemap and hub checks confirm that the 30 indexable routes are linked from the hub and listed in the sitemap; the seven planning-only routes are correctly omitted. The 30 indexable Erie Canal route URLs had zero Search Console clicks and impressions in the same six-month window. The shared `erie-canal` group spans the Erie Canal and connected Mohawk, Seneca, and Oneida waters, with distinct locks, access points, and navigation hazards. This suggests reviewing regional or waterbody-level hub organization, while retaining the official section details; it does not support merging all routes into one undifferentiated itinerary.
+
 ## Redirect delivery follow-up — October 8, 2026
 
 Production checks of current Search Console crawled-not-indexed examples found that the retired Wabash Linn Grove–White Bridge, Green River American Legion–Greensburg, and Eleven Point Greer Crossing–Riverton URLs still returned HTTP 200 pages with immediate meta refreshes to their exact trip cards on the current river hubs. The destinations and card anchors exist, and the retired paths are absent from the current sitemap. A comparable retired Goose Creek route already returns an HTTP 301.
