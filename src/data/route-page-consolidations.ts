@@ -133,6 +133,10 @@ const southLlanoHubPath = '/rivers/by-river/south-llano-river/';
 const mulberryForkHubPath = '/rivers/by-river/mulberry-fork-alabama/';
 const androscogginMaineHubPath = '/rivers/by-river/androscoggin-river/';
 const buffaloRiverHubPath = '/rivers/by-river/buffalo-river/';
+const booneRiverHubPath = '/rivers/by-river/boone-river/';
+const booneRiverConsolidatedRouteSlugs = [
+  'boone-river-riverside-albright',
+] as const;
 
 const buffaloRiverConsolidatedRouteSlugs = [
   'buffalo-river-ponca-kyles-landing',
@@ -1126,6 +1130,7 @@ const consolidatedRouteTargets = new Map<string, string>(
     ...mulberryForkConsolidatedRouteSlugs.map((slug) => [slug, `${mulberryForkHubPath}#trip-${slug}`] as const),
     ...androscogginMaineConsolidatedRouteSlugs.map((slug) => [slug, `${androscogginMaineHubPath}#trip-${slug}`] as const),
     ...alabamaBartramConsolidatedRouteSlugs.map((slug) => [slug, `${alabamaBartramHubPath}#trip-${slug}`] as const),
+    ...booneRiverConsolidatedRouteSlugs.map((slug) => [slug, `${booneRiverHubPath}#trip-${slug}`] as const),
     ...newHampshireSacoConsolidatedRouteSlugs.map((slug) => [slug, `${newHampshireSacoHubPath}#trip-${slug}`] as const),
     ...newHampshireSacoRetiredRouteSlugs.map((slug) => [slug, `${newHampshireSacoHubPath}#saco-section-guide-title`] as const),
     ...vermontWinooskiConsolidatedRouteSlugs.map((slug) => [slug, `${vermontWinooskiHubPath}#trip-${slug}`] as const),
