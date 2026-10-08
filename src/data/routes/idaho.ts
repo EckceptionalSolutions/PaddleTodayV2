@@ -1044,6 +1044,12 @@ function makeRoute(spec: Spec): River {
         sourceUrl: spec.sourceUrl,
       },
       {
+        label: "Photo context",
+        value: spec.imageLabel,
+        note: "The gallery photo is visual context. It may show another part of the same river or watershed and does not show current conditions at every access point.",
+        sourceUrl: spec.imageUrl,
+      },
+      {
         label: "Overlap decision",
         value: "Retained as a distinct access-to-access itinerary",
         note: "Adjacent cards use different public endpoints and provide a different trip length, hazard set, skill tier, or operating boundary.",

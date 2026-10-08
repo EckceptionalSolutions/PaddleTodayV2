@@ -53,8 +53,8 @@ function makeRoute(spec: Spec): River {
   const scoreEligibility = spec.scoreEligibility ?? (scoredSeedskadeeIds.has(spec.id) ? 'scored' : 'planning');
   const statusText = scoreEligibility === 'scored' ? spec.statusText.replace('Planning-only', 'Scored minimum-only') : spec.statusText;
   const imageNote = spec.gaugeKind === 'proxy'
-    ? 'Approved same-watershed context image; it is not presented as a photograph of this exact reach.'
-    : 'Approved same-river context image; it is not presented as a photograph of every point in this reach.';
+    ? 'This photo shows the same watershed, not this exact reach.'
+    : 'This photo shows the river elsewhere, not every point in this reach.';
   const thresholdProvider = spec.thresholdProvider
     ?? (spec.thresholdUrl.includes('americanwhitewater.org') ? 'american_whitewater' : spec.thresholdUrl.includes('nps.gov') ? 'nps' : 'local');
   const thresholdSourceStrength = spec.thresholdSourceStrength ?? (scoreEligibility === 'scored' ? 'official' : thresholdProvider === 'american_whitewater' ? 'community' : 'mixed');
@@ -86,6 +86,7 @@ function makeRoute(spec: Spec): River {
       { label: 'Public access control', value: `${spec.putIn.name} to ${spec.takeOut.name}`, note: 'Named agency/park access points are retained, including any intentional parking or campground offset from the shoreline.', sourceUrl: spec.mapUrl },
       { label: 'Safety and land management', value: 'PFD, AIS, water temperature, current hazards, and current closures govern the decision', note: 'Review current agency rules, dam/release notices, wind, debris, and private-bank restrictions before launching.', sourceUrl: spec.sourceUrl },
       { label: 'Camping classification', value: spec.campingClassification, note: spec.camping, sourceUrl: spec.sourceUrl },
+      { label: 'Image decision', value: spec.imageLabel, note: imageNote, sourceUrl: spec.image },
       { label: 'Overlap decision', value: 'Retained as a distinct access-to-access card', note: 'Adjacent cards have different launch/take-out pairs, operational boundaries, difficulty, or trip length; no duplicate corridor was found in the Wyoming baseline.', sourceUrl: spec.sourceUrl },
     ],
     sourceLinks: [
