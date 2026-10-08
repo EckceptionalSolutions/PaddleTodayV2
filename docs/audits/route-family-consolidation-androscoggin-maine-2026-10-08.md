@@ -14,6 +14,7 @@ For April 28–October 5, 2026, the GSC Performance report showed zero clicks an
 
 - The Watershed Council’s trail overview groups the Maine river into the Mahoosucs and Greenway–Riverlands, describes the downstream sequence, and identifies Rumford’s falls and dams as a significant portage boundary.
 - Five endpoint pairs were oriented opposite the trail’s published downstream sequence. The cards now run Bethel–Hanover, Rumford–Mexico, Hanover–Rumford, Lewiston–Durham, and Auburn–Lewiston. Brunswick–Topsham remains an upstream option because the council’s tidal guidance says upstream travel is easier with the tide.
+- The five endpoint corrections also change the route-data fingerprint. Their route-scoped geometry generation was refreshed and the catalog coverage metadata was updated so map assets remain aligned with the corrected endpoints.
 - Its self-guided paddle page names Gilead–Bethel, Dixfield–Canton, Turner/Gulf Island Pond, an Auburn out-and-back, and a tidal Brunswick paddle. These documented trips do not all match the catalog’s public-access pairs exactly.
 - The Maine DACF inventory verifies named launch/access locations and publishes ownership and facility details. It does not establish that every site is open today, validate every route distance, or publish a suitable route for every endpoint combination.
 - USGS 01054500 is direct telemetry near Rumford and proxy context for the farther reaches. It is not a universal Androscoggin paddling threshold.

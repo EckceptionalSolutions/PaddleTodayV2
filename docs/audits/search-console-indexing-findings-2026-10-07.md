@@ -40,6 +40,14 @@ Search Console’s Links report listed 185 external links from four sites: `goog
 - Nine sampled URLs from the 57-page 404 report now return 301 redirects to current route or hub URLs. Examples include old Green River, Minnehaha Creek, Kansas River, Juniata, French Creek, and Big Eau Pleine paths. This suggests the sample report includes aliases already repaired; it is not evidence that those paths still return 404 today.
 - The report’s 53 redirects are consistent with canonical route consolidation and host/path aliases. The 0 blocked-by-403 count rules out a broad access-forbidden issue in this snapshot.
 
+## October 8 live sample of crawled-not-indexed URLs
+
+The report showed 450 crawled-not-indexed URLs under All known pages and 324 under All submitted pages. I checked the ten visible examples against production HTML and the current child sitemap. Six are still current URLs (five route pages and the Ouachita hub); each returned 200, allowed indexing, used a matching canonical, and appeared in the current sitemap. This sample does not show a broad robots, canonical, or sitemap failure for active pages.
+
+Four other examples had already been consolidated and are no longer in the current sitemap: Wabash Linn Grove–White Bridge, Goose Creek Jacks Dump–Hollow, Green River American Legion–Greensburg, and Eleven Point Greer Crossing–Riverton. Their old URLs return the existing “Trip moved” response with an immediate meta refresh to the relevant river hub. The Boone River `www` variant redirects once to the apex hostname, whose page has a self-canonical. Search Console’s submitted-page sample therefore includes historical URLs alongside currently submitted pages; its counts should not be read as a live inventory of current sitemap entries.
+
+The active examples remain eligible to index, but Search Console gives no fetch-level reason for excluding them. Their shared route-page template and thin route distinctions remain a stronger improvement area than sitemap repair; consolidation should still be selective and based on whether the river’s sections have distinct conditions, hazards, or access logistics.
+
 ## Internal-linking change
 
 The route-detail template labeled the four closest routes on any other river as “nearby,” with no distance limit. That could present distant trips as nearby and add cross-river links without much local relevance. The current public route catalog contains 2,704 route records; coordinate analysis found at least one different-river option within 75 straight-line miles for 2,517 of them. The route detail page now shows at most four such options within 75 miles and labels the distance as straight-line. Same-river, state, and region navigation remains available when no cross-river option meets that radius.
