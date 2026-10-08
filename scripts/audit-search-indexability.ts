@@ -28,6 +28,7 @@ if (config.responseOverrides?.['404']?.statusCode !== 404 || config.responseOver
 errors.push(...staticRoutePatternErrors(config.routes || []));
 const redirects = new Map<string, string>((config.routes || []).filter((r: any) => r.redirect).map((r: any) => [r.route.replace(/\/$/, ''), r.redirect]));
 const sitemapFiles = locs(await readFile(join(root, 'sitemap-index.xml'), 'utf8'));
+const sitemapPaths = new Set(['/sitemap-index.xml', ...sitemapFiles.map((sitemap) => new URL(sitemap).pathname)]);
 const urls: string[] = [];
 for (const sitemap of sitemapFiles) {
   const url = new URL(sitemap);
@@ -110,6 +111,11 @@ for (const rule of config.routes || []) {
   if (!rule.redirect) continue;
   const target = new URL(rule.redirect, origin);
   if (target.origin !== origin) continue;
+  if (sitemapPaths.has(target.pathname)) {
+    try { await access(join(root, target.pathname.replace(/^\/+/, ''))); }
+    catch { errors.push(`Static sitemap redirect target is missing from the build: ${rule.route} -> ${rule.redirect}`); }
+    continue;
+  }
   const pathname = target.pathname.endsWith('/') ? target.pathname : `${target.pathname}/`;
   if (!paths.has(pathname)) errors.push(`Static redirect target is not in the sitemap: ${rule.route} -> ${rule.redirect}`);
   try { await access(fileFor(pathname)); }

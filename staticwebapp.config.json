@@ -100,7 +100,7 @@
     },
     {
       "route": "/rivers/penobscot-river-greenbush-winn",
-      "redirect": "/rivers/penobscot-river-winn-greenbush/",
+      "redirect": "/rivers/by-river/penobscot-river/#trip-penobscot-river-winn-greenbush",
       "statusCode": 301
     },
     {
