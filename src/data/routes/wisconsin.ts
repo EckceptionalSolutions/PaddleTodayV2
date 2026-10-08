@@ -5083,7 +5083,7 @@ export const wisconsinRoutes: River[] = [
       {
         "label": "Put-in authority",
         "value": "Village park with canoe ramp",
-        "note": "Grafton officially says Lime Kiln Park includes a canoe ramp plus upper and lower parking lots, which is stronger endpoint support than the old route draft had.",
+        "note": "The Village of Grafton identifies a canoe ramp at Lime Kiln Park and upper and lower parking lots.",
         "sourceUrl": "https://www.villageofgraftonwi.gov/387/Lime-Kiln-Park"
       },
       {

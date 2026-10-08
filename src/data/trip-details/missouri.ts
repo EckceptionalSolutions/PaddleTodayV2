@@ -1552,7 +1552,7 @@ export const missouriRiverTripDetails: Record<string, RiverTripDetails> = {
       "accessCaveats": [
         "Bennett Spring Access is a public MDC access with parking, a concrete ramp, and privies, while Missouri State Parks publishes the boat-launch coordinate inside the Bennett Spring park corridor.",
         "Barclay Conservation Area is a public MDC access with a concrete boat ramp, canoe launching area, and parking, but the mapped canoe-launch coordinate is from OpenStreetMap/Mapcarta rather than an MDC coordinate table. Follow MDC signs and the area map on arrival.",
-        "The Windyville gauge is upstream of the route and upstream of Bennett Spring Branch inflow. MoHERP ties the gauge to exact Bennett Spring-to-Barclay trips, but the app still treats it as a proxy rather than a perfect reach reading."
+        "The Windyville gauge is upstream of the route and Bennett Spring Branch inflow. Treat it as a regional proxy rather than an exact reading for every mile of the reach."
       ],
       "watchFor": [
         "Shallow riffles, scraping, and slower travel when the Windyville gauge is near or below the 40 cfs floor.",

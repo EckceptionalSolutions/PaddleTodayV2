@@ -1635,7 +1635,7 @@ export const wisconsinRiverTripDetails: Record<string, RiverTripDetails> = {
       "summary": "Put in at Lime Kiln Park in Grafton and take out at Thiensville Village Park. This is one of the more interesting lower-Milwaukee day trips because the upper mile is genuinely lively before the river widens and slows.",
       "accessCaveats": [
         "Lime Kiln Park is an official canoe-ramp access with multiple parking lots, but the exact launch line still deserves a quick scout because paddlers can choose between a calmer dock launch and a more direct upper launch near the opening features.",
-        "Village Park is the correct official Thiensville take-out. The old Villa Grove naming from the carried-over draft was weaker than the current village boating and park pages."
+        "Village Park is the official Thiensville take-out. Confirm the current launch, parking, and park rules before the trip."
       ],
       "watchFor": [
         "A quick opening decision around the island at Lime Kiln Park, with riffles on one side and a Class I ledge/drop on the other.",

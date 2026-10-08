@@ -322,7 +322,7 @@ export const kansasRiverTripDetails: Record<string, RiverTripDetails> = {
       "permits": "No special paddling permit is known for private boats on the Kansas River. Use public ramps, follow posted city and county access rules, check Kansas boating/PFD requirements, and respect fishing-license rules if fishing.",
       "camping": "This route is long enough that conservative sandbar camping is the honest plan for most paddlers. Friends of the Kaw says you can camp on public sandbars between the high-water marks without a special permit, but private banks above that line are off-limits and sandbars become scarce above about 8,000 cfs.",
       "campingClassification": "sandbar_or_gravel_bar",
-      "summary": "Launch at Ogden and take out at Wamego for a full upper-Kaw continuation through Manhattan and St. George. The Wamego USGS gauge is direct for the take-out corridor, but the app still treats the broad Kansas River thresholds conservatively because the route is long and exposed.",
+      "summary": "Launch at Ogden and take out at Wamego for a full upper-Kaw continuation through Manhattan and St. George. The Wamego USGS gauge measures the take-out corridor, so it may not represent conditions across this long, exposed reach.",
       "accessCaveats": [
         "The Ogden ramp is straightforward, but same-day mud, sand, and trailer traffic still affect launch conditions.",
         "The Manhattan K-177 / Fairmont ramp mid-corridor often has a sandbar at the toe, and nearby Blue River current can change when Tuttle Creek releases rise.",

@@ -1220,7 +1220,7 @@ export const minnesotaRiverTripDetails: Record<string, RiverTripDetails> = {
       "shuttle": "Standard two-car shuttle is the realistic plan. Confirm the carry-in landing and parking layout at Brookview City Park before leaving a vehicle, and allow enough daylight for a 14.2-mile day.",
       "permits": "No route-specific paddling permit is known. Follow posted county-park and city-park access, parking, and boating rules at both endpoints.",
       "camping": "DNR Map 3 lists designated watercraft campsites at North County Park and Rum River Central Regional Park. The Germanium finish is a city-park carry-in rather than an overnight endpoint, and DNR prohibits riverbed camping next to private property.",
-      "summary": "Put in at Rum River North County Park and take out at the Germanium / Brookview Park access in Ramsey for a fuller lower-Rum day. This keeps the official St. Francis gauge in the route story while extending the mileage well past the casual park-to-park float.",
+      "summary": "Paddle 14.2 miles from Rum River North County Park to the Germanium carry-in at Brookview Park. The St. Francis gauge is upstream; allow about 4 hours 45 minutes to 6 hours 30 minutes and watch for downed trees and snags.",
       "accessCaveats": [
         "Use the named North County Park launch and DNR-mapped Germanium carry-in at Brookview City Park; confirm current parking rules and the carry path before staging the shuttle.",
         "Much of the shoreland is private. Stop only at designated sites and do not treat an unplanned bank landing as public access."
@@ -1555,7 +1555,7 @@ export const minnesotaRiverTripDetails: Record<string, RiverTripDetails> = {
       "estimatedPaddleTime": "About 4 hr to 5 hr 45 min",
       "shuttle": "Standard Stearns County to St. Cloud self-shuttle between Rockville County Park and Knights of Columbus Park. Confirm local park hours before leaving vehicles late into the day.",
       "permits": "No special paddling permit is known for this Minnesota DNR water-trail segment. Follow posted county-park and city-park rules.",
-      "camping": "Rockville County Park has the clean campsite-and-drinking-water staging story, so this can work as an endpoint-campground start. The paddle itself still reads best as a day trip unless you intentionally stage it from Rockville.",
+      "camping": "Rockville County Park has drinking water and a watercraft campsite, making it a useful place to stay before the paddle. This 12.3-mile trip is otherwise best planned as a day paddle; confirm overnight rules with the county.",
       "summary": "Put in at Rockville County Park and take out at Knights of Columbus Park for a medium lower-Sauk day that keeps the campsite-backed put-in but exits before the Heims rapid finish.",
       "accessCaveats": [
         "Rockville County Park has posted hours, drinking water, and a watercraft campsite, but local rules still override any stale assumptions when you arrive.",
@@ -1586,8 +1586,8 @@ export const minnesotaRiverTripDetails: Record<string, RiverTripDetails> = {
       "estimatedPaddleTime": "About 5 hr 30 min to 7 hr 30 min",
       "shuttle": "Full lower-Sauk self-shuttle from Rockville County Park to Heims Mill. Put the take-out vehicle at Heims because the Mississippi-confluence finish is not where you want to improvise tired logistics.",
       "permits": "No special paddling permit is known for this Minnesota DNR water-trail segment. Follow posted county-park and city/county access rules at both ends.",
-      "camping": "Rockville County Park has the cleaner campsite-and-drinking-water staging story, but this still works best as a long day unless you deliberately plan a county-approved overnight split.",
-      "summary": "Launch at Rockville County Park and finish at Heims Mill for the longest lower-Sauk day route that still fits the product’s normal day-trip ceiling. This is the one-card choice when you want the full lower corridor plus the DNR-noted Class I-II mouth section.",
+      "camping": "Rockville County Park has drinking water and a watercraft campsite near the put-in. At 16.8 miles, this is a long day unless you arrange a legal overnight stop; confirm campsite rules and availability with Stearns County.",
+      "summary": "Launch at Rockville County Park and finish at Heims Mill for a 16.8-mile lower-Sauk day that includes the DNR-noted Class I-II rapids near the river mouth.",
       "accessCaveats": [
         "Rockville County Park has posted hours, drinking water, and a watercraft campsite, but local rules still override any stale assumptions when you arrive.",
         "Heims Mill is a managed carry-in with restroom and picnic amenities, not a broad paved ramp or a place to sort out a casual shuttle plan.",
@@ -1648,7 +1648,7 @@ export const minnesotaRiverTripDetails: Record<string, RiverTripDetails> = {
       "shuttle": "Short Stearns County self-shuttle between Spring Hill County Park and the St. Martin carry-in near County Road 12. Check county park rules before leaving a vehicle.",
       "permits": "No special paddling permit is known for this Minnesota DNR water-trail segment. Follow posted county-park and access rules.",
       "camping": "Spring Hill County Park has DNR-noted watercraft campsite context. Treat this as a day route unless you separately confirm current Stearns County camping rules and fees.",
-      "summary": "Use Spring Hill County Park as the put-in and the St. Martin carry-in as the take-out. This creates a cleaner gauge-backed Sauk day than the older Spring Hill-to-Rockville multi-day draft.",
+      "summary": "Paddle about 9.1 miles from Spring Hill County Park to St. Martin. The St. Martin gauge is at the take-out, but low water, summer vegetation, and wood upstream still need a same-day check.",
       "accessCaveats": [
         "Stearns County confirms St. Martin Canoe Access as a one-acre county site retained as access to the Sauk River, but it is still a simple carry-in rather than a full-service park landing.",
         "Low water and summer vegetation can make this short route slower and less pleasant than the mileage suggests."
@@ -1924,9 +1924,9 @@ export const minnesotaRiverTripDetails: Record<string, RiverTripDetails> = {
       "shuttle": "Short Pine City-area car shuttle. A bike shuttle is possible, but only if you are comfortable with the roads and have already checked parking at both ends.",
       "permits": "No special permit is known for this Minnesota DNR water-trail segment. Follow posted public-water-access and local parking rules at both landings.",
       "camping": "Treat this as a day trip, but Snake River Campground in Chengwatana State Forest is a useful nearby campground/base-camp option if you want to stage the trip.",
-      "summary": "Put in at the Canary Road carry-in and take out at the Cross Lake / Pine City landing. This is the DNR-recommended lower Snake day, and the Pine City gauge gives it one of the cleaner official go-no-go stories in the app.",
+      "summary": "Put in at the Canary Road carry-in and take out at the Cross Lake / Pine City landing for the DNR-recommended lower Snake day. Use the Pine City gauge as an official same-river reference and check its level, trend, and recent rain before launch.",
       "accessCaveats": [
-        "Both endpoints are now backed by Minnesota public-water-access records, which is a much better trust story than the earlier approximate-coordinate version.",
+        "Minnesota public-water-access records list both landings. Confirm the current parking area and launch path at Canary Road and Cross Lake before setting the shuttle.",
         "Pine City recreation materials are useful for parking context at the take-out, but same-day signage still wins if anything looks different on arrival."
       ],
       "watchFor": [
@@ -2663,7 +2663,7 @@ export const minnesotaRiverTripDetails: Record<string, RiverTripDetails> = {
       "camping": "Land of Memories Park campground makes this an easy overnight staging option even though the route itself is a day trip.",
       "summary": "Launch at Judson and finish at Land of Memories Park for the DNR-recommended Mankato-area Minnesota River day. The gauge gives a real official flow ladder, but wind and sandbars still matter a lot on this bigger river.",
       "accessCaveats": [
-        "Both endpoints now have state-backed public-water-access records, which is the main thing this route was missing before.",
+        "Minnesota DNR public-water-access records identify both the Judson launch and Land of Memories landing. Use the named access points rather than an informal riverbank launch.",
         "Land of Memories is a city park with a real boat landing, but same-day parking and ramp conditions should still be checked before you commit to the shuttle."
       ],
       "watchFor": [
@@ -3484,7 +3484,7 @@ export const minnesotaRiverTripDetails: Record<string, RiverTripDetails> = {
       "summary": "Launch below Island Lake Dam and finish at Bachelor Road for the DNR-recommended lower Cloquet day. Use the direct gauge to avoid scrape-level releases, then make the on-river call based on rapids, scouting comfort, and same-day conditions.",
       "accessCaveats": [
         "The official DNR map clearly names both endpoints, but the saved coordinates are still arrival guidance rather than a substitute for same-day signage and map checks.",
-        "Bachelor Road is a real public trailer access on the official Cloquet water-trail map, but it is not backed here by a richer standalone facility page with parking rules and amenities.",
+        "Bachelor Road is a public trailer access identified on the official Cloquet water-trail map. Confirm the current parking layout and launch conditions before staging the shuttle.",
         "The put-in is below a dam and the segment depends on releases, so same-day conditions can differ more than the raw number suggests."
       ],
       "watchFor": [
