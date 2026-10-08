@@ -25,6 +25,7 @@ const isHousatonicHub = group.riverId === 'housatonic-river-massachusetts';
 const isCrowWingHub = group.riverId === 'crow-wing-river';
 const isChattahoocheeHub = group.riverId === 'chattahoochee-river';
 const isBuffaloHub = group.riverId === 'buffalo-river';
+const isOuachitaHub = group.riverId === 'ouachita-river';
 const isBarrenRiverHub = group.riverId === 'barren-river';
 const isUpperCumberlandHub = group.riverId === 'upper-cumberland-river';
 const isTradewaterHub = group.riverId === 'tradewater-river';
@@ -88,7 +89,9 @@ const needsRegionInTitle = listRiverGroups().some((other) =>
   [...other.states].sort().join(',') === [...group.states].sort().join(',')
 );
 const groupTitleLocation = needsRegionInTitle ? `${regionSummary}, ${stateSummary}` : stateSummary;
-const groupTitle = isBroadRiverHub
+const groupTitle = isOuachitaHub
+  ? 'Ouachita River, Arkansas | Dragover & Remmel Paddle Routes'
+  : isBroadRiverHub
   ? 'Broad River, South Carolina | Paddling Sections & Access'
   : isBarrenRiverHub
   ? 'Barren River, Kentucky | Paddle Sections & Water Levels'
@@ -195,7 +198,9 @@ const groupTitle = isBroadRiverHub
   : scoredRouteCount
   ? `${group.name}, ${groupTitleLocation} | Water Levels & Paddle Routes`
   : `${group.name}, ${groupTitleLocation} | Paddle Routes & Trip Planning`;
-const groupDescription = isBroadRiverHub
+const groupDescription = isOuachitaHub
+  ? 'Compare two Ouachita River trips in Arkansas: the 2.9-mile Class I–II Dragover Day Use reach near Mount Ida and the 5.9-mile Remmel Dam–Rockport run. Check the correct gauge, release schedule, access, and take-out for your trip.'
+  : isBroadRiverHub
   ? 'Compare eight Paddle SC trips on South Carolina’s Broad River, from Ninety-Nine Islands to Strother Landing and the separate Peak–Harbison reach. Check trip-specific gauges, dam portages, and public access.'
   : isBarrenRiverHub
   ? 'Compare 10 Lower Barren River trips. Tailwater-to-Martinsville choices use the Finney stage gauge; Bowling Green routes use a separate flow gauge. Check KDFWR mileage and access notes, including the camper-only Beech Bend ramps.'
@@ -2183,7 +2188,9 @@ const groupStructuredData = [
         <article class="river-hub-context__item">
           <h3>Water levels</h3>
           <p>
-            {isAndroscogginMaineHub
+            {isOuachitaHub
+              ? 'These trips use different stations: USGS 07356000 near Mount Ida for Dragover Day Use and USGS 07359002 at Remmel Dam for the downstream run. Check the Remmel recreation release schedule with Entergy before planning; neither gauge reading is an all-clear.'
+              : isAndroscogginMaineHub
               ? 'USGS 01054500 at Rumford is direct telemetry only for its nearby reach and proxy context farther away. It is not a universal Androscoggin cutoff: the Maine route cards remain planning-only, and conditions, dam portages, and tide differ substantially by section.'
               : isYellowBreechesHub
               ? 'Use USGS 01571500 at Camp Hill as same-creek context. Cumberland County recommends 1.4–2.0 ft for boating and lists 6 ft as action stage and 7 ft as flood stage; the gauge does not guarantee conditions at each access point.'
@@ -2207,7 +2214,9 @@ const groupStructuredData = [
         <article class="river-hub-context__item">
           <h3>Route options</h3>
           <p>
-            {isAndroscogginMaineHub
+            {isOuachitaHub
+              ? 'Choose between the 2.9-mile west-to-east Dragover Day Use reach and the 5.9-mile Remmel Dam–Rockport Whitewater Park run. They are separate outings with different access and flow checks; each route card keeps its own endpoints, gauge, and hazards.'
+              : isAndroscogginMaineHub
               ? `All ${group.routeCount} access-pair choices remain available on this hub. The individual route pages have been brought together here; choose by section and review the exact endpoint, access, distance, and hazard notes on each card.`
               : isYellowBreechesHub
               ? `Compare all ${group.routeCount} Yellow Breeches endpoint choices from Simpson Park through McCormick Park, Lower Allen, and Liberty Forge to B6. Six focused trips have dedicated route guides; overlapping combinations remain available here, and the adjacent Simpson–McCormick leg is available as a short option.`
@@ -2281,6 +2290,37 @@ const groupStructuredData = [
           </p>
         </article>
       </div>
+
+      {isOuachitaHub ? (
+        <div class="river-hub-context__source-guide" id="ouachita-reach-guide" aria-labelledby="ouachita-reach-guide-title">
+          <div class="river-group-page__section-head">
+            <div>
+              <p class="eyebrow section-label">Choose a reach · Ouachita River</p>
+              <h3 class="section-title" id="ouachita-reach-guide-title">Two trips, two different flow checks</h3>
+            </div>
+            <p class="muted river-group-page__section-note">
+              Dragover Day Use near Mount Ida and Remmel Dam near Malvern are separate paddling areas. Choose the route by its access points and use the gauge and release information for that exact reach.
+            </p>
+          </div>
+
+          <div class="river-hub-context__grid">
+            <article class="river-hub-context__item">
+              <h3>Dragover Day Use · 2.9 miles</h3>
+              <p>
+                The upper route runs from the west landing to the east landing and is rated Class I–II. USFS confirms the public canoe-launching site; American Whitewater documents the reach and its landings. Check the direct <a href="https://waterdata.usgs.gov/monitoring-location/USGS-07356000/" target="_blank" rel="noopener noreferrer">USGS gauge near Mount Ida</a> and review the <a href="https://www.fs.usda.gov/r08/ouachita/recreation/dragover-day-use" target="_blank" rel="noopener noreferrer">USFS Dragover access information</a> and <a href="https://www.americanwhitewater.org/content/River/view/river-detail/2699/main" target="_blank" rel="noopener noreferrer">American Whitewater reach notes</a>.
+              </p>
+              <a href="#trip-ouachita-river-dragover-west-east">Review the Dragover trip card</a>
+            </article>
+            <article class="river-hub-context__item">
+              <h3>Remmel Dam to Rockport · about 5.9 miles</h3>
+              <p>
+                Plan about three to four hours during a recreational release. Check the direct <a href="https://waterdata.usgs.gov/monitoring-location/USGS-07359002/" target="_blank" rel="noopener noreferrer">USGS gauge at Remmel Dam</a> and <a href="https://www.entergy.com/blog/great-day-for-float/" target="_blank" rel="noopener noreferrer">Entergy’s current release and access guidance</a>. At the take-out, move to the left bank when I-30 comes into view and use the boat ramp before the bridge; <a href="https://www.americanwhitewater.org/content/River/view/river-detail/3052/main" target="_blank" rel="noopener noreferrer">American Whitewater’s reach notes</a> describe the hazards near Rockport Ledge.
+              </p>
+              <a href="#trip-ouachita-river-remmel-whitewater-park">Review the Remmel trip card</a>
+            </article>
+          </div>
+        </div>
+      ) : null}
 
       {isAndroscogginMaineHub ? (
         <div class="river-hub-context__source-guide" id="androscoggin-maine-sections" aria-labelledby="androscoggin-maine-sections-title">
