@@ -514,6 +514,16 @@ export const routeCorridorDefinitions: RouteCorridorDefinition[] = [
     ],
   },
   {
+    corridorId: 'ny-cedar-river-adirondacks-condition-family',
+    label: 'Adirondack Cedar River route condition family',
+    continuityStatus: 'condition-family',
+    slugs: [
+      'cedar-river-flow-cedar-river-out-and-back',
+      'cedar-river-pelon-outer-gooley',
+    ],
+    segmentEdges: [],
+  },
+  {
     corridorId: 'ia-cedar-river-condition-family',
     label: 'Cedar River condition family',
     continuityStatus: 'condition-family',

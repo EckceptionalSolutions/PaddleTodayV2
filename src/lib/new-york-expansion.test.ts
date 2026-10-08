@@ -2671,7 +2671,7 @@ describe('New York strategic expansion', () => {
   it('publishes the Cedar River Flow out-and-back with a confirmed launch, camping posture, and dam boundary', () => {
     const route = newYorkRoutes.find((candidate) => candidate.id === 'cedar-river-flow-cedar-river-out-and-back');
 
-    expect(route?.riverId).toBe('cedar-river');
+    expect(route?.riverId).toBe('cedar-river-adirondacks');
     expect(route?.routeType).toBe('recreational');
     expect(route?.profile.difficulty).toBe('moderate');
     expect(route?.gaugeSource.kind).toBe('proxy');

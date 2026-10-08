@@ -12839,7 +12839,7 @@ export const newYorkRoutes: River[] = [
   }),
   buildAdditionalNewYorkRoute({
     id: 'cedar-river-pelon-outer-gooley',
-    riverId: 'cedar-river',
+    riverId: 'cedar-river-adirondacks',
     riverName: 'Cedar River',
     contextImageUrl: 'https://commons.wikimedia.org/wiki/Special:Redirect/file/Cedar%20River%20Flow%20dam.JPG?width=1600',
     sourceLabel: 'American Whitewater / NYSDEC Blue Mountain Wild Forest / Essex Chain Lakes Complex',
@@ -20512,7 +20512,7 @@ export const newYorkRoutes: River[] = [
   }),
   buildAdditionalNewYorkRoute({
     id: 'cedar-river-flow-cedar-river-out-and-back',
-    riverId: 'cedar-river',
+    riverId: 'cedar-river-adirondacks',
     riverName: 'Cedar River',
     contextImageUrl: 'https://commons.wikimedia.org/wiki/Special:Redirect/file/Cedar%20River%20Flow%20dam.JPG?width=1600',
     reach: 'Cedar River Flow hand launch to Cedar River lean-to turnaround and return',

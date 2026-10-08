@@ -724,6 +724,7 @@ const greenRiverConsolidatedRouteSlugs = [
 ] as const;
 
 const floydsForkConsolidatedRouteSlugs = [
+  'floyds-fork-cane-run-seaton-valley',
   'floyds-fork-fisherville-seaton-valley',
   'floyds-fork-creekside-cane-run',
   'floyds-fork-creekside-seaton-valley',
@@ -732,6 +733,11 @@ const floydsForkConsolidatedRouteSlugs = [
   'floyds-fork-fisherville-cliffside',
   'floyds-fork-seaton-valley-cliffside',
   'floyds-fork-cane-run-cliffside',
+  'floyds-fork-north-beckley-broad-run-valley',
+  'floyds-fork-north-beckley-cane-run',
+  'floyds-fork-north-beckley-cliffside',
+  'floyds-fork-north-beckley-fisherville',
+  'floyds-fork-north-beckley-seaton-valley',
 ] as const;
 
 const millersConsolidatedRouteSlugs = [
