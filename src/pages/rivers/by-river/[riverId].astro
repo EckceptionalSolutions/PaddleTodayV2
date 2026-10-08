@@ -23,6 +23,7 @@ const isSanJuanHub = group.riverId === 'san-juan-river-new-mexico';
 const isHousatonicHub = group.riverId === 'housatonic-river-massachusetts';
 const isCrowWingHub = group.riverId === 'crow-wing-river';
 const isChattahoocheeHub = group.riverId === 'chattahoochee-river';
+const isBuffaloHub = group.riverId === 'buffalo-river';
 const isWillimanticHub = group.riverId === 'willimantic-river-connecticut';
 const isMillersHub = group.riverId === 'millers-river-massachusetts';
 const isBayouDeViewHub = group.riverId === 'bayou-deview';
@@ -74,6 +75,8 @@ const needsRegionInTitle = listRiverGroups().some((other) =>
 const groupTitleLocation = needsRegionInTitle ? `${regionSummary}, ${stateSummary}` : stateSummary;
 const groupTitle = isBroadRiverHub
   ? 'Broad River, South Carolina | Paddling Sections & Access'
+  : isBuffaloHub
+  ? 'Buffalo National River, Arkansas | Sections & Access'
   : isYellowBreechesHub
   ? 'Yellow Breeches Creek, Pennsylvania | Paddling Trips & Access'
   : isSaltRiverHub
@@ -151,6 +154,8 @@ const groupTitle = isBroadRiverHub
   : `${group.name}, ${groupTitleLocation} | Paddle Routes & Trip Planning`;
 const groupDescription = isBroadRiverHub
   ? 'Compare eight Paddle SC trips on South Carolina’s Broad River, from Ninety-Nine Islands to Strother Landing and the separate Peak–Harbison reach. Check trip-specific gauges, dam portages, and public access.'
+  : isBuffaloHub
+  ? 'Plan Buffalo National River routes by district. Ponca and Pruitt gauges cover Upper District trips; St. Joe covers Tyler Bend–Grinder’s Ferry.'
   : isYellowBreechesHub
   ? 'Compare 10 Yellow Breeches Creek trips from Simpson Park through McCormick Park, Lower Allen, and Liberty Forge to Yellow Breeches Park. Review route mileage, the Camp Hill gauge, bridge access, camping rules, and the county’s B6 take-out advisory.'
   : isSaltRiverHub
@@ -2028,6 +2033,8 @@ const groupStructuredData = [
               ? 'Compare five selected trips across the three official water-trail stretches. The linked water-trail map shows additional public access points; check current access and conditions when planning your endpoints.'
               : isWillametteHub
               ? `Compare all ${group.routeCount} endpoint combinations here. Five source-backed trips keep standalone pages; the other 45 remain selectable here with their own mileage, access, camping, and hazard notes. Three trips within the Alton Baker–Harrisburg flow-guidance reach have scores; the rest are planning-only.`
+              : isBuffaloHub
+              ? 'Compare all 12 Buffalo National River endpoint choices. Ponca–Steel Creek and Pruitt–Hasty keep guides to NPS-named Upper District floats; Tyler Bend–Grinder’s Ferry covers the separate Middle District. The other nine combinations remain selectable with their own endpoints, mileage, gauge context, and hazards.'
               : isBlackCreekHub
               ? `Compare all ${group.routeCount} landing combinations here. The six adjacent reaches documented by Seven Rivers have individual pages; longer combinations and the Ashe Nursery alternative remain available as trip options.`
               : isFloydsForkHub
@@ -2366,6 +2373,38 @@ const groupStructuredData = [
           </p>
           <p>
             In August 2025, the Massachusetts Office of Fishing and Boating Access opened a separate launch for 6.6 additional river miles from Royalston toward Athol. The current route cards do not yet describe a verified trip on that upstream segment; see the <a href="https://www.mass.gov/news/healey-driscoll-administration-celebrates-new-access-to-outdoor-recreation-on-the-millers-river" target="_blank" rel="noopener noreferrer">state access announcement</a> for the facility details.
+          </p>
+        </div>
+      ) : null}
+
+      {isBuffaloHub ? (
+        <div class="river-hub-context__source-guide" id="buffalo-river-districts" aria-labelledby="buffalo-river-districts-title">
+          <div class="river-group-page__section-head">
+            <div>
+              <p class="eyebrow section-label">Buffalo National River · Arkansas</p>
+              <h3 class="section-title" id="buffalo-river-districts-title">Choose the district before setting a shuttle</h3>
+            </div>
+            <p class="muted river-group-page__section-note">
+              The upper and middle route choices use different gauge references. Open the matching section guide, then compare exact endpoints in the trip picker.
+            </p>
+          </div>
+
+          <div class="river-hub-context__grid">
+            <article class="river-hub-context__item">
+              <h3>Upper District · Ponca to Hasty</h3>
+              <p>The National Park Service describes Ponca–Steel Creek and Pruitt–Hasty as named trips. Pruitt–Hasty is a popular alternative when water levels farther upstream are too low. Longer choices connect the same access chain; use the Ponca or Pruitt gauge assigned to the trip you select.</p>
+              <a href="/rivers/buffalo-river-ponca-steel-creek/">Open the Ponca to Steel Creek guide</a>
+              <a href="/rivers/buffalo-river-pruitt-hasty/">Open the Pruitt to Hasty guide</a>
+            </article>
+            <article class="river-hub-context__item">
+              <h3>Middle District · Tyler Bend to Grinder’s Ferry</h3>
+              <p>This separate short reach uses the St. Joe gauge for nearby river context. Do not use either upper-district gauge as a substitute for checking the selected launch, take-out, water trend, and same-day conditions.</p>
+              <a href="/rivers/buffalo-river-tyler-bend-grinders-ferry/">Open the Tyler Bend to Grinder’s Ferry guide</a>
+            </article>
+          </div>
+
+          <p>
+            Check the National Park Service <a href="https://www.nps.gov/buff/planyourvisit/upper-district-paddling.htm" target="_blank" rel="noopener noreferrer">Upper District paddling guidance</a>, <a href="https://home.nps.gov/buff/planyourvisit/put-ins.htm" target="_blank" rel="noopener noreferrer">river access and mileage chart</a>, and <a href="https://www.nps.gov/buff/planyourvisit/paddling.htm" target="_blank" rel="noopener noreferrer">paddling conditions</a> before setting out.
           </p>
         </div>
       ) : null}
