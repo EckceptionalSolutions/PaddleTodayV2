@@ -4612,7 +4612,7 @@ export const missouriRoutes: River[] = [
       {
         "label": "Conservative floor",
         "value": "300 cfs minimum-only",
-        "note": "Rivers.MOHERP still rates the Bardley gauge Good beginning at 300 cfs. Paddle Today keeps only that conservative floor and does not infer an ideal range or upper cutoff for this upstream continuation.",
+        "note": "Rivers.MOHERP places the Bardley gauge Good band at 300 cfs and above. Treat 300 cfs as a conservative low-water cue; the source does not define an ideal range or upper cutoff for this upstream continuation.",
         "sourceUrl": "https://rivers.moherp.org/gauge/?gauge=07071500&hours=168"
       },
       {
@@ -4756,7 +4756,7 @@ export const missouriRoutes: River[] = [
       {
         "label": "Conservative floor",
         "value": "300 cfs minimum-only",
-        "note": "Rivers.MOHERP still rates the Bardley gauge Good beginning at 300 cfs. Paddle Today keeps only that conservative floor and does not infer an ideal range or upper cutoff for this longer continuation.",
+        "note": "Rivers.MOHERP places the Bardley gauge Good band at 300 cfs and above. Treat 300 cfs as a conservative low-water cue; the source does not define an ideal range or upper cutoff for this longer continuation.",
         "sourceUrl": "https://rivers.moherp.org/gauge/?gauge=07071500&hours=168"
       },
       {
@@ -4905,7 +4905,7 @@ export const missouriRoutes: River[] = [
       {
         "label": "Conservative floor",
         "value": "300 cfs minimum-only",
-        "note": "Rivers.MOHERP still rates the Bardley gauge Good beginning at 300 cfs. Paddle Today keeps only that conservative floor and does not infer an ideal range or upper cutoff for this long continuation.",
+        "note": "Rivers.MOHERP places the Bardley gauge Good band at 300 cfs and above. Treat 300 cfs as a conservative low-water cue; the source does not define an ideal range or upper cutoff for this long continuation.",
         "sourceUrl": "https://rivers.moherp.org/gauge/?gauge=07071500&hours=168"
       },
       {
@@ -9606,7 +9606,7 @@ export const missouriRoutes: River[] = [
       {
         "label": "Low-water floor",
         "value": "309 cfs minimum-only",
-        "note": "Rivers.MOHERP refreshed the Big Piney gauge on May 30, 2026 and showed the river rated Poor at 251 cfs, with the Low band beginning at 309 cfs and Good beginning at 519 cfs. Paddle Today uses only the low-water floor and does not infer an ideal range.",
+        "note": "Rivers.MOHERP lists 309 cfs as the start of Low and 519 cfs as the start of Good on the Big Piney gauge; its May 30, 2026 reading was 251 cfs (Poor). These dated values are historical context; check the current gauge before launch.",
         "sourceUrl": "https://rivers.moherp.org/gauge/?gauge=06930000&hours=168"
       },
       {
@@ -9926,7 +9926,7 @@ export const missouriRoutes: River[] = [
       {
         "label": "Low-water floor",
         "value": "309 cfs minimum-only",
-        "note": "Rivers.MOHERP Big Piney gauge bands put the start of Low at 309 cfs. The app reuses this conservative floor from adjacent Big Piney routes and does not infer an ideal range or upper cutoff.",
+        "note": "Rivers.MOHERP places the Big Piney gauge Low band from 309 cfs. Use 309 cfs as a conservative low-water cue; the source does not define an ideal range or upper cutoff.",
         "sourceUrl": "https://rivers.moherp.org/gauge/?gauge=06930000&hours=168"
       },
       {
@@ -10096,7 +10096,7 @@ export const missouriRoutes: River[] = [
       {
         "label": "Low-water floor",
         "value": "309 cfs minimum-only",
-        "note": "Rivers.MOHERP Big Piney gauge bands put the start of Low at 309 cfs. The app reuses this conservative floor from adjacent Big Piney routes and does not infer an ideal range or upper cutoff.",
+        "note": "Rivers.MOHERP places the Big Piney gauge Low band from 309 cfs. Use 309 cfs as a conservative low-water cue; the source does not define an ideal range or upper cutoff.",
         "sourceUrl": "https://rivers.moherp.org/gauge/?gauge=06930000&hours=168"
       },
       {
@@ -10246,7 +10246,7 @@ export const missouriRoutes: River[] = [
       {
         "label": "Low-water floor",
         "value": "309 cfs minimum-only",
-        "note": "Rivers.MOHERP Big Piney gauge bands put the start of Low at 309 cfs. The app reuses this conservative floor from adjacent Big Piney routes and does not infer an ideal range or upper cutoff.",
+        "note": "Rivers.MOHERP places the Big Piney gauge Low band from 309 cfs. Use 309 cfs as a conservative low-water cue; the source does not define an ideal range or upper cutoff.",
         "sourceUrl": "https://rivers.moherp.org/gauge/?gauge=06930000&hours=168"
       },
       {
@@ -10403,7 +10403,7 @@ export const missouriRoutes: River[] = [
       {
         "label": "Low-water floor",
         "value": "309 cfs minimum-only",
-        "note": "Rivers.MOHERP Big Piney gauge bands put the start of Low at 309 cfs. The app uses this same conservative floor as adjacent Big Piney routes and does not infer an ideal range or upper cutoff.",
+        "note": "Rivers.MOHERP places the Big Piney gauge Low band from 309 cfs. Use 309 cfs as a conservative low-water cue; the source does not define an ideal range or upper cutoff.",
         "sourceUrl": "https://rivers.moherp.org/gauge/?gauge=06930000&hours=72"
       },
       {
@@ -11710,7 +11710,7 @@ export const missouriRoutes: River[] = [
       {
         "label": "Direct gauge",
         "value": "USGS 07058000",
-        "note": "USGS Bryant Creek near Tecumseh showed same-day June 17, 2026 discharge and gage-height observations during this implementation pass. The app already uses this direct same-creek gauge for the upstream Bryant route.",
+        "note": "USGS Bryant Creek near Tecumseh is a direct same-creek gauge. Check current discharge and stage before launch; it also provides a reference for the upstream Bryant reach.",
         "sourceUrl": "https://waterdata.usgs.gov/nwis/uv?legacy=1&site_no=07058000"
       },
       {

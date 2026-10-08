@@ -730,7 +730,7 @@ export const nebraskaRoutes: River[] = [
       {
         "label": "Threshold support",
         "value": "350 cfs minimum-only",
-        "note": "Nebraskaland says Loup Power District maintains at least 275 cfs in the river and reports that a 350 cfs Genoa-gauge test from George D. Syas WMA to Monroe required deep-channel work but rarely walking. Paddle Today uses 350 cfs as a conservative floor and does not infer a high-water cutoff.",
+        "note": "Nebraskaland reports Loup Power District maintains at least 275 cfs and that a 350 cfs George D. Syas WMA-to-Monroe test required deep-channel work but rarely walking. Treat 350 cfs as a low-water planning cue; the source gives no high-water cutoff.",
         "sourceUrl": "https://magazine.outdoornebraska.gov/stories/travel-and-adventure/loup-river-water-trail/"
       },
       {
@@ -850,7 +850,7 @@ export const nebraskaRoutes: River[] = [
       {
         "label": "Threshold support",
         "value": "350 cfs minimum-only",
-        "note": "Nebraskaland says the George D. Syas-to-Monroe test at 350 cfs required deep-channel work but little walking, while the Monroe-to-Columbus run at 1,600 cfs had enough water throughout the channel. Paddle Today keeps the route minimum-only and does not infer a high-water ceiling.",
+        "note": "Nebraskaland reports deep-channel work but little walking at 350 cfs on George D. Syas-to-Monroe, and sufficient water throughout Monroe-to-Columbus at 1,600 cfs. These observations cover different stretches and do not define a full safety range.",
         "sourceUrl": "https://magazine.outdoornebraska.gov/stories/travel-and-adventure/loup-river-water-trail/"
       },
       {
@@ -964,7 +964,7 @@ export const nebraskaRoutes: River[] = [
       {
         "label": "Threshold support",
         "value": "350 cfs minimum-only",
-        "note": "Nebraskaland says the George D. Syas-to-Monroe test at 350 cfs required deep-channel work but little walking, while the Monroe-to-Columbus run at 1,600 cfs had enough water throughout the channel. Paddle Today keeps the route minimum-only and does not infer a high-water ceiling.",
+        "note": "Nebraskaland reports deep-channel work but little walking at 350 cfs on George D. Syas-to-Monroe, and sufficient water throughout Monroe-to-Columbus at 1,600 cfs. These observations cover different stretches and do not define a full safety range.",
         "sourceUrl": "https://magazine.outdoornebraska.gov/stories/travel-and-adventure/loup-river-water-trail/"
       },
       {
@@ -1078,13 +1078,13 @@ export const nebraskaRoutes: River[] = [
       {
         "label": "Threshold support",
         "value": "350 cfs minimum-only",
-        "note": "Nebraskaland says the George D. Syas-to-Monroe test at 350 cfs required deep-channel work but little walking, while the Monroe-to-Columbus run at 1,600 cfs had enough water throughout the channel. Paddle Today uses 350 cfs as a conservative floor without inferring a high-water ceiling for the whole trail family.",
+        "note": "Nebraskaland reports deep-channel work but little walking at 350 cfs on George D. Syas-to-Monroe, and sufficient water throughout Monroe-to-Columbus at 1,600 cfs. These observations cover different stretches and do not define a full safety range.",
         "sourceUrl": "https://magazine.outdoornebraska.gov/stories/travel-and-adventure/loup-river-water-trail/"
       },
       {
         "label": "ADM anchor",
         "value": "41.41603951, -97.2865376",
-        "note": "Global Energy Monitor lists the Columbus ADM power station at 41.41603951, -97.2865376. Paddle Today uses this only as a nearby practical anchor for the leased downstream access area identified by the City of Columbus, not as a surveyed river launch coordinate.",
+        "note": "The City identifies a leased downstream access area south of Southeast 9th Street. The nearby map point is only a reference, not a surveyed launch; follow City directions and confirm signs before using it.",
         "sourceUrl": "https://www.gem.wiki/Columbus_ADM_power_station"
       }
     ],
@@ -1197,13 +1197,13 @@ export const nebraskaRoutes: River[] = [
       {
         "label": "Threshold support",
         "value": "350 cfs minimum-only",
-        "note": "Nebraskaland reports that 350 cfs on the upper segment required deep-channel work but little walking, while 1,600 cfs was ample across the Monroe-to-Columbus segment. Paddle Today uses 350 cfs as a conservative floor without inferring a high-water ceiling for the whole trail family.",
+        "note": "Nebraskaland reports deep-channel work but little walking at 350 cfs on George D. Syas-to-Monroe, and sufficient water throughout Monroe-to-Columbus at 1,600 cfs. These observations cover different stretches and do not define a full safety range.",
         "sourceUrl": "https://magazine.outdoornebraska.gov/stories/travel-and-adventure/loup-river-water-trail/"
       },
       {
         "label": "ADM anchor",
         "value": "41.41603951, -97.2865376",
-        "note": "Global Energy Monitor lists the Columbus ADM power station at 41.41603951, -97.2865376. Paddle Today uses this only as a nearby practical anchor for the leased downstream access area identified by the City of Columbus, not as a surveyed river launch coordinate.",
+        "note": "The City identifies a leased downstream access area south of Southeast 9th Street. The nearby map point is only a reference, not a surveyed launch; follow City directions and confirm signs before using it.",
         "sourceUrl": "https://www.gem.wiki/Columbus_ADM_power_station"
       }
     ],
@@ -1311,7 +1311,7 @@ export const nebraskaRoutes: River[] = [
       {
         "label": "Threshold support",
         "value": "350 cfs minimum-only",
-        "note": "Nebraskaland says the George D. Syas-to-Monroe test at 350 cfs required deep-channel work but little walking, while the Monroe-to-Columbus run at 1,600 cfs had enough water throughout the channel. Paddle Today keeps the full continuation minimum-only and does not infer a high-water ceiling.",
+        "note": "Nebraskaland reports deep-channel work but little walking at 350 cfs on George D. Syas-to-Monroe, and sufficient water throughout Monroe-to-Columbus at 1,600 cfs. These observations cover different stretches and do not define a full safety range.",
         "sourceUrl": "https://magazine.outdoornebraska.gov/stories/travel-and-adventure/loup-river-water-trail/"
       },
       {

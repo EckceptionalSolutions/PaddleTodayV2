@@ -7444,7 +7444,7 @@ export const wisconsinRoutes: River[] = [
       {
         "label": "Route structure",
         "value": "Separate scored segment",
-        "note": "The Lower Wisconsin can be chained between many landings, but the app keeps Sauk City to Arena separate so mileage, shuttle time, and day-trip expectations stay accurate."
+        "note": "Sauk City to Arena is an 11-mile trip with its own shuttle and timing; use this card for that endpoint pair."
       },
       {
         "label": "Primary hazards",
@@ -8193,7 +8193,7 @@ export const wisconsinRoutes: River[] = [
       {
         "label": "Current blocker check",
         "value": "2024 logjam update",
-        "note": "Wisconsin River Trips reports that new logjams upstream from Amundson Park can require portages, so the app keeps same-day wood checks as an overriding caveat.",
+        "note": "Wisconsin River Trips reports new logjams upstream from Amundson Park that may require portages. Check recent wood reports and scout the channel before launch.",
         "sourceUrl": "https://www.wisconsinrivertrips.com/segments/la-crosse-river/sparta"
       }
     ],
@@ -8430,7 +8430,7 @@ export const wisconsinRoutes: River[] = [
       {
         "label": "Endpoint coordinates",
         "value": "44.37277, -91.32128 to about 44.35982, -91.41650",
-        "note": "Miles Paddled publishes the Whitehall launch and named Schultz / Four Seasons Park take-out. Its take-out coordinate appears inconsistent with the named Independence park and 8-mile route, so the app uses the Independence Four Seasons Park / Elm Street location from OpenStreetMap geocoding.",
+        "note": "Miles Paddled names Schultz / Four Seasons Park as the take-out, but its listed coordinate does not match the named Independence park or the reported 8-mile trip. Confirm the Four Seasons Park / Elm Street landing before using this take-out.",
         "sourceUrl": "https://milespaddled.com/trempealeau-river-i/"
       },
       {

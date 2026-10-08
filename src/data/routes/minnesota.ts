@@ -3072,7 +3072,7 @@ export const minnesotaRoutes: River[] = [
       {
         "label": "Conservative low-water floor",
         "value": "8.25 ft",
-        "note": "The app uses the lower edge of the published preferred band as a cautious floor because the source trail does not define a separate hard minimum below it."
+        "note": "The trail guide publishes a preferred range but no separate hard minimum. Treat its lower edge as a cautious planning cue; the source does not establish conditions below it."
       }
     ],
     "sourceLinks": [

@@ -4612,7 +4612,7 @@ export const arkansasRoutes: River[] = [
       {
         "label": "Low-water floor",
         "value": "120 cfs minimum-only",
-        "note": "Rivers.MOHERP lists the St. Joe gauge Low band beginning at 120 cfs and records Tyler Bend-to-Gilbert as good at 2,470 cfs / 7.41 ft, plus nearby middle-Buffalo good-condition trips down to 778 cfs. Paddle Today uses only the 120 cfs floor and does not infer an ideal range.",
+        "note": "Rivers.MOHERP's St. Joe gauge Low band begins at 120 cfs. Its trip reports include nearby middle-Buffalo outings marked Good from 778 cfs; treat 120 cfs as a conservative low-water cue, not an ideal target.",
         "sourceUrl": "https://rivers.moherp.org/gauge/?gauge=07056000&hours=0"
       },
       {
@@ -4751,7 +4751,7 @@ export const arkansasRoutes: River[] = [
       {
         "label": "Official route shape",
         "value": "Upper Tyler Bend to Grinder's Ferry, about 1.7 mapped river miles",
-        "note": "NPS publishes the short Tyler Bend to Grinder's Ferry trip and its older access chart lists 1.1 miles. Because the current NPS operating plan says only the upstream Upper Tyler Bend launch is available, Paddle Today measures the present route along the corrected canonical river trace instead of applying the shorter lower-launch spacing.",
+        "note": "NPS's older access chart lists this trip at 1.1 miles, but its current operating plan identifies only the Upper Tyler Bend launch. From that launch, the mapped river route to Grinder's Ferry is about 1.7 miles.",
         "sourceUrl": "https://www.nps.gov/thingstodo/paddling-tyler-bend-to-grinder-s-ferry.htm"
       },
       {
@@ -4763,7 +4763,7 @@ export const arkansasRoutes: River[] = [
       {
         "label": "Low-water floor",
         "value": "120 cfs minimum-only",
-        "note": "Rivers.MOHERP lists the St. Joe gauge Low band beginning at 120 cfs. Paddle Today uses only that conservative floor and does not infer an ideal range.",
+        "note": "Rivers.MOHERP's St. Joe gauge Low band begins at 120 cfs. Treat this as a conservative low-water cue; the source does not establish an ideal range.",
         "sourceUrl": "https://rivers.moherp.org/gauge/?gauge=07056000&hours=0"
       },
       {

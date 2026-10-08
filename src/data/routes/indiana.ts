@@ -454,7 +454,7 @@ export const indianaRoutes: River[] = [
       {
         "label": "Conservative low-water floor",
         "value": "200 cfs minimum-only",
-        "note": "American Whitewater trip reports for the lower section say Harrison Bridge to Twin Bridges can run down to around 200 cfs, while a separate lower-section Twin Bridges park-and-play report at 173 cfs called it the bare minimum and said 200 cfs would be better. Paddle Today uses only the conservative 200 cfs floor and does not infer an upper band.",
+        "note": "American Whitewater reports the lower reach running around 200 cfs; a separate Twin Bridges report calls 173 cfs bare minimum and says 200 cfs is better. Use 200 cfs as a low-water planning cue; the reports give no upper limit.",
         "sourceUrl": "https://www.americanwhitewater.org/content/River/view/river-detail/2563/reports"
       },
       {

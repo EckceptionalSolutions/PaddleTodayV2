@@ -4933,7 +4933,7 @@ export const pennsylvaniaRoutes: River[] = [
       {
         "label": "Official route shape",
         "value": "Lower Allen Community Park to Liberty Forge, about 0.5–0.8 mi",
-        "note": "Cumberland County's trail guide lists this B4–B5 access spacing as 0.5 miles; Paddle Today's mapped creek trace is about 0.8 miles. The route card preserves both estimates because the mapped reach is longer than the county's listed spacing.",
+        "note": "Cumberland County lists 0.5 miles between B4 and B5; the mapped creek route is about 0.8 miles. Use 0.5 miles as published access spacing and 0.8 miles as mapped distance.",
         "sourceUrl": "https://www.cumberlandcountypa.gov/DocumentCenter/View/23587/YellowBreechesGuide_2015Version"
       },
       {
@@ -5060,7 +5060,7 @@ export const pennsylvaniaRoutes: River[] = [
       {
         "label": "Official route shape",
         "value": "Lower Allen Community Park to Yellow Breeches Park, about 2.4–2.7 mi",
-        "note": "Cumberland County's trail guide totals 0.5 miles for B4–B5 and 1.9 miles for B5–B6; Paddle Today's mapped trace estimates B4–B5 at about 0.8 miles. The card shows both resulting totals.",
+        "note": "Cumberland County totals B4-B5 and B5-B6 at 2.4 miles (0.5 plus 1.9). The mapped B4-B5 creek segment is about 0.8 miles, making the mapped total about 2.7 miles.",
         "sourceUrl": "https://www.cumberlandcountypa.gov/DocumentCenter/View/23587/YellowBreechesGuide_2015Version"
       },
       {
@@ -5187,7 +5187,7 @@ export const pennsylvaniaRoutes: River[] = [
       {
         "label": "Official route shape",
         "value": "Simpson Park to Liberty Forge, about 5.2–5.5 mi",
-        "note": "Cumberland County's trail guide totals the adjacent legs at 5.2 miles using 0.5 miles for B4–B5; Paddle Today's mapped trace estimates B4–B5 at about 0.8 miles. The card shows both resulting totals.",
+        "note": "Cumberland County's total for the adjacent legs is 5.2 miles using 0.5 miles for B4-B5. The mapped B4-B5 creek segment is about 0.8 miles, making the mapped total about 5.5 miles.",
         "sourceUrl": "https://www.cumberlandcountypa.gov/DocumentCenter/View/23587/YellowBreechesGuide_2015Version"
       },
       {
@@ -5314,7 +5314,7 @@ export const pennsylvaniaRoutes: River[] = [
       {
         "label": "Official route shape",
         "value": "Simpson Park to Yellow Breeches Park, about 7.1–7.4 mi",
-        "note": "Cumberland County's trail guide totals the adjacent legs at 7.1 miles using 0.5 miles for B4–B5; Paddle Today's mapped trace estimates B4–B5 at about 0.8 miles. The card shows both resulting totals.",
+        "note": "Cumberland County's total for the adjacent legs is 7.1 miles using 0.5 miles for B4-B5. The mapped B4-B5 creek segment is about 0.8 miles, making the mapped total about 7.4 miles.",
         "sourceUrl": "https://www.cumberlandcountypa.gov/DocumentCenter/View/23587/YellowBreechesGuide_2015Version"
       },
       {
@@ -5441,7 +5441,7 @@ export const pennsylvaniaRoutes: River[] = [
       {
         "label": "Official route shape",
         "value": "McCormick Park to Yellow Breeches Park, about 6.0–6.3 mi",
-        "note": "Cumberland County's trail guide totals the adjacent legs at 6.0 miles using 0.5 miles for B4–B5; Paddle Today's mapped trace estimates B4–B5 at about 0.8 miles. The card shows both resulting totals.",
+        "note": "Cumberland County's total for the adjacent legs is 6.0 miles using 0.5 miles for B4-B5. The mapped B4-B5 creek segment is about 0.8 miles, making the mapped total about 6.3 miles.",
         "sourceUrl": "https://www.cumberlandcountypa.gov/DocumentCenter/View/23587/YellowBreechesGuide_2015Version"
       },
       {

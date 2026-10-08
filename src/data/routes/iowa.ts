@@ -3241,7 +3241,7 @@ export const iowaRoutes: River[] = [
       {
         "label": "Endpoint coordinates",
         "value": "UTM access table",
-        "note": "The Middle River Water Trail map publishes UTM coordinates and access types for Middle River Forest Park and Schildberg Access. The app stores the converted WGS84 access-area coordinates.",
+        "note": "The water-trail map identifies Middle River Forest Park and Schildberg Access and lists each access type. Its coordinates mark access areas, not surveyed water-entry points.",
         "sourceUrl": "https://www.iowadnr.gov/media/8713/download?inline="
       },
       {
@@ -11131,7 +11131,7 @@ export const iowaRoutes: River[] = [
       {
         "label": "Take-out support",
         "value": "Ellis Harbor public boat launch",
-        "note": "The City of Cedar Rapids says Ellis Harbor is open to the public and has a public boat launch and restrooms; Iowa DNR's Ellis Harbor record supplies the mapped water-location coordinate used by the app.",
+        "note": "The City identifies Ellis Harbor as a public boat launch with restrooms. Iowa DNR's mapped coordinate marks the access area; confirm the signed launch and water entry on arrival.",
         "sourceUrl": "https://www.cedar-rapids.org/residents/parks_and_recreation/ellis_harbor.php"
       },
       {

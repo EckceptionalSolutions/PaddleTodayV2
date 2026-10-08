@@ -642,7 +642,7 @@ export const texasRoutes: River[] = [
       {
         "label": "Conservative low-water floor",
         "value": "200 cfs minimum-only",
-        "note": "The Texas River Flows five-level table lists Guadalupe Gonzales to Victoria on the Cuero gauge with a first-tier 200 cfs minimum, defined as the minimum water available for floating. Paddle Today uses only that conservative floor and does not infer an ideal or upper scoring band.",
+        "note": "The Texas River Flows table sets the first floating-water tier for Gonzales-to-Victoria at 200 cfs on the Cuero gauge. Treat this as a low-water cue; the source does not define an ideal or upper range.",
         "sourceUrl": "https://theworld.com/~reichert/riverflo.htm"
       },
       {
@@ -766,7 +766,7 @@ export const texasRoutes: River[] = [
       {
         "label": "Conservative low-water floor",
         "value": "200 cfs minimum-only",
-        "note": "The Texas River Flows five-level table lists Guadalupe Gonzales to Victoria on the Cuero gauge with a first-tier 200 cfs minimum, defined as the minimum water available for floating. Paddle Today uses only that conservative floor and does not infer an ideal or upper scoring band.",
+        "note": "The Texas River Flows table sets the first floating-water tier for Gonzales-to-Victoria at 200 cfs on the Cuero gauge. Treat this as a low-water cue; the source does not define an ideal or upper range.",
         "sourceUrl": "https://theworld.com/~reichert/riverflo.htm"
       },
       {
@@ -892,7 +892,7 @@ export const texasRoutes: River[] = [
       {
         "label": "Conservative low-water floor",
         "value": "200 cfs minimum-only",
-        "note": "The Texas River Flows five-level table lists Guadalupe Gonzales to Victoria on the Cuero gauge with a first-tier 200 cfs minimum, defined as the minimum water available for floating. Paddle Today uses only that conservative floor and does not infer an ideal or upper scoring band.",
+        "note": "The Texas River Flows table sets the first floating-water tier for Gonzales-to-Victoria at 200 cfs on the Cuero gauge. Treat this as a low-water cue; the source does not define an ideal or upper range.",
         "sourceUrl": "https://theworld.com/~reichert/riverflo.htm"
       },
       {
@@ -3394,7 +3394,7 @@ export const texasRoutes: River[] = [
       {
         "label": "Conservative low-water floor",
         "value": "200 cfs minimum-only",
-        "note": "Texas River Flows lists the Colorado Austin-to-Bastrop corridor at 200 / 500 / 1,000 / 3,000 / 5,000 cfs and defines the first tier as minimum floating water; Paddle Today uses only that conservative floor.",
+        "note": "Texas River Flows lists Austin-to-Bastrop levels at 200, 500, 1,000, 3,000, and 5,000 cfs; its first tier marks minimum water for floating. Use 200 cfs as a low-water cue and check current local conditions.",
         "sourceUrl": "https://theworld.com/~reichert/riverflo.htm"
       },
       {
@@ -3530,7 +3530,7 @@ export const texasRoutes: River[] = [
       {
         "label": "Conservative low-water floor",
         "value": "200 cfs minimum-only",
-        "note": "Texas River Flows lists the Colorado Austin-to-Bastrop corridor at 200 / 500 / 1,000 / 3,000 / 5,000 cfs and defines the first tier as minimum floating water; Paddle Today uses only that conservative floor.",
+        "note": "Texas River Flows lists Austin-to-Bastrop levels at 200, 500, 1,000, 3,000, and 5,000 cfs; its first tier marks minimum water for floating. Use 200 cfs as a low-water cue and check current local conditions.",
         "sourceUrl": "https://theworld.com/~reichert/riverflo.htm"
       },
       {
@@ -3676,7 +3676,7 @@ export const texasRoutes: River[] = [
       {
         "label": "Conservative low-water floor",
         "value": "200 cfs minimum-only",
-        "note": "Texas River Flows lists the Colorado Austin-to-Bastrop corridor at 200 / 500 / 1,000 / 3,000 / 5,000 cfs and defines the first tier as minimum floating water; Paddle Today uses only that conservative floor.",
+        "note": "Texas River Flows lists Austin-to-Bastrop levels at 200, 500, 1,000, 3,000, and 5,000 cfs; its first tier marks minimum water for floating. Use 200 cfs as a low-water cue and check current local conditions.",
         "sourceUrl": "https://theworld.com/~reichert/riverflo.htm"
       },
       {
@@ -3812,7 +3812,7 @@ export const texasRoutes: River[] = [
       {
         "label": "Conservative low-water floor",
         "value": "200 cfs minimum-only",
-        "note": "Texas River Flows lists the Colorado Austin-to-Bastrop corridor at 200 / 500 / 1,000 / 3,000 / 5,000 cfs and defines the first tier as minimum floating water; Paddle Today uses only that conservative floor.",
+        "note": "Texas River Flows lists Austin-to-Bastrop levels at 200, 500, 1,000, 3,000, and 5,000 cfs; its first tier marks minimum water for floating. Use 200 cfs as a low-water cue and check current local conditions.",
         "sourceUrl": "https://theworld.com/~reichert/riverflo.htm"
       },
       {
@@ -3941,7 +3941,7 @@ export const texasRoutes: River[] = [
       {
         "label": "Access-anchor coordinates",
         "value": "30.215870, -97.494247 to 30.168300, -97.402300",
-        "note": "The Webberville coordinate is the existing Travis County access anchor already used by Paddle Today; the Utley coordinate is the TPWD / LCRA route-family access anchor already accepted for the downstream Wilbarger route.",
+        "note": "Travis County maps the Webberville access, and TPWD / LCRA identify Utley for the downstream reach. Both coordinates mark arrival areas; confirm current signs, parking, and water entry.",
         "sourceUrl": "https://lcraparks.com/paddle-the-colorado"
       },
       {
@@ -3953,7 +3953,7 @@ export const texasRoutes: River[] = [
       {
         "label": "Conservative low-water floor",
         "value": "200 cfs minimum-only",
-        "note": "Texas River Flows lists the Colorado Austin-to-Bastrop corridor at 200 / 500 / 1,000 / 3,000 / 5,000 cfs and defines the first tier as minimum floating water; Paddle Today uses only that conservative floor.",
+        "note": "Texas River Flows lists Austin-to-Bastrop levels at 200, 500, 1,000, 3,000, and 5,000 cfs; its first tier marks minimum water for floating. Use 200 cfs as a low-water cue and check current local conditions.",
         "sourceUrl": "https://theworld.com/~reichert/riverflo.htm"
       },
       {
@@ -4094,7 +4094,7 @@ export const texasRoutes: River[] = [
       {
         "label": "Conservative low-water floor",
         "value": "200 cfs minimum-only",
-        "note": "Texas River Flows lists lower Colorado corridor levels starting at 200 cfs and defines level 1 as minimum floating water; Paddle Today uses only that conservative floor for this route.",
+        "note": "Texas River Flows sets the first lower-Colorado floating-water level at 200 cfs. Treat it as a low-water cue; check current conditions and do not read it as a safety limit.",
         "sourceUrl": "https://theworld.com/~reichert/riverflo.htm"
       },
       {
@@ -4228,7 +4228,7 @@ export const texasRoutes: River[] = [
       {
         "label": "Conservative low-water floor",
         "value": "200 cfs minimum-only",
-        "note": "Texas River Flows lists lower Colorado Austin-to-Bastrop and Bastrop-to-Smithville corridor levels starting at 200 cfs and defines level 1 as minimum floating water; Paddle Today uses only that conservative floor for Wilbarger.",
+        "note": "Texas River Flows sets the first lower-Colorado floating-water level at 200 cfs. Treat it as a low-water cue for Wilbarger; check current conditions and do not read it as a safety limit.",
         "sourceUrl": "https://theworld.com/~reichert/riverflo.htm"
       },
       {
@@ -6174,7 +6174,7 @@ export const texasRoutes: River[] = [
       {
         "label": "Conservative low-water floor",
         "value": "200 cfs minimum-only",
-        "note": "The Texas River Flows five-level table lists Village Creek at the Kountze gauge with a first-tier 200 cfs minimum, defined as the minimum water available for floating. Paddle Today uses only that conservative floor and does not infer an ideal or upper scoring band.",
+        "note": "Texas River Flows defines 200 cfs on the Kountze gauge as minimum water for floating Village Creek. Treat it as a low-water reference; the source does not identify an ideal or upper range.",
         "sourceUrl": "https://theworld.com/~reichert/riverflo.htm"
       },
       {
@@ -6319,7 +6319,7 @@ export const texasRoutes: River[] = [
       {
         "label": "Conservative low-water floor",
         "value": "200 cfs minimum-only",
-        "note": "The Texas River Flows five-level table lists Village Creek at the Kountze gauge with a first-tier 200 cfs minimum, defined as the minimum water available for floating. Paddle Today uses only that conservative floor and does not infer an ideal or upper scoring band.",
+        "note": "Texas River Flows defines 200 cfs on the Kountze gauge as minimum water for floating Village Creek. Treat it as a low-water reference; the source does not identify an ideal or upper range.",
         "sourceUrl": "https://theworld.com/~reichert/riverflo.htm"
       },
       {
@@ -6458,7 +6458,7 @@ export const texasRoutes: River[] = [
       {
         "label": "Conservative low-water floor",
         "value": "200 cfs minimum-only",
-        "note": "The Texas River Flows five-level table lists Village Creek at the Kountze gauge with a first-tier 200 cfs minimum, defined as the minimum water available for floating. Paddle Today uses only that conservative floor and does not infer an ideal or upper scoring band.",
+        "note": "Texas River Flows defines 200 cfs on the Kountze gauge as minimum water for floating Village Creek. Treat it as a low-water reference; the source does not identify an ideal or upper range.",
         "sourceUrl": "https://theworld.com/~reichert/riverflo.htm"
       },
       {
@@ -6597,7 +6597,7 @@ export const texasRoutes: River[] = [
       {
         "label": "Conservative low-water floor",
         "value": "200 cfs minimum-only",
-        "note": "The Texas River Flows five-level table lists Village Creek at the Kountze gauge with a first-tier 200 cfs minimum, defined as the minimum water available for floating. Paddle Today uses only that conservative floor and does not infer an ideal or upper scoring band.",
+        "note": "Texas River Flows defines 200 cfs on the Kountze gauge as minimum water for floating Village Creek. Treat it as a low-water reference; the source does not identify an ideal or upper range.",
         "sourceUrl": "https://theworld.com/~reichert/riverflo.htm"
       },
       {
@@ -6736,7 +6736,7 @@ export const texasRoutes: River[] = [
       {
         "label": "Conservative low-water floor",
         "value": "200 cfs minimum-only",
-        "note": "The Texas River Flows five-level table lists Village Creek at the Kountze gauge with a first-tier 200 cfs minimum, defined as the minimum water available for floating. Paddle Today uses only that conservative floor and does not infer an ideal or upper scoring band.",
+        "note": "Texas River Flows defines 200 cfs on the Kountze gauge as minimum water for floating Village Creek. Treat it as a low-water reference; the source does not identify an ideal or upper range.",
         "sourceUrl": "https://theworld.com/~reichert/riverflo.htm"
       },
       {
@@ -6875,7 +6875,7 @@ export const texasRoutes: River[] = [
       {
         "label": "Conservative low-water floor",
         "value": "200 cfs minimum-only",
-        "note": "The Texas River Flows five-level table lists Village Creek at the Kountze gauge with a first-tier 200 cfs minimum, defined as the minimum water available for floating. Paddle Today uses only that conservative floor and does not infer an ideal or upper scoring band.",
+        "note": "Texas River Flows defines 200 cfs on the Kountze gauge as minimum water for floating Village Creek. Treat it as a low-water reference; the source does not identify an ideal or upper range.",
         "sourceUrl": "https://theworld.com/~reichert/riverflo.htm"
       },
       {
@@ -7014,7 +7014,7 @@ export const texasRoutes: River[] = [
       {
         "label": "Conservative low-water floor",
         "value": "200 cfs minimum-only",
-        "note": "The Texas River Flows five-level table lists Village Creek at the Kountze gauge with a first-tier 200 cfs minimum, defined as the minimum water available for floating. Paddle Today uses only that conservative floor and does not infer an ideal or upper scoring band.",
+        "note": "Texas River Flows defines 200 cfs on the Kountze gauge as minimum water for floating Village Creek. Treat it as a low-water reference; the source does not identify an ideal or upper range.",
         "sourceUrl": "https://theworld.com/~reichert/riverflo.htm"
       },
       {
@@ -7158,7 +7158,7 @@ export const texasRoutes: River[] = [
       {
         "label": "Conservative low-water floor",
         "value": "200 cfs minimum-only",
-        "note": "The Texas River Flows five-level table lists Village Creek at the Kountze gauge with a first-tier 200 cfs minimum, defined as the minimum water available for floating. Paddle Today uses only that conservative floor and does not infer an ideal or upper scoring band.",
+        "note": "Texas River Flows defines 200 cfs on the Kountze gauge as minimum water for floating Village Creek. Treat it as a low-water reference; the source does not identify an ideal or upper range.",
         "sourceUrl": "https://theworld.com/~reichert/riverflo.htm"
       },
       {

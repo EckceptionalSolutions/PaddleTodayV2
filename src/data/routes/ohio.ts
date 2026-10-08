@@ -500,7 +500,7 @@ export const ohioRoutes: River[] = [
       {
         "label": "Training window support",
         "value": "1000 to 3500 cfs guarded app target",
-        "note": "AW feature notes identify usable/playable behavior around 1000, 1500, 2000, 2500, 3000, and 3500 cfs. The app target stays below the more pushy 4500-to-5000 cfs bands and above the marginal 500-to-650 cfs reports.",
+        "note": "American Whitewater feature notes describe usable conditions around 1,000-3,500 cfs, stronger current around 4,500-5,000 cfs, and marginal conditions around 500-650 cfs. These are feature observations, not a complete safety range.",
         "sourceUrl": "https://www.americanwhitewater.org/content/River/view/river-detail/4554/main"
       },
       {
@@ -1437,7 +1437,7 @@ export const ohioRoutes: River[] = [
       {
         "label": "Guarded app target",
         "value": "250 to 700 cfs",
-        "note": "The app target is a conservative subset of the AW range: AW route text says one upstream training rapid is nearly impossible at 250 cfs and under but probably attainable around 700 cfs, while the rapid below Ira Road gets harder above 300 cfs.",
+        "note": "American Whitewater reports that the upstream training rapid is nearly impossible at or below 250 cfs and probably attainable around 700 cfs, while the rapid below Ira Road gets harder above 300 cfs. These feature reports do not define a complete safety range.",
         "sourceUrl": "https://www.americanwhitewater.org/content/River/view/river-detail/3355/main"
       },
       {
