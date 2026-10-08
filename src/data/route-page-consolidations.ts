@@ -38,6 +38,9 @@ const willimanticRouteSlugs = [
 const willimanticHubPath = '/rivers/by-river/willimantic-river-connecticut/';
 const blackCreekHubPath = '/rivers/by-river/black-creek-mississippi/';
 const blackfootHubPath = '/rivers/by-river/blackfoot-river-montana/';
+const blackstoneHubPath = '/rivers/by-river/blackstone-river-rhode-island/';
+const leafRiverHubPath = '/rivers/by-river/leaf-river-mississippi/';
+const pascagoulaHubPath = '/rivers/by-river/pascagoula-river-mississippi/';
 const woonasquatucketHubPath = '/rivers/by-river/woonasquatucket-river-rhode-island/';
 const suwanneeHubPath = '/rivers/by-river/suwannee-river-florida/';
 const bayouTecheHubPath = '/rivers/by-river/bayou-teche-river-louisiana/';
@@ -740,6 +743,32 @@ const floydsForkConsolidatedRouteSlugs = [
   'floyds-fork-north-beckley-seaton-valley',
 ] as const;
 
+const blackstoneRiverConsolidatedRouteSlugs = [
+  'blackstone-river-manville-albion',
+  'blackstone-river-manville-kelly-house',
+  'blackstone-river-rivers-edge-albion',
+  'blackstone-river-rivers-edge-kelly-house',
+  'blackstone-river-rivers-edge-sycamore',
+  'blackstone-river-sycamore-kelly-house',
+] as const;
+
+const leafRiverConsolidatedRouteSlugs = [
+  'leaf-river-eastabuchie-sims-road',
+  'leaf-river-hwy-588-eastabuchie',
+  'leaf-river-hwy-588-chain-park',
+  'leaf-river-hwy-588-sims-road',
+  'leaf-river-hwy-590-chain-park',
+  'leaf-river-hwy-590-sims-road',
+] as const;
+
+const pascagoulaConsolidatedRouteSlugs = [
+  'pascagoula-river-game-management-wilkerson-ferry',
+  'pascagoula-river-merrill-big-creek',
+  'pascagoula-river-merrill-wilkerson-ferry',
+  'pascagoula-river-merrill-hwy26',
+  'pascagoula-river-hwy26-wilkerson-ferry',
+] as const;
+
 const millersConsolidatedRouteSlugs = [
   'millers-river-cass-meadow-farley',
   'millers-river-cass-meadow-millers-falls',
@@ -857,6 +886,9 @@ const consolidatedRouteTargets = new Map<string, string>(
     ...blackfootLegacyRouteAliases.map(([legacySlug, currentSlug]) => [legacySlug, `${blackfootHubPath}#trip-${currentSlug}`] as const),
     ...greenRiverConsolidatedRouteSlugs.map((slug) => [slug, `${greenRiverHubPath}#trip-${slug}`] as const),
     ...floydsForkConsolidatedRouteSlugs.map((slug) => [slug, `${floydsForkHubPath}#trip-${slug}`] as const),
+    ...blackstoneRiverConsolidatedRouteSlugs.map((slug) => [slug, `${blackstoneHubPath}#trip-${slug}`] as const),
+    ...leafRiverConsolidatedRouteSlugs.map((slug) => [slug, `${leafRiverHubPath}#trip-${slug}`] as const),
+    ...pascagoulaConsolidatedRouteSlugs.map((slug) => [slug, `${pascagoulaHubPath}#trip-${slug}`] as const),
     ...millersConsolidatedRouteSlugs.map((slug) => [slug, `${millersHubPath}#trip-${slug}`] as const),
     ['millers-river-erving-south-main-dam', `${millersHubPath}#millers-route-zones`] as const,
     ...bayouDeViewConsolidatedRouteSlugs.map((slug) => [slug, `${bayouDeViewHubPath}#trip-${slug}`] as const),
