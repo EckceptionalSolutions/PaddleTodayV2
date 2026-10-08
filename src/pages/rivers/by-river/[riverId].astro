@@ -59,6 +59,7 @@ const isKinniconickHub = group.riverId === 'kinniconick-creek';
 const isNorthForkMaquoketaHub = group.riverId === 'north-fork-maquoketa-river';
 const isCrookedCreekHub = group.riverId === 'crooked-creek';
 const isSouthLlanoHub = group.riverId === 'south-llano-river';
+const isMulberryForkHub = group.riverId === 'mulberry-fork-alabama';
 const isVillageCreekHub = group.riverId === 'village-creek';
 const isElevenPointHub = group.riverId === 'eleven-point-river';
 const isJacksForkHub = group.riverId === 'jacks-fork-river';
@@ -136,6 +137,8 @@ const groupTitle = isBroadRiverHub
   ? 'Crooked Creek, Arkansas | Water Trail Sections & Access'
   : isSouthLlanoHub
   ? 'South Llano River, Texas | Paddle Sections & Access'
+  : isMulberryForkHub
+  ? 'Mulberry Fork, Alabama | Paddle Sections & Access'
   : isSpokaneHub
   ? 'Spokane River, Washington | Paddling Sections, Gauges & Access'
   : isSaludaHub
@@ -239,6 +242,8 @@ const groupDescription = isBroadRiverHub
   ? 'Compare six Crooked Creek Water Trail trips from Lower Pyatt through Snow and Mark Oliver to Kelley’s Slab. Check AGFC mileage, the Kelly Crossing gauge, and camping details.'
   : isSouthLlanoHub
   ? 'Compare five South Llano trips near Junction, Texas: the Cupgrass extension, the full 6.3-mile TPWD paddling trail, and shorter access sections. Confirm Cupgrass lease status before planning a launch there.'
+  : isMulberryForkHub
+  ? 'Compare three Upper Mulberry Fork options from Blountville Road through County Road 10 to Garden City River Park. Review the commonly used CR 10 trip, upstream access checks, and the direct Garden City gauge.'
   : isSpokaneHub
   ? 'Plan the Spokane River by its distinct upper reaches, lower whitewater and Nine Mile flatwater pool. Compare six focused Water Trail sections and 20 alternate endpoint choices, with local access, gauge context and safety notes.'
   : isSaludaHub
@@ -3022,6 +3027,47 @@ const groupStructuredData = [
 
           <p>
             Review TPWD’s <a href="https://tpwd.texas.gov/boating/paddling-trails/hill-country/south-llano/" target="_blank" rel="noopener noreferrer">South Llano Paddling Trail map, mileage, bridge-portage, and private-property guidance</a>, the <a href="https://tpwd.texas.gov/fishboat/fish/recreational/rivers/lease_access/south_llano_cupgrass.phtml" target="_blank" rel="noopener noreferrer">Cupgrass access page</a>, and the <a href="https://tpwd.texas.gov/fishboat/fish/recreational/rivers/lease_access/index.phtml" target="_blank" rel="noopener noreferrer">current leased-access program index</a> before choosing a route.
+          </p>
+        </div>
+      ) : null}
+
+      {isMulberryForkHub ? (
+        <div class="river-hub-context__source-guide" id="mulberry-fork-sections" aria-labelledby="mulberry-fork-sections-title">
+          <div class="river-group-page__section-head">
+            <div>
+              <p class="eyebrow section-label">Upper Mulberry Fork · Blount County, Alabama</p>
+              <h3 class="section-title" id="mulberry-fork-sections-title">Choose an Upper Mulberry trip by its access points</h3>
+            </div>
+            <p class="muted river-group-page__section-note">
+              These three cards follow one upstream-to-downstream chain. The CR 10–Garden City trip is the commonly used option; the Blountville Road trips add distance and need additional access verification.
+            </p>
+          </div>
+
+          <div class="river-hub-context__grid">
+            <article class="river-hub-context__item">
+              <h3>Three choices along one corridor</h3>
+              <ul>
+                <li><a href="#trip-mulberry-fork-cr10-garden-city">County Road 10 to Garden City River Park · about 6.5 miles</a></li>
+                <li><a href="#trip-mulberry-fork-blountville-cr10">Blountville Road to County Road 10 · about 12.5 miles</a></li>
+                <li><a href="#trip-mulberry-fork-blountville-garden-city">Blountville Road to Garden City River Park · about 19 miles</a></li>
+              </ul>
+              <p>
+                American Whitewater says most Upper Mulberry trips start at CR 10 and take out at Garden City River Park. The longer option also passes CR 10, which can be a planned shorter take-out only after confirming that access and timing work for the group.
+              </p>
+            </article>
+            <article class="river-hub-context__item">
+              <h3>Access, private banks, and gauge</h3>
+              <p>
+                Outdoor Alabama warns that river-bottom and adjacent land may be private and says limited access is available at county-road bridge rights-of-way. Its guide does not specifically confirm the Blountville Road or CR 10 carry and parking details. Verify current legal entry, parking, and waterline at each selected access before unloading; do not cross or wade private property without permission.
+              </p>
+              <p>
+                Use the direct <a href="https://waterdata.usgs.gov/monitoring-location/USGS-02450000/" target="_blank" rel="noopener noreferrer">USGS 02450000 Mulberry Fork near Garden City gauge</a> with its observation time, trend, recent rain, and wood conditions. American Whitewater gives above 2 ft as a runnable cue for the Upper reach; Paddle Today’s 4.5–6 ft target is community guidance, not a safety limit. The river rises quickly after storms, and strainers and bridge debris need active scouting.
+              </p>
+            </article>
+          </div>
+
+          <p>
+            Review Outdoor Alabama’s <a href="https://www.outdooralabama.com/rivers-and-mobile-delta/mulberry-fork" target="_blank" rel="noopener noreferrer">Mulberry Fork access and private-land guidance</a> and its <a href="https://www.outdooralabama.com/articles/mulberry-fork-access-upgraded-garden-city-river-park" target="_blank" rel="noopener noreferrer">Garden City River Park launch details</a>, then check American Whitewater’s <a href="https://www.americanwhitewater.org/content/River/view/river-detail/72/main" target="_blank" rel="noopener noreferrer">Upper Mulberry reach and gauge notes</a> before choosing endpoints.
           </p>
         </div>
       ) : null}
