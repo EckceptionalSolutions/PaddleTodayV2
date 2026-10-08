@@ -14,6 +14,11 @@
       }
     },
     {
+      "route": "/sitemap.xml",
+      "redirect": "/sitemap-index.xml",
+      "statusCode": 301
+    },
+    {
       "route": "/rivers/susquehanna-river-canal-park-wetlands",
       "redirect": "/rivers/susquehanna-river-canal-park-test-track/",
       "statusCode": 301
