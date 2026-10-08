@@ -183,7 +183,7 @@ const groupDescription = isBroadRiverHub
   : isLittleForkHub
   ? 'Compare ten Little Fork River trips across Minnesota DNR Water Trail Maps 1 and 2. Start with the two recommended day sections, then choose the exact launch and take-out with the gauge and access notes for that reach.'
   : isStLouisRiverHub
-  ? 'Compare 11 St. Louis River trips across Minnesota DNR Water Trail Maps 1 and 2. Start with the recommended County Road 4–95 or Paupores–Brookston sections, then choose exact endpoints with the correct gauge and access notes.'
+  ? 'Compare nine St. Louis River trips across Minnesota DNR Water Trail Maps 1 and 2. Start with the recommended Forbes–Zim or Paupores–Brookston sections, then choose exact endpoints with the correct gauge and access notes.'
   : isBuffaloHub
   ? 'Plan Buffalo National River routes by district. Ponca and Pruitt gauges cover Upper District trips; St. Joe covers Tyler Bend–Grinder’s Ferry.'
   : isYellowBreechesHub
@@ -704,7 +704,7 @@ const faqItems = [
       : isLittleForkHub
       ? 'Choose among ten trips across two Minnesota DNR map sections. Map 1 includes the recommended Veterans Park–Highway 73 day trip and options near Samuelson and Silverdale. Map 2 includes the recommended Dentaybow–Fiedler full-day run, the Fiedler–Devereaux–Lofgren access chain, and the lower outlet to Kuttes Landing.'
       : isStLouisRiverHub
-      ? 'Choose among 11 trips across the first two Minnesota DNR map sections. Start with the recommended 7.3-mile County Road 4–95 trip on Map 1 or the 7.9-mile Paupores–Brookston trip on Map 2; the selector keeps shorter access legs and longer combinations with their exact gauge and access details.'
+      ? 'Choose among nine trips across the first two Minnesota DNR map sections. Start with the recommended 12.9-mile Forbes–Zim trip on Map 1 or the 7.9-mile Paupores–Brookston trip on Map 2; the selector keeps shorter access legs and longer combinations with their exact gauge and access details.'
       : isHousatonicHub
       ? 'The Berkshire guide covers distinct upper, Stockbridge, and Great Barrington–Sheffield reaches. Compare the named public-access sections, then use the trip picker for six longer endpoint combinations that remain available with their own mileage, gauge, dam, and access notes.'
       : isLoupRiverHub
@@ -900,7 +900,7 @@ const groupStructuredData = [
             : isLittleForkHub
             ? 'Choose one of the two DNR map sections, then select the exact launch and take-out. The ten trips include the official 15.2-mile Veterans Park–Highway 73 day trip, the 13.1-mile Dentaybow–Fiedler full-day trip, and shorter or longer access combinations with reach-specific gauge context.'
             : isStLouisRiverHub
-            ? 'Choose from the first two DNR map sections, then select the exact launch and take-out. Start with the recommended County Road 4–95 or Paupores–Brookston day trip; use the selected card for its gauge, access, and hazard notes. The separate Highway 2–Lake Superior map describes a different downstream whitewater area.'
+            ? 'Choose from the first two DNR map sections, then select the exact launch and take-out. Start with the recommended Forbes–Zim or Paupores–Brookston day trip; use the selected card for its gauge, access, and hazard notes. The separate Highway 2–Lake Superior map describes a different downstream whitewater area.'
             : isWillimanticHub
             ? 'Compare five selected Willimantic trips across three distinct stretches: upper quickwater, the Eagleville impoundment, and the river below the dam. Each stretch has different access, gauge cues, and hazards.'
             : isCedarRiverAdirondacksHub
@@ -2092,7 +2092,7 @@ const groupStructuredData = [
               : isLittleForkHub
               ? `Compare all ${group.routeCount} Little Fork trip choices here. Seven reach-specific guides keep standalone pages; three composite endpoint combinations open their exact trip cards on this hub. All ten choices retain their own endpoints, distances, access details, and gauge assignments.`
               : isStLouisRiverHub
-              ? `Compare all ${group.routeCount} St. Louis River choices here. Eight focused access sections keep their guides; three longer combinations open their exact trip cards on this hub. All eleven choices retain their endpoints, distances, access notes, and route-specific Forbes or Floodwood gauge context.`
+              ? `Compare all ${group.routeCount} public St. Louis River choices here. Six focused access sections keep their guides; three longer combinations open their exact trip cards on this hub. Each choice retains its endpoints, distance, access notes, and route-specific Forbes or Floodwood gauge context.`
               : isHousatonicHub
               ? `Compare all ${group.routeCount} Berkshire Housatonic trip choices here. Nine reach-specific sections keep standalone pages; six longer endpoint combinations remain selectable with their own access, mileage, gauge, portage, and safety details.`
               : isWillimanticHub
@@ -2671,9 +2671,9 @@ const groupStructuredData = [
             <article class="river-hub-context__item">
               <h3>Map 1 · County Road 4 to County Road 95 · 7.3 miles</h3>
               <p>
-                DNR recommends this upper-river day trip. The put-in is an undeveloped bridge carry-in at river mile 151.9; the take-out is the County Road 95 access at mile 144.6. DNR describes shallow, sandy sections along this trip, so verify the bridge launch and local depth before setting out.
+                DNR recommends this upper-river day trip. It is not currently one of PaddleToday’s nine selectable trips. The put-in is an undeveloped bridge carry-in at river mile 151.9; the take-out is the County Road 95 access at mile 144.6. DNR describes shallow, sandy sections along this trip, so verify the bridge launch and local depth before setting out.
               </p>
-              <a href={routeSlugHref('st-louis-river-county-road-4-95')}>Open the recommended Map 1 trip</a>
+              <a href="https://files.dnr.state.mn.us/maps/canoe_routes/stlouis1.pdf" target="_blank" rel="noopener noreferrer">View the official DNR Map 1</a>
             </article>
             <article class="river-hub-context__item">
               <h3>Map 1 · Forbes to Zim · 12.9 miles</h3>
@@ -2701,7 +2701,7 @@ const groupStructuredData = [
           </div>
 
           <p>
-            Minnesota DNR divides the full water trail into three maps. Map 3, from Highway 2 to Lake Superior, includes multiple dams and Class I–VI rapids, with parts of Jay Cooke State Park reserved for expert whitewater kayakers; it is a separate paddling area and is not represented by these 11 trips. Review the official <a href="https://www.dnr.state.mn.us/state-water-trails/st-louis-river/segments-maps.html" target="_blank" rel="noopener noreferrer">segment notes</a>, <a href="https://files.dnr.state.mn.us/maps/canoe_routes/stlouis1.pdf" target="_blank" rel="noopener noreferrer">Map 1</a>, and <a href="https://files.dnr.state.mn.us/maps/canoe_routes/stlouis2.pdf" target="_blank" rel="noopener noreferrer">Map 2</a>. Use the gauge assigned to your exact trip: Forbes for the upper corridor and Floodwood for the lower one. Gauge heights from different stations are not directly comparable.
+            Minnesota DNR divides the full water trail into three maps. Map 3, from Highway 2 to Lake Superior, includes multiple dams and Class I–VI rapids, with parts of Jay Cooke State Park reserved for expert whitewater kayakers; it is a separate paddling area and is not represented by these nine selectable trips. Review the official <a href="https://www.dnr.state.mn.us/state-water-trails/st-louis-river/segments-maps.html" target="_blank" rel="noopener noreferrer">segment notes</a>, <a href="https://files.dnr.state.mn.us/maps/canoe_routes/stlouis1.pdf" target="_blank" rel="noopener noreferrer">Map 1</a>, and <a href="https://files.dnr.state.mn.us/maps/canoe_routes/stlouis2.pdf" target="_blank" rel="noopener noreferrer">Map 2</a>. Use the gauge assigned to your exact trip: Forbes for the upper corridor and Floodwood for the lower one. Gauge heights from different stations are not directly comparable.
           </p>
         </div>
       ) : null}
