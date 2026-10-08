@@ -189,6 +189,121 @@
       "statusCode": 301
     },
     {
+      "route": "/rivers/kansas-river-st-george-belvue",
+      "redirect": "/rivers/by-river/kansas-river/",
+      "statusCode": 301
+    },
+    {
+      "route": "/rivers/sheboygan-river-rochester-esslingen",
+      "redirect": "/rivers/by-river/sheboygan-river/",
+      "statusCode": 301
+    },
+    {
+      "route": "/rivers/juniata-river-mifflin-muskrat-springs",
+      "redirect": "/rivers/by-river/juniata-river/",
+      "statusCode": 301
+    },
+    {
+      "route": "/rivers/red-river-north-dam-mb-johnson",
+      "redirect": "/rivers/by-river/red-river-of-the-north/",
+      "statusCode": 301
+    },
+    {
+      "route": "/rivers/rock-river-harnischfeger-kaul",
+      "redirect": "/rivers/by-river/rock-river/",
+      "statusCode": 301
+    },
+    {
+      "route": "/rivers/st-louis-river-county-road-4-95",
+      "redirect": "/rivers/by-river/st-louis-river/",
+      "statusCode": 301
+    },
+    {
+      "route": "/rivers/black-river-wayside-reese",
+      "redirect": "/rivers/by-river/black-river/",
+      "statusCode": 301
+    },
+    {
+      "route": "/rivers/buffalo-river-steel-creek-kyles-landing",
+      "redirect": "/rivers/by-river/buffalo-river/",
+      "statusCode": 301
+    },
+    {
+      "route": "/rivers/minnehaha-creek-grays-bay-longfellow-lagoon",
+      "redirect": "/guides/minnehaha-creek-paddling/",
+      "statusCode": 301
+    },
+    {
+      "route": "/rivers/buffalo-river-tyler-bend-gilbert",
+      "redirect": "/rivers/by-river/buffalo-river/",
+      "statusCode": 301
+    },
+    {
+      "route": "/rivers/juniata-river-mifflin-walker",
+      "redirect": "/rivers/by-river/juniata-river/",
+      "statusCode": 301
+    },
+    {
+      "route": "/rivers/cedar-river-dreisner-riverwood",
+      "redirect": "/rivers/by-river/cedar-river/",
+      "statusCode": 301
+    },
+    {
+      "route": "/rivers/eau-claire-river-ross-drott",
+      "redirect": "/rivers/by-river/eau-claire-river/",
+      "statusCode": 301
+    },
+    {
+      "route": "/rivers/rock-river-county-p-willow-street",
+      "redirect": "/rivers/by-river/rock-river/",
+      "statusCode": 301
+    },
+    {
+      "route": "/rivers/mississippi-river-iron-bridge-county-road-12-dam",
+      "redirect": "/rivers/by-river/mississippi-river/",
+      "statusCode": 301
+    },
+    {
+      "route": "/rivers/shell-rock-river-heery-woods-renning",
+      "redirect": "/rivers/by-river/shell-rock-river/",
+      "statusCode": 301
+    },
+    {
+      "route": "/rivers/rock-river-kanow-county-p",
+      "redirect": "/rivers/by-river/rock-river/",
+      "statusCode": 301
+    },
+    {
+      "route": "/rivers/south-fork-kentucky-river-upper-wolf-creek-fish-creek",
+      "redirect": "/rivers/by-river/south-fork-kentucky-river/",
+      "statusCode": 301
+    },
+    {
+      "route": "/rivers/big-fork-river-big-falls-west-ben-linn",
+      "redirect": "/rivers/by-river/big-fork-river/",
+      "statusCode": 301
+    },
+    {
+      "route": "/rivers/susquehanna-river-terrytown-laceyville",
+      "redirect": "/rivers/by-river/susquehanna-river/",
+      "statusCode": 301
+    },
+    {
+      "route": "/rivers/rum-river-onamia-wayside",
+      "redirect": "/rivers/by-river/rum-river/",
+      "statusCode": 301
+    },
+    {
+      "route": "/rivers/wisconsin-river-pine-bluff-brokaw",
+      "redirect": "/rivers/by-river/wisconsin-river/",
+      "statusCode": 301
+    },
+    {
+      "route": "/rivers/sugar-river-brodhead-avon",
+      "redirect": "/rivers/by-river/sugar-river/",
+      "statusCode": 301
+    },
+    {
       "route": "/rivers/clinton-river-budd-shadyside",
       "redirect": "/rivers/by-river/clinton-river/",
       "statusCode": 301
