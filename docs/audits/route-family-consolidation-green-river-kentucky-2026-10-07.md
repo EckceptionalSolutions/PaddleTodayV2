@@ -61,4 +61,11 @@ On October 7, Search Console's stale 404 sample still included the retired `/riv
 - The public Green River catalog now exposes the eight KDFWR and NPS named trips above. Those routes preserve the Upper Green, Hart County, and Mammoth Cave condition zones and their separate flow guidance.
 - The 24 former composite URLs remain covered by exact-path redirects, now directly to the Green River hub root; they are no longer trip-picker or map choices.
 - The hub’s descriptive copy now reflects the eight-route catalog and its three distinct condition zones.
-- All 32 source records remain available in the internal route inventory for audits; the public route index exposes only the eight selected trips. A fresh site build and rendered-page audit remain for CI to verify after this change is pushed.
+- All 32 source records remain available in the internal route inventory for audits; the public route index exposes only the eight selected trips.
+
+## Production verification (2026-10-08)
+
+- Frontend workflow [37800689276](https://github.com/EckceptionalSolutions/PaddleTodayV2/actions/runs/37800689276) passed tests, build, both search-indexability audits, and deployed-origin checks. API workflow [37800689587](https://github.com/EckceptionalSolutions/PaddleTodayV2/actions/runs/37800689587) passed tests, build, deployment readiness, and smoke checks; Snapshot Worker [37800689263](https://github.com/EckceptionalSolutions/PaddleTodayV2/actions/runs/37800689263) succeeded.
+- The live sitemap index returns HTTP 200 with a current child `<lastmod>`. The child sitemap returns HTTP 200 with 2,522 URLs, includes the Green River hub, and excludes the sampled retired Green River route URL.
+- The sampled retired route uses the live Azure 301 rule to the Green River hub root. The frontend indexability audit covers all route consolidation mappings.
+- No Search Console submission or indexing request was made; Google must recrawl the updated catalog.

@@ -39,4 +39,11 @@ The candidate build generated 2,982 pages, a 2,970-URL sitemap, and 321 exact tr
 - The public Millers River hub now offers four named trips: Cass Meadow–Orange, Cass Meadow–Arch Street, below-dam Reach 6 to Arch Street, and Erving–Millers Falls.
 - The 17 alternate endpoint combinations are no longer distinct public trips. Their exact historical route URLs redirect to the Millers River hub root, avoiding anchors for cards that are no longer shown.
 - The reversed Erving-to-dam record remains withheld, and the hub retains its guidance for the separate Blue Trail, required dam portage, and Lower Millers whitewater zones.
-- All source records remain in the internal route inventory for maintenance and audits. A fresh site build and rendered-page audit remain for CI to verify after this change is pushed.
+- All source records remain in the internal route inventory for maintenance and audits.
+
+## Production verification (2026-10-08)
+
+- Frontend workflow [37800689276](https://github.com/EckceptionalSolutions/PaddleTodayV2/actions/runs/37800689276) passed tests, build, both search-indexability audits, and deployed-origin checks. API workflow [37800689587](https://github.com/EckceptionalSolutions/PaddleTodayV2/actions/runs/37800689587) passed tests, build, deployment readiness, and smoke checks; Snapshot Worker [37800689263](https://github.com/EckceptionalSolutions/PaddleTodayV2/actions/runs/37800689263) succeeded.
+- The live sitemap index and child sitemap return HTTP 200; the child lists 2,522 URLs, includes the Millers River hub, and excludes the sampled retired composite route.
+- The sampled retired route serves a generated redirect page with a canonical link and visible link to the Millers River hub. The frontend indexability audit covers every consolidation mapping and confirms retired route pages stay outside the sitemap.
+- No Search Console submission or indexing request was made; Google must recrawl the updated catalog.

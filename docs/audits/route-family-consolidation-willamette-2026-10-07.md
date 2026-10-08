@@ -42,6 +42,13 @@ These results verify the local candidate only. No production deployment, Search 
 - The public Willamette catalog now exposes the five routes above rather than 50 endpoint combinations.
 - The 45 historical route URLs still resolve through the existing exact-path redirect mechanism, now directly to the Willamette hub root because their former trip-card anchors are no longer offered.
 - Hub metadata and route-selection copy describe the five-option catalog and distinguish the two scored routes from the three planning-only routes.
-- All 50 source records remain available in the internal route inventory for audits; the public route index exposes only the five selected options. A fresh site build and rendered-page audit remain for CI to verify after this change is pushed.
+- All 50 source records remain available in the internal route inventory for audits; the public route index exposes only the five selected options.
+
+## Production verification (2026-10-08)
+
+- Frontend workflow [37800689276](https://github.com/EckceptionalSolutions/PaddleTodayV2/actions/runs/37800689276) passed tests, build, both search-indexability audits, and deployed-origin checks. API workflow [37800689587](https://github.com/EckceptionalSolutions/PaddleTodayV2/actions/runs/37800689587) passed tests, build, deployment readiness, and smoke checks; Snapshot Worker [37800689263](https://github.com/EckceptionalSolutions/PaddleTodayV2/actions/runs/37800689263) succeeded.
+- The live sitemap index returns HTTP 200 and includes a child `<lastmod>` of `2026-10-08T15:30:51.021Z`. Its child sitemap returns HTTP 200 with 2,522 URLs and includes the Willamette hub, not the sampled retired route URL.
+- The sampled retired route serves a generated redirect page with a canonical link and visible link to the Willamette hub. The frontend indexability audit covers every consolidation mapping and confirms retired route pages stay outside the sitemap.
+- No Search Console submission or indexing request was made; Google must recrawl the updated catalog.
 
 Sources: [WKCC river descriptions for the Willamette](https://levels.wkcc.org/?D=wr1), [Willamette Water Trail map](https://willamettewatertrail.org/map/), [Marshall Island to Harrisburg itinerary](https://willamettewatertrail.org/itineraries/marshall-island-access-to-harrisburg/), [Harrisburg to Peoria itinerary](https://willamettewatertrail.org/itineraries/harrisburg-to-peoria/), [Peoria to Corvallis itinerary](https://willamettewatertrail.org/itineraries/peoria-to-corvallis/), [Michael's Landing to Hyak itinerary](https://willamettewatertrail.org/itineraries/michaels-landing-to-hyak-park/), [Oregon State Parks Willamette River Water Trail](https://stateparks.oregon.gov/index.cfm?do=park.profile&parkId=194), [USGS 14166000 at Harrisburg](https://waterdata.usgs.gov/monitoring-location/USGS-14166000/), and [USGS 14171600 at Corvallis](https://waterdata.usgs.gov/monitoring-location/USGS-14171600/).
