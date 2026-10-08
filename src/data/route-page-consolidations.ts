@@ -207,10 +207,28 @@ const newHampshireSacoConsolidatedRouteSlugs = [
   'saco-river-first-bridge-smith-eastman',
   'saco-river-bartlett-davis-park',
   'saco-river-bartlett-smith-eastman',
+  'saco-river-bartlett-first-bridge',
+] as const;
+const newHampshireSacoRetiredRouteSlugs = [
+  'saco-river-bartlett-cooks-crossing',
   'saco-river-cooks-crossing-davis-park',
   'saco-river-cooks-crossing-smith-eastman',
-  'saco-river-bartlett-first-bridge',
   'saco-river-cooks-crossing-first-bridge',
+] as const;
+
+const vermontWinooskiHubPath = '/rivers/by-river/winooski-river-vermont/';
+const vermontWinooskiConsolidatedRouteSlugs = [
+  'winooski-river-marshfield-winooski-street',
+  'winooski-river-marshfield-middlesex',
+  'winooski-river-bolton-canoe-jonesville',
+  'winooski-river-bolton-dam-bolton-canoe',
+] as const;
+const vermontWinooskiRetiredRouteSlugs = [
+  'winooski-river-winooski-street-gateway-park',
+  'winooski-river-middlesex-gateway-park',
+  'winooski-river-bolton-canoe-floodplain',
+  'winooski-river-jonesville-floodplain',
+  'winooski-river-bolton-dam-floodplain',
 ] as const;
 
 const wabashRiverConsolidatedRouteSlugs = [
@@ -1072,6 +1090,9 @@ const consolidatedRouteTargets = new Map<string, string>(
     ...androscogginMaineConsolidatedRouteSlugs.map((slug) => [slug, `${androscogginMaineHubPath}#trip-${slug}`] as const),
     ...alabamaBartramConsolidatedRouteSlugs.map((slug) => [slug, `${alabamaBartramHubPath}#trip-${slug}`] as const),
     ...newHampshireSacoConsolidatedRouteSlugs.map((slug) => [slug, `${newHampshireSacoHubPath}#trip-${slug}`] as const),
+    ...newHampshireSacoRetiredRouteSlugs.map((slug) => [slug, `${newHampshireSacoHubPath}#saco-section-guide-title`] as const),
+    ...vermontWinooskiConsolidatedRouteSlugs.map((slug) => [slug, `${vermontWinooskiHubPath}#trip-${slug}`] as const),
+    ...vermontWinooskiRetiredRouteSlugs.map((slug) => [slug, `${vermontWinooskiHubPath}#winooski-river-sections-title`] as const),
     ...buffaloRiverConsolidatedRouteSlugs.map((slug) => [slug, `${buffaloRiverHubPath}#trip-${slug}`] as const),
     ...floydsForkConsolidatedRouteSlugs.map((slug) => [slug, `${floydsForkHubPath}#trip-${slug}`] as const),
     ...barrenRiverConsolidatedRouteSlugs.map((slug) => [slug, `${barrenRiverHubPath}#trip-${slug}`] as const),

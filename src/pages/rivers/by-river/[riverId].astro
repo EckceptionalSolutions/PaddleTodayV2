@@ -45,6 +45,7 @@ const isBlackCreekHub = group.riverId === 'black-creek-mississippi';
 const isLamoilleHub = group.riverId === 'lamoille-river-vermont';
 const isWoonasquatucketHub = group.riverId === 'woonasquatucket-river-rhode-island';
 const isSuwanneeHub = group.riverId === 'suwannee-river-florida';
+const isWinooskiHub = group.riverId === 'winooski-river-vermont';
 const isSaukRiverHub = group.riverId === 'sauk-river';
 const isTruckeeHub = group.riverId === 'truckee-river-nevada';
 const isFarmingtonHub = group.riverId === 'farmington-river-connecticut';
@@ -144,6 +145,8 @@ const groupTitle = isBroadRiverHub
   ? 'Mulberry Fork, Alabama | Paddle Sections & Access'
   : isSpokaneHub
   ? 'Spokane River, Washington | Paddling Sections, Gauges & Access'
+  : isWinooskiHub
+  ? 'Winooski River, Vermont | Paddling Sections & Access'
   : isSaludaHub
   ? 'Lower Saluda River, South Carolina | Paddle Access & Flow Context'
   : isMerrimackHub
@@ -251,6 +254,8 @@ const groupDescription = isBroadRiverHub
   ? 'Compare three Upper Mulberry Fork options from Blountville Road through County Road 10 to Garden City River Park. Review the commonly used CR 10 trip, upstream access checks, and the direct Garden City gauge.'
   : isSpokaneHub
   ? 'Plan the Spokane River by its distinct upper reaches, lower whitewater and Nine Mile flatwater pool. Compare six focused Water Trail sections and 20 alternate endpoint choices, with local access, gauge context and safety notes.'
+  : isWinooskiHub
+  ? 'Plan Winooski River trips by reach: Marshfield–Montpelier quickwater, the 6.4-mile Middlesex–Waterbury run, and the Bolton–Richmond corridor. Check the right gauge, dam portages, rapids, parking, and public access for your exact trip.'
   : isSaludaHub
   ? 'Plan the 3.5-mile upper Lower Saluda reach from either Saluda Shoals Park or Hope Ferry to Gardendale. Compare the two public launch choices, carry-in take-out, below-dam gauge context and downstream rapid boundary.'
   : isMerrimackHub
@@ -722,6 +727,8 @@ const faqItems = [
       ? 'The South Llano choices connect TPWD’s Cupgrass lease access with the state-park-to-Junction paddling trail. The state-park trail has two official shorter sections; Cupgrass routes depend on current lease access, which paddlers should confirm with TPWD before setting a shuttle.'
       : isSpokaneHub
       ? 'Start with the Water Trail’s six distinct sections: Harvard–Barker (2 miles, Class I), Barker–Mirabeau (4.5 miles, Class II), Mirabeau–Plante’s Ferry (1 mile, mostly flatwater), Plante’s Ferry–Boulder Beach (4.5 miles, mostly flatwater), TJ Meenach–Plese Flats (expert Class III–IV), and Plese Flats–Nine Mile Dam (5 miles, flatwater). Twenty other endpoint choices remain available as trip cards.'
+      : isWinooskiHub
+      ? 'The source-backed guides cover Marshfield–Montpelier quickwater, Middlesex–Waterbury Class I(II), and Bolton–Jonesville below Bolton Dam. The picker keeps alternate endpoint pairs for shorter or longer trips, with their own access and shuttle details.'
       : isSaludaHub
       ? 'This guide covers one 3.5-mile upper reach. Choose Saluda Shoals Park or Hope Ferry Landing as the put-in; both lead to the carry-in take-out at Gardendale. The nearby launch ramps are alternatives, not a separate short trip.'
       : isBroadRiverHub
@@ -862,6 +869,8 @@ const faqItems = [
       ? 'Choose by the hardest water on the route. The Water Trail describes Barker–Mirabeau as Class II for more experienced paddlers and TJ Meenach–Plese as expert-only Class III–IV. Plese Flats–Nine Mile Dam is a separate flatwater option. The City prohibits boating between the Division and Monroe Street bridges; do not extend a trip upstream into that corridor.'
       : isSaludaHub
       ? 'The single trip covers the same 3.5-mile reach from either public upstream ramp to Gardendale, a carry-in access. Major rapids begin downstream of I-26, but SCDNR does not list the bridge as a public river landing; do not use it as an assumed take-out.'
+      : isWinooskiHub
+      ? 'Choose a reach before comparing endpoints. Marshfield–Montpelier has multiple dams and quickwater, Middlesex–Waterbury includes Hugo and Junk Yard rapids, and the lower Bolton–Richmond guide has a rapid below Bolton Dam. Match the gauge and access notes to your selected trip.'
       : isSusquehannaHub
       ? 'Choose the river reach first: upper main-stem options in New York or North Branch sections in Pennsylvania. The picker keeps alternate endpoint pairs available, and each trip retains its own mileage, access, gauge, and hazard details.'
       : scoredRouteCount
@@ -954,6 +963,8 @@ const groupStructuredData = [
             ? 'Compare the source-named South Llano sections by mileage and endpoints. The 6.3-mile state-park-to-Junction trip has a required bridge portage; Cupgrass access availability needs confirmation because TPWD’s published lease dates conflict with its current program listing.'
             : isWillimanticHub
             ? 'Compare five selected Willimantic trips across three distinct stretches: upper quickwater, the Eagleville impoundment, and the river below the dam. Each stretch has different access, gauge cues, and hazards.'
+            : isWinooskiHub
+            ? 'Choose by reach: the 24-mile Marshfield–Montpelier quickwater, the shorter Middlesex–Waterbury Class I(II) section, or the lower Bolton–Richmond trip. These areas have different difficulty, gauge context, and dam or rapid hazards.'
             : isCedarRiverAdirondacksHub
             ? 'Compare two different Adirondack trips: the Cedar River Flow out-and-back above Wakely Dam and the advanced Pelon Road to Outer Gooley wilderness reach. Their access, gauge context, portages, and egress needs differ, so review the selected trip details before planning.'
             : isCedarRiverHub
@@ -1036,6 +1047,49 @@ const groupStructuredData = [
         </figure>
       ) : null}
     </section>
+
+    {isWinooskiHub ? (
+      <section class="river-group-page__panel" aria-labelledby="winooski-river-sections-title">
+        <div class="river-group-page__section-head">
+          <div>
+            <p class="eyebrow section-label">Vermont river sections</p>
+            <h2 class="section-title" id="winooski-river-sections-title">Choose a Winooski trip by reach</h2>
+          </div>
+          <p class="muted river-group-page__section-note">
+            Start with a documented section, then use the trip picker to compare alternate endpoints and shuttle plans.
+          </p>
+        </div>
+        <div class="river-hub-context__grid">
+          <article class="river-hub-context__item">
+            <h3>Marshfield to Montpelier · 24 miles</h3>
+            <p>
+              Vermont’s watershed plan describes this as boatable quickwater with several Class II stretches and dams. Allow time to scout and plan lawful portages; water releases and fast rises change conditions.
+            </p>
+            <p><a href={routeSlugHref('winooski-river-marshfield-gateway-park')}>Open the Marshfield–Gateway Park guide</a></p>
+          </article>
+          <article class="river-hub-context__item">
+            <h3>Middlesex to Waterbury · 6.4 miles · Class I(II)</h3>
+            <p>
+              American Whitewater describes this mostly Class I–II reach and names Hugo and Junk Yard rapids. The Middlesex access has a short carry; confirm the Waterbury take-out and current conditions before setting a shuttle.
+            </p>
+            <p><a href={routeSlugHref('winooski-river-middlesex-waterbury')}>Open the Middlesex–Waterbury guide</a></p>
+          </article>
+          <article class="river-hub-context__item">
+            <h3>Bolton to Jonesville · about 10.5 miles</h3>
+            <p>
+              The lower corridor has a rapid about three-quarters of a mile below Bolton Dam. The paddling guide describes it as intermediate from the dam and easier from Bolton Canoe Access; Jonesville is listed as a take-out, with limited parking.
+            </p>
+            <ul>
+              <li><a href={routeSlugHref('winooski-river-bolton-dam-jonesville')}>Bolton Dam to Jonesville</a> · scout or portage the rapid as conditions require</li>
+              <li><a href={routeSlugHref('winooski-river-bolton-canoe-jonesville')}>Bolton Canoe Access to Jonesville</a> · starts below the rapid</li>
+            </ul>
+          </article>
+        </div>
+        <p>
+          Use the <a href="https://www.richmondvt.gov/community/recreation/default-title/river-access" target="_blank" rel="noopener noreferrer">Town of Richmond access notes</a> for Bolton Dam, Bolton Canoe Access, Jonesville, and Floodplain Preserve. For waterway descriptions and obstacles, see the <a href="https://winooskiriver.org/paddling" target="_blank" rel="noopener noreferrer">Friends of the Winooski paddling guide</a> and the <a href="https://dec.vermont.gov/sites/dec/files/documents/2018%20Winooski%20River%20TBP.pdf" target="_blank" rel="noopener noreferrer">Vermont DEC watershed plan</a>.
+        </p>
+      </section>
+    ) : null}
 
     {isSpokaneHub ? (
       <section class="river-group-page__panel" aria-labelledby="spokane-river-sections-title">
@@ -3365,8 +3419,7 @@ const groupStructuredData = [
             </article>
             <article class="river-hub-context__item">
               <h3>Bartlett to Cooks Crossing · 5.3 miles · Class I–II</h3>
-              <p>Wilderness Portal documents this distinct White Mountain reach. Confirm current public parking and a lawful water entry at Cooks Crossing before staging.</p>
-              <a href={routeSlugHref('saco-river-bartlett-cooks-crossing')}>View the Bartlett day route</a>
+              <p>Wilderness Portal documents this reach, but current public landing, parking, and carry access at Cooks Crossing are unverified. The trip stays out of the picker until a lawful take-out is confirmed.</p>
             </article>
           </div>
 

@@ -169,6 +169,8 @@ export const coordinateWithheldRouteSlugs = [
   "winooski-river-bolton-canoe-floodplain",
   "winooski-river-bolton-dam-floodplain",
   "winooski-river-jonesville-floodplain",
+  "winooski-river-middlesex-gateway-park",
+  "winooski-river-winooski-street-gateway-park",
   "woonasquatucket-river-cricket-manton",
   "woonasquatucket-river-cricket-riverside",
   "woonasquatucket-river-cricket-south-water",
