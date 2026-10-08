@@ -314,6 +314,9 @@ const currentRiverConsolidatedRouteSlugs = [
   'current-river-van-buren-cataract',
   'current-river-van-buren-gooseneck',
   'current-river-waymeyer-gooseneck',
+  'current-river-big-spring-cataract',
+  'current-river-big-spring-gooseneck',
+  'current-river-cataract-gooseneck',
 ] as const;
 
 const yellowBreechesHubPath = '/rivers/by-river/yellow-breeches-creek/';
