@@ -145,6 +145,18 @@ const expected = [
   ...listRiverGroups().filter((group) => group.routeCount > 1).map((group) => `/rivers/by-river/${group.riverId}/`),
 ];
 for (const pathname of expected) if (!paths.has(pathname)) errors.push(`Published route/hub absent from sitemap: ${pathname}`);
+for (const route of routes) {
+  const routePath = `/rivers/${route.slug}/`;
+  const hubPath = `/rivers/by-river/${route.riverId}/`;
+  if (!paths.has(hubPath)) continue;
+  const hubHtml = await readFile(fileFor(hubPath), 'utf8');
+  // A map-selection button and inline notes must not replace the HTML link
+  // to a standalone route that the hub actually lists in its trip picker.
+  const hasTripCard = tags(hubHtml, 'article').some((tag) => attr(tag, 'id') === `trip-${route.slug}`);
+  if (hasTripCard && !routeLinks.get(routePath)?.has(hubPath)) {
+    errors.push(`River-hub trip card is missing its standalone route link: ${hubPath} -> ${routePath}`);
+  }
+}
 const unlinkedPublicPages = expected.filter((pathname) =>
   ![...(routeLinks.get(pathname) || [])].some((source) => source !== pathname),
 );

@@ -6,637 +6,141 @@
     "Permissions-Policy": "geolocation=(self), microphone=(), camera=()"
   },
   "routes": [
-    {
-      "route": "/.well-known/*",
-      "headers": {
-        "Content-Type": "application/json",
-        "Cache-Control": "public, max-age=3600"
-      }
-    },
-    {
-      "route": "/sitemap.xml",
-      "redirect": "/sitemap-index.xml",
-      "statusCode": 301
-    },
-    {
-      "route": "/rivers/delaware-river-hancock-callicoon",
-      "redirect": "/rivers/by-river/delaware-river/#trip-delaware-river-hancock-callicoon",
-      "statusCode": 301
-    },
-    {
-      "route": "/rivers/minnesota-river-judson-riverside-st-peter",
-      "redirect": "/rivers/by-river/minnesota-river/",
-      "statusCode": 301
-    },
-    {
-      "route": "/rivers/rio-grande-taos-junction-lone-juniper",
-      "redirect": "/rivers/by-river/rio-grande-new-mexico/#trip-rio-grande-taos-junction-lone-juniper",
-      "statusCode": 301
-    },
-    {
-      "route": "/rivers/rio-grande-taos-junction-county-line",
-      "redirect": "/rivers/by-river/rio-grande-new-mexico/#trip-rio-grande-taos-junction-county-line",
-      "statusCode": 301
-    },
-    {
-      "route": "/rivers/rio-grande-lone-juniper-county-line",
-      "redirect": "/rivers/by-river/rio-grande-new-mexico/#trip-rio-grande-lone-juniper-county-line",
-      "statusCode": 301
-    },
-    {
-      "route": "/rivers/rio-grande-lone-juniper-quartzite",
-      "redirect": "/rivers/by-river/rio-grande-new-mexico/#trip-rio-grande-lone-juniper-quartzite",
-      "statusCode": 301
-    },
-    {
-      "route": "/rivers/wabash-river-linn-grove-white-bridge",
-      "redirect": "/rivers/by-river/wabash-river/#trip-wabash-river-linn-grove-white-bridge",
-      "statusCode": 301
-    },
-    {
-      "route": "/rivers/green-river-american-legion-greensburg",
-      "redirect": "/rivers/by-river/green-river-kentucky/",
-      "statusCode": 301
-    },
-    {
-      "route": "/rivers/eleven-point-river-greer-crossing-riverton",
-      "redirect": "/rivers/by-river/eleven-point-river/#trip-eleven-point-river-greer-crossing-riverton",
-      "statusCode": 301
-    },
-    {
-      "route": "/rivers/willimantic-river-commuter-nye-holman",
-      "redirect": "/rivers/by-river/willimantic-river-connecticut/#trip-willimantic-river-commuter-nye-holman",
-      "statusCode": 301
-    },
-    {
-      "route": "/rivers/willimantic-river-heron-cove-pecks-mill",
-      "redirect": "/rivers/by-river/willimantic-river-connecticut/#trip-willimantic-river-heron-cove-pecks-mill",
-      "statusCode": 301
-    },
-    {
-      "route": "/rivers/willimantic-river-river-park-eagleville-lake",
-      "redirect": "/rivers/by-river/willimantic-river-connecticut/#trip-willimantic-river-river-park-eagleville-lake",
-      "statusCode": 301
-    },
-    {
-      "route": "/rivers/willimantic-river-eagleville-route-66",
-      "redirect": "/rivers/by-river/willimantic-river-connecticut/#trip-willimantic-river-eagleville-route-66",
-      "statusCode": 301
-    },
-    {
-      "route": "/rivers/willimantic-river-commuter-route-66",
-      "redirect": "/rivers/by-river/willimantic-river-connecticut/#trip-willimantic-river-commuter-route-66",
-      "statusCode": 301
-    },
-    {
-      "route": "/rivers/willimantic-river-*",
-      "redirect": "/rivers/by-river/willimantic-river-connecticut/",
-      "statusCode": 301
-    },
-    {
-      "route": "/rivers/chattahoochee-river-lower-pool-abbotts-bridge",
-      "rewrite": "/rivers/chattahoochee-river-lower-pool-abbotts-bridge/index.html"
-    },
-    {
-      "route": "/rivers/chattahoochee-river-abbotts-bridge-medlock-bridge",
-      "rewrite": "/rivers/chattahoochee-river-abbotts-bridge-medlock-bridge/index.html"
-    },
-    {
-      "route": "/rivers/chattahoochee-river-medlock-bridge-jones-bridge",
-      "rewrite": "/rivers/chattahoochee-river-medlock-bridge-jones-bridge/index.html"
-    },
-    {
-      "route": "/rivers/chattahoochee-river-medlock-bridge-garrard-landing",
-      "rewrite": "/rivers/chattahoochee-river-medlock-bridge-garrard-landing/index.html"
-    },
-    {
-      "route": "/rivers/chattahoochee-river-island-ford-don-white",
-      "rewrite": "/rivers/chattahoochee-river-island-ford-don-white/index.html"
-    },
-    {
-      "route": "/rivers/chattahoochee-river-jones-bridge-chattahoochee-river-park",
-      "rewrite": "/rivers/chattahoochee-river-jones-bridge-chattahoochee-river-park/index.html"
-    },
-    {
-      "route": "/rivers/chattahoochee-river-morgan-falls-park-johnson-ferry",
-      "rewrite": "/rivers/chattahoochee-river-morgan-falls-park-johnson-ferry/index.html"
-    },
-    {
-      "route": "/rivers/chattahoochee-river-johnson-ferry-powers-island",
-      "rewrite": "/rivers/chattahoochee-river-johnson-ferry-powers-island/index.html"
-    },
-    {
-      "route": "/rivers/chattahoochee-river-ga115-duncan-bridge",
-      "rewrite": "/rivers/chattahoochee-river-ga115-duncan-bridge/index.html"
-    },
-    {
-      "route": "/rivers/chattahoochee-river-powers-island-paces-mill",
-      "rewrite": "/rivers/chattahoochee-river-powers-island-paces-mill/index.html"
-    },
-    {
-      "route": "/rivers/chattahoochee-river-columbus-whitewater-park",
-      "rewrite": "/rivers/chattahoochee-river-columbus-whitewater-park/index.html"
-    },
-    {
-      "route": "/rivers/chattahoochee-river-*",
-      "redirect": "/rivers/by-river/chattahoochee-river/",
-      "statusCode": 301
-    },
-    {
-      "route": "/rivers/goose-creek-jacks-dump-hollow",
-      "redirect": "/rivers/by-river/goose-creek/#trip-goose-creek-jacks-dump-hollow",
-      "statusCode": 301
-    },
-    {
-      "route": "/rivers/goose-creek-jacks-laurel-branch",
-      "redirect": "/rivers/by-river/goose-creek/#trip-goose-creek-jacks-laurel-branch",
-      "statusCode": 301
-    },
-    {
-      "route": "/rivers/susquehanna-river-canal-park-wetlands",
-      "redirect": "/rivers/by-river/susquehanna-river/#trip-susquehanna-river-canal-park-test-track",
-      "statusCode": 301
-    },
-    {
-      "route": "/rivers/susquehanna-river-sayre-towanda",
-      "redirect": "/rivers/by-river/susquehanna-river/",
-      "statusCode": 301
-    },
-    {
-      "route": "/rivers/susquehanna-river-sayre-wysox-township-park",
-      "redirect": "/rivers/by-river/susquehanna-river/",
-      "statusCode": 301
-    },
-    {
-      "route": "/rivers/susquehanna-river-tunkhannock-west-falls",
-      "redirect": "/rivers/by-river/susquehanna-river/#trip-susquehanna-river-laceyville-west-falls",
-      "statusCode": 301
-    },
-    {
-      "route": "/rivers/susquehanna-river-laceyville-meshoppen",
-      "redirect": "/rivers/by-river/susquehanna-river/#trip-susquehanna-river-laceyville-west-falls",
-      "statusCode": 301
-    },
-    {
-      "route": "/rivers/susquehanna-river-bloomsburg-danville",
-      "redirect": "/rivers/by-river/susquehanna-river/#trip-susquehanna-river-test-track-danville",
-      "statusCode": 301
-    },
-    {
-      "route": "/rivers/susquehanna-river-sayre-hornbrook",
-      "redirect": "/rivers/by-river/susquehanna-river/",
-      "statusCode": 301
-    },
-    {
-      "route": "/rivers/susquehanna-river-meshoppen-tunkhannock",
-      "redirect": "/rivers/by-river/susquehanna-river/#trip-susquehanna-river-laceyville-west-falls",
-      "statusCode": 301
-    },
-    {
-      "route": "/rivers/susquehanna-river-bloomsburg-indian-head",
-      "redirect": "/rivers/by-river/susquehanna-river/#trip-susquehanna-river-test-track-danville",
-      "statusCode": 301
-    },
-    {
-      "route": "/rivers/susquehanna-river-sayre-ulster-bridge",
-      "redirect": "/rivers/by-river/susquehanna-river/",
-      "statusCode": 301
-    },
-    {
-      "route": "/rivers/susquehanna-river-whites-ferry-west-falls",
-      "redirect": "/rivers/by-river/susquehanna-river/#trip-susquehanna-river-laceyville-west-falls",
-      "statusCode": 301
-    },
-    {
-      "route": "/rivers/susquehanna-river-wetlands-test-track",
-      "redirect": "/rivers/by-river/susquehanna-river/#trip-susquehanna-river-canal-park-test-track",
-      "statusCode": 301
-    },
-    {
-      "route": "/rivers/susquehanna-river-pfbc-union-township-wetlands",
-      "redirect": "/rivers/by-river/susquehanna-river/#trip-susquehanna-river-canal-park-test-track",
-      "statusCode": 301
-    },
-    {
-      "route": "/rivers/susquehanna-river-tunkhannock-whites-ferry",
-      "redirect": "/rivers/by-river/susquehanna-river/#trip-susquehanna-river-laceyville-west-falls",
-      "statusCode": 301
-    },
-    {
-      "route": "/rivers/susquehanna-river-indian-head-danville",
-      "redirect": "/rivers/by-river/susquehanna-river/#trip-susquehanna-river-test-track-danville",
-      "statusCode": 301
-    },
-    {
-      "route": "/rivers/susquehanna-river-canal-park-pfbc-union-township",
-      "redirect": "/rivers/by-river/susquehanna-river/#trip-susquehanna-river-canal-park-test-track",
-      "statusCode": 301
-    },
-    {
-      "route": "/rivers/potomac-river-taylors-snyders",
-      "redirect": "/rivers/by-river/potomac-river-maryland/#trip-potomac-river-taylors-snyders",
-      "statusCode": 301
-    },
-    {
-      "route": "/rivers/mohawk-river-lock-9-freemans-bridge",
-      "redirect": "/rivers/erie-canal-rotterdam-junction-freemans-bridge/",
-      "statusCode": 301
-    },
-    {
-      "route": "/rivers/penobscot-river-greenbush-winn",
-      "redirect": "/rivers/by-river/penobscot-river/#trip-penobscot-river-winn-greenbush",
-      "statusCode": 301
-    },
-    {
-      "route": "/rivers/st-croix-river-taylors-falls-osceola",
-      "redirect": "/rivers/st-croix-river-interstate-osceola/",
-      "statusCode": 301
-    },
-    {
-      "route": "/rivers/st-croix-river-taylors-falls-to-osceola",
-      "redirect": "/rivers/st-croix-river-interstate-osceola/",
-      "statusCode": 301
-    },
-    {
-      "route": "/rivers/st-croix-river-taylors-falls-to-osceola-landing",
-      "redirect": "/rivers/st-croix-river-interstate-osceola/",
-      "statusCode": 301
-    },
-    {
-      "route": "/rivers/snake-river-rush-city-bridgeview-park",
-      "redirect": "/rivers/snake-river-county-road-3-mora/",
-      "statusCode": 301
-    },
-    {
-      "route": "/rivers/snake-river-rush-city-to-bridgeview-park",
-      "redirect": "/rivers/snake-river-county-road-3-mora/",
-      "statusCode": 301
-    },
-    {
-      "route": "/rivers/by-river/jump-river",
-      "redirect": "/rivers/jump-river-wayside-park-sheldon/",
-      "statusCode": 301
-    },
-    {
-      "route": "/rivers/minnehaha-creek-grays-bay-knollwood",
-      "redirect": "/guides/minnehaha-creek-paddling/",
-      "statusCode": 301
-    },
-    {
-      "route": "/rivers/minnehaha-creek-grays-bay-to-target-knollwood",
-      "redirect": "/guides/minnehaha-creek-paddling/",
-      "statusCode": 301
-    },
-    {
-      "route": "/rivers/by-river/green-river",
-      "redirect": "/rivers/by-river/green-river-kentucky/",
-      "statusCode": 301
-    },
-    {
-      "route": "/rivers/kansas-river-belvue-kaw-river-state-park",
-      "redirect": "/rivers/by-river/kansas-river/",
-      "statusCode": 301
-    },
-    {
-      "route": "/rivers/kansas-river-blue-river-belvue",
-      "redirect": "/rivers/by-river/kansas-river/",
-      "statusCode": 301
-    },
-    {
-      "route": "/rivers/kansas-river-de-soto-edwardsville",
-      "redirect": "/rivers/by-river/kansas-river/",
-      "statusCode": 301
-    },
-    {
-      "route": "/rivers/kansas-river-edwardsville-turner-bridge",
-      "redirect": "/rivers/by-river/kansas-river/",
-      "statusCode": 301
-    },
-    {
-      "route": "/rivers/kansas-river-turner-bridge-kaw-point",
-      "redirect": "/rivers/by-river/kansas-river/",
-      "statusCode": 301
-    },
-    {
-      "route": "/rivers/kansas-river-manhattan-st-george",
-      "redirect": "/rivers/by-river/kansas-river/",
-      "statusCode": 301
-    },
-    {
-      "route": "/rivers/kansas-river-manhattan-wamego",
-      "redirect": "/rivers/by-river/kansas-river/",
-      "statusCode": 301
-    },
-    {
-      "route": "/rivers/kansas-river-st-george-wamego",
-      "redirect": "/rivers/by-river/kansas-river/",
-      "statusCode": 301
-    },
-    {
-      "route": "/rivers/kansas-river-wamego-belvue",
-      "redirect": "/rivers/by-river/kansas-river/",
-      "statusCode": 301
-    },
-    {
-      "route": "/rivers/kansas-river-seward-lecompton",
-      "redirect": "/rivers/by-river/kansas-river/",
-      "statusCode": 301
-    },
-    {
-      "route": "/rivers/susquehanna-river-test-track-bloomsburg",
-      "redirect": "/rivers/by-river/susquehanna-river/#trip-susquehanna-river-test-track-danville",
-      "statusCode": 301
-    },
-    {
-      "route": "/rivers/juniata-river-greenwood-newport",
-      "redirect": "/rivers/by-river/juniata-river/",
-      "statusCode": 301
-    },
-    {
-      "route": "/rivers/french-creek-wilson-chutes-utica",
-      "redirect": "/rivers/by-river/french-creek/",
-      "statusCode": 301
-    },
-    {
-      "route": "/rivers/by-river/minnehaha-creek",
-      "redirect": "/guides/minnehaha-creek-paddling/",
-      "statusCode": 301
-    },
-    {
-      "route": "/rivers/by-river/big-eau-pleine-river",
-      "redirect": "/rivers/big-eau-pleine-river-cherokee-march-rapids/",
-      "statusCode": 301
-    },
-    {
-      "route": "/rivers/kansas-river-st-george-belvue",
-      "redirect": "/rivers/by-river/kansas-river/",
-      "statusCode": 301
-    },
-    {
-      "route": "/rivers/sheboygan-river-rochester-esslingen",
-      "redirect": "/rivers/by-river/sheboygan-river/",
-      "statusCode": 301
-    },
-    {
-      "route": "/rivers/juniata-river-mifflin-muskrat-springs",
-      "redirect": "/rivers/by-river/juniata-river/",
-      "statusCode": 301
-    },
-    {
-      "route": "/rivers/red-river-north-dam-mb-johnson",
-      "redirect": "/rivers/by-river/red-river-of-the-north/",
-      "statusCode": 301
-    },
-    {
-      "route": "/rivers/rock-river-harnischfeger-kaul",
-      "redirect": "/rivers/by-river/rock-river/",
-      "statusCode": 301
-    },
-    {
-      "route": "/rivers/st-louis-river-county-road-4-95",
-      "redirect": "/rivers/by-river/st-louis-river/",
-      "statusCode": 301
-    },
-    {
-      "route": "/rivers/black-river-wayside-reese",
-      "redirect": "/rivers/by-river/black-river/",
-      "statusCode": 301
-    },
-    {
-      "route": "/rivers/buffalo-river-steel-creek-kyles-landing",
-      "redirect": "/rivers/by-river/buffalo-river/",
-      "statusCode": 301
-    },
-    {
-      "route": "/rivers/minnehaha-creek-grays-bay-longfellow-lagoon",
-      "redirect": "/guides/minnehaha-creek-paddling/",
-      "statusCode": 301
-    },
-    {
-      "route": "/rivers/juniata-river-mifflin-walker",
-      "redirect": "/rivers/by-river/juniata-river/",
-      "statusCode": 301
-    },
-    {
-      "route": "/rivers/juniata-river-walker-muskrat-springs",
-      "redirect": "/rivers/by-river/juniata-river/",
-      "statusCode": 301
-    },
-    {
-      "route": "/rivers/juniata-river-portstown-park-riverside-park",
-      "redirect": "/rivers/by-river/juniata-river/",
-      "statusCode": 301
-    },
-    {
-      "route": "/rivers/juniata-river-portstown-park-newton-hamilton",
-      "redirect": "/rivers/by-river/juniata-river/",
-      "statusCode": 301
-    },
-    {
-      "route": "/rivers/juniata-river-portstown-park-juniata-point",
-      "redirect": "/rivers/by-river/juniata-river/",
-      "statusCode": 301
-    },
-    {
-      "route": "/rivers/juniata-river-lewistown-narrows-walker",
-      "redirect": "/rivers/by-river/juniata-river/",
-      "statusCode": 301
-    },
-    {
-      "route": "/rivers/juniata-river-mt-union-newton-hamilton",
-      "redirect": "/rivers/by-river/juniata-river/",
-      "statusCode": 301
-    },
-    {
-      "route": "/rivers/juniata-river-mifflintown-walker",
-      "redirect": "/rivers/by-river/juniata-river/",
-      "statusCode": 301
-    },
-    {
-      "route": "/rivers/juniata-river-granville-lewistown-narrows",
-      "redirect": "/rivers/by-river/juniata-river/",
-      "statusCode": 301
-    },
-    {
-      "route": "/rivers/juniata-river-riverside-park-newton-hamilton",
-      "redirect": "/rivers/by-river/juniata-river/",
-      "statusCode": 301
-    },
-    {
-      "route": "/rivers/juniata-river-victory-park-lewistown-narrows",
-      "redirect": "/rivers/by-river/juniata-river/",
-      "statusCode": 301
-    },
-    {
-      "route": "/rivers/juniata-river-riverside-park-mt-union",
-      "redirect": "/rivers/by-river/juniata-river/",
-      "statusCode": 301
-    },
-    {
-      "route": "/rivers/juniata-river-newport-amity-hall",
-      "redirect": "/rivers/by-river/juniata-river/",
-      "statusCode": 301
-    },
-    {
-      "route": "/rivers/juniata-river-green-valley-amity-hall",
-      "redirect": "/rivers/by-river/juniata-river/",
-      "statusCode": 301
-    },
-    {
-      "route": "/rivers/juniata-river-newport-howe-township",
-      "redirect": "/rivers/by-river/juniata-river/",
-      "statusCode": 301
-    },
-    {
-      "route": "/rivers/juniata-river-juniata-point-newton-hamilton",
-      "redirect": "/rivers/by-river/juniata-river/",
-      "statusCode": 301
-    },
-    {
-      "route": "/rivers/juniata-river-granville-victory-park",
-      "redirect": "/rivers/by-river/juniata-river/",
-      "statusCode": 301
-    },
-    {
-      "route": "/rivers/juniata-river-shawmut-newton-hamilton",
-      "redirect": "/rivers/by-river/juniata-river/",
-      "statusCode": 301
-    },
-    {
-      "route": "/rivers/juniata-river-howe-township-amity-hall",
-      "redirect": "/rivers/by-river/juniata-river/",
-      "statusCode": 301
-    },
-    {
-      "route": "/rivers/juniata-river-juniata-point-riverside-park",
-      "redirect": "/rivers/by-river/juniata-river/",
-      "statusCode": 301
-    },
-    {
-      "route": "/rivers/juniata-river-lewistown-narrows-mifflin",
-      "redirect": "/rivers/by-river/juniata-river/",
-      "statusCode": 301
-    },
-    {
-      "route": "/rivers/juniata-river-riverside-park-shawmut",
-      "redirect": "/rivers/by-river/juniata-river/",
-      "statusCode": 301
-    },
-    {
-      "route": "/rivers/juniata-river-victory-park-mifflintown",
-      "redirect": "/rivers/by-river/juniata-river/",
-      "statusCode": 301
-    },
-    {
-      "route": "/rivers/juniata-river-granville-mifflin",
-      "redirect": "/rivers/by-river/juniata-river/",
-      "statusCode": 301
-    },
-    {
-      "route": "/rivers/juniata-river-juniata-point-mt-union",
-      "redirect": "/rivers/by-river/juniata-river/",
-      "statusCode": 301
-    },
-    {
-      "route": "/rivers/cedar-river-dreisner-riverwood",
-      "redirect": "/rivers/by-river/cedar-river/",
-      "statusCode": 301
-    },
-    {
-      "route": "/rivers/eau-claire-river-ross-drott",
-      "redirect": "/rivers/by-river/eau-claire-river/",
-      "statusCode": 301
-    },
-    {
-      "route": "/rivers/rock-river-county-p-willow-street",
-      "redirect": "/rivers/by-river/rock-river/",
-      "statusCode": 301
-    },
-    {
-      "route": "/rivers/mississippi-river-iron-bridge-county-road-12-dam",
-      "redirect": "/rivers/by-river/mississippi-river/",
-      "statusCode": 301
-    },
-    {
-      "route": "/rivers/shell-rock-river-heery-woods-renning",
-      "redirect": "/rivers/by-river/shell-rock-river/",
-      "statusCode": 301
-    },
-    {
-      "route": "/rivers/rock-river-kanow-county-p",
-      "redirect": "/rivers/by-river/rock-river/",
-      "statusCode": 301
-    },
-    {
-      "route": "/rivers/south-fork-kentucky-river-upper-wolf-creek-fish-creek",
-      "redirect": "/rivers/by-river/south-fork-kentucky-river/",
-      "statusCode": 301
-    },
-    {
-      "route": "/rivers/big-fork-river-big-falls-west-ben-linn",
-      "redirect": "/rivers/by-river/big-fork-river/",
-      "statusCode": 301
-    },
-    {
-      "route": "/rivers/susquehanna-river-terrytown-laceyville",
-      "redirect": "/rivers/by-river/susquehanna-river/",
-      "statusCode": 301
-    },
-    {
-      "route": "/rivers/rum-river-onamia-wayside",
-      "redirect": "/rivers/by-river/rum-river/",
-      "statusCode": 301
-    },
-    {
-      "route": "/rivers/wisconsin-river-pine-bluff-brokaw",
-      "redirect": "/rivers/by-river/wisconsin-river/",
-      "statusCode": 301
-    },
-    {
-      "route": "/rivers/sugar-river-brodhead-avon",
-      "redirect": "/rivers/by-river/sugar-river/",
-      "statusCode": 301
-    },
-    {
-      "route": "/rivers/clinton-river-budd-shadyside",
-      "redirect": "/rivers/by-river/clinton-river/",
-      "statusCode": 301
-    },
-    {
-      "route": "/rivers/clinton-river-budd-macarthur",
-      "redirect": "/rivers/by-river/clinton-river/",
-      "statusCode": 301
-    },
-    {
-      "route": "/rivers/juniata-river-newport-green-valley",
-      "redirect": "/rivers/juniata-river-greenwood-amity-hall/",
-      "statusCode": 301
-    },
-    {
-      "route": "/rivers/barren-river-tailwater-vpa-3",
-      "redirect": "/rivers/by-river/barren-river/#trip-barren-river-tailwater-martinsville",
-      "statusCode": 301
-    },
-    {
-      "route": "/rivers/sauk-river-st-martin-rockville",
-      "redirect": "/rivers/by-river/sauk-river/",
-      "statusCode": 301
-    },
-    {
-      "route": "/rivers/sauk-river-spring-hill-frogtown",
-      "redirect": "/rivers/by-river/sauk-river/",
-      "statusCode": 301
-    },
-    {
-      "route": "/rivers/sauk-river-st-martin-frogtown",
-      "redirect": "/rivers/by-river/sauk-river/",
-      "statusCode": 301
-    },
-    {
-      "route": "/rivers/sauk-river-st-martin-eagle-park",
-      "redirect": "/rivers/by-river/sauk-river/",
-      "statusCode": 301
-    }
+    {"route":"/.well-known/*","headers":{"Content-Type":"application/json","Cache-Control":"public, max-age=3600"}},
+    {"route":"/sitemap.xml","redirect":"/sitemap-index.xml","statusCode":301},
+    {"route":"/rivers/delaware-river-hancock-callicoon","redirect":"/rivers/by-river/delaware-river/#trip-delaware-river-hancock-callicoon","statusCode":301},
+    {"route":"/rivers/minnesota-river-judson-riverside-st-peter","redirect":"/rivers/by-river/minnesota-river/","statusCode":301},
+    {"route":"/rivers/rio-grande-taos-junction-lone-juniper","redirect":"/rivers/by-river/rio-grande-new-mexico/#trip-rio-grande-taos-junction-lone-juniper","statusCode":301},
+    {"route":"/rivers/rio-grande-taos-junction-county-line","redirect":"/rivers/by-river/rio-grande-new-mexico/#trip-rio-grande-taos-junction-county-line","statusCode":301},
+    {"route":"/rivers/rio-grande-lone-juniper-county-line","redirect":"/rivers/by-river/rio-grande-new-mexico/#trip-rio-grande-lone-juniper-county-line","statusCode":301},
+    {"route":"/rivers/rio-grande-lone-juniper-quartzite","redirect":"/rivers/by-river/rio-grande-new-mexico/#trip-rio-grande-lone-juniper-quartzite","statusCode":301},
+    {"route":"/rivers/wabash-river-linn-grove-white-bridge","redirect":"/rivers/by-river/wabash-river/#trip-wabash-river-linn-grove-white-bridge","statusCode":301},
+    {"route":"/rivers/green-river-american-legion-greensburg","redirect":"/rivers/by-river/green-river-kentucky/","statusCode":301},
+    {"route":"/rivers/eleven-point-river-greer-crossing-riverton","redirect":"/rivers/by-river/eleven-point-river/#trip-eleven-point-river-greer-crossing-riverton","statusCode":301},
+    {"route":"/rivers/willimantic-river-commuter-nye-holman","redirect":"/rivers/by-river/willimantic-river-connecticut/#trip-willimantic-river-commuter-nye-holman","statusCode":301},
+    {"route":"/rivers/willimantic-river-heron-cove-pecks-mill","redirect":"/rivers/by-river/willimantic-river-connecticut/#trip-willimantic-river-heron-cove-pecks-mill","statusCode":301},
+    {"route":"/rivers/willimantic-river-river-park-eagleville-lake","redirect":"/rivers/by-river/willimantic-river-connecticut/#trip-willimantic-river-river-park-eagleville-lake","statusCode":301},
+    {"route":"/rivers/willimantic-river-eagleville-route-66","redirect":"/rivers/by-river/willimantic-river-connecticut/#trip-willimantic-river-eagleville-route-66","statusCode":301},
+    {"route":"/rivers/willimantic-river-commuter-route-66","redirect":"/rivers/by-river/willimantic-river-connecticut/#trip-willimantic-river-commuter-route-66","statusCode":301},
+    {"route":"/rivers/willimantic-river-*","redirect":"/rivers/by-river/willimantic-river-connecticut/","statusCode":301},
+    {"route":"/rivers/chattahoochee-river-lower-pool-abbotts-bridge","rewrite":"/rivers/chattahoochee-river-lower-pool-abbotts-bridge/index.html"},
+    {"route":"/rivers/chattahoochee-river-abbotts-bridge-medlock-bridge","rewrite":"/rivers/chattahoochee-river-abbotts-bridge-medlock-bridge/index.html"},
+    {"route":"/rivers/chattahoochee-river-medlock-bridge-jones-bridge","rewrite":"/rivers/chattahoochee-river-medlock-bridge-jones-bridge/index.html"},
+    {"route":"/rivers/chattahoochee-river-medlock-bridge-garrard-landing","rewrite":"/rivers/chattahoochee-river-medlock-bridge-garrard-landing/index.html"},
+    {"route":"/rivers/chattahoochee-river-island-ford-don-white","rewrite":"/rivers/chattahoochee-river-island-ford-don-white/index.html"},
+    {"route":"/rivers/chattahoochee-river-jones-bridge-chattahoochee-river-park","rewrite":"/rivers/chattahoochee-river-jones-bridge-chattahoochee-river-park/index.html"},
+    {"route":"/rivers/chattahoochee-river-morgan-falls-park-johnson-ferry","rewrite":"/rivers/chattahoochee-river-morgan-falls-park-johnson-ferry/index.html"},
+    {"route":"/rivers/chattahoochee-river-johnson-ferry-powers-island","rewrite":"/rivers/chattahoochee-river-johnson-ferry-powers-island/index.html"},
+    {"route":"/rivers/chattahoochee-river-ga115-duncan-bridge","rewrite":"/rivers/chattahoochee-river-ga115-duncan-bridge/index.html"},
+    {"route":"/rivers/chattahoochee-river-powers-island-paces-mill","rewrite":"/rivers/chattahoochee-river-powers-island-paces-mill/index.html"},
+    {"route":"/rivers/chattahoochee-river-columbus-whitewater-park","rewrite":"/rivers/chattahoochee-river-columbus-whitewater-park/index.html"},
+    {"route":"/rivers/chattahoochee-river-*","redirect":"/rivers/by-river/chattahoochee-river/","statusCode":301},
+    {"route":"/rivers/goose-creek-jacks-dump-hollow","redirect":"/rivers/by-river/goose-creek/#trip-goose-creek-jacks-dump-hollow","statusCode":301},
+    {"route":"/rivers/goose-creek-jacks-laurel-branch","redirect":"/rivers/by-river/goose-creek/#trip-goose-creek-jacks-laurel-branch","statusCode":301},
+    {"route":"/rivers/susquehanna-river-canal-park-wetlands","redirect":"/rivers/by-river/susquehanna-river/#trip-susquehanna-river-canal-park-test-track","statusCode":301},
+    {"route":"/rivers/susquehanna-river-sayre-towanda","redirect":"/rivers/by-river/susquehanna-river/","statusCode":301},
+    {"route":"/rivers/susquehanna-river-sayre-wysox-township-park","redirect":"/rivers/by-river/susquehanna-river/","statusCode":301},
+    {"route":"/rivers/susquehanna-river-tunkhannock-west-falls","redirect":"/rivers/by-river/susquehanna-river/#trip-susquehanna-river-laceyville-west-falls","statusCode":301},
+    {"route":"/rivers/susquehanna-river-laceyville-meshoppen","redirect":"/rivers/by-river/susquehanna-river/#trip-susquehanna-river-laceyville-west-falls","statusCode":301},
+    {"route":"/rivers/susquehanna-river-bloomsburg-danville","redirect":"/rivers/by-river/susquehanna-river/#trip-susquehanna-river-test-track-danville","statusCode":301},
+    {"route":"/rivers/susquehanna-river-sayre-hornbrook","redirect":"/rivers/by-river/susquehanna-river/","statusCode":301},
+    {"route":"/rivers/susquehanna-river-meshoppen-tunkhannock","redirect":"/rivers/by-river/susquehanna-river/#trip-susquehanna-river-laceyville-west-falls","statusCode":301},
+    {"route":"/rivers/susquehanna-river-bloomsburg-indian-head","redirect":"/rivers/by-river/susquehanna-river/#trip-susquehanna-river-test-track-danville","statusCode":301},
+    {"route":"/rivers/susquehanna-river-sayre-ulster-bridge","redirect":"/rivers/by-river/susquehanna-river/","statusCode":301},
+    {"route":"/rivers/susquehanna-river-whites-ferry-west-falls","redirect":"/rivers/by-river/susquehanna-river/#trip-susquehanna-river-laceyville-west-falls","statusCode":301},
+    {"route":"/rivers/susquehanna-river-wetlands-test-track","redirect":"/rivers/by-river/susquehanna-river/#trip-susquehanna-river-canal-park-test-track","statusCode":301},
+    {"route":"/rivers/susquehanna-river-pfbc-union-township-wetlands","redirect":"/rivers/by-river/susquehanna-river/#trip-susquehanna-river-canal-park-test-track","statusCode":301},
+    {"route":"/rivers/susquehanna-river-tunkhannock-whites-ferry","redirect":"/rivers/by-river/susquehanna-river/#trip-susquehanna-river-laceyville-west-falls","statusCode":301},
+    {"route":"/rivers/susquehanna-river-indian-head-danville","redirect":"/rivers/by-river/susquehanna-river/#trip-susquehanna-river-test-track-danville","statusCode":301},
+    {"route":"/rivers/susquehanna-river-canal-park-pfbc-union-township","redirect":"/rivers/by-river/susquehanna-river/#trip-susquehanna-river-canal-park-test-track","statusCode":301},
+    {"route":"/rivers/potomac-river-taylors-snyders","redirect":"/rivers/by-river/potomac-river-maryland/#trip-potomac-river-taylors-snyders","statusCode":301},
+    {"route":"/rivers/mohawk-river-lock-9-freemans-bridge","redirect":"/rivers/erie-canal-rotterdam-junction-freemans-bridge/","statusCode":301},
+    {"route":"/rivers/penobscot-river-greenbush-winn","redirect":"/rivers/by-river/penobscot-river/#trip-penobscot-river-winn-greenbush","statusCode":301},
+    {"route":"/rivers/st-croix-river-taylors-falls-osceola","redirect":"/rivers/st-croix-river-interstate-osceola/","statusCode":301},
+    {"route":"/rivers/st-croix-river-taylors-falls-to-osceola","redirect":"/rivers/st-croix-river-interstate-osceola/","statusCode":301},
+    {"route":"/rivers/st-croix-river-taylors-falls-to-osceola-landing","redirect":"/rivers/st-croix-river-interstate-osceola/","statusCode":301},
+    {"route":"/rivers/snake-river-rush-city-bridgeview-park","redirect":"/rivers/snake-river-county-road-3-mora/","statusCode":301},
+    {"route":"/rivers/snake-river-rush-city-to-bridgeview-park","redirect":"/rivers/snake-river-county-road-3-mora/","statusCode":301},
+    {"route":"/rivers/by-river/jump-river","redirect":"/rivers/jump-river-wayside-park-sheldon/","statusCode":301},
+    {"route":"/rivers/minnehaha-creek-grays-bay-knollwood","redirect":"/guides/minnehaha-creek-paddling/","statusCode":301},
+    {"route":"/rivers/minnehaha-creek-grays-bay-to-target-knollwood","redirect":"/guides/minnehaha-creek-paddling/","statusCode":301},
+    {"route":"/rivers/by-river/green-river","redirect":"/rivers/by-river/green-river-kentucky/","statusCode":301},
+    {"route":"/rivers/kansas-river-belvue-kaw-river-state-park","redirect":"/rivers/by-river/kansas-river/","statusCode":301},
+    {"route":"/rivers/kansas-river-blue-river-belvue","redirect":"/rivers/by-river/kansas-river/","statusCode":301},
+    {"route":"/rivers/kansas-river-de-soto-edwardsville","redirect":"/rivers/by-river/kansas-river/","statusCode":301},
+    {"route":"/rivers/kansas-river-edwardsville-turner-bridge","redirect":"/rivers/by-river/kansas-river/","statusCode":301},
+    {"route":"/rivers/kansas-river-turner-bridge-kaw-point","redirect":"/rivers/by-river/kansas-river/","statusCode":301},
+    {"route":"/rivers/kansas-river-manhattan-st-george","redirect":"/rivers/by-river/kansas-river/","statusCode":301},
+    {"route":"/rivers/kansas-river-manhattan-wamego","redirect":"/rivers/by-river/kansas-river/","statusCode":301},
+    {"route":"/rivers/kansas-river-st-george-wamego","redirect":"/rivers/by-river/kansas-river/","statusCode":301},
+    {"route":"/rivers/kansas-river-wamego-belvue","redirect":"/rivers/by-river/kansas-river/","statusCode":301},
+    {"route":"/rivers/kansas-river-seward-lecompton","redirect":"/rivers/by-river/kansas-river/","statusCode":301},
+    {"route":"/rivers/susquehanna-river-test-track-bloomsburg","redirect":"/rivers/by-river/susquehanna-river/#trip-susquehanna-river-test-track-danville","statusCode":301},
+    {"route":"/rivers/juniata-river-greenwood-newport","redirect":"/rivers/by-river/juniata-river/","statusCode":301},
+    {"route":"/rivers/french-creek-wilson-chutes-utica","redirect":"/rivers/by-river/french-creek/","statusCode":301},
+    {"route":"/rivers/by-river/minnehaha-creek","redirect":"/guides/minnehaha-creek-paddling/","statusCode":301},
+    {"route":"/rivers/by-river/big-eau-pleine-river","redirect":"/rivers/big-eau-pleine-river-cherokee-march-rapids/","statusCode":301},
+    {"route":"/rivers/kansas-river-st-george-belvue","redirect":"/rivers/by-river/kansas-river/","statusCode":301},
+    {"route":"/rivers/sheboygan-river-rochester-esslingen","redirect":"/rivers/by-river/sheboygan-river/","statusCode":301},
+    {"route":"/rivers/juniata-river-mifflin-muskrat-springs","redirect":"/rivers/by-river/juniata-river/","statusCode":301},
+    {"route":"/rivers/red-river-north-dam-mb-johnson","redirect":"/rivers/by-river/red-river-of-the-north/","statusCode":301},
+    {"route":"/rivers/rock-river-harnischfeger-kaul","redirect":"/rivers/by-river/rock-river/","statusCode":301},
+    {"route":"/rivers/st-louis-river-county-road-4-95","redirect":"/rivers/by-river/st-louis-river/","statusCode":301},
+    {"route":"/rivers/black-river-wayside-reese","redirect":"/rivers/by-river/black-river/","statusCode":301},
+    {"route":"/rivers/buffalo-river-steel-creek-kyles-landing","redirect":"/rivers/by-river/buffalo-river/","statusCode":301},
+    {"route":"/rivers/minnehaha-creek-grays-bay-longfellow-lagoon","redirect":"/guides/minnehaha-creek-paddling/","statusCode":301},
+    {"route":"/rivers/juniata-river-mifflin-walker","redirect":"/rivers/by-river/juniata-river/","statusCode":301},
+    {"route":"/rivers/juniata-river-walker-muskrat-springs","redirect":"/rivers/by-river/juniata-river/","statusCode":301},
+    {"route":"/rivers/juniata-river-portstown-park-riverside-park","redirect":"/rivers/by-river/juniata-river/","statusCode":301},
+    {"route":"/rivers/juniata-river-portstown-park-newton-hamilton","redirect":"/rivers/by-river/juniata-river/","statusCode":301},
+    {"route":"/rivers/juniata-river-portstown-park-juniata-point","redirect":"/rivers/by-river/juniata-river/","statusCode":301},
+    {"route":"/rivers/juniata-river-lewistown-narrows-walker","redirect":"/rivers/by-river/juniata-river/","statusCode":301},
+    {"route":"/rivers/juniata-river-mt-union-newton-hamilton","redirect":"/rivers/by-river/juniata-river/","statusCode":301},
+    {"route":"/rivers/juniata-river-mifflintown-walker","redirect":"/rivers/by-river/juniata-river/","statusCode":301},
+    {"route":"/rivers/juniata-river-granville-lewistown-narrows","redirect":"/rivers/by-river/juniata-river/","statusCode":301},
+    {"route":"/rivers/juniata-river-riverside-park-newton-hamilton","redirect":"/rivers/by-river/juniata-river/","statusCode":301},
+    {"route":"/rivers/juniata-river-victory-park-lewistown-narrows","redirect":"/rivers/by-river/juniata-river/","statusCode":301},
+    {"route":"/rivers/juniata-river-riverside-park-mt-union","redirect":"/rivers/by-river/juniata-river/","statusCode":301},
+    {"route":"/rivers/juniata-river-newport-amity-hall","redirect":"/rivers/by-river/juniata-river/","statusCode":301},
+    {"route":"/rivers/juniata-river-green-valley-amity-hall","redirect":"/rivers/by-river/juniata-river/","statusCode":301},
+    {"route":"/rivers/juniata-river-newport-howe-township","redirect":"/rivers/by-river/juniata-river/","statusCode":301},
+    {"route":"/rivers/juniata-river-juniata-point-newton-hamilton","redirect":"/rivers/by-river/juniata-river/","statusCode":301},
+    {"route":"/rivers/juniata-river-granville-victory-park","redirect":"/rivers/by-river/juniata-river/","statusCode":301},
+    {"route":"/rivers/juniata-river-shawmut-newton-hamilton","redirect":"/rivers/by-river/juniata-river/","statusCode":301},
+    {"route":"/rivers/juniata-river-howe-township-amity-hall","redirect":"/rivers/by-river/juniata-river/","statusCode":301},
+    {"route":"/rivers/juniata-river-juniata-point-riverside-park","redirect":"/rivers/by-river/juniata-river/","statusCode":301},
+    {"route":"/rivers/juniata-river-lewistown-narrows-mifflin","redirect":"/rivers/by-river/juniata-river/","statusCode":301},
+    {"route":"/rivers/juniata-river-riverside-park-shawmut","redirect":"/rivers/by-river/juniata-river/","statusCode":301},
+    {"route":"/rivers/juniata-river-victory-park-mifflintown","redirect":"/rivers/by-river/juniata-river/","statusCode":301},
+    {"route":"/rivers/juniata-river-granville-mifflin","redirect":"/rivers/by-river/juniata-river/","statusCode":301},
+    {"route":"/rivers/juniata-river-juniata-point-mt-union","redirect":"/rivers/by-river/juniata-river/","statusCode":301},
+    {"route":"/rivers/cedar-river-dreisner-riverwood","redirect":"/rivers/by-river/cedar-river/","statusCode":301},
+    {"route":"/rivers/eau-claire-river-ross-drott","redirect":"/rivers/by-river/eau-claire-river/","statusCode":301},
+    {"route":"/rivers/rock-river-county-p-willow-street","redirect":"/rivers/by-river/rock-river/","statusCode":301},
+    {"route":"/rivers/mississippi-river-iron-bridge-county-road-12-dam","redirect":"/rivers/by-river/mississippi-river/","statusCode":301},
+    {"route":"/rivers/shell-rock-river-heery-woods-renning","redirect":"/rivers/by-river/shell-rock-river/","statusCode":301},
+    {"route":"/rivers/rock-river-kanow-county-p","redirect":"/rivers/by-river/rock-river/","statusCode":301},
+    {"route":"/rivers/south-fork-kentucky-river-upper-wolf-creek-fish-creek","redirect":"/rivers/by-river/south-fork-kentucky-river/","statusCode":301},
+    {"route":"/rivers/big-fork-river-big-falls-west-ben-linn","redirect":"/rivers/by-river/big-fork-river/","statusCode":301},
+    {"route":"/rivers/susquehanna-river-terrytown-laceyville","redirect":"/rivers/by-river/susquehanna-river/","statusCode":301},
+    {"route":"/rivers/rum-river-onamia-wayside","redirect":"/rivers/by-river/rum-river/","statusCode":301},
+    {"route":"/rivers/wisconsin-river-pine-bluff-brokaw","redirect":"/rivers/by-river/wisconsin-river/","statusCode":301},
+    {"route":"/rivers/sugar-river-brodhead-avon","redirect":"/rivers/by-river/sugar-river/","statusCode":301},
+    {"route":"/rivers/clinton-river-budd-shadyside","redirect":"/rivers/by-river/clinton-river/","statusCode":301},
+    {"route":"/rivers/clinton-river-budd-macarthur","redirect":"/rivers/by-river/clinton-river/","statusCode":301},
+    {"route":"/rivers/juniata-river-newport-green-valley","redirect":"/rivers/juniata-river-greenwood-amity-hall/","statusCode":301},
+    {"route":"/rivers/barren-river-tailwater-vpa-3","redirect":"/rivers/by-river/barren-river/#trip-barren-river-tailwater-martinsville","statusCode":301},
+    {"route":"/rivers/sauk-river-st-martin-rockville","redirect":"/rivers/by-river/sauk-river/","statusCode":301},
+    {"route":"/rivers/sauk-river-spring-hill-frogtown","redirect":"/rivers/by-river/sauk-river/","statusCode":301},
+    {"route":"/rivers/sauk-river-st-martin-frogtown","redirect":"/rivers/by-river/sauk-river/","statusCode":301},
+    {"route":"/rivers/sauk-river-st-martin-eagle-park","redirect":"/rivers/by-river/sauk-river/","statusCode":301},
+    {"route":"/rivers/boone-river-riverside-albright","redirect":"/rivers/by-river/boone-river/#trip-boone-river-riverside-albright","statusCode":301},
+    {"route":"/rivers/green-river-hh-wilson-park-dennison-ferry","redirect":"/rivers/by-river/green-river-kentucky/","statusCode":301},
+    {"route":"/rivers/north-fork-maquoketa-river-d61-caven","redirect":"/rivers/by-river/north-fork-maquoketa-river/#trip-north-fork-maquoketa-river-d61-caven","statusCode":301},
+    {"route":"/rivers/turkey-river-motor-mill-garber","redirect":"/rivers/by-river/turkey-river/#trip-turkey-river-motor-mill-garber","statusCode":301},
+    {"route":"/rivers/jacks-fork-river-rymers-chilton","redirect":"/rivers/by-river/jacks-fork-river/#trip-jacks-fork-river-rymers-chilton","statusCode":301},
+    {"route":"/rivers/tradewater-river-bellville-fishtrap","redirect":"/rivers/by-river/tradewater-river/#trip-tradewater-river-bellville-fishtrap","statusCode":301},
+    {"route":"/rivers/buffalo-river-ponca-erbie","redirect":"/rivers/by-river/buffalo-river/#trip-buffalo-river-ponca-erbie","statusCode":301}
   ],
   "responseOverrides": {
     "404": {

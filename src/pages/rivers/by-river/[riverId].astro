@@ -2125,11 +2125,12 @@ const groupStructuredData = [
                         ) : null}
                       </div>
                     </details>
-                  ) : (
+                  ) : null}
+                  {!hasConsolidatedRoutePage ? (
                     <a class="river-link river-link--inline route-choice__details-link" href={routeDetailHref(route)}>
                       {hasConsolidatedTrips ? 'View trip option' : 'View route'}
                     </a>
-                  )}
+                  ) : null}
                 </article>
               );
             })}
