@@ -219,6 +219,10 @@ const appDownloadConfigJson = JSON.stringify({
             </nav>
             {webFeatureFlags.webAccountExperience && <AccountMenu />}
           </div>
+          <nav class="site-header__contribute" aria-label="Share with Paddle Today">
+            <a class="site-header__contribute-link site-header__contribute-link--request" href="/request-river/" aria-current={currentPage === '/request-river' ? 'page' : undefined}>Request a Route</a>
+            <a class="site-header__contribute-link" href="/contact/" aria-current={currentPage === '/contact' ? 'page' : undefined}>Feedback</a>
+          </nav>
           <p class="site-header__blurb">
             {headerBlurb}
           </p>

@@ -13427,4 +13427,39 @@ html body .action-feedback button:focus-visible {
   }
 }
 
+.site-header__contribute {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+  gap: 0.5rem;
+}
+.site-header__contribute-link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 44px;
+  padding: 0.4rem 0.9rem;
+  border: 1px solid rgba(16, 35, 45, 0.2);
+  border-radius: 999px;
+  color: var(--river-deep);
+  background: #fff;
+  font-size: 0.85rem;
+  font-weight: 600;
+  text-decoration: none;
+}
+.site-header__contribute-link--request {
+  background: var(--river-deep);
+  border-color: var(--river-deep);
+  color: #fff;
+}
+.site-header__contribute-link:hover { text-decoration: underline; text-underline-offset: 3px; }
+@media (max-width: 760px) {
+  .site-header__contribute {
+    grid-column: 1 / -1;
+    grid-row: 3;
+    justify-content: center;
+    width: 100%;
+  }
+}
+
 /* Let larger text stack the decision cards within their available space. */
