@@ -29,6 +29,7 @@ This app is intentionally narrow. The MVP currently ships:
 - river detail timestamps for both latest gauge observation and latest score generation
 - explicit threshold-evidence quality and confidence rationale on river detail pages
 - river-detail gauge trend and compact weather visuals
+- USGS river-camera views on route detail pages where the route's gauge has a public NIMS camera, with capture times and links to HIVIS
 - summary-page search plus state, region, and chip filters
 - summary-page board sort modes plus an always-visible score map
 - manual refresh controls plus 5-minute auto-refresh on summary and detail pages
@@ -48,6 +49,11 @@ It does not ship:
 - broad national coverage
 
 ## Stack
+
+River cameras use the official USGS NIMS imagery catalog through `/api/rivers/:slug/cameras.json`.
+The backend caches the shared catalog for 15 minutes and matches exact USGS gauge IDs; it never infers a camera's coverage of the paddling reach.
+Images older than two hours are labeled as older images. During an upstream outage, cached frames retain their original capture times; without a cached catalog, the camera panel stays hidden.
+An optional server-side `USGS_API_KEY` increases the upstream request allowance. Camera images do not affect scoring.
 
 - Astro 5
 - static Astro UI
