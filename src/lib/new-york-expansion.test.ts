@@ -3120,7 +3120,7 @@ describe('New York strategic expansion', () => {
     expect(route?.gaugeSource.siteId).toBe('01348000');
     expect(route?.profile.thresholdModel).toBe('minimum-only');
     expect(route?.profile.tooLow).toBeUndefined();
-    expect(route?.scoreEligibility).toBe('scored');
+    expect(route?.scoreEligibility).toBe('planning');
     expect(route?.accessPoints).toHaveLength(2);
     expect(route?.logistics?.campingClassification).toBe('nearby_basecamp');
     expect(route?.profile.difficulty).toBe('moderate');
@@ -3180,7 +3180,7 @@ describe('New York strategic expansion', () => {
     expect(route?.routeType).toBe('recreational');
     expect(route?.gaugeSource.kind).toBe('direct');
     expect(route?.gaugeSource.siteId).toBe('04276500');
-    expect(route?.scoreEligibility).toBe('scored');
+    expect(route?.scoreEligibility).toBe('planning');
     expect(route?.profile.thresholdModel).toBe('minimum-only');
     expect(route?.profile.tooLow).toBeUndefined();
     expect(route?.accessPoints).toHaveLength(2);

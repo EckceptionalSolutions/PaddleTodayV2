@@ -1,15 +1,21 @@
 import { mkdir, writeFile } from 'node:fs/promises';
+import { readFileSync } from 'node:fs';
 import path from 'node:path';
 import { publicRivers } from '../src/data/rivers';
 import { riverTripDetails } from '../src/data/river-trip-details';
 import { coordinateWithheldRouteSlugs } from '../src/data/generated/withheld-route-slugs';
 import type { River, RiverAccessPoint } from '../src/lib/types';
+import { documentedHubTripPair, projectedOverlapMiles, tracesProperlyCross } from './lib/route-overlap-quality';
+import { corridorForSlug } from '../src/data/route-corridors';
+import { routePageConsolidationTarget } from '../src/data/route-page-consolidations';
 
 type Point = { latitude: number; longitude: number };
 type FindingType =
   | 'duplicate_or_reversed'
   | 'access_chain_contains'
   | 'crossing_segments'
+  | 'access_chord_crossing'
+  | 'documented_trip_overlap'
   | 'contained_connector'
   | 'near_collinear_overlap'
   | 'shared_endpoint';
@@ -37,9 +43,11 @@ interface AuditRoute {
   straightLineMi: number;
   source: 'accessPoints' | 'putInTakeOut';
   consolidation?: River['consolidation'];
+  trace?: Point[][];
 }
 
 interface Finding {
+  originalType?: FindingType;
   type: FindingType;
   severity: number;
   a: AuditRoute;
@@ -176,6 +184,12 @@ function buildRoute(route: River): AuditRoute | null {
     source: pointSet.source,
     consolidation: enriched.consolidation,
   };
+  try {
+    const feature = JSON.parse(readFileSync(path.join(root, 'public/data/canonical-river-geometries/routes', `${route.slug}.json`), 'utf8'));
+    if (feature.geometry?.type === 'MultiLineString' && feature.properties?.traceMode !== 'curated-access-fallback') {
+      auditRoute.trace = feature.geometry.coordinates.map((line: number[][]) => line.map(([longitude,latitude]) => ({ longitude,latitude })));
+    }
+  } catch { /* An absent published trace leaves chord intersections informational. */ }
 
   auditRoute.segments = pointSet.points.slice(1).map((end, index) => {
     const start = pointSet.points[index];
@@ -353,12 +367,15 @@ function analyzePair(a: AuditRoute, b: AuditRoute, findings: Finding[]) {
   for (const aSegment of a.segments) {
     for (const bSegment of b.segments) {
       if (segmentsCross(aSegment, bSegment)) {
+        const confirmed = a.trace && b.trace && tracesProperlyCross(a.trace,b.trace);
         addFinding(findings, {
-          type: 'crossing_segments',
-          severity: 85,
+          type: confirmed ? 'crossing_segments' : 'access_chord_crossing',
+          severity: confirmed ? 85 : 20,
           a,
           b,
-          detail: `segment ${aSegment.index + 1} crosses segment ${bSegment.index + 1}`,
+          detail: confirmed
+            ? `Published river traces cross; access segments ${aSegment.index + 1} and ${bSegment.index + 1} also intersect`
+            : `Straight access-point chords intersect (${aSegment.index + 1}/${bSegment.index + 1}); no river-trace crossing is confirmed. Informational geometry limitation.`,
         });
       }
     }
@@ -393,6 +410,7 @@ function analyzePair(a: AuditRoute, b: AuditRoute, findings: Finding[]) {
       );
       if (
         angle <= collinearAngleDeg &&
+        projectedOverlapMiles(aSegment.start,aSegment.end,bSegment.start,bSegment.end) >= 0.03 &&
         distanceMi <= collinearEndpointDistMi &&
         (!bestCollinear || distanceMi < bestCollinear.distanceMi)
       ) {
@@ -628,7 +646,7 @@ async function writeReports(routes: AuditRoute[], findings: Finding[]) {
 }
 
 async function main() {
-  const withheldSlugs = new Set(coordinateWithheldRouteSlugs);
+  const withheldSlugs = new Set<string>(coordinateWithheldRouteSlugs);
   const auditRoutes = publicRivers
     .filter((route) => !withheldSlugs.has(route.slug))
     .map(buildRoute)
@@ -641,7 +659,22 @@ async function main() {
     }
   }
 
+  const reviews = JSON.parse(readFileSync(path.join(root,'docs/corridor-review-ledger.json'),'utf8')) as Array<{corridorId:string;status:string}>;
+  const approved = new Set(reviews.filter((review)=>review.status==='approved').map((review)=>review.corridorId));
+  for (const finding of findings) {
+    if (finding.type==='duplicate_or_reversed' || finding.severity<50) continue;
+    const corridor=corridorForSlug(finding.a.slug)?.corridorId;
+    if (corridor && approved.has(corridor) && corridor===corridorForSlug(finding.b.slug)?.corridorId
+      && documentedHubTripPair(finding.a.slug,finding.b.slug,routePageConsolidationTarget(finding.a.slug),routePageConsolidationTarget(finding.b.slug))) {
+      finding.originalType=finding.type;
+      finding.type='documented_trip_overlap';finding.severity=30;
+      finding.detail=`Distinct selectable hub trips in approved corridor ${corridor}; intentional shared river coverage. Original geometry candidate (${finding.originalType}): ${finding.detail}. Route facts still require their own source verification.`;
+    }
+  }
+
   await writeReports(auditRoutes, findings);
+  const qaOutput = process.argv.find((arg) => arg.startsWith('--json-output='))?.slice('--json-output='.length);
+  if (qaOutput) await writeFile(qaOutput, JSON.stringify({ routeIds: auditRoutes.map((route) => route.id), findings: findings.map((finding) => ({ type: finding.type, originalType:finding.originalType, severity: finding.severity, routeIds: [finding.a.id, finding.b.id], detail: finding.detail })) }, null, 2));
 
   const counts = findings.reduce<Record<string, number>>((result, finding) => {
     result[finding.type] = (result[finding.type] ?? 0) + 1;

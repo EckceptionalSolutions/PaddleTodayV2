@@ -1,4 +1,4 @@
-import { mkdir, readFile, writeFile } from 'node:fs/promises';
+import { access, appendFile, mkdir, readFile, writeFile } from 'node:fs/promises';
 import path from 'node:path';
 import { endpointSnappedRiverNetwork } from '@paddletoday/geo';
 import { listAllRiversForAudit, listRivers } from '../src/lib/rivers';
@@ -9,6 +9,7 @@ import { officialAccessControlMatchesRoute } from './lib/official-access-control
 import { isAccessPointForQualityAudit } from './lib/access-point-audit-role';
 import { assessWaterProximity, buildAccessReviewQueue, pointInWaterPolygon, validateHydrographyResponse } from './lib/access-water-quality';
 import type { WaterProximity } from './lib/access-water-quality';
+import { fetchHydrographyPages } from './lib/hydrography-query';
 
 type Severity = 'ok' | 'review' | 'suspicious' | 'failure' | 'unknown';
 type EndpointLabel = 'putIn' | 'takeOut' | 'accessPoint';
@@ -23,6 +24,7 @@ interface ArcGisFeature {
 }
 
 interface ArcGisResponse {
+  evidenceSourceUrls?: string[];
   features?: ArcGisFeature[];
   error?: {
     message?: string;
@@ -30,6 +32,7 @@ interface ArcGisResponse {
 }
 
 interface EndpointAudit {
+  hydrographySource?: '3dhp-endpoint-local' | 'nhd-route-envelope';
   routeId: string;
   routeName: string;
   reach: string;
@@ -457,16 +460,22 @@ const args = new Set(process.argv.slice(2));
 const shouldRefresh = args.has('--refresh');
 const shouldUseCache = !args.has('--no-cache');
 const cacheOnly = args.has('--cache-only');
+const endpointLocal = args.has('--endpoint-local');
 const sourceIssues = new Map<string, string>();
 const routeArg = process.argv.find((arg) => arg.startsWith('--route='));
 const routeFilter = routeArg?.slice('--route='.length);
 const includeWithheld = args.has('--include-withheld');
+const offset = Number(process.argv.find((arg) => arg.startsWith('--offset='))?.slice('--offset='.length) ?? 0);
+const limitArg = process.argv.find((arg) => arg.startsWith('--limit='))?.slice('--limit='.length);
+const limit = limitArg === undefined ? undefined : Number(limitArg);
+const requestTimeoutMs=Number(process.argv.find((arg)=>arg.startsWith('--request-timeout-ms='))?.slice('--request-timeout-ms='.length)??15000);
+const requestAttempts=Number(process.argv.find((arg)=>arg.startsWith('--request-attempts='))?.slice('--request-attempts='.length)??2);
 const concurrencyArg = process.argv.find((arg) => arg.startsWith('--concurrency='));
 const concurrency = Math.max(1, Math.min(8, Number(concurrencyArg?.slice('--concurrency='.length) || 4)));
 
 function usage() {
   console.log([
-    'Usage: tsx scripts/audit-route-coordinate-river-distance.ts [--refresh] [--no-cache] [--cache-only] [--include-withheld] [--route=<route-id>] [--concurrency=<1-8>] [--output=<report.json>]',
+    'Usage: tsx scripts/audit-route-coordinate-river-distance.ts [--refresh] [--no-cache] [--cache-only] [--include-withheld] [--route=<route-id>] [--endpoint-local] [--offset=N] [--limit=N] [--request-timeout-ms=1000..60000] [--request-attempts=1..5] [--concurrency=<1-8>] [--output=<report.json>]',
     '',
     'Audits terminals and intermediate access points against USGS NHD flowlines and water polygons.',
     '--include-withheld also audits source routes currently withheld from public listings; the default audits listRivers().',
@@ -478,10 +487,6 @@ function usage() {
 if (args.has('--help')) {
   usage();
   process.exit(0);
-}
-
-function escapeSqlLiteral(value: string) {
-  return value.replace(/'/g, "''").toUpperCase();
 }
 
 function normalizeName(value: string | null | undefined) {
@@ -557,6 +562,7 @@ async function fetchJsonWithCache(key: string, url: string): Promise<ArcGisRespo
     try {
       const cached: unknown = JSON.parse(await readFile(file, 'utf8'));
       validateHydrographyResponse(cached);
+      if ((cached as any).features.length >= 1000 && (cached as any).paginationOrder !== 'OBJECTID') throw new Error('Large cached query requires stable-order pagination refresh');
       return cached as ArcGisResponse;
     } catch (error) {
       cacheIssue = (error as NodeJS.ErrnoException).code === 'ENOENT' ? 'No cached response'
@@ -571,26 +577,20 @@ async function fetchJsonWithCache(key: string, url: string): Promise<ArcGisRespo
   }
 
   let lastError: unknown;
-  for (let attempt = 1; attempt <= 5; attempt += 1) {
+  for (let attempt = 1; attempt <= requestAttempts; attempt += 1) {
     try {
-      const response = await fetch(url, { signal: AbortSignal.timeout(30_000) });
-      if (!response.ok) {
-        throw new Error(`NHD request failed ${response.status} ${response.statusText}`);
-      }
-
-      const text = await response.text();
-      const parsed: unknown = JSON.parse(text);
+      const parsed = await fetchHydrographyPages(url,{timeoutMs:requestTimeoutMs});
       validateHydrographyResponse(parsed);
       if (shouldUseCache) {
         // The cache can be cleared by another local process while the network
         // request is in flight. Re-create it immediately before writing.
         await mkdir(cacheDir, { recursive: true });
-        await writeFile(file, text);
+        await writeFile(file, JSON.stringify(parsed));
       }
       return parsed as ArcGisResponse;
     } catch (error) {
       lastError = error;
-      if (attempt < 5) {
+      if (attempt < requestAttempts) {
         await new Promise((resolve) => setTimeout(resolve, attempt * 1000));
       }
     }
@@ -744,7 +744,7 @@ function nearestWaterbody(point: LocatedAccessPoint, features: ArcGisFeature[]) 
 }
 
 function featureName(feature: ArcGisFeature | null | undefined) {
-  const value = feature?.attributes.GNIS_NAME ?? feature?.attributes.gnis_name;
+  const value = feature?.attributes.GNIS_NAME ?? feature?.attributes.gnis_name ?? feature?.attributes.gnisidlabel;
   return typeof value === 'string' && value.length > 0 ? value : null;
 }
 
@@ -780,7 +780,7 @@ function severityFor(routeId: string, distanceFeet: number | null, matchedRiverN
 
 function noteFor(result: Pick<EndpointAudit, 'distanceFeetToMatchedRiver' | 'matchedRiverName' | 'nearestWaterwayName' | 'severity'>) {
   if (result.distanceFeetToMatchedRiver === null || !result.matchedRiverName) {
-    return 'No matching named NHD flowline was returned inside the route bounding box.';
+    return 'No matching named flowline was returned in the queried hydrography area; this does not establish an incorrect coordinate.';
   }
 
   const distance = `${Math.round(result.distanceFeetToMatchedRiver)} ft`;
@@ -835,22 +835,54 @@ function officialWaterEntryFor(point: LocatedAccessPoint, route: River, controls
   return nearestOfficialAccessControl(point, route, controls);
 }
 
+function localHydroKey(point: LocatedAccessPoint, layer: string) {
+  return `point-v3-3dhp__${point.longitude.toFixed(7)}_${point.latitude.toFixed(7)}__${layer}`;
+}
+const localHydroQueries = new Map<string, Promise<ArcGisResponse>>();
+async function localHydrography(route: River, point: LocatedAccessPoint, layer: 'flowline' | 'waterbody' | 'area') {
+  // 3DHP's Waterbody layer combines lake/river polygons. There is no separate
+  // NHD Area request in this mode, and no claim of querying the retired layer.
+  if (layer === 'area') return { features: [] };
+  const key = localHydroKey(point, layer);
+  let query = localHydroQueries.get(key);
+  if (!query) {
+    const layers = layer === 'flowline' ? [50] : [60];
+    query = (async () => {
+      const sourceUrls = layers.map((id) => `https://hydro.nationalmap.gov/arcgis/rest/services/3DHP_all/MapServer/${id}/query`);
+      const results = await Promise.all(sourceUrls.map((service, index) => {
+        const url = new URL(buildNhdQuery(routeBounds([point], 0.005), '1=1', service));
+        url.searchParams.set('outFields', '*');
+        url.searchParams.delete('geometryPrecision');
+        // Generalize by at most 0.00001 degrees (under four feet), far below
+        // the 100/300/800-ft review bands, to bound large lake/coastal payloads.
+        url.searchParams.set('maxAllowableOffset','0.00001');
+        return fetchJsonWithCache(`${key}-${layers[index]}`, url.toString());
+      }));
+      return { features: results.flatMap((response) => response.features ?? []), evidenceSourceUrls: sourceUrls };
+    })();
+    localHydroQueries.set(key, query);
+    // Raw coastal polygons can be large. The disk cache remains complete;
+    // keep only a small working set in memory across the inventory sweep.
+    if (localHydroQueries.size > 64) localHydroQueries.delete(localHydroQueries.keys().next().value!);
+  }
+  try { return await query; } catch (error) {
+    sourceIssues.set(`${route.id}__${key}`, error instanceof Error ? error.message : String(error));
+    return { features: [] };
+  }
+}
+
 async function queryRouteFlowlines(route: River, points: LocatedAccessPoint[], additionalAlternates: string[] = []) {
   const margins = [0.04, 0.12, 0.3];
-  const routeName = escapeSqlLiteral(route.name);
-  const alternates = [...(acceptedAlternateWaterways[route.id] ?? []), ...additionalAlternates];
-  const where = [
-    `UPPER(GNIS_NAME) LIKE '%${routeName}%'`,
-    ...alternates.map((name) => `UPPER(GNIS_NAME) = '${escapeSqlLiteral(name)}'`),
-  ].join(' OR ');
 
   for (const margin of margins) {
     const bounds = routeBounds(points, margin);
     const keyBase = cacheKey([route.id, bboxKey(bounds)]);
-    const namedUrl = buildNhdQuery(bounds, where);
+    // SQL UPPER/contains filters can force a national scan and time out even
+    // for tiny envelopes. Query spatially, then match names locally instead.
+    const namedUrl = buildNhdQuery(bounds, '1=1');
     let named: ArcGisResponse;
     try {
-      named = await fetchJsonWithCache(`${keyBase}__named-variants-v2`, namedUrl);
+      named = await fetchJsonWithCache(`${keyBase}__all-flowlines-v3`, namedUrl);
     } catch {
       // A single NHD request failure must not prevent the remaining routes
       // from receiving an auditable unknown result.
@@ -860,17 +892,9 @@ async function queryRouteFlowlines(route: River, points: LocatedAccessPoint[], a
     const matchedFeatures = (named.features ?? []).filter((feature) => waterwayNameMatchesRoute(route.id, route.name, featureName(feature), additionalAlternates));
 
     if (matchedFeatures.length > 0 || margin === margins.at(-1)) {
-      const allUrl = buildNhdQuery(bounds, "GNIS_NAME IS NOT NULL AND GNIS_NAME <> ''");
-      let all: ArcGisResponse;
-      try {
-        all = await fetchJsonWithCache(`${keyBase}__all-named`, allUrl);
-      } catch {
-        return { matchedFeatures, allNamedFeatures: [], margin };
-      }
-      if (all.error?.message) return { matchedFeatures, allNamedFeatures: [], margin };
       return {
         matchedFeatures,
-        allNamedFeatures: all.features ?? [],
+        allNamedFeatures: (named.features ?? []).filter((feature) => featureName(feature)),
         margin,
       };
     }
@@ -988,8 +1012,23 @@ async function auditRoute(
     [putIn, takeOut].filter((point): point is LocatedAccessPoint => point !== null),
     officialAlternateControls,
   );
-  const { matchedFeatures, allNamedFeatures } = await queryRouteFlowlines(route, points, officialAlternates);
-  const waterbodyFeatures = await queryRouteWaterbodies(route, points);
+  const localCached = cacheOnly && (await Promise.all(points.flatMap((point) => [['flowline',50],['waterbody',60]].map(async ([layer, id]) => {
+    try { await access(path.join(cacheDir, `${localHydroKey(point, String(layer))}-${id}.json`)); return true; } catch { return false; }
+  })))).every(Boolean);
+  const useLocal = endpointLocal || localCached;
+  const localEvidence = new Map<string, { flows: ArcGisFeature[]; water: ArcGisFeature[] }>();
+  if (useLocal) {
+    for (const point of points) {
+      const [flow, body, area] = await Promise.all([
+        localHydrography(route, point, 'flowline'), localHydrography(route, point, 'waterbody'), localHydrography(route, point, 'area'),
+      ]);
+      localEvidence.set(localHydroKey(point, 'flowline'), { flows: flow.features ?? [], water: [...(body.features ?? []), ...(area.features ?? [])] });
+    }
+  }
+  const { matchedFeatures, allNamedFeatures } = useLocal
+    ? { matchedFeatures: [], allNamedFeatures: [] }
+    : await queryRouteFlowlines(route, points, officialAlternates);
+  const waterbodyFeatures = useLocal ? [] : await queryRouteWaterbodies(route, points);
 
   const entries: Array<readonly [EndpointLabel, LocatedAccessPoint | null]> = [
     ['putIn', putIn],
@@ -999,7 +1038,7 @@ async function auditRoute(
 
   const endpointEntries = entries.filter((entry): entry is readonly [EndpointLabel, LocatedAccessPoint] => entry[1] !== null);
   const namedEndpointDistances = endpointEntries.map(([, point]) => nearestFeature(point, matchedFeatures)?.distanceFeet ?? Infinity);
-  const shouldTraceConnectedNetwork = Boolean(
+  const shouldTraceConnectedNetwork = !useLocal && Boolean(
     putIn && takeOut && namedEndpointDistances.some((distanceFeet) => distanceFeet > 300),
   );
   const networkFeatures = shouldTraceConnectedNetwork && putIn && takeOut
@@ -1014,17 +1053,20 @@ async function auditRoute(
 
   return endpointEntries
     .map(([endpoint, point]) => {
-      const namedMatched = nearestFeature(point, matchedFeatures);
+      const local = localEvidence.get(localHydroKey(point, 'flowline'));
+      const namedMatched = nearestFeature(point, local
+        ? local.flows.filter((feature) => waterwayNameMatchesRoute(route.id, route.name, featureName(feature), officialAlternates))
+        : matchedFeatures);
       const connectedMatched = networkTraceFeature ? featureNearestPoint(point, networkTraceFeature) : null;
       const useConnectedNetwork = connectedMatched !== null
         && connectedMatched.distanceFeet < (namedMatched?.distanceFeet ?? Infinity);
       const matched = useConnectedNetwork
         ? { feature: networkTraceFeature!, ...connectedMatched }
         : namedMatched;
-      const nearest = nearestFeature(point, allNamedFeatures);
+      const nearest = nearestFeature(point, local ? local.flows.filter((feature) => featureName(feature)) : allNamedFeatures);
       const matchedRiverName = featureName(matched?.feature);
       const nearestWaterwayName = featureName(nearest?.feature);
-      const waterbody = nearestWaterbody(point, waterbodyFeatures);
+      const waterbody = nearestWaterbody(point, local?.water ?? waterbodyFeatures);
       const waterbodyName = featureName(waterbody?.feature);
       const endpointOnWaterbody = (waterbody?.distanceFeet ?? Infinity) <= 150;
       const areaAnchor = areaAnchorFor(point, route.state, areaAnchorControls);
@@ -1058,6 +1100,7 @@ async function auditRoute(
         ? 'review'
         : documentedNoFlowlineAccess ? 'review' : flowlineSeverity;
       const result: EndpointAudit = {
+        hydrographySource: useLocal ? '3dhp-endpoint-local' : 'nhd-route-envelope',
         routeId: route.id,
         routeName: route.name,
         reach: route.reach,
@@ -1124,6 +1167,11 @@ async function auditRoute(
 }
 
 async function run() {
+  if (!Number.isInteger(requestTimeoutMs)||requestTimeoutMs<1000||requestTimeoutMs>60000||!Number.isInteger(requestAttempts)||requestAttempts<1||requestAttempts>5) throw new Error('Request timeout must be 1000–60000 ms; attempts must be 1–5');
+  await mkdir(path.dirname(reportPath),{recursive:true});
+  if(endpointLocal)await writeFile(`${reportPath}.progress.jsonl`,'');
+  let progressWrites=Promise.resolve();
+  if (!Number.isInteger(offset) || offset < 0 || (limit !== undefined && (!Number.isInteger(limit) || limit < 1))) throw new Error('--offset must be a nonnegative integer and --limit a positive integer');
   if (!Number.isInteger(concurrency)) throw new Error('--concurrency must be a number between 1 and 8');
   if (cacheOnly && (shouldRefresh || !shouldUseCache)) throw new Error('--cache-only cannot be combined with --refresh or --no-cache');
   const officialMapControls = JSON.parse(await readFile(officialMapControlsPath, 'utf8')) as OfficialMapControls;
@@ -1199,9 +1247,10 @@ async function run() {
       }];
     }));
   const routeSource = includeWithheld ? listAllRiversForAudit() : listRivers();
-  const routesToAudit = routeFilter
+  const matchingRoutes = routeFilter
     ? routeSource.filter((route) => route.id === routeFilter)
     : routeSource;
+  const routesToAudit = matchingRoutes.slice(offset, limit === undefined ? undefined : offset + limit);
   if (routeFilter && routesToAudit.length === 0) {
     throw new Error(`No route found for --route=${routeFilter}`);
   }
@@ -1215,7 +1264,9 @@ async function run() {
       cursor += 1;
       const route = routesToAudit[index];
       console.error(`[${index + 1}/${routesToAudit.length}] ${route.id}`);
-      endpointResults.push(...await auditRoute(route, areaAnchorControls, officialWaterEntryControls, officialAccessAnchorControls, officialAlternateControls));
+      const results=await auditRoute(route, areaAnchorControls, officialWaterEntryControls, officialAccessAnchorControls, officialAlternateControls);
+      endpointResults.push(...results);
+      if(endpointLocal){progressWrites=progressWrites.then(()=>appendFile(`${reportPath}.progress.jsonl`,JSON.stringify({routeId:route.id,endpoints:results})+'\n'));await progressWrites;}
     }
   }));
 
@@ -1228,12 +1279,17 @@ async function run() {
   );
 
   const report = {
+    auditWindow:{offset,limit:limit??null,matchingRouteCount:matchingRoutes.length},
     schemaVersion: 2,
     generatedAt: new Date().toISOString(),
     evidenceMode: cacheOnly ? 'cache-only' : shouldRefresh ? 'refreshed' : 'cache-preferred',
     source: {
-      name: 'USGS National Hydrography Dataset Flowline, Area, and Waterbody - Large Scale',
+      name: 'USGS NHD route-envelope and 3DHP endpoint-local flowline/waterbody evidence',
+      endpointLocalSearchRadiusDegrees: 0.005,
+      endpointLocalMaxGeneralizationDegrees: 0.00001,
       urls: {
+        endpointLocalFlowline: 'https://hydro.nationalmap.gov/arcgis/rest/services/3DHP_all/MapServer/50',
+        endpointLocalWaterbody: 'https://hydro.nationalmap.gov/arcgis/rest/services/3DHP_all/MapServer/60',
         flowline: 'https://hydro.nationalmap.gov/arcgis/rest/services/nhd/MapServer/6',
         area: 'https://hydro.nationalmap.gov/arcgis/rest/services/nhd/MapServer/9',
         waterbody: 'https://hydro.nationalmap.gov/arcgis/rest/services/nhd/MapServer/12',

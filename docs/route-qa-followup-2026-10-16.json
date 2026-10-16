@@ -1,0 +1,74 @@
+{
+  "generatedAt": "2026-10-16T14:31:03.673Z",
+  "inventory": 2925,
+  "complete": true,
+  "checks": [
+    {
+      "id": "data",
+      "status": "passed"
+    },
+    {
+      "id": "safety",
+      "status": "completed"
+    },
+    {
+      "id": "coordinates",
+      "status": "passed"
+    },
+    {
+      "id": "geometry",
+      "status": "passed"
+    },
+    {
+      "id": "corridors",
+      "status": "passed"
+    },
+    {
+      "id": "gauges",
+      "status": "passed"
+    },
+    {
+      "id": "overlap",
+      "status": "passed"
+    },
+    {
+      "id": "source-links",
+      "status": "skipped"
+    }
+  ],
+  "findings": {
+    "issues": 3808,
+    "coverage": 29751,
+    "information": 9418
+  },
+  "highFindings": 46,
+  "publicHighFindings": 0,
+  "withheldRoutes": 206,
+  "coordinateSourceIssues": 10212,
+  "fixes": {
+    "broadRiver": {
+      "planningOnlyComposites": 17,
+      "retainedPublishedTrips": 8,
+      "vehicleTransferHolds": 6,
+      "accessSource": "docs/route-qa-broad-access-evidence-2026-10-16.json",
+      "tripSource": "docs/route-qa-broad-trip-evidence-2026-10-16.json"
+    },
+    "plantesFerryHolds": 4,
+    "northBendHold": 1,
+    "additionalAccessHolds": 8,
+    "comal": "600 cfs closure inclusive; corrected tubing time attribution and current rules; entry hold retained",
+    "overlap": "Removed adjacent-segment false positives; preserved documented overlaps and unconfirmed access-chord crossings as information"
+  },
+  "validation": {
+    "routeAndRuntimeTypechecks": "passed",
+    "broadSuite": "1013 tests passed across 186 files excluding independently failing Firebase registration test",
+    "targetedAfterFinalDataChanges": "30 tests passed across 5 files",
+    "browser": "desktop/mobile filters, views, withheld priority queue, fact checklist and no script errors passed",
+    "firebase": "Unrelated Firebase SDK Component auth has not been registered yet failure reproduced separately"
+  },
+  "limits": [
+    "All route facts are not yet verified. Missing source reviews remain visible.",
+    "Online hydrography refresh was partial; completed responses retained. Final full-inventory audit uses available caches and explicitly reports gaps.",
+    "Withholding resolves public exposure, not the underlying unverified water-entry coordinates. Coordinates were preserved pending defensible evidence."
+  ]
+}

@@ -1,5 +1,28 @@
 const token = document.querySelector('meta[name="route-control-token"]').content;
 
+const qaButton = document.getElementById('run-route-qa');
+const qaStatus = document.getElementById('route-qa-status');
+async function refreshQaStatus() {
+  try {
+    const response = await fetch('/api/qa/status', { cache: 'no-store' });
+    if (!response.ok) throw new Error('Could not load QA status.');
+    const run = await response.json();
+    qaButton.disabled = run.status === 'running';
+    qaStatus.textContent = run.status === 'idle' ? 'Ready to check all routes.' : run.status + ': ' + run.message;
+    if (run.status === 'running') setTimeout(refreshQaStatus, 5000);
+  } catch (error) { qaStatus.textContent = error.message; qaButton.disabled = false; }
+}
+qaButton.addEventListener('click', async () => {
+  qaButton.disabled = true;
+  try {
+    const response = await fetch('/api/qa/run', { method: 'POST', headers: { 'x-route-control-token': token } });
+    const result = await response.json();
+    if (!response.ok) throw new Error(result.error || 'Could not start Route QA.');
+    await refreshQaStatus();
+  } catch (error) { qaStatus.textContent = error.message; qaButton.disabled = false; }
+});
+refreshQaStatus();
+
 const elements = {
   health: document.querySelector('[data-health]'),
   nextMode: document.querySelector('[data-next-mode]'),

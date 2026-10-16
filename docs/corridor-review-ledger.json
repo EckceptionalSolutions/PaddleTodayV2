@@ -2278,5 +2278,29 @@
     "continuityStatus": "condition-family",
     "nextReview": "2026-10-08",
     "notes": "Reviewed all 39 Verde River source records against the Town of Clarkdale's reach-specific access and flow guidance, Friends of the Verde's distinct paddle maps and warning that conditions vary by stretch, Forest Service access information, and route-specific RiverBrain runs. Keep four source-backed standalone guides: Lower TAPCO–Tuzigoot (3 mi), Tuzigoot–Highway 89A Bridge (6.5 mi), White Bridge–Beasley Flat (9 mi), and Beasley Flat–Childs (about 17 planning mi; Class III–IV+). Consolidate 28 other public endpoint combinations to their exact hub trip choices, while preserving the 32 currently public options. Keep all seven Sheep Crossing combinations withheld until the water-entry edge and long carry are mapped; old paths point to the access-review note. Retain scored community flow guidance only for the exact White Bridge–Beasley run; keep Beasley–Childs planning-only with its exact-run source context. Remove inherited river-wide numeric bands from all other trips. Clarkdale's 300+ cfs boating discouragement and 1,000+ cfs launch closure apply only to Lower TAPCO–Tuzigoot. The three river zones do not share a continuous condition profile."
+  },
+  {
+    "corridorId": "ky-levisa-fork-two-gauge-access-family",
+    "status": "review",
+    "owner": "route-data-team",
+    "continuityStatus": "condition-family",
+    "nextReview": "2026-11-15",
+    "notes": "Structural QA reconciliation only: the existing upstream and downstream route sets use different gauges. Retain condition-family status; no new continuous reach or flow claim is approved."
+  },
+  {
+    "corridorId": "ny-cedar-river-adirondacks-condition-family",
+    "status": "review",
+    "owner": "route-data-team",
+    "continuityStatus": "condition-family",
+    "nextReview": "2026-11-15",
+    "notes": "Structural QA reconciliation only: these two Adirondack routes are a different river from the Iowa/Minnesota Cedar River. Keep their separate condition-family grouping; source-level continuity review remains pending."
+  },
+  {
+    "corridorId": "ky-kinniconick-creek-lewis-county",
+    "status": "review",
+    "owner": "route-data-team",
+    "continuityStatus": "verified",
+    "nextReview": "2026-11-15",
+    "notes": "Structural QA reconciliation only: use the full Leatherwood Branch–Garrison route as canonical because its recorded access chain contains all three existing edges. Existing continuity designation is retained; this row does not approve new access facts."
   }
 ]

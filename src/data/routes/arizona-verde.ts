@@ -158,6 +158,7 @@ export function applyVerdeFlowPolicy(routes: River[]): River[] {
         : 'Planning route. Check the gauge nearest this reach, recent trend, weather and named access notes; no route-specific numeric flow range is verified.',
       profile: {
         ...profile,
+        thresholdModel: 'minimum-only',
         thresholdSource: routeScopedSource,
         thresholdSourceStrength: isClarkdaleReach ? 'official' : 'community',
         seasonNotes: isClarkdaleReach

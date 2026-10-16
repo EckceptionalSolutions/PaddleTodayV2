@@ -2201,6 +2201,7 @@ export const delawareRoutes: River[] = [
   },
   {
     id: 'murderkill-river-bowers-beach-loop',
+    scoreEligibility: 'planning',
     riverId: 'murderkill-river-delaware',
     slug: 'murderkill-river-bowers-beach-loop',
     name: 'Murderkill River',
@@ -2354,6 +2355,7 @@ export const delawareRoutes: River[] = [
   },
   {
     id: 'miller-creek-strawberry-sassafras',
+    scoreEligibility: 'planning',
     riverId: 'miller-creek-delaware',
     slug: 'miller-creek-strawberry-sassafras',
     name: 'Miller Creek',

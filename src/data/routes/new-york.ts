@@ -3237,6 +3237,7 @@ export const newYorkRoutes: River[] = [
   }),
   buildAdditionalNewYorkRoute({
     id: 'boquet-river-willsboro-noblewood',
+    scoreEligibility: 'planning',
     riverId: 'boquet-river',
     riverName: 'Boquet River',
     contextImageUrl: 'https://ny.water.usgs.gov/images/StationPictures/04276500.jpg',
@@ -4388,6 +4389,7 @@ export const newYorkRoutes: River[] = [
   }),
   buildAdditionalNewYorkRoute({
     id: 'east-canada-creek-dolgeville-route-5',
+    scoreEligibility: 'planning',
     riverId: 'east-canada-creek',
     riverName: 'East Canada Creek',
     contextImageUrl: 'https://ny.water.usgs.gov/images/StationPictures/01348000.jpg',

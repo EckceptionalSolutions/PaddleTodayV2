@@ -1,7 +1,7 @@
 import { createHash } from 'node:crypto';
 import { readFile, readdir } from 'node:fs/promises';
 import path from 'node:path';
-import { listRivers } from '../src/lib/rivers';
+import { listRivers, WITHHELD_ROUTE_SLUGS } from '../src/lib/rivers';
 
 const root = process.cwd();
 const assetPath = path.join(root, 'public', 'data', 'canonical-river-geometries.json');
@@ -165,6 +165,9 @@ async function main() {
   if (actualIds.some((id) => !expectedIds.includes(id))) throw new Error('Canonical geometry asset contains an unknown route ID.');
   if (features.some((feature) => feature.geometry?.type !== 'MultiLineString')) throw new Error('Canonical geometry asset contains a non-MultiLineString feature.');
   for (const [routeId, controlPoints] of Object.entries(requiredRouteControlPoints)) {
+    // An explicit coordinate hold removes a route from public geometry. Keep
+    // its required controls for release review without requiring publication.
+    if (WITHHELD_ROUTE_SLUGS.has(routeId)) continue;
     const feature = features.find((candidate) => candidate.properties?.routeId === routeId);
     const coordinates = feature?.geometry?.coordinates;
     if (!Array.isArray(coordinates)) throw new Error(`Required route geometry is missing: ${routeId}`);

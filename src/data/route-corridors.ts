@@ -1,4 +1,5 @@
 import type { RouteSegmentEdge } from '@paddletoday/api-contract';
+import { routeInventory } from './rivers';
 
 export interface RouteCorridorDefinition {
   corridorId: string;
@@ -544,7 +545,8 @@ export const routeCorridorDefinitions: RouteCorridorDefinition[] = [
     corridorId: 'ia-cedar-river-condition-family',
     label: 'Cedar River condition family',
     continuityStatus: 'condition-family',
-    slugPrefix: 'cedar-river-',
+    // The Adirondack Cedar River is a different river with its own corridor.
+    slugs: routeInventory.filter((route) => ['Iowa', 'Minnesota'].includes(route.state) && route.slug.startsWith('cedar-river-')).map((route) => route.slug),
   },
   {
     corridorId: 'mn-crow-wing-condition-family',
@@ -614,7 +616,7 @@ export const routeCorridorDefinitions: RouteCorridorDefinition[] = [
     corridorId: 'ky-kinniconick-creek-lewis-county',
     label: 'Kinniconick Creek public access chain',
     continuityStatus: 'verified',
-    canonicalSlug: 'kinniconick-creek-leatherwood-branch-mcdowells-creek',
+    canonicalSlug: 'kinniconick-creek-leatherwood-branch-garrison',
     slugs: [
       'kinniconick-creek-leatherwood-branch-mcdowells-creek',
       'kinniconick-creek-leatherwood-branch-mill-pond-creek',

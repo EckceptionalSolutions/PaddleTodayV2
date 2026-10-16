@@ -39,6 +39,8 @@ npm.cmd run routes:control:ui
 
 Then open `http://127.0.0.1:4399`. The dashboard is bound to the local computer only.
 
+For route accuracy checks, use **Check all routes** and **Open latest QA report** in the dashboard, or run `npm.cmd run routes:qa`. The report combines existing audits with per-route source verification checklists and change tracking. See [Route QA](../../docs/route-qa.md) for filtering, evidence reviews, and source refresh options.
+
 The dashboard is recommendation-first:
 
 - The main card says whether the next step is **research** or **implementation**, names the state, explains why, and defines success.

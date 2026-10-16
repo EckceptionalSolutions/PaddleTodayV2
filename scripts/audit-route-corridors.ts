@@ -1,10 +1,11 @@
 import { mkdir, readFile, writeFile } from 'node:fs/promises';
-import { dirname, join } from 'node:path';
+import { dirname, join, resolve } from 'node:path';
 import { listAllRiversForAudit } from '../src/lib/rivers';
 import { routeCorridorDefinitions } from '../src/data/route-corridors';
 
 const root = process.cwd();
-const reportPath = join(root, 'docs', 'route-corridor-migration.md');
+const outputArg = process.argv.find((arg) => arg.startsWith('--output='))?.slice('--output='.length);
+const reportPath = outputArg ? resolve(root, outputArg) : join(root, 'docs', 'route-corridor-migration.md');
 const rivers = listAllRiversForAudit();
 type ReviewRow = { corridorId: string; status: 'draft' | 'review' | 'approved' | 'rejected'; owner: string; continuityStatus: string; nextReview: string };
 

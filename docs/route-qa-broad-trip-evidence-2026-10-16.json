@@ -1,0 +1,287 @@
+{
+  "version": 1,
+  "checkedAt": "2026-10-16T14:22:09.405Z",
+  "kmlSha256": "2fb6d11dbdb3941e90c41a6a2bf497683f84c02f8838c87a9f686d32fe3f3b09",
+  "publishedTrips": [
+    {
+      "route": "broad-river-peak-harbison",
+      "sourceUrl": "https://www.gopaddlesc.com/trips/trail/broad-river-peak-to-harbison-state-forest",
+      "publishedLengthMiles": 16.6,
+      "title": "Broad River: Peak to Harbison State Forest",
+      "checkedAt": "2026-10-16T14:22:09.405Z"
+    },
+    {
+      "route": "broad-river-ninety-nine-islands-daltons",
+      "sourceUrl": "https://www.gopaddlesc.com/trips/trail/broad-river-ninety-nine-islands-river-access-to-worth-mountain-wma",
+      "publishedLengthMiles": 7.8,
+      "title": "Broad River: Ninety Nine Islands River Access  to Worth Mountain WMA, Daltons Landing",
+      "checkedAt": "2026-10-16T14:22:09.405Z"
+    },
+    {
+      "route": "broad-river-daltons-lockhart",
+      "sourceUrl": "https://www.gopaddlesc.com/trips/trail/broad-river-worth-mountain-wma-to-lockhart-sc",
+      "publishedLengthMiles": 12.5,
+      "title": "Broad River: Worth Mountain WMA, Daltons Landing to Lockhart, SC",
+      "checkedAt": "2026-10-16T14:22:09.405Z"
+    },
+    {
+      "route": "broad-river-lockhart-broad-river-landing",
+      "sourceUrl": "https://www.gopaddlesc.com/trips/trail/broad-river-lockhart-sc-to-broad-river-landing",
+      "publishedLengthMiles": 7.5,
+      "title": "Broad River: Lockhart, SC to Broad River Landing",
+      "checkedAt": "2026-10-16T14:22:09.405Z"
+    },
+    {
+      "route": "broad-river-broad-river-landing-neal-shoals",
+      "sourceUrl": "https://www.gopaddlesc.com/trips/trail/broad-river-broad-river-landing-to-neal-shoals-dam",
+      "publishedLengthMiles": 3.2,
+      "title": "Broad River: Broad River Landing to Neal Shoals Dam",
+      "checkedAt": "2026-10-16T14:22:09.405Z"
+    },
+    {
+      "route": "broad-river-neal-shoals-sandy",
+      "sourceUrl": "https://www.gopaddlesc.com/trips/trail/broad-river-neal-shoals-dam-to-sandy-river-landing",
+      "publishedLengthMiles": 7.4,
+      "title": "Broad River: Neal Shoals Dam to Sandy River Landing",
+      "checkedAt": "2026-10-16T14:22:09.405Z"
+    },
+    {
+      "route": "broad-river-sandy-shelton",
+      "sourceUrl": "https://www.gopaddlesc.com/trips/trail/broad-river-sandy-river-landing-to-shelton-ferry-landing",
+      "publishedLengthMiles": 6.2,
+      "title": "Broad River: Sandy River Landing to Shelton Ferry Landing",
+      "checkedAt": "2026-10-16T14:22:09.405Z"
+    },
+    {
+      "route": "broad-river-shelton-strother",
+      "sourceUrl": "https://www.gopaddlesc.com/trips/trail/broad-river-shelton-ferry-landing-to-strother-landing",
+      "publishedLengthMiles": 7.3,
+      "title": "Broad River: Shelton Ferry Landing to Strother Landing",
+      "checkedAt": "2026-10-16T14:22:09.405Z"
+    }
+  ],
+  "compositePolicy": "17 map-derived itineraries are planning-only; no inherited numeric flow range or published-duration claim. Six Lockhart crossings remain withheld pending operator-transfer and separate-leg geometry verification.",
+  "mapLocations": [
+    {
+      "name": "Peake-Alston Canoe Access",
+      "longitude": -81.319448914035,
+      "latitude": 34.24323903973,
+      "riverMile": 25.5
+    },
+    {
+      "name": "Harbison State Forest Canoe Access",
+      "longitude": -81.1179999993823,
+      "latitude": 34.1045000006501,
+      "riverMile": 8.9
+    },
+    {
+      "name": "Ninety-Nine Islands River Access and Parking Area",
+      "longitude": -81.4910220003283,
+      "latitude": 35.0298720000527,
+      "riverMile": 90.8
+    },
+    {
+      "name": "Worth Mountain WMA",
+      "longitude": -81.4730639995707,
+      "latitude": 34.9361520001774,
+      "riverMile": 83.1
+    },
+    {
+      "name": "Lockhart Take Out above Lockhart Dam #1",
+      "longitude": -81.4614459999663,
+      "latitude": 34.7972299999073,
+      "riverMile": 70.4
+    },
+    {
+      "name": "Lockhart Put In below Lockhart Dam #2",
+      "longitude": -81.4561030003194,
+      "latitude": 34.7794910000447,
+      "riverMile": 69
+    },
+    {
+      "name": "Broad River Landing River Access and Parking Area",
+      "longitude": -81.4563219997042,
+      "latitude": 34.7098830001992,
+      "riverMile": 61.6
+    },
+    {
+      "name": "Neal Shoals Dam River Access and Parking Area",
+      "longitude": -81.4452990001266,
+      "latitude": 34.6653839999791,
+      "riverMile": 58.3
+    },
+    {
+      "name": "Sandy River Boat Ramp and Parking Area",
+      "longitude": -81.421925999752,
+      "latitude": 34.5728189997091,
+      "riverMile": 50.9
+    },
+    {
+      "name": "Shelton Ferry Landing Boat Ramp and Parking Area",
+      "longitude": -81.4247750003874,
+      "latitude": 34.4863889999453,
+      "riverMile": 44.7
+    },
+    {
+      "name": "Strother Landing River Access and Parking Area",
+      "longitude": -81.3960149999851,
+      "latitude": 34.3927450002289,
+      "riverMile": 37.5
+    }
+  ],
+  "derivedItineraries": [
+    {
+      "route": "broad-river-lockhart-neal-shoals",
+      "priorDistance": "About 10.7 river miles",
+      "currentDistance": "About 10.7 map-derived paddle miles",
+      "duration": "No verified duration for this combined itinerary. Plan separate day stages with scouting, access checks and any required transfers.",
+      "requiresLockhartTransfer": false,
+      "scoreEligibility": "planning",
+      "derivation": "Upstream minus downstream rounded KML river mile; subtract 1.4 miles for the Lockhart vehicle-transfer span when crossed. Map-derived estimate, not a measured or source-published combined trip."
+    },
+    {
+      "route": "broad-river-lockhart-sandy",
+      "priorDistance": "About 18.1 river miles",
+      "currentDistance": "About 18.1 map-derived paddle miles",
+      "duration": "No verified duration for this combined itinerary. Plan separate day stages with scouting, access checks and any required transfers.",
+      "requiresLockhartTransfer": false,
+      "scoreEligibility": "planning",
+      "derivation": "Upstream minus downstream rounded KML river mile; subtract 1.4 miles for the Lockhart vehicle-transfer span when crossed. Map-derived estimate, not a measured or source-published combined trip."
+    },
+    {
+      "route": "broad-river-lockhart-shelton",
+      "priorDistance": "About 24.3 river miles",
+      "currentDistance": "About 24.3 map-derived paddle miles",
+      "duration": "No verified duration for this combined itinerary. Plan separate day stages with scouting, access checks and any required transfers.",
+      "requiresLockhartTransfer": false,
+      "scoreEligibility": "planning",
+      "derivation": "Upstream minus downstream rounded KML river mile; subtract 1.4 miles for the Lockhart vehicle-transfer span when crossed. Map-derived estimate, not a measured or source-published combined trip."
+    },
+    {
+      "route": "broad-river-lockhart-strother",
+      "priorDistance": "About 31.6 river miles",
+      "currentDistance": "About 31.5 map-derived paddle miles",
+      "duration": "No verified duration for this combined itinerary. Plan separate day stages with scouting, access checks and any required transfers.",
+      "requiresLockhartTransfer": false,
+      "scoreEligibility": "planning",
+      "derivation": "Upstream minus downstream rounded KML river mile; subtract 1.4 miles for the Lockhart vehicle-transfer span when crossed. Map-derived estimate, not a measured or source-published combined trip."
+    },
+    {
+      "route": "broad-river-broad-river-landing-sandy",
+      "priorDistance": "About 10.6 river miles",
+      "currentDistance": "About 10.7 map-derived paddle miles",
+      "duration": "No verified duration for this combined itinerary. Plan separate day stages with scouting, access checks and any required transfers.",
+      "requiresLockhartTransfer": false,
+      "scoreEligibility": "planning",
+      "derivation": "Upstream minus downstream rounded KML river mile; subtract 1.4 miles for the Lockhart vehicle-transfer span when crossed. Map-derived estimate, not a measured or source-published combined trip."
+    },
+    {
+      "route": "broad-river-broad-river-landing-shelton",
+      "priorDistance": "About 16.8 river miles",
+      "currentDistance": "About 16.9 map-derived paddle miles",
+      "duration": "No verified duration for this combined itinerary. Plan separate day stages with scouting, access checks and any required transfers.",
+      "requiresLockhartTransfer": false,
+      "scoreEligibility": "planning",
+      "derivation": "Upstream minus downstream rounded KML river mile; subtract 1.4 miles for the Lockhart vehicle-transfer span when crossed. Map-derived estimate, not a measured or source-published combined trip."
+    },
+    {
+      "route": "broad-river-broad-river-landing-strother",
+      "priorDistance": "About 24.1 river miles",
+      "currentDistance": "About 24.1 map-derived paddle miles",
+      "duration": "No verified duration for this combined itinerary. Plan separate day stages with scouting, access checks and any required transfers.",
+      "requiresLockhartTransfer": false,
+      "scoreEligibility": "planning",
+      "derivation": "Upstream minus downstream rounded KML river mile; subtract 1.4 miles for the Lockhart vehicle-transfer span when crossed. Map-derived estimate, not a measured or source-published combined trip."
+    },
+    {
+      "route": "broad-river-daltons-broad-river-landing",
+      "priorDistance": "About 20 river miles",
+      "currentDistance": "About 20.1 map-derived paddle miles; excludes the required Lockhart vehicle transfer",
+      "duration": "No verified duration for this combined itinerary. Plan separate day stages with scouting, access checks and any required transfers.",
+      "requiresLockhartTransfer": true,
+      "scoreEligibility": "planning",
+      "derivation": "Upstream minus downstream rounded KML river mile; subtract 1.4 miles for the Lockhart vehicle-transfer span when crossed. Map-derived estimate, not a measured or source-published combined trip."
+    },
+    {
+      "route": "broad-river-daltons-neal-shoals",
+      "priorDistance": "About 19 river miles",
+      "currentDistance": "About 23.4 map-derived paddle miles; excludes the required Lockhart vehicle transfer",
+      "duration": "No verified duration for this combined itinerary. Plan separate day stages with scouting, access checks and any required transfers.",
+      "requiresLockhartTransfer": true,
+      "scoreEligibility": "planning",
+      "derivation": "Upstream minus downstream rounded KML river mile; subtract 1.4 miles for the Lockhart vehicle-transfer span when crossed. Map-derived estimate, not a measured or source-published combined trip."
+    },
+    {
+      "route": "broad-river-daltons-sandy",
+      "priorDistance": "About 26 river miles",
+      "currentDistance": "About 30.8 map-derived paddle miles; excludes the required Lockhart vehicle transfer",
+      "duration": "No verified duration for this combined itinerary. Plan separate day stages with scouting, access checks and any required transfers.",
+      "requiresLockhartTransfer": true,
+      "scoreEligibility": "planning",
+      "derivation": "Upstream minus downstream rounded KML river mile; subtract 1.4 miles for the Lockhart vehicle-transfer span when crossed. Map-derived estimate, not a measured or source-published combined trip."
+    },
+    {
+      "route": "broad-river-neal-shoals-shelton",
+      "priorDistance": "About 13.6 river miles",
+      "currentDistance": "About 13.6 map-derived paddle miles",
+      "duration": "No verified duration for this combined itinerary. Plan separate day stages with scouting, access checks and any required transfers.",
+      "requiresLockhartTransfer": false,
+      "scoreEligibility": "planning",
+      "derivation": "Upstream minus downstream rounded KML river mile; subtract 1.4 miles for the Lockhart vehicle-transfer span when crossed. Map-derived estimate, not a measured or source-published combined trip."
+    },
+    {
+      "route": "broad-river-neal-shoals-strother",
+      "priorDistance": "About 20.9 river miles",
+      "currentDistance": "About 20.8 map-derived paddle miles",
+      "duration": "No verified duration for this combined itinerary. Plan separate day stages with scouting, access checks and any required transfers.",
+      "requiresLockhartTransfer": false,
+      "scoreEligibility": "planning",
+      "derivation": "Upstream minus downstream rounded KML river mile; subtract 1.4 miles for the Lockhart vehicle-transfer span when crossed. Map-derived estimate, not a measured or source-published combined trip."
+    },
+    {
+      "route": "broad-river-sandy-strother",
+      "priorDistance": "About 13.5 river miles",
+      "currentDistance": "About 13.4 map-derived paddle miles",
+      "duration": "No verified duration for this combined itinerary. Plan separate day stages with scouting, access checks and any required transfers.",
+      "requiresLockhartTransfer": false,
+      "scoreEligibility": "planning",
+      "derivation": "Upstream minus downstream rounded KML river mile; subtract 1.4 miles for the Lockhart vehicle-transfer span when crossed. Map-derived estimate, not a measured or source-published combined trip."
+    },
+    {
+      "route": "broad-river-ninety-nine-islands-lockhart",
+      "priorDistance": "About 21 river miles",
+      "currentDistance": "About 20.4 map-derived paddle miles",
+      "duration": "No verified duration for this combined itinerary. Plan separate day stages with scouting, access checks and any required transfers.",
+      "requiresLockhartTransfer": false,
+      "scoreEligibility": "planning",
+      "derivation": "Upstream minus downstream rounded KML river mile; subtract 1.4 miles for the Lockhart vehicle-transfer span when crossed. Map-derived estimate, not a measured or source-published combined trip."
+    },
+    {
+      "route": "broad-river-ninety-nine-islands-broad-river-landing",
+      "priorDistance": "About 28.5 river miles",
+      "currentDistance": "About 27.8 map-derived paddle miles; excludes the required Lockhart vehicle transfer",
+      "duration": "No verified duration for this combined itinerary. Plan separate day stages with scouting, access checks and any required transfers.",
+      "requiresLockhartTransfer": true,
+      "scoreEligibility": "planning",
+      "derivation": "Upstream minus downstream rounded KML river mile; subtract 1.4 miles for the Lockhart vehicle-transfer span when crossed. Map-derived estimate, not a measured or source-published combined trip."
+    },
+    {
+      "route": "broad-river-daltons-shelton",
+      "priorDistance": "About 32 river miles",
+      "currentDistance": "About 37 map-derived paddle miles; excludes the required Lockhart vehicle transfer; staged multi-day itinerary",
+      "duration": "No verified duration for this combined itinerary. Plan separate day stages with scouting, access checks and any required transfers.",
+      "requiresLockhartTransfer": true,
+      "scoreEligibility": "planning",
+      "derivation": "Upstream minus downstream rounded KML river mile; subtract 1.4 miles for the Lockhart vehicle-transfer span when crossed. Map-derived estimate, not a measured or source-published combined trip."
+    },
+    {
+      "route": "broad-river-daltons-strother",
+      "priorDistance": "About 40 river miles; multi-day staged itinerary",
+      "currentDistance": "About 44.2 map-derived paddle miles; excludes the required Lockhart vehicle transfer; staged multi-day itinerary",
+      "duration": "No verified duration for this combined itinerary. Plan separate day stages with scouting, access checks and any required transfers.",
+      "requiresLockhartTransfer": true,
+      "scoreEligibility": "planning",
+      "derivation": "Upstream minus downstream rounded KML river mile; subtract 1.4 miles for the Lockhart vehicle-transfer span when crossed. Map-derived estimate, not a measured or source-published combined trip."
+    }
+  ]
+}
