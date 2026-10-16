@@ -48,6 +48,7 @@ import { decodeRouteRequestStorageKeyParam } from '../lib/route-request-storage-
 import { accountMethodOptions, accountSyncMethod, handleAccountRoute } from './routes/accounts';
 import { handleTrips, isTripsPath } from './routes/trips';
 import { handleMobileDiscovery } from './routes/mobile-discovery';
+import { handleRiverCameras } from './routes/river-cameras';
 
 const host = process.env.CANOE_API_HOST || '0.0.0.0';
 const staticDirArg = readArgValue('--static');
@@ -135,6 +136,9 @@ const server = createServer(async (request, response) => {
     if (requestUrl.pathname === '/api/weekend/summary.json') {
       return await handleWeekendSummary(response, requestId, includeBody);
     }
+
+    const cameraMatch = requestUrl.pathname.match(/^\/api\/rivers\/([^/]+)\/cameras\.json$/);
+    if (cameraMatch) return await handleRiverCameras(response, requestId, includeBody, decodeURIComponent(cameraMatch[1] || ''));
 
     const detailMatch = requestUrl.pathname.match(/^\/api\/rivers\/([^/]+)\.json$/);
     if (detailMatch) {

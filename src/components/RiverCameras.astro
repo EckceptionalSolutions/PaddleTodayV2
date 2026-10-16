@@ -1,0 +1,58 @@
+---
+interface Props { slug: string; siteName: string; }
+const { slug, siteName } = Astro.props;
+---
+<section class="river-detail__panel river-cameras" data-river-cameras data-slug={slug} hidden aria-label="River cameras">
+  <p class="eyebrow section-label">River camera · USGS</p>
+  <h3>View at the gauge</h3>
+  <p class="muted">{siteName}. This view may be outside your paddling reach. Images are periodic and do not establish safe conditions.</p>
+  <div data-camera-frames></div>
+</section>
+<script>
+  async function loadCameras(panel: HTMLElement) {
+    try {
+      const response = await fetch(`/api/rivers/${encodeURIComponent(panel.dataset.slug || '')}/cameras.json`);
+      if (!response.ok) return;
+      const { cameras } = await response.json();
+      const container = panel.querySelector('[data-camera-frames]');
+      if (!container || !Array.isArray(cameras) || !cameras.length) return;
+      for (const camera of cameras) {
+        const figure = document.createElement('figure');
+        const image = document.createElement('img');
+        image.src = camera.imageUrl;
+        image.alt = `USGS river camera: ${camera.name}`;
+        image.loading = 'lazy';
+        image.width = 720;
+        image.height = 480;
+        const caption = document.createElement('figcaption');
+        const time = document.createElement('time');
+        const captured = new Date(camera.capturedAt);
+        time.dateTime = camera.capturedAt;
+        const stale = Date.now() - captured.getTime() > 2 * 60 * 60_000;
+        time.textContent = `${stale ? 'Older image · ' : ''}Captured ${captured.toLocaleString()} · `;
+        const link = document.createElement('a');
+        link.href = camera.sourceUrl;
+        link.target = '_blank';
+        link.rel = 'noopener noreferrer';
+        link.textContent = `${camera.name} — USGS images & timelapse`;
+        caption.append(time, link);
+        image.addEventListener('error', () => {
+          image.remove();
+          time.textContent = 'Image unavailable · ';
+        }, { once: true });
+        figure.append(image, caption);
+        container.append(figure);
+      }
+      panel.hidden = false;
+    } catch { /* Cameras are supplementary; keep gauge information usable. */ }
+  }
+  document.querySelectorAll<HTMLElement>('[data-river-cameras]').forEach(panel => {
+    void loadCameras(panel);
+  });
+</script>
+<style>
+  .river-cameras[hidden] { display: none; }
+  .river-cameras :global(figure) { margin: 1rem 0; }
+  .river-cameras :global(img) { display: block; width: 100%; height: auto; max-height: 32rem; object-fit: contain; border-radius: .5rem; }
+  .river-cameras :global(figcaption) { margin-top: .5rem; font-size: .875rem; }
+</style>

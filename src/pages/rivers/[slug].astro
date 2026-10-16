@@ -7,6 +7,7 @@ import { webFeatureFlags } from '../../lib/web-feature-flags';
 
 import FeatureIcon from '../../components/FeatureIcon.astro';
 import GaugeBand from '../../components/GaugeBand.astro';
+import RiverCameras from '../../components/RiverCameras.astro';
 import WeatherDayStrip from '../../components/WeatherDayStrip.astro';
 import LoadingFeedback from '../../components/LoadingFeedback.astro';
 import { getRouteGalleryPhotos, getRoutePreviewPhoto } from '../../data/route-gallery';
@@ -1003,6 +1004,7 @@ const routeFaqStructuredData = {
       </p>
     </section>
 
+    {river.gaugeSource.provider === 'usgs' && <RiverCameras slug={river.slug} siteName={river.gaugeSource.siteName} />}
     <section class="river-detail__panel river-why-score" id="river-conditions" data-detail-section="river-conditions" data-detail-nav-group="conditions">
       <p class="eyebrow section-label">
         <FeatureIcon name="compass" size={16} />
