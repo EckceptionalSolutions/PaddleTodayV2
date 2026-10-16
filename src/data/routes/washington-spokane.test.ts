@@ -22,6 +22,8 @@ describe('Washington Spokane River routes', () => {
         if (point.name.startsWith('Mission Ave.')) {
           expect(point).toMatchObject({ latitude: 47.671585, longitude: -117.180981 });
           expect(point.name).toContain('whitewater park/play only');
+        } else if (point.name.startsWith("Plante's Ferry")) {
+          expect(point.name).toContain('water entry unverified');
         } else {
           expect(point.name).toMatch(/water-entry edge|shoreline entry/);
         }
@@ -62,6 +64,8 @@ describe('Washington Spokane expansion routes', () => {
         if (point.name.startsWith('Mission Ave.')) {
           expect(point).toMatchObject({ latitude: 47.671585, longitude: -117.180981 });
           expect(point.name).toContain('whitewater park/play only');
+        } else if (point.name.startsWith("Plante's Ferry")) {
+          expect(point.name).toContain('water entry unverified');
         } else {
           expect(point.name).toMatch(/water-entry edge|shoreline entry/);
         }

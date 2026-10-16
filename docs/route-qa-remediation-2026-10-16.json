@@ -1,0 +1,1513 @@
+{
+  "version": 1,
+  "generatedAt": "2026-10-16T13:46:14.975Z",
+  "baselineAt": "2026-10-16T13:04:18.969Z",
+  "verifiedAt": "2026-10-16T13:45:32.795Z",
+  "routesAudited": 2925,
+  "before": {
+    "highSeverityFindings": 175,
+    "highSeverityRoutes": 175,
+    "failedChecks": [
+      "corridors",
+      "gauges"
+    ]
+  },
+  "after": {
+    "highSeverityFindings": 2,
+    "highSeverityRoutes": 1,
+    "failedChecks": []
+  },
+  "actions": [
+    {
+      "action": "Register complete inline trip details with explicit trip-detail overrides taking precedence.",
+      "affectedOriginalFindings": 133
+    },
+    {
+      "action": "Use the existing context-only minimum-only model with no invented floor for 38 planning routes; retain missing-floor warnings."
+    },
+    {
+      "action": "Keep Boquet Willsboro–Noblewood, lower East Canada Creek, Murderkill Bowers loop and Miller Creek explicitly planning-only because their source notes publish no numeric scoring floor."
+    },
+    {
+      "action": "Recognize two intentional Bartram alternatives only when both routes reciprocally document the same alternative group."
+    },
+    {
+      "action": "Correct Guyandotte West Hamlin–Salt Rock risk designation to caution, retaining existing private-bank and access warnings; designate recreational proxies as planning without promoting proxy whitewater."
+    },
+    {
+      "action": "Reconcile three gauge-ledger rows with current route inventory; remove retired references and character-array corruption; retain the Erie Canal gauge as an existing-route guidance gap."
+    },
+    {
+      "action": "Separate the Adirondack Cedar River from the Iowa/Minnesota Cedar family, use the full Kinniconick chain as canonical, and add three pending-review corridor ledger records without granting new source approval."
+    },
+    {
+      "action": "Correct multi-day duration labels for Bitterroot Hannon–Chief Looking Glass, Androscoggin Errol–Shelburne and Saco Fryeburg–Dayton. Recognize existing staged trip descriptions for the other long routes; do not change their mileage."
+    },
+    {
+      "action": "Withhold Comal Hinman Island–Last Public Exit, remove scoring eligibility, and record an access conflict until a permitted entry coordinate and carry path are verified. Preserve the park marker rather than inventing a water-entry point."
+    },
+    {
+      "action": "Regenerate public geometry manifest and state bundles from existing reviewed assets; audit required controls only for non-withheld routes."
+    }
+  ],
+  "clearedOriginalHighFindings": [
+    {
+      "id": "24157824c506ef4668127f88",
+      "routeId": "allagash-river-allagash-falls-twin-brook",
+      "check": "data",
+      "severity": "high",
+      "message": "Missing river-trip-details entry",
+      "evidence": "allagash-river-allagash-falls-twin-brook"
+    },
+    {
+      "id": "1de6da7fe73d083c6c39e6ad",
+      "routeId": "allagash-river-churchill-dam-umsaskis",
+      "check": "data",
+      "severity": "high",
+      "message": "Missing river-trip-details entry",
+      "evidence": "allagash-river-churchill-dam-umsaskis"
+    },
+    {
+      "id": "179f8bc0f4fdfd156e5da69f",
+      "routeId": "allagash-river-michaud-farm-allagash-falls",
+      "check": "data",
+      "severity": "high",
+      "message": "Missing river-trip-details entry",
+      "evidence": "allagash-river-michaud-farm-allagash-falls"
+    },
+    {
+      "id": "9d87543448059a0d277ae847",
+      "routeId": "allagash-river-t15r11-t13r12",
+      "check": "data",
+      "severity": "high",
+      "message": "Missing river-trip-details entry",
+      "evidence": "allagash-river-t15r11-t13r12"
+    },
+    {
+      "id": "201dd8da861dd2fc39012736",
+      "routeId": "androscoggin-river-auburn-brunswick",
+      "check": "data",
+      "severity": "high",
+      "message": "Missing river-trip-details entry",
+      "evidence": "androscoggin-river-auburn-brunswick"
+    },
+    {
+      "id": "254f431aee08dd0a545ba33a",
+      "routeId": "androscoggin-river-brunswick-topsham",
+      "check": "data",
+      "severity": "high",
+      "message": "Missing river-trip-details entry",
+      "evidence": "androscoggin-river-brunswick-topsham"
+    },
+    {
+      "id": "cfefdd14b64621e689699231",
+      "routeId": "androscoggin-river-canton-turner",
+      "check": "data",
+      "severity": "high",
+      "message": "Missing river-trip-details entry",
+      "evidence": "androscoggin-river-canton-turner"
+    },
+    {
+      "id": "10bf385bcce18a5a2f424ce7",
+      "routeId": "androscoggin-river-durham-lewiston",
+      "check": "data",
+      "severity": "high",
+      "message": "Missing river-trip-details entry",
+      "evidence": "androscoggin-river-durham-lewiston"
+    },
+    {
+      "id": "fa23b15c1bb3a10d6ac344fd",
+      "routeId": "androscoggin-river-hanover-bethel",
+      "check": "data",
+      "severity": "high",
+      "message": "Missing river-trip-details entry",
+      "evidence": "androscoggin-river-hanover-bethel"
+    },
+    {
+      "id": "9326cb9a2193f251a5a50517",
+      "routeId": "androscoggin-river-hanover-mexico",
+      "check": "data",
+      "severity": "high",
+      "message": "Missing river-trip-details entry",
+      "evidence": "androscoggin-river-hanover-mexico"
+    },
+    {
+      "id": "7b65c7040d2ef9545a5449d8",
+      "routeId": "androscoggin-river-lewiston-auburn",
+      "check": "data",
+      "severity": "high",
+      "message": "Missing river-trip-details entry",
+      "evidence": "androscoggin-river-lewiston-auburn"
+    },
+    {
+      "id": "f40bffbffcd44b484057d8f0",
+      "routeId": "androscoggin-river-mexico-canton",
+      "check": "data",
+      "severity": "high",
+      "message": "Missing river-trip-details entry",
+      "evidence": "androscoggin-river-mexico-canton"
+    },
+    {
+      "id": "4f32c6400b74fe7cc6dd8879",
+      "routeId": "androscoggin-river-mexico-rumford",
+      "check": "data",
+      "severity": "high",
+      "message": "Missing river-trip-details entry",
+      "evidence": "androscoggin-river-mexico-rumford"
+    },
+    {
+      "id": "4e2185a4b38d03b2986c8e68",
+      "routeId": "androscoggin-river-rumford-hanover",
+      "check": "data",
+      "severity": "high",
+      "message": "Missing river-trip-details entry",
+      "evidence": "androscoggin-river-rumford-hanover"
+    },
+    {
+      "id": "d664b495647390d5f6551563",
+      "routeId": "androscoggin-river-turner-durham",
+      "check": "data",
+      "severity": "high",
+      "message": "Missing river-trip-details entry",
+      "evidence": "androscoggin-river-turner-durham"
+    },
+    {
+      "id": "11a60406ea24aebc7d9a8922",
+      "routeId": "aroostook-river-ashland-washburn",
+      "check": "data",
+      "severity": "high",
+      "message": "Missing river-trip-details entry",
+      "evidence": "aroostook-river-ashland-washburn"
+    },
+    {
+      "id": "c1346e430c31a08992967fec",
+      "routeId": "aroostook-river-caribou-presque-isle",
+      "check": "data",
+      "severity": "high",
+      "message": "Missing river-trip-details entry",
+      "evidence": "aroostook-river-caribou-presque-isle"
+    },
+    {
+      "id": "aed3815987cfd5f0752980de",
+      "routeId": "aroostook-river-fort-fairfield-caribou",
+      "check": "data",
+      "severity": "high",
+      "message": "Missing river-trip-details entry",
+      "evidence": "aroostook-river-fort-fairfield-caribou"
+    },
+    {
+      "id": "78a77ea7b1a7a78714ed4d99",
+      "routeId": "aroostook-river-masardis-ashland",
+      "check": "data",
+      "severity": "high",
+      "message": "Missing river-trip-details entry",
+      "evidence": "aroostook-river-masardis-ashland"
+    },
+    {
+      "id": "eb09d5fd57ec8413caee825d",
+      "routeId": "aroostook-river-masardis-washburn",
+      "check": "data",
+      "severity": "high",
+      "message": "Missing river-trip-details entry",
+      "evidence": "aroostook-river-masardis-washburn"
+    },
+    {
+      "id": "b54ea22c063dc9e29941cee5",
+      "routeId": "aroostook-river-oxbow-masardis",
+      "check": "data",
+      "severity": "high",
+      "message": "Missing river-trip-details entry",
+      "evidence": "aroostook-river-oxbow-masardis"
+    },
+    {
+      "id": "a88c599ecd642c411242af57",
+      "routeId": "aroostook-river-presque-isle-fort-fairfield",
+      "check": "data",
+      "severity": "high",
+      "message": "Missing river-trip-details entry",
+      "evidence": "aroostook-river-presque-isle-fort-fairfield"
+    },
+    {
+      "id": "9646f14bf383e5035f9bbab4",
+      "routeId": "aroostook-river-washburn-caribou",
+      "check": "data",
+      "severity": "high",
+      "message": "Missing river-trip-details entry",
+      "evidence": "aroostook-river-washburn-caribou"
+    },
+    {
+      "id": "077ba1d12ab17b7bfece45f5",
+      "routeId": "aroostook-river-washburn-fort-fairfield",
+      "check": "data",
+      "severity": "high",
+      "message": "Missing river-trip-details entry",
+      "evidence": "aroostook-river-washburn-fort-fairfield"
+    },
+    {
+      "id": "4f06a415e65bfe928f90598e",
+      "routeId": "bartram-canal-island-french-hubbard",
+      "check": "data",
+      "severity": "high",
+      "message": "Duplicate endpoint pair",
+      "evidence": "bartram-spoonbill-french-hubbard"
+    },
+    {
+      "id": "66e18d5d2169cba2abbb3d7d",
+      "routeId": "bartram-spoonbill-french-hubbard",
+      "check": "data",
+      "severity": "high",
+      "message": "Duplicate endpoint pair",
+      "evidence": "bartram-globe-creek-french-hubbard"
+    },
+    {
+      "id": "70b8363d8d0d3b4a6f722f5c",
+      "routeId": "bitterroot-river-anglers-roost-tucker-crossing",
+      "check": "data",
+      "severity": "high",
+      "message": "Missing river-trip-details entry",
+      "evidence": "bitterroot-river-anglers-roost-tucker-crossing"
+    },
+    {
+      "id": "96a1a8a7de8fdb16ba162989",
+      "routeId": "bitterroot-river-bell-crossing-chief-looking-glass",
+      "check": "data",
+      "severity": "high",
+      "message": "Missing river-trip-details entry",
+      "evidence": "bitterroot-river-bell-crossing-chief-looking-glass"
+    },
+    {
+      "id": "9f24d78d8b0bb39750cfd36e",
+      "routeId": "bitterroot-river-bell-crossing-poker-joe",
+      "check": "data",
+      "severity": "high",
+      "message": "Missing river-trip-details entry",
+      "evidence": "bitterroot-river-bell-crossing-poker-joe"
+    },
+    {
+      "id": "647f764dc7bb18f40ca6bb0f",
+      "routeId": "bitterroot-river-hannon-chief-looking-glass",
+      "check": "data",
+      "severity": "high",
+      "message": "Missing river-trip-details entry",
+      "evidence": "bitterroot-river-hannon-chief-looking-glass"
+    },
+    {
+      "id": "b6dc862bf115abc8f2e158a5",
+      "routeId": "bitterroot-river-hannon-wally",
+      "check": "data",
+      "severity": "high",
+      "message": "Missing river-trip-details entry",
+      "evidence": "bitterroot-river-hannon-wally"
+    },
+    {
+      "id": "b739553782e7b213fbf6e9df",
+      "routeId": "bitterroot-river-poker-joe-chief-looking-glass",
+      "check": "data",
+      "severity": "high",
+      "message": "Missing river-trip-details entry",
+      "evidence": "bitterroot-river-poker-joe-chief-looking-glass"
+    },
+    {
+      "id": "f3f2f148c28d0a97e9368ab2",
+      "routeId": "bitterroot-river-tucker-crossing-bell-crossing",
+      "check": "data",
+      "severity": "high",
+      "message": "Missing river-trip-details entry",
+      "evidence": "bitterroot-river-tucker-crossing-bell-crossing"
+    },
+    {
+      "id": "97f923c1d1ff0337f2363ea9",
+      "routeId": "bitterroot-river-wally-anglers-roost",
+      "check": "data",
+      "severity": "high",
+      "message": "Missing river-trip-details entry",
+      "evidence": "bitterroot-river-wally-anglers-roost"
+    },
+    {
+      "id": "76df65dc315609529842a115",
+      "routeId": "chamberlain-lake-dacf-remote-loop",
+      "check": "data",
+      "severity": "high",
+      "message": "Missing river-trip-details entry",
+      "evidence": "chamberlain-lake-dacf-remote-loop"
+    },
+    {
+      "id": "9b1d6c63cac53f7ddc9f8db7",
+      "routeId": "chesuncook-lake-t3r12-remote-loop",
+      "check": "data",
+      "severity": "high",
+      "message": "Missing river-trip-details entry",
+      "evidence": "chesuncook-lake-t3r12-remote-loop"
+    },
+    {
+      "id": "8f83dacbaf3a2dd3b0fe6a29",
+      "routeId": "flagstaff-lake-bigelow-dead-river",
+      "check": "data",
+      "severity": "high",
+      "message": "Missing river-trip-details entry",
+      "evidence": "flagstaff-lake-bigelow-dead-river"
+    },
+    {
+      "id": "aba53a4f4eb257087cab9297",
+      "routeId": "flagstaff-lake-dead-river-t3r4",
+      "check": "data",
+      "severity": "high",
+      "message": "Missing river-trip-details entry",
+      "evidence": "flagstaff-lake-dead-river-t3r4"
+    },
+    {
+      "id": "7b770cd6b970bc6ef731283f",
+      "routeId": "flagstaff-lake-eustis-bigelow",
+      "check": "data",
+      "severity": "high",
+      "message": "Missing river-trip-details entry",
+      "evidence": "flagstaff-lake-eustis-bigelow"
+    },
+    {
+      "id": "d5709238fa29d665e78cb004",
+      "routeId": "flagstaff-lake-t3r4-dead-river",
+      "check": "data",
+      "severity": "high",
+      "message": "Missing river-trip-details entry",
+      "evidence": "flagstaff-lake-t3r4-dead-river"
+    },
+    {
+      "id": "d44bacd0bbe57188a2d04837",
+      "routeId": "kennebec-river-augusta-chelsea",
+      "check": "data",
+      "severity": "high",
+      "message": "Missing river-trip-details entry",
+      "evidence": "kennebec-river-augusta-chelsea"
+    },
+    {
+      "id": "900acfb7abc3d7f995e8c7ad",
+      "routeId": "kennebec-river-augusta-gardiner",
+      "check": "data",
+      "severity": "high",
+      "message": "Missing river-trip-details entry",
+      "evidence": "kennebec-river-augusta-gardiner"
+    },
+    {
+      "id": "032ef0324f3fd3ea91f76a30",
+      "routeId": "kennebec-river-augusta-hallowell",
+      "check": "data",
+      "severity": "high",
+      "message": "Missing river-trip-details entry",
+      "evidence": "kennebec-river-augusta-hallowell"
+    },
+    {
+      "id": "3ad87052d40162d504811264",
+      "routeId": "kennebec-river-bath-phippsburg",
+      "check": "data",
+      "severity": "high",
+      "message": "Missing river-trip-details entry",
+      "evidence": "kennebec-river-bath-phippsburg"
+    },
+    {
+      "id": "cbd5086bd03a72d9a56a08f4",
+      "routeId": "kennebec-river-fairfield-sidney",
+      "check": "data",
+      "severity": "high",
+      "message": "Missing river-trip-details entry",
+      "evidence": "kennebec-river-fairfield-sidney"
+    },
+    {
+      "id": "cf7a274b75f797be8867b5c1",
+      "routeId": "kennebec-river-gardiner-bath",
+      "check": "data",
+      "severity": "high",
+      "message": "Missing river-trip-details entry",
+      "evidence": "kennebec-river-gardiner-bath"
+    },
+    {
+      "id": "b5684aaff106a69c99ce9c36",
+      "routeId": "kennebec-river-hallowell-richmond",
+      "check": "data",
+      "severity": "high",
+      "message": "Missing river-trip-details entry",
+      "evidence": "kennebec-river-hallowell-richmond"
+    },
+    {
+      "id": "4689314a67b231878772128a",
+      "routeId": "kennebec-river-madison-starks",
+      "check": "data",
+      "severity": "high",
+      "message": "Missing river-trip-details entry",
+      "evidence": "kennebec-river-madison-starks"
+    },
+    {
+      "id": "a54561f210f3f39a1e74e449",
+      "routeId": "kennebec-river-norridgewock-waterville",
+      "check": "data",
+      "severity": "high",
+      "message": "Missing river-trip-details entry",
+      "evidence": "kennebec-river-norridgewock-waterville"
+    },
+    {
+      "id": "fdb804e6a522a893e87a4aed",
+      "routeId": "kennebec-river-richmond-bath",
+      "check": "data",
+      "severity": "high",
+      "message": "Missing river-trip-details entry",
+      "evidence": "kennebec-river-richmond-bath"
+    },
+    {
+      "id": "bfc15a29511a6f5ec1c82dce",
+      "routeId": "kennebec-river-sidney-augusta",
+      "check": "data",
+      "severity": "high",
+      "message": "Missing river-trip-details entry",
+      "evidence": "kennebec-river-sidney-augusta"
+    },
+    {
+      "id": "7ad0a1f32b0558f2146679b6",
+      "routeId": "kennebec-river-skowhegan-norridgewock",
+      "check": "data",
+      "severity": "high",
+      "message": "Missing river-trip-details entry",
+      "evidence": "kennebec-river-skowhegan-norridgewock"
+    },
+    {
+      "id": "2d65c9e74c565bf315b13243",
+      "routeId": "kennebec-river-solon-madison",
+      "check": "data",
+      "severity": "high",
+      "message": "Missing river-trip-details entry",
+      "evidence": "kennebec-river-solon-madison"
+    },
+    {
+      "id": "245707cef1051a4ff8e975f8",
+      "routeId": "kennebec-river-solon-norridgewock",
+      "check": "data",
+      "severity": "high",
+      "message": "Missing river-trip-details entry",
+      "evidence": "kennebec-river-solon-norridgewock"
+    },
+    {
+      "id": "637f8561a3377645a2e8d592",
+      "routeId": "kennebec-river-starks-skowhegan",
+      "check": "data",
+      "severity": "high",
+      "message": "Missing river-trip-details entry",
+      "evidence": "kennebec-river-starks-skowhegan"
+    },
+    {
+      "id": "0b6285698a3a8d43868ebb5e",
+      "routeId": "kennebec-river-waterville-augusta",
+      "check": "data",
+      "severity": "high",
+      "message": "Missing river-trip-details entry",
+      "evidence": "kennebec-river-waterville-augusta"
+    },
+    {
+      "id": "e12dede5f3ff082a52bab5fa",
+      "routeId": "kennebec-river-waterville-fairfield",
+      "check": "data",
+      "severity": "high",
+      "message": "Missing river-trip-details entry",
+      "evidence": "kennebec-river-waterville-fairfield"
+    },
+    {
+      "id": "233887bf2ee150d6a16d88f6",
+      "routeId": "lake-george-skowhegan-access-loop",
+      "check": "data",
+      "severity": "high",
+      "message": "Missing river-trip-details entry",
+      "evidence": "lake-george-skowhegan-access-loop"
+    },
+    {
+      "id": "518dc4b7de10466650f74392",
+      "routeId": "lake-onawa-difw-access-loop",
+      "check": "data",
+      "severity": "high",
+      "message": "Missing river-trip-details entry",
+      "evidence": "lake-onawa-difw-access-loop"
+    },
+    {
+      "id": "8bfaed2d30a4c9e90c6014ea",
+      "routeId": "machias-river-t31md-machias",
+      "check": "data",
+      "severity": "high",
+      "message": "Missing river-trip-details entry",
+      "evidence": "machias-river-t31md-machias"
+    },
+    {
+      "id": "0d16f6848d308168244a23ee",
+      "routeId": "moosehead-lake-beaver-cove-t1r14",
+      "check": "data",
+      "severity": "high",
+      "message": "Missing river-trip-details entry",
+      "evidence": "moosehead-lake-beaver-cove-t1r14"
+    },
+    {
+      "id": "454dd2c3232539d7e6559e50",
+      "routeId": "moosehead-lake-days-academy-big-w",
+      "check": "data",
+      "severity": "high",
+      "message": "Missing river-trip-details entry",
+      "evidence": "moosehead-lake-days-academy-big-w"
+    },
+    {
+      "id": "238df7e77908de8fc4c5b4ea",
+      "routeId": "moosehead-lake-greenville-beaver-cove",
+      "check": "data",
+      "severity": "high",
+      "message": "Missing river-trip-details entry",
+      "evidence": "moosehead-lake-greenville-beaver-cove"
+    },
+    {
+      "id": "695ba05c74dae531f85069c4",
+      "routeId": "moosehead-lake-rockwood-greenville",
+      "check": "data",
+      "severity": "high",
+      "message": "Missing river-trip-details entry",
+      "evidence": "moosehead-lake-rockwood-greenville"
+    },
+    {
+      "id": "7be92e0bc4d7fe38452c7b5b",
+      "routeId": "moosehead-lake-t1r14-days-academy",
+      "check": "data",
+      "severity": "high",
+      "message": "Missing river-trip-details entry",
+      "evidence": "moosehead-lake-t1r14-days-academy"
+    },
+    {
+      "id": "ff1effadc8bebf4288dd1b59",
+      "routeId": "otter-creek-center-rutland-middlebury",
+      "check": "data",
+      "severity": "high",
+      "message": "Missing river-trip-details entry",
+      "evidence": "otter-creek-center-rutland-middlebury"
+    },
+    {
+      "id": "303c9cfef53f585a4096e088",
+      "routeId": "otter-creek-middlebury-quaker-village",
+      "check": "data",
+      "severity": "high",
+      "message": "Missing river-trip-details entry",
+      "evidence": "otter-creek-middlebury-quaker-village"
+    },
+    {
+      "id": "1bb3f65b70817f2623e32d4a",
+      "routeId": "otter-creek-quaker-village-vergennes",
+      "check": "data",
+      "severity": "high",
+      "message": "Missing river-trip-details entry",
+      "evidence": "otter-creek-quaker-village-vergennes"
+    },
+    {
+      "id": "84ab57a1d7a3ab55b38cdd42",
+      "routeId": "otter-creek-quaker-village-weybridge",
+      "check": "data",
+      "severity": "high",
+      "message": "Missing river-trip-details entry",
+      "evidence": "otter-creek-quaker-village-weybridge"
+    },
+    {
+      "id": "819e1dce8e00c083573da983",
+      "routeId": "otter-creek-vergennes-fort-cassin",
+      "check": "data",
+      "severity": "high",
+      "message": "Missing river-trip-details entry",
+      "evidence": "otter-creek-vergennes-fort-cassin"
+    },
+    {
+      "id": "edf8a7dafa81b71a099217da",
+      "routeId": "otter-creek-weybridge-fort-cassin",
+      "check": "data",
+      "severity": "high",
+      "message": "Missing river-trip-details entry",
+      "evidence": "otter-creek-weybridge-fort-cassin"
+    },
+    {
+      "id": "955409ce2a63555121d19f06",
+      "routeId": "otter-creek-weybridge-vergennes",
+      "check": "data",
+      "severity": "high",
+      "message": "Missing river-trip-details entry",
+      "evidence": "otter-creek-weybridge-vergennes"
+    },
+    {
+      "id": "a3e0276a688c3d211c4bf44f",
+      "routeId": "pascagoula-river-big-creek-wilkerson-ferry",
+      "check": "data",
+      "severity": "high",
+      "message": "Missing river-trip-details entry",
+      "evidence": "pascagoula-river-big-creek-wilkerson-ferry"
+    },
+    {
+      "id": "7b8797a6bd7e23740b28c82a",
+      "routeId": "pascagoula-river-game-management-big-creek",
+      "check": "data",
+      "severity": "high",
+      "message": "Missing river-trip-details entry",
+      "evidence": "pascagoula-river-game-management-big-creek"
+    },
+    {
+      "id": "310c8eb01f12bbd631c02248",
+      "routeId": "pascagoula-river-game-management-hwy26",
+      "check": "data",
+      "severity": "high",
+      "message": "Missing river-trip-details entry",
+      "evidence": "pascagoula-river-game-management-hwy26"
+    },
+    {
+      "id": "f305ab0076f5b2724dc286ae",
+      "routeId": "pascagoula-river-game-management-wilkerson-ferry",
+      "check": "data",
+      "severity": "high",
+      "message": "Missing river-trip-details entry",
+      "evidence": "pascagoula-river-game-management-wilkerson-ferry"
+    },
+    {
+      "id": "b10cae5469554d69c8387960",
+      "routeId": "pascagoula-river-hwy26-big-creek",
+      "check": "data",
+      "severity": "high",
+      "message": "Missing river-trip-details entry",
+      "evidence": "pascagoula-river-hwy26-big-creek"
+    },
+    {
+      "id": "651218635a622dce61cdb3e9",
+      "routeId": "pascagoula-river-hwy26-river-park",
+      "check": "data",
+      "severity": "high",
+      "message": "Missing river-trip-details entry",
+      "evidence": "pascagoula-river-hwy26-river-park"
+    },
+    {
+      "id": "c1959f5c68a15471fe33a110",
+      "routeId": "pascagoula-river-hwy26-wilkerson-ferry",
+      "check": "data",
+      "severity": "high",
+      "message": "Missing river-trip-details entry",
+      "evidence": "pascagoula-river-hwy26-wilkerson-ferry"
+    },
+    {
+      "id": "4f8e7dead29bae853378c7cc",
+      "routeId": "pascagoula-river-hwy63-river-park",
+      "check": "data",
+      "severity": "high",
+      "message": "Missing river-trip-details entry",
+      "evidence": "pascagoula-river-hwy63-river-park"
+    },
+    {
+      "id": "74d2903b390b3a9a2fbc1a98",
+      "routeId": "pascagoula-river-merrill-big-creek",
+      "check": "data",
+      "severity": "high",
+      "message": "Missing river-trip-details entry",
+      "evidence": "pascagoula-river-merrill-big-creek"
+    },
+    {
+      "id": "83f81e29b045c48942218f0d",
+      "routeId": "pascagoula-river-merrill-game-management",
+      "check": "data",
+      "severity": "high",
+      "message": "Missing river-trip-details entry",
+      "evidence": "pascagoula-river-merrill-game-management"
+    },
+    {
+      "id": "65ed2fb82ec7eb0c9a1b1a2a",
+      "routeId": "pascagoula-river-merrill-hwy26",
+      "check": "data",
+      "severity": "high",
+      "message": "Missing river-trip-details entry",
+      "evidence": "pascagoula-river-merrill-hwy26"
+    },
+    {
+      "id": "c2d63a3f32ebdd42b2851b45",
+      "routeId": "pascagoula-river-merrill-wilkerson-ferry",
+      "check": "data",
+      "severity": "high",
+      "message": "Missing river-trip-details entry",
+      "evidence": "pascagoula-river-merrill-wilkerson-ferry"
+    },
+    {
+      "id": "228e1499770bd7e84986c3bb",
+      "routeId": "penobscot-river-bangor-hampden",
+      "check": "data",
+      "severity": "high",
+      "message": "Missing river-trip-details entry",
+      "evidence": "penobscot-river-bangor-hampden"
+    },
+    {
+      "id": "6fcfca80ad7e700dafb6b089",
+      "routeId": "penobscot-river-bangor-verona",
+      "check": "data",
+      "severity": "high",
+      "message": "Missing river-trip-details entry",
+      "evidence": "penobscot-river-bangor-verona"
+    },
+    {
+      "id": "d6ee10e6366d46b2304fce61",
+      "routeId": "penobscot-river-brewer-bangor",
+      "check": "data",
+      "severity": "high",
+      "message": "Missing river-trip-details entry",
+      "evidence": "penobscot-river-brewer-bangor"
+    },
+    {
+      "id": "f4ee87830637f7e140f43785",
+      "routeId": "penobscot-river-eddington-orrington",
+      "check": "data",
+      "severity": "high",
+      "message": "Missing river-trip-details entry",
+      "evidence": "penobscot-river-eddington-orrington"
+    },
+    {
+      "id": "d2bc1997241ec4ef758e1800",
+      "routeId": "penobscot-river-hampden-eddington",
+      "check": "data",
+      "severity": "high",
+      "message": "Missing river-trip-details entry",
+      "evidence": "penobscot-river-hampden-eddington"
+    },
+    {
+      "id": "4e4a88e216bd20e6c9d43a8c",
+      "routeId": "penobscot-river-howland-passadumkeag",
+      "check": "data",
+      "severity": "high",
+      "message": "Missing river-trip-details entry",
+      "evidence": "penobscot-river-howland-passadumkeag"
+    },
+    {
+      "id": "380206d3f500f6e59951a4a3",
+      "routeId": "penobscot-river-lincoln-howland",
+      "check": "data",
+      "severity": "high",
+      "message": "Missing river-trip-details entry",
+      "evidence": "penobscot-river-lincoln-howland"
+    },
+    {
+      "id": "d03a905e98d3719fdd59cbd8",
+      "routeId": "penobscot-river-lincoln-passadumkeag",
+      "check": "data",
+      "severity": "high",
+      "message": "Missing river-trip-details entry",
+      "evidence": "penobscot-river-lincoln-passadumkeag"
+    },
+    {
+      "id": "08b26a6ff13ef58bf0a7a1b4",
+      "routeId": "penobscot-river-medway-greenbush",
+      "check": "data",
+      "severity": "high",
+      "message": "Missing river-trip-details entry",
+      "evidence": "penobscot-river-medway-greenbush"
+    },
+    {
+      "id": "7538e3e3a3796cfebfaf1d6b",
+      "routeId": "penobscot-river-medway-lincoln",
+      "check": "data",
+      "severity": "high",
+      "message": "Missing river-trip-details entry",
+      "evidence": "penobscot-river-medway-lincoln"
+    },
+    {
+      "id": "28b80fc1b5974e24b61fef91",
+      "routeId": "penobscot-river-milford-bangor",
+      "check": "data",
+      "severity": "high",
+      "message": "Missing river-trip-details entry",
+      "evidence": "penobscot-river-milford-bangor"
+    },
+    {
+      "id": "34f2935ba7820ef81228c314",
+      "routeId": "penobscot-river-milford-orono",
+      "check": "data",
+      "severity": "high",
+      "message": "Missing river-trip-details entry",
+      "evidence": "penobscot-river-milford-orono"
+    },
+    {
+      "id": "51ee216d4fe064b4927fc94a",
+      "routeId": "penobscot-river-orono-brewer",
+      "check": "data",
+      "severity": "high",
+      "message": "Missing river-trip-details entry",
+      "evidence": "penobscot-river-orono-brewer"
+    },
+    {
+      "id": "6d2bf98d4308703111b0d719",
+      "routeId": "penobscot-river-passadumkeag-milford",
+      "check": "data",
+      "severity": "high",
+      "message": "Missing river-trip-details entry",
+      "evidence": "penobscot-river-passadumkeag-milford"
+    },
+    {
+      "id": "232d32a0375c7b3ea7922538",
+      "routeId": "penobscot-river-t3r11-medway",
+      "check": "data",
+      "severity": "high",
+      "message": "Missing river-trip-details entry",
+      "evidence": "penobscot-river-t3r11-medway"
+    },
+    {
+      "id": "8a33c5836e467f263301eda4",
+      "routeId": "penobscot-river-winn-greenbush",
+      "check": "data",
+      "severity": "high",
+      "message": "Missing river-trip-details entry",
+      "evidence": "penobscot-river-winn-greenbush"
+    },
+    {
+      "id": "ca9f5f2bde289ea68eb4e5b8",
+      "routeId": "penobscot-river-winn-lincoln",
+      "check": "data",
+      "severity": "high",
+      "message": "Missing river-trip-details entry",
+      "evidence": "penobscot-river-winn-lincoln"
+    },
+    {
+      "id": "111fc8ab40828bd14bc0142e",
+      "routeId": "piscataquis-river-dover-medford",
+      "check": "data",
+      "severity": "high",
+      "message": "Missing river-trip-details entry",
+      "evidence": "piscataquis-river-dover-medford"
+    },
+    {
+      "id": "b89e8d53e288f3460aebe77f",
+      "routeId": "piscataquis-river-guilford-dover",
+      "check": "data",
+      "severity": "high",
+      "message": "Missing river-trip-details entry",
+      "evidence": "piscataquis-river-guilford-dover"
+    },
+    {
+      "id": "78992bd52e6f34c7f26f45da",
+      "routeId": "piscataquis-river-medford-howland",
+      "check": "data",
+      "severity": "high",
+      "message": "Missing river-trip-details entry",
+      "evidence": "piscataquis-river-medford-howland"
+    },
+    {
+      "id": "1e9632e2ac44de05d2cfc083",
+      "routeId": "pleasant-river-columbia-columbia-falls",
+      "check": "data",
+      "severity": "high",
+      "message": "Missing river-trip-details entry",
+      "evidence": "pleasant-river-columbia-columbia-falls"
+    },
+    {
+      "id": "cf5f58cf30174674da04dbcd",
+      "routeId": "pleasant-river-columbia-falls-addison",
+      "check": "data",
+      "severity": "high",
+      "message": "Missing river-trip-details entry",
+      "evidence": "pleasant-river-columbia-falls-addison"
+    },
+    {
+      "id": "9ad8990e776e510fc4ba78ff",
+      "routeId": "pleasant-river-t18-columbia",
+      "check": "data",
+      "severity": "high",
+      "message": "Missing river-trip-details entry",
+      "evidence": "pleasant-river-t18-columbia"
+    },
+    {
+      "id": "1c66baab94842ddd41c48410",
+      "routeId": "presumpscot-river-gorham-falmouth",
+      "check": "data",
+      "severity": "high",
+      "message": "Missing river-trip-details entry",
+      "evidence": "presumpscot-river-gorham-falmouth"
+    },
+    {
+      "id": "0fe707269302bdc4247df9ab",
+      "routeId": "saco-river-brownfield-dayton",
+      "check": "data",
+      "severity": "high",
+      "message": "Missing river-trip-details entry",
+      "evidence": "saco-river-brownfield-dayton"
+    },
+    {
+      "id": "d2b4a90bf172c37f2808f259",
+      "routeId": "saco-river-brownfield-saco",
+      "check": "data",
+      "severity": "high",
+      "message": "Missing river-trip-details entry",
+      "evidence": "saco-river-brownfield-saco"
+    },
+    {
+      "id": "51f14d30158e88b58e99d300",
+      "routeId": "saco-river-dayton-biddeford",
+      "check": "data",
+      "severity": "high",
+      "message": "Missing river-trip-details entry",
+      "evidence": "saco-river-dayton-biddeford"
+    },
+    {
+      "id": "080ec886551f43a35687765b",
+      "routeId": "saco-river-fryeburg-brownfield",
+      "check": "data",
+      "severity": "high",
+      "message": "Missing river-trip-details entry",
+      "evidence": "saco-river-fryeburg-brownfield"
+    },
+    {
+      "id": "067425f79064d9a5e84ae1cf",
+      "routeId": "saco-river-fryeburg-dayton",
+      "check": "data",
+      "severity": "high",
+      "message": "Missing river-trip-details entry",
+      "evidence": "saco-river-fryeburg-dayton"
+    },
+    {
+      "id": "ff4f2abd436320e1c0cd9caa",
+      "routeId": "saco-river-fryeburg-route-302-route-160",
+      "check": "data",
+      "severity": "high",
+      "message": "Missing river-trip-details entry",
+      "evidence": "saco-river-fryeburg-route-302-route-160"
+    },
+    {
+      "id": "85e89d4f6f12d1eb3512e6f2",
+      "routeId": "saco-river-route-160-brownfield",
+      "check": "data",
+      "severity": "high",
+      "message": "Missing river-trip-details entry",
+      "evidence": "saco-river-route-160-brownfield"
+    },
+    {
+      "id": "ce7715ba2a15103458aa012c",
+      "routeId": "saco-river-saco-biddeford",
+      "check": "data",
+      "severity": "high",
+      "message": "Missing river-trip-details entry",
+      "evidence": "saco-river-saco-biddeford"
+    },
+    {
+      "id": "106fe5c2c907816afdfe227d",
+      "routeId": "saint-croix-river-baileyville-calais",
+      "check": "data",
+      "severity": "high",
+      "message": "Missing river-trip-details entry",
+      "evidence": "saint-croix-river-baileyville-calais"
+    },
+    {
+      "id": "388f072bcccc610d278e912d",
+      "routeId": "saint-croix-river-calais-robbinston",
+      "check": "data",
+      "severity": "high",
+      "message": "Missing river-trip-details entry",
+      "evidence": "saint-croix-river-calais-robbinston"
+    },
+    {
+      "id": "57f987aed0e62a8c862563b7",
+      "routeId": "saint-croix-river-dyer-baileyville",
+      "check": "data",
+      "severity": "high",
+      "message": "Missing river-trip-details entry",
+      "evidence": "saint-croix-river-dyer-baileyville"
+    },
+    {
+      "id": "028f15071a51ba9ce9041f43",
+      "routeId": "saint-croix-river-lambert-baileyville",
+      "check": "data",
+      "severity": "high",
+      "message": "Missing river-trip-details entry",
+      "evidence": "saint-croix-river-lambert-baileyville"
+    },
+    {
+      "id": "6aef07e5624da80a9be68464",
+      "routeId": "saint-croix-river-lambert-dyer",
+      "check": "data",
+      "severity": "high",
+      "message": "Missing river-trip-details entry",
+      "evidence": "saint-croix-river-lambert-dyer"
+    },
+    {
+      "id": "b2cdc89b5e6a0a1d42d99932",
+      "routeId": "saluda-river-saluda-shoals-gardendale",
+      "check": "data",
+      "severity": "high",
+      "message": "Two-sided guidance requires finite tooLow, idealMin, idealMax, and tooHigh thresholds.",
+      "evidence": "incomplete-two-sided-thresholds"
+    },
+    {
+      "id": "013c017f01d090a3bb3b2ba5",
+      "routeId": "sebec-lake-dover-sebec",
+      "check": "data",
+      "severity": "high",
+      "message": "Missing river-trip-details entry",
+      "evidence": "sebec-lake-dover-sebec"
+    },
+    {
+      "id": "3bfcfe03c9932b88e22da8fd",
+      "routeId": "st-john-river-fort-kent-frenchville",
+      "check": "data",
+      "severity": "high",
+      "message": "Missing river-trip-details entry",
+      "evidence": "st-john-river-fort-kent-frenchville"
+    },
+    {
+      "id": "aa3bb2fc4615e2be1c1c51bc",
+      "routeId": "st-john-river-fort-kent-van-buren",
+      "check": "data",
+      "severity": "high",
+      "message": "Missing river-trip-details entry",
+      "evidence": "st-john-river-fort-kent-van-buren"
+    },
+    {
+      "id": "e056322e48aeb43c7927b2fd",
+      "routeId": "st-john-river-frenchville-madawaska",
+      "check": "data",
+      "severity": "high",
+      "message": "Missing river-trip-details entry",
+      "evidence": "st-john-river-frenchville-madawaska"
+    },
+    {
+      "id": "34689dada1b7e67bbaea9d96",
+      "routeId": "st-john-river-saint-francis-fort-kent",
+      "check": "data",
+      "severity": "high",
+      "message": "Missing river-trip-details entry",
+      "evidence": "st-john-river-saint-francis-fort-kent"
+    },
+    {
+      "id": "66fbb866c8c1c3b42fa1ef33",
+      "routeId": "st-john-river-van-buren-madawaska",
+      "check": "data",
+      "severity": "high",
+      "message": "Missing river-trip-details entry",
+      "evidence": "st-john-river-van-buren-madawaska"
+    },
+    {
+      "id": "23e1537675e18eada1349a8e",
+      "routeId": "verde-river-89a-bignotti",
+      "check": "data",
+      "severity": "high",
+      "message": "Two-sided guidance requires finite tooLow, idealMin, idealMax, and tooHigh thresholds.",
+      "evidence": "incomplete-two-sided-thresholds"
+    },
+    {
+      "id": "79448c026483d600d4e08017",
+      "routeId": "verde-river-89a-black-canyon",
+      "check": "data",
+      "severity": "high",
+      "message": "Two-sided guidance requires finite tooLow, idealMin, idealMax, and tooHigh thresholds.",
+      "evidence": "incomplete-two-sided-thresholds"
+    },
+    {
+      "id": "ec216f419f02556d72d44372",
+      "routeId": "verde-river-89a-parsons",
+      "check": "data",
+      "severity": "high",
+      "message": "Two-sided guidance requires finite tooLow, idealMin, idealMax, and tooHigh thresholds.",
+      "evidence": "incomplete-two-sided-thresholds"
+    },
+    {
+      "id": "635d70dbfca20759f5c0a2f6",
+      "routeId": "verde-river-89a-sheep-crossing",
+      "check": "data",
+      "severity": "high",
+      "message": "Two-sided guidance requires finite tooLow, idealMin, idealMax, and tooHigh thresholds.",
+      "evidence": "incomplete-two-sided-thresholds"
+    },
+    {
+      "id": "04dbcb5f28cdf9d173eeef35",
+      "routeId": "verde-river-89a-skidmore",
+      "check": "data",
+      "severity": "high",
+      "message": "Two-sided guidance requires finite tooLow, idealMin, idealMax, and tooHigh thresholds.",
+      "evidence": "incomplete-two-sided-thresholds"
+    },
+    {
+      "id": "40147d0c6bb2e220de3cdd74",
+      "routeId": "verde-river-bignotti-newton",
+      "check": "data",
+      "severity": "high",
+      "message": "Two-sided guidance requires finite tooLow, idealMin, idealMax, and tooHigh thresholds.",
+      "evidence": "incomplete-two-sided-thresholds"
+    },
+    {
+      "id": "d7617f25d341cffa06df7f53",
+      "routeId": "verde-river-bignotti-parsons",
+      "check": "data",
+      "severity": "high",
+      "message": "Two-sided guidance requires finite tooLow, idealMin, idealMax, and tooHigh thresholds.",
+      "evidence": "incomplete-two-sided-thresholds"
+    },
+    {
+      "id": "589f48e1be8ae3ce9a360f29",
+      "routeId": "verde-river-bignotti-sheep-crossing",
+      "check": "data",
+      "severity": "high",
+      "message": "Two-sided guidance requires finite tooLow, idealMin, idealMax, and tooHigh thresholds.",
+      "evidence": "incomplete-two-sided-thresholds"
+    },
+    {
+      "id": "89e992471ae952d7dda92ce9",
+      "routeId": "verde-river-black-bridge-white",
+      "check": "data",
+      "severity": "high",
+      "message": "Two-sided guidance requires finite tooLow, idealMin, idealMax, and tooHigh thresholds.",
+      "evidence": "incomplete-two-sided-thresholds"
+    },
+    {
+      "id": "648caa995b54246ee6a427b3",
+      "routeId": "verde-river-black-canyon-bignotti",
+      "check": "data",
+      "severity": "high",
+      "message": "Two-sided guidance requires finite tooLow, idealMin, idealMax, and tooHigh thresholds.",
+      "evidence": "incomplete-two-sided-thresholds"
+    },
+    {
+      "id": "823838ec5f31dab274c82e35",
+      "routeId": "verde-river-black-canyon-sheep-crossing",
+      "check": "data",
+      "severity": "high",
+      "message": "Two-sided guidance requires finite tooLow, idealMin, idealMax, and tooHigh thresholds.",
+      "evidence": "incomplete-two-sided-thresholds"
+    },
+    {
+      "id": "1d2369a5a4e74107f2a26528",
+      "routeId": "verde-river-clear-creek-beasley-flat",
+      "check": "data",
+      "severity": "high",
+      "message": "Two-sided guidance requires finite tooLow, idealMin, idealMax, and tooHigh thresholds.",
+      "evidence": "incomplete-two-sided-thresholds"
+    },
+    {
+      "id": "a0954e9b5bc49a17c6f95e4b",
+      "routeId": "verde-river-clear-creek-childs",
+      "check": "data",
+      "severity": "high",
+      "message": "Two-sided guidance requires finite tooLow, idealMin, idealMax, and tooHigh thresholds.",
+      "evidence": "incomplete-two-sided-thresholds"
+    },
+    {
+      "id": "c1c8053c081a13a1703e21b3",
+      "routeId": "verde-river-dead-horse-89a",
+      "check": "data",
+      "severity": "high",
+      "message": "Two-sided guidance requires finite tooLow, idealMin, idealMax, and tooHigh thresholds.",
+      "evidence": "incomplete-two-sided-thresholds"
+    },
+    {
+      "id": "f5b18553eca7d989d7b1b029",
+      "routeId": "verde-river-lower-tapco-89a-bridge",
+      "check": "data",
+      "severity": "high",
+      "message": "Two-sided guidance requires finite tooLow, idealMin, idealMax, and tooHigh thresholds.",
+      "evidence": "incomplete-two-sided-thresholds"
+    },
+    {
+      "id": "b62a1d9ddad2b3054cfce7cc",
+      "routeId": "verde-river-lower-tapco-skidmore",
+      "check": "data",
+      "severity": "high",
+      "message": "Two-sided guidance requires finite tooLow, idealMin, idealMax, and tooHigh thresholds.",
+      "evidence": "incomplete-two-sided-thresholds"
+    },
+    {
+      "id": "36f685697c44837af72a7873",
+      "routeId": "verde-river-lower-tapco-tuzigoot",
+      "check": "data",
+      "severity": "high",
+      "message": "Two-sided guidance requires finite tooLow, idealMin, idealMax, and tooHigh thresholds.",
+      "evidence": "incomplete-two-sided-thresholds"
+    },
+    {
+      "id": "315ab46d84e0af9314416623",
+      "routeId": "verde-river-newton-black-bridge",
+      "check": "data",
+      "severity": "high",
+      "message": "Two-sided guidance requires finite tooLow, idealMin, idealMax, and tooHigh thresholds.",
+      "evidence": "incomplete-two-sided-thresholds"
+    },
+    {
+      "id": "d25f4c3e883b63e84621fd47",
+      "routeId": "verde-river-newton-parsons",
+      "check": "data",
+      "severity": "high",
+      "message": "Two-sided guidance requires finite tooLow, idealMin, idealMax, and tooHigh thresholds.",
+      "evidence": "incomplete-two-sided-thresholds"
+    },
+    {
+      "id": "de233ccd9c04d6eac1fd3e2d",
+      "routeId": "verde-river-parsons-black-bridge",
+      "check": "data",
+      "severity": "high",
+      "message": "Two-sided guidance requires finite tooLow, idealMin, idealMax, and tooHigh thresholds.",
+      "evidence": "incomplete-two-sided-thresholds"
+    },
+    {
+      "id": "a0f8219830fe7f572962db54",
+      "routeId": "verde-river-sheep-crossing-newton",
+      "check": "data",
+      "severity": "high",
+      "message": "Two-sided guidance requires finite tooLow, idealMin, idealMax, and tooHigh thresholds.",
+      "evidence": "incomplete-two-sided-thresholds"
+    },
+    {
+      "id": "924c785e2e31a9e795e9c872",
+      "routeId": "verde-river-sheep-parsons",
+      "check": "data",
+      "severity": "high",
+      "message": "Two-sided guidance requires finite tooLow, idealMin, idealMax, and tooHigh thresholds.",
+      "evidence": "incomplete-two-sided-thresholds"
+    },
+    {
+      "id": "25ee4154bb5ddd9a595dacca",
+      "routeId": "verde-river-skidmore-bignotti",
+      "check": "data",
+      "severity": "high",
+      "message": "Two-sided guidance requires finite tooLow, idealMin, idealMax, and tooHigh thresholds.",
+      "evidence": "incomplete-two-sided-thresholds"
+    },
+    {
+      "id": "685ee604169cd650f2ecf1ad",
+      "routeId": "verde-river-skidmore-black-bridge",
+      "check": "data",
+      "severity": "high",
+      "message": "Two-sided guidance requires finite tooLow, idealMin, idealMax, and tooHigh thresholds.",
+      "evidence": "incomplete-two-sided-thresholds"
+    },
+    {
+      "id": "5098f6892fc6e0a975055f5d",
+      "routeId": "verde-river-skidmore-black-canyon",
+      "check": "data",
+      "severity": "high",
+      "message": "Two-sided guidance requires finite tooLow, idealMin, idealMax, and tooHigh thresholds.",
+      "evidence": "incomplete-two-sided-thresholds"
+    },
+    {
+      "id": "8800a7cf7f30d5bcd1dfa18e",
+      "routeId": "verde-river-skidmore-newton",
+      "check": "data",
+      "severity": "high",
+      "message": "Two-sided guidance requires finite tooLow, idealMin, idealMax, and tooHigh thresholds.",
+      "evidence": "incomplete-two-sided-thresholds"
+    },
+    {
+      "id": "106dce25e8f8eaa8977c42b7",
+      "routeId": "verde-river-skidmore-parsons",
+      "check": "data",
+      "severity": "high",
+      "message": "Two-sided guidance requires finite tooLow, idealMin, idealMax, and tooHigh thresholds.",
+      "evidence": "incomplete-two-sided-thresholds"
+    },
+    {
+      "id": "909ec947004d0e39331763c1",
+      "routeId": "verde-river-skidmore-sheep-crossing",
+      "check": "data",
+      "severity": "high",
+      "message": "Two-sided guidance requires finite tooLow, idealMin, idealMax, and tooHigh thresholds.",
+      "evidence": "incomplete-two-sided-thresholds"
+    },
+    {
+      "id": "f30f3f3ff680cd59b5b2efaa",
+      "routeId": "verde-river-skidmore-white",
+      "check": "data",
+      "severity": "high",
+      "message": "Two-sided guidance requires finite tooLow, idealMin, idealMax, and tooHigh thresholds.",
+      "evidence": "incomplete-two-sided-thresholds"
+    },
+    {
+      "id": "58f6bb125441cd056f0028ed",
+      "routeId": "verde-river-tuzigoot-89a-bridge",
+      "check": "data",
+      "severity": "high",
+      "message": "Two-sided guidance requires finite tooLow, idealMin, idealMax, and tooHigh thresholds.",
+      "evidence": "incomplete-two-sided-thresholds"
+    },
+    {
+      "id": "eb0a505572f5312c770a6f5e",
+      "routeId": "verde-river-tuzigoot-bignotti",
+      "check": "data",
+      "severity": "high",
+      "message": "Two-sided guidance requires finite tooLow, idealMin, idealMax, and tooHigh thresholds.",
+      "evidence": "incomplete-two-sided-thresholds"
+    },
+    {
+      "id": "dcbcf5231037ad24baec41b8",
+      "routeId": "verde-river-tuzigoot-black-canyon",
+      "check": "data",
+      "severity": "high",
+      "message": "Two-sided guidance requires finite tooLow, idealMin, idealMax, and tooHigh thresholds.",
+      "evidence": "incomplete-two-sided-thresholds"
+    },
+    {
+      "id": "6fd0c354e634e1bc7af1f49e",
+      "routeId": "verde-river-tuzigoot-dead-horse",
+      "check": "data",
+      "severity": "high",
+      "message": "Two-sided guidance requires finite tooLow, idealMin, idealMax, and tooHigh thresholds.",
+      "evidence": "incomplete-two-sided-thresholds"
+    },
+    {
+      "id": "7b416a2c1c05c08561c7c884",
+      "routeId": "verde-river-tuzigoot-sheep-crossing",
+      "check": "data",
+      "severity": "high",
+      "message": "Two-sided guidance requires finite tooLow, idealMin, idealMax, and tooHigh thresholds.",
+      "evidence": "incomplete-two-sided-thresholds"
+    },
+    {
+      "id": "bc3600f88f5ab2c7d7c41abe",
+      "routeId": "verde-river-tuzigoot-skidmore",
+      "check": "data",
+      "severity": "high",
+      "message": "Two-sided guidance requires finite tooLow, idealMin, idealMax, and tooHigh thresholds.",
+      "evidence": "incomplete-two-sided-thresholds"
+    },
+    {
+      "id": "c8e54301117a6a0b95007de0",
+      "routeId": "verde-river-white-bridge-childs",
+      "check": "data",
+      "severity": "high",
+      "message": "Two-sided guidance requires finite tooLow, idealMin, idealMax, and tooHigh thresholds.",
+      "evidence": "incomplete-two-sided-thresholds"
+    },
+    {
+      "id": "0656913c00a5e4e60f6899a8",
+      "routeId": "verde-river-white-bridge-clear-creek",
+      "check": "data",
+      "severity": "high",
+      "message": "Two-sided guidance requires finite tooLow, idealMin, idealMax, and tooHigh thresholds.",
+      "evidence": "incomplete-two-sided-thresholds"
+    },
+    {
+      "id": "429b88767807327236403800",
+      "routeId": "webb-lake-dacf-access-loop",
+      "check": "data",
+      "severity": "high",
+      "message": "Missing river-trip-details entry",
+      "evidence": "webb-lake-dacf-access-loop"
+    },
+    {
+      "id": "0948bea32e244e76cc4c4176",
+      "routeId": "west-branch-penobscot-river-t3r11-t2r10",
+      "check": "data",
+      "severity": "high",
+      "message": "Missing river-trip-details entry",
+      "evidence": "west-branch-penobscot-river-t3r11-t2r10"
+    },
+    {
+      "id": "bc8eab6afa7858cc82351f90",
+      "routeId": "wv-guyandotte-west-hamlin-salt-rock",
+      "check": "safety",
+      "severity": "high",
+      "message": "Route text mentions closure, access uncertainty, or private-bank constraints.",
+      "evidence": "s. Follow current West Virginia boating/PFD rules, posted access rules, and any closure or water-quality notice. No on-route camping is assumed. Use separately verified lodging or campgrounds near Hamlin, Huntington, or Barboursville; do not camp at either acc"
+    },
+    {
+      "id": "bd2ecbd15f69b0244e781221",
+      "routeId": "yampa-river-duffy-mountain-juniper-canyon",
+      "check": "data",
+      "severity": "high",
+      "message": "Missing river-trip-details entry",
+      "evidence": "yampa-river-duffy-mountain-juniper-canyon"
+    },
+    {
+      "id": "a4eeb5217670bab30ab84883",
+      "routeId": "yampa-river-golf-course-loudy-simpson",
+      "check": "data",
+      "severity": "high",
+      "message": "Missing river-trip-details entry",
+      "evidence": "yampa-river-golf-course-loudy-simpson"
+    },
+    {
+      "id": "f20c0c9f3bcb25f9c14404e4",
+      "routeId": "yampa-river-hayden-pump-station-headquarters",
+      "check": "data",
+      "severity": "high",
+      "message": "Missing river-trip-details entry",
+      "evidence": "yampa-river-hayden-pump-station-headquarters"
+    },
+    {
+      "id": "c5c86ebe4f07a6b7e4ffbf55",
+      "routeId": "yampa-river-headquarters-dorsey",
+      "check": "data",
+      "severity": "high",
+      "message": "Missing river-trip-details entry",
+      "evidence": "yampa-river-headquarters-dorsey"
+    },
+    {
+      "id": "806a811ec3222af299f625b2",
+      "routeId": "yampa-river-juniper-canyon-maybell-bridge",
+      "check": "data",
+      "severity": "high",
+      "message": "Missing river-trip-details entry",
+      "evidence": "yampa-river-juniper-canyon-maybell-bridge"
+    },
+    {
+      "id": "5904dffd98cf31d85b67987c",
+      "routeId": "yampa-river-loudy-simpson-south-beach",
+      "check": "data",
+      "severity": "high",
+      "message": "Missing river-trip-details entry",
+      "evidence": "yampa-river-loudy-simpson-south-beach"
+    }
+  ],
+  "unresolvedHighFindings": [
+    {
+      "id": "84ba949e09ee51aa8f3e0a2d",
+      "routeId": "comal-river-hinman-island-last-public-exit",
+      "check": "coordinates",
+      "severity": "high",
+      "message": "Hinman Island Park: Stored coordinate matches an official WMA/property or fishing-area representative point (hinman-island-park-city-map-pin); it is not a verified access, parking, or water-entry coordinate.",
+      "evidence": "failure"
+    },
+    {
+      "id": "97e8e476bfdeceeaee3fc795",
+      "routeId": "comal-river-hinman-island-last-public-exit",
+      "check": "evidence:access",
+      "severity": "high",
+      "message": "access: conflict source verification"
+    }
+  ],
+  "remainingEvidenceGaps": {
+    "contextOnlyPlanningThresholdWarnings": 829,
+    "missingFactReviews": 23399,
+    "note": "No claim of exhaustive external source verification. Existing hydrography uncertainty and overlap review items remain in the QA report."
+  },
+  "sources": [
+    "https://www.newbraunfels.gov/4211/Comal-River-Parking",
+    "https://newbraunfels.gov/Facilities/Facility/Details/18",
+    "https://www.newbraunfels.gov/3368/Comal-River"
+  ],
+  "validation": {
+    "audits": [
+      {
+        "id": "data",
+        "status": "passed"
+      },
+      {
+        "id": "safety",
+        "status": "completed"
+      },
+      {
+        "id": "coordinates",
+        "status": "passed"
+      },
+      {
+        "id": "geometry",
+        "status": "passed"
+      },
+      {
+        "id": "corridors",
+        "status": "passed"
+      },
+      {
+        "id": "gauges",
+        "status": "passed"
+      },
+      {
+        "id": "overlap",
+        "status": "passed"
+      },
+      {
+        "id": "source-links",
+        "status": "skipped"
+      }
+    ],
+    "focusedTestsPassed": 338,
+    "routeTypecheck": "passed",
+    "runtimeTypecheck": "passed"
+  }
+}

@@ -38,7 +38,9 @@ function makeRoute(spec: { id: string; start: BitterrootPoint; end: BitterrootPo
       'Use designated FWP campsites only for overnight travel; otherwise plan a nearby basecamp and finish in daylight.',
     ],
     logistics: {
-      estimatedPaddleTime: 'Allow 4–9 hours with current, scouting and shuttle margin',
+      estimatedPaddleTime: spec.miles > 35
+        ? 'Plan staged multi-day travel with confirmed intermediate take-outs, legal overnight arrangements and shuttle support'
+        : 'Allow 4–9 hours with current, scouting and shuttle margin',
       shuttle: 'Stage the downstream FWP access first, then drive to the upstream launch. Confirm gates, parking, conservation-license requirements and the actual water-entry edge.',
       permits: 'Confirm Montana FWP access rules, conservation license requirements and Bitterroot floating restrictions before unloading.',
       camping: 'No overnight river camping is assumed. Use an established campground or lodging near Hamilton, Stevensville or Lolo; only designated FWP camping areas may be used for on-route overnights.',

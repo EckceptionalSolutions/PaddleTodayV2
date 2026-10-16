@@ -1504,6 +1504,7 @@ export const texasRoutes: River[] = [
   },
   {
     "id": "comal-river-hinman-island-last-public-exit",
+    "scoreEligibility": "planning",
     "slug": "comal-river-hinman-island-last-public-exit",
     "name": "Comal River",
     "reach": "Hinman Island Park to Last Public Exit",
@@ -1516,7 +1517,7 @@ export const texasRoutes: River[] = [
     "region": "Texas Hill Country",
     "routeType": "whitewater",
     "summary": "Short New Braunfels urban water-trail run from Hinman Island Park to the Last Public Exit. The City and National Recreation Trails identify the public access corridor and recreation rules, while the Comal River at New Braunfels USGS gauge gives a direct same-river flow check.",
-    "statusText": "Use the Comal River at New Braunfels gauge. The City lists 100-500 cfs as open for all recreation, 500-600 cfs as extreme caution with questionable activities, and 600 cfs or above as a temporary closure trigger.",
+    "statusText": "Access verification hold: the Hinman park marker is not a verified launch coordinate. The City publishes recreation guidance for USGS 08169000: 100–500 cfs for general recreation, 500–600 cfs for extreme caution, and closure at 600 cfs and above. These bands do not clear the access hold.",
     "latitude": 29.7084,
     "longitude": -98.1242,
     "gaugeSource": {
@@ -1551,6 +1552,7 @@ export const texasRoutes: River[] = [
       "idealMax": 500,
       "tooLow": 100,
       "tooHigh": 600,
+      "tooHighInclusive": true,
       "thresholdSource": {
         "label": "City of New Braunfels Comal River flow guidance",
         "url": "https://www.newbraunfels.gov/3368/Comal-River",
@@ -1575,7 +1577,7 @@ export const texasRoutes: River[] = [
       "seasonNotes": "The spring-fed Comal can be used much of the year when city access is open, but New Braunfels manages closures and caution bands around high water. Check the same-day gauge, posted river status, storms, and crowd-control rules before launching.",
       "difficulty": "moderate",
       "difficultyNotes": "The mileage is short, but this is not treated as a casual flatwater card because it includes chute/dam features, low-head-dam awareness, crowd pressure, and a mandatory public exit before the lower Guadalupe hazard corridor.",
-      "confidenceNotes": "Confidence is strong for a conservative Texas add: New Braunfels publishes the Comal recreation flow bands and access rules, National Recreation Trails documents the 1.5-mile Hinman Island Park-to-Last-Public-Exit water trail, American Whitewater corroborates the short whitewater/dam hazard package, USGS 08169000 is direct and product-supported, and city park rules explicitly prohibit camping or overnight lodging in city parks."
+      "confidenceNotes": "The City publishes the recreation flow and closure bands, and USGS identifies station 08169000 on the Comal River in New Braunfels. The NRT manager record identifies the 1.5-mile corridor, but does not resolve a precise launch coordinate. Keep this route planning-only and withheld until access verification; published bands are not a safety guarantee."
     },
     "evidenceNotes": [
       {

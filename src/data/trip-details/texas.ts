@@ -635,17 +635,17 @@ export const texasRiverTripDetails: Record<string, RiverTripDetails> = {
     },
     "logistics": {
       "distanceLabel": "About 1.5 mi",
-      "estimatedPaddleTime": "About 1 hr to 3 hr depending on crowding, chute handling, river rules, and whether the group stops or portages",
-      "shuttle": "Stage the Last Public Exit first, then return to Hinman Island Park. The route is short, urban, and access-controlled, so parking, paid access, wristbands, outfitter shuttles, and seasonal crowd rules matter more than driving distance.",
-      "permits": "No separate route permit was found, but New Braunfels manages river access rules, wristbands, parking, container restrictions, vessel limits, and temporary closures. Canoes and kayaks may not exceed 18 feet and may not use Last Tubers Exit on weekends or holidays.",
+      "estimatedPaddleTime": "The trail manager publishes a 2–3 hour tubing reference, varying with flow. A kayak/canoe travel time is not verified; chute handling, portages and access restrictions can add delay.",
+      "shuttle": "Access verification hold: the Hinman coordinate is a park marker, not a verified launch entry. Confirm the permitted launch stairs and carry path before planning this trip. The route is short, urban, and access-controlled, so parking, paid access, wristbands, outfitter shuttles, and seasonal crowd rules matter more than driving distance.",
+      "permits": "Follow current New Braunfels river-access, wristband, parking, container and closure rules. Canoes and kayaks may not exceed 18 feet and may not use Last Tubers Exit on weekends or holidays. Confirm fees and posted access status before travel.",
       "camping": "Treat this as a day-use urban river only. New Braunfels park rules prohibit camping and overnight lodging in all city parks, and the route does not infer legal camping from riverfront parks, outfitters, or private banks.",
       "campingClassification": "none",
-      "summary": "Launch at Hinman Island Park and finish at the Last Public Exit for the Comal River Water Trail through New Braunfels. Use USGS 08169000 with the City's 100-500 cfs open recreation band, then check posted river status, crowd rules, Tube Chute operations, and exit restrictions before committing.",
+      "summary": "Launch at Hinman Island Park and finish at the Last Public Exit for the Comal River Water Trail through New Braunfels. This route is withheld pending verification of the permitted Hinman entry coordinate and carry path. The City publishes flow and closure guidance, but a favorable gauge reading cannot clear this access hold.",
       "accessCaveats": [
         "National Recreation Trails names Hinman Island Park as the start and the Last Public Exit as the finish; Paddle Today stores both as public access anchors rather than guessed wetted-edge launch points.",
         "New Braunfels requires river users to exit at the Last Public Exit on this route; do not continue into the lower Guadalupe or toward downstream dam hazards without a separate route plan.",
         "Canoes and kayaks cannot exceed 18 feet and the City says they may not use Last Tubers Exit on weekends or holidays, so hard-boat users need a weekday or locally approved take-out plan.",
-        "Parking, river access fees, wristbands, disposable-container bans, and outfitter rules can change seasonally. Posted City rules control on arrival."
+        "The City parking page lists Hinman parking as closed on weekends and holidays during its May 1–Labor Day summer parking season. Verify current parking, access fees, wristbands, container restrictions and posted City rules; do not confuse a parking pin with the water entry."
       ],
       "watchFor": [
         "Tube Chute and Clemens Dam handling; hard boats may need to portage when tubing or lifeguard operations are active.",

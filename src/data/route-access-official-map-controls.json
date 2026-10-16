@@ -576,7 +576,7 @@
           "waterbody": "Rum River",
           "latitude": 45.28228691640213,
           "longitude": -93.40708402066348,
-          "riverMile": 9.0,
+          "riverMile": 9,
           "uncertaintyFeet": 250,
           "coordinateText": "Minnesota DNR public-water-access feature WAS02989; heads-up-digitized access-area point for the City of Ramsey carry-in, river mile 9.0, right bank."
         }
@@ -12018,8 +12018,8 @@
       "sourceType": "official-coordinate-table",
       "sourceDocumentDate": null,
       "sourceSha256": null,
-      "coordinateRole": "authoritative-water-entry",
-      "method": "National Park Service C&O Canal river access guidance and the canal access inventory identify the Oldtown, Town Creek, and Paw Paw access areas used by the route. Stored coordinates are access-area anchors; confirm the current carry, landing, parking, campground, and flood status before launch.",
+      "coordinateRole": "authoritative-access-anchor",
+      "method": "National Park Service C&O Canal river access guidance and the canal access inventory identify the Oldtown, Town Creek, and Paw Paw access areas used by the route. Stored coordinates are access-area anchors; confirm the current carry, landing, parking, campground, and flood status before launch. This is access-area evidence only, not a surveyed water entry; an unresolved launch hold cannot be cleared by this table.",
       "controls": [
         {
           "featureId": "potomac-oldtown-toll-bridge",
@@ -29432,6 +29432,223 @@
           "longitude": -98.1242,
           "uncertaintyFeet": 150,
           "coordinateText": "City-linked park place pin. Confirm the posted launch and carry path on arrival."
+        }
+      ]
+    },
+    {
+      "id": "sc-paddle-broad-kml-2026-10-16",
+      "state": "South Carolina",
+      "sourceUrl": "https://www.gopaddlesc.com/docs/kml/PaddlePoints116.kml",
+      "sourceType": "trail-operator-access-kml",
+      "sourceDocumentDate": null,
+      "sourceSha256": "2fb6d11dbdb3941e90c41a6a2bf497683f84c02f8838c87a9f686d32fe3f3b09",
+      "inventoryFetchedAt": "2026-10-16T14:00:17.211Z",
+      "coordinateRole": "authoritative-access-anchor",
+      "method": "Exact coordinate and compatible-name matches to KML records explicitly typed Boat Launch or Hand Carry Access. Hazard, dam, attraction and portage-only placemarks are excluded. This verifies the named mapped access site, not an exact water-entry edge or current operating status.",
+      "controls": [
+        {
+          "featureId": "paddle-sc-116-3",
+          "name": "Peake-Alston Canoe Access",
+          "aliases": [
+            "Peake-Alston Canoe Access"
+          ],
+          "routeIds": [
+            "broad-river-peak-harbison"
+          ],
+          "waterbody": "Broad River",
+          "latitude": 34.24323903973,
+          "longitude": -81.319448914035,
+          "uncertaintyFeet": 25,
+          "coordinateText": "Hand Carry Access:  Named trail access-site anchor; not a surveyed water-entry edge."
+        },
+        {
+          "featureId": "paddle-sc-116-4",
+          "name": "Harbison State Forest Canoe Access",
+          "aliases": [
+            "Harbison State Forest Canoe Access"
+          ],
+          "routeIds": [
+            "broad-river-peak-harbison"
+          ],
+          "waterbody": "Broad River",
+          "latitude": 34.1045000006501,
+          "longitude": -81.1179999993823,
+          "uncertaintyFeet": 25,
+          "coordinateText": "Hand Carry Access:  Named trail access-site anchor; not a surveyed water-entry edge."
+        },
+        {
+          "featureId": "paddle-sc-116-13",
+          "name": "Ninety-Nine Islands River Access and Parking Area",
+          "aliases": [
+            "Ninety-Nine Islands River Access and Parking Area"
+          ],
+          "routeIds": [
+            "broad-river-ninety-nine-islands-daltons",
+            "broad-river-ninety-nine-islands-lockhart",
+            "broad-river-ninety-nine-islands-broad-river-landing"
+          ],
+          "waterbody": "Broad River",
+          "latitude": 35.0298720000527,
+          "longitude": -81.4910220003283,
+          "uncertaintyFeet": 25,
+          "coordinateText": "Boat Launch: Located river-left, this boat ramp and small parking area is downstream of the 99 Islands Dam, next to the powerhouse. Named trail access-site anchor; not a surveyed water-entry edge."
+        },
+        {
+          "featureId": "paddle-sc-116-14",
+          "name": "Worth Mountain WMA",
+          "aliases": [
+            "Worth Mountain WMA, Daltons Landing"
+          ],
+          "routeIds": [
+            "broad-river-ninety-nine-islands-daltons",
+            "broad-river-daltons-lockhart",
+            "broad-river-daltons-broad-river-landing",
+            "broad-river-daltons-neal-shoals",
+            "broad-river-daltons-sandy",
+            "broad-river-daltons-shelton",
+            "broad-river-daltons-strother"
+          ],
+          "waterbody": "Broad River",
+          "latitude": 34.9361520001774,
+          "longitude": -81.4730639995707,
+          "uncertaintyFeet": 25,
+          "coordinateText": "Boat Launch: This river access includes a parking area and concrete boat ramp. Named trail access-site anchor; not a surveyed water-entry edge."
+        },
+        {
+          "featureId": "paddle-sc-116-15",
+          "name": "Lockhart Take Out above Lockhart Dam #1",
+          "aliases": [
+            "Lockhart Take Out above Lockhart Dam #1"
+          ],
+          "routeIds": [
+            "broad-river-daltons-lockhart",
+            "broad-river-ninety-nine-islands-lockhart"
+          ],
+          "waterbody": "Broad River",
+          "latitude": 34.7972299999073,
+          "longitude": -81.4614459999663,
+          "uncertaintyFeet": 25,
+          "coordinateText": "Hand Carry Access: Paddlers should use caution when approaching the Lockhart Dam.  The take out is located river-right, before the first dam. Named trail access-site anchor; not a surveyed water-entry edge."
+        },
+        {
+          "featureId": "paddle-sc-116-16",
+          "name": "Lockhart Put In below Lockhart Dam #2",
+          "aliases": [
+            "Lockhart Put In below Lockhart Dam #2"
+          ],
+          "routeIds": [
+            "broad-river-lockhart-broad-river-landing",
+            "broad-river-lockhart-neal-shoals",
+            "broad-river-lockhart-sandy",
+            "broad-river-lockhart-shelton",
+            "broad-river-lockhart-strother"
+          ],
+          "waterbody": "Broad River",
+          "latitude": 34.7794910000447,
+          "longitude": -81.4561030003194,
+          "uncertaintyFeet": 25,
+          "coordinateText": "Hand Carry Access: This access is located east of Lockhart Power's Hydropower Plant and Dam. Named trail access-site anchor; not a surveyed water-entry edge."
+        },
+        {
+          "featureId": "paddle-sc-116-18",
+          "name": "Broad River Landing River Access and Parking Area",
+          "aliases": [
+            "Broad River Landing River Access"
+          ],
+          "routeIds": [
+            "broad-river-lockhart-broad-river-landing",
+            "broad-river-broad-river-landing-neal-shoals",
+            "broad-river-broad-river-landing-sandy",
+            "broad-river-broad-river-landing-shelton",
+            "broad-river-broad-river-landing-strother",
+            "broad-river-daltons-broad-river-landing",
+            "broad-river-ninety-nine-islands-broad-river-landing"
+          ],
+          "waterbody": "Broad River",
+          "latitude": 34.7098830001992,
+          "longitude": -81.4563219997042,
+          "uncertaintyFeet": 25,
+          "coordinateText": "Boat Launch: A small parking area and boat ramp are located river-right. Named trail access-site anchor; not a surveyed water-entry edge."
+        },
+        {
+          "featureId": "paddle-sc-116-19",
+          "name": "Neal Shoals Dam River Access and Parking Area",
+          "aliases": [
+            "Neal Shoals Dam public access / 500-foot carry area"
+          ],
+          "routeIds": [
+            "broad-river-broad-river-landing-neal-shoals",
+            "broad-river-neal-shoals-sandy",
+            "broad-river-lockhart-neal-shoals",
+            "broad-river-daltons-neal-shoals",
+            "broad-river-neal-shoals-shelton",
+            "broad-river-neal-shoals-strother"
+          ],
+          "waterbody": "Broad River",
+          "latitude": 34.6653839999791,
+          "longitude": -81.4452990001266,
+          "uncertaintyFeet": 25,
+          "coordinateText": "Hand Carry Access: This river access can be used to avoid portaging the Neal Shoals Dam. Named trail access-site anchor; not a surveyed water-entry edge."
+        },
+        {
+          "featureId": "paddle-sc-116-20",
+          "name": "Sandy River Boat Ramp and Parking Area",
+          "aliases": [
+            "Sandy River Boat Ramp"
+          ],
+          "routeIds": [
+            "broad-river-neal-shoals-sandy",
+            "broad-river-sandy-shelton",
+            "broad-river-lockhart-sandy",
+            "broad-river-broad-river-landing-sandy",
+            "broad-river-daltons-sandy",
+            "broad-river-sandy-strother"
+          ],
+          "waterbody": "Broad River",
+          "latitude": 34.5728189997091,
+          "longitude": -81.421925999752,
+          "uncertaintyFeet": 25,
+          "coordinateText": "Boat Launch: A small parking area and dirt boat ramp are located river-left. Named trail access-site anchor; not a surveyed water-entry edge."
+        },
+        {
+          "featureId": "paddle-sc-116-21",
+          "name": "Shelton Ferry Landing Boat Ramp and Parking Area",
+          "aliases": [
+            "Shelton Ferry Landing"
+          ],
+          "routeIds": [
+            "broad-river-sandy-shelton",
+            "broad-river-shelton-strother",
+            "broad-river-lockhart-shelton",
+            "broad-river-broad-river-landing-shelton",
+            "broad-river-neal-shoals-shelton",
+            "broad-river-daltons-shelton"
+          ],
+          "waterbody": "Broad River",
+          "latitude": 34.4863889999453,
+          "longitude": -81.4247750003874,
+          "uncertaintyFeet": 25,
+          "coordinateText": "Boat Launch: A small parking area and dirt boat ramp are located river-right. Named trail access-site anchor; not a surveyed water-entry edge."
+        },
+        {
+          "featureId": "paddle-sc-116-22",
+          "name": "Strother Landing River Access and Parking Area",
+          "aliases": [
+            "Strother Landing"
+          ],
+          "routeIds": [
+            "broad-river-shelton-strother",
+            "broad-river-lockhart-strother",
+            "broad-river-broad-river-landing-strother",
+            "broad-river-neal-shoals-strother",
+            "broad-river-sandy-strother",
+            "broad-river-daltons-strother"
+          ],
+          "waterbody": "Broad River",
+          "latitude": 34.3927450002289,
+          "longitude": -81.3960149999851,
+          "uncertaintyFeet": 25,
+          "coordinateText": "Hand Carry Access: Strother Landing is located 600 feet downstream of the SC 34 bridge, river-left. Named trail access-site anchor; not a surveyed water-entry edge."
         }
       ]
     }

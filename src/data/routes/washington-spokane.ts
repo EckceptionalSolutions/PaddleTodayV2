@@ -26,7 +26,9 @@ const mission = { name: 'Mission Ave. paddler access (access-site anchor; whitew
 const sullivan = { name: 'Sullivan Park north-bank public river access (bridge-side shoreline entry; imagery-derived)', latitude: 47.672873, longitude: -117.196939 };
 const mirabeau = { name: 'Mirabeau Park public small-craft access (imagery-georeferenced shoreline entry)', latitude: 47.68186, longitude: -117.22255 };
 const islands = { name: 'Islands Trailhead public boat launch (water-entry edge)', latitude: 47.693831, longitude: -117.250297 };
-const plantes = { name: "Plante's Ferry Park public boat launch (water-entry edge)", latitude: 47.69958, longitude: -117.240609 };
+// The stored point is near the county park maintenance facility, not a
+// verified launch. Keep the original marker and hold affected trip choices.
+const plantes = { name: "Plante's Ferry Park area marker (water entry unverified)", latitude: 47.69958, longitude: -117.240609 };
 const boulder = { name: 'Boulder Beach Park public boat launch (water-entry edge)', latitude: 47.6946833, longitude: -117.3079833 };
 const upriverDam = { name: 'Upriver Dam public access (water-entry edge)', latitude: 47.681339, longitude: -117.33493 };
 const hazards = ['low_water', 'strainers', 'fast_rise', 'cold_water', 'whitewater', 'dam', 'private_banks'] as const;

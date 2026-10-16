@@ -1,4 +1,5 @@
 import type { RiverTripDetails } from '../lib/types';
+import { routeInventory } from './rivers';
 import { arkansasRiverTripDetails } from './trip-details/arkansas';
 import { coloradoRiverTripDetails } from './trip-details/colorado';
 import { illinoisRiverTripDetails } from './trip-details/illinois';
@@ -111,6 +112,16 @@ import { arizonaVerdeExpansionRoutes } from './routes/arizona-verde-expansion';
 import { californiaRussianExpansionRoutes } from './routes/california-russian-expansion';
 
 export const riverTripDetails: Record<string, RiverTripDetails> = {
+  // Inline route definitions are a complete source of trip details too. Keep
+  // explicit trip-detail overrides below, without omitting newly added families.
+  ...Object.fromEntries(routeInventory.flatMap((route): [string, RiverTripDetails][] =>
+    route.putIn && route.takeOut && route.logistics ? [[route.id, {
+      putIn: route.putIn, takeOut: route.takeOut, logistics: route.logistics,
+      accessPoints: route.accessPoints, segmentEdges: route.segmentEdges,
+      corridorId: route.corridorId, corridorLabel: route.corridorLabel,
+      continuityStatus: route.continuityStatus,
+    }]] : [],
+  )),
   ...floridaRiverTripDetails,
   ...oregonRiverTripDetails,
   ...southCarolinaRiverTripDetails,

@@ -1,3 +1,5 @@
+import type { River } from './types';
+
 export type RouteValidationDeferralCategory = 'Distance' | 'Coordinate';
 
 export interface PlanningValidationDeferral {
@@ -26,5 +28,13 @@ export function isPlanningCoordinateDeferred() {
 }
 
 export function isStagedDistanceLabel(distanceLabel: string | undefined) {
-  return /multi[- ]day|staged|sectioned|split(?: into)?(?: \d+[-–]\d+)? day|day sections/i.test(distanceLabel ?? '');
+  return /multi[- ]day|staged|sectioned|split(?: into)?(?: \d+[-–]\d+)? day|day sections|\b[2-9]\d*\s*days?\b/i.test(distanceLabel ?? '');
+}
+
+export function areDocumentedRouteAlternatives(left: River, right: River) {
+  return Boolean(left.consolidation?.group === right.consolidation?.group
+    && left.consolidation?.role === 'alternative'
+    && right.consolidation?.role === 'alternative'
+    && left.consolidation.relatedRouteIds.includes(right.id)
+    && right.consolidation.relatedRouteIds.includes(left.id));
 }

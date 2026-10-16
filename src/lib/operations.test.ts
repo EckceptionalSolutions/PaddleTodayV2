@@ -22,10 +22,10 @@ describe('operations snapshot', () => {
     expect(snapshot.totals.scored + snapshot.totals.planning).toBe(snapshot.totals.inventory);
   }, 20_000);
 
-  it('keeps proxy routes in planning after the completed Texas discovery sweep', () => {
+  it('keeps proxy routes and the unresolved Comal access in planning', () => {
     const snapshot = getOperationsSnapshot();
     const texas = snapshot.states.find((state) => state.id === 'TX');
-    expect(texas).toMatchObject({ planning: 3, legacySaturation: 'saturated' });
+    expect(texas).toMatchObject({ planning: 4, legacySaturation: 'saturated' });
     expect(texas?.saturation).toBe('saturated');
     expect(texas?.discoveryComplete).toBe(true);
     expect(texas?.scored ?? 0).toBeGreaterThanOrEqual(16);

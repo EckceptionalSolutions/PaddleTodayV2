@@ -1,0 +1,320 @@
+{
+  "version": 1,
+  "reviews": [
+    {
+      "route": "comal-river-hinman-island-last-public-exit",
+      "field": "access",
+      "fingerprint": "f384b7242d120a4091d28f92dd6820608fb431fbe82aa2807c7a67f989dada07",
+      "verdict": "conflict",
+      "sourceUrl": "https://www.newbraunfels.gov/4211/Comal-River-Parking",
+      "note": "City-linked coordinate is a park place pin, not a verified permitted river entry. Facility page confirms public river access but does not locate entry stairs precisely. Route withheld pending verified water-entry and carry path; parking also has summer weekend/holiday restrictions.",
+      "reviewedAt": "2026-10-16T13:42:04.130Z"
+    },
+    {
+      "route": "comal-river-hinman-island-last-public-exit",
+      "field": "identity",
+      "fingerprint": "4f16aaf0d3c218d0276ff8578eb2aa7ca1d7c0b30f0b7d5c59d1dd10f18ebb8b",
+      "reviewedAt": "2026-10-16T14:11:13.719Z",
+      "sourceUrl": "https://www.nrtapplication.org/trails/comal-river-water-trail",
+      "note": "The trail-manager NRT record names the Hinman Island–Last Public Exit corridor in New Braunfels, Texas, and documents its water-trail/rapid setting. Current City river guidance confirms the recreation context. The displayed hold is a local QA restriction, not a claim that the manager has closed the trail.",
+      "verdict": "supported"
+    },
+    {
+      "route": "comal-river-hinman-island-last-public-exit",
+      "field": "distance",
+      "fingerprint": "105e9ec69cc6690e121acc22febc807dd41d9f9cf0bb8f361aecc01ee39d8f05",
+      "reviewedAt": "2026-10-16T14:11:13.719Z",
+      "sourceUrl": "https://www.nrtapplication.org/trails/comal-river-water-trail",
+      "note": "Manager record gives 1.5 miles and a flow-dependent 2–3 hour tubing reference. Corrected the unsupported kayak/canoe estimate: hard-boat time remains explicitly unverified. Shuttle text warns about the unresolved entry and City parking/access constraints; no drive-time or verified launch claim is made.",
+      "verdict": "supported"
+    },
+    {
+      "route": "comal-river-hinman-island-last-public-exit",
+      "field": "permits",
+      "fingerprint": "9aef9c13b9b943b9f414c96ad596ac65084a65854e8e9d1bb81b1001326ab400",
+      "reviewedAt": "2026-10-16T14:11:13.719Z",
+      "sourceUrl": "https://newbraunfels.gov/3615/Park-Rules-and-Policies",
+      "note": "Current City park rules prohibit camping/overnight lodging. Current https://www.newbraunfels.gov/4212/What-Can-I-Bring confirms the 18-foot canoe/kayak limit and Last Tubers Exit weekend/holiday restriction. Current parking guidance controls seasonal charges and closures. Removed the unverified absence-of-permit claim.",
+      "verdict": "supported"
+    },
+    {
+      "route": "comal-river-hinman-island-last-public-exit",
+      "field": "seasonality",
+      "fingerprint": "0324549777887771951dd92abf0b6b59c10dc10ab468aa21698a96ed66799556",
+      "reviewedAt": "2026-10-16T14:11:13.719Z",
+      "sourceUrl": "https://www.nrtapplication.org/trails/comal-river-water-trail",
+      "note": "Manager describes year-round use and spring-fed water. Current https://www.newbraunfels.gov/3368/Comal-River describes weather/high-water closures. All-month planning is conditional on current access and river status, not a promise of year-round operation.",
+      "verdict": "supported"
+    },
+    {
+      "route": "comal-river-hinman-island-last-public-exit",
+      "field": "gauge",
+      "fingerprint": "78da96c8c8dc91e074731a580addad7a7c6e8831eeb2d5d1008710e6ef49ad2b",
+      "reviewedAt": "2026-10-16T14:11:13.719Z",
+      "sourceUrl": "https://www.newbraunfels.gov/3368/Comal-River",
+      "note": "City publishes 100–500 cfs general recreation, 500–600 cfs extreme caution, and closure at 600 cfs and above. Corrected the closure boundary to inclusive. https://waterdata.usgs.gov/monitoring-location/USGS-08169000/ identifies the direct Comal station. These published reference bands do not enable scoring while this route is held.",
+      "verdict": "supported"
+    },
+    {
+      "route": "spokane-river-harvard-plantes-ferry",
+      "field": "access",
+      "fingerprint": "628585ec100a52f3dd294d711e800a169acf14a6dbf67da322c752f3d21ab461",
+      "reviewedAt": "2026-10-16T14:11:13.720Z",
+      "sourceUrl": "https://apps.ecology.wa.gov/separ/Main/SEPA/Record.aspx?SEPANumber=202305643",
+      "note": "County SEPA record locates the park maintenance facility near the stored point, while refreshed USGS hydrography places this marker about 880 ft from mapped water. This is not a verified water-entry coordinate. The Water Trail describes the reach but does not locate this marker as a launch; hold until lawful entry and carry are mapped.",
+      "verdict": "conflict"
+    },
+    {
+      "route": "spokane-river-barker-plantes-ferry",
+      "field": "access",
+      "fingerprint": "634168adb2ccccf2b6d008769acf736e9682e38d5b5e6fc176886f7276a17be7",
+      "reviewedAt": "2026-10-16T14:11:13.720Z",
+      "sourceUrl": "https://apps.ecology.wa.gov/separ/Main/SEPA/Record.aspx?SEPANumber=202305643",
+      "note": "County SEPA record locates the park maintenance facility near the stored point, while refreshed USGS hydrography places this marker about 880 ft from mapped water. This is not a verified water-entry coordinate. The Water Trail describes the reach but does not locate this marker as a launch; hold until lawful entry and carry are mapped.",
+      "verdict": "conflict"
+    },
+    {
+      "route": "spokane-river-mirabeau-plantes-ferry",
+      "field": "access",
+      "fingerprint": "56051aab842a93db2282c524d05366b35a80bd905af165f4fb91da7b92c71827",
+      "reviewedAt": "2026-10-16T14:11:13.720Z",
+      "sourceUrl": "https://apps.ecology.wa.gov/separ/Main/SEPA/Record.aspx?SEPANumber=202305643",
+      "note": "County SEPA record locates the park maintenance facility near the stored point, while refreshed USGS hydrography places this marker about 880 ft from mapped water. This is not a verified water-entry coordinate. The Water Trail describes the reach but does not locate this marker as a launch; hold until lawful entry and carry are mapped.",
+      "verdict": "conflict"
+    },
+    {
+      "route": "spokane-river-plantes-ferry-boulder-beach",
+      "field": "access",
+      "fingerprint": "e4815fe55dba9afa4194d553d6f2fbcfe5b9dcde788da0d5fc96f375a2bf022c",
+      "reviewedAt": "2026-10-16T14:11:13.720Z",
+      "sourceUrl": "https://apps.ecology.wa.gov/separ/Main/SEPA/Record.aspx?SEPANumber=202305643",
+      "note": "County SEPA record locates the park maintenance facility near the stored point, while refreshed USGS hydrography places this marker about 880 ft from mapped water. This is not a verified water-entry coordinate. The Water Trail describes the reach but does not locate this marker as a launch; hold until lawful entry and carry are mapped.",
+      "verdict": "conflict"
+    },
+    {
+      "route": "broad-river-peak-harbison",
+      "field": "access",
+      "fingerprint": "02af76ce0c5c80992ababb30035bc48fa389af1d91f32d1747951bdf0c35e2d7",
+      "reviewedAt": "2026-10-16T14:22:09.404Z",
+      "sourceUrl": "https://www.gopaddlesc.com/docs/kml/PaddlePoints116.kml",
+      "verdict": "supported",
+      "note": "Both named endpoints and recorded access points exactly match named Boat Launch/Hand Carry Access features in the current Paddle SC KML. The trip-specific page corroborates access approaches and dam boundaries. These are mapped access-site anchors, not surveyed water edges or a guarantee of current operation; existing carry/permission/day-of checks remain explicit."
+    },
+    {
+      "route": "broad-river-peak-harbison",
+      "field": "distance",
+      "fingerprint": "801f66ecc4a06c8c36613465cc683179628d7ec21825fb6bfef4409e1bec74bc",
+      "reviewedAt": "2026-10-16T14:22:09.405Z",
+      "sourceUrl": "https://www.gopaddlesc.com/trips/trail/broad-river-peak-to-harbison-state-forest",
+      "verdict": "supported",
+      "note": "Verified the exact trip mileage and published duration against the trip-specific Paddle SC page. Duration is now explicitly attributed to that source, with additional scouting/carry delay caveats. Vehicle staging text remains conditional on current named public access; no drive-time guarantee is claimed."
+    },
+    {
+      "route": "broad-river-ninety-nine-islands-daltons",
+      "field": "access",
+      "fingerprint": "2405b62f1767c1cb3f498a80a518b418b1f16196a5440f30ea339d15f54d2c89",
+      "reviewedAt": "2026-10-16T14:22:09.405Z",
+      "sourceUrl": "https://www.gopaddlesc.com/docs/kml/PaddlePoints116.kml",
+      "verdict": "supported",
+      "note": "Both named endpoints and recorded access points exactly match named Boat Launch/Hand Carry Access features in the current Paddle SC KML. The trip-specific page corroborates access approaches and dam boundaries. These are mapped access-site anchors, not surveyed water edges or a guarantee of current operation; existing carry/permission/day-of checks remain explicit."
+    },
+    {
+      "route": "broad-river-ninety-nine-islands-daltons",
+      "field": "distance",
+      "fingerprint": "607d79097dad7d45fe0151dbe5ef5410f7dae82dacd52aa46fecf1289839024c",
+      "reviewedAt": "2026-10-16T14:22:09.405Z",
+      "sourceUrl": "https://www.gopaddlesc.com/trips/trail/broad-river-ninety-nine-islands-river-access-to-worth-mountain-wma",
+      "verdict": "supported",
+      "note": "Verified the exact trip mileage and published duration against the trip-specific Paddle SC page. Duration is now explicitly attributed to that source, with additional scouting/carry delay caveats. Vehicle staging text remains conditional on current named public access; no drive-time guarantee is claimed."
+    },
+    {
+      "route": "broad-river-daltons-lockhart",
+      "field": "access",
+      "fingerprint": "5c439ec55c54f622e42a624ae6cd4da8e6f37edd4124c82e0c421af8504cd88f",
+      "reviewedAt": "2026-10-16T14:22:09.405Z",
+      "sourceUrl": "https://www.gopaddlesc.com/docs/kml/PaddlePoints116.kml",
+      "verdict": "supported",
+      "note": "Both named endpoints and recorded access points exactly match named Boat Launch/Hand Carry Access features in the current Paddle SC KML. The trip-specific page corroborates access approaches and dam boundaries. These are mapped access-site anchors, not surveyed water edges or a guarantee of current operation; existing carry/permission/day-of checks remain explicit."
+    },
+    {
+      "route": "broad-river-daltons-lockhart",
+      "field": "distance",
+      "fingerprint": "5428158812ef676d25715e79e0ad1a33c7e5a7447023984fcdb903af96b3e0ed",
+      "reviewedAt": "2026-10-16T14:22:09.405Z",
+      "sourceUrl": "https://www.gopaddlesc.com/trips/trail/broad-river-worth-mountain-wma-to-lockhart-sc",
+      "verdict": "supported",
+      "note": "Verified the exact trip mileage and published duration against the trip-specific Paddle SC page. Duration is now explicitly attributed to that source, with additional scouting/carry delay caveats. Vehicle staging text remains conditional on current named public access; no drive-time guarantee is claimed."
+    },
+    {
+      "route": "broad-river-lockhart-broad-river-landing",
+      "field": "access",
+      "fingerprint": "eeb528dce5ef06acd1941cc65ecc3b9bb8a0cf2099acfd3ddf86c24e9bb08783",
+      "reviewedAt": "2026-10-16T14:22:09.405Z",
+      "sourceUrl": "https://www.gopaddlesc.com/docs/kml/PaddlePoints116.kml",
+      "verdict": "supported",
+      "note": "Both named endpoints and recorded access points exactly match named Boat Launch/Hand Carry Access features in the current Paddle SC KML. The trip-specific page corroborates access approaches and dam boundaries. These are mapped access-site anchors, not surveyed water edges or a guarantee of current operation; existing carry/permission/day-of checks remain explicit."
+    },
+    {
+      "route": "broad-river-lockhart-broad-river-landing",
+      "field": "distance",
+      "fingerprint": "0d2aff215d2df6c46fae0069ee6abf6344a900f6d81a4be0490a7c06e39ecfc9",
+      "reviewedAt": "2026-10-16T14:22:09.405Z",
+      "sourceUrl": "https://www.gopaddlesc.com/trips/trail/broad-river-lockhart-sc-to-broad-river-landing",
+      "verdict": "supported",
+      "note": "Verified the exact trip mileage and published duration against the trip-specific Paddle SC page. Duration is now explicitly attributed to that source, with additional scouting/carry delay caveats. Vehicle staging text remains conditional on current named public access; no drive-time guarantee is claimed."
+    },
+    {
+      "route": "broad-river-broad-river-landing-neal-shoals",
+      "field": "access",
+      "fingerprint": "f5962ba729725ee0f51277546487232a350c9d083453dfd17e7ae4a4ceb3680d",
+      "reviewedAt": "2026-10-16T14:22:09.405Z",
+      "sourceUrl": "https://www.gopaddlesc.com/docs/kml/PaddlePoints116.kml",
+      "verdict": "supported",
+      "note": "Both named endpoints and recorded access points exactly match named Boat Launch/Hand Carry Access features in the current Paddle SC KML. The trip-specific page corroborates access approaches and dam boundaries. These are mapped access-site anchors, not surveyed water edges or a guarantee of current operation; existing carry/permission/day-of checks remain explicit."
+    },
+    {
+      "route": "broad-river-broad-river-landing-neal-shoals",
+      "field": "distance",
+      "fingerprint": "e3ea006b89ee84e80f75d56602fa7aa3d7ee9128ca6d122e1f475c1d1a2974dd",
+      "reviewedAt": "2026-10-16T14:22:09.405Z",
+      "sourceUrl": "https://www.gopaddlesc.com/trips/trail/broad-river-broad-river-landing-to-neal-shoals-dam",
+      "verdict": "supported",
+      "note": "Verified the exact trip mileage and published duration against the trip-specific Paddle SC page. Duration is now explicitly attributed to that source, with additional scouting/carry delay caveats. Vehicle staging text remains conditional on current named public access; no drive-time guarantee is claimed."
+    },
+    {
+      "route": "broad-river-neal-shoals-sandy",
+      "field": "access",
+      "fingerprint": "d314a4c759d0da2dd4d308dfefed543bd447932290d3e6720a814c254d55b89b",
+      "reviewedAt": "2026-10-16T14:22:09.405Z",
+      "sourceUrl": "https://www.gopaddlesc.com/docs/kml/PaddlePoints116.kml",
+      "verdict": "supported",
+      "note": "Both named endpoints and recorded access points exactly match named Boat Launch/Hand Carry Access features in the current Paddle SC KML. The trip-specific page corroborates access approaches and dam boundaries. These are mapped access-site anchors, not surveyed water edges or a guarantee of current operation; existing carry/permission/day-of checks remain explicit."
+    },
+    {
+      "route": "broad-river-neal-shoals-sandy",
+      "field": "distance",
+      "fingerprint": "b9427d1661e6b31f0fef8788dc85298786c838b25eb1646cf2302aa8c6ef8ce2",
+      "reviewedAt": "2026-10-16T14:22:09.405Z",
+      "sourceUrl": "https://www.gopaddlesc.com/trips/trail/broad-river-neal-shoals-dam-to-sandy-river-landing",
+      "verdict": "supported",
+      "note": "Verified the exact trip mileage and published duration against the trip-specific Paddle SC page. Duration is now explicitly attributed to that source, with additional scouting/carry delay caveats. Vehicle staging text remains conditional on current named public access; no drive-time guarantee is claimed."
+    },
+    {
+      "route": "broad-river-sandy-shelton",
+      "field": "access",
+      "fingerprint": "5cda674d8fa7f0904dbbd68370b24ac3f84fb7e25b2291e946184edb3141eeee",
+      "reviewedAt": "2026-10-16T14:22:09.405Z",
+      "sourceUrl": "https://www.gopaddlesc.com/docs/kml/PaddlePoints116.kml",
+      "verdict": "supported",
+      "note": "Both named endpoints and recorded access points exactly match named Boat Launch/Hand Carry Access features in the current Paddle SC KML. The trip-specific page corroborates access approaches and dam boundaries. These are mapped access-site anchors, not surveyed water edges or a guarantee of current operation; existing carry/permission/day-of checks remain explicit."
+    },
+    {
+      "route": "broad-river-sandy-shelton",
+      "field": "distance",
+      "fingerprint": "35eef1a191f5c7a69d8f4190525aaedc222ad64cb64c62b56e063110b4784570",
+      "reviewedAt": "2026-10-16T14:22:09.405Z",
+      "sourceUrl": "https://www.gopaddlesc.com/trips/trail/broad-river-sandy-river-landing-to-shelton-ferry-landing",
+      "verdict": "supported",
+      "note": "Verified the exact trip mileage and published duration against the trip-specific Paddle SC page. Duration is now explicitly attributed to that source, with additional scouting/carry delay caveats. Vehicle staging text remains conditional on current named public access; no drive-time guarantee is claimed."
+    },
+    {
+      "route": "broad-river-shelton-strother",
+      "field": "access",
+      "fingerprint": "e5ee98fe78b1b9ba442ce1eab14fdfb58b46d3fc252b04df5d38df1d92a3d018",
+      "reviewedAt": "2026-10-16T14:22:09.405Z",
+      "sourceUrl": "https://www.gopaddlesc.com/docs/kml/PaddlePoints116.kml",
+      "verdict": "supported",
+      "note": "Both named endpoints and recorded access points exactly match named Boat Launch/Hand Carry Access features in the current Paddle SC KML. The trip-specific page corroborates access approaches and dam boundaries. These are mapped access-site anchors, not surveyed water edges or a guarantee of current operation; existing carry/permission/day-of checks remain explicit."
+    },
+    {
+      "route": "broad-river-shelton-strother",
+      "field": "distance",
+      "fingerprint": "cf5c6ba19ae982e8ea67fa043b0f73e8d4339f09ca59da79164233a38a360534",
+      "reviewedAt": "2026-10-16T14:22:09.405Z",
+      "sourceUrl": "https://www.gopaddlesc.com/trips/trail/broad-river-shelton-ferry-landing-to-strother-landing",
+      "verdict": "supported",
+      "note": "Verified the exact trip mileage and published duration against the trip-specific Paddle SC page. Duration is now explicitly attributed to that source, with additional scouting/carry delay caveats. Vehicle staging text remains conditional on current named public access; no drive-time guarantee is claimed."
+    },
+    {
+      "route": "platte-river-north-bend-valley",
+      "field": "access",
+      "fingerprint": "66ea56f0f061f65f79d5d3772656b499521d8272f5181111f2fbd582a6cf44d1",
+      "verdict": "conflict",
+      "sourceUrl": "https://outdoornebraska.gov/wp-content/uploads/2023/02/NGPC_Trails_Platte_River.pdf",
+      "note": "Manager documents launch access upstream/west of Highway 79 from either bank, but not a precise current entry. Refreshed 3DHP puts the stored area marker 341 ft from mapped water and 968 ft from the named channel. Retained coordinates as an unverified area anchor and withheld the route pending a lawful carry and actual water entry; no centerline snap.",
+      "reviewedAt": "2026-10-16T14:27:28.686Z"
+    },
+    {
+      "route": "la-crosse-river-hwy-bb-angelo-wayside",
+      "field": "access",
+      "fingerprint": "1418de6efdf00f0977959c3c56bd7948e7dbdabf530bc59c388637c6dbbb39ed",
+      "reviewedAt": "2026-10-16T14:28:49.643Z",
+      "sourceUrl": "https://www.co.monroe.wi.us/departments/forestry-parks/angelo-wayside-county-park",
+      "note": "Angelo Wayside County Park canoe-launch parking: refreshed USGS 3DHP places the stored point 1306 ft from the named river. Manager guidance establishes the access area but does not resolve this exact coordinate as a current water entry. Keep affected trips withheld until the actual lawful entry and carry are verified; do not move the point to a hydrography centerline. Source: https://www.co.monroe.wi.us/departments/forestry-parks/angelo-wayside-county-park .",
+      "verdict": "conflict"
+    },
+    {
+      "route": "yampa-river-golf-course-loudy-simpson",
+      "field": "access",
+      "fingerprint": "decef884fb6b762115cd4e94a0ed153f7863758deefb52c43a2dc9d03ceeb0bc",
+      "reviewedAt": "2026-10-16T14:28:49.644Z",
+      "sourceUrl": "https://cpw.state.co.us/state-parks/yampa-river-state-park/yampa-river-state-park-yampa-valley-golf-course-loudy-simpson",
+      "note": "Loudy Simpson Park boat ramp: refreshed USGS 3DHP places the stored point 1133 ft from the named river. Manager guidance establishes the access area but does not resolve this exact coordinate as a current water entry. Keep affected trips withheld until the actual lawful entry and carry are verified; do not move the point to a hydrography centerline. Source: https://cpw.state.co.us/state-parks/yampa-river-state-park/yampa-river-state-park-yampa-valley-golf-course-loudy-simpson .",
+      "verdict": "conflict"
+    },
+    {
+      "route": "yampa-river-loudy-simpson-south-beach",
+      "field": "access",
+      "fingerprint": "7120027bbf63bbe468dcd663c00dc6848cce10cc14e502fc655feb43691e04e4",
+      "reviewedAt": "2026-10-16T14:28:49.644Z",
+      "sourceUrl": "https://cpw.state.co.us/state-parks/yampa-river-state-park/yampa-river-state-park-yampa-valley-golf-course-loudy-simpson",
+      "note": "Loudy Simpson Park boat ramp: refreshed USGS 3DHP places the stored point 1133 ft from the named river. Manager guidance establishes the access area but does not resolve this exact coordinate as a current water entry. Keep affected trips withheld until the actual lawful entry and carry are verified; do not move the point to a hydrography centerline. Source: https://cpw.state.co.us/state-parks/yampa-river-state-park/yampa-river-state-park-yampa-valley-golf-course-loudy-simpson .",
+      "verdict": "conflict"
+    },
+    {
+      "route": "mississippi-river-dayton-mississippi-gateway",
+      "field": "access",
+      "fingerprint": "3b852e74d48fd621140e533e50029ba3b6a1e6603573cf0eb4a7e8b34b106bbf",
+      "reviewedAt": "2026-10-16T14:28:49.645Z",
+      "sourceUrl": "https://www.threeriversparks.org/MississippiGatewayRegionalPark",
+      "note": "Mississippi Gateway Regional Park carry-in access: refreshed USGS 3DHP places the stored point 1126 ft from the named river. Manager guidance establishes the access area but does not resolve this exact coordinate as a current water entry. Keep affected trips withheld until the actual lawful entry and carry are verified; do not move the point to a hydrography centerline. Source: https://www.threeriversparks.org/MississippiGatewayRegionalPark .",
+      "verdict": "conflict"
+    },
+    {
+      "route": "cedar-river-cedar-bluff-cedar-valley",
+      "field": "access",
+      "fingerprint": "ed89d6ca404f63fd5aedee9f690ca3ab8e733c1caa0aa2c4201c10509fdb7b7c",
+      "reviewedAt": "2026-10-16T14:28:49.645Z",
+      "sourceUrl": "https://www.mycountyparks.com/County/Cedar/Park/Cedar-Valley-Park",
+      "note": "Cedar Valley Park paved Cedar River ramp: refreshed USGS 3DHP places the stored point 1123 ft from the named river. Manager guidance establishes the access area but does not resolve this exact coordinate as a current water entry. Keep affected trips withheld until the actual lawful entry and carry are verified; do not move the point to a hydrography centerline. Source: https://www.mycountyparks.com/County/Cedar/Park/Cedar-Valley-Park .",
+      "verdict": "conflict"
+    },
+    {
+      "route": "potomac-river-oldtown-paw-paw",
+      "field": "access",
+      "fingerprint": "2287150e33fd4dd3bfb2dfd5b2dc8b9571f0c57c572073ca006a928a6b2f7b7b",
+      "reviewedAt": "2026-10-16T14:28:49.645Z",
+      "sourceUrl": "https://www.nps.gov/choh/planyourvisit/boating.htm",
+      "note": "Oldtown Toll Bridge / C&O Canal access: refreshed USGS 3DHP places the stored point 1103 ft from the named river. Manager guidance establishes the access area but does not resolve this exact coordinate as a current water entry. Keep affected trips withheld until the actual lawful entry and carry are verified; do not move the point to a hydrography centerline. Source: https://www.nps.gov/choh/planyourvisit/boating.htm .",
+      "verdict": "conflict"
+    },
+    {
+      "route": "north-branch-potomac-spring-gap-oldtown",
+      "field": "access",
+      "fingerprint": "ad2b69bdd68d5249ec7928763af934efc90ba84c66b846b863bb225bdeb1f578",
+      "reviewedAt": "2026-10-16T14:28:49.645Z",
+      "sourceUrl": "https://www.nps.gov/choh/planyourvisit/boating.htm",
+      "note": "Oldtown Toll Bridge / C&O Canal access: refreshed USGS 3DHP places the stored point 1103 ft from the named river. Manager guidance establishes the access area but does not resolve this exact coordinate as a current water entry. Keep affected trips withheld until the actual lawful entry and carry are verified; do not move the point to a hydrography centerline. Source: https://www.nps.gov/choh/planyourvisit/boating.htm .",
+      "verdict": "conflict"
+    },
+    {
+      "route": "zumbro-river-falls",
+      "field": "access",
+      "fingerprint": "dd8f1f7416b8b0d20d8be45b47d44a7844516edd55a30c689adda659b51bbb89",
+      "reviewedAt": "2026-10-16T14:28:49.646Z",
+      "sourceUrl": "https://files.dnr.state.mn.us/maps/canoe_routes/zumbro1.pdf",
+      "note": "Zumbro Falls access: refreshed USGS 3DHP places the stored point 959 ft from the named river. Manager guidance establishes the access area but does not resolve this exact coordinate as a current water entry. Keep affected trips withheld until the actual lawful entry and carry are verified; do not move the point to a hydrography centerline. Source: https://files.dnr.state.mn.us/maps/canoe_routes/zumbro1.pdf .",
+      "verdict": "conflict"
+    }
+  ]
+}

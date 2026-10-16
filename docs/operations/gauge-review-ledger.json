@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-09-03T04:10:23.719Z",
+  "updatedAt": "2026-10-16T13:40:09.155Z",
   "reviews": [
     {
       "key": "mn_dnr:01022001",
@@ -4072,23 +4072,23 @@
     },
     {
       "key": "usgs:01354330",
-      "status": "covered",
-      "routeReadiness": "published",
+      "status": "blocked",
+      "routeReadiness": "existing_route_gap",
       "eligibility": "route_capable",
       "relationship": "direct",
-      "checkedAt": "2026-09-03T04:10:23.719Z",
-      "decisionReason": "At least one scored route uses this gauge directly.",
+      "checkedAt": "2026-10-16T13:40:09.153Z",
+      "decisionReason": "Current inventory contains a direct-gauge planning route, but no score-eligible route. The retired Lock 9 slug cannot establish scored coverage; exact-route flow guidance needs review.",
       "decisionSource": "derived_route_inventory",
       "routeSlugs": [
-        "mohawk-river-lock-9-freemans-bridge"
+        "erie-canal-rotterdam-junction-freemans-bridge"
       ],
-      "scoredRouteSlugs": [
-        "mohawk-river-lock-9-freemans-bridge"
-      ],
+      "scoredRouteSlugs": [],
       "routeFamilies": [
-        "mohawk-river"
+        "erie-canal"
       ],
-      "blockers": [],
+      "blockers": [
+        "route_specific_threshold"
+      ],
       "evidence": [
         "src/data/routes/new-york.ts"
       ]
@@ -8956,15 +8956,13 @@
       "routeReadiness": "published",
       "eligibility": "route_capable",
       "relationship": "direct",
-      "checkedAt": "2026-08-14T11:18:29.828Z",
-      "decisionReason": "At least one scored route uses this gauge directly.",
+      "checkedAt": "2026-10-16T13:40:09.154Z",
+      "decisionReason": "Reconciled with current route inventory: direct score-eligible routes listed below. Removed retired references and malformed character-array artifacts.",
       "decisionSource": "derived_route_inventory",
       "routeSlugs": [
-        "susquehanna-river-canal-park-wetlands",
         "susquehanna-river-canal-park-test-track"
       ],
       "scoredRouteSlugs": [
-        "susquehanna-river-canal-park-wetlands",
         "susquehanna-river-canal-park-test-track"
       ],
       "routeFamilies": [
@@ -44112,27 +44110,10 @@
       "routeReadiness": "published",
       "eligibility": "route_capable",
       "relationship": "direct",
-      "checkedAt": "2026-08-30T04:15:00Z",
-      "decisionReason": "At least one scored route uses this gauge directly.",
+      "checkedAt": "2026-10-16T13:40:09.155Z",
+      "decisionReason": "Reconciled with current route inventory: direct score-eligible routes listed below. Removed retired references and malformed character-array artifacts.",
       "decisionSource": "derived_route_inventory",
       "routeSlugs": [
-        "p",
-        "i",
-        "g",
-        "e",
-        "o",
-        "n",
-        "-",
-        "r",
-        "v",
-        "w",
-        "a",
-        "t",
-        "l",
-        "h",
-        "f",
-        "d",
-        " ",
         "pigeon-river-waterville-hartford",
         "pigeon-river-hartford-denton"
       ],
@@ -44141,58 +44122,10 @@
         "pigeon-river-hartford-denton"
       ],
       "routeFamilies": [
-        "p",
-        "i",
-        "g",
-        "e",
-        "o",
-        "n",
-        "-",
-        "r",
-        "v",
-        "w",
-        "a",
-        "t",
-        "l",
-        "h",
-        "f",
-        "d",
-        " ",
         "Pigeon River"
       ],
       "blockers": [],
       "evidence": [
-        "s",
-        "r",
-        "c",
-        "/",
-        "d",
-        "a",
-        "t",
-        "o",
-        "u",
-        "e",
-        "n",
-        ".",
-        " ",
-        "-",
-        "i",
-        "l",
-        "g",
-        "j",
-        "h",
-        "p",
-        ":",
-        "w",
-        "m",
-        "R",
-        "v",
-        "1",
-        "7",
-        "8",
-        "2",
-        "0",
-        "9",
         "src/data/routes/tennessee.ts"
       ]
     },

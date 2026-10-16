@@ -14,6 +14,9 @@ describe('route data audit policy', () => {
   it('recognizes intentionally staged long routes', () => {
     expect(isStagedDistanceLabel('41 river miles split into day segments')).toBe(true);
     expect(isStagedDistanceLabel('35.6 river miles, usually split into 2-4 day sections')).toBe(true);
+    expect(isStagedDistanceLabel('About 65.6 river miles, usually a 3-5 day expedition')).toBe(true);
+    expect(isStagedDistanceLabel('Plan 2 days with documented intermediate take-outs')).toBe(true);
+    expect(isStagedDistanceLabel('About 43 river miles; allow one day')).toBe(false);
   });
 
   it('keeps coordinate comparisons deferred for planning anchors', () => {

@@ -114,7 +114,7 @@ export const nebraskaRoutes: River[] = [
       "reviewStatus": "reviewed"
     },
     "accessPoints": [
-      {"id":"north-bend-highway-79-bridge","name":"Nebraska 79 bridge south of North Bend","latitude":41.45295,"longitude":-96.77601,"mileFromStart":0,"segmentKind":"creek","note":"Nebraska Game and Parks identifies the upstream/west side of the bridge as the launch; inspect the dirt-road approach and portage distance on arrival."},
+      {"id":"north-bend-highway-79-bridge","name":"Nebraska 79 bridge access area (water entry unverified)","latitude":41.45295,"longitude":-96.77601,"mileFromStart":0,"segmentKind":"creek","note":"Nebraska Game and Parks identifies upstream/west-side bridge access from either bank. This stored point is only an access-area anchor; the current lawful water entry and carry remain unverified."},
       {"id":"platte-river-landing-highway-64","name":"Platte River Landing at Nebraska 64","latitude":41.31893,"longitude":-96.40321,"mileFromStart":24,"segmentKind":"creek","note":"Public Papio NRD landing on the southeast/downstream corner of the Nebraska 64 bridge; confirm current ramp, parking, and seasonal hours."}
     ],
     "evidenceNotes": [

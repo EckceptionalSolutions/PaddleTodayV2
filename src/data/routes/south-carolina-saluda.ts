@@ -13,7 +13,7 @@ const common = {
   name: 'Lower Saluda River', riverId: 'saluda-river', state: 'South Carolina', region: 'Lexington and Richland counties', routeType: 'recreational' as const, scoreEligibility: 'planning' as const,
   gaugeSource: gauge,
   profile: {
-    thresholdModel: 'two-sided' as const,
+    thresholdModel: 'minimum-only' as const,
     thresholdSource: { label: 'SCDNR Lower Saluda overview', url: overview, provider: 'local' as const }, thresholdSourceStrength: 'official' as const, rainfallSensitivity: 'high' as const, windSensitivity: 0.35,
     seasonMonths: [1,2,3,4,5,6,7,8,9,10,11,12], seasonNotes: 'Dam releases can change flow quickly in every season. The river stays cold year-round; avoid storms, rapidly rising water and cold-water exposure.',
     difficulty: 'moderate' as const, difficultyNotes: 'This upper reach is mainly flatwater, but current is strong. SCDNR says major rapids begin downstream of I-26; the bridge is a hazard boundary, not a documented public take-out.',

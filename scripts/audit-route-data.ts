@@ -4,11 +4,13 @@ import { riverTripDetails } from '../src/data/river-trip-details';
 import { minnesotaPaddleGuideEntries } from '../src/data/minnesota-paddle-guide';
 import { isScoreEligible } from '../src/data/route-publication';
 import type { River, RiverAccessPoint } from '../src/lib/types';
+import { writeFileSync } from 'node:fs';
 import { validateScoringProfile } from '../src/lib/scoring-profile-validation';
 import {
   isPlanningCoordinateDeferred,
   isPlanningDistanceDeferred,
   isStagedDistanceLabel,
+  areDocumentedRouteAlternatives,
   type PlanningValidationDeferral,
 } from '../src/lib/route-data-audit-policy';
 
@@ -177,6 +179,9 @@ for (const route of auditedRoutes) {
   }
 
   for (const profileIssue of validateScoringProfile(route.profile)) {
+    if (profileIssue.code === 'missing-minimum') {
+      addIssue(route, 'Scoring thresholds', profileIssue.message, profileIssue.code, 'Medium');
+    }
     if (profileIssue.severity === 'error') {
       addIssue(route, 'Scoring thresholds', profileIssue.message, profileIssue.code, 'High');
     }
@@ -205,7 +210,7 @@ for (const route of auditedRoutes) {
     });
   } else if (routeMiles === null) {
     addIssue(route, 'Distance', 'Distance label does not contain parseable mileage', distanceLabel ?? '', 'Medium');
-  } else if (routeMiles <= 0 || (routeMiles > 35 && !isStagedDistanceLabel(distanceLabel))) {
+  } else if (routeMiles <= 0 || (routeMiles > 35 && !isStagedDistanceLabel([distanceLabel, enriched.logistics.estimatedPaddleTime, enriched.logistics.summary].join(' ')))) {
     addIssue(route, 'Distance', 'Route mileage is outside expected day-route bounds', distanceLabel ?? '', 'Medium');
   }
 
@@ -217,7 +222,8 @@ for (const route of auditedRoutes) {
     const sameLaunchPair = isSameLaunchItinerary(route, enriched) &&
       (samePairRoute ? isSameLaunchItinerary(samePairRoute.route, samePairRoute.enriched) : false);
 
-    if (samePairRoute && !sameLaunchPair) {
+    const documentedAlternative = samePairRoute && areDocumentedRouteAlternatives(route, samePairRoute.route);
+    if (samePairRoute && !sameLaunchPair && !documentedAlternative) {
       addIssue(route, 'Duplicate', 'Duplicate endpoint pair', samePairRoute.route.id, 'High');
     }
     if (reversedPairRoute && !sameLaunchPair) {
@@ -263,6 +269,8 @@ for (const entry of minnesotaPaddleGuideEntries) {
 }
 
 const auditedById = new Map(auditedRoutes.map((route) => [route.id, route]));
+const qaOutput = process.argv.find((arg) => arg.startsWith('--json-output='))?.slice('--json-output='.length);
+if (qaOutput) writeFileSync(qaOutput, JSON.stringify({ issues, planningValidationDeferrals, routeIds: auditedRoutes.map((route) => route.id) }, null, 2));
 const blockingIssues = issues.filter((issue) => auditedById.get(issue.routeId)?.scoreEligibility !== 'planning');
 const populationSummary = {
   inventory: auditedRoutes.length,

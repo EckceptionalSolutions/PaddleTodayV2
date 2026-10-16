@@ -171,9 +171,38 @@ async function serveFile(response: ServerResponse, fileName: string, contentType
   createReadStream(resolved).pipe(response);
 }
 
+let qaRun: { status: string; startedAt: string | null; message: string } = { status: 'idle', startedAt: null, message: '' };
 const server = createServer(async (request, response) => {
   try {
+    if (request.method === 'GET' && request.url === '/qa') {
+      try {
+        const html = await readFile(path.join(root, 'tmp', 'route-qa', 'index.html'), 'utf8');
+        response.writeHead(200, { 'Content-Type': 'text/html; charset=utf-8', 'Cache-Control': 'no-store' });
+        response.end(html);
+      } catch {
+        response.writeHead(404, { 'Content-Type': 'text/plain; charset=utf-8' });
+        response.end('No Route QA report yet. Run npm run routes:qa, then reload this page.');
+      }
+      return;
+    }
     const url = new URL(request.url || '/', origin);
+    if (request.method === 'GET' && url.pathname === '/api/qa/status') {
+      json(response, 200, qaRun);
+      return;
+    }
+    if (request.method === 'POST' && url.pathname === '/api/qa/run') {
+      if (!validActionRequest(request)) { json(response, 403, { error: 'This action is not authorized for the current dashboard session.' }); return; }
+      if (qaRun.status === 'running') { json(response, 409, { error: 'Route QA is already running.' }); return; }
+      qaRun = { status: 'running', startedAt: new Date().toISOString(), message: 'Checking all routes using cached hydrography.' };
+      const child = spawn(process.execPath, [tsxCli, path.join(root, 'scripts', 'route-qa.ts')], { cwd: root, windowsHide: true, stdio: ['ignore', 'pipe', 'pipe'] });
+      let output = '';
+      const append = (chunk: Buffer) => { output = (output + chunk.toString()).slice(-4000); };
+      child.stdout.on('data', append); child.stderr.on('data', append);
+      child.on('error', (error) => { qaRun = { ...qaRun, status: 'failed', message: error.message }; });
+      child.on('close', (code) => { qaRun = { ...qaRun, status: code === 0 ? 'completed' : 'failed', message: output }; });
+      json(response, 202, qaRun);
+      return;
+    }
 
     if (request.method === 'GET' && url.pathname === '/api/status') {
       json(response, 200, await statusPayload());
