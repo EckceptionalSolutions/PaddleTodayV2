@@ -821,6 +821,56 @@ export interface RiverGroupResponse extends SnapshotResponseMetadata {
   result: RiverGroupApiResult;
 }
 
+export interface RiverCamera {
+  id: string;
+  name: string;
+  siteId: string;
+  imageUrl: string;
+  capturedAt: string;
+  sourceUrl: string;
+}
+
+export interface RiverCamerasResponse {
+  requestId: string;
+  cameras: RiverCamera[];
+}
+
+export interface GaugeContextObservation {
+  value: number | null;
+  unit: string;
+  observedAt: string;
+  approvalStatus: string | null;
+  qualifiers: string[];
+}
+
+export interface RiverGaugeContext {
+  siteId: string;
+  sourceUrl: string;
+  fetchedAt: string;
+  primary: GaugeContextObservation | null;
+  changes: Array<{ hours: number; delta: number; from: string; to: string }>;
+  waterTemperature: GaugeContextObservation | null;
+  waterTemperatureChange24h: number | null;
+  turbidity: GaugeContextObservation | null;
+  seasonalFlow: {
+    dailyMean: GaugeContextObservation;
+    date: string;
+    lowerQuartile: number;
+    median: number;
+    upperQuartile: number;
+    sampleCount: number;
+    category: 'below typical' | 'typical' | 'above typical';
+  } | null;
+  unavailable: string[];
+}
+
+export interface RiverGaugeContextResponse {
+  requestId: string;
+  context: RiverGaugeContext | null;
+}
+
+export { gaugeContextRows } from './gauge-context';
+
 export interface RiverHistoryResponse {
   requestId: string;
   generatedAt: string;

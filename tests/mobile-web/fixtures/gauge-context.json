@@ -1,0 +1,18 @@
+{
+  "requestId": "gauge-context-test",
+  "context": {
+    "siteId": "01234567",
+    "sourceUrl": "https://waterdata.usgs.gov/monitoring-location/USGS-01234567/",
+    "fetchedAt": "2020-01-02T16:00:00Z",
+    "primary": { "value": 200, "unit": "cfs", "observedAt": "2020-01-02T15:00:00Z", "approvalStatus": "Provisional", "qualifiers": ["e"] },
+    "changes": [{ "hours": 1, "delta": 10, "from": "2020-01-02T14:00:00Z", "to": "2020-01-02T15:00:00Z" }],
+    "waterTemperature": { "value": 55, "unit": "°F", "observedAt": "2020-01-02T14:00:00Z", "approvalStatus": "Provisional", "qualifiers": [] },
+    "waterTemperatureChange24h": -2,
+    "turbidity": { "value": 12, "unit": "FNU", "observedAt": "2020-01-02T14:00:00Z", "approvalStatus": "Provisional", "qualifiers": [] },
+    "seasonalFlow": {
+      "dailyMean": { "value": 190, "unit": "cfs", "observedAt": "2020-01-01", "approvalStatus": "Provisional", "qualifiers": [] },
+      "date": "2020-01-01", "lowerQuartile": 50, "median": 90, "upperQuartile": 140, "sampleCount": 30, "category": "above typical"
+    },
+    "unavailable": []
+  }
+}
