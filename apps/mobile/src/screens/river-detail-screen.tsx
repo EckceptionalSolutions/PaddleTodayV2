@@ -70,6 +70,8 @@ import { HistoryBars } from '../components/history-bars';
 import { AppErrorState, AppRefreshNotice } from '../components/app-state';
 import { QualityPill, decisionColors, ratingColors } from '../components/rating-pill';
 import { RoutePhotoCard } from '../components/route-photo-card';
+import { RiverCameraCard } from '../components/river-camera-card';
+import { RiverGaugeContextCard } from '../components/river-gauge-context-card';
 import { RoutePhotoFallback } from '../components/route-photo-fallback';
 import { RouteReportSheet, type SelectedReportPhoto } from '../components/route-report-sheet';
 import { RouteDirectionActions } from '../components/route-direction-actions';
@@ -163,6 +165,8 @@ export default function RiverDetailScreen() {
   const { email: storedEmail, setEmail, recordRouteAlert } = useAlertPreferences();
   const { isSaved, toggleSavedRiver } = useSavedRivers();
   const scrollRef = useRef<ScrollView | null>(null);
+  const cameraViewportCheck = useRef<(() => void) | null>(null);
+  const gaugeContextViewportCheck = useRef<(() => void) | null>(null);
   const sectionTabsYRef = useRef(0);
   const sectionTabsHeightRef = useRef(0);
   const sectionContentYRef = useRef(0);
@@ -579,6 +583,8 @@ export default function RiverDetailScreen() {
   }
 
   function handleDetailScroll(event: { nativeEvent: { contentOffset: { y: number } } }) {
+    cameraViewportCheck.current?.();
+    gaugeContextViewportCheck.current?.();
     const tabsTop = sectionTabsYRef.current;
     if (tabsTop <= 0) {
       return;
@@ -1089,6 +1095,14 @@ export default function RiverDetailScreen() {
             >
               <GaugeTrendChart detail={detail} />
             </SectionCard>
+
+            {detail.river.gaugeSource.provider === 'usgs' ? <RiverGaugeContextCard
+              key={`gauge-context-${detail.river.slug}`} slug={detail.river.slug} viewportCheck={gaugeContextViewportCheck}
+            /> : null}
+            {detail.river.gaugeSource.provider === 'usgs' ? <RiverCameraCard
+              key={detail.river.slug} slug={detail.river.slug}
+              siteName={detail.gauge?.gaugeSource || detail.river.gaugeSource.display.label} viewportCheck={cameraViewportCheck}
+            /> : null}
 
             <SectionCard
               title="Score history"

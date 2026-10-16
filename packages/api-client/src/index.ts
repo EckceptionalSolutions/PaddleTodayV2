@@ -17,6 +17,8 @@ import type {
   RiverGroupResponse,
   RiverGeometryResponse,
   RiverHistoryResponse,
+  RiverCamerasResponse,
+  RiverGaugeContextResponse,
   RouteCommunityResponse,
   RiverSummaryResponse,
   RiverCatalogResponse,
@@ -72,6 +74,8 @@ export interface PaddleTodayApiClient {
   getRiverDetail(slug: string, options?: RequestOptions): Promise<RiverDetailResponse>;
   getRiverGroup(riverId: string, options?: RequestOptions): Promise<RiverGroupResponse>;
   getRiverGeometry(slug: string, options?: RequestOptions): Promise<RiverGeometryResponse>;
+  getRiverCameras(slug: string, options?: RequestOptions): Promise<RiverCamerasResponse>;
+  getRiverGaugeContext(slug: string, options?: RequestOptions): Promise<RiverGaugeContextResponse>;
   getRiverHistory(slug: string, options?: RiverHistoryRequestOptions): Promise<RiverHistoryResponse>;
   getRouteCommunity(slug: string, options?: RequestOptions): Promise<RouteCommunityResponse>;
   createRiverAlert(input: CreateRiverAlertRequest, options?: RequestOptions): Promise<CreateRiverAlertResponse>;
@@ -248,6 +252,12 @@ export function createPaddleTodayApiClient(args: {
           body: input,
         },
       );
+    },
+    getRiverCameras(slug, options) {
+      return requestJson<RiverCamerasResponse>(`/api/rivers/${encodeURIComponent(slug)}/cameras.json`, options);
+    },
+    getRiverGaugeContext(slug, options) {
+      return requestJson<RiverGaugeContextResponse>(`/api/rivers/${encodeURIComponent(slug)}/gauge-context.json`, options);
     },
     getRiverGeometry(slug, options) {
       return requestJson<RiverGeometryResponse>(

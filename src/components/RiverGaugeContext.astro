@@ -1,0 +1,70 @@
+---
+interface Props { slug: string; }
+const { slug } = Astro.props;
+---
+<div id="usgs-gauge-context" data-gauge-context data-slug={slug}>
+  <section class="river-detail__panel gauge-context" hidden aria-label="USGS gauge context">
+    <p class="eyebrow section-label">USGS gauge context</p>
+    <h3>More about this gauge</h3>
+    <p class="muted">Measurements at the gauge may differ from your paddling reach. These observations supplement the route’s paddling guidance.</p>
+    <p class="muted" data-context-update></p>
+    <dl></dl>
+    <a data-context-source target="_blank" rel="noopener noreferrer">View USGS gauge data</a>
+  </section>
+</div>
+<script>
+  import { gaugeContextRows, type RiverGaugeContextResponse } from '@paddletoday/api-contract';
+  async function load(anchor: HTMLElement) {
+    try {
+      const response = await fetch(`/api/rivers/${encodeURIComponent(anchor.dataset.slug || '')}/gauge-context.json`);
+      if (!response.ok) return;
+      const { context } = await response.json() as RiverGaugeContextResponse;
+      if (!context) return;
+      const section = anchor.querySelector<HTMLElement>('section')!;
+      const update = section.querySelector('[data-context-update]')!;
+      const renderFreshness = () => {
+        update.textContent = `${Date.now() - Date.parse(context.fetchedAt) > 15 * 60_000 ? 'Saved update · ' : ''}Retrieved ${new Date(context.fetchedAt).toLocaleString()}`;
+        section.querySelectorAll<HTMLElement>('time').forEach(time => {
+          const old = Date.now() - Date.parse(time.dateTime) > Number(time.dataset.staleHours) * 3_600_000;
+          time.textContent = `${old ? 'Older observation · ' : ''}${time.dateTime.length === 10 ? `Daily mean for ${time.dateTime}` : `Observed ${new Date(time.dateTime).toLocaleString()}`}`;
+        });
+      };
+      for (const row of gaugeContextRows(context)) {
+        const term = document.createElement('dt');
+        term.textContent = row.label;
+        const description = document.createElement('dd');
+        const value = document.createElement('strong');
+        value.textContent = row.value;
+        const detail = document.createElement('p');
+        detail.textContent = row.detail;
+        description.append(value, detail);
+        if (row.observedAt) {
+          const time = document.createElement('time');
+          time.dateTime = row.observedAt;
+          time.dataset.staleHours = String(row.staleAfterHours ?? 2);
+          description.append(time);
+        }
+        section.querySelector('dl')!.append(term, description);
+      }
+      section.querySelector<HTMLAnchorElement>('[data-context-source]')!.href = context.sourceUrl;
+      renderFreshness();
+      const interval = setInterval(renderFreshness, 60_000);
+      window.addEventListener('pagehide', () => clearInterval(interval), { once: true });
+      section.hidden = false;
+    } catch { /* Supplementary context never blocks the existing gauge card. */ }
+  }
+  const observer = new IntersectionObserver(entries => {
+    for (const entry of entries) if (entry.isIntersecting) {
+      observer.unobserve(entry.target);
+      void load(entry.target as HTMLElement);
+    }
+  }, { rootMargin: '300px' });
+  document.querySelectorAll<HTMLElement>('[data-gauge-context]').forEach(anchor => observer.observe(anchor));
+</script>
+<style>
+  .gauge-context[hidden] { display: none; }
+  .gauge-context :global(dt) { font-weight: 600; margin-top: 1rem; }
+  .gauge-context :global(dd) { margin: .25rem 0 0; }
+  .gauge-context :global(dd p) { margin: .25rem 0; }
+  .gauge-context :global(time) { font-size: .875rem; opacity: .8; }
+</style>

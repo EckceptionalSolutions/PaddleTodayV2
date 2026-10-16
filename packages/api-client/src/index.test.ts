@@ -2,6 +2,19 @@ import { afterEach, describe, expect, it, vi } from 'vitest';
 import { PaddleTodayApiError, createPaddleTodayApiClient } from './index';
 
 describe('@paddletoday/api-client', () => {
+  it('fetches supplementary gauge context without changing the detail request', async () => {
+    const fetchImpl = vi.fn<typeof fetch>(async () => Response.json({ requestId: 'context', context: null }));
+    const client = createPaddleTodayApiClient({ baseUrl: 'https://api.example.com', fetchImpl });
+    await expect(client.getRiverGaugeContext('test/route')).resolves.toEqual({ requestId: 'context', context: null });
+    expect(String(fetchImpl.mock.calls[0][0])).toBe('https://api.example.com/api/rivers/test%2Froute/gauge-context.json');
+  });
+  it('retrieves camera frames through the configured API origin and encodes the route slug', async () => {
+    const payload = { requestId: 'camera-test', cameras: [] };
+    const fetchImpl = vi.fn<typeof fetch>(async () => Response.json(payload));
+    const client = createPaddleTodayApiClient({ baseUrl: 'https://api.example.com', fetchImpl });
+    expect(await client.getRiverCameras('river/name')).toEqual(payload);
+    expect(String(fetchImpl.mock.calls[0][0])).toBe('https://api.example.com/api/rivers/river%2Fname/cameras.json');
+  });
   it('encodes nearby, nationwide, and empty saved-route scopes independently', async () => {
     const fetchImpl = vi.fn<typeof fetch>(async () => Response.json({ rivers: [] }));
     const client = createPaddleTodayApiClient({ baseUrl: 'https://api.example.com', fetchImpl });

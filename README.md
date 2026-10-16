@@ -55,6 +55,13 @@ The backend caches the shared catalog for 15 minutes and matches exact USGS gaug
 Images older than two hours are labeled as older images. During an upstream outage, cached frames retain their original capture times; without a cached catalog, the camera panel stays hidden.
 An optional server-side `USGS_API_KEY` increases the upstream request allowance. Camera images do not affect scoring.
 
+Route pages and the mobile More section also load `/api/rivers/:slug/gauge-context.json` near the gauge details.
+This uses the modern USGS OGC v1 continuous/latest-daily APIs and Statistics v0 API for observation qualifiers, one-/three-hour gauge changes, water temperature and its 24-hour change, turbidity (parameter 63680), and seasonal flow context where available.
+Changes require the same sensor series and a nearby baseline (within 20 minutes for short windows, one hour for temperature's 24-hour window); ice-affected comparisons are withheld.
+Seasonal context compares a completed daily mean with approved historical daily-mean quartiles for the same calendar day and series, requiring at least ten historical daily values. It is separate from paddling suitability.
+Each measurement retains its observation date; older observations and cached updates are labeled. Shared per-gauge results cache for five minutes, with a bounded 30-minute outage fallback; historical statistics cache for one day.
+This supplementary endpoint does not change score generation. The existing primary scoring reader in `src/lib/usgs.ts` still uses the legacy service; migrating that reader requires parity checks on site/series selection, units, missing values, qualifiers, sampling and scoring before switching production snapshots.
+
 - Astro 5
 - static Astro UI
 - thin Node API/cache layer in `src/server/api-server.ts`
