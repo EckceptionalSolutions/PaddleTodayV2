@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-10-06T01:01:03.988Z",
+  "generatedAt": "2026-10-17T12:20:34.278Z",
   "policy": "gauge-network-completeness-with-bounded-discovery-before-saturation",
   "dossiers": [
     {
@@ -2378,9 +2378,9 @@
       "researchStatus": "gauge_baseline_pending",
       "legacyRouteCoverage": {
         "inventoryCount": 17,
-        "scoredCount": 2,
-        "planningCount": 15,
-        "scoredCoveragePercent": 12
+        "scoredCount": 0,
+        "planningCount": 17,
+        "scoredCoveragePercent": 0
       },
       "discoveryTasks": [],
       "recentEvidenceRuns": [],
@@ -2418,10 +2418,10 @@
       "discoveryComplete": false,
       "researchStatus": "gauge_baseline_pending",
       "legacyRouteCoverage": {
-        "inventoryCount": 86,
-        "scoredCount": 86,
-        "planningCount": 0,
-        "scoredCoveragePercent": 100
+        "inventoryCount": 18,
+        "scoredCount": 16,
+        "planningCount": 2,
+        "scoredCoveragePercent": 89
       },
       "discoveryTasks": [],
       "recentEvidenceRuns": [],
@@ -4516,9 +4516,9 @@
       "researchStatus": "saturated",
       "legacyRouteCoverage": {
         "inventoryCount": 136,
-        "scoredCount": 127,
-        "planningCount": 9,
-        "scoredCoveragePercent": 93
+        "scoredCount": 116,
+        "planningCount": 20,
+        "scoredCoveragePercent": 85
       },
       "discoveryTasks": [
         {
@@ -6264,7 +6264,7 @@
         "unresolvedRouteCapableGaugeCount": 0,
         "reviewCoveragePercent": 100,
         "routeCoveragePercent": 10,
-        "routeFamilyCount": 29
+        "routeFamilyCount": 12
       },
       "discoveryComplete": false,
       "researchStatus": "discovery_sweep_required",
@@ -6856,9 +6856,9 @@
       "researchStatus": "saturated",
       "legacyRouteCoverage": {
         "inventoryCount": 14,
-        "scoredCount": 14,
-        "planningCount": 0,
-        "scoredCoveragePercent": 100
+        "scoredCount": 9,
+        "planningCount": 5,
+        "scoredCoveragePercent": 64
       },
       "discoveryTasks": [
         {
@@ -7567,24 +7567,24 @@
         "eligibleGaugeCount": 145,
         "reviewedGaugeCount": 145,
         "unreviewedGaugeCount": 0,
-        "coveredGaugeCount": 97,
-        "blockedGaugeCount": 48,
+        "coveredGaugeCount": 96,
+        "blockedGaugeCount": 49,
         "screenedOutGaugeCount": 0,
         "staleGaugeCount": 0,
         "routeCapableGaugeCount": 145,
-        "uncoveredRouteCapableGaugeCount": 48,
+        "uncoveredRouteCapableGaugeCount": 49,
         "unresolvedRouteCapableGaugeCount": 0,
         "reviewCoveragePercent": 100,
-        "routeCoveragePercent": 67,
+        "routeCoveragePercent": 66,
         "routeFamilyCount": 89
       },
       "discoveryComplete": false,
       "researchStatus": "gauge_baseline_pending",
       "legacyRouteCoverage": {
         "inventoryCount": 302,
-        "scoredCount": 35,
-        "planningCount": 267,
-        "scoredCoveragePercent": 12
+        "scoredCount": 33,
+        "planningCount": 269,
+        "scoredCoveragePercent": 11
       },
       "discoveryTasks": [],
       "recentEvidenceRuns": [],
@@ -9331,7 +9331,7 @@
         "unresolvedRouteCapableGaugeCount": 0,
         "reviewCoveragePercent": 100,
         "routeCoveragePercent": 2,
-        "routeFamilyCount": 20
+        "routeFamilyCount": 3
       },
       "discoveryComplete": true,
       "researchStatus": "saturated",
@@ -9716,9 +9716,9 @@
       "researchStatus": "saturated",
       "legacyRouteCoverage": {
         "inventoryCount": 87,
-        "scoredCount": 84,
-        "planningCount": 3,
-        "scoredCoveragePercent": 97
+        "scoredCount": 83,
+        "planningCount": 4,
+        "scoredCoveragePercent": 95
       },
       "discoveryTasks": [
         {
@@ -12617,9 +12617,9 @@
       "researchStatus": "gauge_baseline_pending",
       "legacyRouteCoverage": {
         "inventoryCount": 51,
-        "scoredCount": 45,
-        "planningCount": 6,
-        "scoredCoveragePercent": 88
+        "scoredCount": 3,
+        "planningCount": 48,
+        "scoredCoveragePercent": 6
       },
       "discoveryTasks": [],
       "recentEvidenceRuns": [],
@@ -12657,10 +12657,10 @@
       "discoveryComplete": false,
       "researchStatus": "gauge_baseline_pending",
       "legacyRouteCoverage": {
-        "inventoryCount": 50,
-        "scoredCount": 50,
-        "planningCount": 0,
-        "scoredCoveragePercent": 100
+        "inventoryCount": 45,
+        "scoredCount": 27,
+        "planningCount": 18,
+        "scoredCoveragePercent": 60
       },
       "discoveryTasks": [],
       "recentEvidenceRuns": [],
