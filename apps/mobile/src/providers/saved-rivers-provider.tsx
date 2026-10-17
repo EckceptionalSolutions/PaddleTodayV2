@@ -8,6 +8,8 @@ import { isRecord, parseJson } from '../lib/storage';
 import { requestAccountBackup } from '../lib/account-backup';
 import { subscribeSavedRoutesChanged } from '../lib/account-storage-events';
 import { requestAccountBackupInvitation } from '../lib/account-invitation';
+import { MotionReveal } from '../components/motion-reveal';
+import { useReducedMotion } from '../hooks/use-reduced-motion';
 
 const STORAGE_KEY = 'paddletoday:saved-rivers';
 
@@ -33,6 +35,7 @@ interface SavedRiversContextValue {
 const SavedRiversContext = createContext<SavedRiversContextValue | null>(null);
 
 export function SavedRiversProvider({ children }: PropsWithChildren) {
+  const reducedMotion = useReducedMotion();
   const [savedRivers, setSavedRivers] = useState<SavedRiverRecord[]>([]);
   const [isHydrated, setIsHydrated] = useState(false);
   const current = useRef<SavedRiverRecord[]>([]);
@@ -165,7 +168,8 @@ export function SavedRiversProvider({ children }: PropsWithChildren) {
     <SavedRiversContext.Provider value={value}>
       {children}
       {loadError || feedback ? (
-        <View style={[feedbackStyles.panel, { bottom: 80 + insets.bottom }]}>
+        <MotionReveal replayKey={loadError ? 'storage-error' : feedback?.message} reducedMotion={reducedMotion}
+          style={[feedbackStyles.panel, { bottom: 80 + insets.bottom }]}>
           <Text accessibilityLiveRegion="polite" role="status" style={feedbackStyles.message}>{loadError ? 'Could not load Saved routes from this device. Retry loading before changing your saved list.' : feedback?.message}</Text>
           <View style={feedbackStyles.actions}>
             {loadError ? (
@@ -181,7 +185,7 @@ export function SavedRiversProvider({ children }: PropsWithChildren) {
               <Text style={feedbackStyles.label}>Dismiss</Text>
             </Pressable> : null}
           </View>
-        </View>
+        </MotionReveal>
       ) : null}
     </SavedRiversContext.Provider>
   );

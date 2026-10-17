@@ -1,5 +1,6 @@
 import type { RiverSummaryApiItem } from '@paddletoday/api-contract';
-import { ImageBackground, Pressable, StyleSheet, Text, View } from 'react-native';
+import { Pressable, StyleSheet, Text, View } from 'react-native';
+import { MotionPhotoBackground } from './motion-photo-background';
 import { normalizeApiText } from '../lib/format';
 import { routeDecisionPresentation } from '../lib/map-decision';
 import { useRoutePhoto } from '../hooks/use-route-photo';
@@ -119,14 +120,14 @@ function RouteCardPhoto({ river }: { river: RiverSummaryApiItem }) {
   }
 
   return (
-    <ImageBackground source={{ uri: photo.uri }} onError={onError} style={styles.photo} imageStyle={styles.photoImage}>
+    <MotionPhotoBackground uri={photo.uri} onError={onError} style={styles.photo} imageStyle={styles.photoImage}>
       <View style={styles.photoScrim} />
       {photo.sourceKind !== 'route' ? (
         <View style={styles.photoBadge}>
           <Text style={styles.photoBadgeText}>{photo.isPlaceholder ? 'Illustrative photo' : 'River photo'}</Text>
         </View>
       ) : null}
-    </ImageBackground>
+    </MotionPhotoBackground>
   );
 }
 

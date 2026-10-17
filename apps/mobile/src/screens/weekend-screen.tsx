@@ -26,6 +26,8 @@ import { androidBottomInset } from '../lib/safe-area';
 import { radioKeyboardProps, tabKeyboardProps } from '../lib/selection-keyboard';
 import { useSavedRivers } from '../providers/saved-rivers-provider';
 import { colors, radius, spacing } from '../theme/tokens';
+import { MotionReveal } from '../components/motion-reveal';
+import { useReducedMotion } from '../hooks/use-reduced-motion';
 
 interface WeekendRoute extends WeekendSummaryApiItem {
   distanceMiles: number | null;
@@ -75,6 +77,7 @@ const WeekendContent = memo(function WeekendContent({ weekendQuery, distanceLimi
   distanceHydrated: boolean;
   setDistanceHydrated: (value: boolean) => void;
 }) {
+  const reducedMotion = useReducedMotion();
   const { width: windowWidth } = useWindowDimensions();
   const compactHeader = windowWidth < 360;
   const router = useRouter();
@@ -356,7 +359,8 @@ const WeekendContent = memo(function WeekendContent({ weekendQuery, distanceLimi
           subtitle={isStale ? 'Previous rankings, awaiting a current forecast.' : location ? 'Paddle this weekend options with drive time included.' : 'Paddle this weekend options.'}
         >
           <View style={styles.list}>
-            {topPicks.map((river) => (
+            {topPicks.map((river, index) => (
+              <MotionReveal key={river.river.slug} reducedMotion={reducedMotion} index={index}>
               <WeekendRiverCard
                 key={river.river.slug}
                 river={river}
@@ -373,6 +377,7 @@ const WeekendContent = memo(function WeekendContent({ weekendQuery, distanceLimi
                 }
                 onPress={() => router.push({ pathname: '/river/[slug]', params: { slug: river.river.slug } })}
               />
+              </MotionReveal>
             ))}
           </View>
         </SectionCard>

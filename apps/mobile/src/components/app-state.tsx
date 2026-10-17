@@ -2,6 +2,8 @@ import MaterialCommunityIcons from '@expo/vector-icons/MaterialCommunityIcons';
 import { ActivityIndicator, ScrollView, StyleSheet, Text, View } from 'react-native';
 import { colors, radius, spacing, typography } from '../theme/tokens';
 import { AppButton } from './app-button';
+import { MotionReveal } from './motion-reveal';
+import { useReducedMotion } from '../hooks/use-reduced-motion';
 
 export function AppLoadingState({
   title,
@@ -72,12 +74,13 @@ export function AppRefreshNotice({
   retrying?: boolean;
   onRetry: () => void;
 }) {
+  const reducedMotion = useReducedMotion();
   if (!isError && !isStale) {
     return null;
   }
 
   return (
-    <View style={styles.refreshNotice} accessibilityRole="alert">
+    <MotionReveal reducedMotion={reducedMotion} style={styles.refreshNotice} accessibilityRole="alert">
       <View style={styles.refreshNoticeCopy}>
         <Text style={styles.refreshNoticeTitle}>{isError ? 'Could not refresh' : 'Update needed'}</Text>
         <Text style={styles.refreshNoticeBody}>
@@ -85,7 +88,7 @@ export function AppRefreshNotice({
         </Text>
       </View>
       <AppButton label={isError ? 'Retry' : 'Refresh'} accessibilityLabel={isError ? actionLabel : 'Refresh cached conditions'} onPress={onRetry} busy={retrying} busyLabel={isError ? 'Retrying…' : 'Refreshing…'} />
-    </View>
+    </MotionReveal>
   );
 }
 

@@ -50,6 +50,8 @@ import {
 } from '../lib/ranking';
 import { useSavedRivers } from '../providers/saved-rivers-provider';
 import { colors, radius, spacing } from '../theme/tokens';
+import { MotionReveal } from '../components/motion-reveal';
+import { useReducedMotion } from '../hooks/use-reduced-motion';
 
 const ANDROID_NAV_CONTROL_MIN_INSET = 40;
 const TAB_BAR_SAFE_SPACE = 72;
@@ -86,6 +88,7 @@ const HomeContent = memo(function HomeContent({ summaryQuery, searchCatalog, sea
   searchOpen: boolean;
   setSearchOpen: (open: boolean) => void;
 }) {
+  const reducedMotion = useReducedMotion();
   const router = useRouter();
   const insets = useSafeAreaInsets();
   const bottomContentInset = androidBottomInset(insets.bottom, ANDROID_NAV_CONTROL_MIN_INSET);
@@ -228,6 +231,7 @@ const HomeContent = memo(function HomeContent({ summaryQuery, searchCatalog, sea
           />
         ) : null}
         {location ? <>
+          <MotionReveal key={headline?.river.slug ?? 'no-headline'} reducedMotion={reducedMotion}>
           <BoardHero
             mode={headlineMode}
             headline={headline}
@@ -248,6 +252,7 @@ const HomeContent = memo(function HomeContent({ summaryQuery, searchCatalog, sea
             onOpenStatus={(statusIntent) => openExploreIntent(statusIntent)}
             onSetLocation={() => setLocationSearchOpen(true)}
           />
+          </MotionReveal>
           {locationOutOfRange ? (
             <OutOfRangeState
               locationLabel={location.label}
@@ -256,6 +261,7 @@ const HomeContent = memo(function HomeContent({ summaryQuery, searchCatalog, sea
             />
           ) : (
             <RiverCarousel
+              reducedMotion={reducedMotion}
               mode={mode}
               rivers={data.slice(0, 10)}
               routeCounts={routeCounts}
@@ -520,6 +526,7 @@ function FirstLocationSetup({
 }
 
 function RiverCarousel({
+  reducedMotion,
   mode,
   rivers,
   routeCounts,
@@ -529,6 +536,7 @@ function RiverCarousel({
   children,
   emptyState,
 }: {
+  reducedMotion: boolean;
   mode: BoardMode;
   rivers: BoardItem[];
   routeCounts: ReadonlyMap<string, number>;
@@ -553,7 +561,8 @@ function RiverCarousel({
         snapToInterval={278}
         decelerationRate="fast"
       >
-        {rivers.map((river) => (
+        {rivers.map((river, index) => (
+          <MotionReveal key={river.river.slug} reducedMotion={reducedMotion} index={index}>
           <RiverImageCard
             key={river.river.slug}
             river={river}
@@ -562,6 +571,7 @@ function RiverCarousel({
             onToggleSaved={() => onToggleSaved(river)}
             onOpen={() => onOpen(river)}
           />
+          </MotionReveal>
         ))}
       </ScrollView> : emptyState}
     </View>

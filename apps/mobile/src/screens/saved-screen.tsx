@@ -1,4 +1,6 @@
 import { stateAbbreviation } from '../lib/state-labels';
+import { MotionReveal } from '../components/motion-reveal';
+import { useReducedMotion } from '../hooks/use-reduced-motion';
 import { RouteComparisonSheet } from '../components/route-comparison-sheet';
 import { ROUTE_COMPARISON_LIMIT, toggleRouteComparison } from '../lib/route-comparison';
 import { useStoredLocation } from '../hooks/use-stored-location';
@@ -59,6 +61,7 @@ function writeComparisonSession(mode: boolean, slugs: string[]) {
 }
 
 export default function SavedScreen() {
+  const reducedMotion = useReducedMotion();
   const router = useRouter();
   const { location } = useStoredLocation();
   const [comparisonModeState, setComparisonModeState] = useState(() => readComparisonSession().mode);
@@ -238,9 +241,9 @@ export default function SavedScreen() {
       </View> : null}
     </View>}
     renderSectionHeader={({ section }) => <View style={styles.virtualSectionHeader}><Text accessibilityRole="header" style={styles.virtualSectionTitle}>{section.title}</Text><Text style={styles.subtitle}>{section.subtitle}</Text></View>}
-    renderItem={({ item }) => <SavedRouteListItem comparison={compareSelection} river={item} changes={changes} savedRivers={savedRivers}
+    renderItem={({ item, index }) => <MotionReveal reducedMotion={reducedMotion} index={index}><SavedRouteListItem comparison={compareSelection} river={item} changes={changes} savedRivers={savedRivers}
       onEditNotes={setNotesRiver} isSaved={isSaved} onToggleSaved={toggleSavedRiver}
-      onOpen={slug => router.push({ pathname: '/river/[slug]', params: { slug } })} />}
+      onOpen={slug => router.push({ pathname: '/river/[slug]', params: { slug } })} /></MotionReveal>}
     ListFooterComponent={<View style={styles.routesListFooter}>
       <RecentRoutes onOpen={slug => router.push({ pathname: '/river/[slug]', params: { slug } })} />
       {visibleSavedRivers.some(route => !riverLookup.has(route.slug)) ? <SectionCard

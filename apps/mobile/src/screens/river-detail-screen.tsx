@@ -3,6 +3,8 @@ import { refreshDeviceConnectivity, useOnlineStatus } from '../hooks/use-online-
 import { AlertSetupSheet } from '../components/alert-setup-sheet';
 import { FormExitGuard } from '../components/form-exit-guard';
 import { useReducedMotion } from '../hooks/use-reduced-motion';
+import { MotionReveal } from '../components/motion-reveal';
+import { MotionChevron } from '../components/motion-chevron';
 import { validateRouteReport } from '../lib/route-report-validation';
 import { submissionFailureMessage } from '../lib/submission-results';
 import { AccessPointSelector } from '../components/access-point-selector';
@@ -1527,6 +1529,7 @@ function DecisionSummary({ detail, stale = false }: { detail: RiverDetailApiResu
 }
 
 function ScoreExplanationCard({ breakdown, isStale, unavailable }: { breakdown: ScoreBreakdown; isStale: boolean; unavailable: boolean }) {
+  const reducedMotion = useReducedMotion();
   const [expanded, setExpanded] = useState(false);
   const model = buildScoreBreakdownViewModel(breakdown);
   const labels = {
@@ -1553,8 +1556,8 @@ function ScoreExplanationCard({ breakdown, isStale, unavailable }: { breakdown: 
           <Text style={styles.scoreWhySubtitle}>{isStale ? 'Reference from the saved update, not current conditions.' : unavailable ? 'These factors do not establish a current call.' : 'How today’s score was calculated.'}</Text>
         </View>
         <View style={styles.scoreWhyToggle}>
-          <MaterialCommunityIcons
-            name={expanded ? 'chevron-up' : 'chevron-down'}
+          <MotionChevron
+            expanded={expanded}
             color={colors.accentDeep}
             size={18}
           />
@@ -1562,14 +1565,14 @@ function ScoreExplanationCard({ breakdown, isStale, unavailable }: { breakdown: 
       </Pressable>
       {expanded ? (
         <>
-          <View style={styles.scoreWhyRows}>
+          <MotionReveal reducedMotion={reducedMotion} style={styles.scoreWhyRows}>
             {model.rows.map((row) => (
               <View key={row.key} style={styles.scoreWhyRow}>
                 <Text style={styles.scoreWhyLabel}>{labels[row.key]}</Text>
                 <Text style={[styles.scoreWhyValue, scoreBreakdownValueTone(row.value)]}>{signedPoints(row.value)}</Text>
               </View>
             ))}
-          </View>
+          </MotionReveal>
           {model.capReasons.length > 0 ? (
             <View style={styles.scoreCapList}>
               {model.capReasons.slice(0, 2).map((reason) => (
@@ -1725,6 +1728,7 @@ function GaugeSourceActions({ detail }: { detail: RiverDetailApiResult }) {
 }
 
 function RouteSafetyPanel({ detail }: { detail: RiverDetailApiResult }) {
+  const reducedMotion = useReducedMotion();
   const profile = detail.river.safetyProfile;
   const safetyModel = buildRouteSafetyViewModel(profile, {
     standardTitle: 'Before you launch',
@@ -1754,13 +1758,13 @@ function RouteSafetyPanel({ detail }: { detail: RiverDetailApiResult }) {
           <Text style={styles.safetyKicker}>Safety</Text>
           <Text style={styles.safetyTitle}>{safetyModel.title}</Text>
         </View>
-        <MaterialCommunityIcons
-          name={expanded ? 'chevron-up' : 'chevron-down'}
+        <MotionChevron
+          expanded={expanded}
           color={advanced ? colors.noGo : caution ? '#9A5F19' : colors.accent}
           size={20}
         />
       </Pressable>
-      {expanded ? <Text style={styles.safetyBody}>{safetyModel.summary}</Text> : null}
+      {expanded ? <MotionReveal reducedMotion={reducedMotion}><Text style={styles.safetyBody}>{safetyModel.summary}</Text></MotionReveal> : null}
       {safetyModel.hazards.length > 0 ? (
         <View style={styles.safetyChipRow}>
           {safetyModel.hazards.map((hazard) => (

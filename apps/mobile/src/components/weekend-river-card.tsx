@@ -1,6 +1,7 @@
 import type { WeekendSummaryApiItem } from '@paddletoday/api-contract';
 import { formatRouteSegmentLabel, routeSegmentSummary } from '@paddletoday/api-contract';
-import { ImageBackground, Pressable, StyleSheet, Text, View } from 'react-native';
+import { Pressable, StyleSheet, Text, View } from 'react-native';
+import { MotionPhotoBackground } from './motion-photo-background';
 import { callForRating, normalizeApiText } from '../lib/format';
 import { compactPaddleTime, routePreviewFactItems } from '../lib/route-facts';
 import { useRoutePhoto } from '../hooks/use-route-photo';
@@ -37,8 +38,8 @@ export function WeekendRiverCard({
       accessibilityLabel={`${river.river.name}, ${river.river.reach}, ${isStale ? 'saved forecast, update needed, ' : ''}${callForRating(river.weekend.rating, 'weekend')}, score ${river.weekend.score}`}
       accessibilityHint="Opens the weekend route details."
     >
-      <ImageBackground
-        source={showFallback ? undefined : { uri: photo.uri }}
+      <MotionPhotoBackground
+        uri={showFallback ? undefined : photo.uri}
         onError={onError}
         style={styles.media}
         imageStyle={styles.mediaImage}
@@ -54,7 +55,7 @@ export function WeekendRiverCard({
             {!isStale ? <QualityPill rating={river.weekend.rating} /> : null}
           </View>
         </View>
-      </ImageBackground>
+      </MotionPhotoBackground>
       {!unavailable && photo.isPlaceholder ? <Text style={styles.illustrativeLabel}>Illustrative photo</Text> : null}
 
       {isStale ? <View style={styles.savedNotice}>
