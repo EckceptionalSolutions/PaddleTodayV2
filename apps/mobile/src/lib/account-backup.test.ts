@@ -28,7 +28,7 @@ vi.mock('./account-local-state', () => ({ activateAccountLocalState: local.activ
   accountLocalStateIsActive: local.active, grantGuestImportConsent: local.consent, markGuestMigrationRecoveryAcknowledged: local.acknowledge }));
 vi.mock('./trip-drafts', () => ({ listTripDrafts: async () => ({ records: [], unreadable: 0 }), tripDraftKey: vi.fn() }));
 
-import { deactivateAccountLocalData, lastSuccessfulSyncKey, prepareAccountLocalData, registerAccountBackupAuthProvider, requestAccountBackup, syncAccountBackup } from './account-backup';
+import { deactivateAccountLocalData, flushAccountBackup, lastSuccessfulSyncKey, prepareAccountLocalData, registerAccountBackupAuthProvider, requestAccountBackup, syncAccountBackup } from './account-backup';
 
 const snapshot = () => ({ version: 1, epoch: 0, revision: 0, updatedAt: null,
   routes: [], drafts: [], receipts: [], entityRevisions: { routes: {}, drafts: {} } });
@@ -130,19 +130,23 @@ describe('account preparation and backup', () => {
   it('retains edits made during a slow backup and does not mark them fully synced', async () => {
     vi.useFakeTimers();
     try {
+      local.active.mockResolvedValue(true);
       const previous = '2026-10-01T12:00:00Z';
       state.values.set(lastSuccessfulSyncKey('account-a'), previous);
       let release!: (value: unknown) => void;
       let started!: () => void;
       const remoteStarted = new Promise<void>(resolve => { started = resolve; });
       api.getAccountSync.mockImplementationOnce(() => { started(); return new Promise(resolve => { release = resolve; }); });
-      const cloudSync = syncAccountBackup('token', 'account-a');
+      const cloudSync = flushAccountBackup();
       await remoteStarted;
       state.values.set('paddletoday:saved-rivers', JSON.stringify([{ slug: 'new-route', name: 'New River',
         reach: 'Launch to landing', savedAt: '2026-10-17T12:00:00Z', notes: 'New note' }]));
       requestAccountBackup();
+      // Let the save debounce fire before the original cloud request finishes.
+      await vi.advanceTimersByTimeAsync(901);
+      expect(vi.getTimerCount()).toBe(0);
       release({ snapshot: snapshot() });
-      const summary = await cloudSync;
+      const summary = (await cloudSync)!;
       expect(summary.pending).toBe(true);
       expect(summary.lastSyncedAt).toBe(previous);
       expect(state.values.get('paddletoday:saved-rivers')).toContain('New note');
