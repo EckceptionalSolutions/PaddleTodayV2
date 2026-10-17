@@ -7,6 +7,7 @@ import {
   confidenceLabel,
   distanceBucketLabel,
   boardConditionCategory,
+  homeUnavailableState,
   exploreSortSummaryLabel,
   favoriteRecordForItem,
   formatBoardRefreshCopy,
@@ -38,6 +39,20 @@ import {
 } from './board-presenters.js';
 
 describe('board presenters', () => {
+  it('explains an unavailable board and counts only hidden current skip calls', () => {
+    const stale = { rating: 'No-go', readiness: { status: 'withheld' }, liveData: { gaugeState: 'stale' } };
+    const skip = { rating: 'No-go', readiness: { status: 'skip' } };
+    const visible = new Set(['Strong', 'Good', 'Fair']);
+    expect(homeUnavailableState([stale, stale, skip], visible)).toMatchObject({
+      title: 'No current recommendation', hiddenSkipCount: 1,
+      detail: expect.stringContaining('out of date'),
+    });
+    expect(homeUnavailableState([stale, skip], new Set([...visible, 'No-go']))).toBeNull();
+    expect(homeUnavailableState([stale, { rating: 'Good', readiness: { status: 'ready' } }], visible)).toBeNull();
+    expect(homeUnavailableState([], visible)).toBeNull();
+    expect(homeUnavailableState([{ rating: 'No-go', readiness: { status: 'withheld' } }], visible)?.detail).toContain('missing current evidence');
+    expect(homeUnavailableState([stale], visible)?.hiddenSkipCount).toBe(0);
+  });
   it('maps ratings to stable semantic tone keys', () => {
     expect(ratingToneKey('Strong')).toBe('great');
     expect(ratingToneKey('Fair')).toBe('marginal');

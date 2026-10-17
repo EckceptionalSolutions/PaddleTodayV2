@@ -1,8 +1,8 @@
 {
-  "generatedAt": "2026-10-06T01:01:41.370Z",
+  "generatedAt": "2026-10-17T12:20:35.272Z",
   "scope": "metadata-and-package freshness; live gauge freshness remains provider-runtime data",
   "totals": {
-    "routesReviewed": 3028,
+    "routesReviewed": 2925,
     "findings": 1094,
     "high": 0
   },
@@ -5702,7 +5702,7 @@
     {
       "slug": "loup-river-monroe-columbus",
       "state": "Nebraska",
-      "scored": true,
+      "scored": false,
       "issues": [
         "camping-status-missing",
         "endpoint-package-incomplete"
@@ -5712,7 +5712,7 @@
     {
       "slug": "loup-river-george-syas-columbus",
       "state": "Nebraska",
-      "scored": true,
+      "scored": false,
       "issues": [
         "camping-status-missing",
         "endpoint-package-incomplete"
@@ -5722,7 +5722,7 @@
     {
       "slug": "loup-river-monroe-adm-access",
       "state": "Nebraska",
-      "scored": true,
+      "scored": false,
       "issues": [
         "camping-status-missing",
         "endpoint-package-incomplete"
@@ -5732,7 +5732,7 @@
     {
       "slug": "loup-river-columbus-adm-access",
       "state": "Nebraska",
-      "scored": true,
+      "scored": false,
       "issues": [
         "camping-status-missing",
         "endpoint-package-incomplete"
@@ -5742,7 +5742,7 @@
     {
       "slug": "loup-river-george-syas-adm-access",
       "state": "Nebraska",
-      "scored": true,
+      "scored": false,
       "issues": [
         "camping-status-missing",
         "endpoint-package-incomplete"
@@ -5832,7 +5832,7 @@
     {
       "slug": "comal-river-hinman-island-last-public-exit",
       "state": "Texas",
-      "scored": true,
+      "scored": false,
       "issues": [
         "camping-status-missing",
         "endpoint-package-incomplete"
@@ -7131,7 +7131,7 @@
     {
       "slug": "green-river-russell-ford-glenview-road",
       "state": "Kentucky",
-      "scored": true,
+      "scored": false,
       "issues": [
         "camping-status-missing",
         "endpoint-package-incomplete"
@@ -7161,7 +7161,7 @@
     {
       "slug": "green-river-greensburg-city-ramp-lynn-camp-creek",
       "state": "Kentucky",
-      "scored": true,
+      "scored": false,
       "issues": [
         "camping-status-missing",
         "endpoint-package-incomplete"
@@ -7171,7 +7171,7 @@
     {
       "slug": "green-river-american-legion-glenview-road",
       "state": "Kentucky",
-      "scored": true,
+      "scored": false,
       "issues": [
         "camping-status-missing",
         "endpoint-package-incomplete"
@@ -7181,7 +7181,7 @@
     {
       "slug": "green-river-american-legion-lynn-camp-creek",
       "state": "Kentucky",
-      "scored": true,
+      "scored": false,
       "issues": [
         "camping-status-missing",
         "endpoint-package-incomplete"
@@ -7191,7 +7191,7 @@
     {
       "slug": "green-river-roachville-glenview-road",
       "state": "Kentucky",
-      "scored": true,
+      "scored": false,
       "issues": [
         "camping-status-missing",
         "endpoint-package-incomplete"
@@ -7211,7 +7211,7 @@
     {
       "slug": "green-river-glenview-road-lynn-camp-creek",
       "state": "Kentucky",
-      "scored": true,
+      "scored": false,
       "issues": [
         "camping-status-missing",
         "endpoint-package-incomplete"
@@ -7231,7 +7231,7 @@
     {
       "slug": "green-river-hh-wilson-park-dennison-ferry",
       "state": "Kentucky",
-      "scored": true,
+      "scored": false,
       "issues": [
         "camping-status-missing",
         "endpoint-package-incomplete"
@@ -7251,7 +7251,7 @@
     {
       "slug": "green-river-rio-carrydown-dennison-ferry",
       "state": "Kentucky",
-      "scored": true,
+      "scored": false,
       "issues": [
         "camping-status-missing",
         "endpoint-package-incomplete"
@@ -7281,7 +7281,7 @@
     {
       "slug": "green-river-hh-wilson-park-green-river-ferry",
       "state": "Kentucky",
-      "scored": true,
+      "scored": false,
       "issues": [
         "camping-status-missing",
         "endpoint-package-incomplete"
@@ -7361,7 +7361,7 @@
     {
       "slug": "green-river-stovall-park-green-river-ferry",
       "state": "Kentucky",
-      "scored": true,
+      "scored": false,
       "issues": [
         "camping-status-missing",
         "endpoint-package-incomplete"
@@ -7371,7 +7371,7 @@
     {
       "slug": "green-river-stovall-park-dennison-ferry",
       "state": "Kentucky",
-      "scored": true,
+      "scored": false,
       "issues": [
         "camping-status-missing",
         "endpoint-package-incomplete"

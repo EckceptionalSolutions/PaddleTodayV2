@@ -1,0 +1,76 @@
+/* Small, finite entrances. Content and controls never wait for an animation. */
+@media (prefers-reduced-motion: no-preference) {
+  /* A short cascade helps the eye follow newly loaded or filtered results.
+     Cap the delay after the fourth item, even for very long route lists.
+     Translate is separate from the transform used by card hover/map selection. */
+  :is([data-recommendation-grid], [data-explore-grid], [data-favorites-grid],
+      [data-summary-map-results]) > :is(.river-card, .summary-map-result, .weekend-result-row) {
+    --motion-delay: 0ms;
+    animation: motion-result-in 320ms cubic-bezier(0.22, 1, 0.36, 1) var(--motion-delay) backwards;
+  }
+  :is([data-recommendation-grid], [data-explore-grid], [data-favorites-grid],
+      [data-summary-map-results]) > :nth-child(2) { --motion-delay: 35ms; }
+  :is([data-recommendation-grid], [data-explore-grid], [data-favorites-grid],
+      [data-summary-map-results]) > :nth-child(3) { --motion-delay: 70ms; }
+  :is([data-recommendation-grid], [data-explore-grid], [data-favorites-grid],
+      [data-summary-map-results]) > :nth-child(n + 4) { --motion-delay: 105ms; }
+
+  /* Reveal the real recommendation as its skeleton/lock is released. */
+  .home-featured:not(.home-featured--locked) .home-featured__header,
+  .weekend-hero__featured[aria-busy="false"] .hero-call__title {
+    animation: motion-result-in 380ms cubic-bezier(0.22, 1, 0.36, 1) backwards;
+  }
+  .home-featured:not(.home-featured--locked) .score-orb,
+  .weekend-hero__featured[aria-busy="false"] .score-orb {
+    animation: motion-score-in 420ms cubic-bezier(0.22, 1, 0.36, 1) 45ms backwards;
+  }
+  [data-river-detail]:not(.river-detail--loading) [data-skeleton] {
+    animation: motion-fade-in 260ms ease-out;
+  }
+
+  /* Search enters from just below its resting position; closing stays instant
+     so focus restoration and background interactivity are never delayed. */
+  .site-search-dialog:not([hidden]) .site-search-dialog__backdrop {
+    animation: motion-fade-in 180ms ease-out;
+  }
+  .site-search-dialog:not([hidden]) .site-search-dialog__panel {
+    animation: motion-panel-in 260ms cubic-bezier(0.22, 1, 0.36, 1);
+  }
+  .site-search-dialog__result { animation: motion-fade-in 180ms ease-out; }
+
+  :is(.home-preferences, .explore-refine, .board-filters__advanced,
+      .river-detail__conditions-details, .river-detail__route-context,
+      .site-footer__states)[open] > :not(summary) {
+    animation: motion-fade-in 180ms ease-out;
+  }
+  .explore-refine__chevron { transition: transform 180ms ease-out; }
+
+  /* Photos settle into the existing frame without zooming or layout shifts. */
+  :is(.route-photo-preview img, .route-gallery__image):not([hidden]) {
+    opacity: 1;
+    transition: opacity 280ms ease-out;
+    @starting-style { opacity: 0; }
+  }
+
+  @media (hover: hover) and (pointer: fine) {
+    :is(.river-link--primary, .app-download-prompt__cta) {
+      transition: translate 160ms ease-out, box-shadow 160ms ease-out;
+    }
+    :is(.river-link--primary, .app-download-prompt__cta):hover { translate: 0 -2px; }
+    :is(.river-link--primary, .app-download-prompt__cta):active { translate: 0 0; }
+  }
+}
+
+@keyframes motion-fade-in { from { opacity: 0; } to { opacity: 1; } }
+@keyframes motion-result-in {
+  from { opacity: 0; translate: 0 10px; }
+  to { opacity: 1; translate: 0 0; }
+}
+@keyframes motion-score-in {
+  from { opacity: 0; scale: 0.94; }
+  to { opacity: 1; scale: 1; }
+}
+@keyframes motion-panel-in {
+  from { opacity: 0; translate: 0 12px; scale: 0.985; }
+  to { opacity: 1; translate: 0 0; scale: 1; }
+}

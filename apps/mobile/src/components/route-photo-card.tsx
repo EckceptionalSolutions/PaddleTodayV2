@@ -1,5 +1,6 @@
 import MaterialCommunityIcons from '@expo/vector-icons/MaterialCommunityIcons';
-import { ImageBackground, Pressable, StyleSheet, Text, useWindowDimensions, View } from 'react-native';
+import { Pressable, StyleSheet, Text, useWindowDimensions, View } from 'react-native';
+import { MotionPhotoBackground } from './motion-photo-background';
 import { useRoutePhoto } from '../hooks/use-route-photo';
 import { colors, radius, spacing } from '../theme/tokens';
 import { RoutePhotoFallback } from './route-photo-fallback';
@@ -30,8 +31,8 @@ export function RoutePhotoCard({
   const showFallback = unavailable;
 
   return (
-    <ImageBackground
-      source={showFallback ? undefined : { uri: photo.uri }}
+    <MotionPhotoBackground
+      uri={showFallback ? undefined : photo.uri}
       onError={onError}
       style={[styles.photo, showFallback ? { minHeight: height } : { height }, compact ? styles.photoCompact : null, showFallback ? styles.photoFallback : null]}
       imageStyle={styles.photoImage}
@@ -68,7 +69,7 @@ export function RoutePhotoCard({
           Add a photo
         </Text>
       </Pressable>
-    </ImageBackground>
+    </MotionPhotoBackground>
   );
 }
 

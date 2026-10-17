@@ -1,4 +1,17 @@
 /* Home-specific layout and controls. Home map styling lives in home-map.css. */
+.home-call-notice {
+  padding: 1rem;
+  margin-bottom: 1rem;
+  border: 1px solid rgba(155, 116, 30, 0.35);
+  border-radius: 16px;
+  background: #fff8e6;
+  color: var(--ink);
+  font: 400 0.88rem/1.5 var(--sans);
+}
+.home-call-notice[hidden] { display: none; }
+.home-call-notice strong { display: block; font-weight: 700; }
+.home-call-notice p { margin: 0.5rem 0; }
+.home-call-notice button { white-space: normal; text-align: left; }
 .home-featured__pending { display: none; }
 body[data-loading-board="initial"] .home-hero:has(.home-location-bar--set) .home-featured--locked .home-featured__pending {
   display: grid;

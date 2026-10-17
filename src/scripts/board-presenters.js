@@ -57,6 +57,23 @@ export function boardConditionCategory(result) {
   return result.rating;
 }
 
+export function homeUnavailableState(results, visibleRatings) {
+  const shown = results.filter((result) => {
+    const category = boardConditionCategory(result);
+    return category === 'unavailable' || visibleRatings.has(category);
+  });
+  if (!shown.length || !shown.every((result) => boardConditionCategory(result) === 'unavailable')) return null;
+  const stale = shown.filter((result) => result.liveData?.gaugeState === 'stale').length;
+  const hiddenSkipCount = visibleRatings.has('No-go') ? 0 : results.filter((result) => boardConditionCategory(result) === 'No-go').length;
+  return {
+    title: 'No current recommendation',
+    detail: stale === shown.length
+      ? 'Gauge readings for every route shown are out of date. We need newer observations before we can make a call. Refreshing this page does not make those readings current.'
+      : 'Every route shown is missing current evidence needed for a call. We’ll show recommendations when enough current data is available.',
+    hiddenSkipCount,
+  };
+}
+
 export function favoriteRecordForItem(item) {
   if (!item?.cardRoute || isGroupedItem(item)) {
     return null;

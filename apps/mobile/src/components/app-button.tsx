@@ -1,7 +1,10 @@
-import type { ComponentProps } from 'react';
+import { useState, type ComponentProps } from 'react';
 import MaterialCommunityIcons from '@expo/vector-icons/MaterialCommunityIcons';
-import { ActivityIndicator, Pressable, StyleSheet, Text, type StyleProp, type ViewStyle } from 'react-native';
+import { ActivityIndicator, Animated, Pressable, StyleSheet, Text, type StyleProp, type ViewStyle } from 'react-native';
+import { usePressMotion } from '../hooks/use-press-motion';
 import { colors, radius, spacing, typography } from '../theme/tokens';
+
+const AnimatedPressable = Animated.createAnimatedComponent(Pressable);
 
 export function AppButton({ label, accessibilityLabel = label, hint, onPress, disabled = false, busy = false, expanded,
   busyLabel = label, variant = 'primary', icon, style, selected }: {
@@ -11,15 +14,18 @@ export function AppButton({ label, accessibilityLabel = label, hint, onPress, di
   icon?: ComponentProps<typeof MaterialCommunityIcons>['name']; style?: StyleProp<ViewStyle>;
 }) {
   const inactive = disabled || busy;
+  const motion = usePressMotion(inactive);
+  const [pressed, setPressed] = useState(false);
   const foreground = variant === 'primary' ? colors.surfaceStrong : colors.accentDeep;
-  return <Pressable accessibilityRole="button" accessibilityLabel={accessibilityLabel} accessibilityHint={hint}
+  return <AnimatedPressable accessibilityRole="button" accessibilityLabel={accessibilityLabel} accessibilityHint={hint}
     accessibilityState={{ disabled: inactive, busy, expanded, selected }} aria-expanded={expanded} aria-busy={busy} disabled={inactive} onPress={onPress}
-    style={({ pressed }) => [styles.button, variant === 'secondary' ? styles.secondary : styles.primary,
-      pressed && !inactive ? styles.pressed : null, inactive ? styles.disabled : null, style]}>
+    onPressIn={() => { setPressed(true); motion.onPressIn(); }} onPressOut={() => { setPressed(false); motion.onPressOut(); }}
+    style={[styles.button, variant === 'secondary' ? styles.secondary : styles.primary,
+      pressed && !inactive ? styles.pressed : null, inactive ? styles.disabled : null, style, motion.style]}>
     {busy ? <ActivityIndicator color={foreground} size="small" accessibilityElementsHidden importantForAccessibility="no" />
       : icon ? <MaterialCommunityIcons name={icon} size={18} color={foreground} accessible={false} /> : null}
     <Text style={[styles.label, { color: foreground }]}>{busy ? busyLabel : label}</Text>
-  </Pressable>;
+  </AnimatedPressable>;
 }
 const styles = StyleSheet.create({
   button: { minHeight: 44, maxWidth: '100%', paddingVertical: spacing.sm, paddingHorizontal: spacing.md, borderRadius: radius.pill,

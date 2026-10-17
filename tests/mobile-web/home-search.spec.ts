@@ -3,7 +3,10 @@ import { test, expect } from '@playwright/test';
 import fixture from './fixtures/route-detail.json' with { type: 'json' };
 
 test('Today route search opens by keyboard, clears queries, and opens a result', async ({ page }) => {
-  await page.addInitScript(() => localStorage.setItem('paddletoday:welcome-completed:v1', '1'));
+  await page.addInitScript(() => {
+    localStorage.setItem('paddletoday:welcome-completed:v1', '1');
+    localStorage.setItem('paddletoday:user-location', JSON.stringify({ latitude: 45.08, longitude: -93.2, label: 'Test city', source: 'search' }));
+  });
   await page.route('**/api/**', (route) => route.fulfill({ status: 503, json: { error: 'offline' } }));
   await page.route('**/api/rivers/rice-creek-peltier-to-long-lake.json', (route) => route.fulfill({ json: fixture }));
   const fulfillMobile = await installMobileBoardFixtures(page);
@@ -31,7 +34,10 @@ test('Today route search opens by keyboard, clears queries, and opens a result',
 
 test('Today searches accented names and keeps other rivers after grouping many matching reaches', async ({ page }) => {
   await page.emulateMedia({ reducedMotion: 'reduce' });
-  await page.addInitScript(() => localStorage.setItem('paddletoday:welcome-completed:v1', '1'));
+  await page.addInitScript(() => {
+    localStorage.setItem('paddletoday:welcome-completed:v1', '1');
+    localStorage.setItem('paddletoday:user-location', JSON.stringify({ latitude: 45.08, longitude: -93.2, label: 'Test city', source: 'search' }));
+  });
   await page.route('**/api/**', route => route.fulfill({ status: 503, json: { error: 'offline' } }));
   const rivers = Array.from({ length: 23 }, (_, index) => ({ ...fixture.result,
     river: { ...fixture.result.river, slug: `search-group-${index}`, riverId: index < 22 ? 'many-reaches' : 'another-river',

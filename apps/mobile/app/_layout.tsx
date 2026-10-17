@@ -25,6 +25,7 @@ import {
 } from '../src/lib/onboarding';
 import { FeedbackExperience } from '../src/components/feedback-experience';
 import { AreaNotificationOnboarding } from '../src/components/area-notification-onboarding';
+import { useReducedMotion } from '../src/hooks/use-reduced-motion';
 
 initObservability();
 configureNativeNotifications();
@@ -51,6 +52,7 @@ const navigationTheme = {
 };
 
 function RootLayout() {
+  const reducedMotion = useReducedMotion();
   const pathname = usePathname();
   const entryRoute = pathname === '/welcome' || pathname === '/sign-in' || pathname === '/tour' || pathname.startsWith('/auth/callback');
   const authEnabled = process.env.EXPO_PUBLIC_ACCOUNT_AUTH_ENABLED === '1' && Platform.OS !== 'web';
@@ -152,6 +154,7 @@ function RootLayout() {
         <StatusBar style="dark" />
         <Stack
           screenOptions={{
+            animation: reducedMotion ? 'none' : 'default',
             headerShadowVisible: false,
             headerStyle: { backgroundColor: colors.canvas },
             headerTintColor: colors.text,
