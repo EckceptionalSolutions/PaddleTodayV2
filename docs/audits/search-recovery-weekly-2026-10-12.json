@@ -1,0 +1,491 @@
+{
+  "observedAt": "2026-10-12T15:02:05.645425+00:00",
+  "pages": [
+    {
+      "path": "/",
+      "status": "200",
+      "exit": 0,
+      "canonical": "https://paddletoday.com/",
+      "robots": [
+        "<meta name=\"robots\" content=\"index, follow\">"
+      ],
+      "error": ""
+    },
+    {
+      "path": "/rivers/little-miami-river-kelley-milford/",
+      "status": "200",
+      "exit": 0,
+      "canonical": "https://paddletoday.com/rivers/little-miami-river-kelley-milford/",
+      "robots": [
+        "<meta name=\"robots\" content=\"index, follow\">"
+      ],
+      "error": ""
+    },
+    {
+      "path": "/rivers/namekagon-river-big-bend-trego/",
+      "status": "200",
+      "exit": 0,
+      "canonical": "https://paddletoday.com/rivers/namekagon-river-big-bend-trego/",
+      "robots": [
+        "<meta name=\"robots\" content=\"index, follow\">"
+      ],
+      "error": ""
+    },
+    {
+      "path": "/rivers/milwaukee-river-west-bend-quaas-creek/",
+      "status": "200",
+      "exit": 0,
+      "canonical": "https://paddletoday.com/rivers/milwaukee-river-west-bend-quaas-creek/",
+      "robots": [
+        "<meta name=\"robots\" content=\"index, follow\">"
+      ],
+      "error": ""
+    },
+    {
+      "path": "/rivers/ouachita-river-remmel-whitewater-park/",
+      "status": "200",
+      "exit": 0,
+      "canonical": "https://paddletoday.com/rivers/ouachita-river-remmel-whitewater-park/",
+      "robots": [
+        "<meta name=\"robots\" content=\"index, follow\">"
+      ],
+      "error": ""
+    },
+    {
+      "path": "/rivers/namekagon-river-county-k-whispering-pines/",
+      "status": "200",
+      "exit": 0,
+      "canonical": "https://paddletoday.com/rivers/namekagon-river-county-k-whispering-pines/",
+      "robots": [
+        "<meta name=\"robots\" content=\"index, follow\">"
+      ],
+      "error": ""
+    },
+    {
+      "path": "/rivers/big-river-mammoth-merrill-horse/",
+      "status": "200",
+      "exit": 0,
+      "canonical": "https://paddletoday.com/rivers/big-river-mammoth-merrill-horse/",
+      "robots": [
+        "<meta name=\"robots\" content=\"index, follow\">"
+      ],
+      "error": ""
+    },
+    {
+      "path": "/rivers/st-croix-river-sand-creek-highway-70/",
+      "status": "200",
+      "exit": 0,
+      "canonical": "https://paddletoday.com/rivers/st-croix-river-sand-creek-highway-70/",
+      "robots": [
+        "<meta name=\"robots\" content=\"index, follow\">"
+      ],
+      "error": ""
+    },
+    {
+      "path": "/rivers/youghiogheny-river-lower-yough-ohiopyle-bruner-run/",
+      "status": "200",
+      "exit": 0,
+      "canonical": "https://paddletoday.com/rivers/youghiogheny-river-lower-yough-ohiopyle-bruner-run/",
+      "robots": [
+        "<meta name=\"robots\" content=\"index, follow\">"
+      ],
+      "error": ""
+    },
+    {
+      "path": "/rivers/james-river-hl-kerr-ralph-cox/",
+      "status": "200",
+      "exit": 0,
+      "canonical": "https://paddletoday.com/rivers/james-river-hl-kerr-ralph-cox/",
+      "robots": [
+        "<meta name=\"robots\" content=\"index, follow\">"
+      ],
+      "error": ""
+    },
+    {
+      "path": "/rivers/cedar-river-chain-lakes-ellis-harbor/",
+      "status": "200",
+      "exit": 0,
+      "canonical": "https://paddletoday.com/rivers/cedar-river-chain-lakes-ellis-harbor/",
+      "robots": [
+        "<meta name=\"robots\" content=\"index, follow\">"
+      ],
+      "error": ""
+    },
+    {
+      "path": "/rivers/american-river-harrington-watt/",
+      "status": "200",
+      "exit": 0,
+      "canonical": "https://paddletoday.com/rivers/by-river/american-river-california/",
+      "robots": [],
+      "error": ""
+    },
+    {
+      "path": "/rivers/pine-river-lincoln-pine-river-park-county-w/",
+      "status": "200",
+      "exit": 0,
+      "canonical": "https://paddletoday.com/rivers/pine-river-lincoln-pine-river-park-county-w/",
+      "robots": [
+        "<meta name=\"robots\" content=\"index, follow\">"
+      ],
+      "error": ""
+    },
+    {
+      "path": "/rivers/search-monitor-missing-20261012/",
+      "status": "404",
+      "exit": 0,
+      "canonical": "https://paddletoday.com/404/",
+      "robots": [
+        "<meta name=\"robots\" content=\"noindex, follow\">"
+      ],
+      "error": ""
+    },
+    {
+      "path": "/robots.txt",
+      "status": "200",
+      "exit": 0,
+      "canonical": null,
+      "robots": [],
+      "error": ""
+    },
+    {
+      "path": "/sitemap-index.xml",
+      "status": "200",
+      "exit": 0,
+      "canonical": null,
+      "robots": [],
+      "error": ""
+    }
+  ],
+  "certificates": [
+    {
+      "host": "paddletoday.com",
+      "valid": true,
+      "expires": "Jan  6 21:21:27 2027 GMT"
+    },
+    {
+      "host": "www.paddletoday.com",
+      "valid": true,
+      "expires": "Mar 21 23:59:59 2027 GMT"
+    }
+  ],
+  "redirects": [
+    {
+      "url": "http://paddletoday.com/",
+      "headers": [
+        "HTTP/1.1 301 Moved Permanently",
+        "Location: https://paddletoday.com/"
+      ],
+      "exit": 0
+    },
+    {
+      "url": "https://www.paddletoday.com/",
+      "headers": [
+        "HTTP/1.1 301 Moved Permanently",
+        "Location: https://paddletoday.com/"
+      ],
+      "exit": 0
+    },
+    {
+      "url": "https://www.paddletoday.com/rivers/little-miami-river-kelley-milford/?monitor=20261012",
+      "headers": [
+        "HTTP/1.1 301 Moved Permanently",
+        "Location: https://paddletoday.com/rivers/little-miami-river-kelley-milford/?monitor=20261012"
+      ],
+      "exit": 0
+    }
+  ],
+  "submitted404LiveChecks": [
+    {
+      "url": "https://paddletoday.com/rivers/buffalo-river-tyler-bend-gilbert/",
+      "status": 200,
+      "final": "https://paddletoday.com/rivers/buffalo-river-tyler-bend-gilbert/",
+      "canonical": "https://paddletoday.com/rivers/buffalo-river-tyler-bend-gilbert/",
+      "inSitemap": true
+    },
+    {
+      "url": "https://paddletoday.com/rivers/namekagon-river-springbrook-big-bend/",
+      "status": 200,
+      "final": "https://paddletoday.com/rivers/namekagon-river-springbrook-big-bend/",
+      "canonical": "https://paddletoday.com/rivers/namekagon-river-springbrook-big-bend/",
+      "inSitemap": true
+    },
+    {
+      "url": "https://paddletoday.com/rivers/st-louis-river-toivola-county-road-29/",
+      "status": 200,
+      "final": "https://paddletoday.com/rivers/st-louis-river-toivola-county-road-29/",
+      "canonical": "https://paddletoday.com/rivers/st-louis-river-toivola-county-road-29/",
+      "inSitemap": true
+    },
+    {
+      "url": "https://paddletoday.com/rivers/peshtigo-river-roaring-rapids/",
+      "status": 200,
+      "final": "https://paddletoday.com/rivers/peshtigo-river-roaring-rapids/",
+      "canonical": "https://paddletoday.com/rivers/peshtigo-river-roaring-rapids/",
+      "inSitemap": true
+    },
+    {
+      "url": "https://paddletoday.com/rivers/menominee-river-piers-gorge/",
+      "status": 200,
+      "final": "https://paddletoday.com/rivers/menominee-river-piers-gorge/",
+      "canonical": "https://paddletoday.com/rivers/menominee-river-piers-gorge/",
+      "inSitemap": true
+    }
+  ],
+  "sitemap": {
+    "url": "https://paddletoday.com/sitemap-0.xml",
+    "status": 200,
+    "count": 2521
+  },
+  "performance": {
+    "currentPeriod": [
+      "2026-10-04",
+      "2026-10-10"
+    ],
+    "previousPeriod": [
+      "2026-09-27",
+      "2026-10-03"
+    ],
+    "searchType": "Web",
+    "queryFilter": null,
+    "current": {
+      "clicks": 1,
+      "impressions": 64,
+      "ctrPercent": 1.6,
+      "position": 23.3
+    },
+    "previous": {
+      "clicks": 0,
+      "impressions": 118,
+      "ctrPercent": 0,
+      "position": 28
+    },
+    "pageRowsReviewed": 84,
+    "cohort": [
+      {
+        "path": "/",
+        "current": {
+          "clicks": 1,
+          "impressions": 8,
+          "ctrPercent": 12.5,
+          "position": 14.1
+        },
+        "previous": {
+          "clicks": 0,
+          "impressions": 8,
+          "ctrPercent": 0,
+          "position": 20.9
+        },
+        "absentBothPeriods": false
+      },
+      {
+        "path": "/rivers/little-miami-river-kelley-milford/",
+        "current": {
+          "clicks": 0,
+          "impressions": 0,
+          "ctrPercent": null,
+          "position": null
+        },
+        "previous": {
+          "clicks": 0,
+          "impressions": 5,
+          "ctrPercent": 0,
+          "position": 63.8
+        },
+        "absentBothPeriods": false
+      },
+      {
+        "path": "/rivers/namekagon-river-big-bend-trego/",
+        "current": {
+          "clicks": 0,
+          "impressions": 0,
+          "ctrPercent": null,
+          "position": null
+        },
+        "previous": {
+          "clicks": 0,
+          "impressions": 0,
+          "ctrPercent": null,
+          "position": null
+        },
+        "absentBothPeriods": true
+      },
+      {
+        "path": "/rivers/milwaukee-river-west-bend-quaas-creek/",
+        "current": {
+          "clicks": 0,
+          "impressions": 0,
+          "ctrPercent": null,
+          "position": null
+        },
+        "previous": {
+          "clicks": 0,
+          "impressions": 0,
+          "ctrPercent": null,
+          "position": null
+        },
+        "absentBothPeriods": true
+      },
+      {
+        "path": "/rivers/ouachita-river-remmel-whitewater-park/",
+        "current": {
+          "clicks": 0,
+          "impressions": 2,
+          "ctrPercent": 0,
+          "position": 29
+        },
+        "previous": {
+          "clicks": 0,
+          "impressions": 0,
+          "ctrPercent": null,
+          "position": null
+        },
+        "absentBothPeriods": false
+      },
+      {
+        "path": "/rivers/namekagon-river-county-k-whispering-pines/",
+        "current": {
+          "clicks": 0,
+          "impressions": 2,
+          "ctrPercent": 0,
+          "position": 73
+        },
+        "previous": {
+          "clicks": 0,
+          "impressions": 0,
+          "ctrPercent": null,
+          "position": null
+        },
+        "absentBothPeriods": false
+      },
+      {
+        "path": "/rivers/big-river-mammoth-merrill-horse/",
+        "current": {
+          "clicks": 0,
+          "impressions": 0,
+          "ctrPercent": null,
+          "position": null
+        },
+        "previous": {
+          "clicks": 0,
+          "impressions": 2,
+          "ctrPercent": 0,
+          "position": 17
+        },
+        "absentBothPeriods": false
+      },
+      {
+        "path": "/rivers/st-croix-river-sand-creek-highway-70/",
+        "current": {
+          "clicks": 0,
+          "impressions": 0,
+          "ctrPercent": null,
+          "position": null
+        },
+        "previous": {
+          "clicks": 0,
+          "impressions": 0,
+          "ctrPercent": null,
+          "position": null
+        },
+        "absentBothPeriods": true
+      },
+      {
+        "path": "/rivers/youghiogheny-river-lower-yough-ohiopyle-bruner-run/",
+        "current": {
+          "clicks": 0,
+          "impressions": 0,
+          "ctrPercent": null,
+          "position": null
+        },
+        "previous": {
+          "clicks": 0,
+          "impressions": 0,
+          "ctrPercent": null,
+          "position": null
+        },
+        "absentBothPeriods": true
+      },
+      {
+        "path": "/rivers/james-river-hl-kerr-ralph-cox/",
+        "current": {
+          "clicks": 0,
+          "impressions": 1,
+          "ctrPercent": 0,
+          "position": 1
+        },
+        "previous": {
+          "clicks": 0,
+          "impressions": 4,
+          "ctrPercent": 0,
+          "position": 12.3
+        },
+        "absentBothPeriods": false
+      }
+    ],
+    "caveat": "Absent rows recorded as zero reported activity, not proof of no searches. CTR and position null where impressions zero. Page sums are not substituted for property totals."
+  },
+  "indexing": {
+    "reportDate": "2026-10-08",
+    "allKnown": {
+      "indexed": 755,
+      "crawledNotIndexed": 526,
+      "alternateCanonical": 1077,
+      "notFound": 64,
+      "redirect": 59,
+      "noindex": 8,
+      "differentCanonical": 2,
+      "discoveredNotIndexed": 1604,
+      "forbidden": 0
+    },
+    "submitted": {
+      "indexed": 590,
+      "crawledNotIndexed": 297,
+      "alternateCanonical": 24,
+      "notFound": 5,
+      "differentCanonical": 1,
+      "discoveredNotIndexed": 1604,
+      "forbidden": 0
+    },
+    "validation": {
+      "crawledNotIndexed": "Failed",
+      "discoveredNotIndexed": "Started",
+      "forbidden": "Passed"
+    }
+  },
+  "inspections": [
+    {
+      "slug": "little-miami-river-kelley-milford",
+      "indexed": true,
+      "lastCrawlDisplayed": "Oct 9, 2026, 9:05:25 PM",
+      "declaredCanonical": "self",
+      "googleCanonical": "self",
+      "fetch": "Successful",
+      "crawlAllowed": true,
+      "indexAllowed": true,
+      "sitemaps": "Temporary processing error"
+    },
+    {
+      "slug": "cedar-river-chain-lakes-ellis-harbor",
+      "indexed": true,
+      "lastCrawlDisplayed": "Sep 21, 2026, 3:26:48 PM",
+      "declaredCanonical": "self",
+      "googleCanonical": "self",
+      "fetch": "Successful",
+      "crawlAllowed": true,
+      "indexAllowed": true,
+      "sitemaps": "Temporary processing error"
+    },
+    {
+      "slug": "american-river-harrington-watt",
+      "indexed": true,
+      "lastCrawlDisplayed": "Sep 21, 2026, 3:30:50 PM",
+      "declaredCanonical": "self",
+      "googleCanonical": "self",
+      "fetch": "Successful",
+      "crawlAllowed": true,
+      "indexAllowed": true,
+      "sitemaps": "No referring sitemaps detected",
+      "caveat": "Stored inspection predates intentional October 7 hub consolidation; live canonical now hub."
+    }
+  ]
+}
