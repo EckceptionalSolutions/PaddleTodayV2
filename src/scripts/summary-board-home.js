@@ -87,6 +87,7 @@ import {
   confidenceLabel,
   distanceBucketLabel,
   boardConditionCategory,
+  homeUnavailableState,
   exploreSortSummaryLabel,
   formatBoardRefreshCopy,
   formatGeneratedFreshness,
@@ -1485,7 +1486,7 @@ function updateFeaturedHeroAnimation(nextKey) {
   }, 720);
 }
 
-function updateFeaturedHero(nearbyItems, overallItems) {
+function updateFeaturedHero(nearbyItems, overallItems, unavailableState = null) {
   if (!hasLoadedBoardOnce) return;
   const locationReady = userLocationState === 'ready' && Boolean(userLocation);
   const preferredNearbyItems = recommendationPoolForNearby(nearbyItems);
@@ -1610,7 +1611,7 @@ function updateFeaturedHero(nearbyItems, overallItems) {
     featuredPanel.classList.add(`hero-call--${ratingKey}`);
   }
   if (featuredLabel instanceof HTMLElement) {
-    featuredLabel.textContent = activePreferenceText ? 'Today\'s Best for your setup' : 'Today\'s Best near you';
+    featuredLabel.textContent = unavailableState ? 'Route to explore · call unavailable' : activePreferenceText ? 'Today\'s Best for your setup' : 'Today\'s Best near you';
   }
   if (featuredState instanceof HTMLElement) {
     featuredState.hidden = true;
@@ -2610,6 +2611,22 @@ function renderHomepage(results, { preserveMapViewport = false, animateResults =
   const summaryResults = matchingPreferenceResults.filter(
     (result) => boardConditionCategory(result) === 'unavailable' || visibleRatings.has(boardConditionCategory(result)),
   );
+  const unavailableState = homeUnavailableState(matchingPreferenceResults, visibleRatings);
+  const notice = document.querySelector('[data-home-unavailable-state]');
+  if (notice instanceof HTMLElement) {
+    notice.hidden = !unavailableState;
+    if (unavailableState) {
+      notice.querySelector('[data-unavailable-title]').textContent = unavailableState.title;
+      notice.querySelector('[data-unavailable-detail]').textContent = unavailableState.detail;
+      const action = notice.querySelector('[data-show-skipped-routes]');
+      action.hidden = !unavailableState.hiddenSkipCount;
+      action.textContent = `Show ${unavailableState.hiddenSkipCount} hidden “Skip today” ${unavailableState.hiddenSkipCount === 1 ? 'route' : 'routes'}`;
+      action.onclick = () => {
+        visibleRatings.add('No-go');
+        renderHomepage(latestResults);
+      };
+    }
+  }
   const homeSegmentFilters = {
     paddleTime: isChoiceSetAny(selectedHomePaddleTimes) ? '' : selectedHomePaddleTimes,
     paddleLength: isChoiceSetAny(selectedHomePaddleLengths) ? '' : selectedHomePaddleLengths[0],
@@ -2629,7 +2646,7 @@ function renderHomepage(results, { preserveMapViewport = false, animateResults =
 
   updateHomeNearbyCounters(summaryResults);
   updateHeroCallMix(matchingPreferenceResults);
-  updateFeaturedHero(nearbyItems, overallItems);
+  updateFeaturedHero(nearbyItems, overallItems, unavailableState);
 
   if (recommendationTitle instanceof HTMLElement) {
     recommendationTitle.textContent = 'Compare every route that fits your preferences';
