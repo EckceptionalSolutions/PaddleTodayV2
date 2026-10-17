@@ -7,11 +7,9 @@ import * as SecureStore from 'expo-secure-store';
 import { useEffect, useRef, useState } from 'react';
 import { ActivityIndicator, Image, ImageBackground, KeyboardAvoidingView, Platform, Pressable, ScrollView, StyleSheet, Text, TextInput, useWindowDimensions, View } from 'react-native';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
-import { apiClient } from '../api/client';
 import { AppButton } from '../components/app-button';
 import { WebReady } from '../components/web-ready';
-import { syncAccountBackup } from '../lib/account-backup';
-import { accountBackupFailureMessage } from '../lib/account-backup-errors';
+import { prepareAccountLocalData, requestAccountBackup } from '../lib/account-backup';
 import { clearGuestImportConsent, grantGuestImportConsent } from '../lib/account-local-state';
 import { PENDING_EMAIL, PENDING_EMAIL_ACTION, PENDING_EMAIL_RETURN_TO } from '../lib/auth-secure-store-keys';
 import { emailLinkDomainOption } from '../lib/email-link-domain';
@@ -43,9 +41,9 @@ function AccountEntryContent({ isWelcome, defaultReturnTo }: { isWelcome: boolea
   const [busy, setBusy] = useState(false);
   const [sessionChecked, setSessionChecked] = useState(false);
   const [signedInUid, setSignedInUid] = useState<string | null>(null);
-  const [syncResult, setSyncResult] = useState<'synced' | 'pending' | null>(null);
-  const [resultTitle, setResultTitle] = useState('Your account is ready');
-  const [completionReturnTo, setCompletionReturnTo] = useState<string | null>(null);
+  const [localSetupFailed, setLocalSetupFailed] = useState(false);
+  const [emailVerified, setEmailVerified] = useState(false);
+  const completionReturnTo = useRef<string | null>(null);
   const [resendAt, setResendAt] = useState(0);
   const [now, setNow] = useState(Date.now());
   const finalizedUid = useRef<string | null>(null);
@@ -81,6 +79,7 @@ function AccountEntryContent({ isWelcome, defaultReturnTo }: { isWelcome: boolea
   }, []);
 
   useEffect(() => {
+    if (Platform.OS === 'web' || !authEnabled) return;
     let active = true;
     const handle = (url: string | null) => { if (url) void consumeEmailLink(url, () => active); };
     void Linking.getInitialURL().then(handle);
@@ -92,21 +91,27 @@ function AccountEntryContent({ isWelcome, defaultReturnTo }: { isWelcome: boolea
     if (finalizedUid.current === user.uid) return;
     finalizedUid.current = user.uid;
     setBusy(true);
-    setMessage('Your account is connected. Checking your backup…');
-    setResultTitle('Your account is ready');
+    setMessage('Preparing your saved data on this phone…');
+    let localDataReady = false;
     try {
+      await prepareAccountLocalData(user.uid);
       await completeWelcome({ choice: 'account' });
-      const token = await user.getIdToken();
-      await apiClient.registerAccount(token);
-      const result = await syncWithGuestImport(token, user.uid);
-      setSyncResult(result.pending ? 'pending' : 'synced');
-      setMessage(result.pending
-        ? 'You’re signed in. Some saved data is still waiting to sync.'
-        : 'You’re signed in, and your saved routes and trip plans are backed up.');
-    } catch (error) {
-      setSyncResult('pending');
-      setMessage(`You’re signed in. ${accountBackupFailureMessage(error)} You can retry from Account & Backup.`);
+      setLocalSetupFailed(false);
+      localDataReady = true;
+    } catch {
+      finalizedUid.current = null;
+      setLocalSetupFailed(true);
+      setMessage('You’re signed in, but this phone’s saved data could not be prepared. Your copies remain on this device. Try again.');
     } finally { if (!auth().currentUser) await clearGuestImportConsent().catch(() => {}); setBusy(false); }
+    if (localDataReady && auth().currentUser?.uid === user.uid) {
+      requestAccountBackup();
+      try { await continueAfterSignIn(); }
+      catch {
+        finalizedUid.current = null;
+        setLocalSetupFailed(true);
+        setMessage('Your saved data is ready, but PaddleToday could not finish opening the app. Try again.');
+      }
+    }
   }
 
   async function continueWithoutAccount() {
@@ -188,6 +193,7 @@ function AccountEntryContent({ isWelcome, defaultReturnTo }: { isWelcome: boolea
   }
 
   async function consumeEmailLink(explicitUrl?: string, isCurrent = () => true) {
+    if (Platform.OS === 'web' || !authEnabled) return;
     const url = explicitUrl ?? await Linking.getInitialURL();
     if (!url || !isSignInWithEmailLink(auth(), url)) return;
     const pendingEmail = await SecureStore.getItemAsync(PENDING_EMAIL);
@@ -204,12 +210,11 @@ function AccountEntryContent({ isWelcome, defaultReturnTo }: { isWelcome: boolea
       const pendingAction = await SecureStore.getItemAsync(PENDING_EMAIL_ACTION);
       const activeUser = auth().currentUser;
       const savedReturnTo = await SecureStore.getItemAsync(PENDING_EMAIL_RETURN_TO).catch(() => null);
-      if (savedReturnTo) setCompletionReturnTo(savedReturnTo);
+      if (savedReturnTo) completionReturnTo.current = savedReturnTo;
       if (pendingAction === 'reauthenticate' && activeUser) {
         await activeUser.reauthenticateWithCredential(EmailAuthProvider.credentialWithLink(pendingEmail, url));
         setSignedInUid(activeUser.uid);
-        setSyncResult('synced');
-        setResultTitle('Email verified');
+        setEmailVerified(true);
         setMessage('Your email is verified. Return to Account & Backup to retry account deletion.');
       } else if (pendingAction === 'link' && activeUser) {
         await activeUser.linkWithCredential(EmailAuthProvider.credentialWithLink(pendingEmail, url));
@@ -226,7 +231,7 @@ function AccountEntryContent({ isWelcome, defaultReturnTo }: { isWelcome: boolea
       setSentEmail('');
       setEmailLinkUrl(null);
       const user = auth().currentUser;
-      if (user) await finishSuccessfulSignIn(user);
+      if (user && pendingAction !== 'reauthenticate') await finishSuccessfulSignIn(user);
     } catch {
       await clearGuestImportConsent().catch(() => {});
       if (isCurrent()) setMessage('That link could not be used. Request a fresh link and try again.');
@@ -257,19 +262,9 @@ function AccountEntryContent({ isWelcome, defaultReturnTo }: { isWelcome: boolea
     if (await hasGuestBackupData()) await grantGuestImportConsent();
   }
 
-  async function syncWithGuestImport(token: string, uid: string) {
-    try { return await syncAccountBackup(token, uid); }
-    catch (error) {
-      if (!(error instanceof Error) || error.message !== 'guest_import_consent_required') throw error;
-      await grantGuestImportConsent();
-      return syncAccountBackup(token, uid);
-    }
-  }
-
-  const showSignedInResult = Boolean(signedInUid && syncResult);
   const continueAfterSignIn = async () => {
     await SecureStore.deleteItemAsync(PENDING_EMAIL_RETURN_TO).catch(() => {});
-    router.replace((safeReturnTo(completionReturnTo ?? (await consumePendingLaunchTarget()) ?? undefined, returnTo)) as never);
+    router.replace((safeReturnTo(completionReturnTo.current ?? (await consumePendingLaunchTarget()) ?? undefined, returnTo)) as never);
   };
 
   return (
@@ -298,12 +293,22 @@ function AccountEntryContent({ isWelcome, defaultReturnTo }: { isWelcome: boolea
           <Text style={styles.accountSubtitle}>Sign in to back up your saved routes, notes, and trip plans across devices.</Text>
         </View>}
         <View style={styles.actions}>
-          {showSignedInResult ? (
+          {signedInUid && localSetupFailed ? (
             <View style={styles.resultCard} accessibilityLiveRegion="polite">
-              <View style={styles.resultIcon}><MaterialCommunityIcons name={syncResult === 'synced' ? 'cloud-check-outline' : 'cloud-sync-outline'} color={colors.accentDeep} size={24} /></View>
-              <Text accessibilityRole="header" style={styles.resultTitle}>{resultTitle}</Text>
+              <Text accessibilityRole="header" style={styles.resultTitle}>Your saved data needs attention</Text>
               <Text style={styles.resultBody}>{message}</Text>
-              <AppButton label={isAccountContext ? 'Open Account & Backup' : 'Continue to PaddleToday'} icon="arrow-right" onPress={continueAfterSignIn} style={styles.actionButton} />
+              <AppButton label="Retry saved data setup" busy={busy} onPress={() => { const user = auth().currentUser; if (user) void finishSuccessfulSignIn(user); }} style={styles.actionButton} />
+            </View>
+          ) : emailVerified ? (
+            <View style={styles.resultCard} accessibilityLiveRegion="polite">
+              <Text accessibilityRole="header" style={styles.resultTitle}>Email verified</Text>
+              <Text style={styles.resultBody}>{message}</Text>
+              <AppButton label="Open Account & Backup" onPress={() => router.replace('/account' as never)} style={styles.actionButton} />
+            </View>
+          ) : signedInUid ? (
+            <View style={styles.resultCard} accessibilityLiveRegion="polite">
+              <Text accessibilityRole="header" style={styles.resultTitle}>Preparing your saved data</Text>
+              <ActivityIndicator color={colors.accent} accessibilityLabel="Preparing saved data on this phone" />
             </View>
           ) : emailStep ? (
             <View style={styles.emailCard}>
@@ -323,12 +328,12 @@ function AccountEntryContent({ isWelcome, defaultReturnTo }: { isWelcome: boolea
               {!isAccountContext ? <AppButton label={isWelcome ? 'Explore PaddleToday' : 'Back to PaddleToday without signing in'} icon="arrow-right" variant="secondary" busy={busy} onPress={() => void continueWithoutAccount()} style={styles.actionButton} /> : null}
             </>
           )}
-          {message && !showSignedInResult ? <Text accessibilityRole="alert" style={styles.message}>{message}</Text> : null}
-          {busy ? <ActivityIndicator accessibilityLabel="Signing in and checking your backup" color={colors.accent} style={styles.spinner} /> : null}
-          {!isWelcome ? <View style={styles.privacy}>
+          {message && !localSetupFailed && !emailVerified ? <Text accessibilityRole="alert" style={styles.message}>{message}</Text> : null}
+          {busy ? <ActivityIndicator accessibilityLabel="Preparing your account" color={colors.accent} style={styles.spinner} /> : null}
+          <View style={styles.privacy}>
             <MaterialCommunityIcons name="shield-check-outline" size={16} color={colors.accent} />
             <Text style={styles.privacyText}>Signing in adds this device’s saved routes, notes, and trip plans to your account backup.</Text>
-          </View> : null}
+          </View>
         </View>
         {!sessionChecked && process.env.EXPO_PUBLIC_ACCOUNT_AUTH_ENABLED === '1' ? <View style={styles.sessionGate} accessibilityLabel="Checking your account"><ActivityIndicator color={colors.accent} /></View> : null}
       </ScrollView>

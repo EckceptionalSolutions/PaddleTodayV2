@@ -17,7 +17,7 @@ import { WebReady } from '../components/web-ready';
 import { AppButton } from '../components/app-button';
 import { SectionCard } from '../components/section-card';
 import { apiClient } from '../api/client';
-import { accountOutboxKey, deactivateAccountLocalData, listAccountConflicts, pauseAccountBackup, resolveAccountConflict, resumeAccountBackup, syncAccountBackup, type AccountBackupSummary, type AccountConflict } from '../lib/account-backup';
+import { accountOutboxKey, lastSuccessfulSyncKey, deactivateAccountLocalData, listAccountConflicts, pauseAccountBackup, resolveAccountConflict, resumeAccountBackup, syncAccountBackup, type AccountBackupSummary, type AccountConflict } from '../lib/account-backup';
 import { accountBackupFailureMessage } from '../lib/account-backup-errors';
 import { notifySavedRoutesChanged } from '../lib/account-storage-events';
 import { setAccountBackupStatus } from '../lib/account-status';
@@ -263,7 +263,7 @@ function AccountContent() {
     setBusy(true); setMessage('');
     try {
       const token = await backupUser.getIdToken();
-      const summary = await syncWithGuestConsent(token, backupUser.uid);
+      const summary = await syncAccountBackup(token, backupUser.uid);
       setBackup(summary);
       setConflicts(await listAccountConflicts(backupUser.uid));
       setMessage(summary.pending ? 'Your backup is continuing in the background.' : 'Your routes and trip plans are backed up.');
@@ -280,7 +280,7 @@ function AccountContent() {
     try {
       await resolveAccountConflict(current.uid, conflict, choice);
       const token = await current.getIdToken();
-      setBackup(await syncWithGuestConsent(token, current.uid));
+      setBackup(await syncAccountBackup(token, current.uid));
       setConflicts(await listAccountConflicts(current.uid));
     } catch { setMessage('The conflict could not be resolved. Both copies were kept on this device.'); }
     finally { setBusy(false); }
@@ -424,7 +424,7 @@ function AccountContent() {
     setBusy(true);
     try {
       const token = await activeUser.getIdToken();
-      const summary = await syncWithGuestConsent(token, activeUser.uid);
+      const summary = await syncAccountBackup(token, activeUser.uid);
       if (summary.pending) throw new Error('account_sync_pending');
       if (summary.conflicts) throw new Error('account_conflicts_need_review');
       await syncTrips();
@@ -450,14 +450,7 @@ function AccountContent() {
     ]);
   }
 
-  async function syncWithGuestConsent(token: string, uid: string) {
-    try { return await syncAccountBackup(token, uid); }
-    catch (error) {
-      if (!(error instanceof Error) || error.message !== 'guest_import_consent_required') throw error;
-      await grantGuestImportConsent();
-      return syncAccountBackup(token, uid);
-    }
-  }
+
 
   async function prepareGuestDataImport() {
     if (await hasGuestBackupData()) await grantGuestImportConsent();
@@ -481,7 +474,7 @@ function AccountContent() {
         {sentLinkForCurrentEmail && !emailLinkUrl ? <AppButton label="Use a different email" variant="secondary" disabled={busy} onPress={() => { setEmail(''); setEmailSent(false); setSentEmail(''); setMessage('Enter a different address. A new link will be sent to that address.'); }} /> : null}
         {emailLinkUrl ? <AppButton label="Finish connecting email" busy={busy} onPress={() => void finishCrossDeviceEmailLink()} /> : null}
         <AppButton label="Sync now" busyLabel="Syncing…" busy={busy} onPress={() => void backupNow()} />
-        {backup ? <Text style={styles.body}>{backup.routes} routes and {backup.drafts} trip plans backed up. {backup.pending ? 'Changes are waiting to sync. ' : backup.updatedAt ? `Last synced ${new Date(backup.updatedAt).toLocaleString()}. ` : ''}{backup.conflicts ? backup.conflicts + ' changes need review.' : ''}</Text> : null}
+        {backup ? <Text style={styles.body}>{backup.routes} saved routes and {backup.drafts} trip plans. {backup.pending ? 'Changes are waiting to sync. ' : ''}{backup.conflicts ? backup.conflicts + ' changes need review. ' : ''}{backup.lastSyncedAt ? `Last fully synced on this phone ${new Date(backup.lastSyncedAt).toLocaleString()}.` : ''}</Text> : null}
         {conflicts.map((conflict) => <View key={conflict.key} style={styles.conflict}>
           <Text style={styles.body}>This phone and your backup both changed the same {conflict.kind.startsWith('route') ? 'saved route' : 'trip plan'}. Choose which copy to keep.</Text>
           <Text style={styles.conflictLabel}>This phone</Text>
@@ -545,6 +538,7 @@ async function clearAccountLocalData(uid: string) {
     || key.startsWith('paddletoday:account-conflict:' + uid + ':')
     || key === 'paddletoday:account-baseline:' + uid
     || key === 'paddletoday:account-pending:' + uid
+    || key === lastSuccessfulSyncKey(uid)
     || key === accountOutboxKey(uid));
   if (privateKeys.length) await AsyncStorage.multiRemove(privateKeys);
   notifySavedRoutesChanged();

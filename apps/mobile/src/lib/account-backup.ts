@@ -3,7 +3,7 @@ import { ACCOUNT_SYNC_VERSION, isAccountSyncRequest, isSyncedRoute, isSyncedTrip
 import * as Crypto from 'expo-crypto';
 import { AppState, Platform } from 'react-native';
 import { notifySavedRoutesChanged } from './account-storage-events';
-import { activateAccountLocalState, deactivateAccountLocalState, markGuestMigrationRecoveryAcknowledged } from './account-local-state';
+import { accountLocalStateIsActive, activateAccountLocalState, deactivateAccountLocalState, grantGuestImportConsent, markGuestMigrationRecoveryAcknowledged } from './account-local-state';
 import { listTripDrafts, tripDraftKey } from './trip-drafts';
 import { apiClient } from '../api/client';
 import { setAccountBackupStatus } from './account-status';
@@ -11,6 +11,7 @@ import { setAccountBackupStatus } from './account-status';
 export const SAVED_ROUTES_KEY = 'paddletoday:saved-rivers';
 const pendingKey = (uid: string) => 'paddletoday:account-pending:' + uid;
 const baselineKey = (uid: string) => 'paddletoday:account-baseline:' + uid;
+export const lastSuccessfulSyncKey = (uid: string) => 'paddletoday:account-last-synced:' + uid;
 export const accountOutboxKey = (uid: string) => 'paddletoday:account-outbox:' + uid;
 const routeConflictPrefix = (uid: string) => 'paddletoday:account-conflict:' + uid + ':route:';
 const draftConflictPrefix = (uid: string) => 'paddletoday:account-conflict:' + uid + ':draft:';
@@ -21,6 +22,7 @@ export interface AccountBackupSummary {
   drafts: number;
   conflicts: number;
   updatedAt: string | null;
+  lastSyncedAt: string | null;
   pending: boolean;
 }
 
@@ -28,6 +30,9 @@ let pendingTimer: ReturnType<typeof setTimeout> | null = null;
 let running: Promise<AccountBackupSummary | null> | null = null;
 let syncQueue: Promise<void> = Promise.resolve();
 let backupPaused = false;
+let pendingLocalTransitions = 0;
+const localPreparations = new Map<string, Promise<void>>();
+const localChangeVersions = new Map<string, number>();
 let currentUserProvider: (() => { uid: string; getIdToken(): Promise<string> } | null) | null = null;
 
 export function registerAccountBackupAuthProvider(provider: (() => { uid: string; getIdToken(): Promise<string> } | null) | null) {
@@ -38,6 +43,7 @@ export function requestAccountBackup() {
   if (Platform.OS === 'web' || backupPaused) return;
   const user = currentUserProvider?.() ?? null;
   if (!user) return;
+  localChangeVersions.set(user.uid, (localChangeVersions.get(user.uid) ?? 0) + 1);
   setAccountBackupStatus(user.uid, 'pending');
   void AsyncStorage.setItem(pendingKey(user.uid), '1').catch(() => {});
   if (pendingTimer) clearTimeout(pendingTimer);
@@ -50,6 +56,8 @@ export async function flushAccountBackup(): Promise<AccountBackupSummary | null>
   const user = currentUserProvider?.() ?? null;
   if (!user) return null;
   running = (async () => {
+    await prepareAccountLocalData(user.uid);
+    assertBackupOwner(user.uid);
     const token = await user.getIdToken();
     const summary = await syncAccountBackup(token, user.uid);
     if (summary.pending) await AsyncStorage.setItem(pendingKey(user.uid), '1');
@@ -65,12 +73,59 @@ export async function hasPendingAccountBackup(uid: string) {
 
 export function syncAccountBackup(idToken: string, uid: string): Promise<AccountBackupSummary> {
   if (backupPaused) return Promise.reject(new Error('Account backup is paused.'));
-  const next = syncQueue.then(() => syncAccountBackupNow(idToken, uid)).then(summary => {
+  const next = syncQueue.then(async () => {
+    const changeVersion = localChangeVersions.get(uid) ?? 0;
+    const summary = await syncAccountBackupNow(idToken, uid);
+    if ((localChangeVersions.get(uid) ?? 0) !== changeVersion) {
+      summary.pending = true;
+      // The debounce may have fired while this request was still running.
+      if (!pendingTimer && currentUserProvider?.()?.uid === uid) requestAccountBackup();
+    }
+    return summary;
+  }).then(summary => {
     setAccountBackupStatus(uid, summary.conflicts ? 'attention' : summary.pending ? 'pending' : 'complete');
     return summary;
   }, error => { setAccountBackupStatus(uid, 'attention'); throw error; });
   syncQueue = next.then(() => undefined, () => undefined);
   return next;
+}
+
+// Namespace changes share the backup queue so sign-in, sign-out, and cloud
+// writes cannot activate different accounts' data at the same time.
+export function prepareAccountLocalData(uid: string): Promise<void> {
+  const existing = localPreparations.get(uid);
+  if (existing) return existing;
+  const next = (async () => {
+    assertBackupOwner(uid);
+    // An active namespace is already safe to use while its cloud request runs.
+    if (pendingLocalTransitions === 0 && await accountLocalStateIsActive(uid)) {
+      assertBackupOwner(uid);
+      if (pendingLocalTransitions === 0) return;
+    }
+    pendingLocalTransitions += 1;
+    try {
+      const preparation = syncQueue.then(() => withBackupStage('prepare_local_state', () => activateLocalData(uid)));
+      syncQueue = preparation.then(() => undefined, () => undefined);
+      await preparation;
+    } finally { pendingLocalTransitions -= 1; }
+  })().finally(() => {
+    if (localPreparations.get(uid) === next) localPreparations.delete(uid);
+  });
+  localPreparations.set(uid, next);
+  return next;
+}
+
+async function activateLocalData(uid: string) {
+  assertBackupOwner(uid);
+  try { await activateAccountLocalState(uid); }
+  catch (error) {
+    if (!(error instanceof Error) || error.message !== 'guest_import_consent_required') throw error;
+    assertBackupOwner(uid);
+    await grantGuestImportConsent();
+    assertBackupOwner(uid);
+    await activateAccountLocalState(uid);
+  }
+  assertBackupOwner(uid);
 }
 
 export async function pauseAccountBackup() {
@@ -81,7 +136,8 @@ export async function pauseAccountBackup() {
 }
 
 export function deactivateAccountLocalData() {
-  const next = syncQueue.then(() => deactivateAccountLocalState());
+  pendingLocalTransitions += 1;
+  const next = syncQueue.then(() => deactivateAccountLocalState()).finally(() => { pendingLocalTransitions -= 1; });
   syncQueue = next.then(() => undefined, () => undefined);
   return next;
 }
@@ -92,8 +148,9 @@ export function resumeAccountBackup() {
 }
 
 async function syncAccountBackupNow(idToken: string, uid: string): Promise<AccountBackupSummary> {
+  const changeVersion = localChangeVersions.get(uid) ?? 0;
   assertBackupOwner(uid);
-  await activateAccountLocalState(uid);
+  await withBackupStage('prepare_local_state', () => activateLocalData(uid));
   assertBackupOwner(uid);
   const raw = await AsyncStorage.getItem(SAVED_ROUTES_KEY);
   let localRoutes: SyncedRoute[] = [];
@@ -102,12 +159,12 @@ async function syncAccountBackupNow(idToken: string, uid: string): Promise<Accou
     if (!Array.isArray(parsed) || !parsed.every(isSyncedRoute)) throw new Error('Saved routes could not be read; no cloud changes were made.');
     localRoutes = parsed;
   }
-  const draftRead = await listTripDrafts(AsyncStorage);
+  const draftRead = await withBackupStage('read_trip_plans', () => listTripDrafts(AsyncStorage));
   if (draftRead.unreadable > 0) throw new Error('Some trip drafts could not be read. They have not been replaced.');
   const localDrafts = draftRead.records.filter(isSyncedTripDraft);
   const baselineRaw = await AsyncStorage.getItem(baselineKey(uid));
   const baseline = baselineRaw ? JSON.parse(baselineRaw) as AccountSyncSnapshot : null;
-  const remote = (await apiClient.getAccountSync(idToken)).snapshot;
+  const remote = (await withBackupStage('read_cloud_snapshot', () => apiClient.getAccountSync(idToken))).snapshot;
   assertBackupOwner(uid);
   const operations: AccountSyncOperation[] = [];
   let stagedOperations = await loadOutbox(uid);
@@ -249,22 +306,42 @@ async function syncAccountBackupNow(idToken: string, uid: string): Promise<Accou
   }
   const latestRouteIds = new Set(latestRoutes.map((item) => item.slug));
   for (const old of localRoutes) if (!latestRouteIds.has(old.slug) && !routeConflicts.has(old.slug)) keptRoutes.delete(old.slug);
-  await AsyncStorage.setItem(SAVED_ROUTES_KEY, JSON.stringify([...keptRoutes.values()]));
+  await withBackupStage('write_saved_routes', () => AsyncStorage.setItem(SAVED_ROUTES_KEY, JSON.stringify([...keptRoutes.values()])));
   notifySavedRoutesChanged();
   const storedKeys = (await AsyncStorage.getAllKeys()).filter((key) => key.startsWith(DRAFT_PREFIX));
   const nextKeys = new Set([...cloudDrafts.keys()].map((key) => DRAFT_PREFIX + key));
-  await AsyncStorage.multiRemove(storedKeys.filter((key) => {
+  const removedDraftKeys = storedKeys.filter((key) => {
     const target = parseStoredDraftKey(key);
     return target !== null && !nextKeys.has(key) && !draftConflicts.has(hash(target));
-  }));
-  await AsyncStorage.multiSet([...cloudDrafts.values()].map((item) => [
+  });
+  if (removedDraftKeys.length) await AsyncStorage.multiRemove(removedDraftKeys);
+  const draftWrites: [string, string][] = [...cloudDrafts.values()].map((item) => [
     DRAFT_PREFIX + JSON.stringify([item.target.routeSlug, item.target.putInId, item.target.takeOutId]),
     JSON.stringify({ version: 1, ...item }),
-  ]));
+  ]);
+  if (draftWrites.length) await withBackupStage('write_trip_plans', () => AsyncStorage.multiSet(draftWrites));
   await AsyncStorage.setItem(baselineKey(uid), JSON.stringify(snapshot));
-  const pending = (await loadOutbox(uid)).length > 0;
-  if (!pending && conflictRecords.size === 0) await markGuestMigrationRecoveryAcknowledged(uid);
-  return { routes: keptRoutes.size, drafts: cloudDrafts.size, conflicts: conflictRecords.size, updatedAt: snapshot.updatedAt, pending };
+  const changesDuringSync = (localChangeVersions.get(uid) ?? 0) !== changeVersion;
+  const pending = (await loadOutbox(uid)).length > 0 || changesDuringSync;
+  const previousSync = await AsyncStorage.getItem(lastSuccessfulSyncKey(uid));
+  let lastSyncedAt = previousSync && Number.isFinite(Date.parse(previousSync)) ? previousSync : null;
+  if (!pending && conflictRecords.size === 0) {
+    lastSyncedAt = new Date().toISOString();
+    await AsyncStorage.setItem(lastSuccessfulSyncKey(uid), lastSyncedAt);
+    await markGuestMigrationRecoveryAcknowledged(uid);
+  }
+  return { routes: keptRoutes.size, drafts: cloudDrafts.size, conflicts: conflictRecords.size, updatedAt: snapshot.updatedAt, lastSyncedAt, pending };
+}
+
+async function withBackupStage<T>(stage: string, action: () => Promise<T>): Promise<T> {
+  try { return await action(); }
+  catch (error) {
+    if (error && typeof error === 'object') {
+      try { Object.defineProperty(error, 'accountBackupStage', { value: stage, configurable: true }); }
+      catch { /* Frozen provider errors keep their original diagnostics. */ }
+    }
+    throw error;
+  }
 }
 
 async function loadOutbox(uid: string): Promise<AccountSyncOperation[]> {
