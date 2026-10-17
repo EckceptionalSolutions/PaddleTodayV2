@@ -26,6 +26,7 @@ import {
 import { FeedbackExperience } from '../src/components/feedback-experience';
 import { AreaNotificationOnboarding } from '../src/components/area-notification-onboarding';
 import { useReducedMotion } from '../src/hooks/use-reduced-motion';
+import { ConnectivityNotice } from '../src/components/connectivity-notice';
 
 initObservability();
 configureNativeNotifications();
@@ -152,6 +153,8 @@ function RootLayout() {
       <AreaNotificationOnboarding active={onboardingChecked && !entryRoute} />
       <ThemeProvider value={navigationTheme}>
         <StatusBar style="dark" />
+        <View style={{ flex: 1 }}>
+        <ConnectivityNotice />
         <Stack
           screenOptions={{
             animation: reducedMotion ? 'none' : 'default',
@@ -181,6 +184,7 @@ function RootLayout() {
           <Stack.Screen name="privacy" options={{ title: 'Privacy' }} />
           <Stack.Screen name="terms" options={{ title: 'Terms' }} />
         </Stack>
+        </View>
         <FeedbackExperience pathname={pathname} />
         {!onboardingChecked && !entryRoute ? (
           <View style={styles.onboardingGate} accessibilityLabel="Loading Paddle Today">

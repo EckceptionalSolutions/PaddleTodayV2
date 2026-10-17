@@ -33,6 +33,13 @@ export async function clearGuestImportConsent() {
   await AsyncStorage.removeItem(IMPORT_CONSENT_KEY);
 }
 
+export async function accountLocalStateIsActive(uid: string) {
+  const [owner, transition] = await Promise.all([
+    AsyncStorage.getItem(OWNER_KEY), AsyncStorage.getItem(TRANSITION_KEY),
+  ]);
+  return owner === uid && transition === null;
+}
+
 export async function hasValidGuestDataChoice() {
   try {
     const parsed: unknown = JSON.parse(await AsyncStorage.getItem(IMPORT_CONSENT_KEY) ?? 'null');
@@ -192,13 +199,15 @@ async function retainImportedGuestRecovery(uid: string) {
 
 async function purgeExpiredMigrationRecovery() {
   const keys = await AsyncStorage.getAllKeys();
-  const prefixes = new Set(keys.filter((key) => key.startsWith(namespacePrefix(MIGRATION_RECOVERY_OWNER_PREFIX)))
+  const recoveryKeyPrefix = LOCAL_STATE_PREFIX + encodeURIComponent(MIGRATION_RECOVERY_OWNER_PREFIX);
+  const prefixes = new Set(keys.filter((key) => key.startsWith(recoveryKeyPrefix))
     .map((key) => LOCAL_STATE_PREFIX + key.slice(LOCAL_STATE_PREFIX.length).split(':', 1)[0] + ':'));
   const expiredPrefixes: string[] = [];
   for (const prefix of prefixes) {
     const raw = await AsyncStorage.getItem(prefix + 'acknowledged-at');
     const acknowledgedAt = Number(raw);
-    if (Number.isFinite(acknowledgedAt) && Date.now() - acknowledgedAt >= MIGRATION_RECOVERY_TTL_MS) expiredPrefixes.push(prefix);
+    if (raw !== null && Number.isFinite(acknowledgedAt) && acknowledgedAt > 0
+      && Date.now() - acknowledgedAt >= MIGRATION_RECOVERY_TTL_MS) expiredPrefixes.push(prefix);
   }
   const expiredKeys = keys.filter((key) => expiredPrefixes.some((prefix) => key.startsWith(prefix)));
   if (expiredKeys.length) await AsyncStorage.multiRemove(expiredKeys);

@@ -17,10 +17,10 @@ for (const mode of ['analytics', 'progress']) {
     }, mode);
     await page.route('**/api/**', (route) => route.fulfill({ status: 503, json: { error: 'offline', message: 'Offline test' } }));
     await page.goto('/welcome');
-    const proceed = page.getByRole('button', { name: "Skip to today's best routes" });
+    const proceed = page.getByRole('button', { name: 'Explore PaddleToday', exact: true });
     await proceed.click();
     if (mode === 'progress') {
-      await expect(page.getByText("Couldn't save your progress. Please try again.")).toBeVisible();
+      await expect(page.getByText("Couldn't save your choice. Please try again.")).toBeVisible();
       await expect(proceed).toBeEnabled();
       await page.evaluate(() => localStorage.removeItem('qa:fail-storage'));
       await proceed.click();
