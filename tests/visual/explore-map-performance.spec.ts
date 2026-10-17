@@ -45,7 +45,7 @@ test('Explore retries a failed overview on later filtering and restores river an
   const anchor = [-99.997, 45.009];
   let requests = 0;
   await installMapLibreHarness(page);
-  await page.route('**/api/rivers/summary.json*', route => route.fulfill({ json: payload }));
+  await page.route(/\/api\/rivers\/(?:summary|explore)\.json(?:\?|$)/, route => route.fulfill({ json: payload }));
   await page.route('**/data/canonical-river-geometries/routes/*.json', route => route.fulfill({ status: 503, body: '' }));
   await page.route('**/data/explore-map-overview.json', async route => {
     requests++;
@@ -68,6 +68,12 @@ test('Explore retries a failed overview on later filtering and restores river an
 });
 
 test('a late overview moves a single-route badge onto its river without closing its popup', async ({ page }) => {
+  await page.addInitScript(() => {
+    (window as any).__mapRenderEvents = [];
+    (window as any).umami = { track: (name: string) => {
+      if (name === 'Explore map render') (window as any).__mapRenderEvents.push(name);
+    } };
+  });
   const payload = fixture();
   payload.rivers = payload.rivers.slice(0, 1);
   payload.riverCount = 1;
@@ -75,7 +81,7 @@ test('a late overview moves a single-route badge onto its river without closing 
   const pending = new Promise<void>((resolve) => { release = resolve; });
   const anchor = [-99.997, 45.009];
   await installMapLibreHarness(page);
-  await page.route('**/api/rivers/summary.json*', (route) => route.fulfill({ json: payload }));
+  await page.route(/\/api\/rivers\/(?:summary|explore)\.json(?:\?|$)/, (route) => route.fulfill({ json: payload }));
   await page.route('**/data/canonical-river-geometries/routes/*.json', (route) => route.fulfill({ status: 503, body: '' }));
   await page.route('**/data/explore-map-overview.json', async (route) => {
     await pending;
@@ -92,10 +98,13 @@ test('a late overview moves a single-route badge onto its river without closing 
   await expect(marker).toHaveCount(1);
   await marker.evaluate((node: HTMLButtonElement) => node.click());
   await expect(page.locator('.maplibregl-popup')).toBeVisible();
+  const trackedBeforeGeometry = await page.evaluate(() => (window as any).__mapRenderEvents.length);
+  expect(trackedBeforeGeometry).toBeGreaterThan(0);
   release();
   await expect.poll(() => page.evaluate(() => (window as any).__paddleMapInstances[0]
     .getSource('explore-score-points').data.features[0].geometry.coordinates)).toEqual(anchor);
   await expect(page.locator('.maplibregl-popup')).toBeVisible();
+  expect(await page.evaluate(() => (window as any).__mapRenderEvents.length)).toBe(trackedBeforeGeometry);
 });
 
 test('Explore culls offscreen routes, progressively loads detail and reuses map-drawn scores', async ({ page }) => {
@@ -105,7 +114,7 @@ test('Explore culls offscreen routes, progressively loads detail and reuses map-
   page.on('request', (request) => requests.push(request.url()));
   page.on('pageerror', (error) => errors.push(error.message));
   await installMapLibreHarness(page);
-  await page.route('**/api/rivers/summary.json*', (route) => route.fulfill({ json: payload }));
+  await page.route(/\/api\/rivers\/(?:summary|explore)\.json(?:\?|$)/, (route) => route.fulfill({ json: payload }));
   await page.route('**/data/explore-map-overview.json', (route) => route.fulfill({
     json: {
       type: 'FeatureCollection',
@@ -211,6 +220,8 @@ test('Explore culls offscreen routes, progressively loads detail and reuses map-
     const map = (window as any).__paddleMapInstances[0];
     return map.getSource('summary-supported-rivers-canonical')?.data.features.length;
   })).toBe(2);
+  const refine = page.locator('[data-explore-refine]');
+  if (await refine.getAttribute('open') === null) await refine.locator(':scope > summary').click();
   const advanced = page.locator('[data-explore-advanced]');
   if (await advanced.getAttribute('open') === null) await advanced.locator('summary').click();
   await page.locator('[data-filter-difficulty]').selectOption('easy');
@@ -224,6 +235,8 @@ test('Explore culls offscreen routes, progressively loads detail and reuses map-
   await expect.poll(() => page.evaluate(() =>
     (window as any).__paddleMapInstances[0].getSource('summary-supported-rivers-canonical')?.data.features.length
   )).toBe(2);
+  // Reset trip filters preserves the independent results search.
+  await page.locator('[data-filter-search]').fill('');
   await page.locator('[data-explore-reset]').click();
   await expect(rows).toHaveCount(100);
   await expect(markers).toHaveCount(100);
