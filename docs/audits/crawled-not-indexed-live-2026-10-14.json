@@ -11321,7 +11321,7 @@
     }
   ],
   "localRepairs": {
-    "deploymentStatus": "not-deployed",
+    "deploymentStatus": "deployed-and-publicly-verified",
     "missingHubLinksRestored": [
       "south-llano-river-cupgrass-state-park",
       "kinniconick-creek-leatherwood-branch-mcdowells-creek"
@@ -11377,7 +11377,392 @@
   "reviewNotes": [
     "The 3 www redirects whose destinations are unavailable lead to paths absent from the current route inventory. No route was republished or blindly redirected without a verified equivalent.",
     "297 active URLs are technically eligible; no blanket robots, noindex, self-canonical or sitemap defect was found.",
-    "Live checks describe production before the local repairs. Validation dates and report membership can lag URL Inspection.",
+    "The original 526-URL results describe production before deployment. Public post-deployment checks are recorded separately in deployment.publicVerification. Validation report membership can lag URL Inspection.",
     "No Search Console indexing request or validation restart was submitted."
-  ]
+  ],
+  "deployment": {
+    "commit": "ef92d91c83273c6ef7973c2d6b91fb9832cb65e9",
+    "frontendWorkflow": "https://github.com/EckceptionalSolutions/PaddleTodayV2/actions/runs/38625893430",
+    "apiWorkflow": "https://github.com/EckceptionalSolutions/PaddleTodayV2/actions/runs/38625896387",
+    "frontendConclusion": "success",
+    "apiConclusion": "success",
+    "fullTestSuite": "passed in frontend workflow",
+    "builtAndPackagedIndexabilityAudits": "both passed",
+    "localWindowsFullTestLimitation": "Initial isolated test run could not start because the Windows native binding was absent; installing it exhausted disk space. Temporary dependencies and worktree were removed; full Linux CI checks passed before deployment.",
+    "publicVerification": {
+      "checkedAt": "2026-10-14T19:55:20.028Z",
+      "urlFormsChecked": 16,
+      "categories": {
+        "active-self-canonical": 2,
+        "http-redirect": 14
+      },
+      "issueCount": 0,
+      "sitemapUrlCount": 2521,
+      "results": [
+        {
+          "url": "https://paddletoday.com/rivers/south-llano-river-cupgrass-state-park/",
+          "lastCrawled": "2026-08-31",
+          "validationStatus": "Pending",
+          "status": 200,
+          "location": null,
+          "canonical": [
+            "https://paddletoday.com/rivers/south-llano-river-cupgrass-state-park/"
+          ],
+          "metaRobots": [
+            "index, follow"
+          ],
+          "xRobots": null,
+          "inSitemap": true,
+          "title": "South Llano River: Cupgrass Access to South Llano River State Park, Texas | Paddle Conditions",
+          "issues": [],
+          "category": "active-self-canonical",
+          "hubUrl": "https://paddletoday.com/rivers/by-river/south-llano-river/",
+          "hubStatus": 200,
+          "linkedFromHub": true
+        },
+        {
+          "url": "https://paddletoday.com/rivers/kinniconick-creek-leatherwood-branch-mcdowells-creek/",
+          "lastCrawled": "2026-08-10",
+          "validationStatus": "Pending",
+          "status": 200,
+          "location": null,
+          "canonical": [
+            "https://paddletoday.com/rivers/kinniconick-creek-leatherwood-branch-mcdowells-creek/"
+          ],
+          "metaRobots": [
+            "index, follow"
+          ],
+          "xRobots": null,
+          "inSitemap": true,
+          "title": "Kinniconick Creek: Leatherwood Branch Park Access to McDowells Creek Park Access, Kentucky | Paddle Route",
+          "issues": [],
+          "category": "active-self-canonical",
+          "hubUrl": "https://paddletoday.com/rivers/by-river/kinniconick-creek/",
+          "hubStatus": 200,
+          "linkedFromHub": true
+        },
+        {
+          "url": "https://paddletoday.com/rivers/boone-river-riverside-albright/",
+          "lastCrawled": "2026-10-04",
+          "validationStatus": "Failed",
+          "status": 301,
+          "location": "/rivers/by-river/boone-river/#trip-boone-river-riverside-albright",
+          "canonical": [],
+          "metaRobots": [],
+          "xRobots": null,
+          "inSitemap": false,
+          "title": "",
+          "issues": [],
+          "category": "http-redirect",
+          "redirectChain": [
+            {
+              "url": "https://paddletoday.com/rivers/by-river/boone-river/#trip-boone-river-riverside-albright",
+              "status": 200,
+              "location": null
+            }
+          ],
+          "destinationStatus": 200,
+          "destinationAnchorExists": true
+        },
+        {
+          "url": "https://paddletoday.com/rivers/green-river-hh-wilson-park-dennison-ferry/",
+          "lastCrawled": "2026-09-30",
+          "validationStatus": "Failed",
+          "status": 301,
+          "location": "/rivers/by-river/green-river-kentucky/",
+          "canonical": [],
+          "metaRobots": [],
+          "xRobots": null,
+          "inSitemap": false,
+          "title": "",
+          "issues": [],
+          "category": "http-redirect",
+          "redirectChain": [
+            {
+              "url": "https://paddletoday.com/rivers/by-river/green-river-kentucky/",
+              "status": 200,
+              "location": null
+            }
+          ],
+          "destinationStatus": 200
+        },
+        {
+          "url": "https://paddletoday.com/rivers/north-fork-maquoketa-river-d61-caven/",
+          "lastCrawled": "2026-09-29",
+          "validationStatus": "Failed",
+          "status": 301,
+          "location": "/rivers/by-river/north-fork-maquoketa-river/#trip-north-fork-maquoketa-river-d61-caven",
+          "canonical": [],
+          "metaRobots": [],
+          "xRobots": null,
+          "inSitemap": false,
+          "title": "",
+          "issues": [],
+          "category": "http-redirect",
+          "redirectChain": [
+            {
+              "url": "https://paddletoday.com/rivers/by-river/north-fork-maquoketa-river/#trip-north-fork-maquoketa-river-d61-caven",
+              "status": 200,
+              "location": null
+            }
+          ],
+          "destinationStatus": 200,
+          "destinationAnchorExists": true
+        },
+        {
+          "url": "https://paddletoday.com/rivers/turkey-river-motor-mill-garber/",
+          "lastCrawled": "2026-09-25",
+          "validationStatus": "Failed",
+          "status": 301,
+          "location": "/rivers/by-river/turkey-river/#trip-turkey-river-motor-mill-garber",
+          "canonical": [],
+          "metaRobots": [],
+          "xRobots": null,
+          "inSitemap": false,
+          "title": "",
+          "issues": [],
+          "category": "http-redirect",
+          "redirectChain": [
+            {
+              "url": "https://paddletoday.com/rivers/by-river/turkey-river/#trip-turkey-river-motor-mill-garber",
+              "status": 200,
+              "location": null
+            }
+          ],
+          "destinationStatus": 200,
+          "destinationAnchorExists": true
+        },
+        {
+          "url": "https://paddletoday.com/rivers/jacks-fork-river-rymers-chilton/",
+          "lastCrawled": "2026-09-25",
+          "validationStatus": "Failed",
+          "status": 301,
+          "location": "/rivers/by-river/jacks-fork-river/#trip-jacks-fork-river-rymers-chilton",
+          "canonical": [],
+          "metaRobots": [],
+          "xRobots": null,
+          "inSitemap": false,
+          "title": "",
+          "issues": [],
+          "category": "http-redirect",
+          "redirectChain": [
+            {
+              "url": "https://paddletoday.com/rivers/by-river/jacks-fork-river/#trip-jacks-fork-river-rymers-chilton",
+              "status": 200,
+              "location": null
+            }
+          ],
+          "destinationStatus": 200,
+          "destinationAnchorExists": true
+        },
+        {
+          "url": "https://paddletoday.com/rivers/tradewater-river-bellville-fishtrap/",
+          "lastCrawled": "2026-09-24",
+          "validationStatus": "Failed",
+          "status": 301,
+          "location": "/rivers/by-river/tradewater-river/#trip-tradewater-river-bellville-fishtrap",
+          "canonical": [],
+          "metaRobots": [],
+          "xRobots": null,
+          "inSitemap": false,
+          "title": "",
+          "issues": [],
+          "category": "http-redirect",
+          "redirectChain": [
+            {
+              "url": "https://paddletoday.com/rivers/by-river/tradewater-river/#trip-tradewater-river-bellville-fishtrap",
+              "status": 200,
+              "location": null
+            }
+          ],
+          "destinationStatus": 200,
+          "destinationAnchorExists": true
+        },
+        {
+          "url": "https://paddletoday.com/rivers/buffalo-river-ponca-erbie/",
+          "lastCrawled": "2026-09-23",
+          "validationStatus": "Failed",
+          "status": 301,
+          "location": "/rivers/by-river/buffalo-river/#trip-buffalo-river-ponca-erbie",
+          "canonical": [],
+          "metaRobots": [],
+          "xRobots": null,
+          "inSitemap": false,
+          "title": "",
+          "issues": [],
+          "category": "http-redirect",
+          "redirectChain": [
+            {
+              "url": "https://paddletoday.com/rivers/by-river/buffalo-river/#trip-buffalo-river-ponca-erbie",
+              "status": 200,
+              "location": null
+            }
+          ],
+          "destinationStatus": 200,
+          "destinationAnchorExists": true
+        },
+        {
+          "url": "https://paddletoday.com/rivers/boone-river-riverside-albright",
+          "lastCrawled": "2026-10-04",
+          "validationStatus": "Failed",
+          "status": 301,
+          "location": "/rivers/by-river/boone-river/#trip-boone-river-riverside-albright",
+          "canonical": [],
+          "metaRobots": [],
+          "xRobots": null,
+          "inSitemap": false,
+          "title": "",
+          "issues": [],
+          "category": "http-redirect",
+          "redirectChain": [
+            {
+              "url": "https://paddletoday.com/rivers/by-river/boone-river/#trip-boone-river-riverside-albright",
+              "status": 200,
+              "location": null
+            }
+          ],
+          "destinationStatus": 200,
+          "destinationAnchorExists": true
+        },
+        {
+          "url": "https://paddletoday.com/rivers/green-river-hh-wilson-park-dennison-ferry",
+          "lastCrawled": "2026-09-30",
+          "validationStatus": "Failed",
+          "status": 301,
+          "location": "/rivers/by-river/green-river-kentucky/",
+          "canonical": [],
+          "metaRobots": [],
+          "xRobots": null,
+          "inSitemap": false,
+          "title": "",
+          "issues": [],
+          "category": "http-redirect",
+          "redirectChain": [
+            {
+              "url": "https://paddletoday.com/rivers/by-river/green-river-kentucky/",
+              "status": 200,
+              "location": null
+            }
+          ],
+          "destinationStatus": 200
+        },
+        {
+          "url": "https://paddletoday.com/rivers/north-fork-maquoketa-river-d61-caven",
+          "lastCrawled": "2026-09-29",
+          "validationStatus": "Failed",
+          "status": 301,
+          "location": "/rivers/by-river/north-fork-maquoketa-river/#trip-north-fork-maquoketa-river-d61-caven",
+          "canonical": [],
+          "metaRobots": [],
+          "xRobots": null,
+          "inSitemap": false,
+          "title": "",
+          "issues": [],
+          "category": "http-redirect",
+          "redirectChain": [
+            {
+              "url": "https://paddletoday.com/rivers/by-river/north-fork-maquoketa-river/#trip-north-fork-maquoketa-river-d61-caven",
+              "status": 200,
+              "location": null
+            }
+          ],
+          "destinationStatus": 200,
+          "destinationAnchorExists": true
+        },
+        {
+          "url": "https://paddletoday.com/rivers/turkey-river-motor-mill-garber",
+          "lastCrawled": "2026-09-25",
+          "validationStatus": "Failed",
+          "status": 301,
+          "location": "/rivers/by-river/turkey-river/#trip-turkey-river-motor-mill-garber",
+          "canonical": [],
+          "metaRobots": [],
+          "xRobots": null,
+          "inSitemap": false,
+          "title": "",
+          "issues": [],
+          "category": "http-redirect",
+          "redirectChain": [
+            {
+              "url": "https://paddletoday.com/rivers/by-river/turkey-river/#trip-turkey-river-motor-mill-garber",
+              "status": 200,
+              "location": null
+            }
+          ],
+          "destinationStatus": 200,
+          "destinationAnchorExists": true
+        },
+        {
+          "url": "https://paddletoday.com/rivers/jacks-fork-river-rymers-chilton",
+          "lastCrawled": "2026-09-25",
+          "validationStatus": "Failed",
+          "status": 301,
+          "location": "/rivers/by-river/jacks-fork-river/#trip-jacks-fork-river-rymers-chilton",
+          "canonical": [],
+          "metaRobots": [],
+          "xRobots": null,
+          "inSitemap": false,
+          "title": "",
+          "issues": [],
+          "category": "http-redirect",
+          "redirectChain": [
+            {
+              "url": "https://paddletoday.com/rivers/by-river/jacks-fork-river/#trip-jacks-fork-river-rymers-chilton",
+              "status": 200,
+              "location": null
+            }
+          ],
+          "destinationStatus": 200,
+          "destinationAnchorExists": true
+        },
+        {
+          "url": "https://paddletoday.com/rivers/tradewater-river-bellville-fishtrap",
+          "lastCrawled": "2026-09-24",
+          "validationStatus": "Failed",
+          "status": 301,
+          "location": "/rivers/by-river/tradewater-river/#trip-tradewater-river-bellville-fishtrap",
+          "canonical": [],
+          "metaRobots": [],
+          "xRobots": null,
+          "inSitemap": false,
+          "title": "",
+          "issues": [],
+          "category": "http-redirect",
+          "redirectChain": [
+            {
+              "url": "https://paddletoday.com/rivers/by-river/tradewater-river/#trip-tradewater-river-bellville-fishtrap",
+              "status": 200,
+              "location": null
+            }
+          ],
+          "destinationStatus": 200,
+          "destinationAnchorExists": true
+        },
+        {
+          "url": "https://paddletoday.com/rivers/buffalo-river-ponca-erbie",
+          "lastCrawled": "2026-09-23",
+          "validationStatus": "Failed",
+          "status": 301,
+          "location": "/rivers/by-river/buffalo-river/#trip-buffalo-river-ponca-erbie",
+          "canonical": [],
+          "metaRobots": [],
+          "xRobots": null,
+          "inSitemap": false,
+          "title": "",
+          "issues": [],
+          "category": "http-redirect",
+          "redirectChain": [
+            {
+              "url": "https://paddletoday.com/rivers/by-river/buffalo-river/#trip-buffalo-river-ponca-erbie",
+              "status": 200,
+              "location": null
+            }
+          ],
+          "destinationStatus": 200,
+          "destinationAnchorExists": true
+        }
+      ]
+    },
+    "notes": "Verification includes both slash forms of the seven retired routes. Derived verification-set statuses are not new Google validation results."
+  }
 }
