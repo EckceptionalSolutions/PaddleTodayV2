@@ -578,7 +578,7 @@ export const wisconsinRiverTripDetails: Record<string, RiverTripDetails> = {
     },
     "logistics": {
       "distanceLabel": "7.7 mi",
-      "estimatedPaddleTime": "About 2 hr 30 min to 3 hr 30 min",
+      "estimatedPaddleTime": "About 2 hr to 4 hr; allow extra for stops and shuttle",
       "shuttle": "Short paved-road shuttle in the Trego area. Several local outfitters run Big Bend, Earl, and Trego shuttles, but a simple two-car setup is easy if you are self-supporting.",
       "permits": "No day-trip permit is noted. Follow St. Croix National Scenic Riverway rules at landings and any posted town-park or campground rules at the Trego finish.",
       "camping": "NPS lists four campsites along this trip, including group-site support and potable water at Earl Park Landing. Trego Town Park Campground is also at the take-out corridor if you want to turn this into a low-friction overnight.",

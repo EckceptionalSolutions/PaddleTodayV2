@@ -1,5 +1,7 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
+import PaddlePlanningGuide from '../../components/PaddlePlanningGuide.astro';
+import { priorityRouteGuides } from '../../data/priority-paddle-guides';
 import { staticAssetUrl } from '../../lib/static-asset-url.js';
 import RouteAppHandoff from '../../components/RouteAppHandoff.astro';
 import RouteAppDownload from '../../components/RouteAppDownload.astro';
@@ -32,6 +34,7 @@ export function getStaticPaths() {
 }
 
 const { river } = Astro.props;
+const planningGuide = priorityRouteGuides[river.slug];
 const isPlanningRoute = river.scoreEligibility === 'planning';
 const isLittleMiamiKelleyMilford = river.slug === 'little-miami-river-kelley-milford';
 const gaugeDisplay = gaugeDisplayForSource(river.gaugeSource);
@@ -431,6 +434,9 @@ const routeFaqStructuredData = {
           <a class="river-detail__section-link" href="#route-overview" data-detail-nav-link="overview" data-detail-nav-target="route-overview">
             Route overview
           </a>
+          {planningGuide ? (
+            <a class="river-detail__section-link" href="#trip-decisions" data-detail-nav-link="trip-decisions" data-detail-nav-target="trip-decisions">Trip decisions</a>
+          ) : null}
           {!isPlanningRoute ? (
             <a class="river-detail__section-link" href="#route-outlook" data-detail-nav-link="outlook" data-detail-nav-target="route-outlook">
               Outlook
@@ -996,6 +1002,8 @@ const routeFaqStructuredData = {
     </section>
 
     <RouteAppDownload riverName={river.name} />
+
+    {planningGuide ? <PaddlePlanningGuide guide={planningGuide} id="trip-decisions" /> : null}
 
     <section class="river-detail__chapter-head river-detail__chapter-head--conditions" aria-label="Conditions chapter">
       <p class="eyebrow section-label">Conditions</p>

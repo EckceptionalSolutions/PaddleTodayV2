@@ -1,0 +1,59 @@
+---
+import type { PaddlePlanningGuide } from '../data/priority-paddle-guides';
+
+interface Props {
+  guide: PaddlePlanningGuide;
+  id: string;
+  headingLevel?: 2 | 3;
+}
+const { guide, id, headingLevel = 2 } = Astro.props;
+const Heading = headingLevel === 2 ? 'h2' : 'h3';
+const Subheading = headingLevel === 2 ? 'h3' : 'h4';
+---
+
+<section class="planning-guide" id={id} data-detail-section={id} aria-labelledby={`${id}-title`}>
+  <p class="eyebrow section-label">Trip decisions</p>
+  <Heading id={`${id}-title`}>{guide.title}</Heading>
+  <p class="planning-guide__intro">{guide.introduction}</p>
+  <div class="planning-guide__decisions">
+    {guide.decisions.map((decision) => (
+      <article>
+        <Subheading>{decision.heading}</Subheading>
+        <p>{decision.text}</p>
+        <p class="planning-guide__links">
+          {decision.route ? (
+            <a href={`/rivers/${decision.route.slug}/`}>{decision.route.label}</a>
+          ) : null}
+          <a href={decision.source.url} target="_blank" rel="noopener noreferrer">{decision.source.label}</a>
+        </p>
+      </article>
+    ))}
+  </div>
+  <p class="planning-guide__review muted">
+    Paddle Today source comparison updated <time datetime="2026-10-19">October 19, 2026</time>.
+    Based on published guides and route records; this is not an on-water inspection or confirmation of current access.
+  </p>
+</section>
+
+<style>
+  :global(html body.page-route-detail [data-river-detail] .river-detail__content) > .planning-guide {
+    order: 5;
+  }
+  .planning-guide {
+    margin-block: 1.5rem;
+    padding: clamp(1rem, 2.5vw, 1.75rem);
+    border: 1px solid var(--border-color, #d4e0e3);
+    border-radius: 1rem;
+    background: var(--surface, #fff);
+    scroll-margin-top: 5rem;
+  }
+  .planning-guide :is(h2, h3, h4) { margin: 0 0 .65rem; }
+  .planning-guide p { line-height: 1.65; }
+  .planning-guide__intro { max-width: 75ch; }
+  .planning-guide__decisions { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 17rem), 1fr)); gap: 1.5rem; margin-top: 1.25rem; }
+  .planning-guide__decisions article { min-width: 0; }
+  .planning-guide__decisions h3, .planning-guide__decisions h4 { font-size: 1.05rem; line-height: 1.4; }
+  .planning-guide__links { display: flex; flex-direction: column; align-items: flex-start; gap: .6rem; }
+  .planning-guide__links a { text-underline-offset: .2em; }
+  .planning-guide__review { margin: 1.25rem 0 0; font-size: .85rem; border-top: 1px solid var(--border-color, #d4e0e3); padding-top: 1rem; }
+</style>

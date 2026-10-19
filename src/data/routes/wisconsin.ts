@@ -1756,7 +1756,7 @@ export const wisconsinRoutes: River[] = [
     "reach": "Big Bend Landing to Trego Town Park",
     "state": "Wisconsin",
     "region": "Northwest Wisconsin",
-    "summary": "Trusted Riverway day trip with a mellow wooded opening, a more scenic midsection near Earl Park, and a clear main decision first: is the official Leonards gauge comfortably above the scrape zone without current conditions hinting at a high-water day?",
+    "summary": "NPS's 7.7-mile Big Bend-to-Trego day paddle takes about two to four hours, with Earl Park as an intermediate landing and a shallow islanded finish below Highway 63. The upstream Leonards gauge provides context; check local water before launching.",
     "statusText": "Around 150 cfs at Leonards is the practical low-water marker. NPS calls 150 to 230 cfs normal and 650+ cfs high, but this gauge is upstream of the route, so Paddle Today keeps the recommendation conservative.",
     "safetyProfile": {
       "riskLevel": "caution",

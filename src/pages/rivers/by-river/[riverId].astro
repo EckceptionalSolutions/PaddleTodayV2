@@ -1,5 +1,7 @@
 ---
 import BaseLayout from '../../../layouts/BaseLayout.astro';
+import PaddlePlanningGuide from '../../../components/PaddlePlanningGuide.astro';
+import { priorityRiverGuides } from '../../../data/priority-paddle-guides';
 import FeatureIcon from '../../../components/FeatureIcon.astro';
 import FavoriteButton from '../../../components/FavoriteButton.astro';
 import { getRiverGroupHeroPhoto } from '../../../data/river-group-hero';
@@ -343,8 +345,8 @@ const groupDescription = isOuachitaHub
   : isSusquehannaHub
   ? 'Plan Susquehanna River trips across New York’s upper main stem and Pennsylvania’s North Branch. Compare 33 current endpoint options, including 20 public North Branch trips across separate gauge areas.'
   : scoredRouteCount
-  ? `Compare ${group.name} paddle routes with current water levels, Paddle Today scores, weather, access details, and route difficulty.`
-  : `Compare ${group.name} planning routes with access details, distance, difficulty and source links. These routes have no live score.`;
+  ? `Compare ${group.name} paddle routes in ${groupTitleLocation} with water levels, Paddle Today scores, weather, access details, and difficulty.`
+  : `Compare ${group.name} planning routes in ${groupTitleLocation} with access, distance, difficulty and sources. These routes have no live score.`;
 const gaugeNames = [...new Set(group.routes.map((route) => route.gaugeSource.siteName))];
 const difficultyLabels = [...new Set(group.routes.map((route) => route.profile.difficulty))]
   .map((difficulty) => difficulty.charAt(0).toUpperCase() + difficulty.slice(1))
@@ -2318,6 +2320,10 @@ const groupStructuredData = [
         </article>
       </div>
 
+      {priorityRiverGuides[group.riverId] ? (
+        <PaddlePlanningGuide guide={priorityRiverGuides[group.riverId]} id="trip-decisions" headingLevel={3} />
+      ) : null}
+
       {isOuachitaHub ? (
         <div class="river-hub-context__source-guide" id="ouachita-reach-guide" aria-labelledby="ouachita-reach-guide-title">
           <div class="river-group-page__section-head">
@@ -2341,7 +2347,7 @@ const groupStructuredData = [
             <article class="river-hub-context__item">
               <h3>Remmel Dam to Rockport · about 5.9 miles</h3>
               <p>
-                Plan about three to four hours during a recreational release. Check the direct <a href="https://waterdata.usgs.gov/monitoring-location/USGS-07359002/" target="_blank" rel="noopener noreferrer">USGS gauge at Remmel Dam</a> and <a href="https://www.entergy.com/blog/great-day-for-float/" target="_blank" rel="noopener noreferrer">Entergy’s current release and access guidance</a>. At the take-out, move to the left bank when I-30 comes into view and use the boat ramp before the bridge; <a href="https://www.americanwhitewater.org/content/River/view/river-detail/3052/main" target="_blank" rel="noopener noreferrer">American Whitewater’s reach notes</a> describe the hazards near Rockport Ledge.
+                Plan about three to four hours during a recreational release. Check the direct <a href="https://waterdata.usgs.gov/monitoring-location/USGS-07359002/" target="_blank" rel="noopener noreferrer">USGS gauge at Remmel Dam</a>, <a href="https://www.entergy.com/operations/hydro/data" target="_blank" rel="noopener noreferrer">Entergy’s latest lake and flow news</a>, and its <a href="https://www.entergy.com/blog/great-day-for-float/" target="_blank" rel="noopener noreferrer">published float and access guide</a>. The usual summer release pattern does not confirm operations on your trip date. At the take-out, move to the left bank when I-30 comes into view and use the boat ramp before the bridge; <a href="https://www.americanwhitewater.org/content/River/view/river-detail/3052/main" target="_blank" rel="noopener noreferrer">American Whitewater’s reach notes</a> describe the hazards near Rockport Ledge.
               </p>
               <a href="#trip-ouachita-river-remmel-whitewater-park">Review the Remmel trip card</a>
             </article>
