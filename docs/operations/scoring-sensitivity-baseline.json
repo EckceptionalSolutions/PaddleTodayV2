@@ -1,9 +1,9 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-10-08T00:17:42.531Z",
+  "generatedAt": "2026-10-20T23:36:52.545Z",
   "fixedEvaluationTime": "2026-06-15T12:00:00.000Z",
-  "routeCount": 1638,
-  "scenarioCount": 35306,
+  "routeCount": 1637,
+  "scenarioCount": 35292,
   "routes": {
     "lynches-river-indigo-wicklow": {
       "below-too-low": {
@@ -187449,12 +187449,12 @@
     },
     "ouachita-river-remmel-whitewater-park": {
       "below-too-low": {
-        "score": 8,
+        "score": 29,
         "rating": "No-go",
         "readiness": "skip",
         "gaugeBand": "too-low",
-        "tomorrowScore": 8,
-        "weekendScore": 0
+        "tomorrowScore": 29,
+        "weekendScore": 21
       },
       "too-low": {
         "score": 38,
@@ -235416,120 +235416,6 @@
         "readiness": "skip",
         "gaugeBand": "too-low",
         "tomorrowScore": 16,
-        "weekendScore": null
-      }
-    },
-    "namekagon-river-county-k-whispering-pines": {
-      "minimum-below": {
-        "score": 52,
-        "rating": "Fair",
-        "readiness": "skip",
-        "gaugeBand": "too-low",
-        "tomorrowScore": 52,
-        "weekendScore": null
-      },
-      "minimum-at": {
-        "score": 55,
-        "rating": "Fair",
-        "readiness": "verify",
-        "gaugeBand": "minimum-met",
-        "tomorrowScore": 55,
-        "weekendScore": null
-      },
-      "minimum-above": {
-        "score": 60,
-        "rating": "Fair",
-        "readiness": "verify",
-        "gaugeBand": "minimum-met",
-        "tomorrowScore": 60,
-        "weekendScore": null
-      },
-      "minimum-well-above": {
-        "score": 72,
-        "rating": "Fair",
-        "readiness": "verify",
-        "gaugeBand": "minimum-met",
-        "tomorrowScore": 72,
-        "weekendScore": null
-      },
-      "reference": {
-        "score": 64,
-        "rating": "Fair",
-        "readiness": "verify",
-        "gaugeBand": "minimum-met",
-        "tomorrowScore": 64,
-        "weekendScore": null
-      },
-      "missing-gauge": {
-        "score": 38,
-        "rating": "No-go",
-        "readiness": "withheld",
-        "gaugeBand": "unavailable",
-        "tomorrowScore": null,
-        "weekendScore": null
-      },
-      "stale-gauge": {
-        "score": 49,
-        "rating": "No-go",
-        "readiness": "withheld",
-        "gaugeBand": "minimum-met",
-        "tomorrowScore": null,
-        "weekendScore": null
-      },
-      "missing-weather": {
-        "score": 56,
-        "rating": "Fair",
-        "readiness": "verify",
-        "gaugeBand": "minimum-met",
-        "tomorrowScore": null,
-        "weekendScore": null
-      },
-      "cold-water": {
-        "score": 60,
-        "rating": "Fair",
-        "readiness": "verify",
-        "gaugeBand": "minimum-met",
-        "tomorrowScore": 64,
-        "weekendScore": null
-      },
-      "severe-weather": {
-        "score": 25,
-        "rating": "No-go",
-        "readiness": "skip",
-        "gaugeBand": "minimum-met",
-        "tomorrowScore": 64,
-        "weekendScore": null
-      },
-      "boundary-0-left": {
-        "score": 55,
-        "rating": "Fair",
-        "readiness": "skip",
-        "gaugeBand": "too-low",
-        "tomorrowScore": 55,
-        "weekendScore": null
-      },
-      "boundary-0-right": {
-        "score": 55,
-        "rating": "Fair",
-        "readiness": "verify",
-        "gaugeBand": "minimum-met",
-        "tomorrowScore": 55,
-        "weekendScore": null
-      },
-      "adverse-trend-mild": {
-        "score": 42,
-        "rating": "No-go",
-        "readiness": "skip",
-        "gaugeBand": "too-low",
-        "tomorrowScore": 36,
-        "weekendScore": null
-      },
-      "adverse-trend-rapid": {
-        "score": 34,
-        "rating": "No-go",
-        "readiness": "skip",
-        "gaugeBand": "too-low",
-        "tomorrowScore": 22,
         "weekendScore": null
       }
     },

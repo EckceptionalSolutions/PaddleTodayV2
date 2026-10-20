@@ -10,6 +10,10 @@ A gauge, unique title, coordinate pair, route length or rewritten summary alone 
 
 Planning-only guides can qualify: a well-documented itinerary without a calibrated score can be valuable. Conversely, a score does not automatically justify six pages that reuse the same information.
 
+Scoring needs evidence for the recreational boundary being applied. One successful outing at a recorded gauge level is a reference observation, not a demonstrated minimum or calibrated range. Keep a useful guide available for planning when no defensible scoring boundary is established. Where sources distinguish recreational floating from low-flow or higher-water whitewater, name the activity the rating evaluates and keep the ranges separate. A current dam reading does not establish future release duration.
+
+Stored recommendations must still belong to a currently score-eligible trip and carry the matching current condition-zone key. A recent timestamp alone does not establish that the current gauge and threshold model produced a result. Reject missing or mismatched keys and let a current calculation or snapshot replace them; do not label an older score with today's model. Deploy and verify the scheduled snapshot producer when scoring inputs or eligibility change.
+
 ## Access-planning role
 
 Where the evidence primarily establishes access sites and contextual telemetry, group the records in a river access-planning hub. Explain what the evidence does establish and what still needs a local check. Show observations as station context, with no inferred paddle score or borrowed cutoff. Label estimated mileage and duration as estimates. Do not present a pair of launch listings as confirmation of continuous downstream passage.

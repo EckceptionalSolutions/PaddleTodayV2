@@ -3,7 +3,7 @@ import { getRiverBySlug } from '../../src/lib/rivers';
 import { serializePlanningRoute } from '../../src/lib/api-contract';
 import { installMapLibreHarness } from './maplibre-harness';
 
-for (const slug of ['saco-river-route-160-brownfield', 'saco-river-saco-biddeford', 'kennebec-river-sidney-augusta', 'verde-river-beasley-flat-childs', 'baltimore-blueway-canton', 'baltimore-blueway-inner-harbor-heritage', 'woonasquatucket-river-georgiaville-cricket', 'delaware-river-belvidere-phillipsburg', 'delaware-river-bulls-island-lambertville', 'delaware-river-lambertville-firemens-eddy', 'delaware-river-firemens-eddy-trenton']) {
+for (const slug of ['namekagon-river-county-k-whispering-pines', 'saco-river-route-160-brownfield', 'saco-river-saco-biddeford', 'kennebec-river-sidney-augusta', 'verde-river-beasley-flat-childs', 'baltimore-blueway-canton', 'baltimore-blueway-inner-harbor-heritage', 'woonasquatucket-river-georgiaville-cricket', 'delaware-river-belvidere-phillipsburg', 'delaware-river-bulls-island-lambertville', 'delaware-river-lambertville-firemens-eddy', 'delaware-river-firemens-eddy-trenton']) {
   test(`${slug}: planning evidence stays available after API hydration`, async ({ page }) => {
     const river = getRiverBySlug(slug)!;
     const errors: string[] = [];
@@ -29,6 +29,14 @@ for (const slug of ['saco-river-route-160-brownfield', 'saco-river-saco-biddefor
     await expect(sources.locator('.source-list')).toBeVisible();
     await expect(sources.locator('.source-list a')).toHaveCount(river.sourceLinks.length);
     await expect(sources).not.toContainText('Known low-water floor');
+    if (slug === 'namekagon-river-county-k-whispering-pines') {
+      await expect(page.getByRole('heading', { name: 'No same-day score', exact: true })).toBeVisible();
+      await expect(page.getByRole('heading', { name: 'Only a low-water floor is known.', exact: true })).toHaveCount(0);
+      await expect(page.locator('#trip-decisions')).toContainText('without a same-day score');
+      await expect(page.locator('#trip-decisions time')).toHaveAttribute('datetime', '2026-10-20');
+      await expect(sources).toContainText('155 cfs');
+      await expect(sources).toContainText('not a published minimum-flow threshold');
+    }
     if (slug.startsWith('baltimore-blueway-')) {
       await expect(sources).toContainText('One-way distance and return plan');
       await expect(sources).toContainText('four-foot gangway');

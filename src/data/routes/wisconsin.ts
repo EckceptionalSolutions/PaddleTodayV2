@@ -18933,6 +18933,7 @@ export const wisconsinRoutes: River[] = [
   {
     "id": "namekagon-river-county-k-whispering-pines",
     "slug": "namekagon-river-county-k-whispering-pines",
+    "scoreEligibility": "planning",
     "name": "Namekagon River",
     "reach": "County Road K Landing to Whispering Pines Landing",
     "aliases": [
@@ -18942,7 +18943,7 @@ export const wisconsinRoutes: River[] = [
     "state": "Wisconsin",
     "region": "St. Croix National Scenic Riverway",
     "summary": "NPS's 9.9-mile County K–Whispering Pine day paddle on the Namekagon is mostly flatwater with brief Class I riffles, eight campsites (two group), and the Leisure Lake trail near river mile 29.3.",
-    "statusText": "Use the Leonards gauge as a corridor check, not a direct reading of this reach. One 2024 trip report recorded 155 cfs / 1.99 ft during a paddle; that single trip does not establish a minimum. NPS says the reach is generally floatable, with occasional scraping possible after particularly low rainfall.",
+    "statusText": "Planning only: the Leonards gauge provides river context, but no verified recreational flow threshold or same-day score is supplied for this trip. A May 25, 2024 outing recorded 155 cfs / 1.99 ft; that observation does not establish a minimum. NPS says the reach is generally floatable, with occasional scraping possible after particularly low rainfall.",
     "latitude": 45.95324,
     "longitude": -91.89136,
     "gaugeSource": {
@@ -18968,9 +18969,8 @@ export const wisconsinRoutes: River[] = [
     ],
     "profile": {
       "thresholdModel": "minimum-only",
-      "tooLow": 155,
       "thresholdSource": {
-        "label": "Wisconsin River Trips County K-to-Whispering Pines observed Leonards level",
+        "label": "WRT County K reference outing — no recreational threshold established",
         "url": "https://www.wisconsinrivertrips.com/segments/namekagon-river/county-k-to-whispering-pines",
         "provider": "wisconsin_river_trips"
       },
@@ -18987,7 +18987,7 @@ export const wisconsinRoutes: River[] = [
       "seasonNotes": "NPS says this lower Namekagon reach is generally floatable throughout the season; unusually low rainfall can cause occasional scraping. Islands split the channel, and debris or vegetation can obstruct back channels.",
       "difficulty": "easy",
       "difficultyNotes": "Easy Riverway paddling in normal conditions, with several Class I riffles, remote shoreline, islands, and overhanging trees that require attention.",
-      "confidenceNotes": "Access and route shape are supported by NPS and WTG. The 155 cfs / 1.99 ft value is one WRT trip observation, not a published minimum-flow study; NPS describes the reach as generally floatable and says scraping should be infrequent. Treat the product's 155 cfs floor as conservative, and the ideal/high range as uncalibrated."
+      "confidenceNotes": "NPS and WTG support the trip and its access plan. WRT's May 25, 2024 reading of 155 cfs / 1.99 ft records one outing, not a minimum or a calibrated recreational range. NPS's generally-floatable description supplies no numeric cutoff. Keep the Leonards observations as context and verify local water, wood and access; this guide has no same-day score."
     },
     "safetyProfile": {
       "riskLevel": "caution",
@@ -19051,9 +19051,9 @@ export const wisconsinRoutes: River[] = [
         "sourceUrl": "https://www.nps.gov/sacn/planyourvisit/k-whispering.htm"
       },
       {
-        "label": "Current gauge check",
+        "label": "Historical gauge check",
         "value": "57.9 cfs / 1.45 ft at 2026-07-22 23:00 CDT",
-        "note": "USGS Water Services returned current Leonards discharge and stage during this run, below the selected minimum-only floor.",
+        "note": "USGS Water Services returned this station reading during the July 22, 2026 source review. It is historical context, not today's observation or evidence of a recreational minimum.",
         "sourceUrl": "https://waterservices.usgs.gov/nwis/iv/?format=json&sites=05331833&parameterCd=00060,00065&siteStatus=all"
       }
     ],

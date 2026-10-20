@@ -1601,7 +1601,7 @@ export const arkansasRiverTripDetails: Record<string, RiverTripDetails> = {
     },
     "logistics": {
       "distanceLabel": "About 5.9 to 6 mi",
-      "estimatedPaddleTime": "About 3 hr to 4 hr during normal recreation releases, longer at low scrape-through flows or with take-out congestion",
+      "estimatedPaddleTime": "About 3 hr to 4 hr during a confirmed recreational release; allow for stops and take-out congestion. This estimate does not describe low-flow kayak passage.",
       "shuttle": "Stage the take-out at Ouachita River Whitewater Park, 904 Riverview Drive in Malvern, then drive back toward the Remmel Dam access. Entergy says the floating entrance is a boat ramp near the dam through the gate just past the operations entrance at 170 Remmel Dam Road, and its safety page also lists Ouachita River Access Below Remmel Dam at 489 McGuire Road. Follow current signs, gates, parking marks, and any Entergy access changes on arrival.",
       "permits": "No route-specific private paddling permit is known for normal private use, but this is a dam-release corridor with posted access rules. Follow Entergy signs, Arkansas boating and PFD rules, no-glass and litter rules, park rules at the Whitewater Park, and any current release or closure notices.",
       "camping": "Treat this as a daylight day trip. Entergy closes the Remmel Dam tailrace gate nightly and has specifically acted against unauthorized camping below the dam because water can rise rapidly during storms or operations.",
