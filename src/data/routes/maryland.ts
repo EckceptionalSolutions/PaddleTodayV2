@@ -875,7 +875,7 @@ const charlesSpecs = [
     permits: 'Follow Town of Indian Head daylight access and current launch-fee rules. Smallwood boating access is restricted to park hours and can close for events; check the DNR park notice and fees before departure.',
     camping: 'Smallwood has reservable camping. Book separately and confirm overnight vehicle and launch arrangements; this day trip does not authorize creek-bank camping.',
     campingClassification: 'endpoint_campground' as const,
-    caveats: ['Mattingly is the park’s correct name; the historical URL spelling is retained.', 'Paddle launches are separate from the motorboat ramps. Published points identify those facilities, not the day’s usable waterline.', 'The county’s approximately 4.5 miles is a trail distance, not a measured length of the generalized map line.'],
+    caveats: ['Use Mattingly Park at 105 Mattingly Avenue in Indian Head; follow the gravel path to the floating paddle launch.', 'Paddle launches are separate from the motorboat ramps. Published points identify those facilities, not the day’s usable waterline.', 'The county’s approximately 4.5 miles is a trail distance, not a measured length of the generalized map line.'],
     managerUrl: 'https://dnr.maryland.gov/publiclands/Pages/southern/smallwood.aspx',
     additionalUrl: 'https://www.townofindianhead.org/?SEC=8685CA3C-E863-492B-8589-C392B0CA2A28',
     accessNote: 'DNR access GIS features 537 and 503 identify the floating paddle launches, separately from motorboat ramps. Current park pages control hours, fees and event closures.',
