@@ -1,5 +1,6 @@
 ---
 import type { PaddlePlanningGuide } from '../data/priority-paddle-guides';
+import { routePageHref } from '../data/route-page-consolidations';
 
 interface Props {
   guide: PaddlePlanningGuide;
@@ -22,7 +23,7 @@ const Subheading = headingLevel === 2 ? 'h3' : 'h4';
         <p>{decision.text}</p>
         <p class="planning-guide__links">
           {decision.route ? (
-            <a href={`/rivers/${decision.route.slug}/`}>{decision.route.label}</a>
+            <a href={routePageHref(decision.route.slug)}>{decision.route.label}</a>
           ) : null}
           <a href={decision.source.url} target="_blank" rel="noopener noreferrer">{decision.source.label}</a>
         </p>

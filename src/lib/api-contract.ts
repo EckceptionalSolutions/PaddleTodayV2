@@ -210,6 +210,7 @@ export function serializeDetailResult(result: RiverScoreResult): RiverDetailApiR
       safetyProfile: result.river.safetyProfile,
       gaugeSource: {
         provider: result.river.gaugeSource.provider,
+        siteName: result.river.gaugeSource.siteName,
         metric: result.river.gaugeSource.metric,
         unit: result.river.gaugeSource.unit,
         detailUrl: result.river.gaugeSource.detailUrl,
@@ -337,6 +338,7 @@ export function serializePlanningRoute(route: River, weather: RiverScoreResult['
       safetyProfile: route.safetyProfile,
       gaugeSource: {
         provider: route.gaugeSource.provider,
+        siteName: route.gaugeSource.siteName,
         metric: route.gaugeSource.metric,
         unit: route.gaugeSource.unit,
         detailUrl: route.gaugeSource.detailUrl,

@@ -52,6 +52,7 @@ if (!riverId) {
 const isWillimanticHub = riverId === 'willimantic-river-connecticut';
 const hasInlineTripNotes = ['willimantic-river-connecticut', 'animas-river-new-mexico', 'housatonic-river-massachusetts'].includes(riverId);
 const hasConsolidatedTrips = root.dataset.hasConsolidatedTrips === 'true';
+const reviewedPublicationHub = root.dataset.reviewedPublicationHub === 'true';
 
 const routeList = root.querySelector('[data-group-route-list]');
 const banner = root.querySelector('[data-group-status-banner]');
@@ -413,6 +414,13 @@ function conditionsLine(route) {
 }
 
 function tripNotesMarkup(route) {
+  if (reviewedPublicationHub) {
+    const href = routePageHref(route.slug);
+    const hasGuide = new URL(href, window.location.href).pathname === `/rivers/${route.slug}/`;
+    return routeTripNotesMarkup(route) + (hasGuide
+      ? `<a class="river-link river-link--inline route-choice__details-link" href="${escapeHtml(href)}">Read reach guide</a>`
+      : '');
+  }
   if (!hasInlineTripNotes) {
     return `<a class="river-link river-link--inline route-choice__details-link" href="${routePageHref(route.slug)}">${hasConsolidatedTrips ? 'View trip option' : 'View route'}</a>`;
   }
@@ -1661,6 +1669,11 @@ function normalizeRoutes(routes) {
     continuityStatus: route.river.continuityStatus,
     name: route.river.name,
     reach: route.river.reach,
+    summary: route.river.summary || route.river.logistics?.summary,
+    logistics: route.river.logistics,
+    safetyProfile: route.river.safetyProfile,
+    profile: route.river.profile,
+    gaugeSource: route.river.gaugeSource,
     state: route.river.state,
     region: route.river.region,
     latitude: route.river.latitude,

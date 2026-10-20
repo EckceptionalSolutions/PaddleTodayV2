@@ -30,6 +30,8 @@
     "routes:qa": "tsx scripts/route-qa.ts",
     "routes:qa:review": "tsx scripts/route-qa-review.ts",
     "seo:indexability:audit": "node scripts/audit-built-search-indexability.mjs",
+    "seo:guides:review": "tsx scripts/report-route-guide-review.ts",
+    "seo:guides:verify": "tsx scripts/verify-route-guide-pilot.ts",
     "routes:audit:coordinates": "tsx scripts/audit-route-coordinate-river-distance.ts",
     "routes:access-registry:generate": "tsx scripts/generate-route-access-registry.ts",
     "routes:withholding:generate": "tsx scripts/generate-withheld-route-slugs.ts",

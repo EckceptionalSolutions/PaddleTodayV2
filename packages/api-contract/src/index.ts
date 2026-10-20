@@ -667,6 +667,7 @@ export interface RiverDetailApiResult {
     safetyProfile?: RouteSafetyProfile;
     gaugeSource: {
       provider: GaugeProvider;
+      siteName?: string;
       metric: GaugeMetric;
       unit: GaugeUnit;
       detailUrl?: string;
