@@ -426,6 +426,7 @@ function detailFromSummaryItem(item: RiverSummaryApiItem): RiverDetailApiResult 
       safetyProfile: normalized.river.safetyProfile ?? river?.safetyProfile,
       gaugeSource: {
         provider: gaugeSource.provider,
+        siteName: gaugeSource.siteName,
         metric: gaugeSource.metric,
         unit: gaugeSource.unit,
         detailUrl: gaugeSource.detailUrl,
