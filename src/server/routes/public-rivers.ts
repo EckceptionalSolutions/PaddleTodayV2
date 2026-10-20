@@ -25,6 +25,7 @@ import { resolveStaticFile } from '../static-route';
 import { createExploreCatalogBuilder } from '../../lib/explore-catalog';
 import { getJsonResponseStats } from '../json-response';
 import { getGeometryCacheStats } from './river-geometry';
+import { apiBuildRevision } from '../build-revision';
 
 const LIVE_SCORE_TIMEOUT_MS = 12_000;
 const LIVE_SUMMARY_CACHE_CONTROL = 'public, max-age=60, s-maxage=180, stale-while-revalidate=600';
@@ -43,6 +44,7 @@ export function handleHealth(
   return sendJson(response, 200, {
     requestId,
     ok: true,
+    buildRevision: apiBuildRevision,
     mode: args.staticDir ? 'one-origin' : 'api-only',
     uptimeSeconds: Math.round((Date.now() - args.startedAt) / 1000),
     startedAt: new Date(args.startedAt).toISOString(),
@@ -66,6 +68,7 @@ export function handleReady(
   return sendJson(response, ready ? 200 : 503, {
     requestId,
     ok: ready,
+    buildRevision: apiBuildRevision,
     mode: staticDir ? 'one-origin' : 'api-only',
     staticDir: staticDir ?? null,
     staticIndexReady: staticDir ? ready : null,

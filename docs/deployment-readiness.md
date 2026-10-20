@@ -7,6 +7,7 @@
 - The App Service package also contains `dist/` and serves the built app plus `/api` from one Node process with `npm run start`. This makes the backend origin independently smoke-testable and provides a one-origin fallback without changing browser API paths.
 - `npm run package:api` compiles the reachable server code to `deploy-package/server.mjs`, copies the eight declared operations/control-plane JSON resources, and retains the complete static fallback. HTML pages are stored as lossless gzip files with an inventory; the server streams gzip directly or decompresses for clients requesting identity. Gallery and geometry files remain available.
 - The API workflow installs the packaged production dependencies once, verifies the isolated runtime and every static resource, and deploys that prepared directory. Its packaged `npm start` runs `server.mjs`; the root development startup continues to run the TypeScript source. `api-package-manifest.json` records inputs, dependency versions, resource hashes, and byte counts.
+- API packages built in GitHub Actions bake `GITHUB_SHA` into the server bundle. The manifest and both health endpoints expose `buildRevision`; source-mode development and explicitly unversioned local packages report `null`. For a local versioned package, pass `--revision <full-commit-SHA>` to the packager. The running identifier is a compiled literal, so changing an environment variable or uploaded manifest cannot make an older worker claim a newer release.
 - The Node server reads:
   - `PORT` or `CANOE_API_PORT`
   - `CANOE_API_HOST`
@@ -19,6 +20,10 @@
 - Direct App Service origin: `/health` and `/health/ready` are aliases; the `/api/...` forms work there too
 
 The public Paddle Today origin is an Azure Static Web App linked to App Service, and that integration proxies `/api/*`. Use `/api/health/ready` for public deploy-time checks. It verifies the static index is present when the App Service is running in one-origin mode.
+
+The API deployment action explicitly requests an App Service restart using the existing publish profile. Before capability checks, the workflow runs `scripts/wait-for-api-revision.mjs` against the configured App Service origin with `DEPLOYMENT_EXPECTED_REVISION` set to the workflow commit. It waits up to four minutes for a healthy process reporting that exact revision. An older healthy worker, a missing revision, redirects and startup failures do not satisfy the gate. The subsequent deployment smoke check independently requires the same revision from both health endpoints. These checks establish which API code is running; public cache withdrawal, route/source behavior and Google processing still need their own verification.
+
+The restart option is provided by the existing [Azure deployment action](https://github.com/Azure/webapps-deploy/blob/v3/action.yml); this workflow adds no new credential or permission.
 
 Both endpoints expose:
 

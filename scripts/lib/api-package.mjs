@@ -24,8 +24,10 @@ async function inventory(directory) {
 }
 
 /** Compile only reachable server modules, retaining the complete documented one-origin fallback. */
-export async function createApiPackage({ root = process.cwd(), staticDir = join(root, 'dist'), destination }) {
+export async function createApiPackage({ root = process.cwd(), staticDir = join(root, 'dist'), destination, revision = null }) {
   root = resolve(root); staticDir = resolve(staticDir); destination = resolve(destination);
+  if (revision !== null && (typeof revision !== 'string' || !/^[a-f0-9]{40}$/i.test(revision))) throw new Error('API package revision must be a full 40-character Git commit SHA.');
+  const buildRevision = revision?.toLowerCase() ?? null;
   const existing = await readdir(destination).catch(error => { if (error.code === 'ENOENT') return []; throw error; });
   if (existing.length || destination === root || destination === staticDir || destination.startsWith(staticDir + sep)) throw new Error('API package destination must be a new or empty directory outside static input.');
   const pkg = JSON.parse(await readFile(join(root, 'package.json'), 'utf8'));
@@ -40,7 +42,8 @@ export async function createApiPackage({ root = process.cwd(), staticDir = join(
   await mkdir(destination, { recursive: true });
   const compiled = await build({ absWorkingDir: root, entryPoints: ['src/server/bootstrap.ts'], outfile: join(destination, 'server.mjs'),
     bundle: true, platform: 'node', format: 'esm', target: 'node22.12', external: externalDependencies,
-    minifyWhitespace: true, metafile: true, logLevel: 'silent' });
+    minifyWhitespace: true, metafile: true, logLevel: 'silent',
+    define: { __PADDLETODAY_API_REVISION__: JSON.stringify(buildRevision) } });
   const resources = [];
   for (const path of [...apiRuntimeResources, ...optionalResources]) {
     const raw = await readFile(join(root, path), 'utf8').catch(error => {
@@ -64,7 +67,7 @@ export async function createApiPackage({ root = process.cwd(), staticDir = join(
   await writeFile(join(destination, 'package-lock.json'), JSON.stringify(seededLock, null, 2) + '\n');
   // Dependencies arrive ready to run; do not repeat installation through an App Service/Oryx build.
   await writeFile(join(destination, '.deployment'), '[config]\nSCM_DO_BUILD_DURING_DEPLOYMENT=false\n');
-  const manifest = { format: 'PaddleTodayApiPackage', entry: 'server.mjs', nodeTarget: '22.12', dependencies,
+  const manifest = { format: 'PaddleTodayApiPackage', entry: 'server.mjs', nodeTarget: '22.12', buildRevision, dependencies,
     sourceInputs: Object.keys(compiled.metafile.inputs).sort(), compiledBytes: (await stat(join(destination, 'server.mjs'))).size,
     externalImports: Object.values(compiled.metafile.outputs).flatMap(output => output.imports.filter(item => item.external).map(item => item.path)),
     resources, static: await inventory(join(destination, 'dist')), staticSource: await inventory(staticDir), staticCompression, staticPolicy: 'Complete one-origin fallback site retained, including geometry and gallery assets; HTML stored losslessly as gzip with streamed identity fallback',

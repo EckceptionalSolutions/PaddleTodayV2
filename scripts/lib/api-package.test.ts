@@ -55,4 +55,22 @@ describe('compiled API deployment manifest', () => {
     expect(await readFile(join(destination, 'keep.txt'), 'utf8')).toBe('user work');
     await expect(createApiPackage({ root, destination: join(root, 'dist/package') })).rejects.toThrow('outside static');
   });
+
+  it('bakes the release identity into the running bundle rather than mutable environment or manifest values', async () => {
+    const { root, destination } = await fixture();
+    const revision = 'a'.repeat(40);
+    await writeFile(join(root, 'src/server/build-revision.ts'), await readFile('src/server/build-revision.ts', 'utf8'));
+    await writeFile(join(root, 'src/server/bootstrap.ts'), "import {apiBuildRevision} from './build-revision'; console.log(JSON.stringify({buildRevision:apiBuildRevision}));");
+    const manifest = await createApiPackage({ root, destination, revision });
+    expect(manifest.buildRevision).toBe(revision);
+    await writeFile(join(destination, 'api-package-manifest.json'), JSON.stringify({ ...manifest, buildRevision: 'b'.repeat(40) }));
+    const execution = await promisify(execFile)(process.execPath, ['server.mjs'], { cwd: destination, windowsHide: true, env: { ...process.env, GITHUB_SHA: 'b'.repeat(40), DEPLOYMENT_EXPECTED_REVISION: 'b'.repeat(40) } });
+    expect(JSON.parse(execution.stdout).buildRevision).toBe(revision);
+  });
+
+  it('rejects ambiguous release labels before creating a package', async () => {
+    const { root, destination } = await fixture();
+    await expect(createApiPackage({ root, destination, revision: 'main' })).rejects.toThrow('full 40-character');
+    await expect(readdir(destination)).rejects.toMatchObject({ code: 'ENOENT' });
+  });
 });
