@@ -1,0 +1,40 @@
+{
+  "reviewedOn": "2026-10-20",
+  "goalStatus": "active",
+  "approvalRequired": false,
+  "stallFinding": "An earlier stale blocked state persisted after user approval. Subsequent work shipped, but the remaining queue expanded from the bounded consolidation pilot into general source and catalog review. Close independently deployable batches and distinguish implementation completion from later Google observation.",
+  "currentBatch": {
+    "problem": "A production river hub showed Recommended today on a route whose actual readiness call was Skip today. Default ordering compared raw scores before decision gates.",
+    "change": "Use the existing public decision and availability semantics for recommendation eligibility, default ranking and ready-count copy. Rank paddle before watch before skip; retain raw score as a secondary ordering factor. Planning and unavailable routes cannot receive a recommendation.",
+    "scope": "Browser river-hub ranking and badge only; no route publication, endpoint, geometry, gauge, threshold or numerical scoring changes.",
+    "localValidation": {
+      "unitTestsPassed": 3,
+      "browserChecksPassed": 12,
+      "browserCoverage": "Desktop and iPhone: skip/watch/withheld, ready versus higher raw score, planning/offline, planning-only, explicit sort, and existing API-failure fallback.",
+      "fullTypecheck": "passed",
+      "builtIndexabilityAudit": "passed with no errors or warnings",
+      "productionBuild": "passed"
+    },
+    "releaseAcceptance": "Merge and deploy the exact reviewed commit to frontend and API static fallback. Confirm the public West Canada hub does not recommend a skip/watch/unavailable/planning route, inspect the deployed bundle on both serving origins, and preserve the current consolidation targets and sitemap inventory. Local tests alone are not publication evidence."
+  },
+  "nextBoundedBatch": {
+    "scope": "The two Baltimore Blueway guides sharing the Fells Point endpoint: baltimore-blueway-canton and baltimore-blueway-inner-harbor-heritage.",
+    "knownConflict": "The catalog coordinate is the linked map viewport center. The linked place resolves to Canton Kayak Club at 1633 Thames Street, while the current manager directory names a public launch at 901 S Bond Street. A map place pin is not sufficient confirmation of the public wet entry.",
+    "acceptance": "Verify the actual public launch, legal approach and both complete route lines using primary evidence. Correct and validate both affected guides or record a justified publication hold if the itinerary remains unsupported. Do not replace the viewport with an unverified club-dock pin.",
+    "scopeControl": "Record newly discovered unrelated issues in the backlog; they do not expand this batch."
+  },
+  "separateBacklog": [
+    "Review the remaining 32 public planning distance contradictions, two variable cases and compound itinerary totals in bounded groups.",
+    "Continue family-level editorial review for distinct trip value and shared search intent; phrase similarity and route count alone do not justify deleting guides.",
+    "Refresh the editorial queue against the current public catalog before selecting another consolidation family; older review counts are historical.",
+    "Assess later Google recrawls, canonicals and performance separately from deployment. The latest confirmed performance export ends October 17, before the structural changes; recovery is unproven."
+  ],
+  "existingPublishedPilot": {
+    "families": 4,
+    "tripChoicesRetained": 24,
+    "independentGuides": 5,
+    "consolidatedPaths": 19,
+    "redirectDelivery": "HTTP 200 instant meta-refresh with river-hub canonical, not HTTP 301",
+    "evidence": "output/seo-release-2026-10-20/planning-reach-release.json"
+  }
+}
