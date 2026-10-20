@@ -1,0 +1,77 @@
+{
+  "reviewedOn": "2026-10-20",
+  "riverId": "bitterroot-river-montana",
+  "decision": "Retain the independently named Hannon–Wally Section 4 guide; consolidate seven overlapping endpoint guides into exact selected access plans in the existing river hub.",
+  "before": { "publicTrips": 8, "standaloneGuides": 8, "planningTrips": 8 },
+  "proposed": { "publicTrips": 8, "standaloneGuides": 1, "hubOptions": 7, "planningTrips": 8 },
+  "rationale": "Six adjacent endpoint pairs and two longer combinations shared one observation station and substantially repeated access/safety material. Different endpoints, lengths or summaries alone do not justify eight independent guides. Section 4 has a source-defined reach, length and seasonal outfitter restriction. Other choices remain useful for access research but are not independently verified itineraries.",
+  "demand": {
+    "availableSearchConsoleExports": "No Bitterroot rows in the available seven- or 28-day exports reviewed for the October 19 baseline.",
+    "interpretation": "Unobserved demand, not verified zero demand. No ranking penalty or recovery is inferred from this screen.",
+    "protectedHistoricAndComparisonFamilies": "Unchanged; Bitterroot is not a protected recovery winner or comparison family."
+  },
+  "sources": [
+    {
+      "url": "https://fwp.mt.gov/buyandapply/specialuseriverpermits",
+      "establishes": "FWP names Hannon Memorial–Wally Crawford as Section 4, nine miles. Float outfitting is prohibited Mondays June 1–September 15. Public recreational users do not need the restricted-river commercial permit; separate access and fishing rules still apply.",
+      "boundary": "This does not ban all recreational floating, extend the outfitter restriction to the lower valley, or transfer the separate West Fork Section 1 Friday all-floating rule to Section 4."
+    },
+    {
+      "url": "https://myfwp.mt.gov/getRepositoryFile?objectID=84999",
+      "establishes": "Complete one-page restricted-sections map downloaded, rendered and visually reviewed. Section 4 is Hannon–Wally, with the Monday commercial restriction June 1–September 15; mile labels approximately 81 to 72 agree with the nine-mile webpage length.",
+      "boundary": "No visible publication date established; map states it is not suitable for navigation. It does not establish surveyed entry points or a present navigable channel."
+    },
+    {
+      "url": "https://myfwp.mt.gov/fishMT/region/2",
+      "establishes": "Lists all seven named facility points, matching stored coordinates.",
+      "boundary": "Facility coordinates are not surveyed launch toes. Inventory entries alone do not establish the distances or continuity of all endpoint combinations."
+    },
+    {
+      "url": "https://myfwp.mt.gov/fishMT/fas/39754135",
+      "establishes": "Hannon day-use and camping areas are separate; the concrete boat launch is in the day-use area. Browser facilities show hand launch, primitive campsite and toilet.",
+      "boundary": "No current day-of opening, ramp suitability or camping reservation is inferred."
+    },
+    {
+      "url": "https://myfwp.mt.gov/fishMT/fas/39754217",
+      "establishes": "Wally Crawford facilities show concrete ramp and toilet, verified in the actual browser."
+    },
+    {
+      "url": "https://myfwp.mt.gov/fishMT/fas/39753889",
+      "establishes": "Anglers’ Roost is privately owned, described as available for public angling with store check-in; boating facilities are listed.",
+      "boundary": "Confirm permission for the intended boat launch or landing with the owner; the listing is not blanket public boating permission."
+    },
+    {
+      "url": "https://myfwp.mt.gov/fishMT/fas/39754143",
+      "establishes": "Tucker Crossing has land on both sides. The concrete boat launch is at Tucker West, not the larger east-side property."
+    },
+    {
+      "url": "https://myfwp.mt.gov/fishMT/fas/39754137",
+      "establishes": "Bell Crossing facilities show gravel ramp, verified in the actual browser."
+    },
+    {
+      "url": "https://myfwp.mt.gov/fishMT/fas/39754187",
+      "establishes": "Poker Joe is walk-in only, one quarter mile to the river. Expanded restrictions show a July 7 parking/latrine construction closure with no year or reopening date.",
+      "boundary": "Current opening or a dated 2026 closure is not established. Confirm reopening with FWP before using as a start, finish or bailout. Do not use a closed site or infer opening from generic/historical season fields."
+    },
+    {
+      "url": "https://myfwp.mt.gov/fishMT/fas/39754131",
+      "establishes": "Chief Looking Glass facilities show hand launch, campsite, toilet and drinking water, verified in the actual browser.",
+      "boundary": "Check current availability and camping terms; no permission for improvised shoreline camping."
+    }
+  ],
+  "distanceDecisions": [
+    { "slug": "bitterroot-river-hannon-wally", "oldMiles": 11, "newMiles": 9, "basis": "Current FWP Section 4 webpage and complete restriction map." },
+    { "slugs": "Other seven records", "decision": "Retain numeric catalog estimates as explicitly unverified in labels, evidence and access-plan notes. Remove the false claim that FWP publishes every endpoint-pair distance." },
+    { "slug": "bitterroot-river-bell-crossing-chief-looking-glass", "miles": 21, "decision": "Explicitly identify as 12+9 from two unverified labels, not an independent FWP itinerary. Poker Joe is not an assumed bailout." },
+    { "slug": "bitterroot-river-hannon-chief-looking-glass", "miles": 72, "componentLabelTotal": 65, "decision": "Unresolved discrepancy is visible; neither 65 nor 72 is represented as a verified full-trip distance. Confirm stages before committing. Do not manufacture a replacement total." }
+  ],
+  "preservation": [
+    "All eight trip IDs, selected-access IDs, maps, geometry, original source URLs, hazard sets and coordinates remain available.",
+    "All eight remain planning-only with USGS 12350250 at Bell Crossing; no numeric recreational flow cutoff is introduced.",
+    "Original 2017 camping guide remains linked as historical context; current facility pages support the revised claims.",
+    "Seven old paths use existing instant meta-refresh delivery with hub canonicals and exact trip anchors; they are not HTTP 301 redirects.",
+    "Publication requires build, indexability, hydrated desktop/mobile selection, source-note preservation and both live serving paths. This source decision alone is not a release."
+  ],
+  "remainingUncertainty": "Other endpoint-pair mileage, valley-wide totals, current Poker Joe availability and local river continuity remain unverified. Consolidation does not resolve these facts. Google response must be measured after confirmed publication and recrawls.",
+  "status": "source-reviewed; deployment verification recorded separately after publication"
+}

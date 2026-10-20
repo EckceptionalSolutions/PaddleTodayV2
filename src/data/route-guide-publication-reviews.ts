@@ -26,6 +26,59 @@ const contoocookGuide = {
 
 export const routeGuidePublicationReviews: readonly RouteGuidePublicationReview[] = [
   {
+    riverId: 'bitterroot-river-montana',
+    mode: 'access-planning',
+    reviewedOn: '2026-10-20',
+    rationale: 'FWP independently names Hannon Memorial–Wally Crawford as Section 4, with a nine-mile length and a specific outfitter restriction. Retain that guide. The other seven records primarily combine access listings and one Bell Crossing observation station; two are longer combinations of sibling plans. Preserve all eight choices and their individual restrictions in one planning hub rather than publish seven substantially repeated guides. Absence from the available Search Console export is unobserved demand, not proof of zero demand. Distances outside Section 4 remain explicitly unverified; consolidation does not validate continuity or cure an access failure.',
+    retainedGuides: ['bitterroot-river-hannon-wally'],
+    hubOptions: [
+      'bitterroot-river-wally-anglers-roost',
+      'bitterroot-river-anglers-roost-tucker-crossing',
+      'bitterroot-river-tucker-crossing-bell-crossing',
+      'bitterroot-river-bell-crossing-poker-joe',
+      'bitterroot-river-poker-joe-chief-looking-glass',
+      'bitterroot-river-bell-crossing-chief-looking-glass',
+      'bitterroot-river-hannon-chief-looking-glass',
+    ],
+    guide: {
+      title: 'Plan Bitterroot access, carries and section restrictions',
+      introduction: 'Start with the source-defined Hannon–Wally section or compare the valley’s access plans below. The remaining distances and travel times are unverified estimates. Confirm the river between the sites, legal landings, wood and current closures before arranging a shuttle. All eight choices are planning only, with no same-day paddle score.',
+      decisions: [
+        {
+          heading: 'Hannon to Wally is a named nine-mile section',
+          text: 'FWP lists Hannon Memorial–Wally Crawford as Section 4, nine miles. Float outfitting is prohibited there on Mondays from June 1 through September 15. This restriction is not a ban on all recreational floating and does not extend across the lower-valley plans. Public recreational users do not need the restricted-river commercial permit; separate access and fishing rules still apply.',
+          source: { label: 'FWP restricted-river permits and Section 4 calendar', url: 'https://fwp.mt.gov/buyandapply/specialuseriverpermits' },
+          route: { label: 'Read the Hannon–Wally Section 4 guide', slug: 'bitterroot-river-hannon-wally' },
+        },
+        {
+          heading: 'Read Bell Crossing telemetry as context',
+          text: 'USGS 12350250 measures the Bitterroot at Bell Crossing near Victor. It does not establish the depth, wood, landing access or passage along every upper and lower choice. These plans have no calibrated recreational flow cutoff; check the observation time and trend alongside current local information.',
+          source: { label: 'USGS Bitterroot at Bell Crossing', url: 'https://waterdata.usgs.gov/monitoring-location/USGS-12350250/' },
+        },
+        {
+          heading: 'Confirm private access at Anglers’ Roost',
+          text: 'FWP describes this privately owned site as available for public angling with check-in at the store. Its listing includes boating facilities, but that is not blanket permission for your launch or landing. Confirm the intended boat use with the owner before relying on either adjacent plan.',
+          source: { label: 'FWP Anglers’ Roost access conditions', url: 'https://myfwp.mt.gov/fishMT/fas/39753889' },
+        },
+        {
+          heading: 'Use Tucker West for the boat launch',
+          text: 'Tucker Crossing includes substantial land on both sides of the river. FWP places the concrete boat launch at Tucker West. A facility pin or the larger east-side parcel does not identify the correct water entry; inspect the approach, channel and current notices before unloading.',
+          source: { label: 'FWP Tucker Crossing west-side launch', url: 'https://myfwp.mt.gov/fishMT/fas/39754143' },
+        },
+        {
+          heading: 'Do not assume Poker Joe is available',
+          text: 'Poker Joe is walk-in only, with a quarter-mile carry. Its FWP page has a July 7 construction-closure notice with no year or reopening date. Confirm reopening with FWP before using it as a launch, finish or bailout. The notice does not establish a dated 2026 closure or a current opening.',
+          source: { label: 'FWP Poker Joe access and undated closure notice', url: 'https://myfwp.mt.gov/fishMT/fas/39754187' },
+        },
+        {
+          heading: 'Check stages before choosing a long combination',
+          text: 'Bell–Chief combines two estimated segments. The 72-mile Hannon–Chief catalog label does not reconcile with the current component labels, which total 65 miles; neither total establishes a validated valley-wide trip. Resolve distances, legal exits, private permissions and overnight arrangements stage by stage. The FWP inventory establishes facilities, not these full itineraries.',
+          source: { label: 'FWP Region 2 access inventory', url: 'https://myfwp.mt.gov/fishMT/region/2' },
+        },
+      ],
+    },
+  },
+  {
     riverId: 'woonasquatucket-river-rhode-island',
     mode: 'access-planning',
     reviewedOn: '2026-10-20',

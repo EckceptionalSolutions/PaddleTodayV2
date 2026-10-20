@@ -79,14 +79,22 @@ for (const review of routeGuidePublicationReviews) {
     }
     expect(await page.evaluate(() => document.documentElement.scrollWidth <= window.innerWidth + 1)).toBe(true);
     for (const slug of review.retainedGuides) {
-      // Access-planning cards select a plan; their independent guides are linked
-      // from the river's section navigation rather than inside the compact card.
+      // Access-planning cards select a plan. Independent guides are linked from
+      // editorial guidance and may also appear in existing section navigation.
       const guideLinks = planning
         ? page.locator(`main a[href="/rivers/${slug}/"]`)
         : page.locator(`[data-group-route-card][data-route-slug="${slug}"] a[href="/rivers/${slug}/"]`);
-      await expect(guideLinks).toHaveCount(1);
+      if (planning) await expect(guideLinks.first()).toBeVisible();
+      else await expect(guideLinks).toHaveCount(1);
     }
     if (review.mode === 'access-planning') {
+      for (const decision of review.guide.decisions) await expect(commonNotes).toContainText(decision.text);
+      if (review.riverId === 'bitterroot-river-montana') {
+        const sharedGuidance = commonNotes.locator('.access-planning-context__notes');
+        await sharedGuidance.locator('summary').click();
+        await expect(sharedGuidance).toContainText('no year or reopening date');
+        await expect(sharedGuidance).toContainText('neither total establishes a validated valley-wide trip');
+      }
       await expect(page.getByRole('heading', { name: 'Explore access plans', exact: true })).toBeVisible();
       await expect(page.locator('[data-group-sort], [data-group-refresh], .river-route-picker__toolbar, .route-choice__score-compact, .river-route-picker__selected-decision, .river-route-picker__nearby')).toHaveCount(0);
       await expect(page.locator('.river-hub-map-legend')).not.toContainText('Strong conditions');
