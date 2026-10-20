@@ -341,7 +341,7 @@ const groupDescription = isAccessPlanningHub
   : isLamoilleHub
   ? 'Plan a Lamoille River Paddlers’ Trail trip by reach. Compare the named day trips, mandatory falls and dam portages, Johnson gauge context, and route-specific access notes.'
   : isWoonasquatucketHub
-  ? 'Plan separate upper Woonasquatucket and lower Providence paddles. Compare public launch options, dam portages, urban and tidal hazards, and the unverified access gap below Greystone.'
+  ? 'Plan the upper Woonasquatucket paddle and two shorter Esmond choices. Check dam carries, current launch terms and why Whipple, lower-river and through-gap plans remain under access review.'
   : isBayouTecheHub
   ? 'Plan the Bayou Teche National Paddle Trail by town-to-town dock sections. Compare official mile markers, current public access notes, the St. Martinville portage, and planning-only water-level context.'
   : isSuwanneeHub
@@ -393,7 +393,7 @@ const woonasquatucketZones = isWoonasquatucketHub
   ? [
       {
         title: 'Upper river: Georgiaville to Greystone',
-        description: 'The guide documents short trips from Georgiaville Town Beach, Whipple Field and Esmond Park to Cricket Park at Greystone Mill Pond. The 2.5-mile Georgiaville-to-Cricket reach is the named upper paddle; the shorter endpoint choices remain available for planning.',
+        description: 'The approximately 2.5-mile Georgiaville-to-Cricket reach is the source-named upper paddle. Two shorter choices use Esmond’s park-portage access area, with estimated mileage and a required check of the dam-side landing and carry. Whipple choices remain under endpoint review.',
         slugs: [
           'woonasquatucket-river-georgiaville-whipple',
           'woonasquatucket-river-georgiaville-esmond',
@@ -405,7 +405,7 @@ const woonasquatucketZones = isWoonasquatucketHub
       },
       {
         title: 'Lower river: Manton to Providence',
-        description: 'Separate lower options follow the urban river from Manton Avenue through Riverside and Waterplace to South Water Street. Check dam carries, bridge debris, water-quality notices, events and tide conditions for the specific finish.',
+        description: 'The older lower-river endpoint plans are under review for launch identity, dam-side access, carries and tidal logistics. They are not currently offered as verified trips. WRWC now also documents a Kinsley Avenue launch; use its current local guidance when planning downtown.',
         slugs: [
           'woonasquatucket-river-manton-riverside',
           'woonasquatucket-river-manton-waterplace',
@@ -819,7 +819,7 @@ const faqItems = [
       : isLamoilleHub
       ? 'The Lamoille Paddlers’ Trail names separate day reaches from the upper valley through Johnson and Jeffersonville to Arrowhead Lake. This guide focuses on five documented day trips; use the trail map to plan other endpoint combinations, portages, and local hazards.'
       : isWoonasquatucketHub
-      ? 'Use this guide for the separate Georgiaville-to-Greystone upper paddle and Manton-to-Providence lower paddles. The WRWC guide says the intervening pond corridor has no public access points and four dam portages that are not well established, so there is no verified continuous through-trip between the zones.'
+      ? 'Use the named Georgiaville-to-Greystone paddle or a shorter Esmond planning option. Whipple and lower-river plans need corrected access evidence; the intervening pond corridor also remains unverified. This guide does not establish a continuous trip to Providence.'
       : isBayouTecheHub
       ? 'Start with the named public dock-to-dock sections below. The TECHE Project marks the mile-52.6 St. Martinville obstruction as a portage or advance lock-through; trips beyond that boundary need separate access planning. Longer endpoint combinations remain in the picker, and no route has a live score.'
       : isSuwanneeHub
@@ -1027,7 +1027,7 @@ const groupStructuredData = [
             : isLamoilleHub
             ? 'Choose from five named Lamoille Paddlers’ Trail day trips, then check the selected reach’s portages, water type, and access. The trail spans quiet water, rock gardens, falls, and Arrowhead Lake; a Johnson gauge reading does not describe every route hazard.'
             : isWoonasquatucketHub
-            ? 'Plan the upper Georgiaville–Greystone paddle and the lower Manton–Providence paddles as separate zones. The WRWC guide describes an unverified access and portage gap between them; check the source notes before planning a longer trip.'
+            ? 'Plan the upper Georgiaville–Greystone paddle or a shorter Esmond option. Check town launch terms, the actual dam-side landing and every carry. Other endpoint plans remain under access review; no continuous trip to Providence is established here.'
             : isBayouTecheHub
             ? 'Choose a town-to-town dock section on Louisiana’s Bayou Teche National Paddle Trail. Start with the named legs below, then compare longer itineraries in the picker. The upper and downstream trail sections have different portage and access needs.'
             : isSuwanneeHub
@@ -1804,7 +1804,7 @@ const groupStructuredData = [
           </div>
         </div>
         <p>
-          The <a href="https://wrwc.org/wp/wp-content/uploads/2020/05/completePaddlingGuide.pdf" rel="noopener">Woonasquatucket River Watershed Council paddling guide</a> describes separate upper, mill-pond and lower-river paddles. It says the Allendale and Lymans Mill Ponds corridor below Greystone has no public access points and four dam portages that are not well established. Treat Georgiaville-to-Greystone and Manton-to-Providence as separate trips; do not plan a continuous through-paddle across the pond corridor until its lawful access and carries are verified.
+          The <a href="https://wrwc.org/wp/wp-content/uploads/2020/05/completePaddlingGuide.pdf" rel="noopener">2012 Woonasquatucket River Watershed Council paddling guide</a> describes separate upper, mill-pond and lower-river paddles. It reports no public pond access and four unestablished dam portages in the Allendale/Lymans corridor below Greystone. That through-passage remains unverified here. Whipple and lower-river endpoint plans also need corrected landing and carry evidence and are currently withheld; the three upper planning choices below do not establish a continuous trip to Providence.
         </p>
         {woonasquatucketZones.map((zone) => (
           <div class="river-group-page__zone">
@@ -2621,26 +2621,10 @@ const groupStructuredData = [
           </div>
 
           <p>
-            The Woonasquatucket River Watershed Council says the Kinsley Avenue Boat Launch beside Farm Fresh Rhode Island opened with the Kinsley Avenue and Promenade Street Greenway project. WRWC's first documented downtown paddle from that launch went toward downtown on a rising tide. Those updates do not specify a fixed take-out or route distance, so use Kinsley as a current access reference rather than assuming it is an endpoint on one of the catalog routes below.
+            The Woonasquatucket River Watershed Council documents a Kinsley Avenue Boat Launch beside Farm Fresh Rhode Island and a 2026 downtown paddle on a rising tide. This is a current local access reference. It does not establish our older fixed endpoint pairs, their distances, or permission to land at Waterplace Park.
           </p>
 
-          <div class="river-hub-context__grid">
-            <article class="river-hub-context__item">
-              <h3>Riverside Park to Waterplace Park · about 2.3 mi</h3>
-              <p>WRWC confirms a canoe and kayak launch at Riverside Park and describes Waterplace Park as about 2.3 river miles away. The route page keeps that separate, fixed endpoint pair.</p>
-              <a href="/rivers/woonasquatucket-river-riverside-waterplace/">Review Riverside Park to Waterplace Park</a>
-            </article>
-            <article class="river-hub-context__item">
-              <h3>Waterplace Park to South Water Street</h3>
-              <p>This listed route continues to the tidal landing. Check the tide, downtown event closures, boat traffic, and current water-quality notices before using it as a take-out.</p>
-              <a href="/rivers/woonasquatucket-river-waterplace-south-water/">Review Waterplace Park to South Water Street</a>
-            </article>
-            <article class="river-hub-context__item">
-              <h3>Manton Avenue to Waterplace Park</h3>
-              <p>This longer listed pair crosses the urban corridor and Riverside structure. Inspect the portage and water conditions; do not treat the newer Kinsley launch as an intermediate access without confirming its current approach and rules.</p>
-              <a href="/rivers/woonasquatucket-river-manton-waterplace/">Review Manton Avenue to Waterplace Park</a>
-            </article>
-          </div>
+          <p>The former lower-river plans are withheld while their actual landings, dam carries, mileage and tidal logistics are corrected. A rental dock or a point passed on the water is not automatically a public launch or bailout.</p>
 
           <p>
             See WRWC's <a href="https://wrwc.org/wrwc-launches-the-downtown-paddle-season/" target="_blank" rel="noopener noreferrer">2026 Kinsley Avenue launch update</a> and <a href="https://wrwc.org/events/woonasquatucket-river-greenway-project-ribbon-cutting/" target="_blank" rel="noopener noreferrer">Greenway project completion notice</a>. WRWC separately lists the <a href="https://wrwc.org/what-we-do/greenway/parks/riverside-park/" target="_blank" rel="noopener noreferrer">Riverside Park canoe and kayak launch</a>. Confirm exact water entry, take-out, tide, and posted closures before departure.

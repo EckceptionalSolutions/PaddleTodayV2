@@ -26,6 +26,41 @@ const contoocookGuide = {
 
 export const routeGuidePublicationReviews: readonly RouteGuidePublicationReview[] = [
   {
+    riverId: 'woonasquatucket-river-rhode-island',
+    mode: 'access-planning',
+    reviewedOn: '2026-10-20',
+    rationale: 'Retain the named upper paddle and two source-supported Esmond alternatives as planning choices. Historical flow observations do not establish the copied 50-cfs cutoff. Nine inaccurate endpoint/access plans are held separately, preserving research; the existing sixteen cross-gap holds remain. Current source review supersedes the October 7 assumption that every lower endpoint pair had verified public landings.',
+    retainedGuides: ['woonasquatucket-river-georgiaville-cricket'],
+    hubOptions: ['woonasquatucket-river-georgiaville-esmond', 'woonasquatucket-river-esmond-cricket'],
+    guide: {
+      title: 'Plan the upper Woonasquatucket before choosing a launch',
+      introduction: 'The named Georgiaville-to-Greystone paddle and two shorter Esmond choices remain available. Scout the carries and check current access and water-quality notices. Centerdale telemetry is context; these plans have no same-day score.',
+      decisions: [
+        {
+          heading: 'The named upper trip includes dam carries',
+          text: 'WRWC’s 2012 guide names an approximately 2.5-mile Georgiaville-to-Greystone trip. It requires carrying around the Georgiaville spillway and arranging passage at Esmond Dam before continuing to Cricket Park. Check town launch terms and inspect every carry before departure.',
+          source: { label: 'WRWC upper-river guide, printed pages 12–15', url: 'https://wrwc.org/wp/wp-content/uploads/2020/05/completePaddlingGuide.pdf' },
+          route: { label: 'Read the Georgiaville-to-Greystone planning guide', slug: 'woonasquatucket-river-georgiaville-cricket' },
+        },
+        {
+          heading: 'Match the observation to its section',
+          text: 'The upper guide reports rock contact near 75 cfs and faster current near 200 cfs. Its separate 50-cfs observation concerns Manton-to-Atwells. These historical descriptions do not establish a calibrated cutoff for an upper trip or for tidal downtown water.',
+          source: { label: 'WRWC flow observations, printed pages 12–13 and 16–17', url: 'https://wrwc.org/wp/wp-content/uploads/2020/05/completePaddlingGuide.pdf' },
+        },
+        {
+          heading: 'Esmond is a portage-area choice',
+          text: 'The guide permits a shorter start or finish at Esmond. The stored pin marks a park-portage area, not an exact dam-side water entry. Shorter distances and times are estimates; arrange a suitable entry, exit and public carry before using either option.',
+          source: { label: 'Blueways Esmond Park Portage', url: 'https://exploreri.org/siteReport.php?siteID=344&src=criteria' },
+        },
+        {
+          heading: 'Other launches need a corrected plan',
+          text: 'Whipple, Manton, Riverside and downtown endpoint plans are under access review. Current WRWC trips use a new Kinsley Avenue launch; that does not validate our older endpoint combinations or establish a continuous upper-to-lower trip. Consult the operator for current local options.',
+          source: { label: 'WRWC May 2026 downtown paddle update', url: 'https://wrwc.org/wrwc-launches-the-downtown-paddle-season/' },
+        },
+      ],
+    },
+  },
+  {
     riverId: 'aroostook-river',
     mode: 'access-planning',
     reviewedOn: '2026-10-19',

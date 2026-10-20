@@ -316,6 +316,7 @@ export function serializeRiverGroupResult(args: {
 }
 
 export function serializePlanningRoute(route: River, weather: RiverScoreResult['weather'] = null): RiverDetailApiResult {
+  const usesProxy = route.gaugeSource.kind === 'proxy';
   return {
     river: {
       riverId: route.riverId,
@@ -366,20 +367,26 @@ export function serializePlanningRoute(route: River, weather: RiverScoreResult['
     readiness: {
       status: 'withheld',
       label: 'Withheld',
-      reason: 'This route uses a proxy gauge and does not receive same-day launch readiness.',
+      reason: usesProxy
+        ? 'This route uses a proxy gauge and does not receive same-day launch readiness.'
+        : 'This trip is documented for planning and does not receive same-day launch readiness.',
     },
     gaugeBand: 'unknown',
     gaugeBandLabel: 'Not scored',
-    explanation: 'This route is documented for planning, but Paddle Today does not issue a same-day score because its gauge is a proxy for this reach.',
+    explanation: usesProxy
+      ? 'This route is documented for planning, but Paddle Today does not issue a same-day score because its gauge is a proxy for this reach.'
+      : 'No reach-specific same-day score is issued for this planning route. Check current local water, access and hazards.',
     scoreBreakdown: {
       riverQuality: 0, windAdjustment: 0, temperatureAdjustment: 0, rainAdjustment: 0, comfortAdjustment: 0,
       rawTripScore: 0, finalScore: 0, capReasons: [], riverQualityExplanation: '', windExplanation: '',
       temperatureExplanation: '', rainExplanation: '', comfortExplanation: '',
     },
-    confidence: { score: 0, label: 'Low', level: 'low', reasons: ['Proxy gauge route'], warnings: ['Not scored'], rationale: [] },
+    confidence: { score: 0, label: 'Low', level: 'low', reasons: [usesProxy ? 'Proxy gauge route' : 'Planning-only route'], warnings: ['Not scored'], rationale: [] },
     liveData: {
       overall: 'offline', summary: 'This route is not scored.',
-      gauge: { state: 'unavailable', ageMinutes: null, detail: 'Proxy gauge routes are not used for same-day scoring.' },
+      gauge: { state: 'unavailable', ageMinutes: null, detail: usesProxy
+        ? 'Proxy gauge routes are not used for same-day scoring.'
+        : 'No scored gauge reading is included for this planning route. Check the linked station and local conditions.' },
       weather: { state: weather ? 'live' : 'unavailable', ageMinutes: null, detail: weather ? 'Local weather context only; it is not included in a route score.' : 'Local weather is unavailable right now.' },
     },
     factors: [],
