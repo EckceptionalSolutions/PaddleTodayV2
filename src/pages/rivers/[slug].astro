@@ -61,7 +61,10 @@ const targetBandValue = isPlanningRoute
       typeof river.profile.idealMax === 'number'
     ? `${formatThresholdValue(river.profile.idealMin)} to ${formatThresholdValue(river.profile.idealMax)}`
     : 'Needs paddler reports';
-const lowThresholdValue = isPlanningRoute ? 'Not calibrated for this trip' : formatThresholdValue(river.profile.tooLow);
+const minimumOnlyFloor = river.profile.tooLow ?? river.profile.idealMin;
+const lowThresholdValue = isPlanningRoute
+  ? 'Not calibrated for this trip'
+  : formatThresholdValue(isMinimumOnlyRoute ? minimumOnlyFloor : river.profile.tooLow);
 const highThresholdValue = isPlanningRoute ? 'Not calibrated for this trip' : formatThresholdValue(river.profile.tooHigh);
 const putIn = river.putIn;
 const takeOut = river.takeOut;
@@ -453,11 +456,9 @@ const routeFaqStructuredData = {
           <a class="river-detail__section-link" href="#route-gallery" data-detail-nav-link="reports" data-detail-nav-target="route-gallery">
             Photos &amp; reports
           </a>
-            {!isPlanningRoute ? (
-              <a class="river-detail__section-link" href="#why-this-call" data-detail-nav-link="sources" data-detail-nav-target="why-this-call">
-                Score &amp; sources
-              </a>
-          ) : null}
+          <a class="river-detail__section-link" href={isPlanningRoute ? '#planning-sources' : '#why-this-call'} data-detail-nav-link="sources" data-detail-nav-target={isPlanningRoute ? 'planning-sources' : 'why-this-call'}>
+            {isPlanningRoute ? 'Sources' : 'Score & sources'}
+          </a>
         </div>
       </nav>
 
@@ -1727,14 +1728,17 @@ const routeFaqStructuredData = {
       </div>
     </section>
 
-    <section class="river-detail__chapter-head river-detail__chapter-head--understand" aria-label="Score and sources chapter">
-      <p class="eyebrow section-label">Score &amp; sources</p>
+    <section class="river-detail__chapter-head river-detail__chapter-head--understand" aria-label={isPlanningRoute ? 'Planning sources chapter' : 'Score and sources chapter'}>
+      <p class="eyebrow section-label">{isPlanningRoute ? 'Sources' : 'Score & sources'}</p>
       <h2 class="river-detail__chapter-title">{isPlanningRoute ? 'Data and sources' : 'Why this score'}</h2>
       <p class="muted river-detail__chapter-copy">
-        See the gauge, weather, and source notes behind today&apos;s call.
+        {isPlanningRoute
+          ? 'Review the access evidence, route caveats, and original sources. This planning trip has no live score or verified scoring range.'
+          : 'See the gauge, weather, and source notes behind today’s call.'}
       </p>
     </section>
 
+    {!isPlanningRoute ? (
     <section class="status-banner status-banner--loading" data-detail-status-banner aria-live="polite">
       <div class="status-banner__eyebrow">Read quality</div>
       <div class="status-banner__body">
@@ -1767,8 +1771,15 @@ const routeFaqStructuredData = {
         </article>
       </div>
     </section>
+    ) : null}
 
-    <section class="river-detail__panel river-accordion-group" id="why-this-call" data-detail-section="why-this-call" data-detail-nav-group="sources">
+    <section
+      class="river-detail__panel river-accordion-group"
+      id={isPlanningRoute ? 'planning-sources' : 'why-this-call'}
+      data-detail-section={isPlanningRoute ? 'planning-sources' : 'why-this-call'}
+      data-detail-nav-group="sources"
+    >
+      {!isPlanningRoute ? <>
         <details class="river-accordion" data-confidence-explainer>
           <summary class="river-accordion__summary">
             <span>
@@ -1908,6 +1919,7 @@ const routeFaqStructuredData = {
           </table>
         </div>
       </details>
+      </> : null}
 
       <details class="river-accordion">
         <summary class="river-accordion__summary">
@@ -2009,7 +2021,7 @@ const routeFaqStructuredData = {
       </p>
     </section>
 
-    {isMinimumOnlyRoute ? (
+    {!isPlanningRoute && isMinimumOnlyRoute && Number.isFinite(minimumOnlyFloor) ? (
       <aside class="route-calibration-callout" aria-label="More level reports needed">
         <div>
           <p class="route-calibration-callout__kicker">More level reports needed</p>
