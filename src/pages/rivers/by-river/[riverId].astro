@@ -1975,7 +1975,7 @@ const groupStructuredData = [
         <label class="river-route-picker__sort">
           <span>Sort</span>
           <select data-group-sort>
-            <option value="recommended">{isAccessPlanningHub ? 'Default order' : 'Recommended'}</option>
+            <option value="recommended">{scoredRouteCount === 0 ? 'Default order' : 'Recommended'}</option>
             <option value="shortest">Shortest first</option>
             <option value="longest">Longest first</option>
             <option value="easiest">Easiest first</option>
