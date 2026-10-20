@@ -62,7 +62,7 @@ export function sendStatic(response: ServerResponse, filePath: string, includeBo
   return response;
 }
 
-export function resolveStaticFile(pathname: string, rootDir: string): string | null {
+export function resolveStaticFile(pathname: string, rootDir: string, compression?: ReadonlyMap<string, CompressedStaticFile>): string | null {
   const normalizedPath = pathname === '/' ? '/index.html' : pathname;
   const candidates = normalizedPath.endsWith('/')
     ? [`${normalizedPath}index.html`]
@@ -70,6 +70,15 @@ export function resolveStaticFile(pathname: string, rootDir: string): string | n
 
   for (const candidate of candidates) {
     const filePath = safeResolve(rootDir, candidate);
+    // The current package inventory is authoritative when an incremental deploy
+    // leaves older identity HTML beside its compressed replacement.
+    const compressedPath = filePath?.endsWith('.html') ? `${filePath}.gz` : null;
+    if (compressedPath && compression?.size) {
+      if (compression.has(compressedPath) && existsSync(compressedPath) && statSync(compressedPath).isFile()) return compressedPath;
+      // Removed or withheld pages must not reappear from a previous deployment.
+      continue;
+    }
+    if (filePath?.endsWith('.html.gz') && compression?.size && !compression.has(filePath)) continue;
     if (filePath && existsSync(filePath) && statSync(filePath).isFile()) {
       return filePath;
     }
@@ -79,7 +88,7 @@ export function resolveStaticFile(pathname: string, rootDir: string): string | n
   return null;
 }
 
-export function resolveNotFoundPage(pathname: string, accept: string | undefined, rootDir: string): string | null {
+export function resolveNotFoundPage(pathname: string, accept: string | undefined, rootDir: string, compression?: ReadonlyMap<string, CompressedStaticFile>): string | null {
   if (pathname === '/api' || pathname.startsWith('/api/')) return null;
   const acceptsHtml = (accept ?? '').split(',').some((entry) => {
     const [mediaType, ...parameters] = entry.split(';');
@@ -87,7 +96,7 @@ export function resolveNotFoundPage(pathname: string, accept: string | undefined
     const quality = parameters.find((parameter) => /^\s*q\s*=/i.test(parameter));
     return quality === undefined || Number(quality.split('=')[1].trim()) > 0;
   });
-  return acceptsHtml ? resolveStaticFile('/404', rootDir) : null;
+  return acceptsHtml ? resolveStaticFile('/404', rootDir, compression) : null;
 }
 
 export function resolvePublicAssetFile(pathname: string, publicDir: string): string | null {

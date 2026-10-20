@@ -228,11 +228,11 @@ const server = createServer(async (request, response) => {
     }
 
     if (staticDir) {
-      const staticFile = resolveStaticFile(requestUrl.pathname, staticDir);
+      const staticFile = resolveStaticFile(requestUrl.pathname, staticDir, staticCompression);
       if (staticFile) {
         return sendStatic(response, staticFile, includeBody, 200, staticCompression.get(staticFile));
       }
-      const notFoundPage = resolveNotFoundPage(requestUrl.pathname, request.headers.accept, staticDir);
+      const notFoundPage = resolveNotFoundPage(requestUrl.pathname, request.headers.accept, staticDir, staticCompression);
       if (notFoundPage) return sendStatic(response, notFoundPage, includeBody, 404, staticCompression.get(notFoundPage));
     }
 
