@@ -2062,7 +2062,7 @@ const groupStructuredData = [
                   {publicationReview || isWillimanticHub || isMerrimackHub || isSpokaneHub || isSaludaHub || isWabashHub || isGooseCreekHub || isKinniconickHub || isSouthLlanoHub || isVillageCreekHub || isElevenPointHub || isJacksForkHub || isCurrentRiverHub || isYellowBreechesHub || isSaltRiverHub || isAnimasHub || isHousatonicHub || isPenobscotHub || hasConsolidatedRoutePage ? (
                     <details class="route-choice__trip-notes">
                       <summary>{isJacksForkHub || isCurrentRiverHub || isYellowBreechesHub ? 'Access, gauge, shuttle, and camping notes' : isSaltRiverHub || isGooseCreekHub || isKinniconickHub ? 'Access, gauge, shuttle, and safety notes' : isAnimasHub || isHousatonicHub ? 'Access, flow, and safety notes' : isPenobscotHub ? 'Access, gauge, shuttle, camping, and safety notes' : 'Access, gauge, and safety notes'}</summary>
-                      <div>
+                      <div class="route-choice__trip-notes-panel">
                         <p>{route.logistics?.summary || route.summary}</p>
                         <p>
                           <strong>Put-in:</strong> {route.putIn?.name || 'See linked trail guide'}.
@@ -2210,6 +2210,13 @@ const groupStructuredData = [
           </div>
         </div>
       </div>
+      <section
+        class="river-route-picker__details"
+        id="river-hub-trip-details"
+        data-group-selected-notes
+        aria-labelledby="river-hub-trip-details-title"
+        hidden
+      ></section>
     </section>
 
     <section class="river-group-page__panel river-hub-context" aria-labelledby="river-hub-context-title">

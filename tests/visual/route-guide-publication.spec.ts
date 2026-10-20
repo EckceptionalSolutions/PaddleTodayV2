@@ -8,6 +8,7 @@ import fixture from '../mobile-web/fixtures/route-detail.json' with { type: 'jso
 for (const review of routeGuidePublicationReviews) {
   test(`${review.riverId}: retired URL preserves selected trip and notes after hydration`, async ({ page }) => {
     const pageErrors: string[] = [];
+    await page.addInitScript(() => localStorage.setItem('paddleTodayAppPromptDismissedAt', String(Date.now())));
     page.on('pageerror', error => { pageErrors.push(error.message); console.error('Pilot browser error:', error.message); });
     await installMapLibreHarness(page);
     const group = listRiverGroups().find(group => group.riverId === review.riverId)!;
@@ -35,8 +36,21 @@ for (const review of routeGuidePublicationReviews) {
     const selected = page.locator(`[data-group-route-card][data-route-slug="${selectedSlug}"]`);
     await expect(selected).toHaveClass(/route-choice--active/);
     await expect(selected.locator('[data-group-route-select]')).toHaveAttribute('aria-pressed', 'true');
-    const notes = selected.locator('details');
-    await notes.locator('summary').click();
+    await expect(page.locator('[data-group-route-list] details')).toHaveCount(0);
+    if (review.riverId === 'aroostook-river') {
+      await page.locator('.river-route-picker').screenshot({ path: `output/picker-layout/${test.info().project.name}-collapsed.png` });
+    }
+    await selected.locator('[data-group-trip-details]').click();
+    const detailsSection = page.locator('[data-group-selected-notes]');
+    const notes = detailsSection.locator('.route-choice__trip-notes--selected');
+    await expect(notes).toHaveAttribute('open', '');
+    await expect(detailsSection.locator('h3')).toHaveText(group.routes.find(route => route.slug === selectedSlug)!.reach);
+    const pickerBox = await page.locator('.river-route-picker__layout').boundingBox();
+    const detailsBox = await detailsSection.boundingBox();
+    const mapBox = await page.locator('[data-group-map]').boundingBox();
+    expect(detailsBox!.width).toBeGreaterThan(pickerBox!.width * 0.9);
+    expect(detailsBox!.y).toBeGreaterThanOrEqual(mapBox!.y + mapBox!.height);
+    expect(await notes.locator('.route-choice__trip-notes-panel').evaluate(element => parseFloat(getComputedStyle(element.querySelector('p')!).fontSize))).toBeGreaterThanOrEqual(14);
     await expect(notes).toContainText(group.routes.find(route => route.slug === selectedSlug)!.logistics!.shuttle);
     await expect(notes).toContainText(group.routes.find(route => route.slug === selectedSlug)!.gaugeSource.siteName);
     await expect(notes).toContainText(group.routes.find(route => route.slug === selectedSlug)!.safetyProfile!.safetyNotes[0]);
@@ -44,6 +58,19 @@ for (const review of routeGuidePublicationReviews) {
     if (review.mode === 'reach-guides') {
       const route = group.routes.find(route => route.slug === selectedSlug)!;
       await expect(notes).toContainText(`Published planning floor: ${route.profile.idealMin ?? route.profile.tooLow} ${route.gaugeSource.unit}`);
+    }
+    await expect(notes.locator('.route-choice__sources')).not.toHaveAttribute('open', '');
+    if (review.riverId === 'aroostook-river') {
+      await detailsSection.screenshot({ path: `output/picker-layout/${test.info().project.name}-expanded.png` });
+      if (test.info().project.name === 'desktop-chromium') {
+        await page.setViewportSize({ width: 900, height: 900 });
+        expect(await page.evaluate(() => document.documentElement.scrollWidth <= window.innerWidth + 1)).toBe(true);
+        const narrowPicker = await page.locator('.river-route-picker__layout').boundingBox();
+        const narrowDetails = await detailsSection.boundingBox();
+        expect(narrowDetails!.width).toBeGreaterThan(narrowPicker!.width * 0.9);
+        await detailsSection.screenshot({ path: 'output/picker-layout/tablet-expanded.png' });
+        await page.setViewportSize({ width: 1280, height: 800 });
+      }
     }
     expect(await page.evaluate(() => document.documentElement.scrollWidth <= window.innerWidth + 1)).toBe(true);
     for (const slug of review.retainedGuides) {
@@ -55,9 +82,13 @@ for (const review of routeGuidePublicationReviews) {
       await expect(page.locator('[data-group-sort] option[value="recommended"]')).toHaveText('Default order');
     }
     const secondSlug = review.hubOptions.at(-1)!;
+    const listSwitch = page.locator('[data-group-mobile-view="list"]');
+    if (await listSwitch.isVisible()) await listSwitch.click();
     await page.locator(`[data-group-route-card][data-route-slug="${secondSlug}"] [data-group-route-select]`).click();
     expect(pageErrors).toEqual([]);
     await expect(page).toHaveURL(new RegExp(`#trip-${secondSlug}$`));
+    await expect(detailsSection.locator('h3')).toHaveText(group.routes.find(route => route.slug === secondSlug)!.reach);
+    await expect(notes).toContainText(group.routes.find(route => route.slug === secondSlug)!.logistics!.shuttle);
     expect(await page.evaluate(() => document.documentElement.scrollWidth <= window.innerWidth + 1)).toBe(true);
     await page.locator('#choose-your-reach').scrollIntoViewIfNeeded();
     await page.screenshot({ path: `output/seo-structure-2026-10-19/${group.riverId}-${test.info().project.name}.png` });

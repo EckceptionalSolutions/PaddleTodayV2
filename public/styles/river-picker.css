@@ -1751,21 +1751,20 @@ html body.page-river-hub [data-initial-unavailable="true"] :is(
   }
 }
 
-/* Willimantic route options are fully explained on this page, so make their
-   per-trip notes feel like an intentional card section after client hydration. */
+/* Shared trip notes remain styled on every river that uses inline details. */
 html body.page-river-hub [data-river-id="willimantic-river-connecticut"] .river-route-picker .route-choice {
   overflow: hidden;
   gap: 0;
 }
 
-html body.page-river-hub [data-river-id="willimantic-river-connecticut"] .route-choice__trip-notes {
+html body.page-river-hub .route-choice__trip-notes {
   margin: 0 0.8rem 0.8rem;
   border: 1px solid rgba(31, 101, 119, 0.14);
   border-radius: 12px;
   background: rgba(246, 250, 250, 0.86);
 }
 
-html body.page-river-hub [data-river-id="willimantic-river-connecticut"] .route-choice__trip-notes > summary {
+html body.page-river-hub .route-choice__trip-notes > summary {
   display: flex;
   min-height: 2.55rem;
   align-items: center;
@@ -1777,16 +1776,16 @@ html body.page-river-hub [data-river-id="willimantic-river-connecticut"] .route-
   list-style: none;
 }
 
-html body.page-river-hub [data-river-id="willimantic-river-connecticut"] .route-choice__trip-notes > summary::-webkit-details-marker {
+html body.page-river-hub .route-choice__trip-notes > summary::-webkit-details-marker {
   display: none;
 }
 
-html body.page-river-hub [data-river-id="willimantic-river-connecticut"] .route-choice__trip-notes > summary span:first-child {
+html body.page-river-hub .route-choice__trip-notes > summary span:first-child {
   font-size: 0.78rem;
   font-weight: 850;
 }
 
-html body.page-river-hub [data-river-id="willimantic-river-connecticut"] .route-choice__trip-notes > summary span:last-child {
+html body.page-river-hub .route-choice__trip-notes > summary span:last-child {
   padding: 0.18rem 0.45rem;
   border-radius: 999px;
   background: rgba(31, 101, 119, 0.08);
@@ -1796,7 +1795,7 @@ html body.page-river-hub [data-river-id="willimantic-river-connecticut"] .route-
   letter-spacing: 0.035em;
 }
 
-html body.page-river-hub [data-river-id="willimantic-river-connecticut"] .route-choice__trip-notes > summary::after {
+html body.page-river-hub .route-choice__trip-notes > summary::after {
   content: "+";
   color: #1f6577;
   font-size: 1.1rem;
@@ -1804,37 +1803,37 @@ html body.page-river-hub [data-river-id="willimantic-river-connecticut"] .route-
   line-height: 1;
 }
 
-html body.page-river-hub [data-river-id="willimantic-river-connecticut"] .route-choice__trip-notes[open] > summary::after {
+html body.page-river-hub .route-choice__trip-notes[open] > summary::after {
   content: "−";
 }
 
-html body.page-river-hub [data-river-id="willimantic-river-connecticut"] .route-choice__trip-notes > summary:focus-visible {
+html body.page-river-hub .route-choice__trip-notes > summary:focus-visible {
   outline: 3px solid rgba(31, 101, 119, 0.3);
   outline-offset: -3px;
 }
 
-html body.page-river-hub [data-river-id="willimantic-river-connecticut"] .route-choice__trip-notes-panel {
+html body.page-river-hub .route-choice__trip-notes-panel {
   display: grid;
   gap: 0.65rem;
   padding: 0.05rem 0.72rem 0.8rem;
   border-top: 1px solid rgba(31, 101, 119, 0.1);
 }
 
-html body.page-river-hub [data-river-id="willimantic-river-connecticut"] .route-choice__trip-summary,
-html body.page-river-hub [data-river-id="willimantic-river-connecticut"] .route-choice__gauge-note {
+html body.page-river-hub .route-choice__trip-summary,
+html body.page-river-hub .route-choice__gauge-note {
   margin: 0;
   color: #3c535b;
   font-size: 0.76rem;
   line-height: 1.5;
 }
 
-html body.page-river-hub [data-river-id="willimantic-river-connecticut"] .route-choice__access-pair {
+html body.page-river-hub .route-choice__access-pair {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: 0.5rem;
 }
 
-html body.page-river-hub [data-river-id="willimantic-river-connecticut"] .route-choice__access-pair > div {
+html body.page-river-hub .route-choice__access-pair > div {
   display: grid;
   align-content: start;
   gap: 0.22rem;
@@ -1844,8 +1843,8 @@ html body.page-river-hub [data-river-id="willimantic-river-connecticut"] .route-
   background: rgba(255, 255, 255, 0.78);
 }
 
-html body.page-river-hub [data-river-id="willimantic-river-connecticut"] .route-choice__access-pair span,
-html body.page-river-hub [data-river-id="willimantic-river-connecticut"] .route-choice__note-group > strong {
+html body.page-river-hub .route-choice__access-pair span,
+html body.page-river-hub .route-choice__note-group > strong {
   color: #668089;
   font-size: 0.62rem;
   font-weight: 850;
@@ -1853,18 +1852,19 @@ html body.page-river-hub [data-river-id="willimantic-river-connecticut"] .route-
   text-transform: uppercase;
 }
 
-html body.page-river-hub [data-river-id="willimantic-river-connecticut"] .route-choice__access-pair strong {
+html body.page-river-hub .route-choice__access-pair strong {
   color: #183943;
   font-size: 0.74rem;
   line-height: 1.35;
 }
 
-html body.page-river-hub [data-river-id="willimantic-river-connecticut"] .route-choice__note-group {
+html body.page-river-hub .route-choice__note-group {
   display: grid;
+  align-content: start;
   gap: 0.28rem;
 }
 
-html body.page-river-hub [data-river-id="willimantic-river-connecticut"] .route-choice__note-group ul {
+html body.page-river-hub .route-choice__note-group ul {
   display: grid;
   gap: 0.22rem;
   margin: 0;
@@ -1875,15 +1875,174 @@ html body.page-river-hub [data-river-id="willimantic-river-connecticut"] .route-
 }
 
 @media (max-width: 480px) {
-  html body.page-river-hub [data-river-id="willimantic-river-connecticut"] .route-choice__trip-notes {
+  html body.page-river-hub .route-choice__trip-notes {
     margin-inline: 0.58rem;
   }
 
-  html body.page-river-hub [data-river-id="willimantic-river-connecticut"] .route-choice__trip-notes > summary span:last-child {
+  html body.page-river-hub .route-choice__trip-notes > summary span:last-child {
     font-size: 0.57rem;
   }
 
-  html body.page-river-hub [data-river-id="willimantic-river-connecticut"] .route-choice__access-pair {
+  html body.page-river-hub .route-choice__access-pair {
     grid-template-columns: 1fr;
+  }
+}
+
+/* Long notes live below the picker so opening them cannot displace the map. */
+html body.page-river-hub .river-route-picker > .river-group-page__section-head {
+  display: grid;
+  gap: 0.55rem;
+}
+
+html body.page-river-hub .river-route-picker .river-group-page__section-note {
+  max-width: 70ch;
+  margin: 0;
+  text-align: left;
+  font-size: 0.9rem;
+  line-height: 1.5;
+}
+
+html body.page-river-hub .route-choice__links {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.5rem;
+  padding: 0 0.85rem 0.75rem;
+}
+
+html body.page-river-hub .route-choice__details-button {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  min-height: 2.5rem;
+  padding: 0.35rem 0;
+  border: 0;
+  background: transparent;
+  color: #205b69;
+  font: inherit;
+  font-size: 0.85rem;
+  font-weight: 750;
+  cursor: pointer;
+}
+
+html body.page-river-hub .route-choice__details-button:focus-visible {
+  outline: 3px solid rgba(31, 101, 119, 0.4);
+  outline-offset: 3px;
+  border-radius: 4px;
+}
+
+html body.page-river-hub .river-route-picker__details {
+  margin-top: 1.5rem;
+  padding-top: 1.25rem;
+  border-top: 1px solid rgba(31, 101, 119, 0.14);
+  scroll-margin-top: 1.5rem;
+}
+
+html body.page-river-hub .river-route-picker__details[hidden] {
+  display: none;
+}
+
+html body.page-river-hub .river-route-picker__details-heading {
+  display: grid;
+  gap: 0.3rem;
+  margin-bottom: 0.8rem;
+}
+
+html body.page-river-hub .river-route-picker__details-heading h3 {
+  margin: 0;
+  color: var(--ink);
+  font: 700 1.2rem / 1.3 var(--serif);
+}
+
+html body.page-river-hub .route-choice__trip-notes--selected {
+  margin: 0;
+}
+
+html body.page-river-hub .route-choice__trip-notes--selected > summary {
+  justify-content: flex-start;
+  min-height: 3.25rem;
+  padding: 0.8rem 1rem;
+}
+
+html body.page-river-hub .route-choice__trip-notes--selected > summary::after {
+  margin-left: auto;
+}
+
+html body.page-river-hub .route-choice__trip-notes--selected > summary span:first-child {
+  font-size: 0.95rem;
+}
+
+html body.page-river-hub .route-choice__trip-notes--selected > summary span:last-child {
+  font-size: 0.75rem;
+}
+
+html body.page-river-hub .route-choice__trip-notes--selected .route-choice__trip-notes-panel {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1.25rem 2rem;
+  padding: 1.25rem;
+}
+
+html body.page-river-hub .route-choice__trip-notes-panel p {
+  margin: 0;
+  color: #3c535b;
+  font-size: 0.9rem;
+  line-height: 1.6;
+}
+
+html body.page-river-hub .route-choice__trip-notes--selected :is(
+  .route-choice__trip-summary, .route-choice__access-pair,
+  .route-choice__gauge-note, .route-choice__sources
+) {
+  grid-column: 1 / -1;
+}
+
+html body.page-river-hub .route-choice__trip-notes--selected .route-choice__access-pair strong {
+  font-size: 0.9rem;
+  line-height: 1.45;
+}
+
+html body.page-river-hub .route-choice__trip-notes--selected .route-choice__note-group > strong {
+  font-size: 0.75rem;
+}
+
+html body.page-river-hub .route-choice__trip-notes--selected .route-choice__note-group ul {
+  gap: 0.45rem;
+  font-size: 0.9rem;
+  line-height: 1.6;
+}
+
+html body.page-river-hub .route-choice__sources {
+  padding-top: 0.75rem;
+  border-top: 1px solid rgba(31, 101, 119, 0.14);
+  color: #205b69;
+  font-size: 0.9rem;
+}
+
+html body.page-river-hub .route-choice__sources > summary {
+  padding-block: 0.5rem;
+  cursor: pointer;
+  font-weight: 750;
+}
+
+html body.page-river-hub .route-choice__sources > div {
+  display: grid;
+  gap: 1rem;
+  padding-top: 0.75rem;
+}
+
+@media (max-width: 640px) {
+  html body.page-river-hub .route-choice__trip-notes--selected .route-choice__trip-notes-panel {
+    grid-template-columns: minmax(0, 1fr);
+    padding: 1rem;
+    gap: 1rem;
+  }
+
+  html body.page-river-hub .route-choice__trip-notes--selected .route-choice__access-pair {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  html body.page-river-hub .route-choice__trip-notes--selected > summary span:last-child {
+    font-size: 0.65rem;
   }
 }

@@ -77,6 +77,7 @@ const campingFilterSelect = root.querySelector('[data-group-camping-filter]');
 const routeTypeFilterSelect = root.querySelector('[data-group-route-type-filter]');
 const sortSelect = root.querySelector('[data-group-sort]');
 const selectedSummary = root.querySelector('[data-group-selected-summary]');
+const selectedNotes = root.querySelector('[data-group-selected-notes]');
 const moreFilters = root.querySelector('[data-group-more-filters]');
 const activeFilterCount = root.querySelector('[data-group-filter-count]');
 const clearFiltersButton = root.querySelector('[data-group-clear-filters]');
@@ -414,6 +415,13 @@ function conditionsLine(route) {
 }
 
 function tripNotesMarkup(route) {
+  if (selectedNotes instanceof HTMLElement && hasConsolidatedTrips && !isWillimanticHub) {
+    const href = routePageHref(route.slug);
+    const hasGuide = new URL(href, window.location.href).pathname === `/rivers/${route.slug}/`;
+    return `<div class="route-choice__links"><button type="button" class="route-choice__details-button" data-group-trip-details aria-controls="river-hub-trip-details">Trip details <span aria-hidden="true">→</span></button>${hasGuide
+      ? `<a class="river-link river-link--inline route-choice__details-link" href="${escapeHtml(href)}">Read reach guide</a>`
+      : ''}</div>`;
+  }
   if (reviewedPublicationHub) {
     const href = routePageHref(route.slug);
     const hasGuide = new URL(href, window.location.href).pathname === `/rivers/${route.slug}/`;
@@ -428,9 +436,33 @@ function tripNotesMarkup(route) {
   return routeTripNotesMarkup(route);
 }
 
-function selectedTripNotesMarkup(route) {
-  if (!hasConsolidatedTrips || isWillimanticHub) return '';
-  return routeTripNotesMarkup(route, 'route-choice__trip-notes route-choice__trip-notes--selected');
+function renderSelectedTripNotes(route) {
+  if (!(selectedNotes instanceof HTMLElement)) return;
+  const available = Boolean(route && hasConsolidatedTrips && !isWillimanticHub);
+  selectedNotes.hidden = !available;
+  if (!available) {
+    selectedNotes.replaceChildren();
+    return;
+  }
+  const wasOpen = selectedNotes.querySelector('details')?.open === true;
+  selectedNotes.innerHTML = `
+    <div class="river-route-picker__details-heading">
+      <span class="eyebrow">Your selected trip</span>
+      <h3 id="river-hub-trip-details-title">${escapeHtml(route.reach)}</h3>
+    </div>
+    ${routeTripNotesMarkup(route, 'route-choice__trip-notes route-choice__trip-notes--selected')}
+  `;
+  const details = selectedNotes.querySelector('details');
+  if (details instanceof HTMLDetailsElement) details.open = wasOpen;
+}
+
+function openSelectedTripNotes() {
+  const details = selectedNotes?.querySelector('details');
+  if (!(details instanceof HTMLDetailsElement)) return;
+  details.open = true;
+  const summary = details.querySelector('summary');
+  if (summary instanceof HTMLElement) summary.focus({ preventScroll: true });
+  selectedNotes.scrollIntoView({ block: 'start', behavior: 'auto' });
 }
 
 function routeTripNotesMarkup(route, className = 'route-choice__trip-notes') {
@@ -481,8 +513,7 @@ function routeTripNotesMarkup(route, className = 'route-choice__trip-notes') {
         ${noteList('Access notes', route.logistics?.accessCaveats)}
         ${noteList('Watch for', route.logistics?.watchFor)}
         ${noteList('Safety notes', route.safetyProfile?.safetyNotes)}
-        ${evidenceNotesMarkup}
-        ${sourceLinksMarkup}
+        ${evidenceNotesMarkup || sourceLinksMarkup ? `<details class="route-choice__sources"><summary>Sources and route evidence</summary><div>${evidenceNotesMarkup}${sourceLinksMarkup}</div></details>` : ''}
       </div>
     </details>
   `;
@@ -1355,6 +1386,14 @@ function renderRouteList(routes) {
       selectPickerRoute(card.dataset.routeSlug, { reveal: 'map' });
     });
   }
+  for (const button of Array.from(routeList.querySelectorAll('[data-group-trip-details]'))) {
+    button.addEventListener('click', () => {
+      const card = button.closest('[data-group-route-card]');
+      if (!(card instanceof HTMLElement) || !card.dataset.routeSlug) return;
+      selectPickerRoute(card.dataset.routeSlug, { reveal: 'map' });
+      openSelectedTripNotes();
+    });
+  }
 }
 
 function nearbyPickerRoutes(route) {
@@ -1381,6 +1420,7 @@ function nearbyPickerRoutes(route) {
 
 function renderSelectedSummary(route) {
   if (!(selectedSummary instanceof HTMLElement)) return;
+  renderSelectedTripNotes(route);
   if (!route) {
     selectedSummary.innerHTML = `
       <div class="river-route-picker__selected-copy">
@@ -1391,6 +1431,11 @@ function renderSelectedSummary(route) {
     return;
   }
   const nearby = nearbyPickerRoutes(route);
+  const routeHref = routePageHref(route.slug);
+  const hasReachGuide = new URL(routeHref, window.location.href).pathname === `/rivers/${route.slug}/`;
+  const detailsAction = selectedNotes instanceof HTMLElement && hasConsolidatedTrips && !isWillimanticHub && !hasReachGuide
+    ? '<button type="button" class="river-link river-link--inline" data-group-selected-details aria-controls="river-hub-trip-details">Trip details ↓</button>'
+    : `<a class="river-link river-link--inline" href="${escapeHtml(routeHref)}">${hasReachGuide ? 'Read reach guide' : 'View route details'}</a>`;
   const nearbyMarkup = nearby.length > 0
     ? `
       <div class="river-route-picker__nearby">
@@ -1421,11 +1466,12 @@ function renderSelectedSummary(route) {
       ? '<div class="river-route-picker__selected-decision river-route-picker__selected-decision--planning"><strong>—</strong><span>Call unavailable</span></div>'
       : `<div class="river-route-picker__selected-decision river-route-picker__selected-decision--${ratingToneKey(route.rating)}"><strong>${escapeHtml(String(route.score))}</strong><span>${escapeHtml(decisionLabel(route))}</span></div>`}
     <div class="river-route-picker__selected-actions">
-      <a class="river-link river-link--inline" href="${routePageHref(route.slug)}">${hasConsolidatedTrips ? 'View trip option' : 'View route details'}</a>
+      ${detailsAction}
     </div>
-    ${selectedTripNotesMarkup(route)}
     ${nearbyMarkup}
   `;
+
+  selectedSummary.querySelector('[data-group-selected-details]')?.addEventListener('click', openSelectedTripNotes);
 
   for (const button of Array.from(selectedSummary.querySelectorAll('[data-group-nearby-route]'))) {
     if (!(button instanceof HTMLButtonElement)) continue;
