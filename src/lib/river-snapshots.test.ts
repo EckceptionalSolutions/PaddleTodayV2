@@ -103,7 +103,7 @@ describe('stored river snapshot freshness', () => {
     expect(snapshot?.rivers[0].weekend.label).toBeTruthy();
   });
 
-  it('keeps difficulty choices and gauge metrics when rebuilding a river group from summary data', async () => {
+  it('keeps difficulty choices and gauge identity when rebuilding a river group from summary data', async () => {
     vi.useFakeTimers();
     vi.setSystemTime(new Date('2027-01-01T00:00:00.000Z'));
     const summary = await getStoredRiverSummarySnapshot({ allowStale: true });
@@ -114,6 +114,7 @@ describe('stored river snapshot freshness', () => {
     for (const route of snapshot!.result.routes) {
       expect(snapshot!.result.group.difficultyOptions).toContain(route.river.profile.difficulty);
       expect(route.river.gaugeSource.metric).toBe(getRiverBySlug(route.river.slug)!.gaugeSource.metric);
+      expect(route.river.gaugeSource.siteName).toBe(getRiverBySlug(route.river.slug)!.gaugeSource.siteName);
     }
   });
 
