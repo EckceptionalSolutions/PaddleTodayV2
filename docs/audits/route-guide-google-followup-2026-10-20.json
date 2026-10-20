@@ -1,0 +1,22 @@
+{
+  "checkedAt": "2026-10-20T13:26:31.849Z",
+  "source": "Fresh stored URL inspection in Search Console; new retrieval, not a live eligibility test",
+  "url": "https://paddletoday.com/rivers/by-river/aroostook-river/",
+  "status": "indexed",
+  "lastCrawlDisplayed": "Oct 20, 2026, 7:10:42 AM",
+  "timezone": "UI does not explicitly identify the timezone; display preserved without conversion",
+  "crawler": "Googlebot smartphone",
+  "fetch": "Successful",
+  "crawlAllowed": true,
+  "indexingAllowed": true,
+  "userCanonical": "https://paddletoday.com/rivers/by-river/aroostook-river/",
+  "googleSelectedCanonical": "Inspected URL",
+  "storedHtml": {
+    "title": "Aroostook River, Maine | Access & Trip Planning",
+    "descriptionIncludes": "Compare 9 access plans, shuttle notes and gauge context; these plans have no live paddle score.",
+    "canonicalMatches": true
+  },
+  "indexingRequestsThisCheck": 0,
+  "interpretation": "Confirmed crawl/indexing/canonical processing of the revised pilot hub. Does not establish ranking, impressions, clicks or sitewide recovery. Earlier request acceptance alone did not prove this result.",
+  "evidenceLocation": "Local output/seo-release-2026-10-20/google-stored-indexed-followup.json and aroostook-stored-indexed.jpg; private authenticated UI evidence stays local."
+}

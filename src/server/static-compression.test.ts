@@ -1,4 +1,4 @@
-import { mkdtemp, writeFile, rm } from 'node:fs/promises';
+import { mkdtemp, mkdir, writeFile, rm } from 'node:fs/promises';
 import { join, resolve, sep, basename } from 'node:path';
 import { tmpdir } from 'node:os';
 import { createServer, request } from 'node:http';
@@ -13,15 +13,22 @@ describe('lossless packaged HTML delivery', () => {
     const root = await mkdtemp(join(tmpdir(), 'paddle-compressed-static-'));
     const body = Buffer.from('<html><title>Rivière 🌊</title>' + '<p>Route conditions</p>'.repeat(300) + '</html>');
     const compressed = gzipSync(body);
+    // Incremental deployments can leave identity HTML from an older package.
+    await writeFile(join(root, 'index.html'), '<html>Old home</html>');
+    await writeFile(join(root, '404.html'), '<html>Old recovery page</html>');
+    await writeFile(join(root, 'obsolete.html'), '<html>Withheld old guide</html>');
+    await writeFile(join(root, 'obsolete.html.gz'), gzipSync('<html>Withheld old guide</html>'));
     await writeFile(join(root, 'index.html.gz'), compressed);
     await writeFile(join(root, '404.html.gz'), compressed);
-    await writeFile(join(root, '.static-compression.json'), JSON.stringify({ 'index.html.gz': { sourceBytes: body.length }, '404.html.gz': { sourceBytes: body.length } }));
+    await mkdir(join(root, 'retired'));
+    const redirect = Buffer.from('<html><link rel="canonical" href="https://paddletoday.com/rivers/by-river/example/"><meta http-equiv="refresh" content="0;url=https://paddletoday.com/rivers/by-river/example/#trip-retired"></html>');
+    await writeFile(join(root, 'retired/index.html'), '<html>Old standalone guide</html>');
+    await writeFile(join(root, 'retired/index.html.gz'), gzipSync(redirect));
+    await writeFile(join(root, '.static-compression.json'), JSON.stringify({ 'index.html.gz': { sourceBytes: body.length }, '404.html.gz': { sourceBytes: body.length }, 'retired/index.html.gz': { sourceBytes: redirect.length } }));
     const inventory = loadStaticCompressionManifest(root);
-    expect(resolveStaticFile('/', root)).toBe(join(root, 'index.html.gz'));
-    expect(resolveStaticFile('/../escape', root)).toBeNull();
     const server = createServer((req, res) => {
-      const found = resolveStaticFile(req.url!, root);
-      const target = found ?? resolveNotFoundPage(req.url!, req.headers.accept, root);
+      const found = resolveStaticFile(req.url!, root, inventory);
+      const target = found ?? resolveNotFoundPage(req.url!, req.headers.accept, root, inventory);
       if (!target) { res.writeHead(404); res.end(); return; }
       sendStatic(res, target, req.method !== 'HEAD', found ? 200 : 404, inventory.get(target));
     });
@@ -37,6 +44,10 @@ describe('lossless packaged HTML delivery', () => {
       });
     }
     try {
+      expect(resolveStaticFile('/', root)).toBe(join(root, 'index.html'));
+      expect(resolveStaticFile('/', root, new Map())).toBe(join(root, 'index.html'));
+      expect(resolveStaticFile('/', root, inventory)).toBe(join(root, 'index.html.gz'));
+      expect(resolveStaticFile('/../escape', root)).toBeNull();
       for (const encoding of ['gzip', 'GZIP;Q=0.5', '*;q=0, gzip;q=1', 'gzip;q=0', 'identity', 'br', '']) {
         const zipped = encoding === 'gzip' || encoding.includes('GZIP') || encoding.includes('gzip;q=1');
         const response = await get('/', encoding);
@@ -54,6 +65,18 @@ describe('lossless packaged HTML delivery', () => {
       const recovery = await get('/unknown', 'gzip');
       expect(recovery.status).toBe(404); expect(recovery.headers['cache-control']).toBe('no-store');
       expect(gunzipSync(recovery.body)).toEqual(body);
+      for (const path of ['/obsolete', '/obsolete.html', '/obsolete.html.gz']) {
+        const removed = await get(path, 'gzip');
+        expect(removed.status).toBe(404);
+        expect(removed.headers['cache-control']).toBe('no-store');
+        expect(gunzipSync(removed.body)).toEqual(body);
+      }
+      for (const encoding of ['gzip', 'identity']) {
+        const retired = await get('/retired/', encoding);
+        expect(retired.status).toBe(200);
+        expect(encoding === 'gzip' ? gunzipSync(retired.body) : retired.body).toEqual(redirect);
+        expect(Number(retired.headers['content-length'])).toBe(retired.body.length);
+      }
     } finally {
       server.close(); await once(server, 'close');
       if (!resolve(root).startsWith(resolve(tmpdir()) + sep) || !basename(root).startsWith('paddle-compressed-static-')) throw new Error('Unexpected cleanup directory');

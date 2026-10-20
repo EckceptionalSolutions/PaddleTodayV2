@@ -1,0 +1,171 @@
+{
+  "reviewedOn": "2026-10-20",
+  "purpose": "Check the actual itinerary implied by the upper Kennebec access pairs before making further search-guide consolidation decisions.",
+  "decision": "Withhold six unsupported combinations through the existing human-reviewed access-hold process. Preserve all source records and the nine other public Kennebec planning choices. Remove the held macro's consolidation redirect so it cannot select a missing card.",
+  "scope": {
+    "publicTripsBefore": 15,
+    "publicTripsAfter": 9,
+    "newHolds": 6,
+    "previouslyWithheldTrips": 2,
+    "standaloneGuidesBefore": 10,
+    "standaloneGuidesAfter": 5
+  },
+  "limits": "A desk review, not a site inspection or a complete certification of the nine retained trips. The geometry fallback metadata initiated research but is not the reason for withholding. Source coordinates describe access anchors and do not establish the exact current wet entry. No gauges, recreational cutoffs or scoring eligibility were changed. This is an itinerary correction, not a controlled test of URL count or evidence of Google recovery.",
+  "sources": [
+    {
+      "id": "maine-launch-inventory",
+      "url": "https://www1.maine.gov/dacf/parks/water_activities/boating/public_boat_launches/boat_sites.shtml",
+      "finding": "The checked Kennebec launch coordinates match the catalog. The source documents access sites, not arbitrary continuous trips between them. It distinguishes two Starks sites and two Fairfield sites."
+    },
+    {
+      "id": "maine-dams",
+      "url": "https://gis.maine.gov/mapservices/rest/services/dep/Maine_DEP_Dams_Impoundments/MapServer/5",
+      "query": "query?where=UPPER(RIVER) LIKE '%KENNEBEC%'&outFields=NAME,POP_NAME,TOWN,RIVER,FERC_PROJECT_NAME,LATITUDE,LONGITUDE,Status&returnGeometry=false&f=json",
+      "finding": "State point inventory establishes dam locations relative to the authored access pairs. Null Status values are not treated as proof of present operating status. Removed Edwards Dam is excluded from the barrier findings.",
+      "locations": [
+        {
+          "project": "Williams",
+          "latitude": 44.95967785,
+          "longitude": -69.86958546
+        },
+        {
+          "project": "Anson",
+          "latitude": 44.79852445,
+          "longitude": -69.88856702
+        },
+        {
+          "project": "Abenaki",
+          "latitude": 44.79232889,
+          "longitude": -69.88593084
+        },
+        {
+          "project": "Weston north channel",
+          "latitude": 44.76493647,
+          "longitude": -69.72133466
+        },
+        {
+          "project": "Weston south channel",
+          "latitude": 44.76378664,
+          "longitude": -69.71817065
+        },
+        {
+          "project": "Shawmut",
+          "latitude": 44.63073031,
+          "longitude": -69.58312839
+        },
+        {
+          "project": "Hydro-Kennebec",
+          "latitude": 44.56385171,
+          "longitude": -69.62045209
+        },
+        {
+          "project": "Lockwood",
+          "latitude": 44.54795649,
+          "longitude": -69.62724508
+        }
+      ]
+    },
+    {
+      "id": "solon-recreation",
+      "url": "https://solon.maine.gov/pages/recreational-areas",
+      "finding": "The Town distinguishes the Williams Dam boat launches north of the dam from the lower canoe-portage area. It does not establish the catalog's above-dam start as a continuous downstream launch."
+    },
+    {
+      "id": "source-to-sea",
+      "url": "https://riversforchange.org/2024-kennebec-source-to-sea/",
+      "finding": "The firsthand trip organizers document downstream travel from Norridgewock to an above-dam Skowhegan finish and link their map and section descriptions. The catalog's Skowhegan-to-Norridgewock order is reversed. The historical trip is not current permission or a present safety guarantee."
+    },
+    {
+      "id": "paddle-sections",
+      "url": "https://docs.google.com/document/d/1AZHTAX6HTrPkuAq1P3FQ9Aj7PgYEhQdo/edit",
+      "retrieval": "Public text export linked directly by the Rivers for Change trip page; sections 7 through 11 inspected.",
+      "finding": "Section 7 starts below Williams Dam at 44.95704,-69.87043. Section 8 starts below the Madison dam area at 44.78645,-69.8887 and finishes in Skowhegan at 44.76274,-69.72048. Section 9 treats the gorge separately. Section 10's Waterville finish is upstream of Hydro-Kennebec, unlike the catalog's below-Lockwood Waterville launch. Section 11 separately describes the Waterville-to-Augusta corridor. Do not transfer its older flow advice, construction schedule, or other incidental claims."
+    },
+    {
+      "id": "cleaver-access",
+      "url": "https://www.skowhegan.org/facilities/facility/details/Cleaver-Boat-Landing-37",
+      "finding": "The Town identifies Cleaver Boat Landing on Canaan Road as a public Kennebec boat access. Its facility record and the state launch coordinate identify the catalog's Somerset Woods access; it is distinct from the above-dam finish in the section guide."
+    },
+    {
+      "id": "current-restoration",
+      "url": "https://kennebectrust.org/restore/",
+      "finding": "The restoration organization describes Weston, Shawmut, Hydro-Kennebec and Lockwood as facilities that continue operating during a multi-year restoration process. A future removal proposal cannot establish current free passage."
+    },
+    {
+      "id": "madison-boundary",
+      "url": "https://www1.maine.gov/ifw/fishing-boating/fishing/laws-rules/special-laws.html",
+      "finding": "Current state river descriptions use the Abenaki lower dam as a reach boundary downstream toward Skowhegan. Used only to corroborate the physical boundary, not to provide fishing or boating legal advice."
+    }
+  ],
+  "holds": [
+    {
+      "slug": "kennebec-river-solon-madison",
+      "finding": "The authored Solon launch is above Williams Dam; the independently documented paddle leg starts below it. Generic shuttle and hazard notes omit the required transfer.",
+      "releaseRequires": "Verify a lawful above-dam take-out, carry and below-dam relaunch, or correct the intended start to a verified below-dam access and inspect its regenerated map."
+    },
+    {
+      "slug": "kennebec-river-madison-starks",
+      "finding": "The authored start is above Anson/Abenaki and the finish is below that dam area. The paddle guide's Madison start is already below the dams.",
+      "releaseRequires": "Verify the land transfers and separate paddle legs, or establish the intended below-dam itinerary. Recheck the eight-mile claim rather than retaining the estimate automatically."
+    },
+    {
+      "slug": "kennebec-river-starks-skowhegan",
+      "finding": "The authored finish is below Weston and the gorge. The documented flatwater section finishes above the dam, with the gorge described separately.",
+      "releaseRequires": "Verify the Weston transfer and exact gorge exposure, or establish a lawful above-dam finish. Preserve the distinction between a flatwater trip and a gorge trip."
+    },
+    {
+      "slug": "kennebec-river-skowhegan-norridgewock",
+      "finding": "The endpoint order is upstream and spans the Weston boundary; swapping endpoints would still leave an unverified dam/gorge itinerary.",
+      "releaseRequires": "Verify the intended downstream start and above-dam take-out, with exact public access and freshly checked geometry. Do not silently reverse the existing pair."
+    },
+    {
+      "slug": "kennebec-river-norridgewock-waterville",
+      "finding": "The catalog's below-Lockwood finish makes this a four-dam corridor, with a separate Skowhegan gorge boundary, rather than the generic continuous day trip described.",
+      "releaseRequires": "Verify all required take-outs, lawful carries or vehicle transfers, relaunches and separate paddle legs; reassess time, distance and required skills."
+    },
+    {
+      "slug": "kennebec-river-solon-norridgewock",
+      "finding": "This macro spans Williams and the Madison dams, and its related-route chain includes the reversed Skowhegan leg.",
+      "releaseRequires": "Establish the actual downstream itinerary independently, with verified transfers and leg geometry. Do not restore the former four-part chain merely because individual launch pins are on water."
+    }
+  ],
+  "retainedScope": "The nine Waterville/Sidney-to-Augusta and tidal choices keep their existing station contexts and publication decisions. The desk review does not certify their mileage, tide timing, exact landings or current access. Those remain review work.",
+  "verification": {
+    "status": "published-and-verified",
+    "focusedTestsPassed": 42,
+    "productionBuild": "passed",
+    "wholeSiteIndexabilityAudit": "passed: no errors or warnings",
+    "sitemapUrls": 2485,
+    "publicHubTrips": 9,
+    "publicApiTrips": 9,
+    "newlyHeldUrlsReturning404": 6,
+    "retainedChoicesReturning200": 9,
+    "retainedStandaloneGuides": 5,
+    "retainedConsolidationRedirects": 4,
+    "browser": {
+      "hydratedCards": 9,
+      "heldCards": 0,
+      "horizontalOverflow": false,
+      "explicitNoLiveScoreCopy": true
+    },
+    "geometryCoverage": "Updated existing asset coverage and catalog fingerprints; six Maine features removed, no retained geometry changed, original generation fingerprint preserved.",
+    "overview": "Regenerated from public catalog; removes the six newly held Kennebec features plus eighteen features for routes already withheld before this review. No additional route publication changes.",
+    "production": {
+      "pullRequest": "https://github.com/EckceptionalSolutions/PaddleTodayV2/pull/89",
+      "mergeCommit": "2503b0c9ead7b195d25cf0e47fd9079d683a5794",
+      "frontendRun": 39431333186,
+      "apiRun": 39431338172,
+      "workerStartedAt": "2026-10-20T13:45:37.634Z",
+      "verifiedAt": "2026-10-20T13:46:20.778Z",
+      "origins": [
+        "https://paddletoday.com",
+        "https://paddletodayapi-h7efgxcfg9h7gne9.centralus-01.azurewebsites.net"
+      ],
+      "heldPathsReturning404PerOrigin": 6,
+      "retainedChoicesPerOrigin": 9,
+      "sitemapUrls": 2485,
+      "pilot": "All four original hubs, 24 pilot choices, 19 selected-trip redirects and five retained guides verified after this deployment."
+    }
+  },
+  "googleAssessment": "No recovery conclusion. Record this accuracy intervention separately from the four-family consolidation pilot and wait for confirmed crawls, indexing and performance evidence."
+}

@@ -61,7 +61,14 @@ const targetBandValue = isPlanningRoute
       typeof river.profile.idealMax === 'number'
     ? `${formatThresholdValue(river.profile.idealMin)} to ${formatThresholdValue(river.profile.idealMax)}`
     : 'Needs paddler reports';
-const lowThresholdValue = isPlanningRoute ? 'Not calibrated for this trip' : formatThresholdValue(river.profile.tooLow);
+const minimumOnlyFloor = river.profile.tooLow ?? river.profile.idealMin;
+const hasMinimumOnlyFloor = Number.isFinite(minimumOnlyFloor)
+  && (river.gaugeSource.unit !== 'cfs' || (minimumOnlyFloor ?? 0) > 0);
+const lowThresholdValue = isPlanningRoute
+  ? 'Not calibrated for this trip'
+  : isMinimumOnlyRoute && !hasMinimumOnlyFloor
+    ? 'Not established for this trip'
+    : formatThresholdValue(isMinimumOnlyRoute ? minimumOnlyFloor : river.profile.tooLow);
 const highThresholdValue = isPlanningRoute ? 'Not calibrated for this trip' : formatThresholdValue(river.profile.tooHigh);
 const putIn = river.putIn;
 const takeOut = river.takeOut;
@@ -332,8 +339,10 @@ const routeFaqSubject = isLittleMiamiKelleyMilford
 
 const waterLevelAnswer = isPlanningRoute
   ? `This planning route has no verified scoring range or live route score. Review the linked water-level sources, current access notices and route-specific hazards before travel.`
-  : isMinimumOnlyRoute
+  : isMinimumOnlyRoute && hasMinimumOnlyFloor
   ? `Paddle Today watches ${river.gaugeSource.siteName} and uses ${lowThresholdValue} as the conservative low-water floor for this route. The ideal range still needs more paddler reports.`
+  : isMinimumOnlyRoute
+    ? `No low-water floor or ideal range is established for this route.${Number.isFinite(river.profile.tooHigh) ? ` Paddle Today uses an upper-flow screen of ${highThresholdValue} at ${river.gaugeSource.siteName}; a reading below that screen does not establish safe passage.` : ''} Review the linked source and exact reach hazards before travel.`
   : `Paddle Today watches ${river.gaugeSource.siteName} and treats ${targetBandValue} as the target band for this route, with weather and recent trend included in the final score.`;
 const beginnerAnswer = isLittleMiamiKelleyMilford
   ? `Paddle Today lists this route as moderate and notes Class I–II play features, low-head-dam remnants, strainers, and cold-water hazards. Review current levels and the hazard notes against your group's experience and equipment before launching.`
@@ -453,11 +462,9 @@ const routeFaqStructuredData = {
           <a class="river-detail__section-link" href="#route-gallery" data-detail-nav-link="reports" data-detail-nav-target="route-gallery">
             Photos &amp; reports
           </a>
-            {!isPlanningRoute ? (
-              <a class="river-detail__section-link" href="#why-this-call" data-detail-nav-link="sources" data-detail-nav-target="why-this-call">
-                Score &amp; sources
-              </a>
-          ) : null}
+          <a class="river-detail__section-link" href={isPlanningRoute ? '#planning-sources' : '#why-this-call'} data-detail-nav-link="sources" data-detail-nav-target={isPlanningRoute ? 'planning-sources' : 'why-this-call'}>
+            {isPlanningRoute ? 'Sources' : 'Score & sources'}
+          </a>
         </div>
       </nav>
 
@@ -1033,8 +1040,10 @@ const routeFaqStructuredData = {
           <p class="river-detail__gauge-note-summary">
             {isPlanningRoute
               ? `Planning only · no route-specific flow band · ${river.gaugeSource.siteName} is context only`
-              : isMinimumOnlyRoute
+              : isMinimumOnlyRoute && hasMinimumOnlyFloor
                 ? `Minimum ${lowThresholdValue} · ${river.gaugeSource.siteName}`
+                : isMinimumOnlyRoute && Number.isFinite(river.profile.tooHigh)
+                  ? `Upper-flow screen ${highThresholdValue} · ${river.gaugeSource.siteName}`
                 : `${targetBandLabel}: ${targetBandValue} · ${river.gaugeSource.siteName}`}
           </p>
           <details class="river-detail__gauge-note-details">
@@ -1727,14 +1736,17 @@ const routeFaqStructuredData = {
       </div>
     </section>
 
-    <section class="river-detail__chapter-head river-detail__chapter-head--understand" aria-label="Score and sources chapter">
-      <p class="eyebrow section-label">Score &amp; sources</p>
+    <section class="river-detail__chapter-head river-detail__chapter-head--understand" aria-label={isPlanningRoute ? 'Planning sources chapter' : 'Score and sources chapter'}>
+      <p class="eyebrow section-label">{isPlanningRoute ? 'Sources' : 'Score & sources'}</p>
       <h2 class="river-detail__chapter-title">{isPlanningRoute ? 'Data and sources' : 'Why this score'}</h2>
       <p class="muted river-detail__chapter-copy">
-        See the gauge, weather, and source notes behind today&apos;s call.
+        {isPlanningRoute
+          ? 'Review the access evidence, route caveats, and original sources. This planning trip has no live score or verified scoring range.'
+          : 'See the gauge, weather, and source notes behind today’s call.'}
       </p>
     </section>
 
+    {!isPlanningRoute ? (
     <section class="status-banner status-banner--loading" data-detail-status-banner aria-live="polite">
       <div class="status-banner__eyebrow">Read quality</div>
       <div class="status-banner__body">
@@ -1767,8 +1779,15 @@ const routeFaqStructuredData = {
         </article>
       </div>
     </section>
+    ) : null}
 
-    <section class="river-detail__panel river-accordion-group" id="why-this-call" data-detail-section="why-this-call" data-detail-nav-group="sources">
+    <section
+      class="river-detail__panel river-accordion-group"
+      id={isPlanningRoute ? 'planning-sources' : 'why-this-call'}
+      data-detail-section={isPlanningRoute ? 'planning-sources' : 'why-this-call'}
+      data-detail-nav-group="sources"
+    >
+      {!isPlanningRoute ? <>
         <details class="river-accordion" data-confidence-explainer>
           <summary class="river-accordion__summary">
             <span>
@@ -1869,7 +1888,7 @@ const routeFaqStructuredData = {
                 <td>{targetBandValue}</td>
               </tr>
               <tr>
-                <td>{isMinimumOnlyRoute ? 'Known low-water floor' : 'Low threshold'}</td>
+                <td>{isMinimumOnlyRoute && hasMinimumOnlyFloor ? 'Known low-water floor' : 'Low threshold'}</td>
                 <td>{lowThresholdValue}</td>
               </tr>
               <tr>
@@ -1908,6 +1927,7 @@ const routeFaqStructuredData = {
           </table>
         </div>
       </details>
+      </> : null}
 
       <details class="river-accordion">
         <summary class="river-accordion__summary">
@@ -2009,7 +2029,7 @@ const routeFaqStructuredData = {
       </p>
     </section>
 
-    {isMinimumOnlyRoute ? (
+    {!isPlanningRoute && isMinimumOnlyRoute && hasMinimumOnlyFloor ? (
       <aside class="route-calibration-callout" aria-label="More level reports needed">
         <div>
           <p class="route-calibration-callout__kicker">More level reports needed</p>

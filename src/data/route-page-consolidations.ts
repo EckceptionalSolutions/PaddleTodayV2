@@ -994,7 +994,8 @@ const pascagoulaConsolidatedRouteSlugs = [
 ] as const;
 
 const kennebecConsolidatedRouteSlugs = [
-  'kennebec-river-solon-norridgewock',
+  // Solon–Norridgewock is withheld for itinerary review; a redirect must not
+  // select a missing trip card or imply that the unsupported chain is offered.
   'kennebec-river-augusta-gardiner',
   'kennebec-river-gardiner-bath',
   'kennebec-river-richmond-bath',

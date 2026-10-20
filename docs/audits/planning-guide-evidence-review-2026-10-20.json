@@ -1,0 +1,47 @@
+{
+  "reviewedOn": "2026-10-20",
+  "purpose": "Align standalone planning guides with the evidence they actually provide while retaining useful source material.",
+  "findings": [
+    "669 built planning guides rendered a claim that a low-water floor is known, selected only from thresholdModel. Their headers and FAQ correctly said that no verified scoring range or live score is provided.",
+    "The shared planning stylesheet and planning API renderer hide the complete why-this-call panel. This also hid access evidence notes and original source links on all 963 standalone planning guides.",
+    "One scored minimum-only guide, fox-river-sunset-kimberly-lutz-appleton, stores idealMin: 0 as a placeholder for an upper-only 6000 cfs screen. The template must not interpret that zero-discharge value as evidence of a known low-water floor."
+  ],
+  "changes": [
+    "Render a separate planning-sources section and Sources navigation link for planning guides. Preserve every evidence note and original source link.",
+    "Do not emit score-confidence panels, threshold tables or live-input score status banners on planning guides. Retain those elements on scored guides.",
+    "Show the minimum-only calibration callout only on scored guides with an actual finite model floor; zero discharge does not establish one. Preserve finite stage-datum floors. An upper-only screen must not claim that a lower reading establishes safe passage. Fox itself is now held for source-confirmed itinerary review rather than retained as a scored guide. No scoring profile is changed.",
+    "Extend the built indexability audit to reject planning-guide calibration claims, missing evidence sections, missing Sources links and score explanation panels."
+  ],
+  "preserved": [
+    "Route and hub publication decisions",
+    "All URLs and canonical targets",
+    "2485 sitemap URLs",
+    "Gauge assignments",
+    "Scoring eligibility and numeric scoring profiles",
+    "Access coordinates, hazard notes and shuttle terms"
+  ],
+  "verification": {
+    "status": "planning-template-merged-deployments-succeeded-source-hold-followup-locally-validated",
+    "fullTypecheck": "passed",
+    "finalProductionBuild": "passed",
+    "wholeSiteIndexabilityAudit": "passed with no errors or warnings",
+    "initialTemplateRelease": {"pullRequest":90,"planningGuidesChecked":963,"planningMinimumGuidesWithoutCalibrationClaim":669,"browserCasesPassed":10,"sitemapUrls":2485},
+    "planningGuidesChecked": 962,
+    "planningMinimumGuidesWithoutCalibrationClaim": 668,
+    "planningGuidesPreservingEveryEvidenceNoteAndSourceLink": 962,
+    "browserCasesPassed": 8,
+    "browserCoverage": "Desktop and iPhone: minimum-only and other planning guides after API hydration; planning sources during API failure; supported scored minimum-only guidance. Sources navigation, disclosures, JavaScript errors and horizontal overflow checked. Fox is held rather than included as a scored browser fixture.",
+    "scoredMinimumGuidesReviewed": 336,
+    "scoredMinimumGuidesPreservingCalibrationCallout": 336,
+    "upperOnlySourceContradictedGuideHeld": 1,
+    "sitemapUrlsAfterSeparateSourceHolds": 2483
+  },
+  "limits": "This corrects presentation and source access. It does not newly verify every source, numeric threshold, itinerary, mileage or current launch status. Exposing the evidence does not establish that the evidence is sufficient. No Google recovery conclusion follows from a build, deployment or URL count.",
+  "remaining": "Resolve the filtered planning mileage/anchor review queue, continue family-level editorial review, and assess confirmed Google processing and later family performance.",
+  "upperOnlySourceReview": {
+    "url": "https://newp.club/hov-locks-paddle/",
+    "checkedOn": "2026-10-20",
+    "sourceDate": "2024-08-19",
+    "finding": "The club describes replacing its Appleton Locks event when flow exceeded its 6000 cfs screen. This documents an upper screen, not a low-water floor, calibrated ideal range, present lock availability or a guarantee of passage below the screen."
+  }
+}

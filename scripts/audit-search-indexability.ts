@@ -48,6 +48,9 @@ const titles = new Map<string, string[]>();
 const routeHeadings = new Map<string, string[]>();
 const routeDescriptions = new Map<string, string[]>();
 const routeLinks = new Map<string, Set<string>>();
+const planningRoutePaths = new Set(listRivers()
+  .filter(route => route.scoreEligibility === 'planning' && hasStandaloneRoutePage(route.slug))
+  .map(route => `/rivers/${route.slug}/`));
 for (const value of urls) {
   const url = new URL(value);
   if (url.origin !== origin || url.search || url.hash) errors.push(`Noncanonical sitemap URL: ${value}`);
@@ -78,6 +81,21 @@ for (const value of urls) {
       .map((tag) => normalizedText(attr(tag, 'content')));
     if (descriptions.length !== 1 || !descriptions[0]) errors.push(`Route page must have exactly one nonempty meta description: ${value}`);
     else routeDescriptions.set(descriptions[0], [...(routeDescriptions.get(descriptions[0]) || []), url.pathname]);
+  }
+  if (planningRoutePaths.has(url.pathname)) {
+    if (/Only a low-water floor is known|We can tell when this route is likely too low/.test(html)) {
+      errors.push(`Planning guide must not claim a calibrated low-water floor: ${value}`);
+    }
+    const sources = tags(html, 'section').find(tag => attr(tag, 'id') === 'planning-sources');
+    if (!sources || attr(sources, 'data-detail-section') !== 'planning-sources' || /\shidden(?:\s|=|>)/i.test(sources)) {
+      errors.push(`Planning guide must expose its evidence and source section: ${value}`);
+    }
+    if (!tags(html, 'a').some(tag => attr(tag, 'href') === '#planning-sources')) {
+      errors.push(`Planning guide must link to its source section: ${value}`);
+    }
+    if (tags(html, 'section').some(tag => attr(tag, 'id') === 'why-this-call')) {
+      errors.push(`Planning guide must not emit a score explanation panel: ${value}`);
+    }
   }
   for (const tag of tags(html, 'a')) {
     const href = attr(tag, 'href');

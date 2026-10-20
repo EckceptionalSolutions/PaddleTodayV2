@@ -16,6 +16,8 @@ Where the evidence primarily establishes access sites and contextual telemetry, 
 
 Retain useful maps, endpoint choices, saved-plan links, access restrictions, sources, hazards and shuttle details. Keep these records available to the product; changing their search presentation must not silently change scoring eligibility or hide condition/hazard boundaries. Use the existing withholding process for an actual accuracy or access failure rather than conceal it by consolidation.
 
+Keep planning-guide evidence and original source links visible without a live API response. A stored threshold-model label does not establish a calibrated low-water floor for a planning trip. Planning pages must not inherit score explanations, calibration claims or range-confidence panels from scored guides. The built indexability audit checks this distinction on every standalone planning guide; browser checks cover source access after hydration and during an API failure. Scored minimum-only guidance keeps the finite floor used by its scoring model.
+
 ## Page responsibilities
 
 - State pages help discover and compare rivers and link directly to the current guide or selected access plan.

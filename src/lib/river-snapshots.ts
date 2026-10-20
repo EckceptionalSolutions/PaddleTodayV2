@@ -26,7 +26,7 @@ import {
 } from './api-contract';
 import { todayBoardConfidenceWeight, snapshotFreshnessMetadata, staleSnapshotReadiness as markReadinessStale } from '@paddletoday/api-contract';
 import { getRiverGroupHeroPhoto } from '../data/river-group-hero';
-import { getRiverBySlug, listRiverGroups, listRivers, listScoredRivers } from './rivers';
+import { getRiverBySlug, getRiverGroupById, listRiverGroups, listRivers, listScoredRivers } from './rivers';
 import { catalogRevision } from './catalog-coverage';
 import { gaugeDisplayForSource } from './source-adapters';
 import { conditionZoneIdForRiver } from './condition-zones';
@@ -386,7 +386,7 @@ async function readSummaryGroupFallback(riverId: string): Promise<RiverGroupSnap
     result: {
       group: {
         riverId,
-        name: routes[0]?.river.name ?? riverId,
+        name: getRiverGroupById(riverId)?.name ?? routes[0]?.river.name ?? riverId,
         routeCount: routes.length,
         stateSummary: states.join(', '),
         regionSummary: regions.join(', '),

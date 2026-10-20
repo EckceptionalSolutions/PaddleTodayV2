@@ -12,6 +12,7 @@ import { routePageConsolidationTarget } from '../../../data/route-page-consolida
 import { listRiverGroups } from '../../../lib/rivers';
 import type { River } from '../../../lib/types';
 import { evidenceNoteDetail, evidenceNoteLabel } from '../../../lib/route-evidence';
+import { distanceRangeForLabels } from '../../../lib/api-contract';
 
 export function getStaticPaths() {
   return listRiverGroups()
@@ -361,12 +362,7 @@ const difficultyLabels = [...new Set(group.routes.map((route) => route.profile.d
   .map((difficulty) => difficulty.charAt(0).toUpperCase() + difficulty.slice(1))
   .sort();
 const routeDistanceLabels = group.routes.map((route) => route.logistics?.distanceLabel).filter(Boolean);
-const routeDistanceMiles = routeDistanceLabels
-  .flatMap((label) => (String(label).match(/\d+(?:\.\d+)?/g) ?? []).map(Number))
-  .filter((distance) => Number.isFinite(distance));
-const distanceRangeLabel = routeDistanceMiles.length > 0
-  ? `${Math.min(...routeDistanceMiles).toLocaleString()}–${Math.max(...routeDistanceMiles).toLocaleString()} mi`
-  : null;
+const distanceRangeLabel = distanceRangeForLabels(routeDistanceLabels)?.label ?? null;
 const staticRoutes = [...group.routes].sort((left, right) =>
   left.region.localeCompare(right.region) || left.reach.localeCompare(right.reach)
 );
@@ -1023,7 +1019,7 @@ const groupStructuredData = [
             : isPascagoulaHub
             ? 'Start with a short access section in the George County Pascagoula blueway, then compare longer options that share intermediate ramps. The Highway 63 to River Park reach is farther downstream in Jackson County; check the exact launch, take-out, gauge context, and wind or tide notes for your trip.'
             : isKennebecHub
-            ? 'Choose a reach by area: upper sections around Solon, Madison, Skowhegan, and Norridgewock; central options through Waterville, Sidney, and Augusta; or lower trips toward Bath and Phippsburg. North Sidney is a proxy gauge upstream, while the Gardiner station and tide or wind checks are more relevant downstream.'
+            ? 'Compare central-river trips from Waterville and Sidney toward Augusta, or tidal trips toward Bath and Phippsburg. Upper-river access pairs are being checked for downstream direction and dam portages before they are offered as trips. North Sidney supplies proxy context for central reaches; the Gardiner station and tide or wind checks are more relevant downstream. These planning trips have no live paddle score.'
             : isPenobscotHub
             ? 'Plan by river section: North-central reaches around T3 R11, Medway, Lincoln, Howland, and Passadumkeag use West Enfield gauge context; the Bangor Valley and Bangor-to-Verona reach use the Bangor gauge and add tide, wind, and marine traffic. Check the exact access and take-out notes.'
             : isBlackCreekHub
