@@ -1,15 +1,15 @@
 {
-  "generatedAt": "2026-10-20T18:02:02.701Z",
+  "generatedAt": "2026-10-20T19:53:26.180Z",
   "auditGeneratedAt": "2026-09-22T14:58:34.632Z",
   "summary": {
     "entryCount": 4076,
     "repeatedEntryCount": 1195,
     "conflictCount": 0,
     "distinctLocationNameCount": 3,
-    "derivedWaterEntryCount": 2255,
+    "derivedWaterEntryCount": 2254,
     "authoritativeAccessCount": 1265,
     "authoritativeWaterEntryCount": 499,
-    "areaAnchorOnlyCount": 1,
+    "areaAnchorOnlyCount": 3,
     "authoritativeAccessMismatchCount": 0
   },
   "entries": [
@@ -115124,27 +115124,37 @@
         "latitude": 46.53624,
         "longitude": -69.31511
       },
-      "accessCoordinate": {
-        "latitude": 46.53624,
-        "longitude": -69.31511
-      },
-      "accessCoordinateSource": "stored-route-consensus",
+      "accessCoordinate": null,
+      "accessCoordinateSource": "official-area-anchor-not-access",
       "authoritativeAccess": null,
       "authoritativeFacilityAnchor": null,
-      "authoritativeAreaAnchor": null,
-      "storedCoordinateIsAreaAnchor": false,
+      "authoritativeAreaAnchor": {
+        "provider": "me_allagash_upper_access_20261020",
+        "featureId": "allagash-river-churchill-dam-umsaskis-put-in",
+        "name": "Churchill Dam designated access",
+        "officialName": "Maine DACF upper Allagash facility inventory and full Waterway guide review",
+        "aliases": [
+          "Churchill Dam designated access"
+        ],
+        "latitude": 46.53624,
+        "longitude": -69.31511,
+        "sourceUrl": "https://www.maine.gov/dacf/parks/water_activities/boating/public_boat_launches/boat_sites.shtml",
+        "waterbody": "Allagash River",
+        "coordinateRole": "authoritative-area-anchor",
+        "uncertaintyFeet": 300,
+        "parkingToAccessFeet": null,
+        "distanceFromStoredFeet": 0
+      },
+      "storedCoordinateIsAreaAnchor": true,
       "authoritativeAccessIdentityMismatch": false,
       "authoritativeAccessMismatchFeet": null,
-      "waterEntryCoordinate": {
-        "latitude": 46.53624,
-        "longitude": -69.31511
-      },
+      "waterEntryCoordinate": null,
       "waterEntryConsensusRouteCount": 1,
       "waterEntryExactOnRiver": true,
       "waterEntryWaterbodyConfirmed": true,
       "authoritativeResolvesDistinctLocation": false,
       "coordinateStatus": "consistent",
-      "verificationStatus": "derived-consensus",
+      "verificationStatus": "area-anchor-only",
       "maximumSeparationFeet": 0,
       "occurrenceCount": 2,
       "routeCount": 1,
@@ -123794,46 +123804,65 @@
       ]
     },
     {
-      "id": "maine--umsaskis-lake-t13-r12-designated-access",
+      "id": "maine--umsaskis-lake-t11-r13-public-carry-in-facility-anchor",
       "state": "Maine",
-      "name": "Umsaskis Lake / T13 R12 designated access",
+      "name": "Umsaskis Lake / T11 R13 public carry-in (facility anchor)",
       "aliases": [
-        "Umsaskis Lake / T13 R12 designated access"
+        "Umsaskis Lake / T11 R13 public carry-in (facility anchor)"
       ],
       "sourceIds": [
         "allagash-river-churchill-dam-umsaskis-take-out"
       ],
       "storedAccessCoordinate": {
-        "latitude": 46.76364,
-        "longitude": -69.30524
+        "latitude": 46.6141,
+        "longitude": -69.3936
       },
-      "accessCoordinate": {
-        "latitude": 46.76364,
-        "longitude": -69.30524
-      },
-      "accessCoordinateSource": "stored-route-consensus",
+      "accessCoordinate": null,
+      "accessCoordinateSource": "official-area-anchor-not-access",
       "authoritativeAccess": null,
       "authoritativeFacilityAnchor": null,
-      "authoritativeAreaAnchor": null,
-      "storedCoordinateIsAreaAnchor": false,
+      "authoritativeAreaAnchor": {
+        "provider": "me_allagash_upper_access_20261020",
+        "featureId": "allagash-river-churchill-dam-umsaskis-take-out",
+        "name": "Umsaskis Lake / T11 R13 public carry-in (facility anchor)",
+        "officialName": "Maine DACF upper Allagash facility inventory and full Waterway guide review",
+        "aliases": [
+          "Umsaskis Lake / T11 R13 public carry-in (facility anchor)"
+        ],
+        "latitude": 46.6141,
+        "longitude": -69.3936,
+        "sourceUrl": "https://www.maine.gov/dacf/parks/water_activities/boating/public_boat_launches/boat_sites.shtml",
+        "waterbody": "Umsaskis Lake",
+        "coordinateRole": "authoritative-area-anchor",
+        "uncertaintyFeet": 300,
+        "parkingToAccessFeet": null,
+        "terminalAlternateWaterbody": {
+          "routeWaterbody": "Allagash River",
+          "relationship": "connected-water-trail-waterbody",
+          "sourceUrl": "https://www.maine.gov/dacf/parksearch/PropertyGuides/PDF_GUIDE/aww-guide.pdf",
+          "sourceLabel": "Complete Waterway map and trip text linking Churchill Dam, Umsaskis Lake and the American Realty Road crossing"
+        },
+        "distanceFromStoredFeet": 0
+      },
+      "storedCoordinateIsAreaAnchor": true,
       "authoritativeAccessIdentityMismatch": false,
       "authoritativeAccessMismatchFeet": null,
       "waterEntryCoordinate": null,
-      "waterEntryConsensusRouteCount": 1,
+      "waterEntryConsensusRouteCount": 0,
       "waterEntryExactOnRiver": false,
-      "waterEntryWaterbodyConfirmed": true,
+      "waterEntryWaterbodyConfirmed": false,
       "authoritativeResolvesDistinctLocation": false,
       "coordinateStatus": "consistent",
-      "verificationStatus": "unverified",
+      "verificationStatus": "area-anchor-only",
       "maximumSeparationFeet": 0,
       "occurrenceCount": 2,
       "routeCount": 1,
       "coordinateVariants": [
         {
-          "key": "46.76364,-69.30524",
+          "key": "46.61410,-69.39360",
           "coordinate": {
-            "latitude": 46.76364,
-            "longitude": -69.30524
+            "latitude": 46.6141,
+            "longitude": -69.3936
           },
           "occurrenceCount": 2,
           "routeCount": 1,
@@ -123849,12 +123878,12 @@
           "state": "Maine",
           "endpoint": "accessPoint",
           "sourceId": "allagash-river-churchill-dam-umsaskis-take-out",
-          "name": "Umsaskis Lake / T13 R12 designated access",
-          "latitude": 46.76364,
-          "longitude": -69.30524,
-          "auditSeverity": "review",
-          "distanceFeetToMatchedRiver": 151.44138981113323,
-          "endpointOnWaterbody": true,
+          "name": "Umsaskis Lake / T11 R13 public carry-in (facility anchor)",
+          "latitude": 46.6141,
+          "longitude": -69.3936,
+          "auditSeverity": null,
+          "distanceFeetToMatchedRiver": null,
+          "endpointOnWaterbody": null,
           "coordinateEvidenceRole": null
         },
         {
@@ -123863,12 +123892,12 @@
           "state": "Maine",
           "endpoint": "takeOut",
           "sourceId": null,
-          "name": "Umsaskis Lake / T13 R12 designated access",
-          "latitude": 46.76364,
-          "longitude": -69.30524,
-          "auditSeverity": "review",
-          "distanceFeetToMatchedRiver": 151.44138981113323,
-          "endpointOnWaterbody": true,
+          "name": "Umsaskis Lake / T11 R13 public carry-in (facility anchor)",
+          "latitude": 46.6141,
+          "longitude": -69.3936,
+          "auditSeverity": null,
+          "distanceFeetToMatchedRiver": null,
+          "endpointOnWaterbody": null,
           "coordinateEvidenceRole": null
         }
       ]

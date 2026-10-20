@@ -1268,9 +1268,11 @@ async function renderGroupMap(routes, { preserveViewport = false, focusSelected 
     }
     groupMapStatusController.ready({
       backgroundMap: mapRuntime,
-      message: routes.length === 1
+      message: isAccessPlanningHub
+        ? 'Planning context · verify passage and distance locally; not a navigation track.'
+        : routes.length === 1
         ? '1 route · mileage follows the mapped reach.'
-        : isAccessPlanningHub ? 'Select an access plan to explore its endpoints.' : `${routes.length} routes · Select a route or score marker to zoom.`,
+        : `${routes.length} routes · Select a route or score marker to zoom.`,
     });
   } catch (error) {
     if (renderVersion !== mapRenderVersion) return;
@@ -1652,7 +1654,7 @@ function updatePickerControls(routes, totalCount) {
 
   if (resultsSummary instanceof HTMLElement) {
     if (isAccessPlanningHub) {
-      resultsSummary.textContent = `${totalCount} access plans · select a plan to see its map and details.`;
+      resultsSummary.textContent = `${totalCount} access ${totalCount === 1 ? 'plan' : 'plans'} · select a plan to see its map and details.`;
       return;
     }
     const filterLabels = {

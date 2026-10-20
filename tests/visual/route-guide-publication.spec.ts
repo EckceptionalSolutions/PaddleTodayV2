@@ -58,7 +58,8 @@ for (const review of routeGuidePublicationReviews) {
     await expect(notes).toContainText(group.routes.find(route => route.slug === selectedSlug)!.logistics!.shuttle);
     const commonNotes = planning ? page.locator('[data-access-planning-context]') : notes;
     await expect(planning ? page.locator('.access-planning-context__guidance') : notes).toContainText(planning ? group.routes.find(route => route.slug === selectedSlug)!.gaugeSource.siteId : group.routes.find(route => route.slug === selectedSlug)!.gaugeSource.siteName);
-    await expect(commonNotes).toContainText(group.routes.find(route => route.slug === selectedSlug)!.safetyProfile!.safetyNotes[0]);
+    const firstSafety = group.routes.find(route => route.slug === selectedSlug)!.safetyProfile!.safetyNotes[0];
+    await expect(planning && !sharedAccessPlanNotes(group.routes).safety.includes(firstSafety) ? notes : commonNotes).toContainText(firstSafety);
     if (review.riverId === 'piscataquis-river') await expect(notes).not.toContainText('same-river proxy');
     if (review.mode === 'reach-guides') {
       const route = group.routes.find(route => route.slug === selectedSlug)!;
@@ -88,6 +89,10 @@ for (const review of routeGuidePublicationReviews) {
       else await expect(guideLinks).toHaveCount(1);
     }
     if (review.mode === 'access-planning') {
+      if (group.routes.length === 1) {
+        await expect(page.locator('[data-group-results-summary]')).toContainText('1 access plan ·');
+        await expect(page.locator('.river-group-page__hero-facts')).not.toContainText('14–14');
+      }
       for (const decision of review.guide.decisions) await expect(commonNotes).toContainText(decision.text);
       if (review.riverId === 'bitterroot-river-montana') {
         const sharedGuidance = commonNotes.locator('.access-planning-context__notes');
@@ -98,7 +103,8 @@ for (const review of routeGuidePublicationReviews) {
       await expect(page.getByRole('heading', { name: 'Explore access plans', exact: true })).toBeVisible();
       await expect(page.locator('[data-group-sort], [data-group-refresh], .river-route-picker__toolbar, .route-choice__score-compact, .river-route-picker__selected-decision, .river-route-picker__nearby')).toHaveCount(0);
       await expect(page.locator('.river-hub-map-legend')).not.toContainText('Strong conditions');
-      await expect(page.locator('.access-planning-context__cautions')).toContainText(group.routes[0].logistics!.watchFor![0]);
+      const firstHazard = group.routes[0].logistics!.watchFor![0];
+      await expect(sharedAccessPlanNotes(group.routes).hazards.includes(firstHazard) ? page.locator('.access-planning-context__cautions') : notes).toContainText(firstHazard);
     }
     const secondSlug = review.hubOptions.at(-1)!;
     const listSwitch = page.locator('[data-group-mobile-view="list"]');
@@ -117,6 +123,23 @@ for (const review of routeGuidePublicationReviews) {
     expect(await page.evaluate(() => document.documentElement.scrollWidth <= window.innerWidth + 1)).toBe(true);
     await page.locator('#choose-your-reach').scrollIntoViewIfNeeded();
     await page.screenshot({ path: `output/seo-structure-2026-10-19/${group.riverId}-${test.info().project.name}.png` });
+  });
+}
+
+for (const review of routeGuidePublicationReviews) for (const notice of review.underReview ?? []) {
+  test(`${notice.slug}: old path opens its review explanation without becoming a trip`, async ({ page }) => {
+    await page.addInitScript(() => localStorage.setItem('paddleTodayAppPromptDismissedAt', String(Date.now())));
+    await installMapLibreHarness(page);
+    const group = listRiverGroups().find(g => g.riverId === review.riverId)!;
+    await page.route(`**/api/river-groups/${group.riverId}.json*`, route => route.fulfill({ json: { result: serializeRiverGroupResult({ riverId: group.riverId, routes: [], planningRoutes: group.routes }) } }));
+    await page.route(`https://paddletoday.com/rivers/by-river/${group.riverId}/`, route => route.fulfill({ status:302,headers:{location:`${new URL(test.info().project.use.baseURL!).origin}/rivers/by-river/${group.riverId}/#review-${notice.slug}`} }));
+    await page.goto(`/rivers/${notice.slug}/`);
+    await expect(page.locator('[data-river-group-page]')).toHaveAttribute('data-group-loaded','true');
+    await expect(page).toHaveURL(new RegExp(`#review-${notice.slug}$`));
+    await expect(page.locator(`#review-${notice.slug}`)).toContainText(notice.explanation);
+    await expect(page.locator(`[data-group-route-card][data-route-slug="${notice.slug}"]`)).toHaveCount(0);
+    await expect(page.locator('[data-group-route-card]')).toHaveCount(group.routes.length);
+    expect((await page.request.get(`/api/rivers/${notice.slug}.json`)).status()).toBe(404);
   });
 }
 

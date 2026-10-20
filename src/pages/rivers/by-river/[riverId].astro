@@ -16,7 +16,7 @@ import { distanceRangeForLabels } from '../../../lib/api-contract';
 
 export function getStaticPaths() {
   return listRiverGroups()
-    .filter((group) => group.routeCount > 1 || group.riverId === 'saluda-river')
+    .filter((group) => group.routeCount > 1 || group.riverId === 'saluda-river' || routeGuideReviewByRiverId.has(group.riverId))
     .map((group) => ({
       params: { riverId: group.riverId },
       props: { group },
@@ -237,7 +237,7 @@ const groupTitle = isAccessPlanningHub
   ? `${group.name}, ${groupTitleLocation} | Water Levels & Paddle Routes`
   : `${group.name}, ${groupTitleLocation} | Paddle Routes & Trip Planning`;
 const groupDescription = isAccessPlanningHub
-  ? `Research ${group.name} launch access in ${stateSummary}. Compare ${group.routeCount} access plans, shuttle notes and gauge context; these plans have no live paddle score.`
+  ? `Research ${group.name} launch access in ${stateSummary}. ${group.routeCount === 1 ? 'Review the access plan' : `Compare ${group.routeCount} access plans`}, shuttle notes and gauge context; these plans have no live paddle score.`
   : isOuachitaHub
   ? 'Compare two Ouachita River trips in Arkansas: the 2.9-mile Class I–II Dragover Day Use reach near Mount Ida and the 5.9-mile Remmel Dam–Rockport run. Check the correct gauge, release schedule, access, and take-out for your trip.'
   : isBroadRiverHub
@@ -362,7 +362,8 @@ const difficultyLabels = [...new Set(group.routes.map((route) => route.profile.d
   .map((difficulty) => difficulty.charAt(0).toUpperCase() + difficulty.slice(1))
   .sort();
 const routeDistanceLabels = group.routes.map((route) => route.logistics?.distanceLabel).filter(Boolean);
-const distanceRangeLabel = distanceRangeForLabels(routeDistanceLabels)?.label ?? null;
+const distanceRange = distanceRangeForLabels(routeDistanceLabels);
+const distanceRangeLabel = group.routeCount === 1 && distanceRange ? `${distanceRange.minMiles} mi` : distanceRange?.label ?? null;
 const staticRoutes = [...group.routes].sort((left, right) =>
   left.region.localeCompare(right.region) || left.reach.localeCompare(right.reach)
 );
@@ -1046,14 +1047,14 @@ const groupStructuredData = [
         <div class="river-group-page__hero-facts" aria-label={`${group.name} trip overview`}>
           <div class="river-group-page__hero-fact">
             <strong>{group.routeCount}</strong>
-            <span>mapped trips</span>
+            <span>{group.routeCount === 1 ? 'mapped trip' : 'mapped trips'}</span>
           </div>
           {scoredRouteCount > 0 ? <div class="river-group-page__hero-fact"><strong>{scoredRouteCount}</strong><span>scored today</span></div> : null}
-          {planningRouteCount > 0 ? <div class="river-group-page__hero-fact"><strong>{planningRouteCount}</strong><span>planning routes</span></div> : null}
+          {planningRouteCount > 0 ? <div class="river-group-page__hero-fact"><strong>{planningRouteCount}</strong><span>{planningRouteCount === 1 ? 'planning route' : 'planning routes'}</span></div> : null}
           {distanceRangeLabel ? (
             <div class="river-group-page__hero-fact">
               <strong>{distanceRangeLabel}</strong>
-              <span>distance range</span>
+              <span>{group.routeCount === 1 ? 'distance' : 'distance range'}</span>
             </div>
           ) : null}
           {difficultyLabels.length > 0 ? (
@@ -2006,7 +2007,7 @@ const groupStructuredData = [
       <div class="river-route-picker__layout" data-group-picker-layout>
         <div class="river-route-picker__results" id="river-hub-route-results">
           <p class="river-route-picker__results-summary" data-group-results-summary aria-live="polite">
-            {isAccessPlanningHub ? `${group.routeCount} access plans` : `Showing all ${group.routeCount} trips.`}
+            {isAccessPlanningHub ? `${group.routeCount} access ${group.routeCount === 1 ? 'plan' : 'plans'}` : `Showing all ${group.routeCount} trips.`}
           </p>
           <div class="river-group-page__route-list" data-group-route-list>
             {staticRoutes.map((route, index) => {
@@ -2219,7 +2220,7 @@ const groupStructuredData = [
     </section>
 
     <section class="river-group-page__panel river-hub-context" aria-labelledby="river-hub-context-title">
-      {isAccessPlanningHub && publicationReview ? <AccessPlanningContext routes={group.routes} guide={publicationReview.guide} reviewedOn={publicationReview.reviewedOn} /> : <>
+      {isAccessPlanningHub && publicationReview ? <AccessPlanningContext routes={group.routes} guide={publicationReview.guide} reviewedOn={publicationReview.reviewedOn} underReview={publicationReview.underReview} /> : <>
       <div class="river-group-page__section-head">
         <div>
           <p class="eyebrow section-label">

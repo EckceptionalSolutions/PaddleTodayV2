@@ -3757,7 +3757,7 @@ async function main() {
       : null;
     const namedErrors = traceEndpointErrors(namedTrace?.coordinates ?? [], route);
     let trustedNetworkTrace: ReturnType<typeof endpointSnappedRiverNetwork> = null;
-    if (namedErrors.startFeet > 500 || namedErrors.endFeet > 500 || route.id === 'willamette-river-peoria-crystal-lake') {
+    if (namedErrors.startFeet > 500 || namedErrors.endFeet > 500 || route.id === 'willamette-river-peoria-crystal-lake' || route.id === 'allagash-river-churchill-dam-umsaskis') {
       const networkFeatures = await loadNhdNetworkFeatures(route);
       const networkLines = networkFeatures.flatMap((feature) =>
         (feature.geometry?.paths ?? [])
@@ -3888,6 +3888,7 @@ async function main() {
       const routeScopedNetworkAllowed = route.id === 'horicon-marsh-greenhead-nebraska';
       trustedNetworkTrace = networkTrace && (networkIncludesNamedRoute || routeScopedNetworkAllowed) ? networkTrace : null;
     }
+    if (route.id === 'allagash-river-churchill-dam-umsaskis' && !trustedNetworkTrace) throw new Error('Upper Allagash requires a connected river-and-lake planning corridor; do not publish disconnected named fragments.');
     const namedFallbackCoordinates = namedTrace && route.putIn && route.takeOut
       ? (pointDistanceMiles(namedTrace.coordinates[0], [route.putIn.longitude, route.putIn.latitude])
         <= pointDistanceMiles(namedTrace.coordinates.at(-1)!, [route.putIn.longitude, route.putIn.latitude])
@@ -3929,6 +3930,7 @@ async function main() {
         name: route.name,
         state: route.state,
         source: peoriaConnector ? 'USGS NHD Flowline with imagery-reviewed Peoria launch connector' : 'USGS NHD Flowline',
+        ...(route.id === 'allagash-river-churchill-dam-umsaskis' ? { generalizedPlanningLine: true, planningLineDescription: 'USGS river-and-lake planning corridor between DACF facility anchors. The approximately fourteen-mile plan combines nine river miles and five lake miles from the manager brochure; it is not the measured line length. Arrange the below-dam launch and Chase Rapids carry separately. Not a surveyed navigation or portage track.' } : {}),
         traceMode: trustedNetworkTrace ? 'network-traced' : 'named-fallback',
         endpointSnapMaxFeet: Number.isFinite(Math.max(publishedErrors.startFeet, publishedErrors.endFeet))
           ? Math.round(Math.max(publishedErrors.startFeet, publishedErrors.endFeet))

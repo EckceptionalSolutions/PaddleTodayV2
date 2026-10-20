@@ -3,8 +3,9 @@ import type { River } from '../lib/types';
 import type { PaddlePlanningGuide } from '../data/priority-paddle-guides';
 import { sharedAccessPlanNotes } from '../lib/access-plan-presentation';
 import { routePageHref } from '../data/route-page-consolidations';
-interface Props { routes: River[]; guide: PaddlePlanningGuide; reviewedOn: string }
-const { routes, guide, reviewedOn } = Astro.props;
+import type { RouteGuidePublicationReview } from '../data/route-guide-publication-reviews';
+interface Props { routes: River[]; guide: PaddlePlanningGuide; reviewedOn: string; underReview?: RouteGuidePublicationReview['underReview'] }
+const { routes, guide, reviewedOn, underReview = [] } = Astro.props;
 const shared = sharedAccessPlanNotes(routes);
 const sources = [...new Map(guide.decisions.map(decision => [decision.source.url, decision.source])).values()];
 ---
@@ -23,6 +24,7 @@ const sources = [...new Map(guide.decisions.map(decision => [decision.source.url
     {shared.permits && <p><strong>Rules:</strong> {shared.permits}</p>}
     {shared.camping && <p><strong>Camping:</strong> {shared.camping}</p>}
   </details>
+  {underReview.length > 0 && <section aria-label="Plans under access review"><h3>Plans under access review</h3><p>These older records are retained for correction and are not available trip choices.</p>{underReview.map(notice => <article id={`review-${notice.slug}`}><h4>{notice.title}</h4><p>{notice.explanation}</p><p><a href={notice.source.url} target="_blank" rel="noopener noreferrer">{notice.source.label}</a></p></article>)}</section>}
   <div class="access-planning-context__sources"><h3>Planning sources</h3><ul>{sources.map(source => <li><a href={source.url} target="_blank" rel="noopener noreferrer">{source.label}</a></li>)}</ul></div>
   <p class="muted access-planning-context__review">Source comparison updated <time datetime={reviewedOn}>{reviewedOn}</time>. These access records do not confirm current passage or conditions.</p>
 </div>

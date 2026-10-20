@@ -41,6 +41,7 @@ for (const { slug, target: targetPath } of routes) {
   const canonical = `${siteOrigin}${target.pathname}`;
   const targetHref = escapeAttribute(target.href);
   const canonicalHref = escapeAttribute(canonical);
+  const reviewTarget = target.hash.startsWith('#review-');
   const document = `<!doctype html>
 <html lang="en">
   <head>
@@ -48,13 +49,13 @@ for (const { slug, target: targetPath } of routes) {
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta http-equiv="refresh" content="0;url=${targetHref}">
     <link rel="canonical" href="${canonicalHref}">
-    <title>Trip moved | Paddle Today</title>
+    <title>${reviewTarget ? 'Plan under access review' : 'Trip moved'} | Paddle Today</title>
   </head>
   <body>
     <main>
-      <h1>This trip has moved</h1>
-      <p>Open the current trip page for route details and planning information.</p>
-      <p><a href="${targetHref}">View the current trip</a></p>
+      <h1>${reviewTarget ? 'This plan is under access review' : 'This trip has moved'}</h1>
+      <p>${reviewTarget ? 'Read the access review before relying on this older plan.' : 'Open the current trip page for route details and planning information.'}</p>
+      <p><a href="${targetHref}">${reviewTarget ? 'Read the access review' : 'View the current trip'}</a></p>
     </main>
   </body>
 </html>

@@ -1,4 +1,4 @@
-import { reviewedHubOptionTargets } from './route-guide-publication-reviews';
+import { reviewedHubOptionTargets, reviewedResearchTargets } from './route-guide-publication-reviews';
 
 const willimanticRouteSlugs = [
   'willimantic-river-commuter-nye-holman',
@@ -1118,6 +1118,7 @@ const verdeRiverAccessReviewRouteSlugs = [
 const consolidatedRouteTargets = new Map<string, string>(
   [
     ...reviewedHubOptionTargets,
+    ...reviewedResearchTargets,
     // Keep the five selected options anchored to their cards; older endpoint combinations go to the hub for a fresh choice.
     ...willimanticRouteSlugs.map((slug) => [
       slug,
