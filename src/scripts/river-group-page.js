@@ -157,7 +157,7 @@ function activeFilterTotal() {
   });
 }
 
-function syncPickerUrl() {
+function syncPickerUrl({ selectTrip = false } = {}) {
   const url = new URL(window.location.href);
   const params = [
     ['distance', distanceFilter === 'all' ? null : distanceFilter],
@@ -177,7 +177,8 @@ function syncPickerUrl() {
     }
   }
   url.searchParams.delete('route');
-  if (selectedSlug) {
+  const hasSectionAnchor = Boolean(url.hash) && !/^#trip-/.test(url.hash);
+  if (selectedSlug && (selectTrip || !hasSectionAnchor)) {
     url.hash = `trip-${selectedSlug}`;
   } else if (/^#trip-/.test(url.hash)) {
     url.hash = '';
@@ -1722,9 +1723,8 @@ function selectPickerRoute(slug, { focusMap = true, reveal = null, scrollToSelec
   renderGroupMap(routes, { preserveViewport: !focusMap, focusSelected: focusMap });
   if (reveal) {
     setMobileView(reveal);
-  } else {
-    syncPickerUrl();
   }
+  syncPickerUrl({ selectTrip: true });
   if (scrollToSelection) {
     const viewVersion = mobileViewVersion;
     window.setTimeout(() => {

@@ -79,7 +79,12 @@ for (const review of routeGuidePublicationReviews) {
     }
     expect(await page.evaluate(() => document.documentElement.scrollWidth <= window.innerWidth + 1)).toBe(true);
     for (const slug of review.retainedGuides) {
-      await expect(page.locator(`[data-group-route-card][data-route-slug="${slug}"] a[href="/rivers/${slug}/"]`)).toHaveCount(1);
+      // Access-planning cards select a plan; their independent guides are linked
+      // from the river's section navigation rather than inside the compact card.
+      const guideLinks = planning
+        ? page.locator(`main a[href="/rivers/${slug}/"]`)
+        : page.locator(`[data-group-route-card][data-route-slug="${slug}"] a[href="/rivers/${slug}/"]`);
+      await expect(guideLinks).toHaveCount(1);
     }
     if (review.mode === 'access-planning') {
       await expect(page.getByRole('heading', { name: 'Explore access plans', exact: true })).toBeVisible();
