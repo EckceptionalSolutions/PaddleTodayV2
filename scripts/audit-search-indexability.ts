@@ -4,7 +4,7 @@ import { listRivers, listRiverGroups, listAllRiversForAudit, WITHHELD_ROUTE_SLUG
 import { staticRoutePatternErrors } from './lib/static-route-rules';
 import { hasStandaloneRoutePage, routePageConsolidationTarget, listRoutePageConsolidations } from '../src/data/route-page-consolidations';
 import { routeGuidePublicationReviews } from '../src/data/route-guide-publication-reviews';
-import { routeGuidePublicationErrors } from './lib/route-guide-publication';
+import { riverHubPublicationErrors, routeGuidePublicationErrors } from './lib/route-guide-publication';
 
 // Inspect the actual build, not just template intent. Run after build:app.
 const root = resolve(process.argv[2] || 'dist');
@@ -145,6 +145,16 @@ const duplicateRouteDescriptions = [...routeDescriptions]
 for (const { text, pages } of duplicateRouteHeadings) warnings.push(`Shared route H1 (${pages.length} pages): ${text}: ${pages.join(', ')}`);
 for (const { text, pages } of duplicateRouteDescriptions) warnings.push(`Shared route description (${pages.length} pages): ${text}: ${pages.join(', ')}`);
 const routeOptions = listRivers();
+const hubBaseline = JSON.parse(await readFile('docs/audits/river-hub-publication-baseline-2026-10-20.json', 'utf8'));
+const groupsById = new Map(listRiverGroups().map(group => [group.riverId, group]));
+errors.push(...riverHubPublicationErrors(
+  [...paths].filter(pathname => /^\/rivers\/by-river\/[^/]+\/$/.test(pathname)).map(pathname => {
+    const riverId = pathname.split('/')[3];
+    return { riverId, routeSlugs: groupsById.get(riverId)?.routes.map(route => route.slug) ?? [] };
+  }),
+  hubBaseline.riverIds,
+  routeGuidePublicationReviews,
+));
 const routes = routeOptions.filter((route) => hasStandaloneRoutePage(route.slug));
 const consolidatedRoutes = routeOptions.filter((route) => !hasStandaloneRoutePage(route.slug));
 const routePaths = routes.map((route) => `/rivers/${route.slug}/`);

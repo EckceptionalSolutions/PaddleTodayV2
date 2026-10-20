@@ -32,6 +32,10 @@ The built indexability audit, already run by frontend CI, rejects new standalone
 
 Use `npm run seo:guides:review` to regenerate the remaining similarity queue. Phrase overlap is a screening aid, not a Google quality score. Review substantial overlap, identical conditions and endpoint proliferation together with actual trip differences; no numeric similarity threshold automatically removes a page.
 
+The same built indexability audit also checks new indexable river hubs. Grouping new endpoint records must not bypass editorial review. A new hub needs one explicit family decision in the existing register, classifying every public trip exactly once as a retained guide or a hub option, with a substantive introduction, rationale and source-linked trip decision. This applies to planning-only, scored and mixed families. The guard checks that usable guidance and a complete decision are recorded; it cannot validate river continuity, current access, hazards or source accuracy for the reviewer.
+
+The 382 live hubs captured from the production sitemap on October 20 are grandfathered in `docs/audits/river-hub-publication-baseline-2026-10-20.json`. This separate immutable baseline does not alter the October 19 standalone-guide baseline. Do not regenerate either baseline to approve new publications. Existing hubs remain subject to editorial and accuracy review; historical publication is not evidence of guide quality.
+
 ## Measurement and rollout
 
 Start with the four-family pilot and four unchanged comparison families described in `docs/audits/route-guide-publication-pilot-2026-10-19.md`. Record live baseline URL membership, route roles and available Search Console rows before deployment. Treat absent performance rows as unobserved, not verified zero demand.
