@@ -3,12 +3,20 @@ import { resolve, join } from 'node:path';
 import { listRivers, listRiverGroups, listAllRiversForAudit, WITHHELD_ROUTE_SLUGS } from '../src/lib/rivers';
 import { staticRoutePatternErrors } from './lib/static-route-rules';
 import { hasStandaloneRoutePage, routePageConsolidationTarget, listRoutePageConsolidations } from '../src/data/route-page-consolidations';
+import { routeGuidePublicationReviews } from '../src/data/route-guide-publication-reviews';
+import { routeGuidePublicationErrors } from './lib/route-guide-publication';
 
 // Inspect the actual build, not just template intent. Run after build:app.
 const root = resolve(process.argv[2] || 'dist');
 const origin = new URL(process.env.SITE_URL || process.env.PUBLIC_SITE_URL || 'https://paddletoday.com').origin;
 const errors: string[] = [];
 const warnings: string[] = [];
+const guideBaseline = JSON.parse(await readFile('docs/audits/route-guide-publication-baseline-2026-10-19.json', 'utf8'));
+errors.push(...routeGuidePublicationErrors(
+  listRivers().filter(route => hasStandaloneRoutePage(route.slug)).map(route => route.slug),
+  guideBaseline.standaloneGuideSlugs,
+  routeGuidePublicationReviews,
+));
 const decode = (text: string) => text.replace(/&amp;/g, '&').replace(/&quot;/g, '"').replace(/&#39;|&apos;/g, "'").replace(/&lt;/g, '<').replace(/&gt;/g, '>');
 const normalizedText = (text: string) => decode(text.replace(/<[^>]*>/g, ' ')).replace(/\s+/g, ' ').trim().toLowerCase();
 const locs = (xml: string) => [...xml.matchAll(/<loc>([^<]+)<\/loc>/g)].map((match) => decode(match[1]));

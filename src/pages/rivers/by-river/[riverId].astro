@@ -1,5 +1,8 @@
 ---
 import BaseLayout from '../../../layouts/BaseLayout.astro';
+import PaddlePlanningGuide from '../../../components/PaddlePlanningGuide.astro';
+import { priorityRiverGuides } from '../../../data/priority-paddle-guides';
+import { routeGuideReviewByRiverId } from '../../../data/route-guide-publication-reviews';
 import FeatureIcon from '../../../components/FeatureIcon.astro';
 import FavoriteButton from '../../../components/FavoriteButton.astro';
 import { getRiverGroupHeroPhoto } from '../../../data/river-group-hero';
@@ -18,6 +21,8 @@ export function getStaticPaths() {
 }
 
 const { group: sourceGroup } = Astro.props;
+const publicationReview = routeGuideReviewByRiverId.get(sourceGroup.riverId);
+const isAccessPlanningHub = publicationReview?.mode === 'access-planning';
 const isBlackCreekHub = sourceGroup.riverId === 'black-creek-mississippi';
 const isLamoilleHub = sourceGroup.riverId === 'lamoille-river-vermont';
 const blackCreekFeaturedTripSlugs = new Set([
@@ -117,7 +122,9 @@ const needsRegionInTitle = listRiverGroups().some((other) =>
   [...other.states].sort().join(',') === [...group.states].sort().join(',')
 );
 const groupTitleLocation = needsRegionInTitle ? `${regionSummary}, ${stateSummary}` : stateSummary;
-const groupTitle = isOuachitaHub
+const groupTitle = isAccessPlanningHub
+  ? `${group.name}, ${groupTitleLocation} | Access & Trip Planning`
+  : isOuachitaHub
   ? 'Ouachita River, Arkansas | Dragover & Remmel Paddle Routes'
   : isBroadRiverHub
   ? 'Broad River, South Carolina | Paddling Sections & Access'
@@ -226,7 +233,9 @@ const groupTitle = isOuachitaHub
   : scoredRouteCount
   ? `${group.name}, ${groupTitleLocation} | Water Levels & Paddle Routes`
   : `${group.name}, ${groupTitleLocation} | Paddle Routes & Trip Planning`;
-const groupDescription = isOuachitaHub
+const groupDescription = isAccessPlanningHub
+  ? `Research ${group.name} launch access in ${stateSummary}. Compare ${group.routeCount} access plans, shuttle notes and gauge context; these plans have no live paddle score.`
+  : isOuachitaHub
   ? 'Compare two Ouachita River trips in Arkansas: the 2.9-mile Class I–II Dragover Day Use reach near Mount Ida and the 5.9-mile Remmel Dam–Rockport run. Check the correct gauge, release schedule, access, and take-out for your trip.'
   : isBroadRiverHub
   ? 'Compare eight Paddle SC trips on South Carolina’s Broad River, from Ninety-Nine Islands to Strother Landing and the separate Peak–Harbison reach. Check trip-specific gauges, dam portages, and public access.'
@@ -343,8 +352,8 @@ const groupDescription = isOuachitaHub
   : isSusquehannaHub
   ? 'Plan Susquehanna River trips across New York’s upper main stem and Pennsylvania’s North Branch. Compare 33 current endpoint options, including 20 public North Branch trips across separate gauge areas.'
   : scoredRouteCount
-  ? `Compare ${group.name} paddle routes with current water levels, Paddle Today scores, weather, access details, and route difficulty.`
-  : `Compare ${group.name} planning routes with access details, distance, difficulty and source links. These routes have no live score.`;
+  ? `Compare ${group.name} paddle routes in ${groupTitleLocation} with water levels, Paddle Today scores, weather, access details, and difficulty.`
+  : `Compare ${group.name} planning routes in ${groupTitleLocation} with access, distance, difficulty and sources. These routes have no live score.`;
 const gaugeNames = [...new Set(group.routes.map((route) => route.gaugeSource.siteName))];
 const difficultyLabels = [...new Set(group.routes.map((route) => route.profile.difficulty))]
   .map((difficulty) => difficulty.charAt(0).toUpperCase() + difficulty.slice(1))
@@ -963,7 +972,7 @@ const groupStructuredData = [
   structuredData={groupStructuredData}
   bodyClass="page-river-hub"
 >
-  <article class="river-group-page" data-river-group-page data-river-id={group.riverId} data-river-name={group.name} data-river-state={stateSummary} data-river-region={regionSummary} data-has-consolidated-trips={hasConsolidatedTrips ? 'true' : 'false'}>
+  <article class="river-group-page" data-river-group-page data-river-id={group.riverId} data-river-name={group.name} data-river-state={stateSummary} data-river-region={regionSummary} data-has-consolidated-trips={hasConsolidatedTrips ? 'true' : 'false'} data-reviewed-publication-hub={publicationReview ? 'true' : 'false'}>
     <section class={`river-group-page__hero${heroPhoto ? ' river-group-page__hero--photo' : ' river-group-page__hero--fallback'}`}>
       <div class="river-group-page__hero-main">
         <p class="eyebrow river-group-page__hero-kicker">
@@ -973,7 +982,9 @@ const groupStructuredData = [
         </p>
         <h1 class="river-group-page__title">{group.name}</h1>
         <p class="river-group-page__lede" data-group-headline>
-          {isBroadRiverHub
+          {isAccessPlanningHub
+            ? publicationReview.guide.introduction
+            : isBroadRiverHub
             ? 'Start with the eight South Carolina trips named by Paddle SC, then use the picker to compare alternate endpoint pairs. These routes cross different gauge areas and include the Ninety-Nine Islands, Lockhart, and Neal Shoals dam boundaries; check the source and access notes for your exact trip.'
             : isMerrimackHub
             ? 'Choose the documented Franklin–Concord trips for published flow guidance, or compare lower-valley access pairs from Boscawen through Hooksett. The Franklin gauge and flow range do not apply to every downstream option, and the Allenstown Ferry Street launch requires a resident permit.'
@@ -1877,6 +1888,10 @@ const groupStructuredData = [
       </section>
     ) : null}
 
+    {publicationReview ? (
+      <PaddlePlanningGuide guide={publicationReview.guide} id="choose-your-reach" />
+    ) : null}
+
     <section class="status-banner status-banner--loading status-banner--compact" data-group-status-banner aria-live="polite">
       <div class="status-banner__eyebrow">Route calls</div>
       <div class="status-banner__body">
@@ -1902,10 +1917,10 @@ const groupStructuredData = [
             <FeatureIcon name="compass" size={16} />
             Trip picker
           </p>
-          <h2 class="section-title">Choose a route</h2>
+          <h2 class="section-title">{isAccessPlanningHub ? 'Compare access plans' : 'Choose a route'}</h2>
         </div>
         <p class="muted river-group-page__section-note">
-          {scoredRouteCount ? 'Start with distance, then compare current scores where available.' : 'Start with distance, then compare access, difficulty, and shuttle needs.'}
+          {isAccessPlanningHub ? 'Distances and times are estimates. Confirm direction, passage and access locally before treating a plan as a trip.' : scoredRouteCount ? 'Start with distance, then compare current scores where available.' : 'Start with distance, then compare access, difficulty, and shuttle needs.'}
         </p>
       </div>
 
@@ -1960,7 +1975,7 @@ const groupStructuredData = [
         <label class="river-route-picker__sort">
           <span>Sort</span>
           <select data-group-sort>
-            <option value="recommended">Recommended</option>
+            <option value="recommended">{isAccessPlanningHub ? 'Default order' : 'Recommended'}</option>
             <option value="shortest">Shortest first</option>
             <option value="longest">Longest first</option>
             <option value="easiest">Easiest first</option>
@@ -2000,7 +2015,7 @@ const groupStructuredData = [
               const active = index === 0;
               const hasConsolidatedRoutePage = Boolean(routePageConsolidationTarget(route.slug));
               const hasExistingLogisticsNotes = isJacksForkHub || isCurrentRiverHub || isYellowBreechesHub || isSaltRiverHub || isPenobscotHub || isGooseCreekHub || isKinniconickHub;
-              const showConsolidatedLogisticsNotes = hasConsolidatedRoutePage && !hasExistingLogisticsNotes;
+              const showConsolidatedLogisticsNotes = (hasConsolidatedRoutePage || Boolean(publicationReview)) && !hasExistingLogisticsNotes;
               return (
                 <article
                   id={`trip-${route.slug}`}
@@ -2044,7 +2059,7 @@ const groupStructuredData = [
                       <span data-group-initial-score>{route.scoreEligibility === 'planning' ? 'Planning route' : 'Loading'}</span>
                     </span>
                   </button>
-                  {isWillimanticHub || isMerrimackHub || isSpokaneHub || isSaludaHub || isWabashHub || isGooseCreekHub || isKinniconickHub || isSouthLlanoHub || isVillageCreekHub || isElevenPointHub || isJacksForkHub || isCurrentRiverHub || isYellowBreechesHub || isSaltRiverHub || isAnimasHub || isHousatonicHub || isPenobscotHub || hasConsolidatedRoutePage ? (
+                  {publicationReview || isWillimanticHub || isMerrimackHub || isSpokaneHub || isSaludaHub || isWabashHub || isGooseCreekHub || isKinniconickHub || isSouthLlanoHub || isVillageCreekHub || isElevenPointHub || isJacksForkHub || isCurrentRiverHub || isYellowBreechesHub || isSaltRiverHub || isAnimasHub || isHousatonicHub || isPenobscotHub || hasConsolidatedRoutePage ? (
                     <details class="route-choice__trip-notes">
                       <summary>{isJacksForkHub || isCurrentRiverHub || isYellowBreechesHub ? 'Access, gauge, shuttle, and camping notes' : isSaltRiverHub || isGooseCreekHub || isKinniconickHub ? 'Access, gauge, shuttle, and safety notes' : isAnimasHub || isHousatonicHub ? 'Access, flow, and safety notes' : isPenobscotHub ? 'Access, gauge, shuttle, camping, and safety notes' : 'Access, gauge, and safety notes'}</summary>
                       <div>
@@ -2241,7 +2256,11 @@ const groupStructuredData = [
         <article class="river-hub-context__item">
           <h3>Route options</h3>
           <p>
-            {isOuachitaHub
+            {publicationReview
+              ? isAccessPlanningHub
+                ? `Compare ${group.routeCount} access plans on this page. Select a plan for its map and expand the access, gauge, shuttle and source notes. These records organize launch research; confirm the intervening river locally before choosing a trip.`
+                : `Start with the ${publicationReview.retainedGuides.length} focused reach guides above. All ${group.routeCount} endpoint choices remain available in the picker, including longer combinations with their own take-out, gauge and hazard notes.`
+              : isOuachitaHub
               ? 'Choose between the 2.9-mile west-to-east Dragover Day Use reach and the 5.9-mile Remmel Dam–Rockport Whitewater Park run. They are separate outings with different access and flow checks; each route card keeps its own endpoints, gauge, and hazards.'
               : isAndroscogginMaineHub
               ? `All ${group.routeCount} access-pair choices remain available on this hub. The individual route pages have been brought together here; choose by section and review the exact endpoint, access, distance, and hazard notes on each card.`
@@ -2318,6 +2337,10 @@ const groupStructuredData = [
         </article>
       </div>
 
+      {priorityRiverGuides[group.riverId] ? (
+        <PaddlePlanningGuide guide={priorityRiverGuides[group.riverId]} id="trip-decisions" headingLevel={3} />
+      ) : null}
+
       {isOuachitaHub ? (
         <div class="river-hub-context__source-guide" id="ouachita-reach-guide" aria-labelledby="ouachita-reach-guide-title">
           <div class="river-group-page__section-head">
@@ -2341,7 +2364,7 @@ const groupStructuredData = [
             <article class="river-hub-context__item">
               <h3>Remmel Dam to Rockport · about 5.9 miles</h3>
               <p>
-                Plan about three to four hours during a recreational release. Check the direct <a href="https://waterdata.usgs.gov/monitoring-location/USGS-07359002/" target="_blank" rel="noopener noreferrer">USGS gauge at Remmel Dam</a> and <a href="https://www.entergy.com/blog/great-day-for-float/" target="_blank" rel="noopener noreferrer">Entergy’s current release and access guidance</a>. At the take-out, move to the left bank when I-30 comes into view and use the boat ramp before the bridge; <a href="https://www.americanwhitewater.org/content/River/view/river-detail/3052/main" target="_blank" rel="noopener noreferrer">American Whitewater’s reach notes</a> describe the hazards near Rockport Ledge.
+                Plan about three to four hours during a recreational release. Check the direct <a href="https://waterdata.usgs.gov/monitoring-location/USGS-07359002/" target="_blank" rel="noopener noreferrer">USGS gauge at Remmel Dam</a>, <a href="https://www.entergy.com/operations/hydro/data" target="_blank" rel="noopener noreferrer">Entergy’s latest lake and flow news</a>, and its <a href="https://www.entergy.com/blog/great-day-for-float/" target="_blank" rel="noopener noreferrer">published float and access guide</a>. The usual summer release pattern does not confirm operations on your trip date. At the take-out, move to the left bank when I-30 comes into view and use the boat ramp before the bridge; <a href="https://www.americanwhitewater.org/content/River/view/river-detail/3052/main" target="_blank" rel="noopener noreferrer">American Whitewater’s reach notes</a> describe the hazards near Rockport Ledge.
               </p>
               <a href="#trip-ouachita-river-remmel-whitewater-park">Review the Remmel trip card</a>
             </article>

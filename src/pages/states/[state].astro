@@ -4,6 +4,7 @@ import FeatureIcon from '../../components/FeatureIcon.astro';
 import MapScoreLegendItems from '../../components/MapScoreLegendItems.astro';
 import { getRoutePreviewPhoto } from '../../data/route-gallery';
 import { routePageConsolidationTarget } from '../../data/route-page-consolidations';
+import { routeGuideReviewBySlug } from '../../data/route-guide-publication-reviews';
 import { listRiverGroups, listRiverStateGroups } from '../../lib/rivers';
 import { formatRouteSegmentLabel, routeSegmentSummary } from '../../lib/route-segments';
 import { conditionZoneIdForRiver } from '../../lib/condition-zones';
@@ -37,7 +38,9 @@ const stateTitle = scoredRoutes.length
   : `${stateGroup.name} Paddle Routes & Trip Planning | Paddle Today`;
 const stateDescription = `Explore ${stateRouteCount} ${stateGroup.name} paddle ${routeLabel} with access details, trip planning, and source links. ${scoredRoutes.length} support live scores; ${reviewedPlanningCount} are planning-only.`;
 const routePageHref = (route: River) => routePageConsolidationTarget(route.slug) ?? `/rivers/${route.slug}/`;
-const routePageLinkLabel = (route: River) => routePageConsolidationTarget(route.slug) ? 'View trip option' : 'View route';
+const routePageLinkLabel = (route: River) => routeGuideReviewBySlug.get(route.slug)?.mode === 'access-planning'
+  ? 'Review access plan'
+  : routePageConsolidationTarget(route.slug) ? 'View trip option' : 'View route';
 const requestStateHref = `/request-river/#state=${encodeURIComponent(stateGroup.name)}`;
 const formatDifficulty = (difficulty: River['profile']['difficulty']) =>
   difficulty.charAt(0).toUpperCase() + difficulty.slice(1);
