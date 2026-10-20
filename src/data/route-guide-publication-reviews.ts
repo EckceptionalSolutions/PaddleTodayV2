@@ -27,6 +27,43 @@ const contoocookGuide = {
 
 export const routeGuidePublicationReviews: readonly RouteGuidePublicationReview[] = [
   {
+    riverId: 'delaware-river-new-jersey',
+    mode: 'access-planning',
+    reviewedOn: '2026-10-20',
+    rationale: 'Retain four guides with distinct rapid, dam, exit or tidal-transition decisions. Five shorter or combined access choices repeat the same station and regional guidance and belong in the comparison hub. Preserve all nine supported choices, with individual hazards and access terms. Two unexplained upstream itineraries and one trip crossing an unreviewed wing-dam passage are held separately; consolidation must not make those usable plans. No historically protected recovery winner or comparison family is changed. The available performance audit does not establish demand for these individual pages; absence of rows is not proof of zero demand or a Google penalty.',
+    retainedGuides: [
+      'delaware-river-belvidere-phillipsburg',
+      'delaware-river-bulls-island-lambertville',
+      'delaware-river-lambertville-firemens-eddy',
+      'delaware-river-firemens-eddy-trenton',
+    ],
+    hubOptions: [
+      'delaware-river-frenchtown-kingwood',
+      'delaware-river-kingwood-fairview',
+      'delaware-river-fairview-byram',
+      'delaware-river-kingwood-byram',
+      'delaware-river-firemens-eddy-washington-crossing',
+    ],
+    underReview: [
+      { slug: 'delaware-river-kittatinny-worthington', title: 'Kittatinny to Worthington: upstream itinerary unverified', explanation: 'NPS lists Worthington upstream of Kittatinny. This older trip orders the sites upstream without explaining an upstream paddling plan. It is unavailable while the intended direction, facilities and itinerary are reviewed. The old identity is preserved rather than silently changing the launch and finish.', source: { label: 'NPS Middle Delaware downstream access-mileage table', url: 'https://www.nps.gov/dewa/planyourvisit/boating-and-boating-safety.htm' } },
+      { slug: 'delaware-river-worthington-poxono', title: 'Worthington to Poxono: upstream itinerary unverified', explanation: 'NPS places Poxono upstream of Worthington. Public launch listings do not establish the former upstream shuttle plan. This trip is unavailable until its intended itinerary and current facilities are verified; reversing the endpoints would be a different plan.', source: { label: 'NPS Middle Delaware downstream access-mileage table', url: 'https://www.nps.gov/dewa/planyourvisit/boating-and-boating-safety.htm' } },
+      { slug: 'delaware-river-byram-bulls-island', title: 'Byram to Bull’s Island: wing-dam passage needs review', explanation: 'The NJDEP map places the Lumberville wing dam between Byram and the Bull’s Island river ramp. The former advice to avoid wing dams did not explain how to complete this short trip. It is unavailable until a supported passage or lawful carry is reviewed. The two launches are not interchangeable sides of the dam.', source: { label: 'NJDEP Bull’s Island area map', url: 'https://dep.nj.gov/wp-content/uploads/parksandforests/bullsisland-area.pdf' } },
+    ],
+    guide: {
+      title: 'Choose a Lower Delaware trip by its hazards and finish',
+      introduction: 'Compare nine New Jersey access plans below, including four guides with different rapid, dam or tidal-water commitments. Five shorter or combined choices stay here with their own launch, landing and shuttle details. All are planning only: station observations do not supply a same-day paddle score. Three older itineraries have specific review explanations instead of launchable plans.',
+      decisions: [
+        { heading: 'Read the station that applies to the corridor', text: 'NJDEP directs D&R park river users around Frenchtown, Stockton and Lambertville to Riegelsville. The six corresponding plans now use USGS 01457500 as proxy context. Belvidere remains the launch-area station for the Foul Rift trip; the two Firemen’s Eddy downstream choices retain Trenton context. None provides a calibrated recreational cutoff.', source: { label: 'NJDEP D&R park river-launch and stream-gauge guidance', url: 'https://dep.nj.gov/parksandforests/state-park/dr-canal-state-park/' } },
+        { heading: 'Belvidere to Phillipsburg includes Foul Rift', text: 'Foul Rift is a Class II feature for experienced boaters, not a routine extension of a gentle access-to-access float. Review the rapid, equipment and rescue plan locally. NPS access markers suggest about 14–15 miles, replacing the unsupported seventeen-mile label. Belvidere telemetry is upstream launch context; finish at the NJ Phillipsburg ramp before the Lehigh confluence.', source: { label: 'National Wild and Scenic Rivers System — Foul Rift', url: 'https://www.fws.gov/rivers/river/delaware-lower' }, route: { label: 'Read the Belvidere–Phillipsburg guide', slug: 'delaware-river-belvidere-phillipsburg' } },
+        { heading: 'Start below one wing dam and finish above the next', text: 'For Bull’s Island–Lambertville, the NJDEP map places the island river ramp below the Lumberville wing dam. Byram is above it. Use the correct river ramp and finish at Lambertville before the separate Lambertville wing dam; a start at Byram or finish at Firemen’s Eddy changes the hazard plan.', source: { label: 'NJDEP Bull’s Island ramp and wing-dam map', url: 'https://dep.nj.gov/wp-content/uploads/parksandforests/bullsisland-area.pdf' }, route: { label: 'Read the Bull’s Island–Lambertville guide', slug: 'delaware-river-bulls-island-lambertville' } },
+        { heading: 'Lambertville to Firemen’s Eddy requires whitewater passage', text: 'Staying in Lambertville’s upstream pool cannot reach Firemen’s Eddy. The local paddling club describes complex whitewater below the wing-dam opening and calls for full whitewater equipment and local knowledge. Arrange a qualified local passage plan. This guide supplies neither a safe line nor a verified public portage; choose another trip if the group cannot negotiate the hazard.', source: { label: 'Lehigh Valley Kayak and Canoe Club — Lambertville', url: 'https://lehighvalleycanoeclub.org/content.aspx?club_id=729461&module_id=567398&page_id=22' }, route: { label: 'Read the Lambertville–Firemen’s Eddy guide', slug: 'delaware-river-lambertville-firemens-eddy' } },
+        { heading: 'Washington Crossing and Trenton are different commitments', text: 'The shorter Firemen’s Eddy option finishes at the NJ Washington Crossing access. Continuing to Trenton adds Scudders, the Falls at Trenton and tidal water. The archived water-trail map identifies that transition; arrange current rapid scouting, tide planning and a usable municipal landing. A Trenton discharge reading is not a tide prediction.', source: { label: 'DRBC archived water-trail map — Scudders and Trenton', url: 'https://www.nj.gov/drbc/library/documents/watertrailguide_2.pdf' }, route: { label: 'Read the longer Firemen’s Eddy–Trenton guide', slug: 'delaware-river-firemens-eddy-trenton' } },
+        { heading: 'Compare the Kingwood, Fairview and Byram choices together', text: 'Kingwood–Byram combines Kingwood–Fairview and Fairview–Byram. NPS markers give 1.4 plus 5.9, or 7.3 reference miles; the former 6.1-mile label did not reconcile. Fairview is a primitive non-motorized access, with a carry and parking check distinct from Kingwood’s ramp. These remain individual choices with their own shuttles, rather than three repeated guides.', source: { label: 'NPS Lower Delaware access names and river-mile markers', url: 'https://www.nps.gov/lode/planyourvisit/motorboating.htm' } },
+        { heading: 'Use Lower Delaware access rules', text: 'These nine plans are outside Delaware Water Gap National Recreation Area. Its campsite arrangements and numeric gauge-height closure bands do not govern this corridor. Check the manager of each launch. NJDEP’s park guidance lists five river launches and a Memorial Day–Labor Day permit season, with Lambertville excepted; that is not a blanket permit rule for every listed access.', source: { label: 'NJDEP D&R park — Delaware River boating', url: 'https://dep.nj.gov/parksandforests/state-park/dr-canal-state-park/' } },
+      ],
+    },
+  },
+  {
     riverId: 'allagash-river',
     mode: 'access-planning',
     reviewedOn: '2026-10-20',

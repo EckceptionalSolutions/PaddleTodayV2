@@ -3,7 +3,7 @@ import { getRiverBySlug } from '../../src/lib/rivers';
 import { serializePlanningRoute } from '../../src/lib/api-contract';
 import { installMapLibreHarness } from './maplibre-harness';
 
-for (const slug of ['kennebec-river-sidney-augusta', 'verde-river-beasley-flat-childs', 'baltimore-blueway-canton', 'baltimore-blueway-inner-harbor-heritage', 'woonasquatucket-river-georgiaville-cricket']) {
+for (const slug of ['kennebec-river-sidney-augusta', 'verde-river-beasley-flat-childs', 'baltimore-blueway-canton', 'baltimore-blueway-inner-harbor-heritage', 'woonasquatucket-river-georgiaville-cricket', 'delaware-river-belvidere-phillipsburg', 'delaware-river-bulls-island-lambertville', 'delaware-river-lambertville-firemens-eddy', 'delaware-river-firemens-eddy-trenton']) {
   test(`${slug}: planning evidence stays available after API hydration`, async ({ page }) => {
     const river = getRiverBySlug(slug)!;
     const errors: string[] = [];
@@ -40,6 +40,12 @@ for (const slug of ['kennebec-river-sidney-augusta', 'verde-river-beasley-flat-c
       await expect(sources).toContainText('75 and 200 cfs observations; no calibrated cutoff');
       await expect(sources).toContainText('separate Manton-to-Atwells');
       await expect(sources.locator('.source-list a[href="https://www.smithfieldri.gov/departments/parks-recreation/parks-facilities-beaches"]')).toHaveCount(1);
+    }
+    if (slug.startsWith('delaware-river-')) {
+      await expect(sources).toContainText('Lower Delaware access context');
+      await expect(sources).toContainText('outside Delaware Water Gap');
+      await expect(sources).toContainText(river.profile.difficultyNotes!);
+      await expect(sources.locator(`.source-list a[href="${river.gaugeSource.detailUrl}"]`)).toHaveCount(1);
     }
     expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth + 1)).toBe(true);
     expect(errors).toEqual([]);

@@ -8,17 +8,20 @@ interface Props { routes: River[]; guide: PaddlePlanningGuide; reviewedOn: strin
 const { routes, guide, reviewedOn, underReview = [] } = Astro.props;
 const shared = sharedAccessPlanNotes(routes);
 const sources = [...new Map(guide.decisions.map(decision => [decision.source.url, decision.source])).values()];
+const guideLinks = guide.decisions.flatMap(decision => decision.route ? [decision.route] : []);
+const showGuideNavigation = guideLinks.length > 2;
 ---
 <div id="choose-your-reach" class="access-planning-context" data-access-planning-context>
   <p class="eyebrow section-label">Before you go</p>
   <h2 id="river-hub-context-title">{guide.title}</h2>
+  {showGuideNavigation && <nav aria-label="Detailed trip guides"><h3>Detailed trip guides</h3><ul>{guideLinks.map(route => <li><a href={routePageHref(route.slug)}>{route.label}</a></li>)}</ul></nav>}
   <div class="access-planning-context__guidance">
-    {guide.decisions.slice(0, 2).map(decision => <article><h3>{decision.heading}</h3><p>{decision.text}</p>{decision.route && <p><a href={routePageHref(decision.route.slug)}>{decision.route.label}</a></p>}</article>)}
+    {guide.decisions.slice(0, 2).map(decision => <article><h3>{decision.heading}</h3><p>{decision.text}</p>{decision.route && !showGuideNavigation && <p><a href={routePageHref(decision.route.slug)}>{decision.route.label}</a></p>}</article>)}
   </div>
   {shared.hazards.length > 0 && <div class="access-planning-context__cautions"><h3>Watch for on this river</h3><ul>{shared.hazards.map(note => <li>{note}</li>)}</ul><p>Check your selected plan for additional hazards and restrictions.</p></div>}
   <details class="access-planning-context__notes">
     <summary>Shared access and safety guidance</summary>
-    {guide.decisions.slice(2).map(decision => <article><h3>{decision.heading}</h3><p>{decision.text}</p>{decision.route && <p><a href={routePageHref(decision.route.slug)}>{decision.route.label}</a></p>}</article>)}
+    {guide.decisions.slice(2).map(decision => <article><h3>{decision.heading}</h3><p>{decision.text}</p>{decision.route && !showGuideNavigation && <p><a href={routePageHref(decision.route.slug)}>{decision.route.label}</a></p>}</article>)}
     {shared.access.length > 0 && <><h3>Access</h3><ul>{shared.access.map(note => <li>{note}</li>)}</ul></>}
     {shared.safety.length > 0 && <><h3>Safety</h3><ul>{shared.safety.map(note => <li>{note}</li>)}</ul></>}
     {shared.permits && <p><strong>Rules:</strong> {shared.permits}</p>}
