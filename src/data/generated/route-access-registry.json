@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-10-20T19:53:26.180Z",
+  "generatedAt": "2026-10-20T20:25:04.578Z",
   "auditGeneratedAt": "2026-09-22T14:58:34.632Z",
   "summary": {
     "entryCount": 4076,
@@ -115111,18 +115111,18 @@
       ]
     },
     {
-      "id": "maine--churchill-dam-designated-access",
+      "id": "maine--churchill-canoe-launch-facility-anchor-northbound-carry-required",
       "state": "Maine",
-      "name": "Churchill Dam designated access",
+      "name": "Churchill Canoe Launch (facility anchor; northbound carry required)",
       "aliases": [
-        "Churchill Dam designated access"
+        "Churchill Canoe Launch (facility anchor; northbound carry required)"
       ],
       "sourceIds": [
         "allagash-river-churchill-dam-umsaskis-put-in"
       ],
       "storedAccessCoordinate": {
-        "latitude": 46.53624,
-        "longitude": -69.31511
+        "latitude": 46.493378,
+        "longitude": -69.288744
       },
       "accessCoordinate": null,
       "accessCoordinateSource": "official-area-anchor-not-access",
@@ -115131,14 +115131,14 @@
       "authoritativeAreaAnchor": {
         "provider": "me_allagash_upper_access_20261020",
         "featureId": "allagash-river-churchill-dam-umsaskis-put-in",
-        "name": "Churchill Dam designated access",
-        "officialName": "Maine DACF upper Allagash facility inventory and full Waterway guide review",
+        "name": "Churchill Canoe Launch (facility anchor; northbound carry required)",
+        "officialName": "Maine DACF named Allagash facilities map and lake launch inventory",
         "aliases": [
-          "Churchill Dam designated access"
+          "Churchill Canoe Launch (facility anchor; northbound carry required)"
         ],
-        "latitude": 46.53624,
-        "longitude": -69.31511,
-        "sourceUrl": "https://www.maine.gov/dacf/parks/water_activities/boating/public_boat_launches/boat_sites.shtml",
+        "latitude": 46.493378,
+        "longitude": -69.288744,
+        "sourceUrl": "https://www.maine.gov/dacf/parks/publications_maps/gis/aww_ge/aww.kml",
         "waterbody": "Allagash River",
         "coordinateRole": "authoritative-area-anchor",
         "uncertaintyFeet": 300,
@@ -115149,9 +115149,9 @@
       "authoritativeAccessIdentityMismatch": false,
       "authoritativeAccessMismatchFeet": null,
       "waterEntryCoordinate": null,
-      "waterEntryConsensusRouteCount": 1,
-      "waterEntryExactOnRiver": true,
-      "waterEntryWaterbodyConfirmed": true,
+      "waterEntryConsensusRouteCount": 0,
+      "waterEntryExactOnRiver": false,
+      "waterEntryWaterbodyConfirmed": false,
       "authoritativeResolvesDistinctLocation": false,
       "coordinateStatus": "consistent",
       "verificationStatus": "area-anchor-only",
@@ -115160,10 +115160,10 @@
       "routeCount": 1,
       "coordinateVariants": [
         {
-          "key": "46.53624,-69.31511",
+          "key": "46.49338,-69.28874",
           "coordinate": {
-            "latitude": 46.53624,
-            "longitude": -69.31511
+            "latitude": 46.493378,
+            "longitude": -69.288744
           },
           "occurrenceCount": 2,
           "routeCount": 1,
@@ -115179,12 +115179,12 @@
           "state": "Maine",
           "endpoint": "accessPoint",
           "sourceId": "allagash-river-churchill-dam-umsaskis-put-in",
-          "name": "Churchill Dam designated access",
-          "latitude": 46.53624,
-          "longitude": -69.31511,
-          "auditSeverity": "ok",
-          "distanceFeetToMatchedRiver": 46.147711629338175,
-          "endpointOnWaterbody": true,
+          "name": "Churchill Canoe Launch (facility anchor; northbound carry required)",
+          "latitude": 46.493378,
+          "longitude": -69.288744,
+          "auditSeverity": null,
+          "distanceFeetToMatchedRiver": null,
+          "endpointOnWaterbody": null,
           "coordinateEvidenceRole": null
         },
         {
@@ -115193,12 +115193,12 @@
           "state": "Maine",
           "endpoint": "putIn",
           "sourceId": null,
-          "name": "Churchill Dam designated access",
-          "latitude": 46.53624,
-          "longitude": -69.31511,
-          "auditSeverity": "ok",
-          "distanceFeetToMatchedRiver": 46.147711629338175,
-          "endpointOnWaterbody": true,
+          "name": "Churchill Canoe Launch (facility anchor; northbound carry required)",
+          "latitude": 46.493378,
+          "longitude": -69.288744,
+          "auditSeverity": null,
+          "distanceFeetToMatchedRiver": null,
+          "endpointOnWaterbody": null,
           "coordinateEvidenceRole": null
         }
       ]
@@ -123825,13 +123825,13 @@
         "provider": "me_allagash_upper_access_20261020",
         "featureId": "allagash-river-churchill-dam-umsaskis-take-out",
         "name": "Umsaskis Lake / T11 R13 public carry-in (facility anchor)",
-        "officialName": "Maine DACF upper Allagash facility inventory and full Waterway guide review",
+        "officialName": "Maine DACF named Allagash facilities map and lake launch inventory",
         "aliases": [
           "Umsaskis Lake / T11 R13 public carry-in (facility anchor)"
         ],
         "latitude": 46.6141,
         "longitude": -69.3936,
-        "sourceUrl": "https://www.maine.gov/dacf/parks/water_activities/boating/public_boat_launches/boat_sites.shtml",
+        "sourceUrl": "https://www.maine.gov/dacf/parks/publications_maps/gis/aww_ge/aww.kml",
         "waterbody": "Umsaskis Lake",
         "coordinateRole": "authoritative-area-anchor",
         "uncertaintyFeet": 300,

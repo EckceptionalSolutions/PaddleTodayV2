@@ -1,5 +1,6 @@
 import { endpointSnappedRiverGeometry, stitchRiverLines } from './endpoint-snapped-river-geometry.js';
 import { staticAssetUrl } from './static-asset-url.js';
+import { isRouteGeometryHeld } from './route-geometry-review-holds.js';
 
 const canonicalGeometryPromises = new Map();
 const canonicalRouteGeometryPromises = new Map();
@@ -77,6 +78,7 @@ function flattenGeometry(geometry) {
 
 /** Convert a canonical route feature into a section snapped to access points. */
 export function canonicalRiverRouteLineFromFeature(feature, routePoints) {
+  if (isRouteGeometryHeld(feature?.properties?.routeId)) return null;
   if (!feature || !Array.isArray(routePoints) || routePoints.length < 2) return null;
 
   const stitchTolerance = routeStitchTolerances.get(feature.properties?.routeId);
@@ -99,6 +101,7 @@ export function canonicalRiverRouteLineFromFeature(feature, routePoints) {
 
 /** Return a route-specific river section snapped to the supplied access points. */
 export async function loadCanonicalRiverRouteLine(routeId, routePoints, options = {}) {
+  if (isRouteGeometryHeld(routeId)) return null;
   const existing = canonicalRouteGeometryPromises.get(routeId);
   const featurePromise = existing ?? fetch(
     staticAssetUrl(`/data/canonical-river-geometries/routes/${encodeURIComponent(routeId)}.json`),

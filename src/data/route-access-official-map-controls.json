@@ -29642,28 +29642,28 @@
     },
     {
       "id": "me_allagash_upper_access_20261020",
-      "name": "Maine DACF upper Allagash facility inventory and full Waterway guide review",
+      "name": "Maine DACF named Allagash facilities map and lake launch inventory",
       "state": "Maine",
-      "sourceUrl": "https://www.maine.gov/dacf/parks/water_activities/boating/public_boat_launches/boat_sites.shtml",
+      "sourceUrl": "https://www.maine.gov/dacf/parks/publications_maps/gis/aww_ge/aww.kml",
       "sourceType": "official-launch-inventory-and-waterway-map",
-      "sourceSha256": "d54fc2a4ca0315c2735150a99911ccc856a1fd200012141f3b063847cd36f9c5",
+      "sourceSha256": "c546a87237a330e33a759df588c3f035472aecca2dbc1557a67fbd7c2ede9dbf",
       "coordinateRole": "authoritative-area-anchor",
-      "method": "Browser-visible DACF inventory entries matched by waterbody and township, checked against the complete Waterway map and rules. Hash covers the normalized evidence snapshot. Published facility anchors, not surveyed wet entries. The 300-foot match tolerance is a review bound, not source-certified positional accuracy.",
+      "method": "Named KML placemarks distinguish Churchill Canoe Launch from Bissonette Bridge; Umsaskis inventory and named launch agree. Facility anchors, not surveyed wet entries. The 300-foot match tolerance is a review bound, not source-certified positional accuracy.",
       "controls": [
         {
           "featureId": "allagash-river-churchill-dam-umsaskis-put-in",
-          "name": "Churchill Dam designated access",
+          "name": "Churchill Canoe Launch (facility anchor; northbound carry required)",
           "aliases": [
-            "Churchill Dam designated access"
+            "Churchill Canoe Launch (facility anchor; northbound carry required)"
           ],
           "routeIds": [
             "allagash-river-churchill-dam-umsaskis"
           ],
           "waterbody": "Allagash River",
-          "latitude": 46.53624,
-          "longitude": -69.31511,
+          "latitude": 46.493378,
+          "longitude": -69.288744,
           "uncertaintyFeet": 300,
-          "coordinateText": "DACF T10 R12 WELS, geocode 21888; facility location, not a surveyed water entry. Verify the below-dam launch or lake carry with the ranger."
+          "coordinateText": "Named Churchill Canoe Launch KML placemark -69.28874350787891,46.49337847304665. Manager describes a short carry across the logging road for northbound trips. Not a surveyed below-dam wet entry. Former T10 R12 inventory point is Bissonette Bridge."
         },
         {
           "featureId": "allagash-river-churchill-dam-umsaskis-take-out",

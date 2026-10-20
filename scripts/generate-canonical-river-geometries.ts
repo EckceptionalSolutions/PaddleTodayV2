@@ -5,6 +5,7 @@ import { endpointSnappedRiverGeometry, endpointSnappedRiverNetwork, stitchRiverL
 import { listAllRiversForAudit, listRivers } from '../src/lib/rivers';
 import type { River } from '../src/lib/types';
 import { compactGeometryCoordinates } from './lib/compact-geometry';
+import { isRouteGeometryHeld, routeGeometryReviewHolds } from '../src/lib/route-geometry-review-holds.js';
 
 type Point = [number, number];
 
@@ -3703,7 +3704,8 @@ async function main() {
   );
   let curatedFeatures = [
     ...existingFeatures.filter((feature) =>
-      !networkPreferredCuratedRouteIds.has(feature.properties.routeId)
+      !isRouteGeometryHeld(feature.properties.routeId)
+      && !networkPreferredCuratedRouteIds.has(feature.properties.routeId)
       && (reuseExisting || !builtInCuratedFeatures.some((curated) => curated.properties.routeId === feature.properties.routeId))
       // Reuse mode preserves reviewed assets; a route-scoped refresh preserves
       // every existing asset except the requested route. Full generation
@@ -3725,6 +3727,7 @@ async function main() {
     while (nextRouteIndex < routes.length) {
       const route = routes[nextRouteIndex];
       nextRouteIndex += 1;
+    if (isRouteGeometryHeld(route.id)) continue;
     // A route-scoped curated refresh already has the replacement line. Do not
     // require an unused hydrography request before writing that reviewed asset.
     if ((reuseExisting || requestedRouteId) && curatedFeatures.some(feature => feature.properties.routeId === route.id)) continue;
@@ -3997,6 +4000,11 @@ async function main() {
 
   await mkdir(stateOutputDir, { recursive: true });
   await mkdir(routeOutputDir, { recursive: true });
+  // Overwrite the stable asset with a tombstone so old cached geometry URLs do
+  // not keep serving a known incomplete line. Exclude it from mapped coverage.
+  for (const route of outputRoutes.filter(route => isRouteGeometryHeld(route.id))) {
+    await writeFile(path.join(routeOutputDir, `${route.id}.json`), `${JSON.stringify({ type: 'Feature', properties: { routeId: route.id, riverId: route.riverId, state: route.state, source: 'Maine DACF named facility review', geometryReviewStatus: 'withheld', geometryReviewReason: routeGeometryReviewHolds.get(route.id) }, geometry: null })}\n`, 'utf8');
+  }
   const stateGroups = new Map<string, CanonicalFeature[]>();
   for (const feature of features) {
     const key = stateSlug(feature.properties.state);
@@ -4042,7 +4050,7 @@ async function main() {
     }),
   );
 
-  const expectedRouteFiles = new Set(features.map((feature) => `${feature.properties.routeId}.json`));
+  const expectedRouteFiles = new Set([...features.map((feature) => `${feature.properties.routeId}.json`), ...outputRoutes.filter(route => isRouteGeometryHeld(route.id)).map(route => `${route.id}.json`)]);
   await Promise.all(
     (await readdir(routeOutputDir))
       .filter((fileName) => !retainLegacyAssets && fileName.endsWith('.json') && !expectedRouteFiles.has(fileName))

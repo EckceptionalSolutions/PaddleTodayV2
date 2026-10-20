@@ -103,6 +103,10 @@ for (const review of routeGuidePublicationReviews) {
       await expect(page.getByRole('heading', { name: 'Explore access plans', exact: true })).toBeVisible();
       await expect(page.locator('[data-group-sort], [data-group-refresh], .river-route-picker__toolbar, .route-choice__score-compact, .river-route-picker__selected-decision, .river-route-picker__nearby')).toHaveCount(0);
       await expect(page.locator('.river-hub-map-legend')).not.toContainText('Strong conditions');
+      if (review.riverId === 'allagash-river') {
+        await expect(page.locator('[data-group-map-status]')).toContainText('Route line and GPX withheld');
+        await expect(page.locator('[data-group-selected-notes]')).toContainText('Map shows access facilities only');
+      }
       const firstHazard = group.routes[0].logistics!.watchFor![0];
       await expect(sharedAccessPlanNotes(group.routes).hazards.includes(firstHazard) ? page.locator('.access-planning-context__cautions') : notes).toContainText(firstHazard);
     }

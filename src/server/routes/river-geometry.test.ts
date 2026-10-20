@@ -6,6 +6,12 @@ vi.mock('node:fs/promises', () => ({ readFile: vi.fn(), readdir: vi.fn() }));
 afterEach(() => { vi.resetModules(); vi.resetAllMocks(); vi.useRealTimers(); });
 
 describe('geometry file inventory', () => {
+  it('withholds a known incomplete line even if an old deployment retains its asset', async () => {
+    const { loadRouteGeometry } = await import('./river-geometry');
+    expect(await loadRouteGeometry('allagash-river-churchill-dam-umsaskis')).toBeNull();
+    expect(readFile).not.toHaveBeenCalled();
+    expect(readdir).not.toHaveBeenCalled();
+  });
   it('avoids file reads for arbitrary missing slugs and bounds their retention', async () => {
     vi.mocked(readdir).mockResolvedValue(['retained-route.json'] as never);
     const { loadRouteGeometry, getGeometryCacheStats } = await import('./river-geometry');

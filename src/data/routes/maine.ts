@@ -156,11 +156,13 @@ export const allagashImage = 'https://www.maine.gov/dacf/parks/publications_maps
 
 function reviewedAllagashUpperPlan(route: River): River {
   route.logistics!.distanceLabel = 'About 14 miles: 9 river miles plus 5 lake miles to the public launch';
+  route.logistics!.accessCaveats.push('Map shows access facilities only: the former route line started at Bissonette Bridge and is withheld along with GPX export until a complete Churchill-to-Umsaskis corridor is reviewed. The Churchill facility requires a northbound carry; no line across the dam is implied.');
   route.sourceLinks.push(
     { label: 'Maine DACF Allagash access and watercraft rules', url: allagashRulesUrl, provider: 'local' },
     { label: 'Maine DACF Allagash conditions and alerts', url: allagashConditionsUrl, provider: 'local' },
+    { label: 'Maine DACF named Allagash facilities map', url: 'https://www.maine.gov/dacf/parks/publications_maps/gis/allagashwildernesswaterway.kml', provider: 'local' },
   );
-  route.evidenceNotes.push({ label: 'Launch coordinate provenance', value: 'Official facility anchors; water entry unverified', note: 'DACF’s inventory places Churchill Dam in T10 R12 and the Umsaskis Lake carry-in in T11 R13. These are facility points, not surveyed wet entries. The former T13 R12 finish belongs to a different downstream access. Confirm the below-dam launch, carry and lake landing with the ranger before travel.', sourceUrl: boatingSitesUrl });
+  route.evidenceNotes.push({ label: 'Launch coordinate provenance', value: 'Named official facility anchors; water entry unverified', note: 'DACF’s named facilities map identifies Churchill Canoe Launch separately from Bissonette Bridge. The former T10 R12 pin was Bissonette Bridge, not Churchill Dam. The start now marks the Churchill launch facility; the manager describes a short carry across the logging road for northbound trips. The Umsaskis Lake carry-in is in T11 R13; the former T13 R12 finish is a different downstream access. Confirm the safe below-dam entry, carry and lake landing with the ranger.', sourceUrl: 'https://www.maine.gov/dacf/parks/publications_maps/gis/aww_ge/aww.kml' });
   return route;
 }
 const androscogginImage = 'https://d9-wret.s3.us-west-2.amazonaws.com/assets/palladium/production/s3fs-public/styles/full_width/public/thumbnails/image/RiverPHOTO_web.jpg?itok=rBBzFvFf';
@@ -179,7 +181,7 @@ const commonRiverSafety = [
 export const maineRoutes: River[] = [
   reviewedAllagashUpperPlan(buildMaineRoute({
     id: 'allagash-river-churchill-dam-umsaskis', name: 'Allagash River', riverId: 'allagash-river', reach: 'Churchill Dam to Umsaskis Thoroughfare public carry-in', region: 'North Maine Woods / Allagash Wilderness Waterway', distance: 14, time: 'Plan a full wilderness day or authorized overnight; confirm time for rapids, carries, lake wind and the remote shuttle with the ranger', difficulty: 'hard', routeType: 'whitewater', risk: 'advanced', gauge: '01011000', gaugeName: 'Allagash River near Allagash, ME', gaugeKind: 'proxy',
-    putIn: { name: 'Churchill Dam designated access', latitude: 46.53624, longitude: -69.31511 }, takeOut: { name: 'Umsaskis Lake / T11 R13 public carry-in (facility anchor)', latitude: 46.61410, longitude: -69.39360 },
+    putIn: { name: 'Churchill Canoe Launch (facility anchor; northbound carry required)', latitude: 46.493378, longitude: -69.288744 }, takeOut: { name: 'Umsaskis Lake / T11 R13 public carry-in (facility anchor)', latitude: 46.61410, longitude: -69.39360 },
     summary: 'A source-based upper Allagash plan linking the nine-mile Churchill–Umsaskis river section with about five miles across the lake to the public road access. Arrange Chase Rapids passage and allow for lake wind.',
     status: 'Planning only. The brochure’s nine-mile section ends at the head of Umsaskis Lake; the road-access finish requires about five more lake miles. The fourteen-mile total is derived from those two descriptions, with carries additional. Confirm ranger advice, access and current conditions before committing.',
     seasonNotes: 'The AWW guide advises against canoe trips before May 15 because ice-out may not occur until early to mid-May. Late summer can be low; fall brings cold water and shorter daylight.',

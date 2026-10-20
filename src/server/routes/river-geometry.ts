@@ -3,6 +3,7 @@ import { resolve } from 'node:path';
 import type { ServerResponse } from 'node:http';
 import { sendJson } from '../http';
 import { GeometryCache, type CanonicalGeometryFeature } from './geometry-cache';
+import { isRouteGeometryHeld } from '../../lib/route-geometry-review-holds.js';
 
 const geometryCache = new GeometryCache(readRouteGeometry);
 let assetInventory: { slugs: Set<string>; expiresAt: number } | undefined;
@@ -37,6 +38,7 @@ export async function handleRiverGeometry(
 }
 
 export async function loadRouteGeometry(slug: string) {
+  if (isRouteGeometryHeld(slug)) return null;
   return geometryCache.load(slug);
 }
 
