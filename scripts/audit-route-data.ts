@@ -231,13 +231,13 @@ for (const route of auditedRoutes) {
     }
     endpointPairs.set(pairKey, { route, enriched });
 
-    if (isPlanningRoute && routeMiles !== null && isPlanningCoordinateDeferred()) {
+    if (isPlanningRoute && routeMiles !== null && isPlanningCoordinateDeferred(distanceLabel)) {
       const straightLineMiles = distanceMiles(enriched.putIn, enriched.takeOut);
       if (straightLineMiles > 0.05 && routeMiles < straightLineMiles * 0.92) {
         planningValidationDeferrals.push({
           routeId: route.id,
           category: 'Coordinate',
-          reason: 'Planning mileage-to-anchor comparison is deferred because planning endpoints are source-backed access anchors and the route label may describe a map-controlled channel or itinerary.',
+          reason: 'The planning distance label explicitly describes map-controlled or variable mileage. Resolve its exact itinerary before comparing a single mileage value with the endpoint pair.',
           evidence: `${routeMiles} mi label vs ${straightLineMiles.toFixed(1)} mi straight-line`,
         });
       }
@@ -306,7 +306,7 @@ const planningDeferralsByCategory = planningValidationDeferrals.reduce<Record<st
   counts[deferral.category] = (counts[deferral.category] ?? 0) + 1;
   return counts;
 }, {});
-console.log(`Route data audit passed for ${auditedRoutes.length} routes (scored and planning populations); ${issues.length} planning-route issue(s) remain tracked and ${planningValidationDeferrals.length} planning validation check(s) are explicitly deferred.`);
+console.log(`Route data audit found no blocking scored-route issues across ${auditedRoutes.length} records; ${issues.length} planning-route issue(s) still require review and ${planningValidationDeferrals.length} planning validation check(s) are explicitly deferred. This does not verify planning itineraries.`);
 console.log(JSON.stringify({ populations: populationSummary, planningIssuesByCategory: planningByCategory, planningValidationDeferredByCategory: planningDeferralsByCategory }));
 if (verbose && (issues.length > 0 || planningValidationDeferrals.length > 0)) {
   console.log(JSON.stringify({ planningIssues: issues.filter((issue) => !blockingIssues.includes(issue)), planningValidationDeferrals }, null, 2));

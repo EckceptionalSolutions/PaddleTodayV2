@@ -23,8 +23,11 @@ export function isPlanningDistanceDeferred(distanceLabel: string | undefined) {
   );
 }
 
-export function isPlanningCoordinateDeferred() {
-  return true;
+export function isPlanningCoordinateDeferred(distanceLabel: string | undefined) {
+  // Planning status alone cannot excuse a numeric distance that contradicts
+  // its endpoints. Variable source/map mileage still needs separate review.
+  if (!distanceLabel) return true;
+  return /map[- ]dependent|(?:map|chart)\b[^.;]*\bcontrol[^.;]*\b(?:distance|mileage)|\b(?:distance|mileage)\b[^.;]*\b(?:control|varies|variable|depends)|(?:does not|doesn't) publish[^.;]*mileage/i.test(distanceLabel);
 }
 
 export function isStagedDistanceLabel(distanceLabel: string | undefined) {
