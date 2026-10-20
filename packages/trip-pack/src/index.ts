@@ -33,6 +33,7 @@ export interface TripPlanInput {
 /** A trip plan with canonical geometry, required for GPX export. */
 export interface GpxTripPlan extends TripPlanInput {
   routeCoordinates: readonly TripPackCoordinate[];
+  geometryDescription?: string;
 }
 
 export interface TripPackCoordinate {
@@ -183,12 +184,13 @@ export function buildGpx(plan: GpxTripPlan) {
     '<gpx version="1.1" creator="PaddleToday" xmlns="http://www.topografix.com/GPX/1/1" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.topografix.com/GPX/1/1 https://www.topografix.com/GPX/1/1/gpx.xsd">',
     '  <metadata>',
     `    <name>${xmlEscape(`${plan.riverName} - ${plan.reach}`)}</name>`,
-    `    <desc>${xmlEscape(`PaddleToday route plan. Put-in: ${plan.putIn.name}. Take-out: ${plan.takeOut.name}.`)}</desc>`,
+    `    <desc>${xmlEscape(`PaddleToday route plan. Put-in: ${plan.putIn.name}. Take-out: ${plan.takeOut.name}.${plan.geometryDescription ? ` ${plan.geometryDescription}` : ''}`)}</desc>`,
     `    <link href="${xmlEscape(plan.routeUrl)}"><text>PaddleToday route</text></link>`,
     '  </metadata>',
     ...waypoints,
     '  <trk>',
     `    <name>${xmlEscape(`${plan.riverName} - ${plan.reach}`)}</name>`,
+    ...(plan.geometryDescription ? [`    <desc>${xmlEscape(plan.geometryDescription)}</desc>`] : []),
     '    <trkseg>',
     trackPoints,
     '    </trkseg>',

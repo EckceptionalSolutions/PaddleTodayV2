@@ -3359,9 +3359,11 @@ function syncRouteGeoJsonLine(mapRuntime, sourceId, layerId, routeLine, result, 
       }],
     });
     if (layerId === 'detail-route-line' && detailMapLineKey instanceof HTMLElement) {
-      detailMapLineKey.textContent = traced
-        ? 'Solid line follows the mapped river path.'
-        : 'Dashed line connects access points.';
+      detailMapLineKey.textContent = routeLine.properties?.generalizedPlanningLine === true
+        ? 'Generalized shoreline planning line; verify dock approaches and local navigation.'
+        : traced
+          ? 'Solid line follows the mapped river path.'
+          : 'Dashed line connects access points.';
       detailMapLineKey.hidden = false;
     }
     return;

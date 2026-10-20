@@ -109,7 +109,13 @@ export async function handleRiverTripPack(
     basePlan.putIn,
     basePlan.takeOut,
   );
-  const body = buildGpx({ ...basePlan, routeCoordinates: coordinates });
+  const body = buildGpx({
+    ...basePlan,
+    routeCoordinates: coordinates,
+    ...(feature?.properties?.generalizedPlanningLine === true ? {
+      geometryDescription: 'Generalized shoreline planning line. Verify dock approaches and local navigation; not a surveyed navigation track.',
+    } : {}),
+  });
   return sendBinary(
     response,
     200,

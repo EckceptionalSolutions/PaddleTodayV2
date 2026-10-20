@@ -2,6 +2,7 @@
 // Coordinate audit/suggestion source: 2026-09-05T19:58:22.878Z
 // Human-reviewed release exceptions: 31
 export const coordinateWithheldRouteSlugs = [
+  "baltimore-blueway-domino-sugar",
   "baraboo-river-rock-springs-north-freedom",
   "bayou-teche-arnaudville-poche-bridge",
   "bayou-teche-leonville-poche-bridge",
