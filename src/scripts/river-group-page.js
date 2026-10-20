@@ -821,7 +821,9 @@ function boundsForRouteFeatures(maplibregl, routes) {
   let hasBounds = false;
   for (const route of routes) {
     const feature = routeLineFeature(route);
-    for (const coordinate of flattenRouteGeometry(feature?.geometry).flat()) {
+    const lineCoordinates = flattenRouteGeometry(feature?.geometry).flat();
+    const coordinates = lineCoordinates.length ? lineCoordinates : routeSpanCoordinates(route).map(point => [point.longitude, point.latitude]);
+    for (const coordinate of coordinates) {
       if (!Array.isArray(coordinate) || coordinate.length < 2) continue;
       bounds.extend(coordinate);
       hasBounds = true;
