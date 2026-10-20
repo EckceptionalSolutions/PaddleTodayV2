@@ -2,6 +2,7 @@
 import type { River } from '../lib/types';
 import type { PaddlePlanningGuide } from '../data/priority-paddle-guides';
 import { sharedAccessPlanNotes } from '../lib/access-plan-presentation';
+import { routePageHref } from '../data/route-page-consolidations';
 interface Props { routes: River[]; guide: PaddlePlanningGuide; reviewedOn: string }
 const { routes, guide, reviewedOn } = Astro.props;
 const shared = sharedAccessPlanNotes(routes);
@@ -11,11 +12,12 @@ const sources = [...new Map(guide.decisions.map(decision => [decision.source.url
   <p class="eyebrow section-label">Before you go</p>
   <h2 id="river-hub-context-title">{guide.title}</h2>
   <div class="access-planning-context__guidance">
-    {guide.decisions.slice(0, 2).map(decision => <article><h3>{decision.heading}</h3><p>{decision.text}</p></article>)}
+    {guide.decisions.slice(0, 2).map(decision => <article><h3>{decision.heading}</h3><p>{decision.text}</p>{decision.route && <p><a href={routePageHref(decision.route.slug)}>{decision.route.label}</a></p>}</article>)}
   </div>
   {shared.hazards.length > 0 && <div class="access-planning-context__cautions"><h3>Watch for on this river</h3><ul>{shared.hazards.map(note => <li>{note}</li>)}</ul><p>Check your selected plan for additional hazards and restrictions.</p></div>}
   <details class="access-planning-context__notes">
     <summary>Shared access and safety guidance</summary>
+    {guide.decisions.slice(2).map(decision => <article><h3>{decision.heading}</h3><p>{decision.text}</p>{decision.route && <p><a href={routePageHref(decision.route.slug)}>{decision.route.label}</a></p>}</article>)}
     {shared.access.length > 0 && <><h3>Access</h3><ul>{shared.access.map(note => <li>{note}</li>)}</ul></>}
     {shared.safety.length > 0 && <><h3>Safety</h3><ul>{shared.safety.map(note => <li>{note}</li>)}</ul></>}
     {shared.permits && <p><strong>Rules:</strong> {shared.permits}</p>}
