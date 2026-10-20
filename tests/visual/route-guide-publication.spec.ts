@@ -4,10 +4,12 @@ import { listRiverGroups } from '../../src/lib/rivers';
 import { serializeRiverGroupResult } from '../../src/lib/api-contract';
 import { installMapLibreHarness } from './maplibre-harness';
 import fixture from '../mobile-web/fixtures/route-detail.json' with { type: 'json' };
+import { sharedAccessPlanNotes, specificAccessPlanNotes } from '../../src/lib/access-plan-presentation';
 
 for (const review of routeGuidePublicationReviews) {
   test(`${review.riverId}: retired URL preserves selected trip and notes after hydration`, async ({ page }) => {
     const pageErrors: string[] = [];
+    await page.addInitScript(() => localStorage.setItem('paddleTodayAppPromptDismissedAt', String(Date.now())));
     page.on('pageerror', error => { pageErrors.push(error.message); console.error('Pilot browser error:', error.message); });
     await installMapLibreHarness(page);
     const group = listRiverGroups().find(group => group.riverId === review.riverId)!;
@@ -29,37 +31,114 @@ for (const review of routeGuidePublicationReviews) {
     }));
     await page.goto(`/rivers/${selectedSlug}/`, { waitUntil: 'domcontentloaded' });
     await expect(page).toHaveURL(new RegExp(`/by-river/${group.riverId}/#trip-${selectedSlug}$`));
-    await expect(page.locator('[data-group-refresh-note]')).toContainText('Last refresh');
+    await expect(page.locator('[data-river-group-page]')).toHaveAttribute('data-group-loaded', 'true');
     await expect(page.locator('#choose-your-reach')).toBeVisible();
     await expect(page.locator('[data-group-route-card]')).toHaveCount(group.routes.length);
     const selected = page.locator(`[data-group-route-card][data-route-slug="${selectedSlug}"]`);
     await expect(selected).toHaveClass(/route-choice--active/);
     await expect(selected.locator('[data-group-route-select]')).toHaveAttribute('aria-pressed', 'true');
-    const notes = selected.locator('details');
-    await notes.locator('summary').click();
+    await expect(page.locator('[data-group-route-list] details')).toHaveCount(0);
+    if (review.riverId === 'aroostook-river') {
+      await page.locator('.river-route-picker').screenshot({ path: `output/picker-layout/${test.info().project.name}-collapsed.png` });
+    }
+    if (review.mode !== 'access-planning') await selected.locator('[data-group-trip-details]').click();
+    else if (await page.locator('[data-group-mobile-view="map"]').isVisible()) await page.locator('[data-group-mobile-view="map"]').click();
+    const detailsSection = page.locator('[data-group-selected-notes]');
+    const planning = review.mode === 'access-planning';
+    const notes = detailsSection.locator(planning ? '.access-plan-facts' : '.route-choice__trip-notes--selected');
+    if (!planning) await expect(notes).toHaveAttribute('open', '');
+    else await expect(notes).toBeVisible();
+    await expect(detailsSection.locator('h3')).toHaveText(group.routes.find(route => route.slug === selectedSlug)!.reach);
+    const pickerBox = await page.locator('.river-route-picker__layout').boundingBox();
+    const detailsBox = await detailsSection.boundingBox();
+    const mapBox = await page.locator('[data-group-map]').boundingBox();
+    expect(detailsBox!.width).toBeGreaterThan(pickerBox!.width * 0.9);
+    expect(detailsBox!.y).toBeGreaterThanOrEqual(mapBox!.y + mapBox!.height);
+    expect(await notes.locator(planning ? ':scope' : '.route-choice__trip-notes-panel').evaluate(element => parseFloat(getComputedStyle(element.querySelector('p')!).fontSize))).toBeGreaterThanOrEqual(14);
     await expect(notes).toContainText(group.routes.find(route => route.slug === selectedSlug)!.logistics!.shuttle);
-    await expect(notes).toContainText(group.routes.find(route => route.slug === selectedSlug)!.gaugeSource.siteName);
-    await expect(notes).toContainText(group.routes.find(route => route.slug === selectedSlug)!.safetyProfile!.safetyNotes[0]);
+    const commonNotes = planning ? page.locator('[data-access-planning-context]') : notes;
+    await expect(planning ? page.locator('.access-planning-context__guidance') : notes).toContainText(planning ? group.routes.find(route => route.slug === selectedSlug)!.gaugeSource.siteId : group.routes.find(route => route.slug === selectedSlug)!.gaugeSource.siteName);
+    await expect(commonNotes).toContainText(group.routes.find(route => route.slug === selectedSlug)!.safetyProfile!.safetyNotes[0]);
     if (review.riverId === 'piscataquis-river') await expect(notes).not.toContainText('same-river proxy');
     if (review.mode === 'reach-guides') {
       const route = group.routes.find(route => route.slug === selectedSlug)!;
       await expect(notes).toContainText(`Published planning floor: ${route.profile.idealMin ?? route.profile.tooLow} ${route.gaugeSource.unit}`);
+    }
+    await expect(notes.locator('.route-choice__sources')).not.toHaveAttribute('open', '');
+    if (review.riverId === 'aroostook-river') {
+      await detailsSection.screenshot({ path: `output/picker-layout/${test.info().project.name}-expanded.png` });
+      if (test.info().project.name === 'desktop-chromium') {
+        await page.setViewportSize({ width: 900, height: 900 });
+        expect(await page.evaluate(() => document.documentElement.scrollWidth <= window.innerWidth + 1)).toBe(true);
+        const narrowPicker = await page.locator('.river-route-picker__layout').boundingBox();
+        const narrowDetails = await detailsSection.boundingBox();
+        expect(narrowDetails!.width).toBeGreaterThan(narrowPicker!.width * 0.9);
+        await detailsSection.screenshot({ path: 'output/picker-layout/tablet-expanded.png' });
+        await page.setViewportSize({ width: 1280, height: 800 });
+      }
     }
     expect(await page.evaluate(() => document.documentElement.scrollWidth <= window.innerWidth + 1)).toBe(true);
     for (const slug of review.retainedGuides) {
       await expect(page.locator(`[data-group-route-card][data-route-slug="${slug}"] a[href="/rivers/${slug}/"]`)).toHaveCount(1);
     }
     if (review.mode === 'access-planning') {
-      await expect(page.getByRole('heading', { name: 'Compare access plans', exact: true })).toBeVisible();
-      await expect(page.locator('#choose-your-reach')).toContainText(/no live paddle score|has a live paddle score/);
-      await expect(page.locator('[data-group-sort] option[value="recommended"]')).toHaveText('Default order');
+      await expect(page.getByRole('heading', { name: 'Explore access plans', exact: true })).toBeVisible();
+      await expect(page.locator('[data-group-sort], [data-group-refresh], .river-route-picker__toolbar, .route-choice__score-compact, .river-route-picker__selected-decision, .river-route-picker__nearby')).toHaveCount(0);
+      await expect(page.locator('.river-hub-map-legend')).not.toContainText('Strong conditions');
+      await expect(page.locator('.access-planning-context__cautions')).toContainText(group.routes[0].logistics!.watchFor![0]);
     }
     const secondSlug = review.hubOptions.at(-1)!;
+    const listSwitch = page.locator('[data-group-mobile-view="list"]');
+    if (await listSwitch.isVisible()) await listSwitch.click();
     await page.locator(`[data-group-route-card][data-route-slug="${secondSlug}"] [data-group-route-select]`).click();
     expect(pageErrors).toEqual([]);
     await expect(page).toHaveURL(new RegExp(`#trip-${secondSlug}$`));
+    await expect(detailsSection.locator('h3')).toHaveText(group.routes.find(route => route.slug === secondSlug)!.reach);
+    await expect(notes).toContainText(group.routes.find(route => route.slug === secondSlug)!.logistics!.shuttle);
+    if (planning) {
+      const route = group.routes.find(route => route.slug === secondSlug)!;
+      const unique = specificAccessPlanNotes(route, sharedAccessPlanNotes(group.routes));
+      for (const warning of [...unique.hazards, ...unique.safety, ...unique.access]) await expect(notes).toContainText(warning);
+      for (const warning of sharedAccessPlanNotes(group.routes).hazards) await expect(notes).not.toContainText(warning);
+    }
     expect(await page.evaluate(() => document.documentElement.scrollWidth <= window.innerWidth + 1)).toBe(true);
     await page.locator('#choose-your-reach').scrollIntoViewIfNeeded();
     await page.screenshot({ path: `output/seo-structure-2026-10-19/${group.riverId}-${test.info().project.name}.png` });
   });
 }
+
+test('access plans ignore retired filters and do not poll conditions', async ({ page }) => {
+  await page.addInitScript(() => localStorage.setItem('paddleTodayAppPromptDismissedAt', String(Date.now())));
+  await page.clock.install();
+  await installMapLibreHarness(page);
+  const group = listRiverGroups().find(group => group.riverId === 'aroostook-river')!;
+  let requests = 0;
+  await page.route(`**/api/river-groups/${group.riverId}.json*`, route => {
+    requests += 1;
+    return route.fulfill({ json: { result: serializeRiverGroupResult({ riverId: group.riverId, routes: [], planningRoutes: group.routes }) } });
+  });
+  const slug = 'aroostook-river-washburn-fort-fairfield';
+  await page.goto(`/rivers/by-river/${group.riverId}/?distance=short&sort=confidence&difficulty=easy#trip-${slug}`);
+  await expect(page.locator('[data-river-group-page]')).toHaveAttribute('data-group-loaded', 'true');
+  await expect(page.locator('[data-group-route-card]')).toHaveCount(group.routes.length);
+  await expect(page.locator('[data-group-selected-notes] h3')).toHaveText(group.routes.find(route => route.slug === slug)!.reach);
+  await expect(page.locator('[data-group-selected-notes]')).toContainText('ice-affected');
+  expect(new URL(page.url()).searchParams.has('distance')).toBe(false);
+  expect(new URL(page.url()).searchParams.has('sort')).toBe(false);
+  await page.clock.fastForward(5 * 60 * 1000 + 1000);
+  expect(requests).toBe(1);
+});
+
+test('access details remain readable when the interactive plan request fails', async ({ page }) => {
+  await page.addInitScript(() => localStorage.setItem('paddleTodayAppPromptDismissedAt', String(Date.now())));
+  await installMapLibreHarness(page);
+  await page.route('**/api/river-groups/aroostook-river.json*', route => route.fulfill({ status: 503, json: { error: 'Unavailable' } }));
+  await page.goto('/rivers/by-river/aroostook-river/');
+  await expect(page.locator('[data-group-results-summary]')).toContainText('Interactive access map unavailable');
+  const fallback = page.locator('[data-group-route-card]').first().locator('details').first();
+  await fallback.locator('summary').first().click();
+  await expect(fallback.locator('.access-plan-facts')).toBeVisible();
+  await expect(fallback).toContainText('Stage the take-out vehicle');
+  await expect(page.locator('[data-access-planning-context]')).toContainText('cold water');
+  await expect(page.locator('[data-group-refresh], .route-choice__score-compact')).toHaveCount(0);
+});

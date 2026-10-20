@@ -1,0 +1,26 @@
+---
+import type { River } from '../lib/types';
+import type { PaddlePlanningGuide } from '../data/priority-paddle-guides';
+import { sharedAccessPlanNotes } from '../lib/access-plan-presentation';
+interface Props { routes: River[]; guide: PaddlePlanningGuide; reviewedOn: string }
+const { routes, guide, reviewedOn } = Astro.props;
+const shared = sharedAccessPlanNotes(routes);
+const sources = [...new Map(guide.decisions.map(decision => [decision.source.url, decision.source])).values()];
+---
+<div id="choose-your-reach" class="access-planning-context" data-access-planning-context>
+  <p class="eyebrow section-label">Before you go</p>
+  <h2 id="river-hub-context-title">{guide.title}</h2>
+  <div class="access-planning-context__guidance">
+    {guide.decisions.slice(0, 2).map(decision => <article><h3>{decision.heading}</h3><p>{decision.text}</p></article>)}
+  </div>
+  {shared.hazards.length > 0 && <div class="access-planning-context__cautions"><h3>Watch for on this river</h3><ul>{shared.hazards.map(note => <li>{note}</li>)}</ul><p>Check your selected plan for additional hazards and restrictions.</p></div>}
+  <details class="access-planning-context__notes">
+    <summary>Shared access and safety guidance</summary>
+    {shared.access.length > 0 && <><h3>Access</h3><ul>{shared.access.map(note => <li>{note}</li>)}</ul></>}
+    {shared.safety.length > 0 && <><h3>Safety</h3><ul>{shared.safety.map(note => <li>{note}</li>)}</ul></>}
+    {shared.permits && <p><strong>Rules:</strong> {shared.permits}</p>}
+    {shared.camping && <p><strong>Camping:</strong> {shared.camping}</p>}
+  </details>
+  <div class="access-planning-context__sources"><h3>Planning sources</h3><ul>{sources.map(source => <li><a href={source.url} target="_blank" rel="noopener noreferrer">{source.label}</a></li>)}</ul></div>
+  <p class="muted access-planning-context__review">Source comparison updated <time datetime={reviewedOn}>{reviewedOn}</time>. These access records do not confirm current passage or conditions.</p>
+</div>

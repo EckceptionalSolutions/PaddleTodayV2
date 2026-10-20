@@ -22,8 +22,10 @@ for (const review of routeGuidePublicationReviews) {
     counts.preservedTripCards += 1;
   }
   if (review.mode === 'access-planning') {
-    assert.ok(hub.includes('Compare access plans'));
-    assert.ok(hub.includes('Default order'));
+    assert.ok(hub.includes('Explore access plans'));
+    assert.ok(hub.includes('data-access-planning-context'));
+    assert.ok(!hub.includes('data-group-refresh'));
+    assert.ok(!hub.includes('data-group-sort'));
     assert.ok(!hub.includes('>Recommended</option>'));
     if (review.riverId === 'piscataquis-river') assert.ok(!hub.includes('same-river proxy'), 'Piscataquis must not call the Penobscot proxy a same-river station');
   }
