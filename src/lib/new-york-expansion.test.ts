@@ -2915,7 +2915,7 @@ describe('New York strategic expansion', () => {
     expect(getRoutePreviewPhoto(route!)).not.toMatchObject({ isPlaceholder: true });
   });
 
-  it('publishes the Lower South Branch Grass River whitewater section with current DEC endpoints', () => {
+  it('retains the Lower South Branch Grass River research record pending endpoint correction', () => {
     const route = newYorkRoutes.find((candidate) => candidate.id === 'south-branch-grass-river-twin-falls-degrasse');
 
     expect(route?.routeType).toBe('whitewater');
@@ -5162,7 +5162,7 @@ describe('New York strategic expansion', () => {
     expect(publicRivers.some((candidate) => candidate.slug === route?.slug)).toBe(true);
   });
 
-  it('publishes the West Canada Creek Route 28 to Middleville access-study gap', () => {
+  it('retains the West Canada Creek Route 28 to Middleville research record pending passage review', () => {
     const route = newYorkRoutes.find((candidate) => candidate.id === 'west-canada-creek-route-28-middleville');
 
     expect(route?.riverId).toBe('west-canada-creek');

@@ -1,0 +1,68 @@
+{
+  "reviewedOn": "2026-10-20",
+  "purpose": "Resolve the most substantial numeric planning-distance contradictions using source-defined reaches, not replacement distances inferred from endpoint separation.",
+  "baseline": {"publicTrips":2565,"sitemapUrls":2483,"publicNumericDistanceCandidates":35},
+  "expectedAfter": {"publicTrips":2562,"sitemapUrls":2480,"publicNumericDistanceCandidates":32,"newlyHeldPlanningGuides":3},
+  "cases": [
+    {
+      "slug": "south-branch-grass-river-twin-falls-degrasse",
+      "decision": "Access-review hold; preserve the original lower-reach record for correction.",
+      "finding": "The catalog combines a 6.9-mile lower-reach feature sequence with the NYSDEC Route 3 fishing access, about 16.7 straight-line miles from its DeGrasse finish. The source's lower-reach State Put-in is described on Tooley Pond Road, 5.9 road miles southeast of DeGrasse. The Route 3 access identifies a different, much longer start with intervening carries.",
+      "sources": [
+        {"url":"https://www.americanwhitewater.org/content/River/view/river-detail/1315/main","review":"Search-indexed primary reach description inspected: Lower South Branch, 6.9 miles, Class IV-V, Tooley Pond Road start and DeGrasse bridge boundary. Direct fetch returned 403; current access operations were not verified from this historical description."},
+        {"url":"https://dec.ny.gov/places/grass-river-complex","review":"Current DEC page distinguishes the Route 3 fishing access at 44.2481,-74.7836, upstream hand-launch context and named carries from Spruce Mountain and First Brook accesses. A parking coordinate does not establish a wet entry or the shorter AW reach."},
+        {"url":"https://dec.ny.gov/places/degrasse-state-forest","review":"DEC identifies the downstream forest access setting; this is not proof that the catalog's entire upstream-to-downstream combination is the documented 6.9-mile run."}
+      ],
+      "releaseRequires": "Verify the actual lower-reach start and DeGrasse water entry/boundary, match the complete feature and carry sequence, confirm lawful current access, correct every dependent record and inspect regenerated geometry. Do not silently move the put-in to an approximate nearby parking site."
+    },
+    {
+      "slug": "west-canada-creek-route-28-middleville",
+      "decision": "Access-review hold on this connector; retain the separately bounded adjacent guides.",
+      "finding": "A six-mile guide joins Site 5 Route 28 Overlook north of Poland to Site 9 North Middleville, about 11.3 straight-line miles apart. The March 2020 operator study's Figure 2-1 places Newport Dam between these sites; section 3.3.1 identifies a portage in the broader Dover Road-Middleville section. The catalog claims high confidence without resolving that transfer.",
+      "sources": [
+        {"url":"https://westcanadacreek.brookfieldusprojects.com/wp-content/uploads/sites/26/2020/03/Whitewater-Boating-Flow-Access-Study-Progress-Report.pdf","review":"Complete relevant pages visually inspected: PDF page 9 / printed page 5, Figure 2-1; PDF page 23 / printed page 19, section 3.3.1. The map identifies Sites 5, 7, Newport Dam, Site 8 and Site 9 in order. This historical study does not establish present dam conditions, portage availability or public wet entries."}
+      ],
+      "releaseRequires": "Resolve the current Newport site and lawful take-out/carry/relaunch, confirm exact endpoints and measured itinerary, revise time and distance from that evidence, and inspect separate paddle-leg geometry. Do not infer uninterrupted passage or use straight-line distance as river mileage."
+    },
+    {
+      "slug": "new-river-todd-wagoner",
+      "decision": "Access-review hold pending independent confirmation of the full Todd connection.",
+      "finding": "The seven-mile, three-hour estimate is repeated from a conditions website, while the stored endpoints are about 14 straight-line miles apart. The official park map documents 12.5 miles from Elk Shoals to Wagoner alone (2 + 5.5 + 5 miles), shows hazards requiring carries, and does not cover the full Todd connection. Neither the estimate nor its implied continuous itinerary is established.",
+      "sources": [
+        {"url":"https://canwepaddle.com/rivers/north-carolina/new-river-south-fork-todd-wagoner/","review":"The page currently repeats seven miles and about three hours, alongside estimated flow guidance. Its local note also describes a gauge take-out, so it does not independently resolve the named park itinerary."},
+        {"url":"https://www.ncparks.gov/maps/new-river-state-park-map/open","review":"Full one-page August 2023 map visually inspected, including the canoe-distance table, south-to-north flow note and hazard/portage symbols. Do not add its downstream segment times into an unverified full Todd trip or treat old mapped carries as present permission."},
+        {"url":"https://www.ncparks.gov/state-parks/new-river-state-park","review":"Current park page identifies Wagoner and Elk Shoals as separate access areas. Facility availability does not validate the seven-mile Todd itinerary."},
+        {"url":"https://www.wataugacounty.org/App_Pages/Dept/ParksRec/PublicRiverAccess/newriver.aspx","review":"Current county inventory names Todd Island Park separately from Todd River Access. Access-site listings alone do not establish the intervening trip length or passage."}
+      ],
+      "releaseRequires": "Verify the exact Todd and Wagoner water entries, independent full-route mileage and time, all intervening carries/hazards and lawful current access. Keep numeric profiles and the Jefferson gauge as research context until separately reviewed."
+    }
+  ],
+  "hubIdentityCorrection": {
+    "finding": "Hub names came from the first route sorted by reach; API names could instead follow score order. Four public families were labeled as only one branch despite retaining main-river records.",
+    "rule": "If branch/fork records coexist with an existing route name whose normalized identity exactly matches the family ID, use that family name. Otherwise retain the existing fallback; do not invent a name from the slug or merge new families.",
+    "expectedNames": {"grass-river":"Grass River","west-canada-creek":"West Canada Creek","oswegatchie-river":"Oswegatchie River","st-regis-river":"St. Regis River"},
+    "preserved": "Every individual reach name, river ID, route order, scoring profile, gauge assignment, access coordinate, hazard and canonical path. The alias-only Allen/Allens Creek case remains unchanged."
+  },
+  "hubDistanceCorrection": {
+    "finding": "The static hub template treated every number in a distance label as miles, while the API read the first number. Road numbers, access numbers, mileposts and contextual figures polluted the displayed bounds. West Canada Creek showed 3-28 mi because of Route 28; St. Regis reached 458 mi because of Route 458.",
+    "change": "Use one server-side parser for static and API hub summaries. Read the first explicit mileage expression, including its numeric range, and reject road/time-only labels. Preserve hundredth-mile precision for short trips.",
+    "scope": "Numeric static summary bounds change on 38 of 382 indexable hubs; no hub becomes unquantified. This changes summaries, not stored trip mileage, geometry, distance filters or source validity.",
+    "limits": "A label parser cannot verify river length or fully resolve compound itineraries, alternate take-outs or contextual source disagreements. The remaining source-review queue is still required; guide-specific totals should ultimately be represented as reviewed structured data."
+  },
+  "verification": {
+    "status": "locally-validated-awaiting-publication",
+    "focusedTests": "302 passed across five files, including nine hold/family identity regressions, API serialization, snapshots and New York catalog coverage",
+    "distanceAndIdentityFollowupTests": "29 passed across four files, including five distance-expression regressions and the nine hold/family identity cases",
+    "fullTypecheckAndProductionBuild": "passed; 2492 generated pages and 812 existing consolidation redirects",
+    "wholeSiteIndexability": "passed without errors or warnings; 2480 sitemap URLs",
+    "planningGuides": "All 959 preserve their evidence notes and source links; 666 minimum-only planning guides have no unsupported calibration claim",
+    "scoredMinimumGuidance": "All 336 remaining scored minimum-only guides retain their callout",
+    "recordPreservation": "All 2562 retained serialized route records are exactly unchanged; all three held research records are exactly unchanged",
+    "familyIdentity": "Exactly four family labels changed across 693 public groups; membership and route order changed only by excluding the three held trips",
+    "renderedBrowserCheck": "West Canada Creek remains the family heading after API hydration, shows 3-5.7 mi, retains one scored reach and two unscored planning choices, and excludes the held connector",
+    "localDelivery": "All three held pages and detail APIs return 404; public catalog, Explore, cached summaries, overview assets and sitemap exclude them. Six sampled hubs have matching static ranges, and four family APIs retain branch names, score eligibility and gauge identity",
+    "remainingPublicNumericConflicts": 32,
+    "mapAssets": "All 49 state/overview feature collections compared: only the three held features removed; every retained feature unchanged"
+  },
+  "limits": "This is targeted source and identity correction. The remaining numeric conflicts and generic guide-value assertions still require review. No new trip, current launch permission, calibrated range or Google recovery is established."
+}
