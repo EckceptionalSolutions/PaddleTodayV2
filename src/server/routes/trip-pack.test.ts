@@ -21,6 +21,8 @@ const inferredMileageRiver = {
   accessPoints: demoRiver.accessPoints.map((point) => ({ ...point, mileFromStart: 0 })),
 };
 
+const generalizedRiver = { ...demoRiver, slug: 'generalized-river' };
+
 const segmentedRiver = {
   ...demoRiver,
   slug: 'segmented-river',
@@ -32,11 +34,12 @@ const segmentedRiver = {
 };
 
 vi.mock('../../lib/rivers', () => ({
-  getRiverBySlug: (slug: string) => [demoRiver, inferredMileageRiver, segmentedRiver].find((river) => river.slug === slug),
+  getRiverBySlug: (slug: string) => [demoRiver, inferredMileageRiver, segmentedRiver, generalizedRiver].find((river) => river.slug === slug),
 }));
 
 vi.mock('./river-geometry', () => ({
-  loadRouteGeometry: async () => ({
+  loadRouteGeometry: async (slug: string) => ({
+    properties: { generalizedPlanningLine: slug === 'generalized-river' },
     geometry: {
       type: 'LineString',
       coordinates: [[-92, 44], [-92.05, 44.05], [-92.1, 44.1]],
@@ -55,6 +58,15 @@ function calendarTimestamp(body: string, key: string) {
 }
 
 describe('trip-pack route', () => {
+  it('carries generalized geometry qualifications into the downloaded GPX metadata and track', async () => {
+    const response = mockResponse();
+    await handleRiverTripPack(new URL('https://paddletoday.com/api/rivers/generalized-river/trip.gpx'), response, 'req_trip', true, 'generalized-river', 'gpx');
+    expect(response.writeHead).toHaveBeenCalledWith(200, expect.objectContaining({ 'content-type': 'application/gpx+xml; charset=utf-8' }));
+    const body = String(vi.mocked(response.end).mock.calls[0]?.[0]);
+    expect(body.match(/Generalized shoreline planning line/g)).toHaveLength(2);
+    expect(body).toContain('not a surveyed navigation track');
+    expect(body).toContain('<trkpt');
+  });
   it('returns a calendar attachment for a valid segment and schedule', async () => {
     const response = mockResponse();
     await handleRiverTripPack(

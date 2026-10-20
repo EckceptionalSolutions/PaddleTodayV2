@@ -32,6 +32,7 @@ interface CanonicalFeature {
     source: string;
     traceMode?: 'network-traced' | 'named-fallback' | 'curated-access-fallback';
     endpointSnapMaxFeet?: number | null;
+    generalizedPlanningLine?: boolean;
   };
   geometry: {
     type: 'MultiLineString';
@@ -2189,18 +2190,46 @@ const officialCuratedRouteCoordinates: Record<string, Point[]> = {
     [-108.187138, 38.106897],
   ],
   'baltimore-blueway-inner-harbor-heritage': [
-    [-76.6119761, 39.2812922],
-    [-76.618, 39.283],
-    [-76.625, 39.282],
-    [-76.6289316, 39.2804218],
+    [-76.6084,39.28208],
+    [-76.6113,39.2821],
+    [-76.61155,39.2823],
+    [-76.6115,39.2839],
+    [-76.6115,39.2854],
+    [-76.6113,39.2855],
+    [-76.61105,39.28515],
+    [-76.6106,39.28515],
+    [-76.61055,39.28575],
+    [-76.61005,39.28575],
+    [-76.60985,39.2854],
+    [-76.60935,39.28525],
+    [-76.60915,39.28465],
+    [-76.6085,39.28435],
+    [-76.6078,39.28405],
+    [-76.6072,39.28395],
+    [-76.6063,39.283],
+    [-76.6044,39.2822],
+    [-76.6032,39.2823],
+    [-76.6025,39.2816],
+    [-76.6024,39.2802],
+    [-76.6008,39.2787],
+    [-76.5983,39.2784],
+    [-76.5965,39.27835],
+    [-76.5949,39.2789],
+    [-76.5933,39.2795],
+    [-76.5932,39.2799],
+    [-76.5939127,39.2804218],
   ],
   'baltimore-blueway-canton': [
-    [-76.5726133, 39.2767857],
-    [-76.581, 39.279],
-    [-76.592, 39.281],
-    [-76.605, 39.282],
-    [-76.618, 39.282],
-    [-76.6289316, 39.2804218],
+    [-76.5726133,39.2767857],
+    [-76.5731,39.2758],
+    [-76.5775,39.2741],
+    [-76.5788,39.2748],
+    [-76.581,39.276],
+    [-76.5848,39.2774],
+    [-76.5883,39.2789],
+    [-76.5923,39.2797],
+    [-76.5929,39.2801],
+    [-76.5939127,39.2804218],
   ],
   'baltimore-blueway-domino-sugar': [
     [-76.6119761, 39.2812922],
@@ -3635,7 +3664,9 @@ async function main() {
         riverId: route.riverId,
         name: route.name,
         state: route.state,
-        source: route.id === 'hammocks-beach-huggins-island-loop'
+        source: route.id === 'baltimore-blueway-inner-harbor-heritage' || route.id === 'baltimore-blueway-canton'
+          ? 'Baltimore Blueway shoreline trail maps and current dock-owner access guidance; generalized planning line'
+          : route.id === 'hammocks-beach-huggins-island-loop'
           ? 'North Carolina Coastal Plain Paddle Trails GIS mapped trail vertices with Hammocks Beach State Park access anchor'
           : route.id === 'erie-canal-little-falls-lock-e18-return'
           ? 'Reviewed USGS NHD channel trace with NYSDEC Rotary Park ramp; official Canalway no-lock out-and-back'
@@ -3647,6 +3678,8 @@ async function main() {
           : 'Curated public-agency and American Whitewater access anchors with route-specific river trace pending named NHD coverage',
         traceMode: 'curated-access-fallback',
         endpointSnapMaxFeet: 0,
+        ...((route.id === 'baltimore-blueway-inner-harbor-heritage' || route.id === 'baltimore-blueway-canton')
+          ? { generalizedPlanningLine: true } : {}),
       },
       geometry: { type: 'MultiLineString', coordinates: [coordinates] },
     }];
@@ -3684,7 +3717,9 @@ async function main() {
     while (nextRouteIndex < routes.length) {
       const route = routes[nextRouteIndex];
       nextRouteIndex += 1;
-    if (reuseExisting && curatedFeatures.some(feature => feature.properties.routeId === route.id)) continue;
+    // A route-scoped curated refresh already has the replacement line. Do not
+    // require an unused hydrography request before writing that reviewed asset.
+    if ((reuseExisting || requestedRouteId) && curatedFeatures.some(feature => feature.properties.routeId === route.id)) continue;
     if (preservedUnmatched.has(route.id) && route.id !== requestedRouteId) continue;
     const bounds = routeBounds(route);
     if (!bounds || !route.riverId) continue;

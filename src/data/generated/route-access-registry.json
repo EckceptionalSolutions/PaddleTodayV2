@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-10-08T03:27:06.842Z",
+  "generatedAt": "2026-10-20T16:13:50.137Z",
   "auditGeneratedAt": "2026-09-22T14:58:34.632Z",
   "summary": {
     "entryCount": 4076,
@@ -133094,11 +133094,11 @@
       ],
       "storedAccessCoordinate": {
         "latitude": 39.2804218,
-        "longitude": -76.6289316
+        "longitude": -76.5939127
       },
       "accessCoordinate": {
         "latitude": 39.2804218,
-        "longitude": -76.6289316
+        "longitude": -76.5939127
       },
       "accessCoordinateSource": "stored-route-consensus",
       "authoritativeAccess": null,
@@ -133119,10 +133119,10 @@
       "routeCount": 2,
       "coordinateVariants": [
         {
-          "key": "39.28042,-76.62893",
+          "key": "39.28042,-76.59391",
           "coordinate": {
             "latitude": 39.2804218,
-            "longitude": -76.6289316
+            "longitude": -76.5939127
           },
           "occurrenceCount": 4,
           "routeCount": 2,
@@ -133141,10 +133141,10 @@
           "sourceId": "baltimore-blueway-canton-take-out",
           "name": "Fells Point Kayak Launch at Bond Street Wharf",
           "latitude": 39.2804218,
-          "longitude": -76.6289316,
-          "auditSeverity": "unknown",
+          "longitude": -76.5939127,
+          "auditSeverity": null,
           "distanceFeetToMatchedRiver": null,
-          "endpointOnWaterbody": false,
+          "endpointOnWaterbody": null,
           "coordinateEvidenceRole": null
         },
         {
@@ -133155,10 +133155,10 @@
           "sourceId": null,
           "name": "Fells Point Kayak Launch at Bond Street Wharf",
           "latitude": 39.2804218,
-          "longitude": -76.6289316,
-          "auditSeverity": "unknown",
+          "longitude": -76.5939127,
+          "auditSeverity": null,
           "distanceFeetToMatchedRiver": null,
-          "endpointOnWaterbody": false,
+          "endpointOnWaterbody": null,
           "coordinateEvidenceRole": null
         },
         {
@@ -133169,10 +133169,10 @@
           "sourceId": "baltimore-blueway-inner-harbor-heritage-take-out",
           "name": "Fells Point Kayak Launch at Bond Street Wharf",
           "latitude": 39.2804218,
-          "longitude": -76.6289316,
-          "auditSeverity": "unknown",
+          "longitude": -76.5939127,
+          "auditSeverity": null,
           "distanceFeetToMatchedRiver": null,
-          "endpointOnWaterbody": false,
+          "endpointOnWaterbody": null,
           "coordinateEvidenceRole": null
         },
         {
@@ -133183,10 +133183,10 @@
           "sourceId": null,
           "name": "Fells Point Kayak Launch at Bond Street Wharf",
           "latitude": 39.2804218,
-          "longitude": -76.6289316,
-          "auditSeverity": "unknown",
+          "longitude": -76.5939127,
+          "auditSeverity": null,
           "distanceFeetToMatchedRiver": null,
-          "endpointOnWaterbody": false,
+          "endpointOnWaterbody": null,
           "coordinateEvidenceRole": null
         }
       ]
@@ -135038,12 +135038,12 @@
         "baltimore-blueway-inner-harbor-heritage-put-in"
       ],
       "storedAccessCoordinate": {
-        "latitude": 39.2812922,
-        "longitude": -76.6119761
+        "latitude": 39.28208,
+        "longitude": -76.6084
       },
       "accessCoordinate": {
-        "latitude": 39.2812922,
-        "longitude": -76.6119761
+        "latitude": 39.28208,
+        "longitude": -76.6084
       },
       "accessCoordinateSource": "stored-route-consensus",
       "authoritativeAccess": null,
@@ -135064,10 +135064,10 @@
       "routeCount": 2,
       "coordinateVariants": [
         {
-          "key": "39.28129,-76.61198",
+          "key": "39.28208,-76.60840",
           "coordinate": {
-            "latitude": 39.2812922,
-            "longitude": -76.6119761
+            "latitude": 39.28208,
+            "longitude": -76.6084
           },
           "occurrenceCount": 4,
           "routeCount": 2,
@@ -135085,11 +135085,11 @@
           "endpoint": "accessPoint",
           "sourceId": "baltimore-blueway-domino-sugar-put-in",
           "name": "Inner Harbor Kayak Launch at Rash Field Park",
-          "latitude": 39.2812922,
-          "longitude": -76.6119761,
-          "auditSeverity": "unknown",
+          "latitude": 39.28208,
+          "longitude": -76.6084,
+          "auditSeverity": null,
           "distanceFeetToMatchedRiver": null,
-          "endpointOnWaterbody": false,
+          "endpointOnWaterbody": null,
           "coordinateEvidenceRole": null
         },
         {
@@ -135099,11 +135099,11 @@
           "endpoint": "putIn",
           "sourceId": null,
           "name": "Inner Harbor Kayak Launch at Rash Field Park",
-          "latitude": 39.2812922,
-          "longitude": -76.6119761,
-          "auditSeverity": "unknown",
+          "latitude": 39.28208,
+          "longitude": -76.6084,
+          "auditSeverity": null,
           "distanceFeetToMatchedRiver": null,
-          "endpointOnWaterbody": false,
+          "endpointOnWaterbody": null,
           "coordinateEvidenceRole": null
         },
         {
@@ -135113,11 +135113,11 @@
           "endpoint": "accessPoint",
           "sourceId": "baltimore-blueway-inner-harbor-heritage-put-in",
           "name": "Inner Harbor Kayak Launch at Rash Field Park",
-          "latitude": 39.2812922,
-          "longitude": -76.6119761,
-          "auditSeverity": "unknown",
+          "latitude": 39.28208,
+          "longitude": -76.6084,
+          "auditSeverity": null,
           "distanceFeetToMatchedRiver": null,
-          "endpointOnWaterbody": false,
+          "endpointOnWaterbody": null,
           "coordinateEvidenceRole": null
         },
         {
@@ -135127,11 +135127,11 @@
           "endpoint": "putIn",
           "sourceId": null,
           "name": "Inner Harbor Kayak Launch at Rash Field Park",
-          "latitude": 39.2812922,
-          "longitude": -76.6119761,
-          "auditSeverity": "unknown",
+          "latitude": 39.28208,
+          "longitude": -76.6084,
+          "auditSeverity": null,
           "distanceFeetToMatchedRiver": null,
-          "endpointOnWaterbody": false,
+          "endpointOnWaterbody": null,
           "coordinateEvidenceRole": null
         }
       ]
@@ -135147,12 +135147,12 @@
         "baltimore-blueway-domino-sugar-take-out"
       ],
       "storedAccessCoordinate": {
-        "latitude": 39.2812922,
-        "longitude": -76.6119761
+        "latitude": 39.28208,
+        "longitude": -76.6084
       },
       "accessCoordinate": {
-        "latitude": 39.2812922,
-        "longitude": -76.6119761
+        "latitude": 39.28208,
+        "longitude": -76.6084
       },
       "accessCoordinateSource": "stored-route-consensus",
       "authoritativeAccess": null,
@@ -135173,10 +135173,10 @@
       "routeCount": 1,
       "coordinateVariants": [
         {
-          "key": "39.28129,-76.61198",
+          "key": "39.28208,-76.60840",
           "coordinate": {
-            "latitude": 39.2812922,
-            "longitude": -76.6119761
+            "latitude": 39.28208,
+            "longitude": -76.6084
           },
           "occurrenceCount": 2,
           "routeCount": 1,
@@ -135193,11 +135193,11 @@
           "endpoint": "accessPoint",
           "sourceId": "baltimore-blueway-domino-sugar-take-out",
           "name": "Inner Harbor Kayak Launch at Rash Field Park return",
-          "latitude": 39.2812922,
-          "longitude": -76.6119761,
-          "auditSeverity": "unknown",
+          "latitude": 39.28208,
+          "longitude": -76.6084,
+          "auditSeverity": null,
           "distanceFeetToMatchedRiver": null,
-          "endpointOnWaterbody": false,
+          "endpointOnWaterbody": null,
           "coordinateEvidenceRole": null
         },
         {
@@ -135207,11 +135207,11 @@
           "endpoint": "takeOut",
           "sourceId": null,
           "name": "Inner Harbor Kayak Launch at Rash Field Park return",
-          "latitude": 39.2812922,
-          "longitude": -76.6119761,
-          "auditSeverity": "unknown",
+          "latitude": 39.28208,
+          "longitude": -76.6084,
+          "auditSeverity": null,
           "distanceFeetToMatchedRiver": null,
-          "endpointOnWaterbody": false,
+          "endpointOnWaterbody": null,
           "coordinateEvidenceRole": null
         }
       ]

@@ -1,0 +1,82 @@
+{
+  "reviewedOn": "2026-10-20",
+  "scope": "Two Fells Point guides and the Domino Sugar record that shares the incorrect Rash Field camera coordinate. Other Blueway guides are not certified by this review.",
+  "decisions": [
+    {
+      "slug": "baltimore-blueway-canton",
+      "decision": "retain-and-correct",
+      "tripValue": "The steward names a distinct Canton waterfront trail connecting Canton Waterfront Park and Fells Point. It is not interchangeable with the Inner Harbor perimeter simply because both finish at Bond Street Wharf.",
+      "sourceDistance": "The steward publishes 1.3 miles one way; its linked AllTrails route lists a 2.7-mile out-and-back. Clarify the return rather than treating 1.3 miles as the total return journey.",
+      "coordinateCorrection": "Replace the Fells Point camera center at 39.2804218,-76.6289316 with the manager-linked place anchor at 39.2804218,-76.5939127. The current dock-owner page expressly permits public recreational access and describes the boardwalk/gangway approach.",
+      "geometry": "Replace the line extending west through the city with a generalized waterfront route past the Canton marinas, ending at the Fells dock-area anchor. About 1.33 mapped miles; the steward's 1.3-mile planning distance remains the source value.",
+      "sources": [
+        "https://baltimoreblueway.org/canton-water-trail",
+        "https://baltimoreblueway.org/kayak-launches-rest-stops",
+        "https://cantonkayakclub.com/fells-point/",
+        "https://www.alltrails.com/trail/us/maryland/canton-water-trail-paddle-route"
+      ]
+    },
+    {
+      "slug": "baltimore-blueway-inner-harbor-heritage",
+      "decision": "retain-and-correct",
+      "tripValue": "The steward names an Inner Harbor, Harbor East and Harbor Point perimeter itinerary with different shoreline commitments from Canton. Keep its independent guide and public launch pair.",
+      "sourceDistance": "The current page body publishes about two miles between the Inner Harbor and Fells Point launches. Its page title says 2.5 miles; use the route body and identify the distance as an approximate one-way itinerary. The return is additional, roughly four miles overall.",
+      "coordinateCorrection": "Correct the shared Fells anchor. The Rash Field value was also a linked map camera center; the linked entity is a park centroid rather than the launch. Use an approximate northeast shoreline/dock-area anchor at 39.28208,-76.6084, interpreted from the publisher-linked map, documented northeast-park approach by Rusty Scupper, and hydrography. This is an access-area estimate with approximately 150 feet of location uncertainty, not a surveyed gangway or water entry. Check the actual dock and waterline on site.",
+      "geometry": "Generalized shoreline planning line through the Inner Harbor and around Harbor Point, approximately 1.79 drawn miles. It simplifies the publisher's roughly two-mile perimeter and pier approaches; it is not a GPS navigation track. Do not inflate the line to manufacture agreement with a published distance.",
+      "sourceLimits": "The dock owner's Inner Harbor page retains an anticipated June opening and an unrelated Annapolis map embed. Those are not used as current opening-date or coordinate proof. The current Blueway launch directory identifies the public launch; the owner describes its northeast Rash Field approach. Older aerial imagery does not establish the present floating-dock outline.",
+      "sources": [
+        "https://baltimoreblueway.org/inner-harbor-heritage-water-trail",
+        "https://baltimoreblueway.org/kayak-launches-rest-stops",
+        "https://cantonkayakclub.com/inner-harbor/",
+        "https://cantonkayakclub.com/fells-point/",
+        "https://www.alltrails.com/widget/trail/us/maryland/inner-harbor-heritage-paddle-route?scrollZoom=false&elevationDiagram=false&u=i&sh=ly3j7g"
+      ]
+    },
+    {
+      "slug": "baltimore-blueway-domino-sugar",
+      "decision": "hold-current-loop-pending-itinerary-correction",
+      "finding": "The existing record promises a 1.6-mile Rash Field return loop, using the same camera-center launch and a line through the northern harbor. The current steward page names Rash Field and Hull Street Pier, and its linked map explicitly lists 1.6 miles point-to-point along the southern shoreline. The page body also says 1.3 miles, conflicting with the headline. The current loop does not implement the documented itinerary.",
+      "missingEvidence": "An exact current Hull Street kayak landing, approach and public water-access terms, the complete point-to-point line and crossing exposure, and an explicit shuttle or return plan. A city pedestrian easement/fishing pier and proximity to water are not proof of a usable kayak landing.",
+      "preservation": "Preserve the existing source itinerary, hazards, citations and legacy asset for correction. Apply the shared Rash Field dock-area anchor to its stored endpoints for registry consistency; the original camera coordinates remain recorded here and recoverable at base commit 428e52eda54db0f049d0eb784ae918d41643564a. Keep the unsupported loop out of public guides, catalog, Explore and sitemap; do not redirect it to a different trail.",
+      "sources": [
+        "https://baltimoreblueway.org/domino-sugar-water-trail",
+        "https://www.alltrails.com/trail/us/maryland/domino-sugar-water-trail",
+        "https://baltimoreblueway.org/kayak-launches-rest-stops"
+      ],
+      "originalRashFieldCameraCoordinate": {
+        "latitude": 39.2812922,
+        "longitude": -76.6119761
+      }
+    }
+  ],
+  "geometryValidation": {
+    "method": "Visually compare the generalized itinerary with the steward-embedded maps and sample each candidate segment every five meters against the downloaded USGS NHD waterbody footprint. This is a land-crossing screen, not a current navigation, traffic, depth, ownership or access certification.",
+    "waterSource": "https://hydro.nationalmap.gov/arcgis/rest/services/nhd/MapServer/12",
+    "innerHarbor": "591 samples within the generalized water footprint.",
+    "canton": "Four initial samples outside the generalized water footprint, limited to the first approximately 15 meters at the DNR-mapped public boat-ramp anchor. The subsequent shoreline route samples are in water.",
+    "limitations": "USGS hydrography is generalized and can omit recent dock construction. The attempted NHDArea query timed out; no area-layer completeness claim is made. The old city water endpoint was unavailable. Neither missing source is treated as a clean validation.",
+    "userFacingQualification": "The two reviewed geometry features carry an explicit generalized-planning flag. Their route maps display a shoreline-planning caption, and GPX metadata plus track descriptions carry the same qualification. Other unflagged maps and GPX descriptions are unchanged."
+  },
+  "invariants": [
+    "Both corrected guides remain planning-only with the same upstream USGS proxy and NOAA tide context; no numeric paddle cutoff is introduced.",
+    "Other route records, gauge assignments, scoring rules and original consolidation-pilot choices remain unchanged.",
+    "No source or map check in this batch establishes Google ranking recovery."
+  ],
+  "localValidation": {
+    "dataAndGeometryTests": 40,
+    "tripPackApiTests": 20,
+    "tripPackWorkspaceTests": 7,
+    "desktopAndIPhoneBrowserChecks": 12,
+    "fullTypecheck": "passed",
+    "runtimeAndTripPackTypechecks": "passed",
+    "productionBuild": "passed",
+    "indexabilityAudit": "passed with no errors or warnings",
+    "publicTrips": 2561,
+    "sitemapUrls": 2479,
+    "unrelatedRetainedRecordsUnchanged": 2559,
+    "otherRouteAssetsUnchanged": 2804,
+    "otherAccessRegistryEntriesPreserved": 4073,
+    "apiHtmlAssetAndGpxPreview": "verified; not production evidence",
+    "publication": "pending merge and deployment"
+  }
+}

@@ -12364,7 +12364,7 @@
       "sourceDocumentDate": null,
       "sourceSha256": null,
       "coordinateRole": "authoritative-access-anchor",
-      "method": "Baltimore Blueway’s current launch directory names the Inner Harbor/Rash Field, Fells Point, Rye Street Park, Canton Waterfront Park, Middle Branch Park, Ferry Bar, Southwest Area Park, Broening Park, and Masonville Cove access/rest-stop chain. The Maryland DNR public-access layer independently supplies the named public-ramp/soft-access coordinates for Canton, Middle Branch, Broening, Southwest, and Masonville Cove; Blueway map pins supply the launch-area anchors for Rash Field, Fells Point, and Rye Street. Preserve these as public access-area/water-entry anchors with current construction, parking, hours, landing, tide, and water-quality verification.",
+      "method": "Baltimore Blueway’s current launch directory names the Inner Harbor/Rash Field, Fells Point, Rye Street Park, Canton Waterfront Park, Middle Branch Park, Ferry Bar, Southwest Area Park, Broening Park, and Masonville Cove access/rest-stop chain. The Maryland DNR public-access layer independently supplies the named public-ramp/soft-access coordinates for Canton, Middle Branch, Broening, Southwest, and Masonville Cove; Fells Point uses the place entity in the manager-linked map rather than its camera center. Rash Field is an approximate northeast dock-area interpretation from the steward-linked itinerary map, dock-owner approach description and shoreline, with 150-foot uncertainty; neither the linked camera center nor park centroid is the launch. Rye Street retains its prior map-area anchor. Preserve these as public access-area/water-entry anchors with current construction, parking, hours, landing, tide, and water-quality verification.",
       "controls": [
         {
           "featureId": "baltimore-blueway-rash-field",
@@ -12374,11 +12374,11 @@
             "201 Key Highway launch"
           ],
           "waterbody": "Baltimore Harbor / Patapsco River",
-          "latitude": 39.2812922,
-          "longitude": -76.6119761,
+          "latitude": 39.28208,
+          "longitude": -76.6084,
           "riverMile": null,
-          "uncertaintyFeet": 200,
-          "coordinateText": "Baltimore Blueway public map pin for the Inner Harbor launch at Rash Field Park; verify paid parking, redevelopment, launch surface, and waterline."
+          "uncertaintyFeet": 150,
+          "coordinateText": "Approximate northeast Rash Field dock-area anchor interpreted from the steward-linked perimeter map, the documented public floating-dock approach beside Rusty Scupper, and the shoreline footprint. Not the park centroid, road/camera center, or a surveyed gangway; verify the current dock and waterline. Owner approach: https://cantonkayakclub.com/inner-harbor/ ."
         },
         {
           "featureId": "baltimore-blueway-fells-point",
@@ -12390,10 +12390,10 @@
           ],
           "waterbody": "Baltimore Harbor / Patapsco River",
           "latitude": 39.2804218,
-          "longitude": -76.6289316,
+          "longitude": -76.5939127,
           "riverMile": null,
-          "uncertaintyFeet": 200,
-          "coordinateText": "Baltimore Blueway public map pin and launch directory anchor; verify street parking, dock/landing, hours, and current waterfront conditions."
+          "uncertaintyFeet": 100,
+          "coordinateText": "Place-entity anchor from the Blueway directory-linked map, not its camera center. Dock owner confirms public recreational access through the Blueway and a boardwalk/gangway approach: https://cantonkayakclub.com/fells-point/ . Not a surveyed water-entry position; confirm current gangway and waterline."
         },
         {
           "featureId": "baltimore-blueway-canton",

@@ -3,7 +3,7 @@ import { getRiverBySlug } from '../../src/lib/rivers';
 import { serializePlanningRoute } from '../../src/lib/api-contract';
 import { installMapLibreHarness } from './maplibre-harness';
 
-for (const slug of ['kennebec-river-sidney-augusta', 'verde-river-beasley-flat-childs']) {
+for (const slug of ['kennebec-river-sidney-augusta', 'verde-river-beasley-flat-childs', 'baltimore-blueway-canton', 'baltimore-blueway-inner-harbor-heritage']) {
   test(`${slug}: planning evidence stays available after API hydration`, async ({ page }) => {
     const river = getRiverBySlug(slug)!;
     const errors: string[] = [];
@@ -29,6 +29,13 @@ for (const slug of ['kennebec-river-sidney-augusta', 'verde-river-beasley-flat-c
     await expect(sources.locator('.source-list')).toBeVisible();
     await expect(sources.locator('.source-list a')).toHaveCount(river.sourceLinks.length);
     await expect(sources).not.toContainText('Known low-water floor');
+    if (slug.startsWith('baltimore-blueway-')) {
+      await expect(sources).toContainText('One-way distance and return plan');
+      await expect(sources).toContainText('four-foot gangway');
+      await expect(sources.locator('.source-list a[href="https://cantonkayakclub.com/fells-point/"]')).toHaveCount(1);
+      await page.getByRole('link', { name: 'Open access map', exact: true }).click();
+      await expect(page.locator('[data-detail-map-line-key]')).toContainText('Generalized shoreline planning line');
+    }
     expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth + 1)).toBe(true);
     expect(errors).toEqual([]);
   });
