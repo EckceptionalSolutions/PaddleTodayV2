@@ -11,6 +11,7 @@ import { mapWithConcurrency } from './async-concurrency';
 import type { River, RiverAccessPoint, RiverScoreResult } from './types';
 import { corridorForSlug } from '../data/route-corridors';
 import { coordinateWithheldRouteSlugs } from '../data/generated/withheld-route-slugs';
+import { riverGroupName } from './river-group-name';
 
 const GAUGE_CACHE_TTL_MS = 5 * 60 * 1000;
 const WEATHER_CACHE_TTL_MS = 10 * 60 * 1000;
@@ -150,7 +151,7 @@ function getRouteIndexes(): RouteIndexes {
       const sortedRoutes = [...groupedRoutes].sort((left, right) => left.reach.localeCompare(right.reach));
       return {
         riverId,
-        name: sortedRoutes[0]?.name ?? riverId,
+        name: riverGroupName(riverId, sortedRoutes),
         routeCount: sortedRoutes.length,
         states: [...new Set(sortedRoutes.map((route) => route.state))].sort(),
         regions: [...new Set(sortedRoutes.map((route) => route.region))].sort(),

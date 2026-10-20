@@ -17,6 +17,7 @@ import { classifyCamping } from './camping-classification';
 import { gaugeDisplayForSource, thresholdAdapterForSource } from './source-adapters';
 import { conditionZoneIdForRiver } from './condition-zones';
 import { getRiverGroupHeroPhoto } from '../data/river-group-hero';
+import { riverGroupName } from './river-group-name';
 export type {
   RiverDetailApiResult,
   RiverGroupApiResult,
@@ -268,7 +269,6 @@ export function serializeRiverGroupResult(args: {
   planningRoutes?: River[];
 }): RiverGroupApiResult {
   const allRoutes = [...args.routes.map((result) => result.river), ...(args.planningRoutes ?? [])];
-  const first = allRoutes[0];
   const states = [...new Set(allRoutes.map((route) => route.state))].sort();
   const regions = [...new Set(allRoutes.map((route) => route.region))].sort();
   const difficultyOptions = difficultyOptionsForRoutes(allRoutes.map((route) => route.profile.difficulty));
@@ -277,7 +277,7 @@ export function serializeRiverGroupResult(args: {
   return {
     group: {
       riverId: args.riverId,
-      name: first?.name ?? args.riverId,
+      name: riverGroupName(args.riverId, allRoutes),
       routeCount: allRoutes.length,
       scoredRouteCount: args.routes.length,
       planningRouteCount: args.planningRoutes?.length ?? 0,
@@ -393,8 +393,13 @@ export function serializePlanningRoute(route: River, weather: RiverScoreResult['
 
 export function distanceRangeForLabels(labels: Array<string | null | undefined>) {
   const distances = labels
-    .map((label) => Number(String(label ?? '').match(/(\d+(?:\.\d+)?)/)?.[1]))
-    .filter((distance) => Number.isFinite(distance));
+    .flatMap((label) => {
+      // Read the first mileage expression, including an explicit range. Road
+      // numbers, elapsed hours and other contextual numbers are not distances.
+      const match = String(label ?? '').match(/(\d+(?:\.\d+)?)(?:\s*(?:[-–—]|\bto\b)\s*(\d+(?:\.\d+)?))?\s*-?\s*(?:[a-z-]+\s+){0,4}(?:mi|miles?)\b/i);
+      return match ? [Number(match[1]), ...(match[2] ? [Number(match[2])] : [])] : [];
+    })
+    .filter((distance) => Number.isFinite(distance) && distance > 0);
 
   if (distances.length === 0) {
     return null;
@@ -417,7 +422,7 @@ export function difficultyOptionsForRoutes(
 }
 
 function formatDistanceNumber(value: number) {
-  return Number.isInteger(value) ? String(value) : String(Number(value.toFixed(1)));
+  return Number.isInteger(value) ? String(value) : String(Number(value.toFixed(value < 1 ? 2 : 1)));
 }
 
 export function serializeRiverHistoryResult(args: {

@@ -10,6 +10,7 @@ import { routePageConsolidationTarget } from '../../../data/route-page-consolida
 import { listRiverGroups } from '../../../lib/rivers';
 import type { River } from '../../../lib/types';
 import { evidenceNoteDetail, evidenceNoteLabel } from '../../../lib/route-evidence';
+import { distanceRangeForLabels } from '../../../lib/api-contract';
 
 export function getStaticPaths() {
   return listRiverGroups()
@@ -359,12 +360,7 @@ const difficultyLabels = [...new Set(group.routes.map((route) => route.profile.d
   .map((difficulty) => difficulty.charAt(0).toUpperCase() + difficulty.slice(1))
   .sort();
 const routeDistanceLabels = group.routes.map((route) => route.logistics?.distanceLabel).filter(Boolean);
-const routeDistanceMiles = routeDistanceLabels
-  .flatMap((label) => (String(label).match(/\d+(?:\.\d+)?/g) ?? []).map(Number))
-  .filter((distance) => Number.isFinite(distance));
-const distanceRangeLabel = routeDistanceMiles.length > 0
-  ? `${Math.min(...routeDistanceMiles).toLocaleString()}–${Math.max(...routeDistanceMiles).toLocaleString()} mi`
-  : null;
+const distanceRangeLabel = distanceRangeForLabels(routeDistanceLabels)?.label ?? null;
 const staticRoutes = [...group.routes].sort((left, right) =>
   left.region.localeCompare(right.region) || left.reach.localeCompare(right.reach)
 );
