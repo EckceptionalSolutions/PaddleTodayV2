@@ -23,9 +23,15 @@ export function buildRiverDetailLogisticsViewModel(
     .map(normalizeLogisticsText)
     .filter(Boolean);
   const primaryAccessCaveat = accessCaveats[0] || DEFAULT_ACCESS_CAVEAT;
+  const noShuttleRequired = /^no\s+(?:(?:vehicle|car|road)\s+)?shuttle\s+(?:is\s+)?(?:required|needed|necessary)\b/i.test(shuttle);
+  const conditionalReturn = noShuttleRequired && /\b(?:if|unless)\b/i.test(shuttle.split(/[.!?]/, 1)[0]);
+  const shuttleHeadline = !shuttle || conditionalReturn
+    ? 'Check shuttle'
+    : noShuttleRequired ? 'No shuttle'
+      : shuttle.toLowerCase().includes('bike') ? 'Car or bike' : 'Car shuttle';
 
   return {
-    shuttleHeadline: shuttle.toLowerCase().includes('bike') ? 'Car or bike' : 'Car shuttle',
+    shuttleHeadline,
     permitsHeadline: /^(no|n\/a)\b/i.test(permits) ? 'None noted' : 'Check posted rules',
     campingHeadline: /^(no|n\/a)\b/i.test(camping) || /day trip/i.test(camping)
       ? 'Day trip'
