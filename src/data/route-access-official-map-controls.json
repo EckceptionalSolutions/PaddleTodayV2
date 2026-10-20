@@ -29639,6 +29639,54 @@
           "coordinateText": "Hand Carry Access: Strother Landing is located 600 feet downstream of the SC 34 bridge, river-left. Named trail access-site anchor; not a surveyed water-entry edge."
         }
       ]
+    },
+    {
+      "id": "me_allagash_upper_access_20261020",
+      "name": "Maine DACF upper Allagash facility inventory and full Waterway guide review",
+      "state": "Maine",
+      "sourceUrl": "https://www.maine.gov/dacf/parks/water_activities/boating/public_boat_launches/boat_sites.shtml",
+      "sourceType": "official-launch-inventory-and-waterway-map",
+      "sourceSha256": "d54fc2a4ca0315c2735150a99911ccc856a1fd200012141f3b063847cd36f9c5",
+      "coordinateRole": "authoritative-area-anchor",
+      "method": "Browser-visible DACF inventory entries matched by waterbody and township, checked against the complete Waterway map and rules. Hash covers the normalized evidence snapshot. Published facility anchors, not surveyed wet entries. The 300-foot match tolerance is a review bound, not source-certified positional accuracy.",
+      "controls": [
+        {
+          "featureId": "allagash-river-churchill-dam-umsaskis-put-in",
+          "name": "Churchill Dam designated access",
+          "aliases": [
+            "Churchill Dam designated access"
+          ],
+          "routeIds": [
+            "allagash-river-churchill-dam-umsaskis"
+          ],
+          "waterbody": "Allagash River",
+          "latitude": 46.53624,
+          "longitude": -69.31511,
+          "uncertaintyFeet": 300,
+          "coordinateText": "DACF T10 R12 WELS, geocode 21888; facility location, not a surveyed water entry. Verify the below-dam launch or lake carry with the ranger."
+        },
+        {
+          "featureId": "allagash-river-churchill-dam-umsaskis-take-out",
+          "name": "Umsaskis Lake / T11 R13 public carry-in (facility anchor)",
+          "aliases": [
+            "Umsaskis Lake / T11 R13 public carry-in (facility anchor)"
+          ],
+          "routeIds": [
+            "allagash-river-churchill-dam-umsaskis"
+          ],
+          "waterbody": "Umsaskis Lake",
+          "latitude": 46.6141,
+          "longitude": -69.3936,
+          "uncertaintyFeet": 300,
+          "coordinateText": "DACF T11 R13 WELS, geocode 03840; facility location, not a surveyed water entry. Verify the below-dam launch or lake carry with the ranger.",
+          "terminalAlternateWaterbody": {
+            "routeWaterbody": "Allagash River",
+            "relationship": "connected-water-trail-waterbody",
+            "sourceUrl": "https://www.maine.gov/dacf/parksearch/PropertyGuides/PDF_GUIDE/aww-guide.pdf",
+            "sourceLabel": "Complete Waterway map and trip text linking Churchill Dam, Umsaskis Lake and the American Realty Road crossing"
+          }
+        }
+      ]
     }
   ]
 }

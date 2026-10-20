@@ -2,6 +2,9 @@
 // Coordinate audit/suggestion source: 2026-09-05T19:58:22.878Z
 // Human-reviewed release exceptions: 30
 export const coordinateWithheldRouteSlugs = [
+  "allagash-river-allagash-falls-twin-brook",
+  "allagash-river-michaud-farm-allagash-falls",
+  "allagash-river-t15r11-t13r12",
   "baltimore-blueway-domino-sugar",
   "baraboo-river-rock-springs-north-freedom",
   "bayou-teche-arnaudville-poche-bridge",

@@ -1,0 +1,60 @@
+{
+  "reviewedOn": "2026-10-20",
+  "riverId": "allagash-river",
+  "decision": "One source-supported upper plan in the existing river planning hub; three source/direction failures held with explicit old-path review explanations. Keep all four source records and legacy assets for correction.",
+  "before": { "publicTrips": 4, "standaloneGuides": 4 },
+  "proposed": { "publicTrips": 1, "standaloneGuides": 0, "selectedHubPlans": 1, "researchHolds": 3 },
+  "distanceBoundary": {
+    "source": "https://www.maine.gov/dacf/parksearch/PropertyGuides/PDF_GUIDE/aww-guide.pdf",
+    "review": "Both complete brochure pages rendered and visually reviewed; trip text checked against the full map and mileage chart.",
+    "riverSectionMiles": 9,
+    "riverSectionFinish": "Head of Umsaskis Lake, not the vehicle-access finish",
+    "furtherLakeMiles": 5,
+    "lakeFinish": "American Realty Road crossing / Umsaskis Thoroughfare",
+    "derivedWaterDistanceMiles": 14,
+    "qualification": "Approximately fourteen miles combines the brochure's two descriptions. Carries and side exploration are additional. This is not a surveyed fourteen-mile track or a claim that the manager publishes the whole road-to-road plan as one nine-mile trip."
+  },
+  "accessBinding": {
+    "source": "https://www.maine.gov/dacf/parks/water_activities/boating/public_boat_launches/boat_sites.shtml",
+    "putIn": { "waterbody": "Allagash River", "township": "T10 R12 WELS", "latitude": 46.53624, "longitude": -69.31511, "geocode": "21888", "role": "Churchill Dam facility anchor; confirm below-dam entry" },
+    "correctedTakeOut": { "waterbody": "Umsaskis Lake", "township": "T11 R13 WELS", "latitude": 46.61410, "longitude": -69.39360, "geocode": "03840", "type": "Carry-In", "role": "Public lake-road access facility anchor" },
+    "formerTakeOut": { "township": "T13 R12 WELS", "latitude": 46.76364, "longitude": -69.30524, "finding": "A different downstream Allagash River access; not the named Umsaskis finish" },
+    "limits": "Published facility coordinates are not surveyed wet entries. The registry records area anchors and does not infer a water-entry coordinate. Confirm carries, parking, dam side and current access with the ranger."
+  },
+  "researchHolds": [
+    { "slug": "allagash-river-t15r11-t13r12", "reason": "Stored endpoint order runs upstream against the manager's explicit northward-flow description and full map. The inventory does not establish the eighteen-mile/full-day itinerary. Do not silently reverse it." },
+    { "slug": "allagash-river-michaud-farm-allagash-falls", "reason": "The claimed falls finish uses another T15 R11 access point upstream of the mapped falls portage. The brochure's three-mile stage does not establish that pin or a vehicle landing at the Falls. Verify the safe above-falls boundary and exit or continuation." },
+    { "slug": "allagash-river-allagash-falls-twin-brook", "reason": "The claimed below-falls start uses the same upstream access point. Resolve the mandatory portage, safe post-portage entry and distinct Twin Brook/Village finish before offering this stage." }
+  ],
+  "managerRules": {
+    "sources": [
+      "https://www.maine.gov/dacf/parks/water_activities/aww-river-conditions.shtml",
+      "https://www.maine.gov/dacf/parks/park_passes_fees_rules/aww_rules.shtml"
+    ],
+    "review": "Official pages read in the browser after the web extractor returned 403. Rules distinguish designated motor-vehicle access from portage trails and campsites.",
+    "sections": { "2.1": "Overnight campsite parties register at the first opportunity.", "2.2": "Authorized camping and location-specific exceptions; no general bank-camping permission inferred.", "2.8": "Watercraft type/dimension restrictions; inflatable craft prohibited on this section.", "2.10": "Churchill Dam and Umsaskis Launching Area in T11 R13 are designated motor-vehicle access locations; the list does not establish a vehicle landing at the Falls.", "2.15": "Separate authorized falls and Churchill–Big Eddy portage trails." },
+    "portageLimits": "The brochure describes paid service around the most difficult Chase Rapids section. Current staffing and exact transport/carry limits must be arranged; no complete rapid bypass or fixed daily availability is promised.",
+    "dateLimits": "The visible May 20, 2026 bridge-project notice does not establish an October opening or closure. No reopening inference made."
+  },
+  "geometry": {
+    "source": "USGS NHD Flowline, official large-scale layer 6",
+    "sourceLayer": "https://hydro.nationalmap.gov/arcgis/rest/services/nhd/MapServer/6",
+    "queryEnvelope": [-69.4186, 46.51124, -69.29011, 46.63910],
+    "sourceFeatures": 124,
+    "exceededTransferLimit": false,
+    "review": "The region-sized named query timed out; a complete corridor-sized official request succeeded. The generator now requires a connected upper Allagash network trace rather than falling back to disconnected named fragments.",
+    "presentation": "Map/GPX label the river-and-lake line as planning context, not a surveyed navigation or portage track. The below-dam launch and Chase carry must be arranged separately. Published distance is not the measured line length.",
+    "legacy": "Retain the three held route assets and all unrelated assets; exclude held trips from current public geometry membership."
+  },
+  "publication": {
+    "rationale": "The hub contains the complete corrected plan, gauge context, source-boundary explanation and research notices. A duplicate standalone guide for the sole public plan adds no separate intent. Three inaccurate records are held explicitly, not disguised as useful alternate trips.",
+    "upperOldPath": "/rivers/by-river/allagash-river/#trip-allagash-river-churchill-dam-umsaskis",
+    "heldOldPaths": "Exact #review-<old-slug> explanations in the same hub; not redirects to the usable upper trip.",
+    "delivery": "Existing HTTP 200 instant meta-refresh with hub canonical; not an HTTP 301. Held-path fallback text says access review. Held trip APIs/exports are unavailable; research records and legacy assets remain.",
+    "guard": "The single-plan hub is explicitly reviewed; unreviewed one-trip families do not gain hub pages."
+  },
+  "preservation": "The upper plan retains its trip and selected-access IDs, proxy USGS 01011000 and planning-only status. Add lake-wind exposure; no numeric flow cutoff. Preserve all original source URLs and the other 2,548 public trip records. Historic recovery winners and comparison families remain unchanged.",
+  "demand": "No Allagash rows in the available baseline exports: unobserved demand, not verified zero demand. The original protected winners and comparison families do not include Allagash.",
+  "measurement": "Source and publication improvements do not establish a Google quality demotion, causation or recovery. Verify merged publication on both serving paths and assess later confirmed Google observations.",
+  "status": "Source decision recorded; deployment evidence is recorded separately after publication."
+}

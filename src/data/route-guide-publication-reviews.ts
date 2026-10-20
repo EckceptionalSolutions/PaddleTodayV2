@@ -8,6 +8,7 @@ export interface RouteGuidePublicationReview {
   rationale: string;
   retainedGuides: readonly string[];
   hubOptions: readonly string[];
+  underReview?: readonly { slug: string; title: string; explanation: string; source: { label: string; url: string } }[];
   guide: PaddlePlanningGuide;
 }
 
@@ -25,6 +26,30 @@ const contoocookGuide = {
 };
 
 export const routeGuidePublicationReviews: readonly RouteGuidePublicationReview[] = [
+  {
+    riverId: 'allagash-river',
+    mode: 'access-planning',
+    reviewedOn: '2026-10-20',
+    rationale: 'Retain one source-supported upper access plan in the existing river hub, rather than duplicate that single plan in a separate guide. The complete manager brochure distinguishes nine river miles to the head of Umsaskis Lake from five additional lake miles to the road crossing. The inventory separately identifies the correct T11 R13 public carry-in. Three lower/upstream records have actual source-binding or direction failures and are held for research, not concealed as usable hub options. Their old paths open explicit review explanations. Allagash has no protected recovery-cohort page; absent Search Console rows are unobserved demand, not proof of zero demand. This review does not establish a complete waterway itinerary or a recreational flow cutoff.',
+    retainedGuides: [],
+    hubOptions: ['allagash-river-churchill-dam-umsaskis'],
+    underReview: [
+      { slug: 'allagash-river-t15r11-t13r12', title: 'T15 R11 to T13 R12: direction needs correction', explanation: 'This older eighteen-mile plan orders its endpoints upstream against the Allagash’s northward flow. Two access listings do not establish that trip. It is unavailable while the intended itinerary, direction and distance are reviewed.', source: { label: 'DACF northward-flow and planning guidance', url: 'https://www.maine.gov/dacf/parks/water_activities/aww-river-conditions.shtml' } },
+      { slug: 'allagash-river-michaud-farm-allagash-falls', title: 'Michaud Farm to the Falls: landing and exit unverified', explanation: 'The stored finish is an upstream T15 R11 access point, not a verified landing at the Falls. The source’s three-mile river stage does not establish a vehicle take-out there. This plan is unavailable until its above-falls landing, exit or continuation and portage are verified.', source: { label: 'DACF complete waterway map and mileage chart', url: 'https://www.maine.gov/dacf/parksearch/PropertyGuides/PDF_GUIDE/aww-guide.pdf' } },
+      { slug: 'allagash-river-allagash-falls-twin-brook', title: 'Falls to Twin Brook / Village: start and finish need review', explanation: 'The former below-falls start uses that same upstream access point. The mandatory Falls portage, Twin Brook and Allagash Village are separate places. This plan is unavailable until a safe post-portage entry, exact downstream finish and shuttle are verified.', source: { label: 'DACF access and portage rules, sections 2.10 and 2.15', url: 'https://www.maine.gov/dacf/parks/park_passes_fees_rules/aww_rules.shtml' } },
+    ],
+    guide: {
+      title: 'Plan the upper Allagash with the correct lake finish',
+      introduction: 'One upper Allagash access plan is available here. It links the nine-mile river section below Churchill Dam with about five lake miles to the Umsaskis road access. Arrange the rapids, carry, lake crossing and remote shuttle before departure. Three older plans remain under access review below; this page does not establish continuous passage through the full Waterway.',
+      decisions: [
+        { heading: 'The road finish is beyond the nine-mile river section', text: 'DACF’s brochure describes nine miles from Churchill Dam to the head of Umsaskis Lake, then five miles to the American Realty Road crossing. The approximately fourteen-mile plan combines those descriptions to reach the public carry-in. Carries and side exploration add distance; do not stop planning at the first sight of the lake.', source: { label: 'DACF complete map, trip description and mileage chart', url: 'https://www.maine.gov/dacf/parksearch/PropertyGuides/PDF_GUIDE/aww-guide.pdf' } },
+        { heading: 'The village gauge is remote context', text: 'USGS 01011000 measures the Allagash near Allagash village, far downstream of this upper river-and-lake plan. It does not establish Churchill Dam releases, Chase Rapids passage, lake wind or landing access. This plan has no same-day score or calibrated recreational flow cutoff.', source: { label: 'USGS Allagash River near Allagash', url: 'https://waterdata.usgs.gov/monitoring-location/USGS-01011000/' } },
+        { heading: 'Arrange the dam and Chase Rapids plan', text: 'Confirm the below-dam launch with the ranger and never paddle over the dam. The brochure describes paid portage around the most difficult part of Chase Rapids. Arrange current staffing and the exact carry or transport limits; it is not a promise that all rapids can be bypassed. The lake crossing then needs its own wind and daylight margin.', source: { label: 'DACF Waterway guide and Chase Rapids advice', url: 'https://www.maine.gov/dacf/parksearch/PropertyGuides/PDF_GUIDE/aww-guide.pdf' } },
+        { heading: 'Use the T11 R13 lake access', text: 'The launch inventory lists Umsaskis Lake in T11 R13 at 46.61410,-69.39360 as a state carry-in. The former T13 R12 point is a different downstream access. Facility pins are not surveyed wet entries; verify the carry, landing, parking and private-road conditions before staging.', source: maineAccess },
+        { heading: 'Check watercraft, camping and legal access', text: 'The Waterway rules distinguish designated motor-vehicle access from portage trails and campsites. They restrict watercraft type and dimensions; inflatable craft are prohibited on this section. Overnight parties must register and use authorized camping. Confirm current manager terms before travel.', source: { label: 'DACF Waterway rules, sections 2.1, 2.2, 2.8, 2.10 and 2.15', url: 'https://www.maine.gov/dacf/parks/park_passes_fees_rules/aww_rules.shtml' } },
+      ],
+    },
+  },
   {
     riverId: 'bitterroot-river-montana',
     mode: 'access-planning',
@@ -273,4 +298,8 @@ export const routeGuideReviewBySlug = new Map(routeGuidePublicationReviews.flatM
 
 export const reviewedHubOptionTargets = routeGuidePublicationReviews.flatMap(review => review.hubOptions.map(slug =>
   [slug, `/rivers/by-river/${review.riverId}/#trip-${slug}`] as const,
+));
+
+export const reviewedResearchTargets = routeGuidePublicationReviews.flatMap(review => (review.underReview ?? []).map(notice =>
+  [notice.slug, `/rivers/by-river/${review.riverId}/#review-${notice.slug}`] as const,
 ));
