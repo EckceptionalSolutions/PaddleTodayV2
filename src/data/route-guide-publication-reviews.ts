@@ -44,7 +44,7 @@ export const routeGuidePublicationReviews: readonly RouteGuidePublicationReview[
         },
         {
           heading: 'Match the observation to its section',
-          text: 'The upper guide reports rock contact near 75 cfs and faster current near 200 cfs. Its separate 50-cfs observation concerns Manton-to-Atwells. These historical descriptions do not establish a calibrated cutoff for an upper trip or for tidal downtown water.',
+          text: 'The upper guide reports rock contact near 75 cfs and faster current near 200 cfs at USGS 01114500 at Centerdale. Its separate 50-cfs observation concerns Manton-to-Atwells. These historical descriptions do not establish a calibrated cutoff for an upper trip or for tidal downtown water.',
           source: { label: 'WRWC flow observations, printed pages 12–13 and 16–17', url: 'https://wrwc.org/wp/wp-content/uploads/2020/05/completePaddlingGuide.pdf' },
         },
         {
