@@ -9,7 +9,7 @@ const { routes, guide, reviewedOn, underReview = [] } = Astro.props;
 const shared = sharedAccessPlanNotes(routes);
 const sources = [...new Map(guide.decisions.map(decision => [decision.source.url, decision.source])).values()];
 const guideLinks = guide.decisions.flatMap(decision => decision.route ? [decision.route] : []);
-const showGuideNavigation = guideLinks.length > 2;
+const showGuideNavigation = guideLinks.length > 1;
 ---
 <div id="choose-your-reach" class="access-planning-context" data-access-planning-context>
   <p class="eyebrow section-label">Before you go</p>

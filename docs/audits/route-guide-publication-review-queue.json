@@ -2,8 +2,9 @@
   "policy": "docs/seo-route-publication-policy.md",
   "method": "Five-word-shingle Jaccard similarity on route summary, logistics summary/shuttle/caveats/watchFor and profile difficulty/confidence/season notes. Excludes the page template. The 0.50 screening threshold is an editorial queue heuristic, not a Google metric or an automatic publication rule.",
   "scope": "Current source catalog after explicit pilot decisions; this is proposed build inventory, not a claim about deployed URLs or indexing.",
-  "standalonePages": 2010,
+  "standalonePages": 2004,
   "reviewedPilotFamilies": [
+    "saco-river",
     "delaware-river-new-jersey",
     "allagash-river",
     "bitterroot-river-montana",
@@ -13,8 +14,8 @@
     "snoqualmie-river-washington",
     "contoocook-river-new-hampshire"
   ],
-  "candidates": 346,
-  "planningCandidates": 111,
+  "candidates": 342,
+  "planningCandidates": 107,
   "scoredCandidates": 235,
   "queue": [
     {
@@ -139,28 +140,6 @@
       "requiredReview": "Check documented reach, access terms, hazard/condition boundaries, distinct trip value and historical demand before deciding guide versus hub option."
     },
     {
-      "slug": "saco-river-brownfield-saco",
-      "riverId": "saco-river",
-      "state": "Maine",
-      "role": "planning",
-      "nearestSibling": "saco-river-fryeburg-dayton",
-      "phraseSimilarity": 0.867,
-      "sharesConditionSetup": true,
-      "status": "needs-editorial-review",
-      "requiredReview": "Check documented reach, access terms, hazard/condition boundaries, distinct trip value and historical demand before deciding guide versus hub option."
-    },
-    {
-      "slug": "saco-river-fryeburg-dayton",
-      "riverId": "saco-river",
-      "state": "Maine",
-      "role": "planning",
-      "nearestSibling": "saco-river-brownfield-saco",
-      "phraseSimilarity": 0.867,
-      "sharesConditionSetup": true,
-      "status": "needs-editorial-review",
-      "requiredReview": "Check documented reach, access terms, hazard/condition boundaries, distinct trip value and historical demand before deciding guide versus hub option."
-    },
-    {
       "slug": "st-john-river-fort-kent-van-buren",
       "riverId": "st-john-river",
       "state": "Maine",
@@ -243,17 +222,6 @@
       "state": "Maine",
       "role": "planning",
       "nearestSibling": "flagstaff-lake-bigelow-dead-river",
-      "phraseSimilarity": 0.855,
-      "sharesConditionSetup": true,
-      "status": "needs-editorial-review",
-      "requiredReview": "Check documented reach, access terms, hazard/condition boundaries, distinct trip value and historical demand before deciding guide versus hub option."
-    },
-    {
-      "slug": "saco-river-fryeburg-brownfield",
-      "riverId": "saco-river",
-      "state": "Maine",
-      "role": "planning",
-      "nearestSibling": "saco-river-fryeburg-dayton",
       "phraseSimilarity": 0.855,
       "sharesConditionSetup": true,
       "status": "needs-editorial-review",
@@ -685,17 +653,6 @@
       "nearestSibling": "bogue-chitto-river-boat-ramp-road-state-park",
       "phraseSimilarity": 0.815,
       "sharesConditionSetup": true,
-      "status": "needs-editorial-review",
-      "requiredReview": "Check documented reach, access terms, hazard/condition boundaries, distinct trip value and historical demand before deciding guide versus hub option."
-    },
-    {
-      "slug": "saco-river-saco-biddeford",
-      "riverId": "saco-river",
-      "state": "Maine",
-      "role": "planning",
-      "nearestSibling": "saco-river-fryeburg-dayton",
-      "phraseSimilarity": 0.814,
-      "sharesConditionSetup": false,
       "status": "needs-editorial-review",
       "requiredReview": "Check documented reach, access terms, hazard/condition boundaries, distinct trip value and historical demand before deciding guide versus hub option."
     },

@@ -1,6 +1,7 @@
 // Maine's first statewide expansion batch. Routes are intentionally planning-only
 // until Maine-specific recreational threshold ladders are independently verified.
 import type { River, RiverConsolidation, RouteSafetyProfile, SourceProvider } from '../../lib/types';
+import { applySacoSourceReview } from './saco-source-review';
 
 export type MaineRouteSpec = {
   id: string;
@@ -80,7 +81,7 @@ export function buildMaineRoute(spec: MaineRouteSpec): River {
     { label: 'Approved route-context image', url: spec.imageUrl, provider: 'manual' as const },
   ];
 
-  return {
+  return applySacoSourceReview({
     id: spec.id,
     riverId: spec.riverId,
     slug,
@@ -149,7 +150,7 @@ export function buildMaineRoute(spec: MaineRouteSpec): River {
     consolidation: spec.consolidation,
     scoreEligibility: 'planning',
     scoreEligibilityReason: spec.gaugeKind === 'proxy' ? 'proxy_gauge' : undefined,
-  };
+  });
 }
 
 export const allagashImage = 'https://www.maine.gov/dacf/parks/publications_maps/AWWBroc/Images/1.jpg';

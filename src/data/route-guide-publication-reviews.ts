@@ -1,4 +1,5 @@
 import type { PaddlePlanningGuide } from './priority-paddle-guides';
+import { sacoSources } from './routes/saco-source-review';
 
 /** Search-guide decisions are independent of public trip records and flow-score eligibility. */
 export interface RouteGuidePublicationReview {
@@ -26,6 +27,29 @@ const contoocookGuide = {
 };
 
 export const routeGuidePublicationReviews: readonly RouteGuidePublicationReview[] = [
+  {
+    riverId: 'saco-river', mode: 'access-planning', reviewedOn: '2026-10-20',
+    rationale: 'Retain the Council-named Swan’s Falls–Brownfield overnight trip and the separate Front Street–Marblehead tidal guide. Correct facility labels at the existing pins without moving or reversing any saved trip. The shorter Canal Bridge start shares the upper guide’s hazards, gauge and finish and remains a hub option. Five other records have actual direction/source-binding or unreviewed dam-transfer failures, not merely repetitive prose; preserve their identities with explicit review targets. No protected winner or comparison family changes. Absent performance rows do not establish zero demand, and fewer URLs do not prove Google recovery.',
+    retainedGuides: ['saco-river-route-160-brownfield', 'saco-river-saco-biddeford'],
+    hubOptions: ['saco-river-fryeburg-brownfield'],
+    underReview: [
+      { slug: 'saco-river-fryeburg-route-302-route-160', title: 'Former Route 302–Route 160 plan: crossing identities conflict', explanation: 'The stored Fryeburg pins represent the Canal Bridge and Swan’s Falls areas, not the named Route 302–Route 160 pair in the IFW article. The Council map places Swan’s Falls upstream of Canal Bridge. This old four-mile shuttle plan is unavailable while the intended crossings and direction are reviewed; the pins are preserved rather than silently reversed.', source: { label: 'Council upper-river sequence and mile markers', url: sacoSources.map } },
+      ...['saco-river-brownfield-dayton', 'saco-river-fryeburg-dayton', 'saco-river-brownfield-saco'].map(slug => ({ slug, title: `${slug.includes('fryeburg') ? 'Fryeburg' : 'Brownfield'} to ${slug.endsWith('-saco') ? 'Saco' : 'Dayton'}: dam-transfer chain unverified`, explanation: 'This upper-to-lower combination crosses separate hydroelectric projects. The former distance and day/multi-day advice did not document the required take-outs, lawful carries or transfers, relaunches and separate paddle legs. It remains unavailable until that staged itinerary is verified. Bar Mills decommissioning proposals do not establish unobstructed passage.', source: { label: 'Dam operator — upper and lower project sequence', url: sacoSources.dams } })),
+      { slug: 'saco-river-dayton-biddeford', title: 'Dayton to tidal Biddeford: dam passage unverified', explanation: 'The stored freshwater Dayton facility and the tidal Marblehead ramp lie in different river settings. A tidal-transition warning did not establish the intervening dam take-outs, transfers and relaunches. This plan is unavailable until a complete itinerary and the safe side of the Dayton launch are verified.', source: { label: 'Maine DMR — tidal ramp and head-of-tide boundary', url: sacoSources.tidalAccess } },
+    ],
+    guide: {
+      title: 'Choose an upper Saco overnight trip or a separate tidal paddle',
+      introduction: 'Three planning choices remain: the documented Swan’s Falls–Brownfield trip, its shorter Canal Bridge start, and the separate Front Street–Marblehead tidal plan. Read the two guides for different overnight, rapid and tide decisions. Five older crossing or dam-chain itineraries have review explanations below. None of these plans has a same-day paddle score.',
+      decisions: [
+        { heading: 'Swan’s Falls to Brownfield needs an overnight plan', text: 'The Council map reaches Brownfield near mile 18 and suggests about two paddling days. Arrange the below-dam launch, Walker’s Rips review, authorized camping and shuttle. USGS 01066000 at Cornish is downstream context, not local depth or a paddle score. The launch is in Fryeburg; confirm its exact entry before departure.', source: { label: 'Council named trip, duration and map', url: sacoSources.council }, route: { label: 'Read the Swan’s Falls–Brownfield guide', slug: 'saco-river-route-160-brownfield' } },
+        { heading: 'Canal Bridge is a shorter start for the same finish', text: 'The map places Canal Bridge near marker 3 and Brownfield near 18, suggesting roughly fifteen remaining reference miles. Compare this option below with its own shuttle. It shares the upper corridor and Walker’s Rips; a different launch alone does not need another repeated guide.', source: { label: 'Council upper-river reference map', url: sacoSources.map } },
+        { heading: 'Keep Front Street–Marblehead in the tidal corridor', text: 'DMR places Front Street below the head-of-tide dam and identifies Meeting House Eddy / Marblehead as a separate downstream state launch. Check the low-water ramp approach, wind, current, wakes and landing window. The upstream Saco municipal ramp is a different facility.', source: { label: 'Maine DMR tidal access descriptions', url: sacoSources.tidalAccess }, route: { label: 'Read the Front Street–Marblehead guide', slug: 'saco-river-saco-biddeford' } },
+        { heading: 'River discharge and tide predictions answer different questions', text: 'Cornish is downstream proxy context for the upper choices. Near-Biddeford river observations do not predict tide or current at the tidal ramps. Consult NOAA’s Biddeford tide predictions and local current advice; a predicted high or low water is not a promise of slack current.', source: { label: 'NOAA Biddeford tide predictions', url: sacoSources.tides } },
+        { heading: 'Check managed parking and exact entries', text: 'The Council requires passes for vehicles left at Swan’s Falls, Canal Bridge and Brownfield Bridge. Confirm overnight parking and camping permission separately. Coordinates mark facility areas; inspect the lawful carry and water entry. The Swan’s Falls route line and GPX remain withheld because its legacy hydrography is disconnected.', source: { label: 'Council managed access and parking', url: sacoSources.access } },
+        { heading: 'A long river line does not clear the dam chain', text: 'The operator identifies Hiram, Bonny Eagle, West Buxton, Bar Mills, Skelton and lower projects. Access listings and generic carry warnings cannot establish the long upper-to-lower itineraries. Those records remain under review with their original identities, rather than appearing as usable alternate plans.', source: { label: 'Brookfield project sequence and decommissioning FAQ', url: sacoSources.dams } },
+      ],
+    },
+  },
   {
     riverId: 'delaware-river-new-jersey',
     mode: 'access-planning',
