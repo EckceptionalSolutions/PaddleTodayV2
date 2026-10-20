@@ -107,7 +107,11 @@ for (const review of routeGuidePublicationReviews) {
         await expect(page.locator('[data-group-map-status]')).toContainText('Route line and GPX withheld');
         await expect(page.locator('[data-group-selected-notes]')).toContainText('Map shows access facilities only');
         const mapState = await mapHarnessState(page);
-        expect(mapState.fitCalls.some((call: {bounds: number[][]}) => call.bounds.some(([lon, lat]) => Math.abs(lon + 69.288744) < 0.001 && Math.abs(lat - 46.493378) < 0.001))).toBe(true);
+        expect(mapState.fitCalls.some((call: {bounds: number[][]}) =>
+          Math.abs(Math.min(...call.bounds.map(p => p[1])) - 46.493378) < 0.001
+          && Math.abs(Math.max(...call.bounds.map(p => p[0])) + 69.288744) < 0.001
+          && Math.abs(Math.max(...call.bounds.map(p => p[1])) - 46.6141) < 0.001,
+        )).toBe(true);
       }
       const firstHazard = group.routes[0].logistics!.watchFor![0];
       await expect(sharedAccessPlanNotes(group.routes).hazards.includes(firstHazard) ? page.locator('.access-planning-context__cautions') : notes).toContainText(firstHazard);
