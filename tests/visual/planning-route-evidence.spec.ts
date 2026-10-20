@@ -3,7 +3,7 @@ import { getRiverBySlug } from '../../src/lib/rivers';
 import { serializePlanningRoute } from '../../src/lib/api-contract';
 import { installMapLibreHarness } from './maplibre-harness';
 
-for (const slug of ['kennebec-river-sidney-augusta', 'verde-river-beasley-flat-childs', 'baltimore-blueway-canton', 'baltimore-blueway-inner-harbor-heritage', 'woonasquatucket-river-georgiaville-cricket', 'delaware-river-belvidere-phillipsburg', 'delaware-river-bulls-island-lambertville', 'delaware-river-lambertville-firemens-eddy', 'delaware-river-firemens-eddy-trenton']) {
+for (const slug of ['saco-river-route-160-brownfield', 'saco-river-saco-biddeford', 'kennebec-river-sidney-augusta', 'verde-river-beasley-flat-childs', 'baltimore-blueway-canton', 'baltimore-blueway-inner-harbor-heritage', 'woonasquatucket-river-georgiaville-cricket', 'delaware-river-belvidere-phillipsburg', 'delaware-river-bulls-island-lambertville', 'delaware-river-lambertville-firemens-eddy', 'delaware-river-firemens-eddy-trenton']) {
   test(`${slug}: planning evidence stays available after API hydration`, async ({ page }) => {
     const river = getRiverBySlug(slug)!;
     const errors: string[] = [];
