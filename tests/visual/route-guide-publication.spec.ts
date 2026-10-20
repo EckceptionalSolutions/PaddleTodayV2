@@ -2,7 +2,7 @@ import { expect, test } from '@playwright/test';
 import { routeGuidePublicationReviews } from '../../src/data/route-guide-publication-reviews';
 import { listRiverGroups } from '../../src/lib/rivers';
 import { serializeRiverGroupResult } from '../../src/lib/api-contract';
-import { installMapLibreHarness } from './maplibre-harness';
+import { installMapLibreHarness, mapHarnessState } from './maplibre-harness';
 import fixture from '../mobile-web/fixtures/route-detail.json' with { type: 'json' };
 import { sharedAccessPlanNotes, specificAccessPlanNotes } from '../../src/lib/access-plan-presentation';
 
@@ -103,6 +103,16 @@ for (const review of routeGuidePublicationReviews) {
       await expect(page.getByRole('heading', { name: 'Explore access plans', exact: true })).toBeVisible();
       await expect(page.locator('[data-group-sort], [data-group-refresh], .river-route-picker__toolbar, .route-choice__score-compact, .river-route-picker__selected-decision, .river-route-picker__nearby')).toHaveCount(0);
       await expect(page.locator('.river-hub-map-legend')).not.toContainText('Strong conditions');
+      if (review.riverId === 'allagash-river') {
+        await expect(page.locator('[data-group-map-status]')).toContainText('Route line and GPX withheld');
+        await expect(page.locator('[data-group-selected-notes]')).toContainText('Map shows access facilities only');
+        const mapState = await mapHarnessState(page);
+        expect(mapState.fitCalls.some((call: {bounds: number[][]}) =>
+          Math.abs(Math.min(...call.bounds.map(p => p[1])) - 46.493378) < 0.001
+          && Math.abs(Math.max(...call.bounds.map(p => p[0])) + 69.288744) < 0.001
+          && Math.abs(Math.max(...call.bounds.map(p => p[1])) - 46.6141) < 0.001,
+        )).toBe(true);
+      }
       const firstHazard = group.routes[0].logistics!.watchFor![0];
       await expect(sharedAccessPlanNotes(group.routes).hazards.includes(firstHazard) ? page.locator('.access-planning-context__cautions') : notes).toContainText(firstHazard);
     }

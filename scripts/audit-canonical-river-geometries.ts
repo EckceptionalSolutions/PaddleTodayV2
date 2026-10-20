@@ -2,6 +2,7 @@ import { createHash } from 'node:crypto';
 import { readFile, readdir } from 'node:fs/promises';
 import path from 'node:path';
 import { listRivers, WITHHELD_ROUTE_SLUGS } from '../src/lib/rivers';
+import { isRouteGeometryHeld } from '../src/lib/route-geometry-review-holds.js';
 
 const root = process.cwd();
 const assetPath = path.join(root, 'public', 'data', 'canonical-river-geometries.json');
@@ -132,6 +133,12 @@ async function main() {
       throw new Error(`Route geometry asset ${fileName} is pretty-printed; regenerate it in compact form.`);
     }
     const feature = JSON.parse(routeText);
+    if (isRouteGeometryHeld(fileName.slice(0, -5))) {
+      if (feature.properties?.routeId !== fileName.slice(0, -5) || feature.geometry !== null || feature.properties?.geometryReviewStatus !== 'withheld' || !feature.properties?.geometryReviewReason) {
+        throw new Error(`Held geometry must publish an explicit null-geometry review notice: ${fileName}`);
+      }
+      continue;
+    }
     if (feature.properties?.routeId !== fileName.slice(0, -5) || feature.geometry?.type !== 'MultiLineString') {
       throw new Error(`Invalid route-scoped geometry: ${fileName}`);
     }

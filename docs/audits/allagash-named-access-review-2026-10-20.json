@@ -1,0 +1,23 @@
+{
+  "reviewedOn": "2026-10-20",
+  "sourceUrl": "https://www.maine.gov/dacf/parks/publications_maps/gis/aww_ge/aww.kml",
+  "sourceSha256": "c546a87237a330e33a759df588c3f035472aecca2dbc1557a67fbd7c2ede9dbf",
+  "facilities": [
+    {
+      "name": "Bissonette Bridge",
+      "coordinates": "-69.31510555555555,46.53624166666666,0",
+      "description": "Bissonette Bridge is a <a href=\"http://www.maine.gov/dacf/parks/park_passes_fees_rules/aww_rules.shtml#geaccessmotor\">motor vehicle access site</a>. There is a 100 foot path down to the water. This is the point, on river left, where the portage service drops gear off. It is approximately halfway between Churchill Dam and Umsaskis Lake. If starting a trip here, please check in with the first Ranger you encounter."
+    },
+    {
+      "name": "Churchill Canoe Launch",
+      "coordinates": "-69.28874350787891,46.49337847304665,0",
+      "description": "This is a <a href=\"http://www.maine.gov/dacf/parks/park_passes_fees_rules/aww_rules.shtml#geaccessmotor\">motor vehicle access site </a> to the watercourse. All parties launching or disembarking at <a href=\"http://www.maine.gov/dacf/parks/discover_history_explore_nature/history/allagash/chdepot.shtml\">Churchill Dam</a> should do so near the dock on this side of the dam. There is a short portage along the access road to the dock, across the logging road and down a short hill for those continuing north. Be sure to check in with a Ranger whether you are going up the lake or down the river."
+    },
+    {
+      "name": "Umsaskis Canoe Launch",
+      "coordinates": "-69.39359804858933,46.61404384337062,0",
+      "description": "<a href=\"http://www.maine.gov/dacf/parks/park_passes_fees_rules/aww_rules.shtml#geaccessmotor\">Motor vehicle access</a> to the watercourse is allowed here."
+    }
+  ],
+  "finding": "The formerly stored start is Bissonette Bridge, not Churchill Dam. Use the named Churchill Canoe Launch facility anchor, with mandatory northbound carry and ranger confirmation; do not infer a surveyed water entry or a current portage-service price/schedule from this undated KML."
+}

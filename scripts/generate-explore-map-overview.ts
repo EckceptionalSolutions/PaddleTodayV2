@@ -3,17 +3,19 @@ import { listRivers } from '../src/lib/rivers';
 import { canonicalRiverRouteLineFromFeature } from '../src/lib/canonical-river-geometries.js';
 import { coverageAnchorForRoutes } from '../src/lib/river-coverage.js';
 import { coordinateBounds, geometryLines, simplifyOverviewLine } from '../src/lib/explore-map-geometry.js';
+import { isRouteGeometryHeld } from '../src/lib/route-geometry-review-holds.js';
 
 const features = [];
 let originalPoints = 0;
 let overviewPoints = 0;
 for (const river of listRivers()) {
+  if (isRouteGeometryHeld(river.slug)) continue;
   const raw = await readFile(`public/data/canonical-river-geometries/routes/${river.slug}.json`, 'utf8')
     .then(JSON.parse).catch((error) => {
       if (error.code === 'ENOENT') return null;
       throw error;
     });
-  if (!raw) continue;
+  if (!raw?.geometry) continue;
   const accesses = [...(river.accessPoints || [])].sort((a, b) => (a.mileFromStart || 0) - (b.mileFromStart || 0));
   const points = (accesses.length >= 2 ? accesses : [river.putIn, river.takeOut])
     .filter((point) => Number.isFinite(point?.longitude) && Number.isFinite(point?.latitude));

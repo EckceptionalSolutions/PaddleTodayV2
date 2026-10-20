@@ -24,6 +24,7 @@ import {
 import { createRequestGuard, isAbortError } from './request-guard.js';
 import { callLabelForDecision, callStateForDecision, ratingToneKey, parsePaddleTimeHours, todayBoardConfidenceWeight } from '@paddletoday/api-contract';
 import { loadCanonicalRiverRouteLine } from '../lib/canonical-river-geometries.js';
+import { isRouteGeometryHeld, routeGeometryReviewHolds } from '../lib/route-geometry-review-holds.js';
 import { coverageAnchorForRoutes, groupRoutesByConditionScore } from '../lib/river-coverage.js';
 import {
   activeRiverHubFilterCount,
@@ -757,6 +758,7 @@ function fallbackRouteLineFeature(route) {
 }
 
 function routeLineFeature(route) {
+  if (isRouteGeometryHeld(route.slug)) return null;
   const stored = routeGeometryBySlug.get(route.slug);
   const feature = stored || fallbackRouteLineFeature(route);
   if (!feature?.geometry) return null;
@@ -819,7 +821,9 @@ function boundsForRouteFeatures(maplibregl, routes) {
   let hasBounds = false;
   for (const route of routes) {
     const feature = routeLineFeature(route);
-    for (const coordinate of flattenRouteGeometry(feature?.geometry).flat()) {
+    const lineCoordinates = flattenRouteGeometry(feature?.geometry).flat();
+    const coordinates = lineCoordinates.length ? lineCoordinates : routeSpanCoordinates(route).map(point => [point.longitude, point.latitude]);
+    for (const coordinate of coordinates) {
       if (!Array.isArray(coordinate) || coordinate.length < 2) continue;
       bounds.extend(coordinate);
       hasBounds = true;
@@ -1269,7 +1273,7 @@ async function renderGroupMap(routes, { preserveViewport = false, focusSelected 
     groupMapStatusController.ready({
       backgroundMap: mapRuntime,
       message: isAccessPlanningHub
-        ? 'Planning context · verify passage and distance locally; not a navigation track.'
+        ? routeGeometryReviewHolds.get(selectedRoute?.slug) || 'Planning context · verify passage and distance locally; not a navigation track.'
         : routes.length === 1
         ? '1 route · mileage follows the mapped reach.'
         : `${routes.length} routes · Select a route or score marker to zoom.`,

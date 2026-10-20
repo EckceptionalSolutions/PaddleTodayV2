@@ -3,6 +3,7 @@ import path from 'node:path';
 import { describe, expect, it } from 'vitest';
 import { canonicalRiverRouteLineFromFeature } from './canonical-river-geometries.js';
 import { listRivers } from './rivers';
+import { isRouteGeometryHeld } from './route-geometry-review-holds.js';
 
 const assetPath = path.join(process.cwd(), 'public', 'data', 'canonical-river-geometries.json');
 const routeAssetDir = path.join(process.cwd(), 'public', 'data', 'canonical-river-geometries', 'routes');
@@ -23,7 +24,7 @@ describe('canonical river geometry asset', () => {
   it('reports current file-backed coverage without hiding missing traces or discarding legacy assets', () => {
     const manifest = JSON.parse(readFileSync(assetPath, 'utf8'));
     const publicIds = new Set(listRivers().map(route => route.id));
-    const existing = new Set(readdirSync(routeAssetDir).filter(file => file.endsWith('.json')).map(file => file.slice(0, -5)));
+    const existing = new Set(readdirSync(routeAssetDir).filter(file => file.endsWith('.json')).map(file => file.slice(0, -5)).filter(id => !isRouteGeometryHeld(id)));
     expect(manifest.unmatchedRouteIds.slice().sort()).toEqual([...publicIds].filter(id => !existing.has(id)).sort());
     expect(manifest.matchedRouteCount).toBe([...publicIds].filter(id => existing.has(id)).length);
     expect(['existing-reviewed-assets', 'generated']).toContain(manifest.coverageMode);
