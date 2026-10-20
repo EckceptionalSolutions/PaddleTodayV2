@@ -10,6 +10,8 @@ interface Props {
 const { guide, id, headingLevel = 2 } = Astro.props;
 const Heading = headingLevel === 2 ? 'h2' : 'h3';
 const Subheading = headingLevel === 2 ? 'h3' : 'h4';
+const reviewedOn = guide.reviewedOn ?? '2026-10-19';
+const reviewDateLabel = new Date(`${reviewedOn}T00:00:00Z`).toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric', timeZone: 'UTC' });
 ---
 
 <section class="planning-guide" id={id} data-detail-section={id} aria-labelledby={`${id}-title`}>
@@ -31,7 +33,7 @@ const Subheading = headingLevel === 2 ? 'h3' : 'h4';
     ))}
   </div>
   <p class="planning-guide__review muted">
-    Paddle Today source comparison updated <time datetime="2026-10-19">October 19, 2026</time>.
+    Paddle Today source comparison updated <time datetime={reviewedOn}>{reviewDateLabel}</time>.
     Based on published guides and route records; this is not an on-water inspection or confirmation of current access.
   </p>
 </section>

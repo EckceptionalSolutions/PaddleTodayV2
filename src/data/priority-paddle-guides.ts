@@ -2,6 +2,7 @@
 export interface PaddlePlanningGuide {
   title: string;
   introduction: string;
+  reviewedOn?: string;
   decisions: {
     heading: string;
     text: string;
@@ -62,6 +63,7 @@ export const priorityRouteGuides: Record<string, PaddlePlanningGuide> = {
     ],
   },
   'namekagon-river-county-k-whispering-pines': {
+    reviewedOn: '2026-10-20',
     title: 'Plan the County K day paddle',
     introduction: 'Use the official itinerary for the day plan and treat a past paddler’s gauge observation as a separate kind of evidence.',
     decisions: [
@@ -72,7 +74,7 @@ export const priorityRouteGuides: Record<string, PaddlePlanningGuide> = {
       },
       {
         heading: 'Understand what 155 cfs establishes',
-        text: 'The 155 cfs Leonards reading belongs to one May 2024 trip report. It is evidence of that outing, not a published minimum-flow study or an upper limit. Check current water and local observations alongside the score.',
+        text: 'The 155 cfs Leonards reading belongs to one May 2024 trip report. It is evidence of that outing, not a minimum or a calibrated range. This guide therefore supplies planning and station context without a same-day score. Check current river information and local observations before departure.',
         source: { label: 'WRT County K trip observation', url: 'https://www.wisconsinrivertrips.com/segments/namekagon-river/county-k-to-whispering-pines' },
       },
       {
@@ -104,9 +106,15 @@ export const priorityRouteGuides: Record<string, PaddlePlanningGuide> = {
     ],
   },
   'ouachita-river-remmel-whitewater-park': {
+    reviewedOn: '2026-10-20',
     title: 'Plan around the Remmel release and exit',
-    introduction: 'Release timing, travel time and the Rockport take-out need to work together for this tailwater trip.',
+    introduction: 'This rating follows recreational floating. The lower-flow whitewater range is a different decision; release timing, travel time and the Rockport take-out still need to work together.',
     decisions: [
+      {
+        heading: 'Match the rating to recreational floating',
+        text: 'Entergy says below 3,200 cfs may be too low for an enjoyable float and above 4,000 cfs is not recommended for floating. The 3,500–4,000 cfs target follows AW’s normal-generation description. Lower kayakable flows do not establish the same float experience. A reading in the target band does not verify how long generation will continue.',
+        source: entergyFloat,
+      },
       {
         heading: 'Check the current operating notice',
         text: 'Entergy’s published summer pattern is not a reservation for your trip date. Check its lake and flow news and the live Remmel gauge before driving, especially outside the usual Memorial Day–Labor Day recreational season.',

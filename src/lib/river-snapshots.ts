@@ -30,6 +30,7 @@ import { getRiverBySlug, getRiverGroupById, listRiverGroups, listRivers, listSco
 import { catalogRevision } from './catalog-coverage';
 import { gaugeDisplayForSource } from './source-adapters';
 import { conditionZoneIdForRiver } from './condition-zones';
+import { isScoreEligible } from '../data/route-publication';
 import { corridorForSlug } from '../data/route-corridors';
 import { mapWithConcurrency } from './async-concurrency';
 import { forgetCache, remember } from './server-cache';
@@ -193,10 +194,11 @@ export async function getStoredRiverSummarySnapshot(
 
   const versions = normalizedSummaries.get(snapshot) ?? {};
   const rivers = versions[metadata.snapshotStatus] ??= snapshot.rivers
-    .filter((item) => Boolean(getRiverBySlug(item.river.slug)))
+    .filter((item) => isCurrentScoreSnapshot(item.river))
     .map(normalizeSummarySnapshotItem)
     .map((item) => metadata.snapshotStatus === 'stale' ? markSummarySnapshotItemStale(item) : item);
   normalizedSummaries.set(snapshot, versions);
+  if (rivers.length === 0) return null;
 
   return {
     ...snapshot,
@@ -227,7 +229,8 @@ export async function getStoredRiverDetailSnapshot(
   slug: string,
   options: StoredSnapshotReadOptions = {},
 ): Promise<StoredSnapshot<RiverDetailSnapshot> | null> {
-  if (!getRiverBySlug(slug)) {
+  const route = getRiverBySlug(slug);
+  if (!route || !isScoreEligible(route)) {
     return null;
   }
 
@@ -236,7 +239,7 @@ export async function getStoredRiverDetailSnapshot(
     (await readSummaryDetailFallback(slug))
   ));
   const metadata = snapshot ? storedSnapshotMetadata(snapshot) : null;
-  if (!snapshot || !metadata || (metadata.snapshotStatus === 'stale' && !options.allowStale)) {
+  if (!snapshot || !metadata || !isCurrentScoreSnapshot(snapshot.result.river) || (metadata.snapshotStatus === 'stale' && !options.allowStale)) {
     return null;
   }
 
@@ -263,10 +266,11 @@ export async function getStoredWeekendSummarySnapshot(
 
   const versions = normalizedWeekends.get(snapshot) ?? {};
   const rivers = versions[metadata.snapshotStatus] ??= snapshot.rivers
-    .filter((item) => Boolean(getRiverBySlug(item.river.slug)))
+    .filter((item) => isCurrentScoreSnapshot(item.river))
     .map(normalizeWeekendSnapshotItem)
     .map((item) => metadata.snapshotStatus === 'stale' ? markWeekendSnapshotItemStale(item) : item);
   normalizedWeekends.set(snapshot, versions);
+  if (rivers.length === 0) return null;
 
   return {
     ...snapshot,
@@ -292,7 +296,7 @@ export async function getStoredRiverGroupSnapshot(
     result: {
       ...snapshot.result,
       routes: snapshot.result.routes
-        .filter((result) => Boolean(getRiverBySlug(result.river.slug)))
+        .filter((result) => isCurrentScoreSnapshot(result.river))
         .map(normalizeDetailSnapshotResult)
         .map((result) => metadata.snapshotStatus === 'stale' ? markDetailSnapshotResultStale(result) : result),
     },
@@ -301,7 +305,7 @@ export async function getStoredRiverGroupSnapshot(
 
 async function readSummaryDetailFallback(slug: string): Promise<RiverDetailSnapshot | null> {
   const summary = await readStoredOrLocalSummary();
-  const item = summary?.rivers.find((river) => river.river.slug === slug);
+  const item = summary?.rivers.find((river) => river.river.slug === slug && isCurrentScoreSnapshot(river.river));
   if (!summary || !item) {
     return null;
   }
@@ -316,11 +320,12 @@ async function readSummaryWeekendFallback(): Promise<WeekendSummarySnapshot | nu
   }
 
   const rivers = summary.rivers
-    .filter((item) => Boolean(getRiverBySlug(item.river.slug)))
+    .filter((item) => isCurrentScoreSnapshot(item.river))
     .map(normalizeSummarySnapshotItem)
     .map((item) => ({
       river: {
         riverId: item.river.riverId,
+        conditionZoneId: item.river.conditionZoneId,
         slug: item.river.slug,
         name: item.river.name,
         reach: item.river.reach,
@@ -370,7 +375,7 @@ async function readSummaryWeekendFallback(): Promise<WeekendSummarySnapshot | nu
 async function readSummaryGroupFallback(riverId: string): Promise<RiverGroupSnapshot | null> {
   const summary = await readStoredOrLocalSummary();
   const routes = summary?.rivers
-    .filter((item) => item.river.riverId === riverId && Boolean(getRiverBySlug(item.river.slug)))
+    .filter((item) => item.river.riverId === riverId && isCurrentScoreSnapshot(item.river))
     .map((item) => detailFromSummaryItem(item))
     .sort((left, right) => right.score - left.score);
 
@@ -556,6 +561,15 @@ function confidenceLevel(label: RiverSummaryApiItem['confidence']['label']): Riv
   if (label === 'High') return 'high';
   if (label === 'Medium') return 'medium';
   return 'low';
+}
+
+/** A timestamp cannot establish which scoring model produced a result.
+ * Never relabel an old score with the current model or revive a planning trip.
+ */
+function isCurrentScoreSnapshot(stored: { slug: string; conditionZoneId?: string }): boolean {
+  const route = getRiverBySlug(stored.slug);
+  return Boolean(route && isScoreEligible(route)
+    && stored.conditionZoneId === conditionZoneIdForRiver(route));
 }
 
 function normalizeSummarySnapshotItem(item: RiverSummaryApiItem): RiverSummaryApiItem {

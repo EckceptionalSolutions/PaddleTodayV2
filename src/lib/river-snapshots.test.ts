@@ -10,8 +10,26 @@ import { getRiverBySlug } from './rivers';
 import { forgetCache } from './server-cache';
 import { readFile } from 'node:fs/promises';
 import * as blobStorage from './blob-storage';
+import { conditionZoneIdForRiver } from './condition-zones';
 
 const NOW = new Date('2026-07-27T04:00:00.000Z');
+
+async function mockCurrentSummary() {
+  const original = JSON.parse(await readFile('tmp-summary.json', 'utf8'));
+  // These tests isolate timestamp/cache behavior using a fixture explicitly
+  // marked as produced by the current models. Legacy model identity is tested
+  // separately; the historical on-disk fixture is never rewritten.
+  for (const item of original.rivers) {
+    const route = getRiverBySlug(item.river.slug);
+    if (route) item.river.conditionZoneId = conditionZoneIdForRiver(route);
+  }
+  const createStorage = blobStorage.createJsonStorage;
+  vi.spyOn(blobStorage, 'createJsonStorage').mockImplementation(options => ({
+    ...createStorage(options),
+    async readJson<T>(name: string) { return name.endsWith('/summary.json') ? original as T : null; },
+  }));
+  return original;
+}
 
 afterEach(() => {
   vi.useRealTimers();
@@ -21,12 +39,7 @@ afterEach(() => {
 
 describe('stored river snapshot freshness', () => {
   it('reuses normalized data within a generation while updating age and stale readiness', async () => {
-    const original = JSON.parse(await readFile('tmp-summary.json', 'utf8'));
-    const createStorage = blobStorage.createJsonStorage;
-    vi.spyOn(blobStorage, 'createJsonStorage').mockImplementation(options => ({
-      ...createStorage(options),
-      async readJson<T>() { return original as T; },
-    }));
+    const original = await mockCurrentSummary();
     vi.useFakeTimers();
     forgetCache('snapshot:', { prefix: true });
     vi.setSystemTime(new Date(Date.parse(original.generatedAt) + 1000));
@@ -73,6 +86,7 @@ describe('stored river snapshot freshness', () => {
   });
 
   it('serves an allowed stale summary with degraded route states', async () => {
+    await mockCurrentSummary();
     vi.useFakeTimers();
     vi.setSystemTime(new Date('2027-01-01T00:00:00.000Z'));
 
@@ -92,6 +106,7 @@ describe('stored river snapshot freshness', () => {
     expect(snapshot?.rivers.every((item) => Boolean(getRiverBySlug(item.river.slug)))).toBe(true);
   });
   it('serves an allowed stale Weekend snapshot without requiring a summary-only readiness field', async () => {
+    await mockCurrentSummary();
     vi.useFakeTimers();
     vi.setSystemTime(new Date('2027-01-01T00:00:00.000Z'));
     await expect(getStoredWeekendSummarySnapshot()).resolves.toBeNull();
@@ -104,6 +119,7 @@ describe('stored river snapshot freshness', () => {
   });
 
   it('keeps difficulty choices and gauge identity when rebuilding a river group from summary data', async () => {
+    await mockCurrentSummary();
     vi.useFakeTimers();
     vi.setSystemTime(new Date('2027-01-01T00:00:00.000Z'));
     const summary = await getStoredRiverSummarySnapshot({ allowStale: true });

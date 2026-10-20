@@ -5147,10 +5147,10 @@ export const arkansasRoutes: River[] = [
     "state": "Arkansas",
     "region": "Ouachita Mountains",
     "routeType": "whitewater",
-    "summary": "About 5.9 miles from Remmel Dam to Rockport Whitewater Park; allow 3–4 hours on a recreational release. Check Entergy for current release timing; cold tailwater, Rockport Ledge, and a fast left-bank take-out before I-30 require a deliberate exit plan.",
+    "summary": "About 5.9 miles from Remmel Dam to Rockport Whitewater Park. This rating follows recreational floating conditions, with 3–4 hours allowed on a confirmed release. Low-flow whitewater kayaking is a separate decision. Check Entergy's current release timing and plan the ledge and left-bank exit before I-30.",
     "seoTitle": "Ouachita River: Remmel Dam Releases & Whitewater Park",
-    "seoDescription": "5.9-mile route from Remmel Dam to Rockport Whitewater Park. Check Entergy release timing and USGS flow; 3,500–4,000 cfs is the normal recreation range.",
-    "statusText": "Use the Ouachita River at Remmel Dam gauge. Around 200 cfs is only a scrape-through floor, 3,500 to 4,000 cfs is the normal recreational release window, and flows above 4,000 cfs are not recommended for floating.",
+    "seoDescription": "Plan the Remmel Dam–Rockport trip using Entergy release notices and USGS flow. The rating follows recreational floating; low-flow whitewater kayaking needs a separate assessment.",
+    "statusText": "The rating follows recreational floating, not low-flow whitewater play. Entergy says below 3,200 cfs may be too low for an enjoyable float and above 4,000 cfs is not recommended for floating. The 3,500–4,000 cfs target corresponds to normal generation described by American Whitewater. A current gauge reading does not confirm how long a release will last; check Entergy before launch.",
     "latitude": 34.426111,
     "longitude": -92.890833,
     "gaugeSource": {
@@ -5183,10 +5183,10 @@ export const arkansasRoutes: River[] = [
       "thresholdModel": "two-sided",
       "idealMin": 3500,
       "idealMax": 4000,
-      "tooLow": 200,
+      "tooLow": 3200,
       "tooHigh": 4000,
       "thresholdSource": {
-        "label": "Entergy recreational-flow guidance and American Whitewater Remmel-to-I-30 gauge notes",
+        "label": "Entergy recreational-floating limits; AW normal-generation target",
         "url": "https://www.entergy.com/blog/great-day-for-float/",
         "provider": "local"
       },
@@ -5199,10 +5199,10 @@ export const arkansasRoutes: River[] = [
         8,
         9
       ],
-      "seasonNotes": "Entergy says recreational releases normally run on summer weekends between Memorial Day and Labor Day, but the schedule can change for weather, system demand, or emergencies. Outside release windows, kayaks may still scrape through at much lower flows, but the route is slower and more technical.",
+      "seasonNotes": "Entergy describes a usual summer-weekend release pattern between Memorial Day and Labor Day, with changes possible without notice. Verify the actual release and finish window for the trip date, including outside that season. Kayak passage at lower water is a separate whitewater judgment and is not what this recreational-float rating evaluates.",
       "difficulty": "moderate",
       "difficultyNotes": "American Whitewater rates the reach Class I-II. Most of the run is moving Class I water, but Rockport Ledge at the take-out, the Lion's Den / Tiger chute, strong currents, cold dam-release water, and changing generation make this a guarded whitewater route rather than a casual float recommendation.",
-      "confidenceNotes": "Confidence is good for a guarded Arkansas add: Entergy documents the Remmel Dam float, the 170 Remmel Dam Road / 489 McGuire Road access context, the Whitewater Park take-out at 904 Riverview Drive, summer release timing, 3,200 cfs low-float context, 3,500-4,000 cfs recreational guidance, and a >4,000 cfs not-recommended warning; American Whitewater matches the exact 5.9-mile Remmel Dam-to-I-30 reach to USGS 07359002 and supplies the 200-500 cfs scrape-through floor plus Rockport Ledge hazards; official USGS legacy current conditions exposed same-day June 1, 2026 discharge and stage; and Mapcarta/OpenStreetMap resolves the Whitewater Park coordinates. Coordinates are practical access-area anchors, so paddlers still need to follow posted Entergy and park signs on arrival."
+      "confidenceNotes": "Entergy supplies the recreational-float references below 3,200 cfs and above 4,000 cfs; these are activity guidance, not legal closure levels or a guarantee of safe passage. American Whitewater describes normal generation at 3,500–4,000 cfs, retained as the target. Its separate 500–5,000 cfs whitewater range and 200–500 cfs scrape-through description do not define this float rating. USGS 07359002 measures water at the dam, not the future release duration. Confirm current operator plans, group ability, access and the Whitewater Park exit."
     },
     "evidenceNotes": [
       {
@@ -5212,16 +5212,22 @@ export const arkansasRoutes: River[] = [
         "sourceUrl": "https://www.entergy.com/blog/great-day-for-float/"
       },
       {
-        "label": "Direct live gauge",
+        "label": "Historical gauge verification",
         "value": "USGS 07359002",
-        "note": "USGS Ouachita River at Remmel Dam above Jones Mill showed same-day June 1, 2026 values during review, including 363 cfs and 2.88 ft at 00:15 CDT.",
+        "note": "The June 1, 2026 source review recorded 363 cfs and 2.88 ft at 00:15 CDT. This is historical station-verification evidence, not today's flow or a recreational-floating recommendation.",
         "sourceUrl": "https://waterdata.usgs.gov/nwis/uv?legacy=1&site_no=07359002"
       },
       {
         "label": "Threshold model",
-        "value": "200 / 3,500-4,000 / 4,000 cfs",
-        "note": "American Whitewater says 200-500 cfs is enough to make it downriver with scraping and that normal generation is 3,500-4,000 cfs. Entergy says flows lower than 3,200 cfs may be too low for an enjoyable tube float, 3,500-4,000 cfs is good for recreation, and flows above 4,000 cfs are not recommended for floating.",
+        "value": "Recreational floating: 3,200 / 3,500–4,000 / 4,000 cfs",
+        "note": "The model uses Entergy's low-float reference and above-4,000 floating warning, with AW's normal-generation description as its target. AW separately lists 500–5,000 cfs for whitewater and describes scraping at 200–500 cfs. Those lower kayakable levels are not a general float recommendation. This score does not confirm the release schedule or clear Rockport Ledge.",
         "sourceUrl": "https://www.americanwhitewater.org/content/River/view/river-detail/3052/main"
+      },
+      {
+        "label": "Rating activity and release duration",
+        "value": "Recreational floating; release must be confirmed",
+        "note": "Entergy advises starting at least two hours before recreational flow ends, while describing a 3–4-hour float. Confirm a workable departure, daylight, stops and landing margin for the group. Its current plans can change without notice, so a high current reading or a summer calendar pattern alone does not establish the trip window.",
+        "sourceUrl": "https://www.entergy.com/operations/hydro/data"
       },
       {
         "label": "Whitewater reach match",
@@ -5261,6 +5267,11 @@ export const arkansasRoutes: River[] = [
       {
         "label": "American Whitewater Remmel Dam to I-30",
         "url": "https://www.americanwhitewater.org/content/River/view/river-detail/3052/main",
+        "provider": "american_whitewater"
+      },
+      {
+        "label": "American Whitewater reach-specific flow range — separate whitewater context",
+        "url": "https://www.americanwhitewater.org/content/River/view/river-detail/3052/flow",
         "provider": "american_whitewater"
       },
       {

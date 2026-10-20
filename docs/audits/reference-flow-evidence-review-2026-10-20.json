@@ -1,0 +1,62 @@
+{
+  "reviewedOn": "2026-10-20",
+  "scope": "Two protected historically valuable guides; scoring evidence and activity applicability, with no guide consolidation or endpoint changes",
+  "finding": "A successful trip observation was being used as a demonstrated minimum, and one numeric rating combined low-flow kayak passage with recreational floating. Fix the executable model as well as its explanation. These are product-quality defects, not proven Google ranking causes.",
+  "decisions": [
+    {
+      "slug": "namekagon-river-county-k-whispering-pines",
+      "before": "Scored minimum-only route with a 155-cfs floor, despite text already acknowledging that one outing does not establish a minimum.",
+      "after": "Public independent planning guide with the same direct Leonards station, maps, sources, access plan, hazards and URL. Remove the unsupported scalar cutoff and same-day recommendation. Preserve the 155-cfs / 1.99-ft observation as dated evidence.",
+      "sources": [
+        { "url": "https://www.wisconsinrivertrips.com/segments/namekagon-river/county-k-to-whispering-pines", "supports": "Peter Johnson's May 25, 2024 outing, with the named access pair and one Leonards reading. This is not a minimum-flow study." },
+        { "url": "https://www.nps.gov/sacn/planyourvisit/k-whispering.htm", "supports": "A source-named 9.9-mile, 3–6-hour trip, qualitative generally-floatable conditions and occasional low-rainfall scraping. No numeric recreational cutoff is provided." }
+      ],
+      "protectedPageRationale": "Preserve its independent guide and established search identity. Evidence correction changes its condition role, not its availability or indexing."
+    },
+    {
+      "slug": "ouachita-river-remmel-whitewater-park",
+      "before": "A 200-cfs scrape-through floor, 3500–4000 target and 4000 high reference were presented within one general rating.",
+      "after": "Retain the scored independent guide. State that its rating evaluates recreational floating; use Entergy's 3200 low-float reference and above-4000 warning, retaining AW's 3500–4000 normal-generation target. Keep lower-flow kayak and broader whitewater evidence separate, with current release-duration verification required.",
+      "sources": [
+        { "url": "https://www.entergy.com/blog/great-day-for-float/", "publishedOn": "2024-07-25", "supports": "Below 3200 may be too low for an enjoyable float; above 4000 is not recommended for floating. Different levels may be kayakable. Conditional summer release pattern, 3–4-hour trip and at-least-two-hours-before-end advice." },
+        { "url": "https://www.entergy.com/operations/hydro/data", "supports": "Current operating plans can change without notice; a current river reading does not guarantee future release duration." },
+        { "url": "https://www.americanwhitewater.org/content/River/view/river-detail/3052/main", "readVia": "Current browser page; web extractor returned 403", "sourceUpdatedOn": "2025-06-02", "supports": "The exact 5.9-mile Class I–II reach, 200–500 scrape-through description, 3500–4000 normal generation, and Rockport hazards." },
+        { "url": "https://www.americanwhitewater.org/content/River/view/river-detail/3052/flow", "readVia": "Current browser flow page", "supports": "A distinct 500–5000 whitewater range, medium 3000–4000 and high 4000–5000 categories. This is not Entergy's floating guidance." }
+      ],
+      "limits": "The 3200 reference concerns float experience, not a demonstrated physical minimum or legal closure. The model does not promise release duration, safe rapid passage or suitability for every watercraft. Above 4000 is a floating warning, not a claim that all river use is prohibited."
+    }
+  ],
+  "storedRecommendationCorrection": {
+    "finding": "Snapshot readers previously checked only current public membership and freshness. They could retain a scored result for a trip now planning, or reuse a different condition-zone model. The legacy summary-to-detail fallback could even attach the current model to an older unversioned result.",
+    "change": "Summary, detail, weekend and group reads now require current scoring eligibility and a matching stored conditionZoneId. The summary fallbacks preserve that verified identity. Missing or mismatched identities are rejected; an entirely incompatible snapshot returns unavailable so normal current-data fallback can run. Alert evaluation reads the same guarded detail path.",
+    "scope": "Condition-zone and eligibility compatibility, not a claim that the key covers every possible scoring-algorithm revision. Existing timestamps and freshness rules still apply. Unversioned legacy results cannot be verified against current inputs.",
+    "producerRequirement": "Deploy and verify the authoritative scheduled snapshot worker as well as the API and frontend; a changed API must not depend indefinitely on snapshots from an older producer."
+  },
+  "liveBeforeEvidence": {
+    "checkedAt": "2026-10-20T23:46:10.027Z",
+    "summaryGeneratedAt": "2026-10-20T23:38:04.276Z",
+    "storedScores": 1398,
+    "planningTripsStillInScoredSummary": ["woonasquatucket-river-georgiaville-esmond", "woonasquatucket-river-georgiaville-cricket", "woonasquatucket-river-esmond-cricket", "namekagon-river-county-k-whispering-pines"],
+    "mismatchedConditionZone": "Remmel still carries the 200-cfs low reference",
+    "missingConditionZoneKeys": 0,
+    "workerImageRevision": "0f4404712175cb32d87da8333d254a79f6fc481f",
+    "limit": "This is a serving/producer correctness failure, not evidence of Google's internal ranking cause."
+  },
+  "validationRequirements": [
+    "Preserve all 2541 public trip identities and 2004 standalone guide identities, original endpoints/access IDs and source URLs; all 2539 unrelated public records and 2806 route geometry assets must remain identical.",
+    "County K stays in public discovery and its Namekagon hub as planning, with no numeric floor, recommendation, score alert or ideal-range claim.",
+    "Remmel fixed-flow cases distinguish 200/500/1000 from the recreational-floating band, keep the above-4000 warning and do not convert it into a legal closure.",
+    "Review and narrowly accept scoring baseline changes. Existing unrelated active and stored scenario outputs remain unchanged; do not erase prior inactive baseline entries as unrelated cleanup.",
+    "Validate the built, hydrated and ordinary public/direct serving paths, correct state/hub roles, source access, canonicals and unchanged sitemap membership. Merge and deploy both applications before treating this as a live test."
+  ],
+  "scoringBaselineReview": { "currentScoredInventory": 1513, "syntheticScenarios": 32644, "invariantFailures": 0, "intentionalChangedSyntheticCase": "Remmel below-too-low: 8 to 29, still No-go / skip. The synthetic input is threshold-relative and changes when the threshold changes; fixed-flow tests independently verify the intended activity boundary.", "countyK": "Remove its scored baseline cases because the route is planning.", "unchangedOtherStoredOutputs": true, "preexistingInactiveBaselineEntries": 124, "adminReport": "Refresh the current compact sensitivity report; retain unrelated historical baseline entries." },
+  "localValidation": {
+    "apiTests": "1203 passed across 220 files, including snapshot, alert-policy and source-evidence regressions",
+    "focusedChecks": "34 passed across five evidence/publication/snapshot/alert test files; six desktop/iPhone hydration checks passed",
+    "scoringSafety": "32644 synthetic scenarios pass, zero invariant failures and zero unreviewed baseline drift",
+    "build": "2460 pages and 837 consolidation deliveries; indexability audit has no errors or warnings",
+    "preservation": "2541 public trip IDs and 2004 independent guide IDs preserved; all 2539 unrelated public records and 2806 route assets identical; endpoints, access IDs, gauges, hazards and original source URLs retained",
+    "ordinaryLocalPaths": "Both guides retain self-canonicals and sitemap membership; County K is planning in detail/group data with no floor, Remmel exposes the 3200 reference and activity scope; both GPX exports remain available; Wisconsin/Arkansas discovery counts are accurate"
+  },
+  "googleLimit": "This corrects recommendation reliability while retaining protected URLs. It does not prove Google detected the errors or that ranking recovery will follow. Post-change recrawl and performance observations remain separate requirements."
+}
