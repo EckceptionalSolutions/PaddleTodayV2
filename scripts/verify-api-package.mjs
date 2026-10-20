@@ -74,7 +74,10 @@ try {
     assert.equal(response.headers.get('x-request-id'), payload.requestId);
     checks.push(path); return { payload, response };
   }
-  assert.equal((await json('/api/health/ready')).payload.ok, true);
+  const readiness = (await json('/api/health/ready')).payload;
+  assert.equal(readiness.ok, true);
+  assert.equal(readiness.buildRevision, manifest.buildRevision, 'Readiness must identify the compiled package revision');
+  assert.equal((await json('/api/health')).payload.buildRevision, manifest.buildRevision, 'Health must identify the compiled package revision');
   const board = (await json('/api/rivers/summary.json')).payload;
   await json('/api/weekend/summary.json');
   const catalog = (await json('/api/rivers/catalog.json')).payload;
@@ -101,7 +104,7 @@ try {
   const admin = (await json('/api/admin/operations', { headers: { cookie } })).payload;
   assert(Array.isArray(admin.snapshot.states), 'Dynamic admin operations data must load');
   assert.equal((await fetch(url('/api/trips'))).status, 401); checks.push('private trips require authentication');
-  console.log(JSON.stringify({ verified: true, node: process.version, compiledBytes: manifest.compiledBytes, checks, externalNetwork: 'disabled' }, null, 2));
+  console.log(JSON.stringify({ verified: true, buildRevision: manifest.buildRevision, node: process.version, compiledBytes: manifest.compiledBytes, checks, externalNetwork: 'disabled' }, null, 2));
 } finally {
   if (child && child.exitCode === null && child.signalCode === null) {
     child.kill(); await new Promise(resolve => child.once('exit', resolve));

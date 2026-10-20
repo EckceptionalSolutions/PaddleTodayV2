@@ -19,8 +19,11 @@ on:
       - 'scripts/emit-route-consolidation-redirects.mjs'
       - 'scripts/package-api.mjs'
       - 'scripts/lib/api-package.mjs'
+      - 'scripts/lib/deployment-revision.mjs'
       - 'scripts/lib/static-compression.mjs'
       - 'scripts/verify-api-package.mjs'
+      - 'scripts/wait-for-api-revision.mjs'
+      - 'scripts/deployment-smoke.mjs'
       - 'staticwebapp.config.json'
       - '.github/workflows/azure-app-service-api.yml'
   workflow_dispatch:
@@ -56,7 +59,7 @@ jobs:
       - name: Run API tests
         run: |
           npm run test:api
-          npx vitest run scripts/lib/api-package.test.ts
+          npx vitest run scripts/lib/api-package.test.ts scripts/lib/deployment-revision.test.ts
 
       - name: Build app
         env:
@@ -85,6 +88,13 @@ jobs:
           app-name: ${{ secrets.AZURE_WEBAPP_NAME }}
           publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE }}
           package: deploy-package
+          restart: true
+
+      - name: Wait for deployed API revision
+        env:
+          DEPLOYMENT_BASE_URL: ${{ secrets.AZURE_WEBAPP_URL || vars.API_ORIGIN || 'https://paddletodayapi-h7efgxcfg9h7gne9.centralus-01.azurewebsites.net' }}
+          DEPLOYMENT_EXPECTED_REVISION: ${{ github.sha }}
+        run: node scripts/wait-for-api-revision.mjs
 
       - name: Wait for deployment readiness
         env:
@@ -111,6 +121,7 @@ jobs:
           exit 1
       - name: Smoke test deployment
         env:
+          DEPLOYMENT_EXPECTED_REVISION: ${{ github.sha }}
           DEPLOYMENT_BASE_URL: ${{ secrets.AZURE_WEBAPP_URL || vars.API_ORIGIN || 'https://paddletodayapi-h7efgxcfg9h7gne9.centralus-01.azurewebsites.net' }}
           DEPLOYMENT_SMOKE_TIMEOUT_MS: '180000'
           PUBLIC_FIREBASE_PROJECT_ID: ${{ vars.PUBLIC_FIREBASE_PROJECT_ID }}

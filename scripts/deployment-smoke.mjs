@@ -1,3 +1,5 @@
+import { deploymentRevisionMatches, normalizeDeploymentRevision } from './lib/deployment-revision.mjs';
+const expectedRevision = process.env.DEPLOYMENT_EXPECTED_REVISION ? normalizeDeploymentRevision(process.env.DEPLOYMENT_EXPECTED_REVISION) : null;
 const baseUrl = normalizeBaseUrl(process.env.DEPLOYMENT_BASE_URL ?? 'https://paddletoday.com');
 const timeoutMs = positiveNumber(process.env.DEPLOYMENT_SMOKE_TIMEOUT_MS, 15_000);
 const healthPath = normalizePath(process.env.DEPLOYMENT_HEALTH_PATH ?? '/api/health');
@@ -177,6 +179,7 @@ async function checkSecurityHeaders() {
 
 function validateReadiness(payload) {
   if (payload.ok !== true) return fail('not ready');
+  if (expectedRevision && !deploymentRevisionMatches(payload, expectedRevision)) return fail(`expected revision ${expectedRevision}, reported ${payload.buildRevision ?? 'missing'}`);
   if (typeof payload.riverCount !== 'number' || payload.riverCount < 1) return fail('invalid riverCount');
   if (payload.mode === 'one-origin' && payload.staticIndexReady !== true) return fail('static index is not ready');
   return pass(`${payload.mode}, ${payload.riverCount} routes`);
@@ -184,6 +187,7 @@ function validateReadiness(payload) {
 
 function validateHealth(payload) {
   if (payload.ok !== true) return fail('not healthy');
+  if (expectedRevision && !deploymentRevisionMatches(payload, expectedRevision)) return fail(`expected revision ${expectedRevision}, reported ${payload.buildRevision ?? 'missing'}`);
   if (!isObject(payload.cache)) return fail('missing cache telemetry');
   if (!isObject(payload.upstream)) return fail('missing upstream telemetry');
   if (!Array.isArray(payload.upstream.providers)) return fail('missing upstream providers');

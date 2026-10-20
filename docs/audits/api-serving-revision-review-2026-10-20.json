@@ -1,0 +1,39 @@
+{
+  "reviewedOn": "2026-10-20",
+  "problem": "A successful API upload and healthy account/trip capability responses did not establish that the installed route-data revision was running.",
+  "observedCase": {
+    "routeQualityPullRequest": 105,
+    "mergeCommit": "dc0786c1fd0dd6d282f71a480e379c7cc34c2ec0",
+    "successfulApiRun": 39504604695,
+    "postDeploymentOrigin": "https://paddletodayapi-h7efgxcfg9h7gne9.centralus-01.azurewebsites.net",
+    "postDeploymentState": "Two direct-origin probes still showed the worker started at 20:56:20.995 UTC, 2549 public trips and twelve old Delaware plans. The installed release had 2546 public trips and nine reviewed Delaware plans.",
+    "activation": "One controlled restart activated the worker started at 22:11:39.166 UTC. Strict origin/public and browser verification then established the intended source and page roles.",
+    "evidence": [
+      "output/seo-release-2026-10-20/delaware-api-result.json",
+      "output/seo-release-2026-10-20/delaware-origin-first-probe.json",
+      "output/seo-release-2026-10-20/delaware-origin-before-restart.json",
+      "output/seo-release-2026-10-20/delaware-origin-activation.json",
+      "output/seo-release-2026-10-20/delaware-release.json"
+    ]
+  },
+  "correction": [
+    "The API packager validates a full commit SHA and embeds it as a literal in the compiled server. The package manifest and both health endpoints expose buildRevision. Source-mode development and explicitly unversioned local packages report null.",
+    "A mutable uploaded file or an environment-variable change cannot make a running older bundle report a newer revision.",
+    "The existing Azure deployment action explicitly requests restart using its existing publish profile. No new credential, role, permission or endpoint authentication is added.",
+    "Readiness waits at the configured API origin for a healthy process reporting the exact workflow commit before checking account/trip capabilities. Missing, old or unhealthy revisions and redirects cannot satisfy the gate.",
+    "The final smoke check independently requires the expected revision from health and readiness. Packaged-runtime verification also compares both reported identities with the manifest."
+  ],
+  "providerSource": "https://github.com/Azure/webapps-deploy/blob/v3/action.yml",
+  "validation": {
+    "focusedPackageAndRevisionTests": 10,
+    "fullApiTests": 1182,
+    "safetySensitivityScenarios": 32658,
+    "isolatedPackagedRuntime": "Passed with external network disabled and a test-only embedded revision. All 6613 static resources match the input bytes.",
+    "workflow": "YAML parsed; explicit restart and exact-revision gate ordering checked. The revision gate precedes capability readiness; smoke independently requires the workflow commit.",
+    "localEnvironment": "Restored the dependency tree from the committed lockfile, then restored npm's omitted Windows native optional binding using the exact locked package and SHA-512 integrity. No dependency manifest or lockfile changes. The Firebase auth wiring test passes with the locked app version.",
+    "liveBaseline": "The healthy pre-upgrade API has no buildRevision field and is correctly rejected by the new matcher. This is a baseline demonstration, not a production rollout claim."
+  },
+  "preservation": "No trip records, guide/hub decisions, route geometry, scoring thresholds, frontend behavior or authentication rules change in this batch.",
+  "limits": "Runtime identity establishes the API code serving a request. Public cache withdrawal, source accuracy, canonical delivery and Google processing still require their own checks. The observations do not establish that Google saw the stale worker or that it caused the search decline. The older cached Allagash GPX remains a separate Cloudflare authentication dependency.",
+  "publication": "Local implementation and verification are not a live recovery test. Require merged code, a successful deployment with the new gate, the expected revision at the active origin and preservation checks before recording publication."
+}
