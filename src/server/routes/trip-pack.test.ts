@@ -22,6 +22,7 @@ const inferredMileageRiver = {
 };
 
 const generalizedRiver = { ...demoRiver, slug: 'generalized-river' };
+const geometryReview = vi.hoisted(() => ({ description: undefined as string | undefined }));
 
 const segmentedRiver = {
   ...demoRiver,
@@ -39,7 +40,7 @@ vi.mock('../../lib/rivers', () => ({
 
 vi.mock('./river-geometry', () => ({
   loadRouteGeometry: async (slug: string) => ({
-    properties: { generalizedPlanningLine: slug === 'generalized-river' },
+    properties: { generalizedPlanningLine: slug === 'generalized-river', planningLineDescription: geometryReview.description },
     geometry: {
       type: 'LineString',
       coordinates: [[-92, 44], [-92.05, 44.05], [-92.1, 44.1]],
@@ -58,6 +59,17 @@ function calendarTimestamp(body: string, key: string) {
 }
 
 describe('trip-pack route', () => {
+  it('preserves a route-specific partial-approach qualification in both GPX descriptions', async () => {
+    geometryReview.description = 'Approach illustration only; no marked turnaround & no measured option distance.';
+    try {
+      const response = mockResponse();
+      await handleRiverTripPack(new URL('https://paddletoday.com/api/rivers/generalized-river/trip.gpx'), response, 'req_trip', true, 'generalized-river', 'gpx');
+      const body = String(vi.mocked(response.end).mock.calls[0]?.[0]);
+      expect(body.match(/Approach illustration only/g)).toHaveLength(2);
+      expect(body).toContain('turnaround &amp; no measured');
+      expect(body).not.toContain('Verify dock approaches');
+    } finally { geometryReview.description = undefined; }
+  });
   it('carries generalized geometry qualifications into the downloaded GPX metadata and track', async () => {
     const response = mockResponse();
     await handleRiverTripPack(new URL('https://paddletoday.com/api/rivers/generalized-river/trip.gpx'), response, 'req_trip', true, 'generalized-river', 'gpx');

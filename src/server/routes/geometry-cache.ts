@@ -1,5 +1,5 @@
 export type CanonicalGeometryFeature = {
-  properties?: { routeId?: string; state?: string; source?: string; generalizedPlanningLine?: boolean };
+  properties?: { routeId?: string; state?: string; source?: string; generalizedPlanningLine?: boolean; planningLineDescription?: string };
   geometry?: { type?: string; coordinates?: unknown };
 };
 

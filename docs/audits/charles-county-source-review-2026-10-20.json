@@ -1,0 +1,117 @@
+{
+  "reviewedOn": "2026-10-20",
+  "baseCommit": "062125913e96fee0632ee20930257206af5f4888",
+  "riverId": "charles-county-water-trails-maryland",
+  "decision": "Retain four distinct planning guides; correct access, trip logistics, source age and generalized maps. No new routes or numerical scoring thresholds.",
+  "structuralFinding": "These are four separately named county water trails on Mattawoman Creek, the Lower Potomac, Nanjemoy Creek and the Port Tobacco River. Shared regional boilerplate was a quality problem; endpoint-combination duplication was not established. URL reduction is not the acceptance criterion.",
+  "sourceReview": {
+    "oldSource": "https://www.charlescounty.org/webdocs/tourism/publications/CC_Water_Trail_Map.pdf",
+    "oldSourceDate": "2008 first edition",
+    "replacement": "https://www.charlescountymd.gov/home/showpublisheddocument/22/637080836123670000",
+    "replacementDate": "2014 second edition; the current county facility page links this edition, but that does not make the brochure current",
+    "visualReview": "Both full brochure pages inspected, including all four maps, scale bars, access descriptions and the publication-date panel. The 2018 county Mallows paddler guide was separately reviewed; its Ghost Fleet loop is not the Purse itinerary.",
+    "accessGis": "https://services.arcgis.com/njFNhDsUCentVYJW/arcgis/rest/services/Public_Water_Access_2020/FeatureServer/0",
+    "accessMethod": "Queried Charles County features with geometry in EPSG:4326. Use separate floating/soft paddle entries where named. These are published access-site anchors, not surveyed water edges. Do not promote inventory attributes to current fee, closure or opening proof.",
+    "imageryMethod": "Visually compared generalized lines against Esri World Imagery exports, using the actual returned georeferencing extent rather than the requested bbox. Imagery is a geographic cross-check, not current access, depth, hazard or ownership evidence.",
+    "hydrographyLimit": "USGS NHD layer 12 returned 314 waterbody features but omitted the main tidal estuaries. The area-layer query returned HTML instead of data. No complete polygon containment or land-crossing certification is claimed."
+  },
+  "trails": [
+    {
+      "slug": "mattawoman-creek-mattlingy-smallwood",
+      "accessFeatures": [
+        537,
+        503
+      ],
+      "changes": "Use Mattingly's separate floating soft launch and Smallwood's kayak launch. Correct the park name while preserving the historical URL. State a one-way shuttle, current manager checks and the boundary before the separate open-Potomac continuation.",
+      "distanceLimit": "The 2014 brochure states about 4.5 miles. The generalized line is shorter and is not an independent mileage validation; do not stretch the line to force agreement.",
+      "sources": [
+        "https://www.townofindianhead.org/?SEC=8685CA3C-E863-492B-8589-C392B0CA2A28",
+        "https://dnr.maryland.gov/publiclands/Pages/southern/smallwood.aspx"
+      ]
+    },
+    {
+      "slug": "lower-potomac-purse-mallows-bay",
+      "accessFeatures": [
+        259,
+        398
+      ],
+      "oldPurse": [
+        38.390833,
+        -77.315556
+      ],
+      "reviewedPurse": [
+        38.43223614,
+        -77.25649254
+      ],
+      "oldMallows": [
+        38.481111,
+        -77.26355
+      ],
+      "reviewedMallows": [
+        38.4691295,
+        -77.26370089
+      ],
+      "changes": "Resolve the impossible three-mile/6.8-mile-straight-line conflict by correcting copied access coordinates, not increasing mileage. Mallows has road access and a separate paddle launch. Require a one-way shuttle; a return paddle is additional. The county brochure runs the reverse direction.",
+      "carryLimit": "The 2014 brochure says quarter-mile carry; DNR's access inventory says half-mile portage. Show the disagreement and require an actual path/beach check. Neither point is a parking pin or a claim of a surveyed wet edge.",
+      "sources": [
+        "https://sanctuaries.noaa.gov/mallows-potomac/visit/maps.html",
+        "https://dnr.maryland.gov/wildlife/pages/publiclands/southern/nanjemoy.aspx",
+        "https://www.charlescountymd.gov/Home/Components/FacilityDirectory/FacilityDirectory/41/"
+      ]
+    },
+    {
+      "slug": "nanjemoy-creek-friendship-farm-park",
+      "accessFeatures": [
+        397
+      ],
+      "changes": "Replace the misplaced launch with DNR's separate Friendship floating soft entry. Explain the brochure's approximately two-mile Church Creek and four-mile Hilltop Fork return choices, without creating extra standalone URLs. Keep the open Potomac continuation outside scope.",
+      "distanceAndMapLimit": "The brochure distances are old option estimates, not cumulative legs or verified measurements to a selected turnaround. The map/GPX illustrates access and the Church Creek approach only; it does not locate a two-mile turnaround or depict the Hilltop Fork option. The return follows the approach rather than an invented triangular loop through marsh.",
+      "campingLimit": "Older brochure and access inventory list a primitive campsite; current county permission and reservations must be confirmed.",
+      "sources": [
+        "https://www.charlescountymd.gov/Home/Components/FacilityDirectory/FacilityDirectory/2136/",
+        "https://webapps02.dnr.state.md.us/MDPublicWaterAccess/ShowWaterAccessToPublic.aspx?PKintKeyID=109"
+      ]
+    },
+    {
+      "slug": "port-tobacco-river-chapel-point-port-tobacco",
+      "accessFeatures": [
+        508
+      ],
+      "marinaCoordinateSource": "2014 brochure DMS 38°29'49.29 N, 77°1'34.86 W; facility-area anchor, not an agreed kayak landing",
+      "changes": "Correct the private-marina anchor, require explicit take-out permission and a one-way shuttle. Explain the reverse direction from the county brochure and separate Goose Bay options. Surface DNR's May 4, 2026 credit-card gate and pass-holder entry-code notice.",
+      "currentSourceLimits": "The current marina owner website confirms the business and address, not public kayak landing rights. Remove the unverified marina campground claim; older Chapel Point camping needs current county confirmation. Current manager notices override the old GIS fee/gate fields.",
+      "sources": [
+        "https://dnr.maryland.gov/publiclands/pages/southern/chapelpoint.aspx",
+        "https://dnr.maryland.gov/publiclands/Pages/southern/ChapelPoint/Fishing-Boating.aspx",
+        "https://www.ptmshipstore.com/"
+      ]
+    }
+  ],
+  "invariants": [
+    "Four public planning trips retained; no invented gauge cutoff or same-day score.",
+    "Keep USGS 01658000 upstream Mattawoman context and USGS 01660795 regional Potomac context on their existing trips.",
+    "Protect unrelated records, route assets, access providers and registry entries; refresh only affected geometry features.",
+    "Published source mileage is not a certified GPS-track length. Map and GPX qualifications must remain visible.",
+    "This batch does not establish Google ranking or traffic recovery."
+  ],
+  "publication": "Pending local verification, merge and deployment; working-copy changes are not live recovery evidence.",
+  "localValidation": {
+    "focusedTests": 33,
+    "geoWorkspaceTests": 10,
+    "desktopAndIPhoneChecks": 22,
+    "fullTypecheck": "passed",
+    "productionBuild": "passed",
+    "indexability": "passed without errors or warnings",
+    "publicTrips": 2552,
+    "sitemapUrls": 2473,
+    "unchangedOtherPublicRecords": 2548,
+    "unchangedOtherRouteAssets": 2802,
+    "unchangedOtherRegistryEntries": 4068,
+    "pilotTripsPreserved": 24,
+    "pilotRetainedGuides": 5,
+    "pilotConsolidatedTargets": 19,
+    "remainingNumericDistanceFlags": 30,
+    "remainingVariableDistanceCases": 2,
+    "sameLaunchFix": "Closed traces retain their full return when source endpoints differ only by six-decimal asset rounding; distinct requested endpoints still use ordinary clipping."
+  }
+}

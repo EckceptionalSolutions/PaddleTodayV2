@@ -113,7 +113,7 @@ export async function handleRiverTripPack(
     ...basePlan,
     routeCoordinates: coordinates,
     ...(feature?.properties?.generalizedPlanningLine === true ? {
-      geometryDescription: 'Generalized shoreline planning line. Verify dock approaches and local navigation; not a surveyed navigation track.',
+      geometryDescription: feature.properties.planningLineDescription || 'Generalized shoreline planning line. Verify dock approaches and local navigation; not a surveyed navigation track.',
     } : {}),
   });
   return sendBinary(
