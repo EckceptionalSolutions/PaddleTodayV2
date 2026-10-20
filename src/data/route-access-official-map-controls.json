@@ -26558,26 +26558,6 @@
       ]
     },
     {
-      "id": "ri_woonasquatucket_whipple_field_access",
-      "name": "WRWC Whipple Field Woonasquatucket River access anchor",
-      "state": "Rhode Island",
-      "sourceUrl": "https://wrwc.org/wp/wp-content/uploads/2020/05/completePaddlingGuide.pdf",
-      "sourceType": "official-watershed-council-paddling-guide",
-      "coordinateRole": "authoritative-access-anchor",
-      "method": "The Woonasquatucket River Watershed Council's paddling guide identifies Whipple Field as a put-in or take-out and describes a low bank on the Woonasquatucket about 0.6 river miles below Georgiaville Pond. Retain the route's Whipple Field site coordinate as an access-area anchor with 300-foot uncertainty; the guide does not survey the water-entry toe.",
-      "controls": [
-        {
-          "featureId": "wrwc-whipple-field-low-bank-access",
-          "name": "Whipple Field river access",
-          "waterbody": "Woonasquatucket River",
-          "latitude": 41.8892,
-          "longitude": -71.5006,
-          "uncertaintyFeet": 300,
-          "coordinateText": "WRWC confirms a low-bank put-in/take-out at Whipple Field; coordinates are the existing route site anchor, not a source-surveyed landing edge."
-        }
-      ]
-    },
-    {
       "id": "ri_esmond_park_portage_access",
       "name": "ExploreRI Esmond Park Portage access-area coordinate",
       "state": "Rhode Island",

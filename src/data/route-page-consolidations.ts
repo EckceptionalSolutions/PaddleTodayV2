@@ -689,9 +689,11 @@ const woonasquatucketAccessGapRouteSlugs = [
 ] as const;
 
 const woonasquatucketUpperCompositeRouteSlugs = [
-  'woonasquatucket-river-georgiaville-whipple',
   'woonasquatucket-river-georgiaville-esmond',
   'woonasquatucket-river-esmond-cricket',
+] as const;
+const woonasquatucketEndpointReviewRouteSlugs = [
+  'woonasquatucket-river-georgiaville-whipple',
   'woonasquatucket-river-whipple-esmond',
   'woonasquatucket-river-whipple-cricket',
 ] as const;
@@ -1125,6 +1127,7 @@ const consolidatedRouteTargets = new Map<string, string>(
     ...lamoilleCompositeRouteSlugs.map((slug) => [slug, '/rivers/by-river/lamoille-river-vermont/#lamoille-recommended-reaches-title'] as const),
     ...woonasquatucketAccessGapRouteSlugs.map((slug) => [slug, `${woonasquatucketHubPath}#woonasquatucket-access-zones`] as const),
     ...woonasquatucketUpperCompositeRouteSlugs.map((slug) => [slug, `${woonasquatucketHubPath}#trip-${slug}`] as const),
+    ...woonasquatucketEndpointReviewRouteSlugs.map((slug) => [slug, `${woonasquatucketHubPath}#woonasquatucket-access-zones`] as const),
     ...suwanneeConsolidatedRouteSlugs.map((slug) => [
       slug,
       suwanneeAccessNoticeRouteSlugs.has(slug)

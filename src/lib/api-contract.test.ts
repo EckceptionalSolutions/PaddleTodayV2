@@ -343,6 +343,20 @@ describe('api-contract serializers', () => {
     expect(planning.river.scoreEligibilityReason).toBe('proxy_gauge');
     expect(planning.gaugeBandLabel).toBe('Not scored');
     expect(planning.explanation).toContain('does not issue a same-day score');
+    expect(planning.readiness.reason).toContain('proxy gauge');
+    expect(planning.confidence.reasons).toEqual(['Proxy gauge route']);
+  });
+
+  it('does not invent a proxy-gauge explanation for same-river planning trips', () => {
+    const planning = serializePlanningRoute({ ...baseRiver, scoreEligibility: 'planning' });
+    expect(planning.river.scoreEligibility).toBe('planning');
+    expect(planning.readiness.status).toBe('withheld');
+    expect(planning.gaugeBandLabel).toBe('Not scored');
+    expect(planning.readiness.reason).not.toMatch(/proxy/i);
+    expect(planning.explanation).not.toMatch(/proxy/i);
+    expect(planning.confidence.reasons).toEqual(['Planning-only route']);
+    expect(planning.liveData.gauge.detail).toContain('linked station');
+    expect(planning.gauge).toBeNull();
   });
 
   it('serializes every planning route with an independent unavailable weather value', () => {

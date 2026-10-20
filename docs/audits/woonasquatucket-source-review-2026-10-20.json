@@ -1,0 +1,385 @@
+{
+  "reviewedOn": "2026-10-20",
+  "scope": "Complete current twelve-choice Woonasquatucket family, with separate review of its sixteen existing cross-gap holds. This is a proposed source correction until merged and published.",
+  "baseCommit": "00a46910be00236e2c068963b5c87a966eeeece7",
+  "baseline": {
+    "publicChoices": 12,
+    "standaloneGuides": 7,
+    "existingHubOptions": 5,
+    "existingCrossGapHolds": 16,
+    "sourceResearchRecords": 28,
+    "liveObservedAt": "2026-10-20T17:02:21.586Z",
+    "correction": "The preparatory queue mislabeled twelve public records as twelve standalone guides. Five upper variants were already consolidated; do not count them as new URL reductions."
+  },
+  "sources": [
+    {
+      "url": "https://wrwc.org/wp/wp-content/uploads/2020/05/completePaddlingGuide.pdf",
+      "documentDate": "2012",
+      "urlUploadPath": "2020/05",
+      "review": "Full relevant spreads visually inspected: printed pages 10-19. The URL upload date is not the guide date."
+    },
+    {
+      "url": "https://exploreri.org/siteReport.php?siteID=343&src=criteria",
+      "review": "Published site coordinates and access descriptions; distinguish source report age from crawl time."
+    },
+    {
+      "url": "https://exploreri.org/siteReport.php?siteID=3&src=criteria",
+      "review": "Published site coordinates and access descriptions; distinguish source report age from crawl time."
+    },
+    {
+      "url": "https://exploreri.org/siteReport.php?siteID=29&src=events",
+      "review": "Published site coordinates and access descriptions; distinguish source report age from crawl time."
+    },
+    {
+      "url": "https://exploreri.org/siteReport.php?siteID=344&src=criteria",
+      "review": "Esmond is primarily a portage site; the description allows put-in or take-out use, without surveying an exact dam-side water edge."
+    },
+    {
+      "url": "https://dot.ri.gov/travel/bikeri/woonasquatucket.php",
+      "review": "Aleppo small-boat-launch approach is distinct from the Hillside/Manton-Greenville start."
+    },
+    {
+      "url": "https://wrwc.org/wrwc-launches-the-downtown-paddle-season/",
+      "documentDate": "2026-05-28",
+      "review": "Current operator confirms a new Kinsley Avenue launch and rising-tide trip; this does not validate old endpoint combinations."
+    }
+  ],
+  "flowFinding": "The upper section describes observations at 75 and 200 cfs. The 50-cfs observation occurs in the separate Manton-to-Atwells section. None establishes the uniform scored minimum applied to all twelve records, especially tidal downtown water. Retained trips become planning-only; no replacement numeric cutoff is invented.",
+  "anchorConflicts": [
+    {
+      "name": "Whipple Field",
+      "stored": {
+        "latitude": 41.8892,
+        "longitude": -71.5006
+      },
+      "sourceSitePin": {
+        "latitude": 41.884166666666665,
+        "longitude": -71.50493333333333
+      },
+      "sourceUrl": "https://exploreri.org/siteReport.php?siteID=343&src=criteria",
+      "priorUncertaintyFeet": 300,
+      "sitePinDiscrepancyFeet": 2181,
+      "qualification": "Published access-site pin, not a surveyed water entry; no route coordinate is moved by this review."
+    },
+    {
+      "name": "Riverside Park",
+      "stored": {
+        "latitude": 41.8206525,
+        "longitude": -71.4502945
+      },
+      "sourceSitePin": {
+        "latitude": 41.819383333333334,
+        "longitude": -71.44935
+      },
+      "sourceUrl": "https://exploreri.org/siteReport.php?siteID=3&src=criteria",
+      "sitePinDiscrepancyFeet": 529,
+      "qualification": "Published access-site pin, not a surveyed water entry; no route coordinate is moved by this review."
+    },
+    {
+      "name": "South Water Street",
+      "stored": {
+        "latitude": 41.8241823,
+        "longitude": -71.4083329
+      },
+      "sourceSitePin": {
+        "latitude": 41.82233333333333,
+        "longitude": -71.40596666666667
+      },
+      "sourceUrl": "https://exploreri.org/siteReport.php?siteID=29&src=events",
+      "sitePinDiscrepancyFeet": 932,
+      "qualification": "Published access-site pin, not a surveyed water entry; no route coordinate is moved by this review."
+    }
+  ],
+  "accessFindings": [
+    "Manton records confuse the Hillside/Manton-Greenville start with the Aleppo/Riverside launch vicinity. The current record does not represent the source-named passage.",
+    "Riverside launch is described above its dam. Continuing downstream requires a carry; lower plans omit the separate Rising Sun carry and high-water bridge-pipe issue.",
+    "The reviewed WRWC downtown map shows passage through Waterplace, not a public launch there. Blueways mentions a rental operator, which does not establish BYO landing terms at the stored point. No claim is made that all access is prohibited.",
+    "Retain the existing gap holds; do not infer continuous upper-to-lower passage from the common river name or gauge."
+  ],
+  "advisoryFreshness": {
+    "townUrl": "https://www.smithfieldri.gov/departments/parks-recreation/parks-facilities-beaches",
+    "townSearchExtract": "Still displays the August 21, 2026 Georgiaville cyanobacteria swimming closure.",
+    "newerStateUrl": "https://dem.ri.gov/press-releases/ridoh-and-dem-lift-advisory-georgiaville-pond-and-recommend-avoiding-contact-lower",
+    "newerStateDate": "2026-09-14",
+    "finding": "The state later lifted the Georgiaville recommendation. Do not copy the older town warning as a current closure or imply that advisory lifting establishes ramp opening; direct users to current notices and town access terms."
+  },
+  "decisions": {
+    "retainedGuide": "woonasquatucket-river-georgiaville-cricket",
+    "retainedPlanningHubOptions": [
+      "woonasquatucket-river-georgiaville-esmond",
+      "woonasquatucket-river-esmond-cricket"
+    ],
+    "newAccuracyHolds": [
+      "woonasquatucket-river-georgiaville-whipple",
+      "woonasquatucket-river-whipple-esmond",
+      "woonasquatucket-river-whipple-cricket",
+      "woonasquatucket-river-manton-riverside",
+      "woonasquatucket-river-manton-waterplace",
+      "woonasquatucket-river-manton-south-water",
+      "woonasquatucket-river-riverside-waterplace",
+      "woonasquatucket-river-waterplace-south-water",
+      "woonasquatucket-river-riverside-south-water"
+    ],
+    "preservedExistingGapHolds": [
+      "woonasquatucket-river-georgiaville-waterplace",
+      "woonasquatucket-river-georgiaville-south-water",
+      "woonasquatucket-river-cricket-waterplace",
+      "woonasquatucket-river-cricket-manton",
+      "woonasquatucket-river-cricket-riverside",
+      "woonasquatucket-river-cricket-south-water",
+      "woonasquatucket-river-esmond-waterplace",
+      "woonasquatucket-river-esmond-south-water",
+      "woonasquatucket-river-whipple-waterplace",
+      "woonasquatucket-river-whipple-south-water",
+      "woonasquatucket-river-georgiaville-manton",
+      "woonasquatucket-river-georgiaville-riverside",
+      "woonasquatucket-river-whipple-manton",
+      "woonasquatucket-river-whipple-riverside",
+      "woonasquatucket-river-esmond-manton",
+      "woonasquatucket-river-esmond-riverside"
+    ],
+    "whippleRelease": "Supersede the September Whipple-to-Cricket geometry-only release because its stored access anchor contradicts the named site. Retain the historical report unchanged.",
+    "legacyDelivery": "Keep the two supported upper choices at exact selected-plan anchors. Retarget the three already-consolidated Whipple paths to the same river access-review explanation. The six formerly standalone lower guides are accuracy-held, not canonicalized to an unrelated itinerary."
+  },
+  "allTwelveDecisions": [
+    {
+      "slug": "woonasquatucket-river-georgiaville-whipple",
+      "priorRole": "scored",
+      "priorPutIn": {
+        "name": "Georgiaville Town Beach launch",
+        "latitude": 41.8906868,
+        "longitude": -71.5084829
+      },
+      "priorTakeOut": {
+        "name": "Whipple Field river access",
+        "latitude": 41.8892,
+        "longitude": -71.5006
+      },
+      "priorDistance": "About 0.6 river miles",
+      "decision": "accuracy-hold-pending-endpoint-and-complete-passage-review"
+    },
+    {
+      "slug": "woonasquatucket-river-georgiaville-esmond",
+      "priorRole": "scored",
+      "priorPutIn": {
+        "name": "Georgiaville Town Beach launch",
+        "latitude": 41.8906868,
+        "longitude": -71.5084829
+      },
+      "priorTakeOut": {
+        "name": "Esmond Park dam portage / public access-area anchor",
+        "latitude": 41.87905,
+        "longitude": -71.5023667
+      },
+      "priorDistance": "About 1.1 river miles",
+      "decision": "retain-planning-hub-option"
+    },
+    {
+      "slug": "woonasquatucket-river-georgiaville-cricket",
+      "priorRole": "scored",
+      "priorPutIn": {
+        "name": "Georgiaville Town Beach launch",
+        "latitude": 41.8906868,
+        "longitude": -71.5084829
+      },
+      "priorTakeOut": {
+        "name": "Cricket Park / Greystone Mill Pond launch",
+        "latitude": 41.8661,
+        "longitude": -71.492967
+      },
+      "priorDistance": "About 2.5 river miles",
+      "decision": "retain-independent-planning-guide"
+    },
+    {
+      "slug": "woonasquatucket-river-esmond-cricket",
+      "priorRole": "scored",
+      "priorPutIn": {
+        "name": "Esmond Park dam portage / public access-area anchor",
+        "latitude": 41.87905,
+        "longitude": -71.5023667
+      },
+      "priorTakeOut": {
+        "name": "Cricket Park / Greystone Mill Pond launch",
+        "latitude": 41.8661,
+        "longitude": -71.492967
+      },
+      "priorDistance": "About 1.6 river miles",
+      "decision": "retain-planning-hub-option"
+    },
+    {
+      "slug": "woonasquatucket-river-manton-riverside",
+      "priorRole": "scored",
+      "priorPutIn": {
+        "name": "Manton Avenue / Aleppo Street small-boat-launch access area",
+        "latitude": 41.8202194,
+        "longitude": -71.4469799
+      },
+      "priorTakeOut": {
+        "name": "Riverside Park canoe launch",
+        "latitude": 41.8206525,
+        "longitude": -71.4502945
+      },
+      "priorDistance": "About 1.3 river miles",
+      "decision": "accuracy-hold-pending-endpoint-and-complete-passage-review"
+    },
+    {
+      "slug": "woonasquatucket-river-manton-waterplace",
+      "priorRole": "scored",
+      "priorPutIn": {
+        "name": "Manton Avenue / Aleppo Street small-boat-launch access area",
+        "latitude": 41.8202194,
+        "longitude": -71.4469799
+      },
+      "priorTakeOut": {
+        "name": "Waterplace Park river access",
+        "latitude": 41.8268518,
+        "longitude": -71.4139434
+      },
+      "priorDistance": "About 3.5 river miles",
+      "decision": "accuracy-hold-pending-endpoint-and-complete-passage-review"
+    },
+    {
+      "slug": "woonasquatucket-river-riverside-waterplace",
+      "priorRole": "scored",
+      "priorPutIn": {
+        "name": "Riverside Park canoe launch",
+        "latitude": 41.8206525,
+        "longitude": -71.4502945
+      },
+      "priorTakeOut": {
+        "name": "Waterplace Park river access",
+        "latitude": 41.8268518,
+        "longitude": -71.4139434
+      },
+      "priorDistance": "About 2.3 river miles",
+      "decision": "accuracy-hold-pending-endpoint-and-complete-passage-review"
+    },
+    {
+      "slug": "woonasquatucket-river-waterplace-south-water",
+      "priorRole": "scored",
+      "priorPutIn": {
+        "name": "Waterplace Park river access",
+        "latitude": 41.8268518,
+        "longitude": -71.4139434
+      },
+      "priorTakeOut": {
+        "name": "South Water Street landing",
+        "latitude": 41.8241823,
+        "longitude": -71.4083329
+      },
+      "priorDistance": "About 1 river miles",
+      "decision": "accuracy-hold-pending-endpoint-and-complete-passage-review"
+    },
+    {
+      "slug": "woonasquatucket-river-whipple-esmond",
+      "priorRole": "scored",
+      "priorPutIn": {
+        "name": "Whipple Field river access",
+        "latitude": 41.8892,
+        "longitude": -71.5006
+      },
+      "priorTakeOut": {
+        "name": "Esmond Park dam portage / public access-area anchor",
+        "latitude": 41.87905,
+        "longitude": -71.5023667
+      },
+      "priorDistance": "About 1 river miles",
+      "decision": "accuracy-hold-pending-endpoint-and-complete-passage-review"
+    },
+    {
+      "slug": "woonasquatucket-river-whipple-cricket",
+      "priorRole": "scored",
+      "priorPutIn": {
+        "name": "Whipple Field river access",
+        "latitude": 41.8892,
+        "longitude": -71.5006
+      },
+      "priorTakeOut": {
+        "name": "Cricket Park / Greystone Mill Pond launch",
+        "latitude": 41.8661,
+        "longitude": -71.492967
+      },
+      "priorDistance": "About 1.9 river miles",
+      "decision": "accuracy-hold-pending-endpoint-and-complete-passage-review"
+    },
+    {
+      "slug": "woonasquatucket-river-manton-south-water",
+      "priorRole": "scored",
+      "priorPutIn": {
+        "name": "Manton Avenue / Aleppo Street small-boat-launch access area",
+        "latitude": 41.8202194,
+        "longitude": -71.4469799
+      },
+      "priorTakeOut": {
+        "name": "South Water Street landing",
+        "latitude": 41.8241823,
+        "longitude": -71.4083329
+      },
+      "priorDistance": "About 4.5 river miles",
+      "decision": "accuracy-hold-pending-endpoint-and-complete-passage-review"
+    },
+    {
+      "slug": "woonasquatucket-river-riverside-south-water",
+      "priorRole": "scored",
+      "priorPutIn": {
+        "name": "Riverside Park canoe launch",
+        "latitude": 41.8206525,
+        "longitude": -71.4502945
+      },
+      "priorTakeOut": {
+        "name": "South Water Street landing",
+        "latitude": 41.8241823,
+        "longitude": -71.4083329
+      },
+      "priorDistance": "About 3.2 river miles",
+      "decision": "accuracy-hold-pending-endpoint-and-complete-passage-review"
+    }
+  ],
+  "searchDemand": {
+    "originalNineWinnerOverlap": [],
+    "comparisonFamilyOverlap": false,
+    "latestAvailablePageExports": [
+      {
+        "path": "output/seo-audit-2026-10-19/performance-7d/Pages.csv",
+        "matchingRows": []
+      },
+      {
+        "path": "output/seo-audit-2026-10-19/performance-28d/Pages.csv",
+        "matchingRows": []
+      }
+    ],
+    "interpretation": "No Woonasquatucket rows in these limited exports is unobserved demand, not proof of zero or no historical value. Accuracy holds are based on source contradictions. Google recovery is unproven."
+  },
+  "restorationRequirements": [
+    "Verify actual named public water entries, carry/parking terms and permissions without treating site pins as surveyed wet edges.",
+    "Document every dam and lower-water passage; distinguish quickwater and tidal interpretation.",
+    "Correct distances from the intended itinerary, regenerate and inspect affected maps/GPX, then make a separate guide-versus-hub decision.",
+    "Do not substitute new Kinsley endpoints silently into old named trips."
+  ],
+  "controlCorrection": "Removed the Whipple official-map control that merely retained the old site coordinate with 300-foot uncertainty. No replacement surveyed entry is asserted. Registry regeneration yielded no Woonasquatucket entry changes, so all 4,076 baseline entries are preserved.",
+  "apiCorrection": "Planning serialization previously called every gauge a proxy. Same-river planning responses now use a truthful generic planning explanation; proxy responses retain their existing reason. The API keeps its legacy zero/No-go compatibility placeholders with explicit planning eligibility, withheld readiness and Not scored label. These placeholders are not a numeric trip assessment.",
+  "retainedAccessEvidence": [
+    {
+      "name": "Georgiaville Pond and Town Beach",
+      "sourceUrl": "https://exploreri.org/siteReport.php?siteID=8&src=criteria",
+      "sourceSitePin": {
+        "latitude": 41.889433333333336,
+        "longitude": -71.50818333333333
+      },
+      "stored": {
+        "latitude": 41.8906868,
+        "longitude": -71.5084829
+      },
+      "qualification": "The directory supports a public permitted ramp and spillway carry. Its site pin differs from the stored park-area anchor by about 460 feet. No surveyed wet-edge accuracy is claimed; current town terms and the actual ramp/carry need a local check. The source review retains a qualified access-area plan, not turn-by-turn navigation."
+    },
+    {
+      "name": "Cricket Park / Greystone Mill Pond",
+      "sourceUrl": "https://exploreri.org/siteReport.php?siteID=284&src=criteria",
+      "sourceSitePin": {
+        "latitude": 41.8661,
+        "longitude": -71.49296666666666
+      },
+      "qualification": "Published access-site pin matches the stored anchor within rounding. Supports an upper-river finish; the directory warns against continuing below the pond dam. No surveyed wet-edge accuracy is claimed."
+    }
+  ]
+}
