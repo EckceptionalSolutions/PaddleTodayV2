@@ -40,6 +40,7 @@ for (const review of routeGuidePublicationReviews) {
     await expect(notes).toContainText(group.routes.find(route => route.slug === selectedSlug)!.logistics!.shuttle);
     await expect(notes).toContainText(group.routes.find(route => route.slug === selectedSlug)!.gaugeSource.siteName);
     await expect(notes).toContainText(group.routes.find(route => route.slug === selectedSlug)!.safetyProfile!.safetyNotes[0]);
+    if (review.riverId === 'piscataquis-river') await expect(notes).not.toContainText('same-river proxy');
     if (review.mode === 'reach-guides') {
       const route = group.routes.find(route => route.slug === selectedSlug)!;
       await expect(notes).toContainText(`Published planning floor: ${route.profile.idealMin ?? route.profile.tooLow} ${route.gaugeSource.unit}`);

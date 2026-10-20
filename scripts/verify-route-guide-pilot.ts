@@ -25,6 +25,7 @@ for (const review of routeGuidePublicationReviews) {
     assert.ok(hub.includes('Compare access plans'));
     assert.ok(hub.includes('Default order'));
     assert.ok(!hub.includes('>Recommended</option>'));
+    if (review.riverId === 'piscataquis-river') assert.ok(!hub.includes('same-river proxy'), 'Piscataquis must not call the Penobscot proxy a same-river station');
   }
   for (const slug of review.retainedGuides) {
     const url = `${origin}/rivers/${slug}/`;

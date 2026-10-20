@@ -121,7 +121,7 @@ export function buildMaineRoute(spec: MaineRouteSpec): River {
       seasonNotes: spec.seasonNotes,
       difficulty: spec.difficulty,
       difficultyNotes: spec.difficultyNotes,
-      confidenceNotes: `${spec.evidence} The route remains planning-only: a live USGS station is linked as ${spec.gaugeKind === 'direct' ? 'direct corridor telemetry' : 'same-river proxy context'}, but no numeric safe-flow threshold is transferred by inference.`,
+      confidenceNotes: `${spec.evidence} The route remains planning-only: a live USGS station is linked as ${spec.gaugeKind === 'direct' ? 'direct corridor telemetry' : 'proxy context'}, but no numeric safe-flow threshold is transferred by inference.`,
     },
     putIn: spec.putIn,
     takeOut: spec.takeOut,
@@ -139,7 +139,7 @@ export function buildMaineRoute(spec: MaineRouteSpec): River {
     },
     evidenceNotes: [
       { label: 'Named route and endpoints', value: `${spec.reach}; about ${spec.distance} miles`, note: spec.evidence, sourceUrl: spec.routeUrl },
-      { label: 'Live gauge posture', value: `USGS ${spec.gauge}, ${spec.gaugeName}`, note: spec.gaugeKind === 'direct' ? 'Direct corridor telemetry is available for planning context; inspect local conditions and do not treat the station as a safety certification.' : 'This is a clearly labeled same-river proxy; local tributaries, releases, ice effects, and reach-specific hydraulics can differ materially.', sourceUrl: currentUrl },
+      { label: 'Live gauge posture', value: `USGS ${spec.gauge}, ${spec.gaugeName}`, note: spec.gaugeKind === 'direct' ? 'Direct corridor telemetry is available for planning context; inspect local conditions and do not treat the station as a safety certification.' : 'Proxy station context: check which river and reach the station measures. Local tributaries, releases, ice effects, and reach-specific hydraulics can differ materially.', sourceUrl: currentUrl },
       { label: 'Access controls', value: 'Named public, state, municipal, or managed access only', note: 'Maine launch records provide the access inventory; exact carry paths, parking, fees, closures, and shoreline condition must be rechecked before launch.', sourceUrl: boatingSitesUrl },
       { label: 'Camping classification', value: spec.campingClassification, note: spec.camping, sourceUrl: spec.routeUrl },
       { label: 'Safety posture', value: spec.risk === 'advanced' ? 'Advanced planning route' : 'Reviewed planning route', note: spec.safety.join(' ') },

@@ -19,7 +19,7 @@
       "state": "Maine",
       "role": "planning",
       "nearestSibling": "kennebec-river-madison-starks",
-      "phraseSimilarity": 0.914,
+      "phraseSimilarity": 0.913,
       "sharesConditionSetup": true,
       "status": "needs-editorial-review",
       "requiredReview": "Check documented reach, access terms, hazard/condition boundaries, distinct trip value and historical demand before deciding guide versus hub option."
@@ -30,7 +30,7 @@
       "state": "Maine",
       "role": "planning",
       "nearestSibling": "kennebec-river-augusta-chelsea",
-      "phraseSimilarity": 0.914,
+      "phraseSimilarity": 0.913,
       "sharesConditionSetup": true,
       "status": "needs-editorial-review",
       "requiredReview": "Check documented reach, access terms, hazard/condition boundaries, distinct trip value and historical demand before deciding guide versus hub option."
@@ -41,7 +41,7 @@
       "state": "Maine",
       "role": "planning",
       "nearestSibling": "saint-croix-river-lambert-dyer",
-      "phraseSimilarity": 0.911,
+      "phraseSimilarity": 0.91,
       "sharesConditionSetup": true,
       "status": "needs-editorial-review",
       "requiredReview": "Check documented reach, access terms, hazard/condition boundaries, distinct trip value and historical demand before deciding guide versus hub option."
@@ -52,7 +52,7 @@
       "state": "Maine",
       "role": "planning",
       "nearestSibling": "saint-croix-river-lambert-baileyville",
-      "phraseSimilarity": 0.911,
+      "phraseSimilarity": 0.91,
       "sharesConditionSetup": true,
       "status": "needs-editorial-review",
       "requiredReview": "Check documented reach, access terms, hazard/condition boundaries, distinct trip value and historical demand before deciding guide versus hub option."
@@ -63,7 +63,7 @@
       "state": "Maine",
       "role": "planning",
       "nearestSibling": "saint-croix-river-lambert-baileyville",
-      "phraseSimilarity": 0.906,
+      "phraseSimilarity": 0.905,
       "sharesConditionSetup": true,
       "status": "needs-editorial-review",
       "requiredReview": "Check documented reach, access terms, hazard/condition boundaries, distinct trip value and historical demand before deciding guide versus hub option."
@@ -74,50 +74,6 @@
       "state": "Maine",
       "role": "planning",
       "nearestSibling": "saint-croix-river-dyer-baileyville",
-      "phraseSimilarity": 0.877,
-      "sharesConditionSetup": true,
-      "status": "needs-editorial-review",
-      "requiredReview": "Check documented reach, access terms, hazard/condition boundaries, distinct trip value and historical demand before deciding guide versus hub option."
-    },
-    {
-      "slug": "kennebec-river-norridgewock-waterville",
-      "riverId": "kennebec-river",
-      "state": "Maine",
-      "role": "planning",
-      "nearestSibling": "kennebec-river-madison-starks",
-      "phraseSimilarity": 0.876,
-      "sharesConditionSetup": true,
-      "status": "needs-editorial-review",
-      "requiredReview": "Check documented reach, access terms, hazard/condition boundaries, distinct trip value and historical demand before deciding guide versus hub option."
-    },
-    {
-      "slug": "kennebec-river-sidney-augusta",
-      "riverId": "kennebec-river",
-      "state": "Maine",
-      "role": "planning",
-      "nearestSibling": "kennebec-river-madison-starks",
-      "phraseSimilarity": 0.876,
-      "sharesConditionSetup": true,
-      "status": "needs-editorial-review",
-      "requiredReview": "Check documented reach, access terms, hazard/condition boundaries, distinct trip value and historical demand before deciding guide versus hub option."
-    },
-    {
-      "slug": "kennebec-river-solon-madison",
-      "riverId": "kennebec-river",
-      "state": "Maine",
-      "role": "planning",
-      "nearestSibling": "kennebec-river-madison-starks",
-      "phraseSimilarity": 0.876,
-      "sharesConditionSetup": true,
-      "status": "needs-editorial-review",
-      "requiredReview": "Check documented reach, access terms, hazard/condition boundaries, distinct trip value and historical demand before deciding guide versus hub option."
-    },
-    {
-      "slug": "kennebec-river-starks-skowhegan",
-      "riverId": "kennebec-river",
-      "state": "Maine",
-      "role": "planning",
-      "nearestSibling": "kennebec-river-madison-starks",
       "phraseSimilarity": 0.876,
       "sharesConditionSetup": true,
       "status": "needs-editorial-review",
@@ -157,12 +113,56 @@
       "requiredReview": "Check documented reach, access terms, hazard/condition boundaries, distinct trip value and historical demand before deciding guide versus hub option."
     },
     {
+      "slug": "kennebec-river-norridgewock-waterville",
+      "riverId": "kennebec-river",
+      "state": "Maine",
+      "role": "planning",
+      "nearestSibling": "kennebec-river-madison-starks",
+      "phraseSimilarity": 0.874,
+      "sharesConditionSetup": true,
+      "status": "needs-editorial-review",
+      "requiredReview": "Check documented reach, access terms, hazard/condition boundaries, distinct trip value and historical demand before deciding guide versus hub option."
+    },
+    {
+      "slug": "kennebec-river-sidney-augusta",
+      "riverId": "kennebec-river",
+      "state": "Maine",
+      "role": "planning",
+      "nearestSibling": "kennebec-river-madison-starks",
+      "phraseSimilarity": 0.874,
+      "sharesConditionSetup": true,
+      "status": "needs-editorial-review",
+      "requiredReview": "Check documented reach, access terms, hazard/condition boundaries, distinct trip value and historical demand before deciding guide versus hub option."
+    },
+    {
+      "slug": "kennebec-river-solon-madison",
+      "riverId": "kennebec-river",
+      "state": "Maine",
+      "role": "planning",
+      "nearestSibling": "kennebec-river-madison-starks",
+      "phraseSimilarity": 0.874,
+      "sharesConditionSetup": true,
+      "status": "needs-editorial-review",
+      "requiredReview": "Check documented reach, access terms, hazard/condition boundaries, distinct trip value and historical demand before deciding guide versus hub option."
+    },
+    {
+      "slug": "kennebec-river-starks-skowhegan",
+      "riverId": "kennebec-river",
+      "state": "Maine",
+      "role": "planning",
+      "nearestSibling": "kennebec-river-madison-starks",
+      "phraseSimilarity": 0.874,
+      "sharesConditionSetup": true,
+      "status": "needs-editorial-review",
+      "requiredReview": "Check documented reach, access terms, hazard/condition boundaries, distinct trip value and historical demand before deciding guide versus hub option."
+    },
+    {
       "slug": "flagstaff-lake-bigelow-dead-river",
       "riverId": "flagstaff-lake",
       "state": "Maine",
       "role": "planning",
       "nearestSibling": "flagstaff-lake-eustis-bigelow",
-      "phraseSimilarity": 0.872,
+      "phraseSimilarity": 0.871,
       "sharesConditionSetup": true,
       "status": "needs-editorial-review",
       "requiredReview": "Check documented reach, access terms, hazard/condition boundaries, distinct trip value and historical demand before deciding guide versus hub option."
@@ -173,7 +173,7 @@
       "state": "Maine",
       "role": "planning",
       "nearestSibling": "flagstaff-lake-bigelow-dead-river",
-      "phraseSimilarity": 0.872,
+      "phraseSimilarity": 0.871,
       "sharesConditionSetup": true,
       "status": "needs-editorial-review",
       "requiredReview": "Check documented reach, access terms, hazard/condition boundaries, distinct trip value and historical demand before deciding guide versus hub option."
@@ -184,7 +184,7 @@
       "state": "Maine",
       "role": "planning",
       "nearestSibling": "saco-river-fryeburg-dayton",
-      "phraseSimilarity": 0.868,
+      "phraseSimilarity": 0.867,
       "sharesConditionSetup": true,
       "status": "needs-editorial-review",
       "requiredReview": "Check documented reach, access terms, hazard/condition boundaries, distinct trip value and historical demand before deciding guide versus hub option."
@@ -195,7 +195,7 @@
       "state": "Maine",
       "role": "planning",
       "nearestSibling": "saco-river-brownfield-saco",
-      "phraseSimilarity": 0.868,
+      "phraseSimilarity": 0.867,
       "sharesConditionSetup": true,
       "status": "needs-editorial-review",
       "requiredReview": "Check documented reach, access terms, hazard/condition boundaries, distinct trip value and historical demand before deciding guide versus hub option."
@@ -206,7 +206,7 @@
       "state": "Maine",
       "role": "planning",
       "nearestSibling": "st-john-river-van-buren-madawaska",
-      "phraseSimilarity": 0.865,
+      "phraseSimilarity": 0.864,
       "sharesConditionSetup": true,
       "status": "needs-editorial-review",
       "requiredReview": "Check documented reach, access terms, hazard/condition boundaries, distinct trip value and historical demand before deciding guide versus hub option."
@@ -217,7 +217,7 @@
       "state": "Maine",
       "role": "planning",
       "nearestSibling": "st-john-river-fort-kent-van-buren",
-      "phraseSimilarity": 0.865,
+      "phraseSimilarity": 0.864,
       "sharesConditionSetup": true,
       "status": "needs-editorial-review",
       "requiredReview": "Check documented reach, access terms, hazard/condition boundaries, distinct trip value and historical demand before deciding guide versus hub option."
@@ -245,39 +245,6 @@
       "requiredReview": "Check documented reach, access terms, hazard/condition boundaries, distinct trip value and historical demand before deciding guide versus hub option."
     },
     {
-      "slug": "flagstaff-lake-t3r4-dead-river",
-      "riverId": "flagstaff-lake",
-      "state": "Maine",
-      "role": "planning",
-      "nearestSibling": "flagstaff-lake-bigelow-dead-river",
-      "phraseSimilarity": 0.857,
-      "sharesConditionSetup": true,
-      "status": "needs-editorial-review",
-      "requiredReview": "Check documented reach, access terms, hazard/condition boundaries, distinct trip value and historical demand before deciding guide versus hub option."
-    },
-    {
-      "slug": "flagstaff-lake-dead-river-t3r4",
-      "riverId": "flagstaff-lake",
-      "state": "Maine",
-      "role": "planning",
-      "nearestSibling": "flagstaff-lake-eustis-bigelow",
-      "phraseSimilarity": 0.856,
-      "sharesConditionSetup": true,
-      "status": "needs-editorial-review",
-      "requiredReview": "Check documented reach, access terms, hazard/condition boundaries, distinct trip value and historical demand before deciding guide versus hub option."
-    },
-    {
-      "slug": "saco-river-fryeburg-brownfield",
-      "riverId": "saco-river",
-      "state": "Maine",
-      "role": "planning",
-      "nearestSibling": "saco-river-fryeburg-dayton",
-      "phraseSimilarity": 0.856,
-      "sharesConditionSetup": true,
-      "status": "needs-editorial-review",
-      "requiredReview": "Check documented reach, access terms, hazard/condition boundaries, distinct trip value and historical demand before deciding guide versus hub option."
-    },
-    {
       "slug": "bayou-teche-charenton-baldwin",
       "riverId": "bayou-teche-river-louisiana",
       "state": "Louisiana",
@@ -294,6 +261,39 @@
       "state": "Louisiana",
       "role": "planning",
       "nearestSibling": "bayou-teche-charenton-baldwin",
+      "phraseSimilarity": 0.855,
+      "sharesConditionSetup": true,
+      "status": "needs-editorial-review",
+      "requiredReview": "Check documented reach, access terms, hazard/condition boundaries, distinct trip value and historical demand before deciding guide versus hub option."
+    },
+    {
+      "slug": "flagstaff-lake-dead-river-t3r4",
+      "riverId": "flagstaff-lake",
+      "state": "Maine",
+      "role": "planning",
+      "nearestSibling": "flagstaff-lake-eustis-bigelow",
+      "phraseSimilarity": 0.855,
+      "sharesConditionSetup": true,
+      "status": "needs-editorial-review",
+      "requiredReview": "Check documented reach, access terms, hazard/condition boundaries, distinct trip value and historical demand before deciding guide versus hub option."
+    },
+    {
+      "slug": "flagstaff-lake-t3r4-dead-river",
+      "riverId": "flagstaff-lake",
+      "state": "Maine",
+      "role": "planning",
+      "nearestSibling": "flagstaff-lake-bigelow-dead-river",
+      "phraseSimilarity": 0.855,
+      "sharesConditionSetup": true,
+      "status": "needs-editorial-review",
+      "requiredReview": "Check documented reach, access terms, hazard/condition boundaries, distinct trip value and historical demand before deciding guide versus hub option."
+    },
+    {
+      "slug": "saco-river-fryeburg-brownfield",
+      "riverId": "saco-river",
+      "state": "Maine",
+      "role": "planning",
+      "nearestSibling": "saco-river-fryeburg-dayton",
       "phraseSimilarity": 0.855,
       "sharesConditionSetup": true,
       "status": "needs-editorial-review",
@@ -349,7 +349,7 @@
       "state": "Maine",
       "role": "planning",
       "nearestSibling": "moosehead-lake-greenville-beaver-cove",
-      "phraseSimilarity": 0.852,
+      "phraseSimilarity": 0.851,
       "sharesConditionSetup": true,
       "status": "needs-editorial-review",
       "requiredReview": "Check documented reach, access terms, hazard/condition boundaries, distinct trip value and historical demand before deciding guide versus hub option."
@@ -360,40 +360,7 @@
       "state": "Maine",
       "role": "planning",
       "nearestSibling": "moosehead-lake-days-academy-big-w",
-      "phraseSimilarity": 0.852,
-      "sharesConditionSetup": true,
-      "status": "needs-editorial-review",
-      "requiredReview": "Check documented reach, access terms, hazard/condition boundaries, distinct trip value and historical demand before deciding guide versus hub option."
-    },
-    {
-      "slug": "moosehead-lake-t1r14-days-academy",
-      "riverId": "moosehead-lake",
-      "state": "Maine",
-      "role": "planning",
-      "nearestSibling": "moosehead-lake-days-academy-big-w",
-      "phraseSimilarity": 0.848,
-      "sharesConditionSetup": true,
-      "status": "needs-editorial-review",
-      "requiredReview": "Check documented reach, access terms, hazard/condition boundaries, distinct trip value and historical demand before deciding guide versus hub option."
-    },
-    {
-      "slug": "pleasant-river-columbia-falls-addison",
-      "riverId": "pleasant-river",
-      "state": "Maine",
-      "role": "planning",
-      "nearestSibling": "pleasant-river-t18-columbia",
-      "phraseSimilarity": 0.848,
-      "sharesConditionSetup": true,
-      "status": "needs-editorial-review",
-      "requiredReview": "Check documented reach, access terms, hazard/condition boundaries, distinct trip value and historical demand before deciding guide versus hub option."
-    },
-    {
-      "slug": "pleasant-river-t18-columbia",
-      "riverId": "pleasant-river",
-      "state": "Maine",
-      "role": "planning",
-      "nearestSibling": "pleasant-river-columbia-falls-addison",
-      "phraseSimilarity": 0.848,
+      "phraseSimilarity": 0.851,
       "sharesConditionSetup": true,
       "status": "needs-editorial-review",
       "requiredReview": "Check documented reach, access terms, hazard/condition boundaries, distinct trip value and historical demand before deciding guide versus hub option."
@@ -404,6 +371,17 @@
       "state": "Louisiana",
       "role": "planning",
       "nearestSibling": "bayou-teche-loreauville-new-iberia",
+      "phraseSimilarity": 0.847,
+      "sharesConditionSetup": true,
+      "status": "needs-editorial-review",
+      "requiredReview": "Check documented reach, access terms, hazard/condition boundaries, distinct trip value and historical demand before deciding guide versus hub option."
+    },
+    {
+      "slug": "moosehead-lake-t1r14-days-academy",
+      "riverId": "moosehead-lake",
+      "state": "Maine",
+      "role": "planning",
+      "nearestSibling": "moosehead-lake-days-academy-big-w",
       "phraseSimilarity": 0.847,
       "sharesConditionSetup": true,
       "status": "needs-editorial-review",
@@ -432,23 +410,23 @@
       "requiredReview": "Check documented reach, access terms, hazard/condition boundaries, distinct trip value and historical demand before deciding guide versus hub option."
     },
     {
-      "slug": "moosehead-lake-beaver-cove-t1r14",
-      "riverId": "moosehead-lake",
+      "slug": "pleasant-river-columbia-falls-addison",
+      "riverId": "pleasant-river",
       "state": "Maine",
       "role": "planning",
-      "nearestSibling": "moosehead-lake-days-academy-big-w",
-      "phraseSimilarity": 0.845,
+      "nearestSibling": "pleasant-river-t18-columbia",
+      "phraseSimilarity": 0.846,
       "sharesConditionSetup": true,
       "status": "needs-editorial-review",
       "requiredReview": "Check documented reach, access terms, hazard/condition boundaries, distinct trip value and historical demand before deciding guide versus hub option."
     },
     {
-      "slug": "pleasant-river-columbia-columbia-falls",
+      "slug": "pleasant-river-t18-columbia",
       "riverId": "pleasant-river",
       "state": "Maine",
       "role": "planning",
       "nearestSibling": "pleasant-river-columbia-falls-addison",
-      "phraseSimilarity": 0.845,
+      "phraseSimilarity": 0.846,
       "sharesConditionSetup": true,
       "status": "needs-editorial-review",
       "requiredReview": "Check documented reach, access terms, hazard/condition boundaries, distinct trip value and historical demand before deciding guide versus hub option."
@@ -471,6 +449,17 @@
       "role": "scored",
       "nearestSibling": "woonasquatucket-river-manton-south-water",
       "phraseSimilarity": 0.845,
+      "sharesConditionSetup": true,
+      "status": "needs-editorial-review",
+      "requiredReview": "Check documented reach, access terms, hazard/condition boundaries, distinct trip value and historical demand before deciding guide versus hub option."
+    },
+    {
+      "slug": "pleasant-river-columbia-columbia-falls",
+      "riverId": "pleasant-river",
+      "state": "Maine",
+      "role": "planning",
+      "nearestSibling": "pleasant-river-columbia-falls-addison",
+      "phraseSimilarity": 0.844,
       "sharesConditionSetup": true,
       "status": "needs-editorial-review",
       "requiredReview": "Check documented reach, access terms, hazard/condition boundaries, distinct trip value and historical demand before deciding guide versus hub option."
@@ -514,6 +503,17 @@
       "state": "Nevada",
       "role": "scored",
       "nearestSibling": "colorado-river-hoover-dam-cottonwood-cove",
+      "phraseSimilarity": 0.843,
+      "sharesConditionSetup": true,
+      "status": "needs-editorial-review",
+      "requiredReview": "Check documented reach, access terms, hazard/condition boundaries, distinct trip value and historical demand before deciding guide versus hub option."
+    },
+    {
+      "slug": "moosehead-lake-beaver-cove-t1r14",
+      "riverId": "moosehead-lake",
+      "state": "Maine",
+      "role": "planning",
+      "nearestSibling": "moosehead-lake-days-academy-big-w",
       "phraseSimilarity": 0.843,
       "sharesConditionSetup": true,
       "status": "needs-editorial-review",
@@ -789,7 +789,7 @@
       "state": "Maine",
       "role": "planning",
       "nearestSibling": "saco-river-fryeburg-dayton",
-      "phraseSimilarity": 0.815,
+      "phraseSimilarity": 0.814,
       "sharesConditionSetup": false,
       "status": "needs-editorial-review",
       "requiredReview": "Check documented reach, access terms, hazard/condition boundaries, distinct trip value and historical demand before deciding guide versus hub option."
@@ -1856,7 +1856,7 @@
       "state": "Maine",
       "role": "planning",
       "nearestSibling": "moosehead-lake-greenville-beaver-cove",
-      "phraseSimilarity": 0.676,
+      "phraseSimilarity": 0.673,
       "sharesConditionSetup": true,
       "status": "needs-editorial-review",
       "requiredReview": "Check documented reach, access terms, hazard/condition boundaries, distinct trip value and historical demand before deciding guide versus hub option."
@@ -2412,17 +2412,6 @@
       "requiredReview": "Check documented reach, access terms, hazard/condition boundaries, distinct trip value and historical demand before deciding guide versus hub option."
     },
     {
-      "slug": "st-john-river-fort-kent-frenchville",
-      "riverId": "st-john-river",
-      "state": "Maine",
-      "role": "planning",
-      "nearestSibling": "st-john-river-fort-kent-van-buren",
-      "phraseSimilarity": 0.624,
-      "sharesConditionSetup": true,
-      "status": "needs-editorial-review",
-      "requiredReview": "Check documented reach, access terms, hazard/condition boundaries, distinct trip value and historical demand before deciding guide versus hub option."
-    },
-    {
       "slug": "blackstone-river-kelly-house-pratt",
       "riverId": "blackstone-river-rhode-island",
       "state": "Rhode Island",
@@ -2450,6 +2439,17 @@
       "state": "Rhode Island",
       "role": "scored",
       "nearestSibling": "blackstone-river-sycamore-albion",
+      "phraseSimilarity": 0.621,
+      "sharesConditionSetup": true,
+      "status": "needs-editorial-review",
+      "requiredReview": "Check documented reach, access terms, hazard/condition boundaries, distinct trip value and historical demand before deciding guide versus hub option."
+    },
+    {
+      "slug": "st-john-river-fort-kent-frenchville",
+      "riverId": "st-john-river",
+      "state": "Maine",
+      "role": "planning",
+      "nearestSibling": "st-john-river-fort-kent-van-buren",
       "phraseSimilarity": 0.621,
       "sharesConditionSetup": true,
       "status": "needs-editorial-review",
@@ -3116,6 +3116,17 @@
       "requiredReview": "Check documented reach, access terms, hazard/condition boundaries, distinct trip value and historical demand before deciding guide versus hub option."
     },
     {
+      "slug": "st-john-river-saint-francis-fort-kent",
+      "riverId": "st-john-river",
+      "state": "Maine",
+      "role": "planning",
+      "nearestSibling": "st-john-river-fort-kent-frenchville",
+      "phraseSimilarity": 0.577,
+      "sharesConditionSetup": true,
+      "status": "needs-editorial-review",
+      "requiredReview": "Check documented reach, access terms, hazard/condition boundaries, distinct trip value and historical demand before deciding guide versus hub option."
+    },
+    {
       "slug": "terrapin-creek-chief-ladiga-cr70",
       "riverId": "terrapin-creek-alabama",
       "state": "Alabama",
@@ -3165,17 +3176,6 @@
       "state": "Idaho",
       "role": "scored",
       "nearestSibling": "lower-salmon-island-bar-shorts-bar",
-      "phraseSimilarity": 0.573,
-      "sharesConditionSetup": true,
-      "status": "needs-editorial-review",
-      "requiredReview": "Check documented reach, access terms, hazard/condition boundaries, distinct trip value and historical demand before deciding guide versus hub option."
-    },
-    {
-      "slug": "st-john-river-saint-francis-fort-kent",
-      "riverId": "st-john-river",
-      "state": "Maine",
-      "role": "planning",
-      "nearestSibling": "st-john-river-fort-kent-frenchville",
       "phraseSimilarity": 0.573,
       "sharesConditionSetup": true,
       "status": "needs-editorial-review",

@@ -39,6 +39,15 @@ describe('route-guide publication pilot', () => {
     expect(route.logistics?.accessCaveats.join(' ')).toMatch(/permission|reservation/i);
   });
 
+  it('does not describe the Piscataquis Penobscot proxy as a same-river station', () => {
+    const group = listRiverGroups().find(group => group.riverId === 'piscataquis-river')!;
+    for (const route of group.routes) {
+      expect(route.gaugeSource.siteName).toContain('Penobscot');
+      expect(route.profile.confidenceNotes).not.toContain('same-river');
+      expect(route.evidenceNotes.find(note => note.label === 'Live gauge posture')?.note).not.toContain('same-river');
+    }
+  });
+
   it('keeps original recovery winners and comparison families available as independent guides', () => {
     const protectedSlugs = [
       'little-miami-river-kelley-milford', 'namekagon-river-big-bend-trego',
