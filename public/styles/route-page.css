@@ -1726,7 +1726,8 @@ html body.page-route-detail [data-river-detail] .river-detail__content > [data-d
   order: 11;
 }
 
-html body.page-route-detail [data-river-detail] .river-detail__content > #why-this-call {
+html body.page-route-detail [data-river-detail] .river-detail__content > #why-this-call,
+html body.page-route-detail [data-river-detail] .river-detail__content > #planning-sources {
   order: 12;
 }
 

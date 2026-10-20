@@ -131,7 +131,7 @@
   ],
   "retainedScope": "The nine Waterville/Sidney-to-Augusta and tidal choices keep their existing station contexts and publication decisions. The desk review does not certify their mileage, tide timing, exact landings or current access. Those remain review work.",
   "verification": {
-    "status": "validated-locally-awaiting-publication",
+    "status": "published-and-verified",
     "focusedTestsPassed": 42,
     "productionBuild": "passed",
     "wholeSiteIndexabilityAudit": "passed: no errors or warnings",
@@ -149,7 +149,23 @@
       "explicitNoLiveScoreCopy": true
     },
     "geometryCoverage": "Updated existing asset coverage and catalog fingerprints; six Maine features removed, no retained geometry changed, original generation fingerprint preserved.",
-    "overview": "Regenerated from public catalog; removes the six newly held Kennebec features plus eighteen features for routes already withheld before this review. No additional route publication changes."
+    "overview": "Regenerated from public catalog; removes the six newly held Kennebec features plus eighteen features for routes already withheld before this review. No additional route publication changes.",
+    "production": {
+      "pullRequest": "https://github.com/EckceptionalSolutions/PaddleTodayV2/pull/89",
+      "mergeCommit": "2503b0c9ead7b195d25cf0e47fd9079d683a5794",
+      "frontendRun": 39431333186,
+      "apiRun": 39431338172,
+      "workerStartedAt": "2026-10-20T13:45:37.634Z",
+      "verifiedAt": "2026-10-20T13:46:20.778Z",
+      "origins": [
+        "https://paddletoday.com",
+        "https://paddletodayapi-h7efgxcfg9h7gne9.centralus-01.azurewebsites.net"
+      ],
+      "heldPathsReturning404PerOrigin": 6,
+      "retainedChoicesPerOrigin": 9,
+      "sitemapUrls": 2485,
+      "pilot": "All four original hubs, 24 pilot choices, 19 selected-trip redirects and five retained guides verified after this deployment."
+    }
   },
   "googleAssessment": "No recovery conclusion. Record this accuracy intervention separately from the four-family consolidation pilot and wait for confirmed crawls, indexing and performance evidence."
 }

@@ -1,0 +1,30 @@
+{
+  "reviewedOn": "2026-10-20",
+  "purpose": "Align standalone planning guides with the evidence they actually provide while retaining useful source material.",
+  "findings": [
+    "669 built planning guides rendered a claim that a low-water floor is known, selected only from thresholdModel. Their headers and FAQ correctly said that no verified scoring range or live score is provided.",
+    "The shared planning stylesheet and planning API renderer hide the complete why-this-call panel. This also hid access evidence notes and original source links on all 963 standalone planning guides.",
+    "One scored minimum-only guide, fox-river-sunset-kimberly-lutz-appleton, stores its model floor in idealMin rather than tooLow. The scoring validator already uses that fallback; the displayed floor now follows the same selection."
+  ],
+  "changes": [
+    "Render a separate planning-sources section and Sources navigation link for planning guides. Preserve every evidence note and original source link.",
+    "Do not emit score-confidence panels, threshold tables or live-input score status banners on planning guides. Retain those elements on scored guides.",
+    "Show the minimum-only calibration callout only on scored guides with a finite model floor. Select tooLow, falling back to idealMin, consistently with the existing scoring-profile validator.",
+    "Extend the built indexability audit to reject planning-guide calibration claims, missing evidence sections, missing Sources links and score explanation panels."
+  ],
+  "preserved": ["Route and hub publication decisions", "All URLs and canonical targets", "2485 sitemap URLs", "Gauge assignments", "Scoring eligibility and numeric scoring profiles", "Access coordinates, hazard notes and shuttle terms"],
+  "verification": {
+    "status": "validated-locally-awaiting-publication",
+    "fullTypecheck": "passed",
+    "finalProductionBuild": "passed",
+    "wholeSiteIndexabilityAudit": "passed with no errors or warnings",
+    "planningGuidesChecked": 963,
+    "planningMinimumGuidesWithoutCalibrationClaim": 669,
+    "planningGuidesPreservingEveryEvidenceNoteAndSourceLink": 963,
+    "scoredMinimumGuidesPreservingCalibrationCallout": 337,
+    "browserCasesPassed": 10,
+    "browserCoverage": "Desktop and iPhone: minimum-only and other planning guides after API hydration; planning sources during API failure; ordinary scored minimum-only and idealMin-fallback scored guidance. Sources navigation, disclosures, JavaScript errors and horizontal overflow checked."
+  },
+  "limits": "This corrects presentation and source access. It does not newly verify every source, numeric threshold, itinerary, mileage or current launch status. Exposing the evidence does not establish that the evidence is sufficient. No Google recovery conclusion follows from a build, deployment or URL count.",
+  "remaining": "Resolve the filtered planning mileage/anchor review queue, continue family-level editorial review, and assess confirmed Google processing and later family performance."
+}
