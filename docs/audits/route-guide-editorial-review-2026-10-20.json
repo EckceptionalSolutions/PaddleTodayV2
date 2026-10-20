@@ -1,0 +1,64 @@
+{
+  "reviewedOn": "2026-10-20",
+  "purpose": "Review high-overlap candidates against documented trip differences while the four-family publication pilot gathers Google evidence.",
+  "publicationChanges": 0,
+  "scope": {"families": 3, "tripRecords": 34, "existingStandaloneGuides": 29, "similarityQueueCandidates": 28},
+  "interpretation": "An editorial triage, not new publication approvals or proof of Google's quality assessment. Shared prose and gauges can identify weak differentiation, but adjacent documented trips and operational boundaries can justify distinct guides.",
+  "families": [
+    {
+      "riverId": "kennebec-river",
+      "records": 15,
+      "standaloneGuides": 10,
+      "flaggedGuides": 9,
+      "planningRecords": 15,
+      "gaugeIds": ["01049265", "01049505"],
+      "finding": "Highest priority for a complete reach-evidence review. Many records repeat launch-inventory, shuttle and hazard language without establishing the intervening itinerary. The family also spans genuinely different upstream and tidal settings, so merging all records into one undifferentiated conditions guide would lose important distinctions.",
+      "evidence": [
+        {"url":"https://www1.maine.gov/dacf/parks/water_activities/boating/public_boat_launches/boat_sites.shtml","checked":"Accessible primary launch inventory. Includes freshwater and all-tide Kennebec launches with different owners and facilities; this is access-site evidence, not confirmation of every continuous endpoint-pair itinerary."},
+        {"url":"https://www.maine.gov/dmr/sites/maine.gov.dmr/files/docs/anglerguide.pdf","checked":"Primary-source search result describes tidal Kennebec access around Augusta, Hallowell, Gardiner, Richmond, Bath and Phippsburg. Full document not inspected in this review; do not treat this as completed reach validation."}
+      ],
+      "nextDecision": "Complete source-backed direction, passage, dam/portage, landing and gauge-context checks by upper, central and tidal area. Then decide which exact reaches earn guides and which records belong as access research. Preserve both station contexts and existing access/hazard data; no numeric range or station assignment is changed by this review.",
+      "status": "needs-full-reach-review-before-publication-decision"
+    },
+    {
+      "riverId": "bayou-teche-river-louisiana",
+      "records": 11,
+      "standaloneGuides": 11,
+      "flaggedGuides": 11,
+      "planningRecords": 11,
+      "gaugeIds": ["07385450"],
+      "finding": "These records represent consecutive town-to-town trail legs rather than a full set of arbitrary endpoint combinations. Common dock/shuttle language and one contextual station explain much of the overlap. Planning-only status does not make the documented day legs interchangeable.",
+      "evidence": [
+        {"url":"https://www.techeproject.org/bayou-teche-paddle-trail/dock-locations/","checked":"Trail steward publishes ordered docks and river miles. The Port Barre entry begins on Bayou Courtableau before Bayou Teche. The St. Martinville-to-Loreauville leg crosses the listed mile-52.6 portage. Lower structures and traffic require separate treatment; they must not be folded into a generic upper-bayou trip."},
+        {"url":"https://www.techeproject.org/bayou-teche-paddle-trail/map/","checked":"Steward provides parish maps with accompanying safety information. This review inspected the page, not every map."}
+      ],
+      "nextDecision": "Keep the eleven existing guide URLs during the pilot. Review exact dock approaches, named finishes, portage commitment, direction-dependent timing and amenities before any consolidation proposal. Stronger reach-specific guidance is more appropriate than deleting all eleven because they share one station.",
+      "status": "retain-current-publication-pending-detailed-guide-review"
+    },
+    {
+      "riverId": "south-fork-snake-river-idaho",
+      "records": 8,
+      "standaloneGuides": 8,
+      "flaggedGuides": 8,
+      "planningRecords": 2,
+      "scoredRecords": 6,
+      "gaugeIds": ["13032500", "13037500"],
+      "finding": "All eight are consecutive access sections with different day lengths and operational boundaries. A shared regulation template and gauge context do not establish duplicate intent. Preserve the canyon, Byington diversion boundary and lower-river choices.",
+      "evidence": [
+        {"url":"https://www.blm.gov/sites/blm.gov/files/documents/files/idaho_southfork_boatingmapsALL.pdf","checked":"BLM boating guide lists access river miles from Palisades Dam through Mike Walker and identifies the hazardous Dry Beds Canal diversion below Byington. It distinguishes canyon camping from lower access choices. Used for itinerary and boundary evidence; old fee and regulation text is not treated as current legal advice."},
+        {"url":"https://www.blm.gov/visit/south-fork-snake","checked":"Current BLM description distinguishes upper valley, canyon downstream of Conant and dynamic floodplain near Heise."},
+        {"url":"https://www.blm.gov/visit/south-fork-snake-river-byington-boat-access","checked":"Current BLM access page describes Byington facilities and day-use status. Its body and Fees section show conflicting fee amounts; do not infer one definitive current charge from this page."}
+      ],
+      "nextDecision": "Retain the eight URLs and both gauge contexts during the pilot. Review guide-specific take-outs, diversion exposure, canyon commitment and currently applicable access notices. Preserve the distinction between six scored records and two planning records; a common gauge must not erase a mandatory take-out or transfer a score to a planning record.",
+      "status": "retain-current-publication-protect-operational-boundaries"
+    }
+  ],
+  "planningIntentCorrection": {
+    "finding": "111 built river hubs contain only planning records, including the single-route Saluda hub. Only the two pilot access hubs used a Default order label; the other 109 offered Recommended despite having no live-score ranking. State starting-point cards checked consolidation before score eligibility and could promise a live score for a consolidated planning-only trip.",
+    "change": "Use Default order whenever a hub has zero scored routes. Choose planning-only state-card copy before choosing whether its destination is a standalone guide or a river hub.",
+    "preserved": "Guide URLs, canonicals, sitemap membership, source-backed editorial content, route order, scoring eligibility, gauge assignments and numeric thresholds.",
+    "measurementNote": "This common presentation correction also changes the sort label on the St. Croix and Pleasant planning comparison hubs. Record it in the pilot timeline; comparison families remain contextual rather than randomized controls. It does not constitute another consolidation batch."
+  },
+  "validation": {"productionBuild":"passes","builtPlanningOnlyHubsWithNeutralSortLabel":111,"builtScoredOrMixedHubsWithExistingSortLabel":271,"builtPlanningStateCardsExplicitlyWithoutLiveScore":98,"builtConsolidatedPlanningStateCards":12,"builtScoredStateCardsPreserved":186,"sitemapUrlsUnchanged":2490,"indexabilityAudit":"passes with no errors or warnings"},
+  "googleAssessment": "The pilot was released earlier on October 20. A same-day live eligibility test is not stored indexing or performance evidence. Do not broaden URL removal based on this triage or on the pilot's successful deployment."
+}

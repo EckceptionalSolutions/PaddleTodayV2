@@ -415,7 +415,9 @@ const structuredData = [
               </div>
             </div>
             <div class="route-choice__footer">
-              <span class="route-choice__selection">{routePageConsolidationTarget(route.slug) ? 'Trip notes and live score in river guide' : route.scoreEligibility === 'planning' ? 'Planning details on route page' : 'Live score on route page'}</span>
+              <span class="route-choice__selection">{route.scoreEligibility === 'planning'
+                ? routePageConsolidationTarget(route.slug) ? 'Planning details in river guide · no live score' : 'Planning details on route page · no live score'
+                : routePageConsolidationTarget(route.slug) ? 'Trip notes and live score in river guide' : 'Live score on route page'}</span>
               <a class="river-link river-link--inline route-choice__link" href={routePageHref(route)} aria-label={`${routePageLinkLabel(route)}: ${route.name}: ${route.reach}`}>{routePageLinkLabel(route)}</a>
             </div>
           </article>
