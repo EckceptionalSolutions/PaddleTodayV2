@@ -47,7 +47,7 @@ test('planning sources remain usable when live requests fail', async ({ page }) 
   await expect(page.locator('.route-calibration-callout')).toHaveCount(0);
 });
 
-for (const slug of ['hatchet-creek-highway-280-highway-231', 'fox-river-sunset-kimberly-lutz-appleton']) {
+for (const slug of ['hatchet-creek-highway-280-highway-231']) {
   test(`${slug}: scored minimum-only guidance retains its supported floor`, async ({ page }) => {
     const river = getRiverBySlug(slug)!;
     const floor = river.profile.tooLow ?? river.profile.idealMin;

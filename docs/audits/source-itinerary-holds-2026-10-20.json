@@ -1,0 +1,47 @@
+{
+  "reviewedOn": "2026-10-20",
+  "purpose": "Resolve source contradictions found while reviewing planning guidance and the public mileage/endpoint queue.",
+  "decision": "Place two routes on human-reviewed access hold. Preserve the original records for explicit correction; do not silently reverse endpoints or change mileage to fit a wrong location.",
+  "baseline": {"sitemapUrls":2485,"publicTripRecords":2567},
+  "expectedAfter": {"sitemapUrls":2483,"publicTripRecords":2565,"newlyHeldStandaloneGuides":2,"newlyHeldScoredTrips":1,"newlyHeldPlanningTrips":1},
+  "cases": [
+    {
+      "slug": "fox-river-sunset-kimberly-lutz-appleton",
+      "finding": "The catalog launches at Sunset Park in Kimberly and finishes at Lutz Park in Appleton. NEWP's 2026 event instructions explicitly launch at Lutz and land at Sunset, with coordinated lock operations and a shuttle. The reversed catalog order and generic portage plan are not the documented trip.",
+      "sources": [
+        {"url":"https://newp.club/club-activities/public-paddles/appleton-locks-paddle/","checked":"Current event page for August 1, 2026: named launch, landing, shuttle and four-lock event itinerary inspected. Historical event instructions do not authorize present lock access or establish a generic portage route."},
+        {"url":"https://newp.club/hov-locks-paddle/","checked":"August 2024 firsthand report describes replacing the Appleton Locks event when flow exceeded the club's 6000 cfs upper screen. It provides no low-water floor or verified ideal range."}
+      ],
+      "thresholdFinding": "The stored minimum-only profile uses idealMin: 0 with a 6000 cfs upper screen. Zero discharge is a placeholder, not evidence of a known low-water floor. Preserve the profile as a research record; the hold removes this trip from public scores.",
+      "releaseRequires": "Verify the intended downstream itinerary, exact launches, every lawful lock/portage transfer and current operations. Then review score eligibility independently of direct-gauge availability and the upper-only screen. Regenerate and inspect geometry before any publication release."
+    },
+    {
+      "slug": "kent-island-chesapeake-bay-trail",
+      "finding": "The approximately 3.25-mile Terrapin–Matapeake trail is source-named, but its stored finish is about 8.5 straight-line miles from the start. The stored Matapeake point copies the old brochure's printed GPS and conflicts with the brochure map and current County facility location.",
+      "storedFinish": {"latitude":38.87115,"longitude":-76.3555},
+      "currentCountyFacilityAnchor": {"latitude":38.9562803082022,"longitude":-76.3533772222002,"role":"Facility/site anchor from current County map metadata; not claimed as the exact wet ramp toe. The source Accuracy field is not interpreted as a distance unit."},
+      "sources": [
+        {"url":"https://www.qac.org/DocumentCenter/View/4876/Kent-Island-Water-Trails-Brochure-Page-2","checked":"Complete map sheet visually inspected. It names the 3.25-mile trail and places Matapeake south of the Bay Bridge, while its printed Matapeake GPS latitude converts to the catalog's inconsistent point. Older fees and operating instructions were not treated as current."},
+        {"url":"https://www.qac.org/facilities/facility/details/Matapeake-Fishing-Pier-and-Ramp-127","checked":"Current named County facility at 251 Marine Academy Drive and its public map metadata corroborate the brochure map rather than its printed latitude."},
+        {"url":"https://qac.org/1009/Landings-and-Piers","checked":"Current County page still links the historical brochure and directs visitors to the current facility directory."}
+      ],
+      "releaseRequires": "Verify the actual named public Matapeake water entry and lawful carry. Correct every dependent coordinate and access record, regenerate and inspect geometry, and confirm the resulting itinerary before release. Do not increase the published distance to accommodate the wrong finish."
+    }
+  ],
+  "preserved": "All original route records, coordinates, scoring profiles, gauge assignments and source evidence remain available for correction. The original four-family pilot and nine published Kennebec choices are unchanged. Historical geometry assets remain as provenance but are excluded from current public coverage.",
+  "sharedTemplateFollowup": "A minimum-only label alone must not create a low-water claim on scored pages either. The template now distinguishes a real finite minimum from a zero-discharge placeholder, retaining valid stage-datum minima and describing an upper-only screen without inventing a minimum. Scoring equations and numeric profiles are unchanged.",
+  "verification": {
+    "status": "locally-validated-awaiting-publication",
+    "fullTypecheckAndProductionBuild": "passed",
+    "wholeSiteIndexability": "passed with no errors or warnings; 2483 sitemap URLs",
+    "focusedTests": "8 passed across source holds, Kennebec holds, public catalog and explore catalog tests",
+    "browserTests": "8 passed: desktop and iPhone; planning sources after API hydration and API failure; supported scored minimum retained",
+    "builtPlanningGuides": 962,
+    "planningGuidesWithoutUnsupportedMinimumCallout": 668,
+    "planningGuidesPreservingEveryEvidenceNoteAndSourceLink": 962,
+    "scoredMinimumGuidesRetainingCallout": 336,
+    "mapAssets": "49 assets compared with the preceding release: only the two held features removed; every retained feature unchanged",
+    "publicTripRecords": 2565
+  },
+  "measurement": "This is a targeted itinerary/access correction, not another duplicate-consolidation experiment or proof of Google recovery. Record it separately from the shared planning-template intervention."
+}
