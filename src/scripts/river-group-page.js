@@ -33,6 +33,7 @@ import {
 import { getBrowserApiClient } from './browser-api-client.js';
 import { trackEvent } from './analytics.js';
 import { isCurrentCallUnavailable } from '../lib/current-call-availability.js';
+import { isRecommendableRiverHubRoute, riverHubDecisionPriority } from '../lib/river-hub-recommendation.js';
 import {
   riverHubMapNotices,
   riverHubRouteStatus,
@@ -244,6 +245,8 @@ function corridorKey(route) {
 function compareRoutes(left, right) {
   const availabilityOrder = Number(isCurrentCallUnavailable(left)) - Number(isCurrentCallUnavailable(right));
   if (availabilityOrder) return availabilityOrder;
+  const decisionOrder = riverHubDecisionPriority(right) - riverHubDecisionPriority(left);
+  if (decisionOrder) return decisionOrder;
   if ((left?.score ?? 0) !== (right?.score ?? 0)) {
     return (right?.score ?? 0) - (left?.score ?? 0);
   }
@@ -1296,7 +1299,7 @@ function renderRouteList(routes) {
         .filter(Boolean)
         .map((fact, factIndex) => `<span class="route-choice__fact${factIndex === 0 ? ' route-choice__fact--distance' : ''}">${escapeHtml(fact)}</span>`)
         .join('');
-      const bestMatch = !isPlanningRoute(route) && !isCurrentCallUnavailable(route) && sortMode === 'recommended'
+      const bestMatch = isRecommendableRiverHubRoute(route) && sortMode === 'recommended'
         && distanceFilter === 'all'
         && regionFilter === 'all'
         && difficultyFilter === 'all'
@@ -1755,8 +1758,7 @@ async function loadGroup({ silent = false } = {}) {
     const scoredRoutes = routes.filter((route) => !isPlanningRoute(route));
     const planningCount = routes.length - scoredRoutes.length;
     const liveCount = scoredRoutes.filter((route) => route.liveData?.overall === 'live').length;
-    const readyCount = scoredRoutes.filter((route) => !isCurrentCallUnavailable(route)
-      && callStateForDecision(route.rating, route.readiness?.status) === 'paddle').length;
+    const readyCount = scoredRoutes.filter(isRecommendableRiverHubRoute).length;
     setBanner(
       liveCount === routes.length ? 'live' : 'degraded',
       scoredRoutes.length === 0 ? `${planningCount} planning routes · no live scores` : planningCount > 0 ? `${readyCount} scored routes ready today · ${planningCount} planning routes` : `${readyCount} of ${routes.length} routes look ready today.`,
