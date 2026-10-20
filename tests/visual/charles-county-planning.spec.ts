@@ -13,6 +13,8 @@ for(const slug of ['lower-potomac-purse-mallows-bay','nanjemoy-creek-friendship-
     await page.goto(`/rivers/${slug}/`);
     await expect(page.locator('main')).toContainText('2014 second edition');
     await expect(page.locator('main')).not.toContainText('High route-shape confidence');
+    const shuttleHeadline=page.locator('#quick-facts .snapshot-card').filter({hasText:'Shuttle'}).locator('strong');
+    await expect(shuttleHeadline).toHaveText(slug.startsWith('nanjemoy')?'No shuttle':'Car shuttle');
     if(slug.startsWith('lower')){
       await expect(page.locator('main')).toContainText('one-way vehicle shuttle');
       await expect(page.locator('main')).toContainText('half-mile portage');

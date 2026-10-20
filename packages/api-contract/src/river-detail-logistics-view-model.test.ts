@@ -20,6 +20,15 @@ function logistics(overrides: Partial<RiverRouteLogistics> = {}): RiverRouteLogi
 }
 
 describe('River Detail logistics view model', () => {
+  it.each([
+    ['No shuttle is required; launch and return at the same ramp.', 'No shuttle'],
+    ['No vehicle shuttle is required. Return to Friendship Landing.', 'No shuttle'],
+    ['No car shuttle needed for this return paddle.', 'No shuttle'],
+    ['No shuttle is required if you paddle back upstream.', 'Check shuttle'],
+    ['No shuttle service is provided. Arrange your own vehicle shuttle.', 'Car shuttle'],
+  ])('shows the stated shuttle requirement for %s', (shuttle, headline) => {
+    expect(buildRiverDetailLogisticsViewModel(logistics({ shuttle })).shuttleHeadline).toBe(headline);
+  });
   it('builds shared trip headlines and compact values', () => {
     expect(buildRiverDetailLogisticsViewModel(logistics())).toMatchObject({
       shuttleHeadline: 'Car or bike',
@@ -34,7 +43,7 @@ describe('River Detail logistics view model', () => {
 
   it('provides conservative fallbacks and concise long-detail labels', () => {
     expect(buildRiverDetailLogisticsViewModel(undefined)).toEqual({
-      shuttleHeadline: 'Car shuttle',
+      shuttleHeadline: 'Check shuttle',
       permitsHeadline: 'Check posted rules',
       campingHeadline: 'Options nearby',
       compactShuttle: 'Not tracked',
