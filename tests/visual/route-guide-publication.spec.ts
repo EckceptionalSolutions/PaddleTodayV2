@@ -89,6 +89,11 @@ for (const review of routeGuidePublicationReviews) {
       else await expect(guideLinks).toHaveCount(1);
     }
     if (review.mode === 'access-planning') {
+      if (review.riverId === 'delaware-river-new-jersey') {
+        const guideNavigation = page.getByRole('navigation', { name: 'Detailed trip guides' });
+        await expect(guideNavigation).toBeVisible();
+        await expect(guideNavigation.getByRole('link')).toHaveCount(4);
+      }
       if (group.routes.length === 1) {
         await expect(page.locator('[data-group-results-summary]')).toContainText('1 access plan ·');
         await expect(page.locator('.river-group-page__hero-facts')).not.toContainText('14–14');

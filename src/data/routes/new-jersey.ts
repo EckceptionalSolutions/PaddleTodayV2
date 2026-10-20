@@ -1,4 +1,5 @@
 import type { River, RouteSafetyProfile } from '../../lib/types';
+import { applyDelawareNewJerseySourceReview } from './delaware-new-jersey-source-review';
 
 const allamuchyUrl = 'https://dep.nj.gov/parksandforests/state-park/allamuchy-mountain-state-park/';
 const allamuchyMapUrl = 'https://nj.gov/dep/parksandforests/maps/allamuchy-area.pdf';
@@ -650,4 +651,4 @@ export const newJerseyRoutes: River[] = [
     difficulty: 'hard',
     riskLevel: 'advanced',
   }),
-].filter((route) => route.id !== 'wading-river-godfrey-bodine');
+].filter((route) => route.id !== 'wading-river-godfrey-bodine').map(applyDelawareNewJerseySourceReview);

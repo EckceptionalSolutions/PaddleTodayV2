@@ -2,39 +2,21 @@
   "policy": "docs/seo-route-publication-policy.md",
   "method": "Five-word-shingle Jaccard similarity on route summary, logistics summary/shuttle/caveats/watchFor and profile difficulty/confidence/season notes. Excludes the page template. The 0.50 screening threshold is an editorial queue heuristic, not a Google metric or an automatic publication rule.",
   "scope": "Current source catalog after explicit pilot decisions; this is proposed build inventory, not a claim about deployed URLs or indexing.",
-  "standalonePages": 2046,
+  "standalonePages": 2010,
   "reviewedPilotFamilies": [
+    "delaware-river-new-jersey",
+    "allagash-river",
+    "bitterroot-river-montana",
+    "woonasquatucket-river-rhode-island",
     "aroostook-river",
     "piscataquis-river",
     "snoqualmie-river-washington",
     "contoocook-river-new-hampshire"
   ],
-  "candidates": 376,
-  "planningCandidates": 134,
-  "scoredCandidates": 242,
+  "candidates": 346,
+  "planningCandidates": 111,
+  "scoredCandidates": 235,
   "queue": [
-    {
-      "slug": "kennebec-river-augusta-chelsea",
-      "riverId": "kennebec-river",
-      "state": "Maine",
-      "role": "planning",
-      "nearestSibling": "kennebec-river-madison-starks",
-      "phraseSimilarity": 0.913,
-      "sharesConditionSetup": true,
-      "status": "needs-editorial-review",
-      "requiredReview": "Check documented reach, access terms, hazard/condition boundaries, distinct trip value and historical demand before deciding guide versus hub option."
-    },
-    {
-      "slug": "kennebec-river-madison-starks",
-      "riverId": "kennebec-river",
-      "state": "Maine",
-      "role": "planning",
-      "nearestSibling": "kennebec-river-augusta-chelsea",
-      "phraseSimilarity": 0.913,
-      "sharesConditionSetup": true,
-      "status": "needs-editorial-review",
-      "requiredReview": "Check documented reach, access terms, hazard/condition boundaries, distinct trip value and historical demand before deciding guide versus hub option."
-    },
     {
       "slug": "saint-croix-river-lambert-baileyville",
       "riverId": "saint-croix-river",
@@ -113,50 +95,6 @@
       "requiredReview": "Check documented reach, access terms, hazard/condition boundaries, distinct trip value and historical demand before deciding guide versus hub option."
     },
     {
-      "slug": "kennebec-river-norridgewock-waterville",
-      "riverId": "kennebec-river",
-      "state": "Maine",
-      "role": "planning",
-      "nearestSibling": "kennebec-river-madison-starks",
-      "phraseSimilarity": 0.874,
-      "sharesConditionSetup": true,
-      "status": "needs-editorial-review",
-      "requiredReview": "Check documented reach, access terms, hazard/condition boundaries, distinct trip value and historical demand before deciding guide versus hub option."
-    },
-    {
-      "slug": "kennebec-river-sidney-augusta",
-      "riverId": "kennebec-river",
-      "state": "Maine",
-      "role": "planning",
-      "nearestSibling": "kennebec-river-madison-starks",
-      "phraseSimilarity": 0.874,
-      "sharesConditionSetup": true,
-      "status": "needs-editorial-review",
-      "requiredReview": "Check documented reach, access terms, hazard/condition boundaries, distinct trip value and historical demand before deciding guide versus hub option."
-    },
-    {
-      "slug": "kennebec-river-solon-madison",
-      "riverId": "kennebec-river",
-      "state": "Maine",
-      "role": "planning",
-      "nearestSibling": "kennebec-river-madison-starks",
-      "phraseSimilarity": 0.874,
-      "sharesConditionSetup": true,
-      "status": "needs-editorial-review",
-      "requiredReview": "Check documented reach, access terms, hazard/condition boundaries, distinct trip value and historical demand before deciding guide versus hub option."
-    },
-    {
-      "slug": "kennebec-river-starks-skowhegan",
-      "riverId": "kennebec-river",
-      "state": "Maine",
-      "role": "planning",
-      "nearestSibling": "kennebec-river-madison-starks",
-      "phraseSimilarity": 0.874,
-      "sharesConditionSetup": true,
-      "status": "needs-editorial-review",
-      "requiredReview": "Check documented reach, access terms, hazard/condition boundaries, distinct trip value and historical demand before deciding guide versus hub option."
-    },
-    {
       "slug": "flagstaff-lake-bigelow-dead-river",
       "riverId": "flagstaff-lake",
       "state": "Maine",
@@ -173,6 +111,28 @@
       "state": "Maine",
       "role": "planning",
       "nearestSibling": "flagstaff-lake-bigelow-dead-river",
+      "phraseSimilarity": 0.871,
+      "sharesConditionSetup": true,
+      "status": "needs-editorial-review",
+      "requiredReview": "Check documented reach, access terms, hazard/condition boundaries, distinct trip value and historical demand before deciding guide versus hub option."
+    },
+    {
+      "slug": "kennebec-river-augusta-chelsea",
+      "riverId": "kennebec-river",
+      "state": "Maine",
+      "role": "planning",
+      "nearestSibling": "kennebec-river-sidney-augusta",
+      "phraseSimilarity": 0.871,
+      "sharesConditionSetup": true,
+      "status": "needs-editorial-review",
+      "requiredReview": "Check documented reach, access terms, hazard/condition boundaries, distinct trip value and historical demand before deciding guide versus hub option."
+    },
+    {
+      "slug": "kennebec-river-sidney-augusta",
+      "riverId": "kennebec-river",
+      "state": "Maine",
+      "role": "planning",
+      "nearestSibling": "kennebec-river-augusta-chelsea",
       "phraseSimilarity": 0.871,
       "sharesConditionSetup": true,
       "status": "needs-editorial-review",
@@ -432,28 +392,6 @@
       "requiredReview": "Check documented reach, access terms, hazard/condition boundaries, distinct trip value and historical demand before deciding guide versus hub option."
     },
     {
-      "slug": "woonasquatucket-river-manton-south-water",
-      "riverId": "woonasquatucket-river-rhode-island",
-      "state": "Rhode Island",
-      "role": "scored",
-      "nearestSibling": "woonasquatucket-river-manton-waterplace",
-      "phraseSimilarity": 0.845,
-      "sharesConditionSetup": true,
-      "status": "needs-editorial-review",
-      "requiredReview": "Check documented reach, access terms, hazard/condition boundaries, distinct trip value and historical demand before deciding guide versus hub option."
-    },
-    {
-      "slug": "woonasquatucket-river-manton-waterplace",
-      "riverId": "woonasquatucket-river-rhode-island",
-      "state": "Rhode Island",
-      "role": "scored",
-      "nearestSibling": "woonasquatucket-river-manton-south-water",
-      "phraseSimilarity": 0.845,
-      "sharesConditionSetup": true,
-      "status": "needs-editorial-review",
-      "requiredReview": "Check documented reach, access terms, hazard/condition boundaries, distinct trip value and historical demand before deciding guide versus hub option."
-    },
-    {
       "slug": "pleasant-river-columbia-columbia-falls",
       "riverId": "pleasant-river",
       "state": "Maine",
@@ -537,39 +475,6 @@
       "role": "scored",
       "nearestSibling": "pemigewasset-river-livermore-falls-shaw-cove",
       "phraseSimilarity": 0.833,
-      "sharesConditionSetup": true,
-      "status": "needs-editorial-review",
-      "requiredReview": "Check documented reach, access terms, hazard/condition boundaries, distinct trip value and historical demand before deciding guide versus hub option."
-    },
-    {
-      "slug": "woonasquatucket-river-georgiaville-cricket",
-      "riverId": "woonasquatucket-river-rhode-island",
-      "state": "Rhode Island",
-      "role": "scored",
-      "nearestSibling": "woonasquatucket-river-manton-riverside",
-      "phraseSimilarity": 0.831,
-      "sharesConditionSetup": true,
-      "status": "needs-editorial-review",
-      "requiredReview": "Check documented reach, access terms, hazard/condition boundaries, distinct trip value and historical demand before deciding guide versus hub option."
-    },
-    {
-      "slug": "woonasquatucket-river-manton-riverside",
-      "riverId": "woonasquatucket-river-rhode-island",
-      "state": "Rhode Island",
-      "role": "scored",
-      "nearestSibling": "woonasquatucket-river-georgiaville-cricket",
-      "phraseSimilarity": 0.831,
-      "sharesConditionSetup": true,
-      "status": "needs-editorial-review",
-      "requiredReview": "Check documented reach, access terms, hazard/condition boundaries, distinct trip value and historical demand before deciding guide versus hub option."
-    },
-    {
-      "slug": "woonasquatucket-river-riverside-waterplace",
-      "riverId": "woonasquatucket-river-rhode-island",
-      "state": "Rhode Island",
-      "role": "scored",
-      "nearestSibling": "woonasquatucket-river-manton-waterplace",
-      "phraseSimilarity": 0.831,
       "sharesConditionSetup": true,
       "status": "needs-editorial-review",
       "requiredReview": "Check documented reach, access terms, hazard/condition boundaries, distinct trip value and historical demand before deciding guide versus hub option."
@@ -1048,17 +953,6 @@
       "requiredReview": "Check documented reach, access terms, hazard/condition boundaries, distinct trip value and historical demand before deciding guide versus hub option."
     },
     {
-      "slug": "woonasquatucket-river-riverside-south-water",
-      "riverId": "woonasquatucket-river-rhode-island",
-      "state": "Rhode Island",
-      "role": "scored",
-      "nearestSibling": "woonasquatucket-river-riverside-waterplace",
-      "phraseSimilarity": 0.801,
-      "sharesConditionSetup": true,
-      "status": "needs-editorial-review",
-      "requiredReview": "Check documented reach, access terms, hazard/condition boundaries, distinct trip value and historical demand before deciding guide versus hub option."
-    },
-    {
       "slug": "black-river-pine-pea-house",
       "riverId": "black-river-south-carolina",
       "state": "South Carolina",
@@ -1114,72 +1008,6 @@
       "requiredReview": "Check documented reach, access terms, hazard/condition boundaries, distinct trip value and historical demand before deciding guide versus hub option."
     },
     {
-      "slug": "delaware-river-frenchtown-kingwood",
-      "riverId": "delaware-river-new-jersey",
-      "state": "New Jersey",
-      "role": "planning",
-      "nearestSibling": "delaware-river-kingwood-fairview",
-      "phraseSimilarity": 0.787,
-      "sharesConditionSetup": true,
-      "status": "needs-editorial-review",
-      "requiredReview": "Check documented reach, access terms, hazard/condition boundaries, distinct trip value and historical demand before deciding guide versus hub option."
-    },
-    {
-      "slug": "delaware-river-kingwood-fairview",
-      "riverId": "delaware-river-new-jersey",
-      "state": "New Jersey",
-      "role": "planning",
-      "nearestSibling": "delaware-river-frenchtown-kingwood",
-      "phraseSimilarity": 0.787,
-      "sharesConditionSetup": true,
-      "status": "needs-editorial-review",
-      "requiredReview": "Check documented reach, access terms, hazard/condition boundaries, distinct trip value and historical demand before deciding guide versus hub option."
-    },
-    {
-      "slug": "delaware-river-firemens-eddy-washington-crossing",
-      "riverId": "delaware-river-new-jersey",
-      "state": "New Jersey",
-      "role": "planning",
-      "nearestSibling": "delaware-river-lambertville-firemens-eddy",
-      "phraseSimilarity": 0.78,
-      "sharesConditionSetup": true,
-      "status": "needs-editorial-review",
-      "requiredReview": "Check documented reach, access terms, hazard/condition boundaries, distinct trip value and historical demand before deciding guide versus hub option."
-    },
-    {
-      "slug": "delaware-river-lambertville-firemens-eddy",
-      "riverId": "delaware-river-new-jersey",
-      "state": "New Jersey",
-      "role": "planning",
-      "nearestSibling": "delaware-river-firemens-eddy-washington-crossing",
-      "phraseSimilarity": 0.78,
-      "sharesConditionSetup": true,
-      "status": "needs-editorial-review",
-      "requiredReview": "Check documented reach, access terms, hazard/condition boundaries, distinct trip value and historical demand before deciding guide versus hub option."
-    },
-    {
-      "slug": "delaware-river-byram-bulls-island",
-      "riverId": "delaware-river-new-jersey",
-      "state": "New Jersey",
-      "role": "planning",
-      "nearestSibling": "delaware-river-fairview-byram",
-      "phraseSimilarity": 0.779,
-      "sharesConditionSetup": true,
-      "status": "needs-editorial-review",
-      "requiredReview": "Check documented reach, access terms, hazard/condition boundaries, distinct trip value and historical demand before deciding guide versus hub option."
-    },
-    {
-      "slug": "delaware-river-fairview-byram",
-      "riverId": "delaware-river-new-jersey",
-      "state": "New Jersey",
-      "role": "planning",
-      "nearestSibling": "delaware-river-byram-bulls-island",
-      "phraseSimilarity": 0.779,
-      "sharesConditionSetup": true,
-      "status": "needs-editorial-review",
-      "requiredReview": "Check documented reach, access terms, hazard/condition boundaries, distinct trip value and historical demand before deciding guide versus hub option."
-    },
-    {
       "slug": "salt-river-blue-point-goldfield",
       "riverId": "salt-river-arizona",
       "state": "Arizona",
@@ -1208,28 +1036,6 @@
       "role": "scored",
       "nearestSibling": "salt-river-blue-point-goldfield",
       "phraseSimilarity": 0.779,
-      "sharesConditionSetup": true,
-      "status": "needs-editorial-review",
-      "requiredReview": "Check documented reach, access terms, hazard/condition boundaries, distinct trip value and historical demand before deciding guide versus hub option."
-    },
-    {
-      "slug": "delaware-river-bulls-island-lambertville",
-      "riverId": "delaware-river-new-jersey",
-      "state": "New Jersey",
-      "role": "planning",
-      "nearestSibling": "delaware-river-kingwood-byram",
-      "phraseSimilarity": 0.776,
-      "sharesConditionSetup": true,
-      "status": "needs-editorial-review",
-      "requiredReview": "Check documented reach, access terms, hazard/condition boundaries, distinct trip value and historical demand before deciding guide versus hub option."
-    },
-    {
-      "slug": "delaware-river-kingwood-byram",
-      "riverId": "delaware-river-new-jersey",
-      "state": "New Jersey",
-      "role": "planning",
-      "nearestSibling": "delaware-river-bulls-island-lambertville",
-      "phraseSimilarity": 0.776,
       "sharesConditionSetup": true,
       "status": "needs-editorial-review",
       "requiredReview": "Check documented reach, access terms, hazard/condition boundaries, distinct trip value and historical demand before deciding guide versus hub option."
@@ -1417,28 +1223,6 @@
       "role": "scored",
       "nearestSibling": "missisquoi-river-lowell-lane-road",
       "phraseSimilarity": 0.749,
-      "sharesConditionSetup": true,
-      "status": "needs-editorial-review",
-      "requiredReview": "Check documented reach, access terms, hazard/condition boundaries, distinct trip value and historical demand before deciding guide versus hub option."
-    },
-    {
-      "slug": "delaware-river-kittatinny-worthington",
-      "riverId": "delaware-river-new-jersey",
-      "state": "New Jersey",
-      "role": "planning",
-      "nearestSibling": "delaware-river-worthington-poxono",
-      "phraseSimilarity": 0.748,
-      "sharesConditionSetup": true,
-      "status": "needs-editorial-review",
-      "requiredReview": "Check documented reach, access terms, hazard/condition boundaries, distinct trip value and historical demand before deciding guide versus hub option."
-    },
-    {
-      "slug": "delaware-river-worthington-poxono",
-      "riverId": "delaware-river-new-jersey",
-      "state": "New Jersey",
-      "role": "planning",
-      "nearestSibling": "delaware-river-kittatinny-worthington",
-      "phraseSimilarity": 0.748,
       "sharesConditionSetup": true,
       "status": "needs-editorial-review",
       "requiredReview": "Check documented reach, access terms, hazard/condition boundaries, distinct trip value and historical demand before deciding guide versus hub option."
@@ -1636,17 +1420,6 @@
       "state": "New Hampshire",
       "role": "scored",
       "nearestSibling": "merrimack-river-boscawen-everett-arena",
-      "phraseSimilarity": 0.716,
-      "sharesConditionSetup": true,
-      "status": "needs-editorial-review",
-      "requiredReview": "Check documented reach, access terms, hazard/condition boundaries, distinct trip value and historical demand before deciding guide versus hub option."
-    },
-    {
-      "slug": "woonasquatucket-river-waterplace-south-water",
-      "riverId": "woonasquatucket-river-rhode-island",
-      "state": "Rhode Island",
-      "role": "scored",
-      "nearestSibling": "woonasquatucket-river-riverside-south-water",
       "phraseSimilarity": 0.716,
       "sharesConditionSetup": true,
       "status": "needs-editorial-review",
@@ -1891,17 +1664,6 @@
       "nearestSibling": "animas-river-animas-park-boyd",
       "phraseSimilarity": 0.671,
       "sharesConditionSetup": true,
-      "status": "needs-editorial-review",
-      "requiredReview": "Check documented reach, access terms, hazard/condition boundaries, distinct trip value and historical demand before deciding guide versus hub option."
-    },
-    {
-      "slug": "delaware-river-firemens-eddy-trenton",
-      "riverId": "delaware-river-new-jersey",
-      "state": "New Jersey",
-      "role": "planning",
-      "nearestSibling": "delaware-river-bulls-island-lambertville",
-      "phraseSimilarity": 0.671,
-      "sharesConditionSetup": false,
       "status": "needs-editorial-review",
       "requiredReview": "Check documented reach, access terms, hazard/condition boundaries, distinct trip value and historical demand before deciding guide versus hub option."
     },
@@ -2995,28 +2757,6 @@
       "requiredReview": "Check documented reach, access terms, hazard/condition boundaries, distinct trip value and historical demand before deciding guide versus hub option."
     },
     {
-      "slug": "bitterroot-river-bell-crossing-chief-looking-glass",
-      "riverId": "bitterroot-river-montana",
-      "state": "Montana",
-      "role": "planning",
-      "nearestSibling": "bitterroot-river-hannon-chief-looking-glass",
-      "phraseSimilarity": 0.583,
-      "sharesConditionSetup": true,
-      "status": "needs-editorial-review",
-      "requiredReview": "Check documented reach, access terms, hazard/condition boundaries, distinct trip value and historical demand before deciding guide versus hub option."
-    },
-    {
-      "slug": "bitterroot-river-hannon-chief-looking-glass",
-      "riverId": "bitterroot-river-montana",
-      "state": "Montana",
-      "role": "planning",
-      "nearestSibling": "bitterroot-river-bell-crossing-chief-looking-glass",
-      "phraseSimilarity": 0.583,
-      "sharesConditionSetup": true,
-      "status": "needs-editorial-review",
-      "requiredReview": "Check documented reach, access terms, hazard/condition boundaries, distinct trip value and historical demand before deciding guide versus hub option."
-    },
-    {
       "slug": "skagit-river-marblemount-howard-miller",
       "riverId": "skagit-river-washington",
       "state": "Washington",
@@ -3100,17 +2840,6 @@
       "role": "scored",
       "nearestSibling": "lower-salmon-island-bar-shorts-bar",
       "phraseSimilarity": 0.579,
-      "sharesConditionSetup": true,
-      "status": "needs-editorial-review",
-      "requiredReview": "Check documented reach, access terms, hazard/condition boundaries, distinct trip value and historical demand before deciding guide versus hub option."
-    },
-    {
-      "slug": "bitterroot-river-bell-crossing-poker-joe",
-      "riverId": "bitterroot-river-montana",
-      "state": "Montana",
-      "role": "planning",
-      "nearestSibling": "bitterroot-river-bell-crossing-chief-looking-glass",
-      "phraseSimilarity": 0.577,
       "sharesConditionSetup": true,
       "status": "needs-editorial-review",
       "requiredReview": "Check documented reach, access terms, hazard/condition boundaries, distinct trip value and historical demand before deciding guide versus hub option."
@@ -3226,17 +2955,6 @@
       "requiredReview": "Check documented reach, access terms, hazard/condition boundaries, distinct trip value and historical demand before deciding guide versus hub option."
     },
     {
-      "slug": "bitterroot-river-poker-joe-chief-looking-glass",
-      "riverId": "bitterroot-river-montana",
-      "state": "Montana",
-      "role": "planning",
-      "nearestSibling": "bitterroot-river-bell-crossing-chief-looking-glass",
-      "phraseSimilarity": 0.563,
-      "sharesConditionSetup": true,
-      "status": "needs-editorial-review",
-      "requiredReview": "Check documented reach, access terms, hazard/condition boundaries, distinct trip value and historical demand before deciding guide versus hub option."
-    },
-    {
       "slug": "broad-river-peak-harbison",
       "riverId": "broad-river",
       "state": "South Carolina",
@@ -3314,56 +3032,12 @@
       "requiredReview": "Check documented reach, access terms, hazard/condition boundaries, distinct trip value and historical demand before deciding guide versus hub option."
     },
     {
-      "slug": "bitterroot-river-anglers-roost-tucker-crossing",
-      "riverId": "bitterroot-river-montana",
-      "state": "Montana",
-      "role": "planning",
-      "nearestSibling": "bitterroot-river-tucker-crossing-bell-crossing",
-      "phraseSimilarity": 0.558,
-      "sharesConditionSetup": true,
-      "status": "needs-editorial-review",
-      "requiredReview": "Check documented reach, access terms, hazard/condition boundaries, distinct trip value and historical demand before deciding guide versus hub option."
-    },
-    {
-      "slug": "bitterroot-river-tucker-crossing-bell-crossing",
-      "riverId": "bitterroot-river-montana",
-      "state": "Montana",
-      "role": "planning",
-      "nearestSibling": "bitterroot-river-anglers-roost-tucker-crossing",
-      "phraseSimilarity": 0.558,
-      "sharesConditionSetup": true,
-      "status": "needs-editorial-review",
-      "requiredReview": "Check documented reach, access terms, hazard/condition boundaries, distinct trip value and historical demand before deciding guide versus hub option."
-    },
-    {
-      "slug": "bitterroot-river-wally-anglers-roost",
-      "riverId": "bitterroot-river-montana",
-      "state": "Montana",
-      "role": "planning",
-      "nearestSibling": "bitterroot-river-poker-joe-chief-looking-glass",
-      "phraseSimilarity": 0.557,
-      "sharesConditionSetup": true,
-      "status": "needs-editorial-review",
-      "requiredReview": "Check documented reach, access terms, hazard/condition boundaries, distinct trip value and historical demand before deciding guide versus hub option."
-    },
-    {
       "slug": "connecticut-river-wilson-ledyard",
       "riverId": "connecticut-river-new-hampshire",
       "state": "New Hampshire",
       "role": "planning",
       "nearestSibling": "connecticut-river-orford-wilson",
       "phraseSimilarity": 0.556,
-      "sharesConditionSetup": true,
-      "status": "needs-editorial-review",
-      "requiredReview": "Check documented reach, access terms, hazard/condition boundaries, distinct trip value and historical demand before deciding guide versus hub option."
-    },
-    {
-      "slug": "bitterroot-river-hannon-wally",
-      "riverId": "bitterroot-river-montana",
-      "state": "Montana",
-      "role": "planning",
-      "nearestSibling": "bitterroot-river-tucker-crossing-bell-crossing",
-      "phraseSimilarity": 0.555,
       "sharesConditionSetup": true,
       "status": "needs-editorial-review",
       "requiredReview": "Check documented reach, access terms, hazard/condition boundaries, distinct trip value and historical demand before deciding guide versus hub option."
