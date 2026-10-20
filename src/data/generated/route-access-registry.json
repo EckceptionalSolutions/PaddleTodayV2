@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-10-20T16:13:50.137Z",
+  "generatedAt": "2026-10-20T18:02:02.701Z",
   "auditGeneratedAt": "2026-09-22T14:58:34.632Z",
   "summary": {
     "entryCount": 4076,
@@ -129419,22 +129419,22 @@
       ]
     },
     {
-      "id": "maryland--chapel-point-state-park-small-canoe-kayak-launch",
+      "id": "maryland--chapel-point-state-park-sand-launch",
       "state": "Maryland",
-      "name": "Chapel Point State Park small canoe/kayak launch",
+      "name": "Chapel Point State Park sand launch",
       "aliases": [
-        "Chapel Point State Park small canoe/kayak launch"
+        "Chapel Point State Park sand launch"
       ],
       "sourceIds": [
         "port-tobacco-river-chapel-point-port-tobacco-put-in"
       ],
       "storedAccessCoordinate": {
-        "latitude": 38.470556,
-        "longitude": -77.031944
+        "latitude": 38.47076424,
+        "longitude": -77.03147624
       },
       "accessCoordinate": {
-        "latitude": 38.470556,
-        "longitude": -77.031944
+        "latitude": 38.47076424,
+        "longitude": -77.03147624
       },
       "accessCoordinateSource": "stored-route-consensus",
       "authoritativeAccess": null,
@@ -129444,9 +129444,9 @@
       "authoritativeAccessIdentityMismatch": false,
       "authoritativeAccessMismatchFeet": null,
       "waterEntryCoordinate": null,
-      "waterEntryConsensusRouteCount": 1,
+      "waterEntryConsensusRouteCount": 0,
       "waterEntryExactOnRiver": false,
-      "waterEntryWaterbodyConfirmed": true,
+      "waterEntryWaterbodyConfirmed": false,
       "authoritativeResolvesDistinctLocation": false,
       "coordinateStatus": "consistent",
       "verificationStatus": "unverified",
@@ -129455,10 +129455,10 @@
       "routeCount": 1,
       "coordinateVariants": [
         {
-          "key": "38.47056,-77.03194",
+          "key": "38.47076,-77.03148",
           "coordinate": {
-            "latitude": 38.470556,
-            "longitude": -77.031944
+            "latitude": 38.47076424,
+            "longitude": -77.03147624
           },
           "occurrenceCount": 2,
           "routeCount": 1,
@@ -129474,12 +129474,12 @@
           "state": "Maryland",
           "endpoint": "accessPoint",
           "sourceId": "port-tobacco-river-chapel-point-port-tobacco-put-in",
-          "name": "Chapel Point State Park small canoe/kayak launch",
-          "latitude": 38.470556,
-          "longitude": -77.031944,
-          "auditSeverity": "review",
+          "name": "Chapel Point State Park sand launch",
+          "latitude": 38.47076424,
+          "longitude": -77.03147624,
+          "auditSeverity": null,
           "distanceFeetToMatchedRiver": null,
-          "endpointOnWaterbody": true,
+          "endpointOnWaterbody": null,
           "coordinateEvidenceRole": null
         },
         {
@@ -129488,12 +129488,12 @@
           "state": "Maryland",
           "endpoint": "putIn",
           "sourceId": null,
-          "name": "Chapel Point State Park small canoe/kayak launch",
-          "latitude": 38.470556,
-          "longitude": -77.031944,
-          "auditSeverity": "review",
+          "name": "Chapel Point State Park sand launch",
+          "latitude": 38.47076424,
+          "longitude": -77.03147624,
+          "auditSeverity": null,
           "distanceFeetToMatchedRiver": null,
-          "endpointOnWaterbody": true,
+          "endpointOnWaterbody": null,
           "coordinateEvidenceRole": null
         }
       ]
@@ -133606,22 +133606,22 @@
       ]
     },
     {
-      "id": "maryland--friendship-farm-park-and-landing-public-boat-ramp",
+      "id": "maryland--friendship-landing-floating-soft-launch",
       "state": "Maryland",
-      "name": "Friendship Farm Park and Landing public boat ramp",
+      "name": "Friendship Landing floating soft launch",
       "aliases": [
-        "Friendship Farm Park and Landing public boat ramp"
+        "Friendship Landing floating soft launch"
       ],
       "sourceIds": [
         "nanjemoy-creek-friendship-farm-park-put-in"
       ],
       "storedAccessCoordinate": {
-        "latitude": 38.456667,
-        "longitude": -77.1508
+        "latitude": 38.45408599,
+        "longitude": -77.1503175
       },
       "accessCoordinate": {
-        "latitude": 38.456667,
-        "longitude": -77.1508
+        "latitude": 38.45408599,
+        "longitude": -77.1503175
       },
       "accessCoordinateSource": "stored-route-consensus",
       "authoritativeAccess": null,
@@ -133642,10 +133642,10 @@
       "routeCount": 1,
       "coordinateVariants": [
         {
-          "key": "38.45667,-77.15080",
+          "key": "38.45409,-77.15032",
           "coordinate": {
-            "latitude": 38.456667,
-            "longitude": -77.1508
+            "latitude": 38.45408599,
+            "longitude": -77.1503175
           },
           "occurrenceCount": 2,
           "routeCount": 1,
@@ -133661,12 +133661,12 @@
           "state": "Maryland",
           "endpoint": "accessPoint",
           "sourceId": "nanjemoy-creek-friendship-farm-park-put-in",
-          "name": "Friendship Farm Park and Landing public boat ramp",
-          "latitude": 38.456667,
-          "longitude": -77.1508,
-          "auditSeverity": "unknown",
+          "name": "Friendship Landing floating soft launch",
+          "latitude": 38.45408599,
+          "longitude": -77.1503175,
+          "auditSeverity": null,
           "distanceFeetToMatchedRiver": null,
-          "endpointOnWaterbody": false,
+          "endpointOnWaterbody": null,
           "coordinateEvidenceRole": null
         },
         {
@@ -133675,33 +133675,33 @@
           "state": "Maryland",
           "endpoint": "putIn",
           "sourceId": null,
-          "name": "Friendship Farm Park and Landing public boat ramp",
-          "latitude": 38.456667,
-          "longitude": -77.1508,
-          "auditSeverity": "unknown",
+          "name": "Friendship Landing floating soft launch",
+          "latitude": 38.45408599,
+          "longitude": -77.1503175,
+          "auditSeverity": null,
           "distanceFeetToMatchedRiver": null,
-          "endpointOnWaterbody": false,
+          "endpointOnWaterbody": null,
           "coordinateEvidenceRole": null
         }
       ]
     },
     {
-      "id": "maryland--friendship-farm-park-and-landing-return",
+      "id": "maryland--friendship-landing-soft-launch-return",
       "state": "Maryland",
-      "name": "Friendship Farm Park and Landing return",
+      "name": "Friendship Landing soft launch return",
       "aliases": [
-        "Friendship Farm Park and Landing return"
+        "Friendship Landing soft launch return"
       ],
       "sourceIds": [
         "nanjemoy-creek-friendship-farm-park-take-out"
       ],
       "storedAccessCoordinate": {
-        "latitude": 38.456667,
-        "longitude": -77.1508
+        "latitude": 38.45408599,
+        "longitude": -77.1503175
       },
       "accessCoordinate": {
-        "latitude": 38.456667,
-        "longitude": -77.1508
+        "latitude": 38.45408599,
+        "longitude": -77.1503175
       },
       "accessCoordinateSource": "stored-route-consensus",
       "authoritativeAccess": null,
@@ -133722,10 +133722,10 @@
       "routeCount": 1,
       "coordinateVariants": [
         {
-          "key": "38.45667,-77.15080",
+          "key": "38.45409,-77.15032",
           "coordinate": {
-            "latitude": 38.456667,
-            "longitude": -77.1508
+            "latitude": 38.45408599,
+            "longitude": -77.1503175
           },
           "occurrenceCount": 2,
           "routeCount": 1,
@@ -133741,12 +133741,12 @@
           "state": "Maryland",
           "endpoint": "accessPoint",
           "sourceId": "nanjemoy-creek-friendship-farm-park-take-out",
-          "name": "Friendship Farm Park and Landing return",
-          "latitude": 38.456667,
-          "longitude": -77.1508,
-          "auditSeverity": "unknown",
+          "name": "Friendship Landing soft launch return",
+          "latitude": 38.45408599,
+          "longitude": -77.1503175,
+          "auditSeverity": null,
           "distanceFeetToMatchedRiver": null,
-          "endpointOnWaterbody": false,
+          "endpointOnWaterbody": null,
           "coordinateEvidenceRole": null
         },
         {
@@ -133755,12 +133755,12 @@
           "state": "Maryland",
           "endpoint": "takeOut",
           "sourceId": null,
-          "name": "Friendship Farm Park and Landing return",
-          "latitude": 38.456667,
-          "longitude": -77.1508,
-          "auditSeverity": "unknown",
+          "name": "Friendship Landing soft launch return",
+          "latitude": 38.45408599,
+          "longitude": -77.1503175,
+          "auditSeverity": null,
           "distanceFeetToMatchedRiver": null,
-          "endpointOnWaterbody": false,
+          "endpointOnWaterbody": null,
           "coordinateEvidenceRole": null
         }
       ]
@@ -137536,22 +137536,22 @@
       ]
     },
     {
-      "id": "maryland--mallows-bay-paddle-in-day-use-beach",
+      "id": "maryland--mallows-bay-park-floating-soft-launch",
       "state": "Maryland",
-      "name": "Mallows Bay paddle-in day-use beach",
+      "name": "Mallows Bay Park floating soft launch",
       "aliases": [
-        "Mallows Bay paddle-in day-use beach"
+        "Mallows Bay Park floating soft launch"
       ],
       "sourceIds": [
         "lower-potomac-purse-mallows-bay-take-out"
       ],
       "storedAccessCoordinate": {
-        "latitude": 38.481111,
-        "longitude": -77.26355
+        "latitude": 38.4691295,
+        "longitude": -77.26370089
       },
       "accessCoordinate": {
-        "latitude": 38.481111,
-        "longitude": -77.26355
+        "latitude": 38.4691295,
+        "longitude": -77.26370089
       },
       "accessCoordinateSource": "stored-route-consensus",
       "authoritativeAccess": null,
@@ -137572,10 +137572,10 @@
       "routeCount": 1,
       "coordinateVariants": [
         {
-          "key": "38.48111,-77.26355",
+          "key": "38.46913,-77.26370",
           "coordinate": {
-            "latitude": 38.481111,
-            "longitude": -77.26355
+            "latitude": 38.4691295,
+            "longitude": -77.26370089
           },
           "occurrenceCount": 2,
           "routeCount": 1,
@@ -137591,12 +137591,12 @@
           "state": "Maryland",
           "endpoint": "accessPoint",
           "sourceId": "lower-potomac-purse-mallows-bay-take-out",
-          "name": "Mallows Bay paddle-in day-use beach",
-          "latitude": 38.481111,
-          "longitude": -77.26355,
-          "auditSeverity": "unknown",
+          "name": "Mallows Bay Park floating soft launch",
+          "latitude": 38.4691295,
+          "longitude": -77.26370089,
+          "auditSeverity": null,
           "distanceFeetToMatchedRiver": null,
-          "endpointOnWaterbody": false,
+          "endpointOnWaterbody": null,
           "coordinateEvidenceRole": null
         },
         {
@@ -137605,12 +137605,12 @@
           "state": "Maryland",
           "endpoint": "takeOut",
           "sourceId": null,
-          "name": "Mallows Bay paddle-in day-use beach",
-          "latitude": 38.481111,
-          "longitude": -77.26355,
-          "auditSeverity": "unknown",
+          "name": "Mallows Bay Park floating soft launch",
+          "latitude": 38.4691295,
+          "longitude": -77.26370089,
+          "auditSeverity": null,
           "distanceFeetToMatchedRiver": null,
-          "endpointOnWaterbody": false,
+          "endpointOnWaterbody": null,
           "coordinateEvidenceRole": null
         }
       ]
@@ -138256,22 +138256,22 @@
       ]
     },
     {
-      "id": "maryland--mattlingy-park-public-boat-ramp",
+      "id": "maryland--mattingly-park-slavin-s-dock-floating-soft-launch",
       "state": "Maryland",
-      "name": "Mattlingy Park public boat ramp",
+      "name": "Mattingly Park / Slavin’s Dock floating soft launch",
       "aliases": [
-        "Mattlingy Park public boat ramp"
+        "Mattingly Park / Slavin’s Dock floating soft launch"
       ],
       "sourceIds": [
         "mattawoman-creek-mattlingy-smallwood-put-in"
       ],
       "storedAccessCoordinate": {
-        "latitude": 38.590217,
-        "longitude": -77.160675
+        "latitude": 38.58981127,
+        "longitude": -77.16144104
       },
       "accessCoordinate": {
-        "latitude": 38.590217,
-        "longitude": -77.160675
+        "latitude": 38.58981127,
+        "longitude": -77.16144104
       },
       "accessCoordinateSource": "stored-route-consensus",
       "authoritativeAccess": null,
@@ -138281,9 +138281,9 @@
       "authoritativeAccessIdentityMismatch": false,
       "authoritativeAccessMismatchFeet": null,
       "waterEntryCoordinate": null,
-      "waterEntryConsensusRouteCount": 1,
+      "waterEntryConsensusRouteCount": 0,
       "waterEntryExactOnRiver": false,
-      "waterEntryWaterbodyConfirmed": true,
+      "waterEntryWaterbodyConfirmed": false,
       "authoritativeResolvesDistinctLocation": false,
       "coordinateStatus": "consistent",
       "verificationStatus": "unverified",
@@ -138292,10 +138292,10 @@
       "routeCount": 1,
       "coordinateVariants": [
         {
-          "key": "38.59022,-77.16067",
+          "key": "38.58981,-77.16144",
           "coordinate": {
-            "latitude": 38.590217,
-            "longitude": -77.160675
+            "latitude": 38.58981127,
+            "longitude": -77.16144104
           },
           "occurrenceCount": 2,
           "routeCount": 1,
@@ -138311,12 +138311,12 @@
           "state": "Maryland",
           "endpoint": "accessPoint",
           "sourceId": "mattawoman-creek-mattlingy-smallwood-put-in",
-          "name": "Mattlingy Park public boat ramp",
-          "latitude": 38.590217,
-          "longitude": -77.160675,
-          "auditSeverity": "review",
+          "name": "Mattingly Park / Slavin’s Dock floating soft launch",
+          "latitude": 38.58981127,
+          "longitude": -77.16144104,
+          "auditSeverity": null,
           "distanceFeetToMatchedRiver": null,
-          "endpointOnWaterbody": true,
+          "endpointOnWaterbody": null,
           "coordinateEvidenceRole": null
         },
         {
@@ -138325,12 +138325,12 @@
           "state": "Maryland",
           "endpoint": "putIn",
           "sourceId": null,
-          "name": "Mattlingy Park public boat ramp",
-          "latitude": 38.590217,
-          "longitude": -77.160675,
-          "auditSeverity": "review",
+          "name": "Mattingly Park / Slavin’s Dock floating soft launch",
+          "latitude": 38.58981127,
+          "longitude": -77.16144104,
+          "auditSeverity": null,
           "distanceFeetToMatchedRiver": null,
-          "endpointOnWaterbody": true,
+          "endpointOnWaterbody": null,
           "coordinateEvidenceRole": null
         }
       ]
@@ -142640,22 +142640,22 @@
       ]
     },
     {
-      "id": "maryland--port-tobacco-marina-public-fee-ramp",
+      "id": "maryland--port-tobacco-marina-fee-controlled-access",
       "state": "Maryland",
-      "name": "Port Tobacco Marina public fee ramp",
+      "name": "Port Tobacco Marina fee-controlled access",
       "aliases": [
-        "Port Tobacco Marina public fee ramp"
+        "Port Tobacco Marina fee-controlled access"
       ],
       "sourceIds": [
         "port-tobacco-river-chapel-point-port-tobacco-take-out"
       ],
       "storedAccessCoordinate": {
-        "latitude": 38.500164,
-        "longitude": -77.026306
+        "latitude": 38.497025,
+        "longitude": -77.02635
       },
       "accessCoordinate": {
-        "latitude": 38.500164,
-        "longitude": -77.026306
+        "latitude": 38.497025,
+        "longitude": -77.02635
       },
       "accessCoordinateSource": "stored-route-consensus",
       "authoritativeAccess": null,
@@ -142665,9 +142665,9 @@
       "authoritativeAccessIdentityMismatch": false,
       "authoritativeAccessMismatchFeet": null,
       "waterEntryCoordinate": null,
-      "waterEntryConsensusRouteCount": 1,
+      "waterEntryConsensusRouteCount": 0,
       "waterEntryExactOnRiver": false,
-      "waterEntryWaterbodyConfirmed": true,
+      "waterEntryWaterbodyConfirmed": false,
       "authoritativeResolvesDistinctLocation": false,
       "coordinateStatus": "consistent",
       "verificationStatus": "unverified",
@@ -142676,10 +142676,10 @@
       "routeCount": 1,
       "coordinateVariants": [
         {
-          "key": "38.50016,-77.02631",
+          "key": "38.49703,-77.02635",
           "coordinate": {
-            "latitude": 38.500164,
-            "longitude": -77.026306
+            "latitude": 38.497025,
+            "longitude": -77.02635
           },
           "occurrenceCount": 2,
           "routeCount": 1,
@@ -142695,12 +142695,12 @@
           "state": "Maryland",
           "endpoint": "accessPoint",
           "sourceId": "port-tobacco-river-chapel-point-port-tobacco-take-out",
-          "name": "Port Tobacco Marina public fee ramp",
-          "latitude": 38.500164,
-          "longitude": -77.026306,
-          "auditSeverity": "review",
+          "name": "Port Tobacco Marina fee-controlled access",
+          "latitude": 38.497025,
+          "longitude": -77.02635,
+          "auditSeverity": null,
           "distanceFeetToMatchedRiver": null,
-          "endpointOnWaterbody": true,
+          "endpointOnWaterbody": null,
           "coordinateEvidenceRole": null
         },
         {
@@ -142709,33 +142709,33 @@
           "state": "Maryland",
           "endpoint": "takeOut",
           "sourceId": null,
-          "name": "Port Tobacco Marina public fee ramp",
-          "latitude": 38.500164,
-          "longitude": -77.026306,
-          "auditSeverity": "review",
+          "name": "Port Tobacco Marina fee-controlled access",
+          "latitude": 38.497025,
+          "longitude": -77.02635,
+          "auditSeverity": null,
           "distanceFeetToMatchedRiver": null,
-          "endpointOnWaterbody": true,
+          "endpointOnWaterbody": null,
           "coordinateEvidenceRole": null
         }
       ]
     },
     {
-      "id": "maryland--purse-state-park-public-access",
+      "id": "maryland--purse-area-beach-access-nanjemoy-wma",
       "state": "Maryland",
-      "name": "Purse State Park public access",
+      "name": "Purse area beach access, Nanjemoy WMA",
       "aliases": [
-        "Purse State Park public access"
+        "Purse area beach access, Nanjemoy WMA"
       ],
       "sourceIds": [
         "lower-potomac-purse-mallows-bay-put-in"
       ],
       "storedAccessCoordinate": {
-        "latitude": 38.390833,
-        "longitude": -77.315556
+        "latitude": 38.43223614,
+        "longitude": -77.25649254
       },
       "accessCoordinate": {
-        "latitude": 38.390833,
-        "longitude": -77.315556
+        "latitude": 38.43223614,
+        "longitude": -77.25649254
       },
       "accessCoordinateSource": "stored-route-consensus",
       "authoritativeAccess": null,
@@ -142745,9 +142745,9 @@
       "authoritativeAccessIdentityMismatch": false,
       "authoritativeAccessMismatchFeet": null,
       "waterEntryCoordinate": null,
-      "waterEntryConsensusRouteCount": 1,
+      "waterEntryConsensusRouteCount": 0,
       "waterEntryExactOnRiver": false,
-      "waterEntryWaterbodyConfirmed": true,
+      "waterEntryWaterbodyConfirmed": false,
       "authoritativeResolvesDistinctLocation": false,
       "coordinateStatus": "consistent",
       "verificationStatus": "unverified",
@@ -142756,10 +142756,10 @@
       "routeCount": 1,
       "coordinateVariants": [
         {
-          "key": "38.39083,-77.31556",
+          "key": "38.43224,-77.25649",
           "coordinate": {
-            "latitude": 38.390833,
-            "longitude": -77.315556
+            "latitude": 38.43223614,
+            "longitude": -77.25649254
           },
           "occurrenceCount": 2,
           "routeCount": 1,
@@ -142775,12 +142775,12 @@
           "state": "Maryland",
           "endpoint": "accessPoint",
           "sourceId": "lower-potomac-purse-mallows-bay-put-in",
-          "name": "Purse State Park public access",
-          "latitude": 38.390833,
-          "longitude": -77.315556,
-          "auditSeverity": "review",
+          "name": "Purse area beach access, Nanjemoy WMA",
+          "latitude": 38.43223614,
+          "longitude": -77.25649254,
+          "auditSeverity": null,
           "distanceFeetToMatchedRiver": null,
-          "endpointOnWaterbody": true,
+          "endpointOnWaterbody": null,
           "coordinateEvidenceRole": null
         },
         {
@@ -142789,12 +142789,12 @@
           "state": "Maryland",
           "endpoint": "putIn",
           "sourceId": null,
-          "name": "Purse State Park public access",
-          "latitude": 38.390833,
-          "longitude": -77.315556,
-          "auditSeverity": "review",
+          "name": "Purse area beach access, Nanjemoy WMA",
+          "latitude": 38.43223614,
+          "longitude": -77.25649254,
+          "auditSeverity": null,
           "distanceFeetToMatchedRiver": null,
-          "endpointOnWaterbody": true,
+          "endpointOnWaterbody": null,
           "coordinateEvidenceRole": null
         }
       ]
@@ -144529,22 +144529,22 @@
       ]
     },
     {
-      "id": "maryland--smallwood-state-park-sweden-point-marina",
+      "id": "maryland--smallwood-state-park-sweden-point-kayak-launch",
       "state": "Maryland",
-      "name": "Smallwood State Park / Sweden Point Marina",
+      "name": "Smallwood State Park / Sweden Point kayak launch",
       "aliases": [
-        "Smallwood State Park / Sweden Point Marina"
+        "Smallwood State Park / Sweden Point kayak launch"
       ],
       "sourceIds": [
         "mattawoman-creek-mattlingy-smallwood-take-out"
       ],
       "storedAccessCoordinate": {
-        "latitude": 38.564444,
-        "longitude": -77.199722
+        "latitude": 38.55830549,
+        "longitude": -77.18898041
       },
       "accessCoordinate": {
-        "latitude": 38.564444,
-        "longitude": -77.199722
+        "latitude": 38.55830549,
+        "longitude": -77.18898041
       },
       "accessCoordinateSource": "stored-route-consensus",
       "authoritativeAccess": null,
@@ -144554,9 +144554,9 @@
       "authoritativeAccessIdentityMismatch": false,
       "authoritativeAccessMismatchFeet": null,
       "waterEntryCoordinate": null,
-      "waterEntryConsensusRouteCount": 1,
+      "waterEntryConsensusRouteCount": 0,
       "waterEntryExactOnRiver": false,
-      "waterEntryWaterbodyConfirmed": true,
+      "waterEntryWaterbodyConfirmed": false,
       "authoritativeResolvesDistinctLocation": false,
       "coordinateStatus": "consistent",
       "verificationStatus": "unverified",
@@ -144565,10 +144565,10 @@
       "routeCount": 1,
       "coordinateVariants": [
         {
-          "key": "38.56444,-77.19972",
+          "key": "38.55831,-77.18898",
           "coordinate": {
-            "latitude": 38.564444,
-            "longitude": -77.199722
+            "latitude": 38.55830549,
+            "longitude": -77.18898041
           },
           "occurrenceCount": 2,
           "routeCount": 1,
@@ -144584,12 +144584,12 @@
           "state": "Maryland",
           "endpoint": "accessPoint",
           "sourceId": "mattawoman-creek-mattlingy-smallwood-take-out",
-          "name": "Smallwood State Park / Sweden Point Marina",
-          "latitude": 38.564444,
-          "longitude": -77.199722,
-          "auditSeverity": "review",
+          "name": "Smallwood State Park / Sweden Point kayak launch",
+          "latitude": 38.55830549,
+          "longitude": -77.18898041,
+          "auditSeverity": null,
           "distanceFeetToMatchedRiver": null,
-          "endpointOnWaterbody": true,
+          "endpointOnWaterbody": null,
           "coordinateEvidenceRole": null
         },
         {
@@ -144598,12 +144598,12 @@
           "state": "Maryland",
           "endpoint": "takeOut",
           "sourceId": null,
-          "name": "Smallwood State Park / Sweden Point Marina",
-          "latitude": 38.564444,
-          "longitude": -77.199722,
-          "auditSeverity": "review",
+          "name": "Smallwood State Park / Sweden Point kayak launch",
+          "latitude": 38.55830549,
+          "longitude": -77.18898041,
+          "auditSeverity": null,
           "distanceFeetToMatchedRiver": null,
-          "endpointOnWaterbody": true,
+          "endpointOnWaterbody": null,
           "coordinateEvidenceRole": null
         }
       ]

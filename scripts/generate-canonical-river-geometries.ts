@@ -33,6 +33,7 @@ interface CanonicalFeature {
     traceMode?: 'network-traced' | 'named-fallback' | 'curated-access-fallback';
     endpointSnapMaxFeet?: number | null;
     generalizedPlanningLine?: boolean;
+    planningLineDescription?: string;
   };
   geometry: {
     type: 'MultiLineString';
@@ -2681,10 +2682,10 @@ const officialCuratedRouteCoordinates: Record<string, Point[]> = {
   'point-lookout-creek-water-trail': [[-76.32679, 38.05219], [-76.32, 38.056], [-76.313, 38.06], [-76.318, 38.066], [-76.32679, 38.05219]],
   'point-lookout-lake-conoy-water-trail': [[-76.32679, 38.05219], [-76.321, 38.049], [-76.315, 38.046], [-76.312, 38.05], [-76.319, 38.055], [-76.32679, 38.05219]],
   'point-lookout-bay-point-water-trail': [[-76.32679, 38.05219], [-76.34, 38.045], [-76.354, 38.035], [-76.36, 38.02], [-76.348, 38.012], [-76.333, 38.027], [-76.32679, 38.05219]],
-  'mattawoman-creek-mattlingy-smallwood': [[-77.160675, 38.590217], [-77.168, 38.584], [-77.177, 38.578], [-77.186, 38.571], [-77.199722, 38.564444]],
-  'lower-potomac-purse-mallows-bay': [[-77.315556, 38.390833], [-77.305, 38.405], [-77.292, 38.421], [-77.278, 38.438], [-77.26355, 38.481111]],
-  'nanjemoy-creek-friendship-farm-park': [[-77.1508, 38.456667], [-77.143, 38.462], [-77.137, 38.468], [-77.143, 38.474], [-77.1508, 38.456667]],
-  'port-tobacco-river-chapel-point-port-tobacco': [[-77.031944, 38.470556], [-77.030, 38.478], [-77.028, 38.486], [-77.026306, 38.500164]],
+  'mattawoman-creek-mattlingy-smallwood': [[-77.16144104,38.58981127],[-77.16197391,38.58806522],[-77.16124348,38.58605652],[-77.16023913,38.58432174],[-77.16096957,38.58240435],[-77.16297826,38.58048696],[-77.16571739,38.5793913],[-77.16891304,38.57866087],[-77.17146957,38.5771087],[-77.1742087,38.57546522],[-77.1763087,38.57336522],[-77.17923043,38.57144783],[-77.18215217,38.57035217],[-77.18507391,38.56934783],[-77.1869,38.56761304],[-77.18826957,38.56569565],[-77.1890913,38.56341304],[-77.18945652,38.56158696],[-77.18898041,38.55830549]],
+  'lower-potomac-purse-mallows-bay': [[-77.25649254,38.43223614],[-77.25768986,38.43389275],[-77.25882029,38.43555072],[-77.26010145,38.43705797],[-77.26130725,38.43841449],[-77.26258841,38.43977101],[-77.26402029,38.44112754],[-77.26515072,38.44271014],[-77.26605507,38.44421739],[-77.26658261,38.4458],[-77.2668087,38.44745797],[-77.26703478,38.44934203],[-77.26771304,38.45130145],[-77.26854203,38.45326087],[-77.26906957,38.45537101],[-77.26906957,38.45748116],[-77.26854203,38.4595913],[-77.26763768,38.46162609],[-77.26695942,38.46351014],[-77.26665797,38.46516812],[-77.26590435,38.46667536],[-77.26492464,38.46788116],[-77.26370089,38.4691295]],
+  'nanjemoy-creek-friendship-farm-park': [[-77.1503175,38.45408599],[-77.1488,38.454228],[-77.14688,38.4549],[-77.14496,38.456052],[-77.14304,38.4573],[-77.1416,38.4585],[-77.140784,38.459796],[-77.140304,38.460996],[-77.139584,38.462004],[-77.13872,38.462868],[-77.137856,38.46354],[-77.13872,38.46306],[-77.13968,38.46258],[-77.13872,38.46306],[-77.137856,38.46354],[-77.13872,38.462868],[-77.139584,38.462004],[-77.140304,38.460996],[-77.140784,38.459796],[-77.1416,38.4585],[-77.14304,38.4573],[-77.14496,38.456052],[-77.14688,38.4549],[-77.1488,38.454228],[-77.1503175,38.45408599]],
+  'port-tobacco-river-chapel-point-port-tobacco': [[-77.03147624,38.47076424],[-77.03278261,38.47208261],[-77.03369565,38.47342174],[-77.03418261,38.47482174],[-77.03424348,38.47634348],[-77.03406087,38.47792609],[-77.03345217,38.47926522],[-77.03217391,38.48060435],[-77.03089565,38.48151739],[-77.02949565,38.4824913],[-77.02852174,38.4837087],[-77.02773043,38.4851087],[-77.027,38.48632609],[-77.0262087,38.48778696],[-77.02541739,38.48924783],[-77.02444348,38.49046522],[-77.02346957,38.49162174],[-77.0228,38.49302174],[-77.0228,38.49423913],[-77.02334783,38.49533478],[-77.0242,38.4963087],[-77.02511304,38.49697826],[-77.02584348,38.49734348],[-77.02635,38.497025]],
   'calvert-kings-landing-cocktown-loop': [[-76.675724, 38.62565], [-76.683, 38.631], [-76.691, 38.638], [-76.697, 38.631], [-76.689, 38.621], [-76.675724, 38.62565]],
   'calvert-hallowing-point-caney-benedict': [[-76.665283, 38.508755], [-76.670, 38.511], [-76.674255, 38.514698], [-76.671, 38.510], [-76.665283, 38.508755]],
   'calvert-nans-cove-rock-creek-loop': [[-76.549292, 38.424474], [-76.555, 38.431], [-76.563, 38.438], [-76.570, 38.433], [-76.564, 38.425], [-76.549292, 38.424474]],
@@ -3664,7 +3665,9 @@ async function main() {
         riverId: route.riverId,
         name: route.name,
         state: route.state,
-        source: route.id === 'baltimore-blueway-inner-harbor-heritage' || route.id === 'baltimore-blueway-canton'
+        source: route.riverId === 'charles-county-water-trails-maryland'
+          ? 'Charles County 2014 water-trail map and DNR public-access GIS; generalized planning line reviewed against Esri imagery, not a navigation track'
+          : route.id === 'baltimore-blueway-inner-harbor-heritage' || route.id === 'baltimore-blueway-canton'
           ? 'Baltimore Blueway shoreline trail maps and current dock-owner access guidance; generalized planning line'
           : route.id === 'hammocks-beach-huggins-island-loop'
           ? 'North Carolina Coastal Plain Paddle Trails GIS mapped trail vertices with Hammocks Beach State Park access anchor'
@@ -3678,8 +3681,13 @@ async function main() {
           : 'Curated public-agency and American Whitewater access anchors with route-specific river trace pending named NHD coverage',
         traceMode: 'curated-access-fallback',
         endpointSnapMaxFeet: 0,
-        ...((route.id === 'baltimore-blueway-inner-harbor-heritage' || route.id === 'baltimore-blueway-canton')
+        ...((route.riverId === 'charles-county-water-trails-maryland' || route.id === 'baltimore-blueway-inner-harbor-heritage' || route.id === 'baltimore-blueway-canton')
           ? { generalizedPlanningLine: true } : {}),
+        ...(route.riverId === 'charles-county-water-trails-maryland' ? {
+          planningLineDescription: route.id === 'nanjemoy-creek-friendship-farm-park'
+            ? 'Generalized access and Church Creek approach illustration only; no marked turnaround or measured option distance. Use the county map and local navigation, not this line as a navigation track.'
+            : 'Generalized planning line between published access-site anchors. Published trail mileage is not the measured line length. Verify actual entries, landings and local navigation; not a surveyed navigation track.',
+        } : {}),
       },
       geometry: { type: 'MultiLineString', coordinates: [coordinates] },
     }];

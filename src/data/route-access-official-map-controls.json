@@ -16413,164 +16413,172 @@
     },
     {
       "id": "md_charles_mattawoman_mattlingy_smallwood_access",
-      "name": "Maryland Mattawoman Creek Mattlingy Park to Smallwood access",
+      "name": "Charles County Mattingly Park to Smallwood State Park access review",
       "state": "Maryland",
-      "sourceUrl": "https://www.charlescounty.org/webdocs/tourism/publications/CC_Water_Trail_Map.pdf",
-      "sourceType": "official-county-water-trail-guide",
+      "sourceUrl": "https://services.arcgis.com/njFNhDsUCentVYJW/arcgis/rest/services/Public_Water_Access_2020/FeatureServer/0",
+      "sourceType": "official-access-gis-and-county-water-trail-guide",
       "sourceDocumentDate": null,
-      "sourceSha256": null,
+      "sourceSha256": "cf63ae4e61c6d65aea4637c4cb2a77ecdf0611fa29c26ae44b3ea4645ec92cfb",
       "coordinateRole": "authoritative-access-anchor",
-      "method": "Charles County’s official water-trail guide identifies the town-managed Mattlingy Park ramp and Smallwood State Park endpoint. Coordinates are near-water anchors; preserve the guide’s launch fee, no-wake, parking, carry, and current-facility verification controls.",
+      "method": "2026-10-20 review of DNR public-access GIS and the county’s 2014 second edition. Published access-site anchors, not surveyed water edges. The private marina point is from the 2014 brochure. Match radii are conservative review tolerances, not source-certified positional accuracy. Current manager terms override older inventory attributes; see docs/audits/charles-county-source-review-2026-10-20.json.",
       "controls": [
         {
           "featureId": "mattawoman-creek-mattlingy-smallwood-put-in",
-          "name": "Mattlingy Park public ramp",
+          "name": "Mattingly Park / Slavin’s Dock floating soft launch",
           "aliases": [
             "Mattlingy Park launch",
-            "Mattawoman Creek put-in"
+            "Mattawoman Creek put-in",
+            "Mattingly Park / Slavin’s Dock floating soft launch"
           ],
           "waterbody": "Mattawoman Creek",
-          "latitude": 38.590217,
-          "longitude": -77.160675,
+          "latitude": 38.58981127,
+          "longitude": -77.16144104,
           "riverMile": 0,
           "uncertaintyFeet": 700,
-          "coordinateText": "Charles County guide anchor for the town-managed ramp; confirm the $5 launch fee, parking, no-wake rule, carry, and current waterline."
+          "coordinateText": "Mattingly is the park’s correct name; the historical URL spelling is retained. Paddle launches are separate from the motorboat ramps. Published points identify those facilities, not the day’s usable waterline. The county’s approximately 4.5 miles is a trail distance, not a measured length of the generalized map line."
         },
         {
           "featureId": "mattawoman-creek-mattlingy-smallwood-take-out",
-          "name": "Smallwood State Park public endpoint",
+          "name": "Smallwood State Park / Sweden Point kayak launch",
           "aliases": [
             "Smallwood State Park launch",
-            "Mattawoman Creek take-out"
+            "Mattawoman Creek take-out",
+            "Smallwood State Park / Sweden Point kayak launch"
           ],
           "waterbody": "Mattawoman Creek",
-          "latitude": 38.564444,
-          "longitude": -77.199722,
+          "latitude": 38.55830549,
+          "longitude": -77.18898041,
           "riverMile": 4.5,
           "uncertaintyFeet": 700,
-          "coordinateText": "Charles County guide endpoint anchor; confirm park hours, launch/carry conditions, parking, fees, and the current public landing."
+          "coordinateText": "Mattingly is the park’s correct name; the historical URL spelling is retained. Paddle launches are separate from the motorboat ramps. Published points identify those facilities, not the day’s usable waterline. The county’s approximately 4.5 miles is a trail distance, not a measured length of the generalized map line."
         }
       ]
     },
     {
       "id": "md_charles_lower_potomac_purse_mallows_access",
-      "name": "Maryland Lower Potomac Purse to Mallows Bay access",
+      "name": "Charles County Purse area beach to Mallows Bay Park access review",
       "state": "Maryland",
-      "sourceUrl": "https://www.charlescounty.org/webdocs/tourism/publications/CC_Water_Trail_Map.pdf",
-      "sourceType": "official-county-water-trail-guide",
+      "sourceUrl": "https://services.arcgis.com/njFNhDsUCentVYJW/arcgis/rest/services/Public_Water_Access_2020/FeatureServer/0",
+      "sourceType": "official-access-gis-and-county-water-trail-guide",
       "sourceDocumentDate": null,
-      "sourceSha256": null,
+      "sourceSha256": "cf63ae4e61c6d65aea4637c4cb2a77ecdf0611fa29c26ae44b3ea4645ec92cfb",
       "coordinateRole": "authoritative-access-anchor",
-      "method": "Charles County’s official water-trail guide identifies Purse State Park and Mallows Bay as the route endpoints. Preserve the Purse carry/portage and Mallows paddle-in day-use restrictions; coordinates are near-water anchors requiring current access verification.",
+      "method": "2026-10-20 review of DNR public-access GIS and the county’s 2014 second edition. Published access-site anchors, not surveyed water edges. The private marina point is from the 2014 brochure. Match radii are conservative review tolerances, not source-certified positional accuracy. Current manager terms override older inventory attributes; see docs/audits/charles-county-source-review-2026-10-20.json.",
       "controls": [
         {
           "featureId": "lower-potomac-purse-mallows-bay-put-in",
-          "name": "Purse State Park public access",
+          "name": "Purse area beach access, Nanjemoy WMA",
           "aliases": [
             "Purse launch",
-            "Purse to Mallows put-in"
+            "Purse to Mallows put-in",
+            "Purse area beach access, Nanjemoy WMA"
           ],
           "waterbody": "Potomac River",
-          "latitude": 38.390833,
-          "longitude": -77.315556,
+          "latitude": 38.43223614,
+          "longitude": -77.25649254,
           "riverMile": 0,
           "uncertaintyFeet": 1000,
-          "coordinateText": "Charles County guide anchor; the route requires an approximately one-quarter-mile carry from parking to the river. Verify current park access, carry, parking, and shoreline conditions."
+          "coordinateText": "Purse is a carry-in beach, not a vehicle ramp. The 2014 brochure describes a quarter-mile carry; DNR’s access inventory describes a half-mile portage. Scout the actual path and beach before staging boats. The Purse point is a published access-area anchor, not a surveyed beach edge, parking pin or continuous on-water track. Carry distance is separate from paddle mileage. Mallows has a public road, boat ramp and separate floating paddle launch. Confirm current hours, parking, closures and any group registration. The county brochure presents Mallows-to-Purse; this reverse itinerary needs its own wind, tide and shuttle plan."
         },
         {
           "featureId": "lower-potomac-purse-mallows-bay-take-out",
-          "name": "Mallows Bay paddle-in day-use endpoint",
+          "name": "Mallows Bay Park floating soft launch",
           "aliases": [
             "Mallows Bay",
-            "Mallows Bay take-out"
+            "Mallows Bay take-out",
+            "Mallows Bay Park floating soft launch"
           ],
           "waterbody": "Potomac River",
-          "latitude": 38.481111,
-          "longitude": -77.26355,
+          "latitude": 38.4691295,
+          "longitude": -77.26370089,
           "riverMile": 3,
           "uncertaintyFeet": 1200,
-          "coordinateText": "Charles County guide anchor for paddle-in day use; tide-affected shoreline and park rules control. No vehicle ramp, camping, or informal shoreline landing is implied."
+          "coordinateText": "Purse is a carry-in beach, not a vehicle ramp. The 2014 brochure describes a quarter-mile carry; DNR’s access inventory describes a half-mile portage. Scout the actual path and beach before staging boats. The Purse point is a published access-area anchor, not a surveyed beach edge, parking pin or continuous on-water track. Carry distance is separate from paddle mileage. Mallows has a public road, boat ramp and separate floating paddle launch. Confirm current hours, parking, closures and any group registration. The county brochure presents Mallows-to-Purse; this reverse itinerary needs its own wind, tide and shuttle plan."
         }
       ]
     },
     {
       "id": "md_charles_nanjemoy_friendship_farm_access",
-      "name": "Maryland Nanjemoy Creek Friendship Farm Park access",
+      "name": "Charles County Friendship Landing: Church Creek and Hilltop Fork options access review",
       "state": "Maryland",
-      "sourceUrl": "https://www.charlescounty.org/webdocs/tourism/publications/CC_Water_Trail_Map.pdf",
-      "sourceType": "official-county-water-trail-guide",
+      "sourceUrl": "https://services.arcgis.com/njFNhDsUCentVYJW/arcgis/rest/services/Public_Water_Access_2020/FeatureServer/0",
+      "sourceType": "official-access-gis-and-county-water-trail-guide",
       "sourceDocumentDate": null,
-      "sourceSha256": null,
+      "sourceSha256": "cf63ae4e61c6d65aea4637c4cb2a77ecdf0611fa29c26ae44b3ea4645ec92cfb",
       "coordinateRole": "authoritative-access-anchor",
-      "method": "Charles County’s official water-trail guide identifies Friendship Farm Park as a public ramp and primitive-camping water-trail base. The card is bounded at the same launch because the guide presents route options rather than a single stable mileage or downstream public take-out.",
+      "method": "2026-10-20 review of DNR public-access GIS and the county’s 2014 second edition. Published access-site anchors, not surveyed water edges. The private marina point is from the 2014 brochure. Match radii are conservative review tolerances, not source-certified positional accuracy. Current manager terms override older inventory attributes; see docs/audits/charles-county-source-review-2026-10-20.json.",
       "controls": [
         {
           "featureId": "nanjemoy-creek-friendship-farm-park-put-in",
-          "name": "Friendship Farm Park public ramp",
+          "name": "Friendship Landing floating soft launch",
           "aliases": [
             "Friendship Farm launch",
-            "Nanjemoy Creek put-in"
+            "Nanjemoy Creek put-in",
+            "Friendship Landing floating soft launch"
           ],
           "waterbody": "Nanjemoy Creek",
-          "latitude": 38.456667,
-          "longitude": -77.1508,
+          "latitude": 38.45408599,
+          "longitude": -77.1503175,
           "riverMile": 0,
           "uncertaintyFeet": 900,
-          "coordinateText": "Charles County guide anchor for the public ramp and primitive campsite; verify road, parking, carry, campsite reservation/rules, and current waterline."
+          "coordinateText": "The approximately 2- and 4-mile figures are different round-trip options, not cumulative legs or a single measured loop. The generalized map illustrates the Church Creek option only; use the full county map to choose Hilltop Fork and navigate its shallow fingers. No intermediate shoreline is published here as a public take-out. Return to the same named launch and keep the open Potomac continuation outside this plan."
         },
         {
           "featureId": "nanjemoy-creek-friendship-farm-park-take-out",
-          "name": "Friendship Farm Park return",
+          "name": "Friendship Landing soft launch return",
           "aliases": [
-            "Nanjemoy Creek same-launch return"
+            "Nanjemoy Creek same-launch return",
+            "Friendship Landing soft launch return"
           ],
           "waterbody": "Nanjemoy Creek",
-          "latitude": 38.456667,
-          "longitude": -77.1508,
+          "latitude": 38.45408599,
+          "longitude": -77.1503175,
           "riverMile": 0,
           "uncertaintyFeet": 900,
-          "coordinateText": "Same-launch return boundary for the guide’s protected-cove and creek options; no private-bank, marsh, or unverified downstream landing is claimed."
+          "coordinateText": "The approximately 2- and 4-mile figures are different round-trip options, not cumulative legs or a single measured loop. The generalized map illustrates the Church Creek option only; use the full county map to choose Hilltop Fork and navigate its shallow fingers. No intermediate shoreline is published here as a public take-out. Return to the same named launch and keep the open Potomac continuation outside this plan."
         }
       ]
     },
     {
       "id": "md_charles_port_tobacco_chapel_point_access",
-      "name": "Maryland Port Tobacco River Chapel Point to marina access",
+      "name": "Charles County Chapel Point State Park to Port Tobacco Marina access review",
       "state": "Maryland",
-      "sourceUrl": "https://www.charlescounty.org/webdocs/tourism/publications/CC_Water_Trail_Map.pdf",
-      "sourceType": "official-county-water-trail-guide",
+      "sourceUrl": "https://services.arcgis.com/njFNhDsUCentVYJW/arcgis/rest/services/Public_Water_Access_2020/FeatureServer/0",
+      "sourceType": "official-access-gis-and-county-water-trail-guide",
       "sourceDocumentDate": null,
-      "sourceSha256": null,
+      "sourceSha256": "cf63ae4e61c6d65aea4637c4cb2a77ecdf0611fa29c26ae44b3ea4645ec92cfb",
       "coordinateRole": "authoritative-access-anchor",
-      "method": "Charles County’s official water-trail guide identifies the Chapel Point public sand/gravel launch and Port Tobacco Marina fee-controlled endpoint. Preserve the high-tide beach/carry and private-marina fee controls; coordinates are near-water anchors requiring current verification.",
+      "method": "2026-10-20 review of DNR public-access GIS and the county’s 2014 second edition. Published access-site anchors, not surveyed water edges. The private marina point is from the 2014 brochure. Match radii are conservative review tolerances, not source-certified positional accuracy. Current manager terms override older inventory attributes; see docs/audits/charles-county-source-review-2026-10-20.json.",
       "controls": [
         {
           "featureId": "port-tobacco-river-chapel-point-port-tobacco-put-in",
-          "name": "Chapel Point public sand/gravel launch",
+          "name": "Chapel Point State Park sand launch",
           "aliases": [
             "Chapel Point launch",
-            "Port Tobacco River put-in"
+            "Port Tobacco River put-in",
+            "Chapel Point State Park sand launch"
           ],
           "waterbody": "Port Tobacco River",
-          "latitude": 38.470556,
-          "longitude": -77.031944,
+          "latitude": 38.47076424,
+          "longitude": -77.03147624,
           "riverMile": 0,
           "uncertaintyFeet": 800,
-          "coordinateText": "Charles County guide anchor; high tide leaves little beach. Verify current public carry, parking, shoreline, and launch conditions."
+          "coordinateText": "Chapel Point’s small sand launch can have almost no beach at high tide; inspect the entry and exit before committing. The marina coordinate comes from the 2014 county guide and marks the facility area, not an agreed kayak landing. The current owner website confirms the business and address, not public kayak take-out rights. The county brochure runs marina-to-Chapel Point. This guide reverses that direction and requires its own tide, wind and shuttle plan. Goose Creek and Goose Bay Marina are separate options."
         },
         {
           "featureId": "port-tobacco-river-chapel-point-port-tobacco-take-out",
-          "name": "Port Tobacco Marina fee-controlled endpoint",
+          "name": "Port Tobacco Marina fee-controlled access",
           "aliases": [
             "Port Tobacco Marina",
-            "Port Tobacco River take-out"
+            "Port Tobacco River take-out",
+            "Port Tobacco Marina fee-controlled access"
           ],
           "waterbody": "Port Tobacco River",
-          "latitude": 38.500164,
-          "longitude": -77.026306,
+          "latitude": 38.497025,
+          "longitude": -77.02635,
           "riverMile": 2.5,
           "uncertaintyFeet": 900,
-          "coordinateText": "Charles County guide anchor for a private marina ramp; obtain current permission and fee before using it, and do not treat nearby private shoreline as public access."
+          "coordinateText": "Chapel Point’s small sand launch can have almost no beach at high tide; inspect the entry and exit before committing. The marina coordinate comes from the 2014 county guide and marks the facility area, not an agreed kayak landing. The current owner website confirms the business and address, not public kayak take-out rights. The county brochure runs marina-to-Chapel Point. This guide reverses that direction and requires its own tide, wind and shuttle plan. Goose Creek and Goose Bay Marina are separate options."
         }
       ]
     },

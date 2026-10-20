@@ -170,9 +170,14 @@ export function endpointSnappedRiverLine(
   const end = routePoints.at(-1)!;
   const first = line[0];
   const last = line.at(-1)!;
+  // Published assets compact vertices to six decimals. Allow only that
+  // half-unit rounding error while still requiring identical requested
+  // endpoints and an explicitly closed source trace.
+  const compactedCoordinateTolerance = 0.0000005001;
   if (first[0] === last[0] && first[1] === last[1]
-    && start.longitude === first[0] && start.latitude === first[1]
-    && end.longitude === first[0] && end.latitude === first[1]) {
+    && start.longitude === end.longitude && start.latitude === end.latitude
+    && Math.abs(start.longitude - first[0]) <= compactedCoordinateTolerance
+    && Math.abs(start.latitude - first[1]) <= compactedCoordinateTolerance) {
     return {
       coordinates: line,
       errorSquared: projected.reduce((sum, point) => sum + point.distanceSquared, 0) / projected.length,

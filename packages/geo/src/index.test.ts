@@ -9,6 +9,14 @@ import {
 } from './index';
 
 describe('shared geo primitives', () => {
+  it('keeps a closed return after six-decimal asset compaction without accepting a nearby different launch', () => {
+    const line=[[-77.150318,38.454086],[-77.14,38.46],[-77.13,38.47],[-77.14,38.46],[-77.150318,38.454086]];
+    const launch={longitude:-77.1503175,latitude:38.45408599};
+    expect(endpointSnappedRiverLine(line,[launch,launch])?.coordinates).toEqual(line);
+    const elsewhere={longitude:-77.150328,latitude:38.454086};
+    expect(endpointSnappedRiverLine(line,[elsewhere,elsewhere])).toBeNull();
+    expect(endpointSnappedRiverLine(line,[launch,{...launch,longitude:launch.longitude+0.0000001}])?.coordinates).not.toEqual(line);
+  });
   it('clips a line to projected route endpoints', () => {
     const result = endpointSnappedRiverLine(
       [[0, 0], [5, 0], [10, 0]],
