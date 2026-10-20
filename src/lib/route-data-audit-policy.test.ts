@@ -19,7 +19,15 @@ describe('route data audit policy', () => {
     expect(isStagedDistanceLabel('About 43 river miles; allow one day')).toBe(false);
   });
 
-  it('keeps coordinate comparisons deferred for planning anchors', () => {
-    expect(isPlanningCoordinateDeferred()).toBe(true);
+  it('reviews numeric planning mileage that can contradict the endpoint pair', () => {
+    expect(isPlanningCoordinateDeferred('6.9 whitewater river miles')).toBe(false);
+    expect(isPlanningCoordinateDeferred('Approximately 3.25 miles one way from Terrapin Nature Area to Matapeake Park')).toBe(false);
+    expect(isPlanningCoordinateDeferred('About 16 river miles')).toBe(false);
+  });
+
+  it('defers coordinate comparisons when mileage explicitly describes a variable itinerary', () => {
+    expect(isPlanningCoordinateDeferred('Marked route; the current map controls exact mileage')).toBe(true);
+    expect(isPlanningCoordinateDeferred('Source does not publish stable mileage.')).toBe(true);
+    expect(isPlanningCoordinateDeferred(undefined)).toBe(true);
   });
 });

@@ -47,6 +47,7 @@ const testChecks: Array<[string, string]> = [
   ['task board schema', 'operations:tasks:check'],
   ['typecheck', 'typecheck'],
   ['scoring sensitivity', 'scoring:sensitivity:check'],
+  ['route data audit', 'routes:audit'],
   ['snapshot capacity', 'snapshots:capacity'],
   ['workspace tests', 'test:workspaces'],
   // Type checking already ran above; keep the standalone build command unchanged.
