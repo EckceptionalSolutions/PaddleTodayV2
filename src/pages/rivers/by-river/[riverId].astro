@@ -1,6 +1,8 @@
 ---
 import BaseLayout from '../../../layouts/BaseLayout.astro';
 import PaddlePlanningGuide from '../../../components/PaddlePlanningGuide.astro';
+import AccessPlanningContext from '../../../components/AccessPlanningContext.astro';
+import AccessPlanFacts from '../../../components/AccessPlanFacts.astro';
 import { priorityRiverGuides } from '../../../data/priority-paddle-guides';
 import { routeGuideReviewByRiverId } from '../../../data/route-guide-publication-reviews';
 import FeatureIcon from '../../../components/FeatureIcon.astro';
@@ -972,7 +974,7 @@ const groupStructuredData = [
   structuredData={groupStructuredData}
   bodyClass="page-river-hub"
 >
-  <article class="river-group-page" data-river-group-page data-river-id={group.riverId} data-river-name={group.name} data-river-state={stateSummary} data-river-region={regionSummary} data-has-consolidated-trips={hasConsolidatedTrips ? 'true' : 'false'} data-reviewed-publication-hub={publicationReview ? 'true' : 'false'}>
+  <article class="river-group-page" data-river-group-page data-river-id={group.riverId} data-river-name={group.name} data-river-state={stateSummary} data-river-region={regionSummary} data-has-consolidated-trips={hasConsolidatedTrips ? 'true' : 'false'} data-access-planning-hub={isAccessPlanningHub ? 'true' : 'false'} data-reviewed-publication-hub={publicationReview ? 'true' : 'false'}>
     <section class={`river-group-page__hero${heroPhoto ? ' river-group-page__hero--photo' : ' river-group-page__hero--fallback'}`}>
       <div class="river-group-page__hero-main">
         <p class="eyebrow river-group-page__hero-kicker">
@@ -1888,11 +1890,11 @@ const groupStructuredData = [
       </section>
     ) : null}
 
-    {publicationReview ? (
+    {publicationReview && !isAccessPlanningHub ? (
       <PaddlePlanningGuide guide={publicationReview.guide} id="choose-your-reach" />
     ) : null}
 
-    <section class="status-banner status-banner--loading status-banner--compact" data-group-status-banner aria-live="polite">
+    {!isAccessPlanningHub && <section class="status-banner status-banner--loading status-banner--compact" data-group-status-banner aria-live="polite">
       <div class="status-banner__eyebrow">Route calls</div>
       <div class="status-banner__body">
         <strong data-group-banner-title>Loading route coverage.</strong>
@@ -1908,7 +1910,7 @@ const groupStructuredData = [
           Auto-refreshes every 5 minutes.
         </p>
       </div>
-    </section>
+    </section>}
 
     <section class="river-group-page__panel river-route-picker">
       <div class="river-group-page__section-head">
@@ -1917,14 +1919,14 @@ const groupStructuredData = [
             <FeatureIcon name="compass" size={16} />
             Trip picker
           </p>
-          <h2 class="section-title">{isAccessPlanningHub ? 'Compare access plans' : 'Choose a route'}</h2>
+          <h2 class="section-title">{isAccessPlanningHub ? 'Explore access plans' : 'Choose a route'}</h2>
         </div>
         <p class="muted river-group-page__section-note">
-          {isAccessPlanningHub ? 'Distances and times are estimates. Confirm direction, passage and access locally before treating a plan as a trip.' : scoredRouteCount ? 'Start with distance, then compare current scores where available.' : 'Start with distance, then compare access, difficulty, and shuttle needs.'}
+          {isAccessPlanningHub ? 'Choose an endpoint pair to see the map and access details. Distances and times are estimates; confirm passage and access locally.' : scoredRouteCount ? 'Start with distance, then compare current scores where available.' : 'Start with distance, then compare access, difficulty, and shuttle needs.'}
         </p>
       </div>
 
-      <div class="river-route-picker__toolbar" aria-label="Trip filters">
+      {!isAccessPlanningHub && <div class="river-route-picker__toolbar" aria-label="Trip filters">
         <div class="river-route-picker__filter-stack">
           <div class="river-route-picker__distance-filters" role="group" aria-label="Filter by distance">
             <button class="filter-chip filter-chip--active" type="button" data-group-distance-filter="all" aria-pressed="true">All trips</button>
@@ -1982,7 +1984,7 @@ const groupStructuredData = [
             <option value="confidence">Highest confidence</option>
           </select>
         </label>
-      </div>
+      </div>}
 
       <div class="river-route-picker__mobile-switch" data-group-mobile-switch hidden aria-label="Choose route list or map">
         <button
@@ -2008,7 +2010,7 @@ const groupStructuredData = [
       <div class="river-route-picker__layout" data-group-picker-layout>
         <div class="river-route-picker__results" id="river-hub-route-results">
           <p class="river-route-picker__results-summary" data-group-results-summary aria-live="polite">
-            Showing all {group.routeCount} trips.
+            {isAccessPlanningHub ? `${group.routeCount} access plans` : `Showing all ${group.routeCount} trips.`}
           </p>
           <div class="river-group-page__route-list" data-group-route-list>
             {staticRoutes.map((route, index) => {
@@ -2044,22 +2046,23 @@ const groupStructuredData = [
                     data-analytics-source="river_hub"
                   >
                     <span class="route-choice__copy">
-                      <span class="route-choice__eyebrow">
+                      <span class="route-choice__eyebrow" hidden={isAccessPlanningHub}>
                         {active ? <span class="route-choice__on-map">On map</span> : <>{route.state} · {route.region}</>}
                       </span>
                       <strong class="route-choice__title">{route.reach}</strong>
                       <span class="route-choice__facts">
                         {route.logistics?.distanceLabel ? <span class="route-choice__fact route-choice__fact--distance">{route.logistics.distanceLabel}</span> : null}
                         {route.logistics?.estimatedPaddleTime ? <span class="route-choice__fact route-choice__fact--time">{shortTimeLabel(route.logistics.estimatedPaddleTime)}</span> : null}
-                        <span class="route-choice__fact">{route.profile.difficulty} difficulty</span>
+                        {!isAccessPlanningHub && <span class="route-choice__fact">{route.profile.difficulty} difficulty</span>}
                       </span>
                     </span>
-                    <span class="route-choice__score-compact">
+                    {!isAccessPlanningHub && <span class="route-choice__score-compact">
                       <strong>--</strong>
                       <span data-group-initial-score>{route.scoreEligibility === 'planning' ? 'Planning route' : 'Loading'}</span>
-                    </span>
+                    </span>}
                   </button>
-                  {publicationReview || isWillimanticHub || isMerrimackHub || isSpokaneHub || isSaludaHub || isWabashHub || isGooseCreekHub || isKinniconickHub || isSouthLlanoHub || isVillageCreekHub || isElevenPointHub || isJacksForkHub || isCurrentRiverHub || isYellowBreechesHub || isSaltRiverHub || isAnimasHub || isHousatonicHub || isPenobscotHub || hasConsolidatedRoutePage ? (
+                  {isAccessPlanningHub && <details class="route-choice__trip-notes"><summary>Access details</summary><AccessPlanFacts route={route} routes={group.routes} /></details>}
+                  {!isAccessPlanningHub && (publicationReview || isWillimanticHub || isMerrimackHub || isSpokaneHub || isSaludaHub || isWabashHub || isGooseCreekHub || isKinniconickHub || isSouthLlanoHub || isVillageCreekHub || isElevenPointHub || isJacksForkHub || isCurrentRiverHub || isYellowBreechesHub || isSaltRiverHub || isAnimasHub || isHousatonicHub || isPenobscotHub || hasConsolidatedRoutePage) ? (
                     <details class="route-choice__trip-notes">
                       <summary>{isJacksForkHub || isCurrentRiverHub || isYellowBreechesHub ? 'Access, gauge, shuttle, and camping notes' : isSaltRiverHub || isGooseCreekHub || isKinniconickHub ? 'Access, gauge, shuttle, and safety notes' : isAnimasHub || isHousatonicHub ? 'Access, flow, and safety notes' : isPenobscotHub ? 'Access, gauge, shuttle, camping, and safety notes' : 'Access, gauge, and safety notes'}</summary>
                       <div class="route-choice__trip-notes-panel">
@@ -2153,10 +2156,10 @@ const groupStructuredData = [
         <div class="river-route-picker__map-column" id="river-hub-map-view">
           <div class="river-route-picker__selected" data-group-selected-summary aria-live="polite">
             <div class="river-route-picker__selected-copy">
-              <span class="eyebrow">Your trip</span>
+              <span class="eyebrow">{isAccessPlanningHub ? 'Selected plan' : 'Your trip'}</span>
               <strong>{staticSelectedRoute?.reach}</strong>
               <span>
-                {[staticSelectedRoute?.logistics?.distanceLabel, shortTimeLabel(staticSelectedRoute?.logistics?.estimatedPaddleTime), staticSelectedRoute?.profile.difficulty].filter(Boolean).join(' · ')}
+                {[staticSelectedRoute?.logistics?.distanceLabel, shortTimeLabel(staticSelectedRoute?.logistics?.estimatedPaddleTime), !isAccessPlanningHub && staticSelectedRoute?.profile.difficulty].filter(Boolean).join(' · ')}
               </span>
             </div>
             {staticSelectedRoute ? (
@@ -2170,11 +2173,11 @@ const groupStructuredData = [
                 url={routeDetailHref(staticSelectedRoute)}
               />
             ) : null}
-            <div class="river-route-picker__selected-decision">
+            {!isAccessPlanningHub && <div class="river-route-picker__selected-decision">
               <strong>--</strong>
               <span>{staticSelectedRoute?.scoreEligibility === 'planning' ? 'Planning only · No live score' : 'Loading conditions'}</span>
-            </div>
-            {staticSelectedRoute ? (
+            </div>}
+            {staticSelectedRoute && !isAccessPlanningHub ? (
               <div class="river-route-picker__selected-actions">
                 <a class="river-link river-link--inline" href={routeDetailHref(staticSelectedRoute)}>{hasConsolidatedTrips ? 'View trip option' : 'View route details'}</a>
               </div>
@@ -2184,12 +2187,12 @@ const groupStructuredData = [
             <a class="map-skip-link" href="#trip-map-end">Skip map</a>
             <div class="river-group-page__map" data-group-map aria-label={`${group.name} trip map`}></div>
             <div class="river-hub-map-legend" aria-label="Trip map legend">
-              <span><i class="river-hub-map-legend__line river-hub-map-legend__line--strong"></i>Strong conditions</span>
+              {!isAccessPlanningHub && <><span><i class="river-hub-map-legend__line river-hub-map-legend__line--strong"></i>Strong conditions</span>
               <span><i class="river-hub-map-legend__line river-hub-map-legend__line--good"></i>Good conditions</span>
               <span><i class="river-hub-map-legend__line river-hub-map-legend__line--fair"></i>Watch closely</span>
-              <span><i class="river-hub-map-legend__line river-hub-map-legend__line--no-go"></i>Skip</span>
-              <span><i class="river-hub-map-legend__line river-hub-map-legend__line--planning"></i>Planning only</span>
-              <span><i class="river-hub-map-legend__line river-hub-map-legend__line--unavailable"></i>Call unavailable</span>
+              <span><i class="river-hub-map-legend__line river-hub-map-legend__line--no-go"></i>Skip</span></>}
+              <span><i class="river-hub-map-legend__line river-hub-map-legend__line--planning"></i>{isAccessPlanningHub ? 'Access plan · verify passage locally' : 'Planning only'}</span>
+              {!isAccessPlanningHub && <span><i class="river-hub-map-legend__line river-hub-map-legend__line--unavailable"></i>Call unavailable</span>}
               {group.riverId === 'mississippi-river' ? <span><i class="river-hub-map-legend__notice">!</i>Lock, portage, or coverage gap</span> : null}
             </div>
             <div class="river-route-picker__map-empty" data-group-map-empty role="status" hidden>
@@ -2220,6 +2223,7 @@ const groupStructuredData = [
     </section>
 
     <section class="river-group-page__panel river-hub-context" aria-labelledby="river-hub-context-title">
+      {isAccessPlanningHub && publicationReview ? <AccessPlanningContext routes={group.routes} guide={publicationReview.guide} reviewedOn={publicationReview.reviewedOn} /> : <>
       <div class="river-group-page__section-head">
         <div>
           <p class="eyebrow section-label">
@@ -2343,6 +2347,8 @@ const groupStructuredData = [
           </p>
         </article>
       </div>
+
+      </>}
 
       {priorityRiverGuides[group.riverId] ? (
         <PaddlePlanningGuide guide={priorityRiverGuides[group.riverId]} id="trip-decisions" headingLevel={3} />

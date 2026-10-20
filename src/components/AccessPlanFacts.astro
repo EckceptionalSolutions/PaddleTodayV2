@@ -1,0 +1,25 @@
+---
+import type { River } from '../lib/types';
+import { sharedAccessPlanNotes, specificAccessPlanNotes } from '../lib/access-plan-presentation';
+import { evidenceNoteLabel, evidenceNoteDetail } from '../lib/route-evidence';
+interface Props { route: River; routes: River[] }
+const { route, routes } = Astro.props;
+const notes = specificAccessPlanNotes(route, sharedAccessPlanNotes(routes));
+---
+<div class="access-plan-facts">
+  <dl class="access-plan-facts__endpoints">
+    <div><dt>Put-in</dt><dd>{route.putIn?.name}</dd></div>
+    <div><dt>Take-out</dt><dd>{route.takeOut?.name}</dd></div>
+    <div><dt>Estimated distance</dt><dd>{route.logistics?.distanceLabel}</dd></div>
+    <div><dt>Estimated time</dt><dd>{route.logistics?.estimatedPaddleTime}</dd></div>
+  </dl>
+  {route.logistics?.shuttle && <p><strong>Shuttle:</strong> {route.logistics.shuttle}</p>}
+  {notes.permits && <p><strong>Rules:</strong> {notes.permits}</p>}
+  {notes.camping && <p><strong>Camping:</strong> {notes.camping}</p>}
+  {notes.access.length > 0 && <div><h4>Access restrictions</h4><ul>{notes.access.map(note => <li>{note}</li>)}</ul></div>}
+  {notes.hazards.length + notes.safety.length > 0 && <div class="access-plan-facts__cautions"><h4>Watch for on this plan</h4><ul>{[...notes.hazards, ...notes.safety].map(note => <li>{note}</li>)}</ul></div>}
+  <details class="route-choice__sources"><summary>Sources and record details</summary><div>
+    {route.evidenceNotes?.length > 0 && <ul>{route.evidenceNotes.map(note => <li><strong>{evidenceNoteLabel(note)}:</strong> {note.value} {evidenceNoteDetail(note)}{note.sourceUrl && /^https?:\/\//i.test(note.sourceUrl) && <a href={note.sourceUrl} target="_blank" rel="noopener noreferrer"> Source</a>}</li>)}</ul>}
+    <ul>{route.sourceLinks?.filter(source => /^https?:\/\//i.test(source.url)).map(source => <li><a href={source.url} target="_blank" rel="noopener noreferrer">{source.label}</a></li>)}</ul>
+  </div></details>
+</div>

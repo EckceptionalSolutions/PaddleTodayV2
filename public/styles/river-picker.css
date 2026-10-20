@@ -1894,6 +1894,128 @@ html body.page-river-hub .river-route-picker > .river-group-page__section-head {
   gap: 0.55rem;
 }
 
+/* Access research has no condition score or ranking controls. */
+html body.page-river-hub [data-access-planning-hub="true"] .river-route-picker__layout {
+  grid-template-columns: minmax(16rem, 0.8fr) minmax(0, 1.2fr);
+  margin-top: 1.25rem;
+}
+
+html body.page-river-hub [data-access-planning-hub="true"] .route-choice__select {
+  display: block;
+  width: 100%;
+  min-height: 0;
+  padding: 1.1rem 1rem;
+}
+
+html body.page-river-hub [data-access-planning-hub="true"] .river-route-picker .route-choice--active .route-choice__select {
+  min-height: 0;
+  padding: 1.1rem 1rem;
+}
+
+html body.page-river-hub [data-access-planning-hub="true"] .river-route-picker .route-choice__title {
+  display: block;
+  width: auto;
+  margin-right: 3.5rem;
+  padding-right: 0;
+}
+
+html body.page-river-hub [data-access-planning-hub="true"] .route-choice__title {
+  max-width: none;
+  padding-right: 3rem;
+  font-size: 1rem;
+  line-height: 1.4;
+}
+
+html body.page-river-hub [data-access-planning-hub="true"] .route-choice__fact {
+  min-height: 0;
+  padding: 0;
+  border: 0;
+  background: none;
+  font-size: 0.8rem;
+  line-height: 1.6;
+}
+
+html body.page-river-hub [data-access-planning-hub="true"] .route-choice__facts {
+  gap: 0.25rem 0.8rem;
+}
+
+html body.page-river-hub [data-access-planning-hub="true"] .river-route-picker__selected {
+  grid-template-columns: minmax(0, 1fr) auto;
+  min-height: 0;
+  background: #f5f9f9;
+  box-shadow: none;
+}
+
+html body.page-river-hub [data-access-planning-hub="true"] .river-route-picker__selected-actions {
+  grid-column: 1 / -1;
+  justify-content: flex-start;
+}
+
+html body.page-river-hub [data-access-planning-hub="true"] .river-route-picker__selected-actions .river-link {
+  padding: 0;
+  min-height: 2rem;
+  border: 0;
+  background: none;
+  box-shadow: none;
+}
+
+html body.page-river-hub .access-plan-facts {
+  display: grid;
+  gap: 1.1rem;
+  color: #3c535b;
+  font-size: 0.95rem;
+  line-height: 1.65;
+}
+
+html body.page-river-hub .access-plan-facts :is(p, ul, h4) { margin: 0; }
+html body.page-river-hub .access-plan-facts ul { padding-left: 1.25rem; }
+html body.page-river-hub .access-plan-facts h4 { font-size: 1rem; color: var(--ink); }
+html body.page-river-hub .access-plan-facts__endpoints {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1rem 2rem;
+  margin: 0;
+  padding: 1.1rem;
+  border-radius: 0.75rem;
+  background: #f5f9f9;
+}
+html body.page-river-hub .access-plan-facts__endpoints dt { font-size: 0.8rem; color: #647985; }
+html body.page-river-hub .access-plan-facts__endpoints dd { margin: 0.2rem 0 0; color: var(--ink); font-weight: 650; }
+html body.page-river-hub :is(.access-plan-facts__cautions, .access-planning-context__cautions) {
+  padding: 1rem 1.2rem;
+  border-left: 3px solid #ac791a;
+  background: #fbf8ef;
+}
+html body.page-river-hub .access-plan-facts .route-choice__sources :is(ul, .route-choice__note-group ul) {
+  font-size: 0.9rem;
+  line-height: 1.6;
+}
+html body.page-river-hub .access-planning-context { font-size: 0.95rem; line-height: 1.65; }
+html body.page-river-hub .access-planning-context :is(h2, h3) { margin: 0 0 0.6rem; }
+html body.page-river-hub .access-planning-context h2 { font: 700 1.55rem / 1.35 var(--serif); }
+html body.page-river-hub .access-planning-context h3 { font-size: 1rem; }
+html body.page-river-hub .access-planning-context__guidance { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1.5rem; margin-block: 1.5rem; }
+html body.page-river-hub .access-planning-context__guidance p { margin: 0; }
+html body.page-river-hub .access-planning-context__cautions ul { margin: 0; padding-left: 1.2rem; }
+html body.page-river-hub .access-planning-context__notes { margin-top: 1.25rem; }
+html body.page-river-hub .access-planning-context__notes summary { padding-block: 0.75rem; cursor: pointer; font-weight: 650; }
+html body.page-river-hub .access-planning-context__notes h3 { margin-top: 1rem; }
+html body.page-river-hub .access-planning-context__sources { margin-top: 1.25rem; }
+html body.page-river-hub .access-planning-context__sources ul { display: flex; flex-wrap: wrap; gap: 0.75rem 1.5rem; margin: 0; padding: 0; list-style: none; }
+html body.page-river-hub .access-planning-context__review { margin: 1.25rem 0 0; font-size: 0.85rem; }
+
+@media (max-width: 760px) {
+  html body.page-river-hub [data-access-planning-hub="true"] .river-route-picker__layout,
+  html body.page-river-hub .access-plan-facts__endpoints,
+  html body.page-river-hub .access-planning-context__guidance { grid-template-columns: minmax(0, 1fr); }
+}
+
+@container river-picker (max-width: 54rem) {
+  html body.page-river-hub [data-access-planning-hub="true"] .river-route-picker__layout {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
+
 html body.page-river-hub .river-route-picker .river-group-page__section-note {
   max-width: 70ch;
   margin: 0;
