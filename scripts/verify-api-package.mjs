@@ -2,7 +2,8 @@ import { createRequire } from 'node:module';
 import { mkdir, mkdtemp, readFile, realpath, writeFile, rm, readdir } from 'node:fs/promises';
 import { resolve, join, sep, basename } from 'node:path';
 import { tmpdir } from 'node:os';
-import { spawn } from 'node:child_process';
+import { spawn, execFile } from 'node:child_process';
+import { promisify } from 'node:util';
 import { pathToFileURL } from 'node:url';
 import { createServer } from 'node:net';
 import assert from 'node:assert/strict';
@@ -46,7 +47,13 @@ try {
   // This hook blocks all external calls. Runtime snapshot and admin resource checks remain local.
   const hook = join(fixture, 'network-policy.mjs');
   await writeFile(hook, "globalThis.fetch = async () => { throw new Error('External requests disabled in package verification'); };\n");
-  const summary = JSON.parse(await readFile(resolve('tmp-summary.json'), 'utf8'));
+  // Build synthetic, unavailable-condition responses using the current source
+  // models. An unversioned historical snapshot must not bypass applicability
+  // guards or cause this network-isolated runtime check to calculate live data.
+  const synthetic = await promisify(execFile)(process.execPath, ['--import', 'tsx', 'scripts/api-verification-fixture.ts'], {
+    cwd: process.cwd(), windowsHide: true, maxBuffer: 16 * 1024 * 1024,
+  });
+  const summary = JSON.parse(synthetic.stdout);
   await mkdir(join(fixture, 'river-snapshots'), { recursive: true });
   await writeFile(join(fixture, 'river-snapshots/summary.json'), JSON.stringify(summary));
   const reserver = createServer();
