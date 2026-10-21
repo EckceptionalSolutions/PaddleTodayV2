@@ -1228,19 +1228,20 @@ export function routePageConsolidationTarget(slug: string): string | undefined {
   return consolidatedRouteTargets.get(slug);
 }
 
-/** Preserve trip selection on consolidated hubs and planner filters on standalone routes. */
+/** Every supported trip has a stable detail URL, independently of search publication. */
 export function routePageHref(slug: string, params = new URLSearchParams()): string {
-  const consolidated = consolidatedRouteTargets.has(slug);
-  const destination = consolidatedRouteTargets.get(slug) ?? `/rivers/${encodeURIComponent(slug)}/`;
-  const url = new URL(destination, 'https://paddletoday.invalid');
-  if (!consolidated) {
-    for (const [key, value] of params) url.searchParams.set(key, value);
-  }
+  const url = new URL(`/rivers/${encodeURIComponent(slug)}/`, 'https://paddletoday.invalid');
+  for (const [key, value] of params) url.searchParams.set(key, value);
   return `${url.pathname}${url.search}${url.hash}`;
 }
 
-export function hasStandaloneRoutePage(slug: string): boolean {
+export function isIndexableRoutePage(slug: string): boolean {
   return !consolidatedRouteTargets.has(slug);
+}
+
+/** Historical guide-policy name; this controls indexing, not trip-page availability. */
+export function hasStandaloneRoutePage(slug: string): boolean {
+  return isIndexableRoutePage(slug);
 }
 
 export function isHubOverviewOnlyRoute(slug: string): boolean {

@@ -1,5 +1,5 @@
 import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest';
-import { readFavorites, restoreFavorite, toggleFavorite, updateFavoriteNotes } from './favorites-store.js';
+import { normalizeFavoriteEntry, readFavorites, restoreFavorite, toggleFavorite, updateFavoriteNotes } from './favorites-store.js';
 
 describe('personal saved-route notes', () => {
   let stored: Map<string, string>;
@@ -9,6 +9,11 @@ describe('personal saved-route notes', () => {
     toggleFavorite({ slug: 'river', name: 'River', savedAt: 123, url: '/rivers/river/?putin=a&takeout=b' });
   });
   afterEach(() => vi.unstubAllGlobals());
+  it('opens old hub saves on the trip page while keeping direct-page access selections', () => {
+    expect(normalizeFavoriteEntry({ slug: 'saco-river-fryeburg-brownfield', url: '/rivers/by-river/saco-river/?details=saco-river-fryeburg-brownfield#trip-saco-river-fryeburg-brownfield', notes: 'Bring lunch', savedAt: 123 }))
+      .toMatchObject({ url: '/rivers/saco-river-fryeburg-brownfield/', notes: 'Bring lunch', savedAt: 123 });
+    expect(readFavorites()[0].url).toBe('/rivers/river/?putin=a&takeout=b');
+  });
   it.each(['{"unfinished":', '{"version":2,"items":[]}', '[{}]'])('preserves unreadable data during every update: %s', (raw) => {
     stored.set('paddletoday:favorites:v1', raw);
     expect(readFavorites()).toEqual([]);

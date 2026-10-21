@@ -1,5 +1,6 @@
 import { defineConfig } from 'astro/config';
 import sitemap from '@astrojs/sitemap';
+import { isIndexableRoutePage } from './src/data/route-page-consolidations.ts';
 
 const fallbackLocalSite = 'http://localhost:4321';
 const productionSite = 'https://paddletoday.com';
@@ -19,6 +20,8 @@ export default defineConfig({
     sitemap({
       filter: (page) => {
         const pathname = new URL(page).pathname.replace(/\/$/, '') || '/';
+        const tripSlug = pathname.match(/^\/rivers\/([^/]+)$/)?.[1];
+        if (tripSlug && !isIndexableRoutePage(tripSlug)) return false;
         return !['/404', '/404.html', '/admin', '/alerts/unsubscribe', '/favorites', '/request-river', '/trips', '/share', '/account']
           .some((excluded) => pathname === excluded || pathname.startsWith(`${excluded}/`));
       },

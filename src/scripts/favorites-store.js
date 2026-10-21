@@ -26,7 +26,9 @@ export function normalizeFavoriteEntry(input) {
     ? input.savedAt
     : Date.now();
   const defaultUrl = `/rivers/${encodeURIComponent(slug)}/`;
-  const url = typeof input?.url === 'string' && input.url.trim() ? input.url.trim() : defaultUrl;
+  const storedUrl = typeof input?.url === 'string' && input.url.trim() ? input.url.trim() : defaultUrl;
+  // Old saves may point to a selected hub trip or modal; the slug remains the trip identity.
+  const url = /^(?:https:\/\/paddletoday\.com)?\/rivers\/by-river\//.test(storedUrl) ? defaultUrl : storedUrl;
 
   return {
     slug,

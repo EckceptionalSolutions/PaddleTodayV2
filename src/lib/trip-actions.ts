@@ -1,6 +1,6 @@
 import type { River } from './types';
 import { routeAccessPoints } from '@paddletoday/api-contract';
-import { routePageHref, routePageConsolidationTarget } from '../data/route-page-consolidations';
+import { routePageHref } from '../data/route-page-consolidations';
 
 type Point = { latitude?: number; longitude?: number } | undefined;
 export function accessCoordinates(point: Point): string | undefined {
@@ -23,18 +23,13 @@ export function shuttleDirections(putIn: Point, takeOut: Point) {
     apple: `https://maps.apple.com/?saddr=${encodeURIComponent(start)}&daddr=${encodeURIComponent(end)}&dirflg=d`,
   } : {};
 }
-export function riverTripDetailsHref(route: Pick<River, 'slug' | 'riverId'>, hubId = route.riverId) {
-  if (!hubId) return routePageHref(route.slug);
-  return `/rivers/by-river/${encodeURIComponent(hubId)}/?details=${encodeURIComponent(route.slug)}#trip-${encodeURIComponent(route.slug)}`;
+export function riverTripDetailsHref(route: Pick<River, 'slug'>) {
+  return routePageHref(route.slug);
 }
 export function tripExportDetailsHref(slug: string, params: URLSearchParams) {
-  const target = routePageConsolidationTarget(slug);
-  if (!target || !target.endsWith(`#trip-${slug}`)) return routePageHref(slug, params);
-  const url = new URL(target, 'https://paddletoday.invalid');
-  url.searchParams.set('details', slug);
-  return `${url.pathname}${url.search}${url.hash}`;
+  return routePageHref(slug, params);
 }
-export function tripActionLinks(route: River, hubId = route.riverId) {
+export function tripActionLinks(route: River) {
   const points = routeAccessPoints(route);
   const match = (point: River['putIn'], last = false) => {
     const explicit = points.find(p => point?.id && p.id === point.id);
@@ -49,7 +44,7 @@ export function tripActionLinks(route: River, hubId = route.riverId) {
   const planParams = new URLSearchParams({ route: route.slug, name: route.name, ...Object.fromEntries(params) });
   const validAccess = Boolean(accessCoordinates(route.putIn) && accessCoordinates(route.takeOut) && putIn && takeOut && points.indexOf(takeOut) > points.indexOf(putIn));
   return {
-    details: riverTripDetailsHref(route, hubId), plan: `/trips/?${planParams}`,
+    details: riverTripDetailsHref(route), plan: `/trips/?${planParams}`,
     gpx: validAccess ? `/api/rivers/${encodeURIComponent(route.slug)}/trip.gpx?${params}` : undefined,
     calendar: validAccess ? `/api/rivers/${encodeURIComponent(route.slug)}/trip.ics?${params}` : undefined,
   };

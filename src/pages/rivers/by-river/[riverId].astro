@@ -2,14 +2,13 @@
 import BaseLayout from '../../../layouts/BaseLayout.astro';
 import PaddlePlanningGuide from '../../../components/PaddlePlanningGuide.astro';
 import AccessPlanningContext from '../../../components/AccessPlanningContext.astro';
-import RiverTripDetails from '../../../components/RiverTripDetails.astro';
 import { riverTripDetailsHref } from '../../../lib/trip-actions';
 import { priorityRiverGuides } from '../../../data/priority-paddle-guides';
 import { routeGuideReviewByRiverId } from '../../../data/route-guide-publication-reviews';
 import FeatureIcon from '../../../components/FeatureIcon.astro';
 import FavoriteButton from '../../../components/FavoriteButton.astro';
 import { getRiverGroupHeroPhoto } from '../../../data/river-group-hero';
-import { routePageConsolidationTarget } from '../../../data/route-page-consolidations';
+import { routePageConsolidationTarget, routePageHref } from '../../../data/route-page-consolidations';
 import { listRiverGroups } from '../../../lib/rivers';
 import type { River } from '../../../lib/types';
 import { distanceRangeForLabels } from '../../../lib/api-contract';
@@ -472,7 +471,7 @@ const bayouTecheZones = isBayouTecheHub
   : [];
 const staticSelectedRoute = staticRoutes[0];
 const heroPhoto = getRiverGroupHeroPhoto(group.riverId, group.routes);
-const routeSlugHref = (slug: string) => routePageConsolidationTarget(slug) ?? `/rivers/${slug}/`;
+const routeSlugHref = routePageHref;
 const routeDetailHref = (route: River) => routeSlugHref(route.slug);
 const russianRiverSections = isRussianRiverHub
   ? [
@@ -840,7 +839,7 @@ const faqItems = [
       : isUpperCumberlandHub
       ? 'USGS 03404000 at Williamsburg is the reference for these routes. KDFWR publishes 3.0–3.8 ft (300–700 cfs) for the Upper Cumberland access chain; its separate Cumberland gorge guidance calls 500–1,100 cfs best and up to 2,000 cfs challenging for skilled paddlers. Use the band and hazards on the selected trip because the gorge routes have a different character.'
       : isTradewaterHub
-      ? 'KDFWR rates 10–15 ft and 5–50 cfs as good at USGS 03384100 near Providence for this lower corridor. Its separate Olney ranges apply farther upstream. The river can rise quickly after rain, and the trip card shows whether the Providence station is direct or proxy context for that route.'
+      ? 'KDFWR rates 10–15 ft and 5–50 cfs as good at USGS 03384100 near Providence for this lower corridor. Its separate Olney ranges apply farther upstream. The river can rise quickly after rain; open the trip details to check whether the Providence station is direct or proxy context for that route.'
       : isLevisaForkHub
       ? 'KDFWR publishes separate recommendations for Pikeville and Prestonsburg. Use USGS 03209500 near Pikeville for the upper trail’s 800–1,400 cfs / 7.4–8.5 ft band, and USGS 03209800 at Prestonsburg for the downstream 800–1,500 cfs / 3.5–5.0 ft band. These are local recommendations, not interchangeable safety limits; check the station attached to the selected trip.'
       : isLittleForkHub
@@ -971,7 +970,7 @@ const groupStructuredData = [
   structuredData={groupStructuredData}
   bodyClass="page-river-hub"
 >
-  <article class="river-group-page" data-river-group-page data-river-id={group.riverId} data-river-name={group.name} data-river-state={stateSummary} data-river-region={regionSummary} data-has-consolidated-trips={hasConsolidatedTrips ? 'true' : 'false'} data-access-planning-hub={isAccessPlanningHub ? 'true' : 'false'} data-reviewed-publication-hub={publicationReview ? 'true' : 'false'}>
+  <article class="river-group-page" data-river-group-page data-river-id={group.riverId} data-river-name={group.name} data-river-state={stateSummary} data-river-region={regionSummary} data-trip-slugs={JSON.stringify(sourceGroup.routes.map(route => route.slug))} data-has-consolidated-trips={hasConsolidatedTrips ? 'true' : 'false'} data-access-planning-hub={isAccessPlanningHub ? 'true' : 'false'} data-reviewed-publication-hub={publicationReview ? 'true' : 'false'}>
     <section class={`river-group-page__hero${heroPhoto ? ' river-group-page__hero--photo' : ' river-group-page__hero--fallback'}`}>
       <div class="river-group-page__hero-main">
         <p class="eyebrow river-group-page__hero-kicker">
@@ -1369,7 +1368,7 @@ const groupStructuredData = [
           <article class="river-hub-context__item">
             <h3>Lower Current: Waymeyer to Gooseneck</h3>
             <p>
-              NPS’s 2024 table lists Van Buren–Big Spring (4.3 miles / 2 hours), Big Spring–Cataract (8.8 miles / 4 hours), and Cataract–Gooseneck (6.2 miles / 3 hours). Its older lower-river page also names Waymeyer–Van Buren (3 hours), Big Spring–Gooseneck (6 hours), and Van Buren–Gooseneck (8 hours); the newer table’s segment totals differ for those combined trips. The selected cards retain those ranges and route-specific shuttle notes. Use USGS 07067000 at Van Buren as lower-river context; it does not describe the upper Current.
+              NPS’s 2024 table lists Van Buren–Big Spring (4.3 miles / 2 hours), Big Spring–Cataract (8.8 miles / 4 hours), and Cataract–Gooseneck (6.2 miles / 3 hours). Its older lower-river page also names Waymeyer–Van Buren (3 hours), Big Spring–Gooseneck (6 hours), and Van Buren–Gooseneck (8 hours); the newer table’s segment totals differ for those combined trips. The trip pages retain those ranges and route-specific shuttle notes. Use USGS 07067000 at Van Buren as lower-river context; it does not describe the upper Current.
             </p>
             <ul>
               <li><a href={routeSlugHref('current-river-waymeyer-van-buren')}>Waymeyer to Van Buren</a></li>
@@ -1481,7 +1480,7 @@ const groupStructuredData = [
           </article>
         </div>
         <p>
-          The 10 trip cards below preserve every Simpson–B6 endpoint combination. Six focused trips have dedicated route guides; the overlapping combinations remain selectable here with their own shuttle, gauge, access, and safety notes. No route-wide condition score is inferred from the Camp Hill gauge.
+          Compare all 10 Simpson–B6 endpoint combinations below. Open any trip’s details for its shuttle, gauge, access, and safety notes. No route-wide condition score is inferred from the Camp Hill gauge.
         </p>
       </section>
     ) : null}
@@ -1494,7 +1493,7 @@ const groupStructuredData = [
             <h2 class="section-title" id="salt-river-sections-title">Choose a Lower Salt trip by reach</h2>
           </div>
           <p class="muted river-group-page__section-note">
-            Four adjacent sections have dedicated guides. All 10 endpoint combinations remain in the trip picker.
+            Compare the four adjacent sections and all 10 endpoint combinations in the trip picker. Every trip opens its own details page.
           </p>
         </div>
         <div class="river-hub-context__grid">
@@ -1529,7 +1528,7 @@ const groupStructuredData = [
           </article>
         </div>
         <p>
-          The four named guides focus on distinct adjacent sections. The other six cards combine those reaches and stay available here with exact endpoints, mileage, access notes, and shuttle details; their retired route URLs select the matching trip card.
+          Compare the four adjacent sections and six longer combinations. Every trip opens its own page with exact endpoints, mileage, access notes, and shuttle details.
         </p>
       </section>
     ) : null}
@@ -1557,7 +1556,7 @@ const groupStructuredData = [
           <article class="river-hub-context__item">
             <h3>Boscawen to Hooksett</h3>
             <p>
-              The shorter lower-valley choices use different landings, current, dam boundaries, and shuttle lengths. They remain planning-only because this review did not verify a recreational flow band for each reach; the Franklin gauge is upstream context, not a route-specific score. Compare each trip card’s access and hazard notes before setting a shuttle.
+              The shorter lower-valley choices use different landings, current, dam boundaries, and shuttle lengths. They remain planning-only because this review did not verify a recreational flow band for each reach; the Franklin gauge is upstream context, not a route-specific score. Compare each trip’s access and hazard notes before setting a shuttle.
             </p>
             <p>
               Allenstown’s Pelissier Boat Launch at Ferry Street is limited to residents with a current vehicle sticker. Do not plan it as a general public put-in or take-out. The short Sewalls Falls–Everett Arena trip remains a separate local option.
@@ -1603,7 +1602,7 @@ const groupStructuredData = [
           </div>
         </div>
         <p>
-          Farmington publishes the three downstream landing-to-landing distances. Aztec maps Cedar Hill, Riverside Park, Penny Lane, Animas Park, Boyd Park, and two diversion hazards; American Whitewater documents the longer Cedar Hill–Farmington Class I–II run. These five source-backed sections keep standalone pages. The trip picker still includes all ten endpoint choices, with the composite options’ access, bailout, gauge, and hazard notes available on each trip card. Gauge context changes by route, so check the selected trip’s station and current access notices.
+          Farmington publishes the three downstream landing-to-landing distances. Aztec maps Cedar Hill, Riverside Park, Penny Lane, Animas Park, Boyd Park, and two diversion hazards; American Whitewater documents the longer Cedar Hill–Farmington Class I–II run. Compare all ten endpoint choices in the trip picker, then open any trip’s page for its access, bailout, gauge, and hazard notes. Gauge context changes by route, so check the selected trip’s station and current access notices.
         </p>
         <ul>
           {animasSections.map((section) => section.route ? (
@@ -2012,7 +2011,6 @@ const groupStructuredData = [
           <div class="river-group-page__route-list" data-group-route-list>
             {staticRoutes.map((route, index) => {
               const active = index === 0;
-              const hasConsolidatedRoutePage = Boolean(routePageConsolidationTarget(route.slug));
               return (
                 <article
                   id={`trip-${route.slug}`}
@@ -2027,7 +2025,7 @@ const groupStructuredData = [
                     reach={route.reach}
                     state={route.state}
                     region={route.region}
-                    url={riverTripDetailsHref(route, group.riverId)}
+                    url={riverTripDetailsHref(route)}
                   />
                   <button
                     class="route-choice__select"
@@ -2056,10 +2054,7 @@ const groupStructuredData = [
                       <span data-group-initial-score>{route.scoreEligibility === 'planning' ? 'Planning route' : 'Loading'}</span>
                     </span>}
                   </button>
-                  <details class="route-choice__trip-notes" data-trip-details-fallback>
-                    <summary>View trip details</summary>
-                    <RiverTripDetails route={route} hubId={group.riverId} guideHref={!hasConsolidatedRoutePage ? routeDetailHref(route) : undefined} />
-                  </details>
+                  <a class="river-link river-link--inline route-choice__details-button" data-trip-page-link href={routeDetailHref(route)}>View trip details</a>
                 </article>
               );
             })}
@@ -2083,16 +2078,16 @@ const groupStructuredData = [
                 reach={staticSelectedRoute.reach}
                 state={staticSelectedRoute.state}
                 region={staticSelectedRoute.region}
-                url={riverTripDetailsHref(staticSelectedRoute, group.riverId)}
+                url={riverTripDetailsHref(staticSelectedRoute)}
               />
             ) : null}
             {!isAccessPlanningHub && <div class="river-route-picker__selected-decision">
               <strong>--</strong>
               <span>{staticSelectedRoute?.scoreEligibility === 'planning' ? 'Planning only · No live score' : 'Loading conditions'}</span>
             </div>}
-            {staticSelectedRoute && !isAccessPlanningHub ? (
+            {staticSelectedRoute ? (
               <div class="river-route-picker__selected-actions">
-                <a class="river-link river-link--inline" data-trip-selected-fallback href={`#trip-${staticSelectedRoute.slug}`}>View trip details</a>
+                <a class="river-link river-link--inline" data-trip-page-link href={routeDetailHref(staticSelectedRoute)}>View trip details</a>
               </div>
             ) : null}
           </div>
@@ -2126,18 +2121,10 @@ const groupStructuredData = [
           </div>
         </div>
       </div>
-      {sourceGroup.routes.filter(route => !group.routes.some(featured => featured.slug === route.slug)).map(route => (
-        <template data-trip-details-extra data-trip-slug={route.slug} data-trip-title={route.reach}>
-          <RiverTripDetails route={route} hubId={group.riverId} guideHref={!routePageConsolidationTarget(route.slug) ? routeDetailHref(route) : undefined} />
-        </template>
-      ))}
-      <dialog class="trip-details-dialog" id="river-trip-details-dialog" data-trip-details-dialog aria-labelledby="river-trip-details-title">
-        <header class="trip-details-dialog__header">
-          <div><p class="eyebrow">Trip details</p><h2 id="river-trip-details-title" data-trip-dialog-title></h2></div>
-          <button class="trip-details-dialog__close" type="button" data-trip-dialog-close autofocus aria-label="Close trip details">✕</button>
-        </header>
-        <div class="trip-details-dialog__body" data-trip-dialog-body></div>
-      </dialog>
+      {sourceGroup.routes.length > group.routes.length && <details class="route-choice__sources">
+        <summary>All trip details</summary>
+        <ul>{sourceGroup.routes.map(route => <li><a href={routeDetailHref(route)}>{route.reach}</a></li>)}</ul>
+      </details>}
     </section>
 
     <section class="river-group-page__panel river-hub-context" aria-labelledby="river-hub-context-title">
@@ -2194,47 +2181,47 @@ const groupStructuredData = [
               : isOuachitaHub
               ? 'Choose between the 2.9-mile west-to-east Dragover Day Use reach and the 5.9-mile Remmel Dam–Rockport Whitewater Park run. They are separate outings with different access and flow checks; each route card keeps its own endpoints, gauge, and hazards.'
               : isAndroscogginMaineHub
-              ? `All ${group.routeCount} access-pair choices remain available on this hub. The individual route pages have been brought together here; choose by section and review the exact endpoint, access, distance, and hazard notes on each card.`
+              ? `Compare all ${group.routeCount} access-pair choices on this hub. Choose a section, then open its trip page for exact endpoints, access, distance, and hazard notes.`
               : isYellowBreechesHub
-              ? `Compare all ${group.routeCount} Yellow Breeches endpoint choices from Simpson Park through McCormick Park, Lower Allen, and Liberty Forge to B6. Six focused trips have dedicated route guides; overlapping combinations remain available here, and the adjacent Simpson–McCormick leg is available as a short option.`
+              ? `Compare all ${group.routeCount} Yellow Breeches endpoint choices from Simpson Park through McCormick Park, Lower Allen, and Liberty Forge to B6. Open any trip’s details for its access and shuttle plan; the adjacent Simpson–McCormick leg offers a short option.`
               : isSaltRiverHub
-              ? `Compare all ${group.routeCount} Lower Salt endpoint choices from Water Users through Blue Point, Goldfield, and Phon D. Sutton to Granite Reef. Four adjacent sections have dedicated pages; six longer combinations remain selectable here with their own endpoints, mileage, access notes, and shuttle details.`
+              ? `Compare all ${group.routeCount} Lower Salt endpoint choices from Water Users through Blue Point, Goldfield, and Phon D. Sutton to Granite Reef. Choose an adjacent section or longer combination, then open its trip page for endpoints, mileage, access notes, and shuttle details.`
               : isCurrentRiverHub
               ? `Compare all ${group.routeCount} Current River endpoint choices here. The picker keeps the two NPS-described sections separate and preserves every trip with its own endpoints, gauge, distance, shuttle, camping, and safety details.`
               : isJacksForkHub
               ? `Compare all ${group.routeCount} Jacks Fork endpoint choices here. The NPS adjacent float sections provide useful anchors, while longer combinations remain available with their own mileage, shuttle, camping, and hazard notes. Use the gauge assigned to the specific trip: Mountain View upstream, Alley Spring in the middle, or Eminence for the lower finish.`
               : isElevenPointHub
-              ? `Compare all ${group.routeCount} public endpoint choices here, from the upper reaches through Turner Mill, Whitten, Riverton, and The Narrows. The route cards keep their own access pairs, mileage, and safety notes together; choose trips within the river section and gauge context you plan to use.`
+              ? `Compare all ${group.routeCount} public endpoint choices here, from the upper reaches through Turner Mill, Whitten, Riverton, and The Narrows. Each trip page provides its access pairs, mileage, and safety notes; choose trips within the river section and gauge context you plan to use.`
               : isRussianRiverHub
-              ? `Compare all ${group.routeCount} endpoint combinations here. Six source-backed trips keep standalone pages; the remaining options stay selectable with their own mileage, access, shuttle, and hazard notes. The upper, middle, and lower reaches use different guide and gauge references.`
+              ? `Compare all ${group.routeCount} endpoint combinations here. Every trip page provides its mileage, access, shuttle, and hazard notes. The upper, middle, and lower reaches use different guide and gauge references.`
               : isSpokaneHub
-              ? `Compare all ${group.routeCount} Spokane River options here. Six focused Water Trail sections keep standalone guides; the other 20 endpoint combinations remain available as cards with their own access and hazard notes. Upper Post Falls telemetry, the lower Spokane gauge, and the Nine Mile pool describe different conditions.`
+              ? `Compare all ${group.routeCount} Spokane River options here and open any trip’s page for its access and hazard notes. Upper Post Falls telemetry, the lower Spokane gauge, and the Nine Mile pool describe different conditions.`
               : isSaludaHub
               ? 'One trip card represents the 3.5-mile reach from two alternative public launch ramps to the Gardendale carry-in take-out. The short cross-bank pair and I-26 endpoint combinations are not listed as trips because they add little route value or rely on an undocumented take-out.'
               : isGreenRiverHub
               ? 'Compare eight source-backed Green River trips across the Upper Green, Hart County, and Mammoth Cave. Each trip keeps its own endpoints, mileage, access, hazards, and local flow guidance.'
               : isBlackfootHub
-              ? `Compare all ${group.routeCount} endpoint combinations here. Five source-documented runs keep standalone pages; the other 31 remain selectable as trip options. Route-specific flow scores are limited to those five named reaches; the rest show the Bonner gauge as context only.`
+              ? `Compare all ${group.routeCount} endpoint combinations here and open any trip’s details. Route-specific flow scores are limited to five source-documented runs; the other choices show the Bonner gauge as context only.`
               : isAnimasHub
-              ? `Compare all ${group.routeCount} Animas trip choices here. Five source-backed sections keep standalone pages; the five composite options remain selectable with their own endpoints, mileage, bailout access, gauge references, and hazards.`
+              ? `Compare all ${group.routeCount} Animas trip choices here. Open any trip’s page for its endpoints, mileage, bailout access, gauge references, and hazards.`
               : isSanJuanHub
-              ? `Compare all ${group.routeCount} San Juan trip choices here. Five named access sections keep standalone pages; six longer combinations remain selectable with their own endpoints, mileage, intermediate access, gauge references, and hazards.`
+              ? `Compare all ${group.routeCount} San Juan trip choices here. Open any trip’s page for its endpoints, mileage, intermediate access, gauge references, and hazards.`
               : isChattahoocheeHub
               ? `Compare all ${group.routeCount} curated Chattahoochee route guides here. Eight focused recreation-area sections cover the NPS access chain; Powers Island–Paces Mill and the Upper Chattahoochee and Columbus whitewater runs remain separate because they describe different paddling contexts. Other endpoint combinations now lead to this section guide.`
               : isBarrenRiverHub
-              ? `Compare all ${group.routeCount} Lower Barren River choices here. Five individual KDFWR access segments keep standalone pages; five composite endpoint combinations remain selectable with their own mileage, access, gauge, and hazard details. Finney stage and Bowling Green discharge apply to different route sections.`
+              ? `Compare all ${group.routeCount} Lower Barren River choices here. Each trip page provides its mileage, access, gauge, and hazard details. Finney stage and Bowling Green discharge apply to different route sections.`
               : isUpperCumberlandHub
-              ? `Compare all ${group.routeCount} Upper Cumberland choices here. The three consecutive access legs keep focused route pages; longer combinations remain available as trip cards. Williamsburg-to-Redbird and the downstream Cumberland Falls approaches retain their own pages because the gorge has different flow guidance and hazards.`
+              ? `Compare all ${group.routeCount} Upper Cumberland choices here and open any trip’s page for its access plan. Check Williamsburg-to-Redbird and the downstream Cumberland Falls approaches separately because the gorge has different flow guidance and hazards.`
               : isTradewaterHub
-              ? `Compare all ${group.routeCount} lower Tradewater choices here. Four consecutive KDFWR access sections keep standalone guides; five longer endpoint combinations remain selectable with their own distance, access, and trip-specific gauge context.`
+              ? `Compare all ${group.routeCount} lower Tradewater choices here, including consecutive KDFWR access sections and longer combinations. Every trip page provides its distance, access, and trip-specific gauge context.`
               : isLittleForkHub
-              ? `Compare all ${group.routeCount} Little Fork trip choices here. Seven reach-specific guides keep standalone pages; three composite endpoint combinations open their exact trip cards on this hub. All ten choices retain their own endpoints, distances, access details, and gauge assignments.`
+              ? `Compare all ${group.routeCount} Little Fork trip choices here. Open any trip’s page for its endpoints, distance, access details, and gauge assignment.`
               : isStLouisRiverHub
-              ? `Compare all ${group.routeCount} public St. Louis River choices here. Six focused access sections keep their guides; three longer combinations open their exact trip cards on this hub. Each choice retains its endpoints, distance, access notes, and route-specific Forbes or Floodwood gauge context.`
+              ? `Compare all ${group.routeCount} public St. Louis River choices here. Every trip page provides its endpoints, distance, access notes, and route-specific Forbes or Floodwood gauge context.`
               : isPenobscotHub
               ? `Compare all ${group.routeCount} Penobscot trip choices here. The hub keeps each endpoint pair and its access, gauge, shuttle, camping, and hazard notes together. Start with the trail section guide below: the West Enfield Dam portage, Bangor Valley rapids, and tidal lower river need different plans.`
               : isHousatonicHub
-              ? `Compare all ${group.routeCount} Berkshire Housatonic trip choices here. Nine reach-specific sections keep standalone pages; six longer endpoint combinations remain selectable with their own access, mileage, gauge, portage, and safety details.`
+              ? `Compare all ${group.routeCount} Berkshire Housatonic trip choices here. Open any trip’s page for its access, mileage, gauge, portage, and safety details.`
               : isWillimanticHub
               ? 'Compare five selected trips across the three official water-trail stretches. The linked water-trail map shows additional public access points; check current access and conditions when planning your endpoints.'
               : isWillametteHub
@@ -2292,14 +2279,14 @@ const groupStructuredData = [
               <p>
                 The upper route runs from the west landing to the east landing and is rated Class I–II. USFS confirms the public canoe-launching site; American Whitewater documents the reach and its landings. Check the direct <a href="https://waterdata.usgs.gov/monitoring-location/USGS-07356000/" target="_blank" rel="noopener noreferrer">USGS gauge near Mount Ida</a> and review the <a href="https://www.fs.usda.gov/r08/ouachita/recreation/dragover-day-use" target="_blank" rel="noopener noreferrer">USFS Dragover access information</a> and <a href="https://www.americanwhitewater.org/content/River/view/river-detail/2699/main" target="_blank" rel="noopener noreferrer">American Whitewater reach notes</a>.
               </p>
-              <a href="#trip-ouachita-river-dragover-west-east">Review the Dragover trip card</a>
+              <a href={routeSlugHref('ouachita-river-dragover-west-east')}>View Dragover trip details</a>
             </article>
             <article class="river-hub-context__item">
               <h3>Remmel Dam to Rockport · about 5.9 miles</h3>
               <p>
                 Plan about three to four hours during a recreational release. Check the direct <a href="https://waterdata.usgs.gov/monitoring-location/USGS-07359002/" target="_blank" rel="noopener noreferrer">USGS gauge at Remmel Dam</a>, <a href="https://www.entergy.com/operations/hydro/data" target="_blank" rel="noopener noreferrer">Entergy’s latest lake and flow news</a>, and its <a href="https://www.entergy.com/blog/great-day-for-float/" target="_blank" rel="noopener noreferrer">published float and access guide</a>. The usual summer release pattern does not confirm operations on your trip date. At the take-out, move to the left bank when I-30 comes into view and use the boat ramp before the bridge; <a href="https://www.americanwhitewater.org/content/River/view/river-detail/3052/main" target="_blank" rel="noopener noreferrer">American Whitewater’s reach notes</a> describe the hazards near Rockport Ledge.
               </p>
-              <a href="#trip-ouachita-river-remmel-whitewater-park">Review the Remmel trip card</a>
+              <a href={routeSlugHref('ouachita-river-remmel-whitewater-park')}>View Remmel trip details</a>
             </article>
           </div>
         </div>
@@ -2702,7 +2689,7 @@ const groupStructuredData = [
             </article>
             <article class="river-hub-context__item">
               <h3>Bowling Green reaches · discharge</h3>
-              <p>USGS 03314500 reports flow in cfs. KDFWR rates 350–700 cfs as good. Beech Bend’s campground ramps are for registered campers only; the selected trip card carries that access restriction.</p>
+              <p>USGS 03314500 reports flow in cfs. KDFWR rates 350–700 cfs as good. Beech Bend’s campground ramps are for registered campers only; the trip details carry that access restriction.</p>
               <a href="/rivers/barren-river-beech-bend-james-r-hines/">Open the Beech Bend to James R. Hines segment</a>
             </article>
           </div>
@@ -2826,7 +2813,7 @@ const groupStructuredData = [
               <h3 class="section-title" id="little-fork-water-trail-sections-title">Choose by map, then match the reach</h3>
             </div>
             <p class="muted river-group-page__section-note">
-              The two DNR map sections contain ten trip choices. Start with a named day trip, then compare a shorter or longer endpoint pair using that trip card’s gauge and access notes.
+              The two DNR map sections contain ten trip choices. Start with a named day trip, then compare a shorter or longer endpoint pair using that trip page’s gauge and access notes.
             </p>
           </div>
 
@@ -2899,7 +2886,7 @@ const groupStructuredData = [
             <article class="river-hub-context__item">
               <h3>Longer combinations · choose the exact endpoints</h3>
               <p>
-                Three longer choices remain available in the trip cards: County Road 95–Zim (31.5 miles), Forbes–Toivola (31.7 miles), and Toivola–Floodwood (22.1 miles). County Road 95–Zim crosses the Forbes Dam boundary and requires the river-right portage; review its card before choosing that itinerary.
+                Three longer choices remain available: County Road 95–Zim (31.5 miles), Forbes–Toivola (31.7 miles), and Toivola–Floodwood (22.1 miles). County Road 95–Zim crosses the Forbes Dam boundary and requires the river-right portage; review its trip details before choosing that itinerary.
               </p>
               <a href={routeSlugHref('st-louis-river-county-road-95-zim')}>Compare County Road 95–Zim</a>
               <a href={routeSlugHref('st-louis-river-forbes-toivola')}>Compare Forbes–Toivola</a>
@@ -3029,7 +3016,7 @@ const groupStructuredData = [
             <article class="river-hub-context__item">
               <h3>KDFWR’s access mileages</h3>
               <p>
-                KDFWR lists Leatherwood Branch to Puncheon/Pipe Lick at 13.1 miles, Puncheon/Pipe Lick to McDowells Creek at 14.1 miles, McDowells Creek to Mill Pond Creek at 1.6 miles, and Mill Pond Creek to Garrison Ramp at 2.7 miles. The route cards combine these mapped legs into six endpoint choices; each card keeps its own distance, shuttle, and access notes.
+                KDFWR lists Leatherwood Branch to Puncheon/Pipe Lick at 13.1 miles, Puncheon/Pipe Lick to McDowells Creek at 14.1 miles, McDowells Creek to Mill Pond Creek at 1.6 miles, and Mill Pond Creek to Garrison Ramp at 2.7 miles. Compare six endpoint choices below; each trip page provides its distance, shuttle, and access notes.
               </p>
               <ul>
                 <li><a href="#trip-kinniconick-creek-leatherwood-branch-mcdowells-creek">Leatherwood Branch to McDowells Creek · 27.2 miles</a></li>
@@ -3043,7 +3030,7 @@ const groupStructuredData = [
                 KDFWR says there is no current stream gage on Kinniconick Creek and uses USGS 03217000 on Tygarts Creek near Greenup as a proxy. Its “Good” bands are 2.5–3.5 feet or 50–130 cfs, and are recommendations rather than safety limits. KDFWR describes a semi-shallow creek with rock bars, woody debris, riffles, and pools; check recent rain and the live trend before launch.
               </p>
               <p>
-                KDFWR warns that most Kentucky streams border private property. Stay at the named public access sites; check each trip card for the carry-down, parking, shuttle, and no-camping notes. Review the live <a href="https://waterdata.usgs.gov/monitoring-location/03217000/" target="_blank" rel="noopener noreferrer">Tygarts Creek near Greenup gauge</a> with recent rain and trend before launch.
+                KDFWR warns that most Kentucky streams border private property. Stay at the named public access sites; check each trip page for the carry-down, parking, shuttle, and no-camping notes. Review the live <a href="https://waterdata.usgs.gov/monitoring-location/03217000/" target="_blank" rel="noopener noreferrer">Tygarts Creek near Greenup gauge</a> with recent rain and trend before launch.
               </p>
             </article>
           </div>
@@ -3062,7 +3049,7 @@ const groupStructuredData = [
               <h3 class="section-title" id="north-fork-maquoketa-sections-title">Choose a section and plan the access gaps</h3>
             </div>
             <p class="muted river-group-page__section-note">
-              Three focused trips divide the Cascade-to-Caven corridor. Longer combinations remain available as trip cards, where each keeps its own distance, shuttle, access, and hazard notes.
+              Three focused trips divide the Cascade-to-Caven corridor. Compare those sections and longer combinations below, then open any trip’s page for its distance, shuttle, access, and hazard notes.
             </p>
           </div>
 

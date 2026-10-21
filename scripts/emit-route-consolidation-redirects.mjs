@@ -1,10 +1,12 @@
 import { access, mkdir, writeFile } from 'node:fs/promises';
 import { dirname, join, resolve } from 'node:path';
 import { listRoutePageConsolidations } from '../src/data/route-page-consolidations.ts';
+import { listRivers } from '../src/lib/rivers.ts';
 
 const outputRoot = resolve(process.argv[2] || 'dist');
 const siteOrigin = new URL(process.env.SITE_URL || process.env.PUBLIC_SITE_URL || 'https://paddletoday.com').origin;
-const routes = listRoutePageConsolidations();
+const publicTripSlugs = new Set(listRivers().map(route => route.slug));
+const routes = listRoutePageConsolidations().filter(({ slug }) => !publicTripSlugs.has(slug));
 
 const escapeAttribute = (value) => value
   .replaceAll('&', '&amp;')

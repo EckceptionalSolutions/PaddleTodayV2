@@ -7,7 +7,7 @@ import { routeGeometryReviewHolds } from '../../lib/route-geometry-review-holds.
 import RouteAppHandoff from '../../components/RouteAppHandoff.astro';
 import RouteAppDownload from '../../components/RouteAppDownload.astro';
 import { webFeatureFlags } from '../../lib/web-feature-flags';
-import { accessMapHref, shuttleDirections } from '../../lib/trip-actions';
+import { accessMapHref, accessDirectionsHref, shuttleDirections, tripActionLinks } from '../../lib/trip-actions';
 
 import FeatureIcon from '../../components/FeatureIcon.astro';
 import GaugeBand from '../../components/GaugeBand.astro';
@@ -19,7 +19,7 @@ import { getRouteGalleryPhotos, getRoutePreviewPhoto } from '../../data/route-ga
 import { getRouteSocialCard } from '../../data/route-social-cards';
 import { FAVORITE_STAR_PATH } from '../../lib/favorites-icon.js';
 import { listRivers, listRiverStateGroups } from '../../lib/rivers';
-import { hasStandaloneRoutePage, routePageConsolidationTarget } from '../../data/route-page-consolidations';
+import { isIndexableRoutePage, routePageHref } from '../../data/route-page-consolidations';
 import { gaugeDisplayForSource } from '../../lib/source-adapters';
 import { evidenceNoteDetail, evidenceNoteLabel } from '../../lib/route-evidence';
 import {
@@ -29,7 +29,7 @@ import {
 } from '@paddletoday/api-contract';
 
 export function getStaticPaths() {
-  return listRivers().filter((river) => hasStandaloneRoutePage(river.slug)).map((river) => ({
+  return listRivers().map((river) => ({
     params: { slug: river.slug },
     props: { river },
   }));
@@ -195,8 +195,9 @@ const regionHref = stateGroup ? `/states/${stateGroup.slug}/#region-${slugifyFra
 const siteUrl = Astro.site?.href ?? 'https://paddletoday.com/';
 const homeUrl = new URL('/', siteUrl).href;
 const routeUrl = new URL(`/rivers/${river.slug}/`, siteUrl).href;
-const tripGpxHref = `/api/rivers/${encodeURIComponent(river.slug)}/trip.gpx?putin=${encodeURIComponent(putIn?.id ?? '')}&takeout=${encodeURIComponent(takeOut?.id ?? '')}`;
-const tripIcsHref = `/api/rivers/${encodeURIComponent(river.slug)}/trip.ics?putin=${encodeURIComponent(putIn?.id ?? '')}&takeout=${encodeURIComponent(takeOut?.id ?? '')}`;
+const tripActions = tripActionLinks(river);
+const tripGpxHref = tripActions.gpx;
+const tripIcsHref = tripActions.calendar;
 const riverHubUrl = riverHubHref ? new URL(riverHubHref, siteUrl).href : null;
 const routeSeoTitle =
   river.seoTitle ??
@@ -375,6 +376,7 @@ const routeFaqStructuredData = {
 
 <BaseLayout
   title={routeSeoTitle}
+  noindex={!isIndexableRoutePage(river.slug)}
   description={routeSeoDescription}
   structuredData={[routeStructuredData, routeFaqStructuredData]}
   socialTitle={routeShareTitle}
@@ -493,7 +495,7 @@ const routeFaqStructuredData = {
             </div>
           </div>
 
-          {webFeatureFlags.webAccountExperience && <p><a class="river-link river-link--inline river-link--primary" data-plan-account href={`/trips/?route=${encodeURIComponent(river.slug)}&name=${encodeURIComponent(river.name)}&putin=${encodeURIComponent(river.putIn?.id || '')}&takeout=${encodeURIComponent(river.takeOut?.id || '')}`}>Plan this route</a></p>}
+          {webFeatureFlags.webAccountExperience && <p><a class="river-link river-link--inline river-link--primary" data-plan-account href={tripActions.plan}>Plan this route</a></p>}
           <section class="route-overview-trip-fit" aria-label="Trip facts">
             <div>
               <span>Distance</span>
@@ -1505,9 +1507,9 @@ const routeFaqStructuredData = {
           <p class="muted">Save your selected route as a trip, choose a day, and bring your paddling partners along. {geometryReviewReason ? 'You can also share a quick float plan.' : 'You can also download the route or share a quick float plan.'}</p>
         </div>
         <div class="detail-map__links">
-          <a class="river-link river-link--inline river-link--primary" data-plan-account href={`/trips/?route=${encodeURIComponent(river.slug)}&name=${encodeURIComponent(river.name)}&putin=${encodeURIComponent(river.putIn?.id || '')}&takeout=${encodeURIComponent(river.takeOut?.id || '')}`}>Plan this route</a>
-          {geometryReviewReason ? <span class="muted">GPX unavailable during route-line review</span> : <a class="river-link river-link--inline" href={tripGpxHref} data-trip-gpx data-analytics-event="Export GPX">Download GPX</a>}
-          <a class="river-link river-link--inline" href={tripIcsHref} data-trip-ics data-analytics-event="Export calendar">Add to calendar</a>
+          <a class="river-link river-link--inline river-link--primary" data-plan-account href={tripActions.plan}>Plan this route</a>
+          {geometryReviewReason ? <span class="muted">GPX unavailable during route-line review</span> : tripGpxHref ? <a class="river-link river-link--inline" href={tripGpxHref} data-trip-gpx data-analytics-event="Export GPX">Download GPX</a> : <span class="muted">GPX unavailable until access and route geometry are established</span>}
+          {tripIcsHref && <a class="river-link river-link--inline" href={tripIcsHref} data-trip-ics data-analytics-event="Export calendar">Add to calendar</a>}
           <button class="river-inline-button" type="button" data-trip-share data-analytics-event="Share float plan">Share float plan</button>
         </div>
         {geometryReviewReason && <p class="muted" data-geometry-review-notice>{geometryReviewReason}</p>}
@@ -1533,6 +1535,7 @@ const routeFaqStructuredData = {
                   Open map
                 </a>
               ) : null}
+              {accessDirectionsHref(putIn) && <a class="river-link river-link--inline" href={accessDirectionsHref(putIn)} target="_blank" rel="noreferrer" data-access-putin-directions>Directions to put-in</a>}
               {typeof putIn?.latitude === 'number' && typeof putIn?.longitude === 'number' ? (
                 <button
                   class="river-inline-button"
@@ -1566,6 +1569,7 @@ const routeFaqStructuredData = {
                   Open map
                 </a>
               ) : null}
+              {accessDirectionsHref(takeOut) && <a class="river-link river-link--inline" href={accessDirectionsHref(takeOut)} target="_blank" rel="noreferrer" data-access-takeout-directions>Directions to take-out</a>}
               {typeof takeOut?.latitude === 'number' && typeof takeOut?.longitude === 'number' ? (
                 <button
                   class="river-inline-button"
@@ -2397,7 +2401,7 @@ const routeFaqStructuredData = {
               {siblingRoutes.slice(0, 4).map((candidate) => (
                 <a
                   class="route-discovery__link"
-                  href={routePageConsolidationTarget(candidate.slug) ?? `/rivers/${candidate.slug}/`}
+                  href={routePageHref(candidate.slug)}
                   data-analytics-event="Open related route"
                   data-analytics-label="same-river"
                 >
@@ -2422,7 +2426,7 @@ const routeFaqStructuredData = {
               {nearbyRoutes.map((candidate) => (
                 <a
                   class="route-discovery__link"
-                  href={routePageConsolidationTarget(candidate.slug) ?? `/rivers/${candidate.slug}/`}
+                  href={routePageHref(candidate.slug)}
                   data-analytics-event="Open related route"
                   data-analytics-label="nearby"
                 >

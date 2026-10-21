@@ -2,7 +2,7 @@ import { readFile, access, mkdir, writeFile } from 'node:fs/promises';
 import { resolve, join } from 'node:path';
 import { listRivers, listRiverGroups, listAllRiversForAudit, WITHHELD_ROUTE_SLUGS } from '../src/lib/rivers';
 import { staticRoutePatternErrors } from './lib/static-route-rules';
-import { hasStandaloneRoutePage, routePageConsolidationTarget, listRoutePageConsolidations } from '../src/data/route-page-consolidations';
+import { isIndexableRoutePage, routePageConsolidationTarget, listRoutePageConsolidations } from '../src/data/route-page-consolidations';
 import { routeGuidePublicationReviews } from '../src/data/route-guide-publication-reviews';
 import { riverHubPublicationErrors, routeGuidePublicationErrors } from './lib/route-guide-publication';
 
@@ -13,7 +13,7 @@ const errors: string[] = [];
 const warnings: string[] = [];
 const guideBaseline = JSON.parse(await readFile('docs/audits/route-guide-publication-baseline-2026-10-19.json', 'utf8'));
 errors.push(...routeGuidePublicationErrors(
-  listRivers().filter(route => hasStandaloneRoutePage(route.slug)).map(route => route.slug),
+  listRivers().filter(route => isIndexableRoutePage(route.slug)).map(route => route.slug),
   guideBaseline.standaloneGuideSlugs,
   routeGuidePublicationReviews,
 ));
@@ -49,7 +49,7 @@ const routeHeadings = new Map<string, string[]>();
 const routeDescriptions = new Map<string, string[]>();
 const routeLinks = new Map<string, Set<string>>();
 const planningRoutePaths = new Set(listRivers()
-  .filter(route => route.scoreEligibility === 'planning' && hasStandaloneRoutePage(route.slug))
+  .filter(route => route.scoreEligibility === 'planning' && isIndexableRoutePage(route.slug))
   .map(route => `/rivers/${route.slug}/`));
 for (const value of urls) {
   const url = new URL(value);
@@ -113,7 +113,8 @@ for (const value of urls) {
     }
   }
 }
-const consolidatedRedirects = listRoutePageConsolidations();
+const publicTripSlugs = new Set(listRivers().map(route => route.slug));
+const consolidatedRedirects = listRoutePageConsolidations().filter(({ slug }) => !publicTripSlugs.has(slug));
 for (const { slug, target } of consolidatedRedirects) {
   const sourcePath = `/rivers/${slug}/`;
   const targetUrl = new URL(target, origin);
@@ -173,15 +174,34 @@ errors.push(...riverHubPublicationErrors(
   hubBaseline.riverIds,
   routeGuidePublicationReviews,
 ));
-const routes = routeOptions.filter((route) => hasStandaloneRoutePage(route.slug));
-const consolidatedRoutes = routeOptions.filter((route) => !hasStandaloneRoutePage(route.slug));
+const routes = routeOptions.filter((route) => isIndexableRoutePage(route.slug));
+const consolidatedRoutes = routeOptions.filter((route) => !isIndexableRoutePage(route.slug));
+for (const route of consolidatedRoutes) {
+  const pathname = `/rivers/${route.slug}/`;
+  if (paths.has(pathname)) errors.push(`Nonindexable trip page must stay out of sitemap: ${pathname}`);
+  if (redirects.has(pathname.replace(/\/$/, ''))) errors.push(`Public trip page must not redirect: ${pathname}`);
+  try {
+    const html = await readFile(fileFor(pathname), 'utf8');
+    const robots = tags(html, 'meta').filter(tag => attr(tag, 'name') === 'robots');
+    if (robots.length !== 1 || attr(robots[0], 'content') !== 'noindex, follow') errors.push(`Trip page requires noindex, follow: ${pathname}`);
+    if (tags(html, 'meta').some(tag => attr(tag, 'http-equiv').toLowerCase() === 'refresh')) errors.push(`Public trip must render details instead of a redirect: ${pathname}`);
+    const canonical = tags(html, 'link').filter(tag => attr(tag, 'rel') === 'canonical');
+    if (canonical.length !== 1 || attr(canonical[0], 'href') !== `${origin}${pathname}`) errors.push(`Trip page must use its own canonical: ${pathname}`);
+    if (!tags(html, 'article').some(tag => attr(tag, 'data-river-slug') === route.slug)) errors.push(`Trip detail page is missing: ${pathname}`);
+    if (route.scoreEligibility === 'planning' && (
+      /Only a low-water floor is known|We can tell when this route is likely too low/.test(html)
+      || !tags(html, 'section').some(tag => attr(tag, 'id') === 'planning-sources')
+      || tags(html, 'section').some(tag => attr(tag, 'id') === 'why-this-call')
+    )) errors.push(`Planning trip must expose sources without score claims: ${pathname}`);
+  } catch { errors.push(`Nonindexable trip page missing from build: ${pathname}`); }
+}
 const routePaths = routes.map((route) => `/rivers/${route.slug}/`);
 const expected = [
   ...routePaths,
   ...listRiverGroups().filter((group) => group.routeCount > 1).map((group) => `/rivers/by-river/${group.riverId}/`),
 ];
 for (const pathname of expected) if (!paths.has(pathname)) errors.push(`Published route/hub absent from sitemap: ${pathname}`);
-for (const route of routes) {
+for (const route of routeOptions) {
   const routePath = `/rivers/${route.slug}/`;
   const hubPath = `/rivers/by-river/${route.riverId}/`;
   if (!paths.has(hubPath)) continue;
@@ -237,7 +257,7 @@ const samples = [
 const inventory = new Set(listAllRiversForAudit().map((route) => route.slug));
 const sampleStatus = samples.map((slug) => ({
   slug,
-  status: paths.has(`/rivers/${slug}/`) ? 'published-in-build' : routePageConsolidationTarget(slug) ? 'consolidated-into-river-hub' : WITHHELD_ROUTE_SLUGS.has(slug) ? 'withheld-for-coordinate-review' : inventory.has(slug) ? 'not-public-in-current-catalog' : 'absent-from-current-catalog',
+  status: paths.has(`/rivers/${slug}/`) ? 'published-in-build' : publicTripSlugs.has(slug) ? 'published-noindex-trip' : routePageConsolidationTarget(slug) ? 'retired-redirect' : WITHHELD_ROUTE_SLUGS.has(slug) ? 'withheld-for-coordinate-review' : inventory.has(slug) ? 'not-public-in-current-catalog' : 'absent-from-current-catalog',
 }));
 const report = {
   generatedAt: new Date().toISOString(),
@@ -245,6 +265,8 @@ const report = {
   pages: urls.length,
   publicRouteOptions: routeOptions.length,
   publishedRoutes: routes.length,
+  publicTripDetailPages: routeOptions.length,
+  noindexTripDetailPages: consolidatedRoutes.length,
   consolidatedRouteOptions: consolidatedRoutes.length,
   checkedRouteLinks: routeLinks.size,
   routeLinkAudit: {
