@@ -8,10 +8,14 @@ const names = productionWorkflows.map(file => parse(fs.readFileSync(`.github/wor
 function fixture(options: any = {}) {
   const writes: any[] = [], reports: any[] = [], reads: string[] = []; let mainReads = 0;
   const target = options.newer ? newer : merged;
-  const pr = { number: 110, state: options.unmerged ? 'open' : 'closed', merged_at: options.unmerged ? null : '2026-10-21T00:30:00Z', merge_commit_sha: merged,
+  const pr = { number: 110, state: options.unmerged ? 'open' : 'closed', merged_at: options.unmerged ? null : '2026-10-21T00:30:00Z',
     head: { sha: options.changedHead ? newer : tested, repo: { full_name: repository } }, base: { ref: 'main', repo: { full_name: repository } } };
   const run = (index: number, revision: string, status = 'completed', conclusion: string | null = 'success') => ({ id: 500 + index, display_title: `${names[index]} · ${revision} · deploy`, status, conclusion, html_url: `https://github.com/${repository}/actions/runs/${500 + index}` });
   const api = async (path: string, body?: any): Promise<any> => {
+    if (path === '/graphql') {
+      reads.push(path); expect(body.variables).toEqual({ owner: 'owner', name: 'repo', number: 110 });
+      return { data: { repository: { pullRequest: { merged: true, headRefOid: options.badMergeHead ? newer : tested, baseRefName: 'main', mergeCommit: options.missingMerge ? null : { oid: merged } } } } };
+    }
     if (body) { writes.push({ path, body }); if (options.unknownDispatch) throw new Error('Observation timeout after POST'); return { workflow_run_id: 900 + writes.length, html_url: `https://github.com/${repository}/actions/runs/${900 + writes.length}` }; }
     reads.push(path);
     if (path === '/actions/runs/100') return { name: 'Operations gates', event: 'pull_request', status: 'completed', conclusion: options.badGate ? 'failure' : 'success', head_sha: tested, head_repository: { full_name: options.fork ? 'someone/fork' : repository }, pull_requests: [] };
@@ -33,13 +37,14 @@ function fixture(options: any = {}) {
 }
 
 describe('merged publication handoff', () => {
-  it('resolves an empty run PR list by commit and pins all bootstrap deployments', async () => {
+  it('resolves an empty run PR list and a REST PR without merge_commit_sha, then pins deployments', async () => {
     const f = fixture(), result = await f.invoke();
     expect(result.status).toBe('deployments-requested'); expect(result.runIds).toEqual([901, 902, 903]);
     expect(f.writes.every(w => w.body.ref === 'main' && w.body.inputs.source_revision === merged)).toBe(true);
     expect(f.reads).toContain(`/commits/${tested}/pulls?per_page=100&page=1`);
+    expect(f.reads).toContain('/graphql'); expect(result.mergeRevision).toBe(merged);
   });
-  it.each([{ fork: true }, { badGate: true }, { changedHead: true }, { newer: true, diverged: true }])('does not publish untrusted, failed or obsolete test evidence: %j', async options => {
+  it.each([{ fork: true }, { badGate: true }, { changedHead: true }, { newer: true, diverged: true }, { badMergeHead: true }, { missingMerge: true }])('does not publish untrusted, failed or obsolete test evidence: %j', async options => {
     const f = fixture(options); await expect(f.invoke()).rejects.toThrow(); expect(f.writes).toEqual([]);
   });
   it('records an unmerged PR without dispatching or pretending it is published', async () => {
@@ -101,6 +106,8 @@ describe('merged publication handoff', () => {
     const api = githubClient(repository, 'synthetic-token', async (url: any, init: any) => { calls.push({ url, init }); return new Response(JSON.stringify({ ok: true })); });
     await api(''); await api(`/compare/${old}...${merged}`); await api('/actions/workflows/a.yml/dispatches', { ref: 'main' });
     expect(calls).toHaveLength(3); expect(calls[2].init.headers['X-GitHub-Api-Version']).toBe('2026-03-10'); expect(calls[2].init.redirect).toBe('error');
+    await api('/graphql', { query: 'query { viewer { login } }' });
+    expect(calls[3].url).toBe('https://api.github.com/graphql');
   });
 });
 
