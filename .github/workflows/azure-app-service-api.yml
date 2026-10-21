@@ -22,6 +22,7 @@ on:
       - 'scripts/lib/deployment-revision.mjs'
       - 'scripts/lib/static-compression.mjs'
       - 'scripts/verify-api-package.mjs'
+      - 'scripts/api-verification-fixture.ts'
       - 'scripts/wait-for-api-revision.mjs'
       - 'scripts/deployment-smoke.mjs'
       - 'staticwebapp.config.json'
@@ -59,7 +60,7 @@ jobs:
       - name: Run API tests
         run: |
           npm run test:api
-          npx vitest run scripts/lib/api-package.test.ts scripts/lib/deployment-revision.test.ts
+          npx vitest run scripts/lib/api-package.test.ts scripts/lib/deployment-revision.test.ts scripts/lib/api-verification-fixture.test.ts
 
       - name: Build app
         env:
