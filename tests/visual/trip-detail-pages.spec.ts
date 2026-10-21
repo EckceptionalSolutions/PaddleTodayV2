@@ -26,7 +26,7 @@ for (const [slug, indexable, planning] of [
   await expect(page.locator('h1')).toContainText(river.name);
   await expect(page.locator('link[rel="canonical"]')).toHaveAttribute('href', `https://paddletoday.com/rivers/${slug}/`);
   await expect(page.locator('meta[name="robots"]')).toHaveAttribute('content', indexable ? 'index, follow' : 'noindex, follow');
-  await expect(page.locator('[data-plan-account]').first()).toHaveAttribute('href', new RegExp(`route=${slug}`));
+  await expect(page.locator('[data-plan-account]').first()).toHaveAttribute('href', '#trip-plan');
   await expect(page.locator('[data-access-putin-directions]')).toHaveAttribute('href', new RegExp(encodeURIComponent(`${river.putIn!.latitude},${river.putIn!.longitude}`)));
   await expect(page.locator('[data-access-takeout-directions]')).toHaveAttribute('href', new RegExp(encodeURIComponent(`${river.takeOut!.latitude},${river.takeOut!.longitude}`)));
   await expect(page.locator('[data-trip-gpx]')).toHaveCount(1);
@@ -42,7 +42,7 @@ for (const [slug, indexable, planning] of [
   await fallback.goto(`/rivers/${slug}/`);
   await expect(fallback.locator('[data-river-detail]')).toContainText(river.putIn!.name);
   await expect(fallback.locator('[data-river-detail]')).toContainText(river.takeOut!.name);
-  await expect(fallback.locator('[data-plan-account]').first()).toHaveAttribute('href', new RegExp(`route=${slug}`));
+  await expect(fallback.locator('[data-plan-account]').first()).toHaveAttribute('href', '#trip-plan');
   await context.close();
 });
 
@@ -92,7 +92,7 @@ test('conditions failure preserves exact access IDs in planning and export links
   const expected = tripActionLinks(river);
   await page.goto(`/rivers/${slug}/`);
   await expect(page.locator('[data-detail-fetch-banner]')).toBeVisible();
-  for (const selector of ['[data-plan-account]', '[data-trip-gpx]', '[data-trip-ics]']) {
+  for (const selector of ['[data-trip-gpx]']) {
     const params = new URL((await page.locator(selector).first().getAttribute('href'))!, page.url()).searchParams;
     expect(params.get('putin')).toBe(expected.putInId);
     expect(params.get('takeout')).toBe(expected.takeOutId);

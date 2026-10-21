@@ -1,0 +1,9 @@
+.route-trip-plan__fields { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1rem; border: 0; padding: 0; margin: 1rem 0; min-width: 0; }
+.route-trip-plan__fields legend { font-weight: 700; margin-bottom: .5rem; }
+.route-trip-plan__fields label { display: grid; gap: .4rem; min-width: 0; font-weight: 650; }
+.route-trip-plan__fields input, .route-trip-plan__fields select { box-sizing: border-box; width: 100%; min-width: 0; min-height: 44px; padding: .65rem; border: 1px solid #9bb5bd; border-radius: 10px; background: #fff; color: #183b46; font: inherit; }
+.route-trip-plan__fields label:last-child { grid-column: 1 / -1; }
+[data-guest-trip-plans] { max-width: 950px; margin: 2rem auto; padding: 1.5rem; background: #fff; border: 1px solid #bdd0d5; border-radius: 18px; }
+[data-guest-trip-list] { display: grid; gap: 1rem; padding-left: 1.2rem; }
+[data-guest-trip-list] a { display: inline-flex; align-items: center; min-height: 44px; }
+@media (max-width: 650px) { .route-trip-plan__fields { grid-template-columns: minmax(0, 1fr); } }

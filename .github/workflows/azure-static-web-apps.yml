@@ -161,4 +161,13 @@ jobs:
         if: github.event_name != 'workflow_dispatch' || (inputs.deploy_frontend && !inputs.verify_existing_assets)
         env:
           DEPLOYMENT_ORIGIN_HOST: jolly-river-0d74c2110.1.azurestaticapps.net
-        run: node scripts/search-serving-smoke.mjs
+        run: |
+          # SWA activation can lag upload completion. Keep the same assertions on every attempt.
+          for attempt in $(seq 1 6); do
+            if node scripts/search-serving-smoke.mjs; then exit 0; fi
+            if [ "$attempt" -lt 6 ]; then
+              echo 'Waiting for the uploaded frontend to become active at the origin.'
+              sleep 15
+            fi
+          done
+          exit 1

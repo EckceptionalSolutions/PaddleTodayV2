@@ -1,5 +1,11 @@
 import { expect, test } from '@playwright/test';
 import routeFixture from '../mobile-web/fixtures/route-detail.json' with { type: 'json' };
+test.use({ timezoneId: 'America/Chicago' });
+async function chooseTripTimes(page: import('@playwright/test').Page) {
+  await page.locator('[data-trip-launch]').fill('2026-11-05T09:00');
+  await page.locator('[data-trip-end]').fill('2026-11-05T13:00');
+  await page.locator('[data-trip-zone]').selectOption('America/Chicago');
+}
 
 test.beforeEach(async ({ page }) => {
   await page.route('**/api/**', (route) => route.fulfill({ status: 503, json: { error: 'offline' } }));
@@ -19,7 +25,6 @@ test('route warning tooltip stays inside tablet layouts', async ({ page }) => {
     await page.setViewportSize({ width, height: 900 });
     await warning.focus();
     await expect.poll(() => page.evaluate(() => document.documentElement.scrollWidth)).toBe(width);
-    await expect(page.locator('.account-menu__trigger')).toBeVisible();
     const tooltip = await warning.evaluate(element => {
       const style = getComputedStyle(element, '::after');
       return { right: style.right, opacity: style.opacity };
@@ -78,6 +83,7 @@ test('a failed route score stops checking and recovers through retry', async ({ 
 
 test('blocked float-plan sharing leaves the full plan selected for manual copy', async ({ page }) => {
   await page.goto('/rivers/rice-creek-peltier-to-long-lake/#access-plan');
+  await chooseTripTimes(page);
   await page.locator('[data-trip-share]').click();
   const field = page.getByRole('textbox', { name: 'Float plan to copy', exact: true });
   await expect(field).toBeVisible();
@@ -88,10 +94,11 @@ test('blocked float-plan sharing leaves the full plan selected for manual copy',
   await expect(page.locator('[data-trip-status]')).toContainText('Copy the selected float plan');
 });
 
-test('float-plan timing matches the calendar for both full and shortened routes', async ({ page }) => {
+test('float-plan timing stays explicit when access selection changes', async ({ page }) => {
   const loaded = page.waitForResponse((response) => response.url().includes('/api/rivers/rice-creek-peltier-to-long-lake.json'));
   await page.goto('/rivers/rice-creek-peltier-to-long-lake/#access-plan');
   await loaded;
+  await chooseTripTimes(page);
   const durations: number[] = [];
   for (const shortened of [false, true]) {
     if (shortened) {
@@ -101,10 +108,9 @@ test('float-plan timing matches the calendar for both full and shortened routes'
       await expect(page.locator('[data-trip-manual-copy]')).toBeHidden();
     }
     await page.locator('[data-trip-share]').click();
-    const calendar = await page.locator('[data-trip-ics]').evaluate((element: HTMLAnchorElement) => {
-      const query = new URL(element.href).searchParams;
-      const launch = new Date(query.get('start')!);
-      const expected = new Date(query.get('end')!);
+    const calendar = await page.evaluate(() => {
+      const launch = new Date('2026-11-05T09:00');
+      const expected = new Date('2026-11-05T13:00');
       const format = new Intl.DateTimeFormat('en-US', {
         weekday: 'short', month: 'short', day: 'numeric', hour: 'numeric', minute: '2-digit', timeZoneName: 'short',
       });
@@ -116,13 +122,14 @@ test('float-plan timing matches the calendar for both full and shortened routes'
     await expect.poll(() => copy.inputValue()).toContain(`Expected take-out: ${calendar.expected}`);
     durations.push(calendar.duration);
   }
-  expect(durations[1]).toBeLessThan(durations[0]);
+  expect(durations).toEqual([4 * 3600000, 4 * 3600000]);
 });
 
 test('pending float-plan sharing ignores duplicates and results for a previous segment', async ({ page }) => {
   const loaded = page.waitForResponse((response) => response.url().includes('/api/rivers/rice-creek-peltier-to-long-lake.json'));
   await page.goto('/rivers/rice-creek-peltier-to-long-lake/#access-plan');
   await loaded;
+  await chooseTripTimes(page);
   await page.evaluate(() => {
     const state = window as unknown as { shareCalls: number; rejectShare: () => void };
     state.shareCalls = 0;
@@ -155,6 +162,7 @@ test('cancelling native sharing restores the action without offering an error co
   const loaded = page.waitForResponse((response) => response.url().includes('/api/rivers/rice-creek-peltier-to-long-lake.json'));
   await page.goto('/rivers/rice-creek-peltier-to-long-lake/#access-plan');
   await loaded;
+  await chooseTripTimes(page);
   await page.evaluate(() => {
     Object.defineProperty(navigator, 'share', { configurable: true, value: async () => { throw new DOMException('Cancelled', 'AbortError'); } });
   });
@@ -168,6 +176,7 @@ test('cancelling native sharing restores the action without offering an error co
 
 test('legacy clipboard success keeps focus on the float-plan action', async ({ page }) => {
   await page.goto('/rivers/rice-creek-peltier-to-long-lake/#access-plan');
+  await chooseTripTimes(page);
   await page.evaluate(() => { document.execCommand = () => true; });
   const share = page.locator('[data-trip-share]');
   await share.click();
@@ -205,36 +214,31 @@ test('blocked condition copying offers a labelled selected summary', async ({ pa
 });
 
 
-for (const [label, expectedMinutes] of [['30 to 90 minutes', 150], ['2 hr 30 min to 4 hr', 300]] as const) {
-  test(`calendar respects duration units in ${label}`, async ({ page }) => {
-    await page.route('**/rivers/rice-creek-peltier-to-long-lake/', async (route) => {
+for (const label of ['30 to 90 minutes', '2 hr 30 min to 4 hr']) {
+  test('published duration does not invent a schedule: ' + label, async ({ page }) => {
+    await page.route('**/rivers/rice-creek-peltier-to-long-lake/', async route => {
       const response = await route.fetch();
-      const body = (await response.text()).replace(/data-river-paddle-time="[^"]*"/, `data-river-paddle-time="${label}"`);
+      const body = (await response.text()).replace(/data-river-paddle-time="[^"]*"/, 'data-river-paddle-time="' + label + '"');
       await route.fulfill({ response, body });
     });
-    const loaded = page.waitForResponse((response) => response.url().includes('/api/rivers/rice-creek-peltier-to-long-lake.json'));
-    await page.goto('/rivers/rice-creek-peltier-to-long-lake/#access-plan');
-    await loaded;
+    await page.goto('/rivers/rice-creek-peltier-to-long-lake/#trip-plan');
+    await expect(page.locator('[data-trip-launch]')).toHaveValue('');
+    await expect(page.locator('[data-trip-end]')).toHaveValue('');
     await page.locator('[data-trip-share]').click();
-    const duration = await page.locator('[data-trip-ics]').evaluate((element: HTMLAnchorElement) => {
-      const query = new URL(element.href).searchParams;
-      return (Date.parse(query.get('end')!) - Date.parse(query.get('start')!)) / 60_000;
-    });
-    // Full route maximum plus the existing one-hour planning buffer.
-    expect(duration).toBe(expectedMinutes);
+    await expect(page.locator('[data-trip-manual-copy]')).toBeHidden();
+    await expect(page.locator('[data-trip-launch]')).toBeFocused();
   });
 }
 
-test('route planning action follows selected access and explicit date context', async ({ page }) => {
+test('route planning action uses the selected access points without an account', async ({ page }) => {
   await page.goto('/rivers/rice-creek-peltier-to-long-lake/?date=2026-10-10#access-plan');
   await page.locator('.river-access-planner-disclosure > summary').click();
   await page.locator('[data-access-putin]').selectOption('baldwin-lake');
   await page.locator('[data-access-takeout]').selectOption('old-highway-8');
-  const links = page.locator('[data-plan-account]');
-  await expect(links).toHaveCount(2);
-  for (const link of await links.all()) {
-    await expect(link).toHaveAttribute('href', /putin=baldwin-lake/);
-    await expect(link).toHaveAttribute('href', /takeout=old-highway-8/);
-    await expect(link).toHaveAttribute('href', /date=2026-10-10/);
-  }
+  await expect(page.locator('[data-plan-account]')).toHaveAttribute('href', '#trip-plan');
+  await chooseTripTimes(page);
+  await page.locator('[data-trip-save-plan]').click();
+  await expect(page.locator('[data-trip-status]')).toContainText('Plan saved in this browser');
+  const saved = await page.evaluate(() => JSON.parse(localStorage.getItem('paddletoday:route-plans:v1')!).plans[0]);
+  expect(saved).toMatchObject({ putInId: 'baldwin-lake', takeOutId: 'old-highway-8', start: '2026-11-05T09:00', end: '2026-11-05T13:00' });
 });
