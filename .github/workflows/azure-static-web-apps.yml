@@ -1,4 +1,5 @@
 name: Paddle Today Frontend
+run-name: Paddle Today Frontend · ${{ inputs.source_revision || github.sha }} · ${{ github.event_name == 'workflow_dispatch' && (inputs.verify_existing_assets || !inputs.deploy_frontend) && 'assets-only' || 'deploy' }}
 
 on:
   push:
@@ -23,6 +24,10 @@ on:
       - '.github/workflows/azure-static-web-apps.yml'
   workflow_dispatch:
     inputs:
+      source_revision:
+        description: 'Exact source commit (defaults to this workflow run revision)'
+        type: string
+        default: ''
       deploy_frontend:
         description: 'Deploy the frontend after asset verification (disable to validate asset publishing only)'
         type: boolean
@@ -40,6 +45,7 @@ jobs:
   build_and_deploy:
     runs-on: ubuntu-latest
     env:
+      SOURCE_REVISION: ${{ inputs.source_revision || github.sha }}
       SITE_URL: https://paddletoday.com
       AZURE_STORAGE_ACCOUNT: paddletoday
       AZURE_ASSET_CONTAINER: web-assets
@@ -52,7 +58,11 @@ jobs:
       PUBLIC_FEATURE_WEB_ACCOUNT_EXPERIENCE: ${{ vars.PUBLIC_FEATURE_WEB_ACCOUNT_EXPERIENCE || '0' }}
       PUBLIC_FEATURE_SAVED_ROUTE_SYNC_CLAIM: ${{ vars.PUBLIC_FEATURE_SAVED_ROUTE_SYNC_CLAIM || '0' }}
     steps:
+      - name: Validate pinned source revision
+        run: '[[ "$SOURCE_REVISION" =~ ^[a-f0-9]{40}$ ]] || { echo "Expected a full source commit SHA"; exit 1; }'
       - uses: actions/checkout@v4
+        with:
+          ref: ${{ env.SOURCE_REVISION }}
 
       - name: Setup Node
         uses: actions/setup-node@v4
