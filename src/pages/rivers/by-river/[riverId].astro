@@ -3,6 +3,7 @@ import BaseLayout from '../../../layouts/BaseLayout.astro';
 import PaddlePlanningGuide from '../../../components/PaddlePlanningGuide.astro';
 import AccessPlanningContext from '../../../components/AccessPlanningContext.astro';
 import RiverTripDetails from '../../../components/RiverTripDetails.astro';
+import { riverTripDetailsHref } from '../../../lib/trip-actions';
 import { priorityRiverGuides } from '../../../data/priority-paddle-guides';
 import { routeGuideReviewByRiverId } from '../../../data/route-guide-publication-reviews';
 import FeatureIcon from '../../../components/FeatureIcon.astro';
@@ -2026,7 +2027,7 @@ const groupStructuredData = [
                     reach={route.reach}
                     state={route.state}
                     region={route.region}
-                    url={routeDetailHref(route)}
+                    url={riverTripDetailsHref(route, group.riverId)}
                   />
                   <button
                     class="route-choice__select"
@@ -2057,7 +2058,7 @@ const groupStructuredData = [
                   </button>
                   <details class="route-choice__trip-notes" data-trip-details-fallback>
                     <summary>View trip details</summary>
-                    <RiverTripDetails route={route} guideHref={!hasConsolidatedRoutePage ? routeDetailHref(route) : undefined} />
+                    <RiverTripDetails route={route} hubId={group.riverId} guideHref={!hasConsolidatedRoutePage ? routeDetailHref(route) : undefined} />
                   </details>
                 </article>
               );
@@ -2082,7 +2083,7 @@ const groupStructuredData = [
                 reach={staticSelectedRoute.reach}
                 state={staticSelectedRoute.state}
                 region={staticSelectedRoute.region}
-                url={routeDetailHref(staticSelectedRoute)}
+                url={riverTripDetailsHref(staticSelectedRoute, group.riverId)}
               />
             ) : null}
             {!isAccessPlanningHub && <div class="river-route-picker__selected-decision">
@@ -2127,7 +2128,7 @@ const groupStructuredData = [
       </div>
       {sourceGroup.routes.filter(route => !group.routes.some(featured => featured.slug === route.slug)).map(route => (
         <template data-trip-details-extra data-trip-slug={route.slug} data-trip-title={route.reach}>
-          <RiverTripDetails route={route} guideHref={!routePageConsolidationTarget(route.slug) ? routeDetailHref(route) : undefined} />
+          <RiverTripDetails route={route} hubId={group.riverId} guideHref={!routePageConsolidationTarget(route.slug) ? routeDetailHref(route) : undefined} />
         </template>
       ))}
       <dialog class="trip-details-dialog" id="river-trip-details-dialog" data-trip-details-dialog aria-labelledby="river-trip-details-title">

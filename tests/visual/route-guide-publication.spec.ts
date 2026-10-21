@@ -44,7 +44,7 @@ for (const review of routeGuidePublicationReviews) {
       const guide = dialog.getByRole('link', { name: 'Open full trip guide' });
       if (review.retainedGuides.includes(selected!)) await expect(guide).toHaveAttribute('href', `/rivers/${selected}/`);
       else await expect(guide).toHaveCount(0);
-      await expect(dialog.locator('.route-choice__sources')).not.toHaveAttribute('open', '');
+      await expect(dialog.locator('[data-modal-sources]')).not.toHaveAttribute('open', '');
       if (review.riverId === 'allagash-river') await expect(dialog).toContainText('Route line and GPX withheld');
       await dialog.getByRole('button', { name: 'Close trip details' }).click();
     }

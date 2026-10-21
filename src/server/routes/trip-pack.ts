@@ -5,6 +5,7 @@ import { buildGpx, buildIcs, estimateSegmentDurationMinutes, orientRouteCoordina
 import { getRiverBySlug } from '../../lib/rivers';
 import { sendBinary, sendJson } from '../http';
 import { loadRouteGeometry } from './river-geometry';
+import { tripExportDetailsHref } from '../../lib/trip-actions';
 
 const routeStitchTolerances = new Map([
   ['little-miami-river-rogers-ballpark-carl-rahe', 0.0075],
@@ -60,7 +61,7 @@ export async function handleRiverTripPack(
     routeSlug: river.slug,
     riverName: river.name,
     reach: river.reach,
-    routeUrl: `https://paddletoday.com/rivers/${encodeURIComponent(river.slug)}/?putin=${encodeURIComponent(putIn.id)}&takeout=${encodeURIComponent(takeOut.id)}`,
+    routeUrl: `https://paddletoday.com${tripExportDetailsHref(river.slug, new URLSearchParams({ putin: putIn.id, takeout: takeOut.id }))}`,
     putIn: toPackPoint(putIn),
     takeOut: toPackPoint(takeOut),
     intermediateAccessPoints: points
