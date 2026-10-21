@@ -338,7 +338,7 @@ const routeFaqSubject = isLittleMiamiKelleyMilford
   : `${river.reach} route on the ${river.name}`;
 
 const waterLevelAnswer = isPlanningRoute
-  ? `This planning route has no verified scoring range or live route score. Review the linked water-level sources, current access notices and route-specific hazards before travel.`
+  ? `This planning route has no live Paddle Today score. Review the linked water-level sources, current access notices and route-specific hazards before travel.`
   : isMinimumOnlyRoute && hasMinimumOnlyFloor
   ? `Paddle Today watches ${river.gaugeSource.siteName} and uses ${lowThresholdValue} as the conservative low-water floor for this route. The ideal range still needs more paddler reports.`
   : isMinimumOnlyRoute
@@ -574,7 +574,7 @@ const routeFaqStructuredData = {
                 <p class="planning-status-card__summary">
                   Use this page for the route plan, access, and hazards. Verify local water before launching.
                 </p>
-                <a class="river-link river-link--inline" href="/about/#proxy-gauges">Why proxy routes are not scored</a>
+                <a class="river-link river-link--inline" href="/about/#route-eligibility">Why some routes are planning only</a>
               </aside>
             ) : (
               <aside class="river-call-panel route-today-score" aria-label="Today's paddle score">
@@ -1290,7 +1290,9 @@ const routeFaqStructuredData = {
             <div class="status-banner__eyebrow">Planning route</div>
             <div class="status-banner__body">
               <strong>This route does not receive a Paddle Today score.</strong>
-              <p class="muted">Access, route, and hazard details are available here. The available gauge is a proxy for this reach, so verify local conditions before launching.</p>
+              <p class="muted">{river.gaugeSource.kind === 'proxy'
+                ? 'Access, route, and hazard details are available here. The available gauge is a proxy for this reach, so verify local conditions before launching.'
+                : 'Access, route, and hazard details are available here. Use the linked gauge as reference information; no live Paddle Today score assesses this trip. Verify local conditions before launching.'}</p>
             </div>
           </aside>
       ) : null}
