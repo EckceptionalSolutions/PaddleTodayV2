@@ -206,11 +206,13 @@ const riverContext = {
   distanceLabel: root.dataset.riverDistance ?? '',
   paddleTimeLabel: root.dataset.riverPaddleTime ?? '',
   putIn: {
+    id: root.dataset.putInId || undefined,
     name: root.dataset.putInName ?? 'Put-in',
     latitude: Number(root.dataset.putInLatitude),
     longitude: Number(root.dataset.putInLongitude),
   },
   takeOut: {
+    id: root.dataset.takeOutId || undefined,
     name: root.dataset.takeOutName ?? 'Take-out',
     latitude: Number(root.dataset.takeOutLatitude),
     longitude: Number(root.dataset.takeOutLongitude),

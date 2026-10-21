@@ -44,6 +44,7 @@ export function tripActionLinks(route: River) {
   const planParams = new URLSearchParams({ route: route.slug, name: route.name, ...Object.fromEntries(params) });
   const validAccess = Boolean(accessCoordinates(route.putIn) && accessCoordinates(route.takeOut) && putIn && takeOut && points.indexOf(takeOut) > points.indexOf(putIn));
   return {
+    putInId: putIn?.id, takeOutId: takeOut?.id,
     details: riverTripDetailsHref(route), plan: `/trips/?${planParams}`,
     gpx: validAccess ? `/api/rivers/${encodeURIComponent(route.slug)}/trip.gpx?${params}` : undefined,
     calendar: validAccess ? `/api/rivers/${encodeURIComponent(route.slug)}/trip.ics?${params}` : undefined,

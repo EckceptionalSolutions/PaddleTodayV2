@@ -2,6 +2,7 @@ import { test, expect, type Page } from '@playwright/test';
 import { getRiverBySlug, getRiverGroupById } from '../../src/lib/rivers';
 import { installMapLibreHarness } from './maplibre-harness';
 import fixture from '../mobile-web/fixtures/route-detail.json' with { type: 'json' };
+import { tripActionLinks } from '../../src/lib/trip-actions';
 
 async function prepare(page: Page, slug: string, offline = false) {
   const river = getRiverBySlug(slug)!;
@@ -83,4 +84,17 @@ test('held routes keep their detail pages and suppress GPX tools', async ({ page
   await expect(page.locator('[data-geometry-review-notice]')).toContainText('Route line and GPX withheld');
   await page.locator('#access-plan').scrollIntoViewIfNeeded();
   await page.screenshot({ path: `output/consistent-trip-pages-${test.info().project.name}.png` });
+});
+
+test('conditions failure preserves exact access IDs in planning and export links', async ({ page }) => {
+  const slug = 'saco-river-fryeburg-brownfield';
+  const river = await prepare(page, slug, true);
+  const expected = tripActionLinks(river);
+  await page.goto(`/rivers/${slug}/`);
+  await expect(page.locator('[data-detail-fetch-banner]')).toBeVisible();
+  for (const selector of ['[data-plan-account]', '[data-trip-gpx]', '[data-trip-ics]']) {
+    const params = new URL((await page.locator(selector).first().getAttribute('href'))!, page.url()).searchParams;
+    expect(params.get('putin')).toBe(expected.putInId);
+    expect(params.get('takeout')).toBe(expected.takeOutId);
+  }
 });
