@@ -1,5 +1,6 @@
 import type { PaddlePlanningGuide } from './priority-paddle-guides';
 import { sacoSources } from './routes/saco-source-review';
+import { cahabaHubGuide } from './cahaba-planning-guides';
 
 /** Search-guide decisions are independent of public trip records and flow-score eligibility. */
 export interface RouteGuidePublicationReview {
@@ -27,6 +28,13 @@ const contoocookGuide = {
 };
 
 export const routeGuidePublicationReviews: readonly RouteGuidePublicationReview[] = [
+  {
+    riverId: 'cahaba-river-alabama', mode: 'reach-guides', reviewedOn: '2026-10-20',
+    rationale: 'Retain the three existing guides for adjacent, documented trip choices: Moon River has its own carry and minimum-only guidance; Grants Mill–Old Overton has separate shallow shoals and a different take-out; Old Overton–280 crosses shoals and backwater with a critical upstream-of-dam finish. These are distinct decisions rather than repeated longer endpoint combinations. Preserve all trip identities, landings, hazard boundaries and the Highway 280 geometry/export hold. Only the published Moon River minimum supports scoring; the shared full-range model is removed. Existing publication and absent performance rows do not prove demand or Google recovery.',
+    retainedGuides: ['cahaba-river-moon-grants-mill', 'cahaba-river-grants-mill-old-overton', 'cahaba-river-old-overton-highway-280'],
+    hubOptions: [],
+    guide: cahabaHubGuide,
+  },
   {
     riverId: 'saco-river', mode: 'access-planning', reviewedOn: '2026-10-20',
     rationale: 'Retain the Council-named Swan’s Falls–Brownfield overnight trip and the separate Front Street–Marblehead tidal guide. Correct facility labels at the existing pins without moving or reversing any saved trip. The shorter Canal Bridge start shares the upper guide’s hazards, gauge and finish and remains a hub option. Five other records have actual direction/source-binding or unreviewed dam-transfer failures, not merely repetitive prose; preserve their identities with explicit review targets. No protected winner or comparison family changes. Absent performance rows do not establish zero demand, and fewer URLs do not prove Google recovery.',

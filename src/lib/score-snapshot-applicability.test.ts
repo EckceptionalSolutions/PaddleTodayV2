@@ -40,6 +40,11 @@ async function expectNoStoredRecommendation(slug: string, riverId: string) {
 }
 
 describe('stored-score eligibility and condition-zone applicability', () => {
+  it.each(['cahaba-river-moon-grants-mill', 'cahaba-river-grants-mill-old-overton', 'cahaba-river-old-overton-highway-280'])('rejects the former shared Cahaba model for %s even when its timestamp is fresh', async slug => {
+    const route = getRiverBySlug(slug)!;
+    installSnapshot({ ...route, scoreEligibility: 'scored', profile: { ...route.profile, thresholdModel: 'two-sided', tooLow: 100, idealMin: 200, idealMax: 5000, tooHigh: 7000 } });
+    await expectNoStoredRecommendation(slug, route.riverId!);
+  });
   it('rejects fresh County K scores after the source changes to planning, including alert detail reads', async () => {
     const route = getRiverBySlug('namekagon-river-county-k-whispering-pines')!;
     const old: River = { ...route, scoreEligibility: 'scored', profile: { ...route.profile, tooLow: 155 } };

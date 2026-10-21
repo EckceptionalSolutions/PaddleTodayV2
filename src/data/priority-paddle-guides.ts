@@ -1,4 +1,5 @@
 /** Published-source comparisons for established route guides. No field review is implied. */
+import { cahabaRouteGuides } from './cahaba-planning-guides';
 export interface PaddlePlanningGuide {
   title: string;
   introduction: string;
@@ -20,6 +21,7 @@ const entergyFloat = { label: 'Entergy float and access guide', url: 'https://ww
 const entergyNews = { label: 'Entergy lake and flow news', url: 'https://www.entergy.com/operations/hydro/data' };
 
 export const priorityRouteGuides: Record<string, PaddlePlanningGuide> = {
+  ...cahabaRouteGuides,
   'little-miami-river-kelley-milford': {
     title: 'Plan the Kelley-to-Milford run',
     introduction: 'Match the launch, take-out and kind of paddling to the same reach before interpreting the Milford reading.',

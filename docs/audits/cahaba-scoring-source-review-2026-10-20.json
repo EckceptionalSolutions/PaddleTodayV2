@@ -1,0 +1,22 @@
+{
+  "reviewedOn": "2026-10-20",
+  "scope": "Three existing adjacent Cahaba trips; scoring eligibility and guide publication are separate decisions. No field inspection is claimed.",
+  "before": { "publicTrips": 3, "scoredTrips": 3, "standaloneGuides": 3, "sharedBoundsCfs": { "low": 100, "idealMin": 200, "idealMax": 5000, "high": 7000 } },
+  "sources": [
+    { "url": "https://www.cahabablueway.org/moon-river/", "finding": "Names the Moon River–Grants Mill trip and publishes at least 100 cfs at the Mountain Brook gauge. It does not establish a preferred range or upper bound." },
+    { "url": "https://www.cahabablueway.org/grants-mill/", "finding": "Names the separate Grants Mill–Old Overton trip, with shallow summer shoals and qualitative seasonal guidance, without numeric flow bounds in the retrieved description." },
+    { "url": "https://www.cahabablueway.org/mountain-brook-cahaba-river-walk/", "finding": "Describes shoals followed by dam-affected slower water on the downstream trip, without a numeric flow band in the expanded segment description." },
+    { "url": "https://www.americanwhitewater.org/content/River/view/river-detail/65/flow", "finding": "The publicly rendered Flow table uses station 02423380 and a 200–5000 cfs runnable category, with above-5000 and below-200 categories. It does not supply a 7000 cfs ceiling or identify an ideal subrange." },
+    { "url": "https://www.americanwhitewater.org/content/River/view/river-detail/65/main", "finding": "Title says Lovick Bridge to Grants Mill; displayed length is 13.3 miles, while the feature take-out distance is 5.9 miles. Current access-feature coordinates do not resolve that discrepancy." },
+    { "url": "https://www.americanwhitewater.org/content/River/view/river-detail/point-of-interest/access/110154", "observedCoordinates": [33.55419921875, -86.613899230957] },
+    { "url": "https://www.americanwhitewater.org/content/River/view/river-detail/point-of-interest/access/115416", "observedCoordinates": [33.4851989746094, -86.7085037231445], "finding": "This is near the Old Overton area, rather than Paddle Today's modern Grants Mill access reference at 33.511837,-86.652668. The page links back to the same AW reach. Do not silently resolve conflicting source boundaries by moving app accesses or extending a scoring range." }
+  ],
+  "decisions": [
+    { "slug": "cahaba-river-moon-grants-mill", "role": "scored", "model": "minimum-only", "minimumCfs": 100, "preferredRange": null, "highWaterCeiling": null, "applicationLimits": "Existing minimum-only logic caps scores at 74 and never grants Ready status. The source minimum is necessary low-water guidance, not launch clearance." },
+    { "slug": "cahaba-river-grants-mill-old-overton", "role": "planning", "numericBounds": null, "reason": "No defensible numeric range was established for this exact trip. Keep the direct gauge as context, without inheriting another trip's floor or the conflicting AW entry's full band." },
+    { "slug": "cahaba-river-old-overton-highway-280", "role": "planning", "numericBounds": null, "reason": "Qualitative shoal/backwater guidance and a critical dam boundary do not establish a calibrated numeric range. Preserve the corrected landing and the independent line/GPX hold." }
+  ],
+  "publicationDecision": "Retain all three existing guides and distinguish them in the hub: different named trips, shoal commitments, finishes and dam-boundary decisions justify separate guides. No longer endpoint combinations or new URLs are introduced.",
+  "preserved": ["All three public trip identities and guide URLs", "USGS 02423380 and its source identity", "Every launch and take-out coordinate", "Distances, shuttle commitments and hazard boundaries", "Highway 280 geometry and GPX hold", "All unrelated route records and geometry assets"],
+  "limits": ["The review does not prove Google detected these errors or that they caused ranking loss.", "Unobserved search demand is not verified zero demand.", "The remaining similarity screen is a review backlog, not a deletion rule.", "A broken or conflicting source alone does not prove every numeric value wrong; only directly supported guidance is retained here."]
+}
