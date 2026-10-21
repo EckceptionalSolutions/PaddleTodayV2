@@ -161,6 +161,7 @@ const appDownloadConfigJson = JSON.stringify({
       {/^\/states\/[^/]+\/?$/.test(Astro.url.pathname) && <link rel="stylesheet" href={`/styles/state-map.css?v=${assetVersion}`} />}
       {/^\/states(?:\/|$)/.test(Astro.url.pathname) && <link rel="stylesheet" href={`/styles/state-pages.css?v=${assetVersion}`} />}
       {Astro.url.pathname.startsWith('/rivers/by-river/') && <link rel="stylesheet" href={`/styles/river-picker.css?v=${assetVersion}`} />}
+      {Astro.url.pathname.startsWith('/rivers/by-river/') && <link rel="stylesheet" href={`/styles/river-trip-dialog.css?v=${assetVersion}`} />}
       {pageClass.split(/\s+/).includes('page-route-detail') && <link rel="stylesheet" href={`/styles/route-base.css?v=${assetVersion}`} />}
       {pageClass.split(/\s+/).includes('page-route-detail') && <link rel="stylesheet" href={`/styles/route-maps.css?v=${assetVersion}`} />}
       {pageClass.split(/\s+/).includes('page-route-detail') && <link rel="stylesheet" href={`/styles/route-page.css?v=${assetVersion}`} />}

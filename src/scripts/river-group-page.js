@@ -19,6 +19,7 @@ import { createBoardMapMarker } from './board-map-controller.js';
 import { favoriteButtonMarkup as buildFavoriteButtonMarkup } from './favorite-button-markup.js';
 import { bindFavoriteButtons, refreshFavoriteButtons } from './favorites-ui.js';
 import { routePageHref } from '../data/route-page-consolidations.ts';
+import { bindRiverTripDialog, tripDetailsButtonMarkup } from './river-trip-dialog.js';
 import {
 } from './ui-taxonomy.js';
 import { createRequestGuard, isAbortError } from './request-guard.js';
@@ -34,7 +35,6 @@ import {
 import { getBrowserApiClient } from './browser-api-client.js';
 import { trackEvent } from './analytics.js';
 import { isCurrentCallUnavailable } from '../lib/current-call-availability.js';
-import { sharedAccessPlanNotes, specificAccessPlanNotes } from '../lib/access-plan-presentation.ts';
 import { isRecommendableRiverHubRoute, riverHubDecisionPriority } from '../lib/river-hub-recommendation.js';
 import {
   riverHubMapNotices,
@@ -52,10 +52,7 @@ const riverId = root.dataset.riverId;
 if (!riverId) {
   throw new Error('Missing river group id.');
 }
-const isWillimanticHub = riverId === 'willimantic-river-connecticut';
-const hasInlineTripNotes = ['willimantic-river-connecticut', 'animas-river-new-mexico', 'housatonic-river-massachusetts'].includes(riverId);
 const hasConsolidatedTrips = root.dataset.hasConsolidatedTrips === 'true';
-const reviewedPublicationHub = root.dataset.reviewedPublicationHub === 'true';
 const isAccessPlanningHub = root.dataset.accessPlanningHub === 'true';
 
 const routeList = root.querySelector('[data-group-route-list]');
@@ -81,7 +78,7 @@ const campingFilterSelect = root.querySelector('[data-group-camping-filter]');
 const routeTypeFilterSelect = root.querySelector('[data-group-route-type-filter]');
 const sortSelect = root.querySelector('[data-group-sort]');
 const selectedSummary = root.querySelector('[data-group-selected-summary]');
-const selectedNotes = root.querySelector('[data-group-selected-notes]');
+bindRiverTripDialog(root);
 const moreFilters = root.querySelector('[data-group-more-filters]');
 const activeFilterCount = root.querySelector('[data-group-filter-count]');
 const clearFiltersButton = root.querySelector('[data-group-clear-filters]');
@@ -426,135 +423,7 @@ function conditionsLine(route) {
 }
 
 function tripNotesMarkup(route) {
-  if (isAccessPlanningHub) return '';
-  if (selectedNotes instanceof HTMLElement && hasConsolidatedTrips && !isWillimanticHub) {
-    const href = routePageHref(route.slug);
-    const hasGuide = new URL(href, window.location.href).pathname === `/rivers/${route.slug}/`;
-    return `<div class="route-choice__links"><button type="button" class="route-choice__details-button" data-group-trip-details aria-controls="river-hub-trip-details">Trip details <span aria-hidden="true">→</span></button>${hasGuide
-      ? `<a class="river-link river-link--inline route-choice__details-link" href="${escapeHtml(href)}">Read reach guide</a>`
-      : ''}</div>`;
-  }
-  if (reviewedPublicationHub) {
-    const href = routePageHref(route.slug);
-    const hasGuide = new URL(href, window.location.href).pathname === `/rivers/${route.slug}/`;
-    return routeTripNotesMarkup(route) + (hasGuide
-      ? `<a class="river-link river-link--inline route-choice__details-link" href="${escapeHtml(href)}">Read reach guide</a>`
-      : '');
-  }
-  if (!hasInlineTripNotes) {
-    return `<a class="river-link river-link--inline route-choice__details-link" href="${routePageHref(route.slug)}">${hasConsolidatedTrips ? 'View trip option' : 'View route'}</a>`;
-  }
-
-  return routeTripNotesMarkup(route);
-}
-
-function renderSelectedTripNotes(route) {
-  if (!(selectedNotes instanceof HTMLElement)) return;
-  const available = Boolean(route && hasConsolidatedTrips && !isWillimanticHub);
-  selectedNotes.hidden = !available;
-  if (!available) {
-    selectedNotes.replaceChildren();
-    return;
-  }
-  if (isAccessPlanningHub) {
-    const notes = specificAccessPlanNotes(route, sharedAccessPlanNotes(currentResult.routes));
-    const list = (title, values, caution = false) => values.length
-      ? `<div${caution ? ' class="access-plan-facts__cautions"' : ''}><h4>${title}</h4><ul>${values.map(value => `<li>${escapeHtml(value)}</li>`).join('')}</ul></div>` : '';
-    selectedNotes.innerHTML = `
-      <div class="river-route-picker__details-heading"><span class="eyebrow">Selected access plan</span><h3 id="river-hub-trip-details-title" tabindex="-1">${escapeHtml(route.reach)}</h3></div>
-      <div class="access-plan-facts">
-        <dl class="access-plan-facts__endpoints">
-          ${[['Put-in', route.putIn?.name], ['Take-out', route.takeOut?.name], ['Estimated distance', route.distanceLabel], ['Estimated time', route.estimatedPaddleTime]].map(([label, value]) => `<div><dt>${label}</dt><dd>${escapeHtml(value || 'Confirm locally')}</dd></div>`).join('')}
-        </dl>
-        ${route.logistics?.shuttle ? `<p><strong>Shuttle:</strong> ${escapeHtml(route.logistics.shuttle)}</p>` : ''}
-        ${notes.permits ? `<p><strong>Rules:</strong> ${escapeHtml(notes.permits)}</p>` : ''}
-        ${notes.camping ? `<p><strong>Camping:</strong> ${escapeHtml(notes.camping)}</p>` : ''}
-        ${list('Access restrictions', notes.access)}
-        ${list('Watch for on this plan', [...notes.hazards, ...notes.safety], true)}
-        ${routeTripNotesMarkup(route, 'route-choice__sources', true)}
-      </div>`;
-    return;
-  }
-  const wasOpen = selectedNotes.querySelector('details')?.open === true;
-  selectedNotes.innerHTML = `
-    <div class="river-route-picker__details-heading">
-      <span class="eyebrow">Your selected trip</span>
-      <h3 id="river-hub-trip-details-title">${escapeHtml(route.reach)}</h3>
-    </div>
-    ${routeTripNotesMarkup(route, 'route-choice__trip-notes route-choice__trip-notes--selected')}
-  `;
-  const details = selectedNotes.querySelector('details');
-  if (details instanceof HTMLDetailsElement) details.open = wasOpen;
-}
-
-function openSelectedTripNotes() {
-  if (isAccessPlanningHub) {
-    selectedNotes?.querySelector('h3')?.focus({ preventScroll: true });
-    selectedNotes?.scrollIntoView({ block: 'start', behavior: 'auto' });
-    return;
-  }
-  const details = selectedNotes?.querySelector('details');
-  if (!(details instanceof HTMLDetailsElement)) return;
-  details.open = true;
-  const summary = details.querySelector('summary');
-  if (summary instanceof HTMLElement) summary.focus({ preventScroll: true });
-  selectedNotes.scrollIntoView({ block: 'start', behavior: 'auto' });
-}
-
-function routeTripNotesMarkup(route, className = 'route-choice__trip-notes', referencesOnly = false) {
-  const gaugeFloor = route.profile?.idealMin ?? route.profile?.tooLow;
-  const gaugeCue = isPlanningRoute(route)
-    ? 'Planning only: no route-specific Paddle Today flow band or score. Use local sources and check the reach in the field.'
-    : Number.isFinite(gaugeFloor)
-    ? `Published planning floor: ${escapeHtml(String(gaugeFloor))} ${escapeHtml(route.gaugeSource?.unit || '')}. Check the live reading and trend before launch.`
-    : 'Check the live reading and trend before launch.';
-  const noteList = (label, values) => Array.isArray(values) && values.length
-    ? `<div class="route-choice__note-group"><strong>${label}</strong><ul>${values.map((value) => `<li>${escapeHtml(value)}</li>`).join('')}</ul></div>`
-    : '';
-  const logisticsNotes = [
-    ['Shuttle', route.logistics?.shuttle],
-    ['Camping', route.logistics?.camping],
-    ['Rules', route.logistics?.permits],
-  ].filter(([, value]) => typeof value === 'string' && value.trim());
-  const logisticsNotesMarkup = logisticsNotes
-    .map(([label, value]) => `<p class="route-choice__logistics-note"><strong>${label}:</strong> ${escapeHtml(value)}</p>`)
-    .join('');
-  const sourceLinks = Array.isArray(route.sourceLinks)
-    ? route.sourceLinks.filter((source) => source && /^https?:\/\//i.test(source.url || '') && source.label)
-    : [];
-  const sourceLinksMarkup = sourceLinks.length
-    ? `<div class="route-choice__note-group"><strong>Planning sources</strong><ul>${sourceLinks.map((source) => `<li><a href="${escapeHtml(source.url)}" target="_blank" rel="noopener noreferrer">${escapeHtml(source.label)}</a></li>`).join('')}</ul></div>`
-    : '';
-  const evidenceNotes = Array.isArray(route.evidenceNotes) ? route.evidenceNotes : [];
-  const evidenceNotesMarkup = evidenceNotes.length
-    ? `<div class="route-choice__note-group"><strong>Route evidence</strong><ul>${evidenceNotes.map((note) => {
-      const sourceLink = /^https?:\/\//i.test(note.sourceUrl || '')
-        ? ` <a href="${escapeHtml(note.sourceUrl)}" target="_blank" rel="noopener noreferrer">Source</a>`
-        : '';
-      return `<li><strong>${escapeHtml(note.label)}:</strong> ${escapeHtml(note.value)}${note.note ? ` ${escapeHtml(note.note)}` : ''}${sourceLink}</li>`;
-    }).join('')}</ul></div>`
-    : '';
-
-  if (referencesOnly) return evidenceNotesMarkup || sourceLinksMarkup
-    ? `<details class="${className}"><summary>Sources and record details</summary><div>${evidenceNotesMarkup}${sourceLinksMarkup}</div></details>` : '';
-  return `
-    <details class="${className}">
-      <summary><span>Trip details</span><span>Access · gauge · safety</span></summary>
-      <div class="route-choice__trip-notes-panel">
-        <p class="route-choice__trip-summary">${escapeHtml(route.logistics?.summary || route.summary || '')}</p>
-        <div class="route-choice__access-pair">
-          <div><span>Put-in</span><strong>${escapeHtml(route.putIn?.name || 'See linked trail guide')}</strong></div>
-          <div><span>Take-out</span><strong>${escapeHtml(route.takeOut?.name || 'See linked trail guide')}</strong></div>
-        </div>
-        <p class="route-choice__gauge-note"><strong>${escapeHtml(route.gaugeSource?.siteName || 'Route gauge')}:</strong> ${gaugeCue}</p>
-        ${logisticsNotesMarkup}
-        ${noteList('Access notes', route.logistics?.accessCaveats)}
-        ${noteList('Watch for', route.logistics?.watchFor)}
-        ${noteList('Safety notes', route.safetyProfile?.safetyNotes)}
-        ${evidenceNotesMarkup || sourceLinksMarkup ? `<details class="route-choice__sources"><summary>Sources and route evidence</summary><div>${evidenceNotesMarkup}${sourceLinksMarkup}</div></details>` : ''}
-      </div>
-    </details>
-  `;
+  return tripDetailsButtonMarkup(route.slug);
 }
 
 function levelText(route) {
@@ -1429,14 +1298,6 @@ function renderRouteList(routes) {
       selectPickerRoute(card.dataset.routeSlug, { reveal: 'map' });
     });
   }
-  for (const button of Array.from(routeList.querySelectorAll('[data-group-trip-details]'))) {
-    button.addEventListener('click', () => {
-      const card = button.closest('[data-group-route-card]');
-      if (!(card instanceof HTMLElement) || !card.dataset.routeSlug) return;
-      selectPickerRoute(card.dataset.routeSlug, { reveal: 'map' });
-      openSelectedTripNotes();
-    });
-  }
 }
 
 function nearbyPickerRoutes(route) {
@@ -1463,7 +1324,6 @@ function nearbyPickerRoutes(route) {
 
 function renderSelectedSummary(route) {
   if (!(selectedSummary instanceof HTMLElement)) return;
-  renderSelectedTripNotes(route);
   if (!route) {
     selectedSummary.innerHTML = `
       <div class="river-route-picker__selected-copy">
@@ -1474,11 +1334,7 @@ function renderSelectedSummary(route) {
     return;
   }
   const nearby = isAccessPlanningHub ? [] : nearbyPickerRoutes(route);
-  const routeHref = routePageHref(route.slug);
-  const hasReachGuide = new URL(routeHref, window.location.href).pathname === `/rivers/${route.slug}/`;
-  const detailsAction = selectedNotes instanceof HTMLElement && hasConsolidatedTrips && !isWillimanticHub && !hasReachGuide
-    ? `<button type="button" class="river-link river-link--inline" data-group-selected-details aria-controls="river-hub-trip-details">${isAccessPlanningHub ? 'Access details' : 'Trip details'} ↓</button>`
-    : `<a class="river-link river-link--inline" href="${escapeHtml(routeHref)}">${hasReachGuide ? 'Read reach guide' : 'View route details'}</a>`;
+  const detailsAction = tripDetailsButtonMarkup(route.slug, true);
   const nearbyMarkup = nearby.length > 0
     ? `
       <div class="river-route-picker__nearby">
@@ -1514,7 +1370,6 @@ function renderSelectedSummary(route) {
     ${nearbyMarkup}
   `;
 
-  selectedSummary.querySelector('[data-group-selected-details]')?.addEventListener('click', openSelectedTripNotes);
 
   for (const button of Array.from(selectedSummary.querySelectorAll('[data-group-nearby-route]'))) {
     if (!(button instanceof HTMLButtonElement)) continue;
@@ -1877,7 +1732,7 @@ async function loadGroup({ silent = false } = {}) {
         if (element instanceof HTMLButtonElement) element.disabled = true;
       });
       if (isAccessPlanningHub && resultsSummary instanceof HTMLElement) {
-        resultsSummary.textContent = 'Interactive access map unavailable. Expand a plan below for its access details.';
+        resultsSummary.textContent = 'Interactive access map unavailable. View trip details for access and planning notes.';
       }
     }
     setBanner(

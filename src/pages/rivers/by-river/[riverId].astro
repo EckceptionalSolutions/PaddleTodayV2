@@ -2,7 +2,7 @@
 import BaseLayout from '../../../layouts/BaseLayout.astro';
 import PaddlePlanningGuide from '../../../components/PaddlePlanningGuide.astro';
 import AccessPlanningContext from '../../../components/AccessPlanningContext.astro';
-import AccessPlanFacts from '../../../components/AccessPlanFacts.astro';
+import RiverTripDetails from '../../../components/RiverTripDetails.astro';
 import { priorityRiverGuides } from '../../../data/priority-paddle-guides';
 import { routeGuideReviewByRiverId } from '../../../data/route-guide-publication-reviews';
 import FeatureIcon from '../../../components/FeatureIcon.astro';
@@ -11,7 +11,6 @@ import { getRiverGroupHeroPhoto } from '../../../data/river-group-hero';
 import { routePageConsolidationTarget } from '../../../data/route-page-consolidations';
 import { listRiverGroups } from '../../../lib/rivers';
 import type { River } from '../../../lib/types';
-import { evidenceNoteDetail, evidenceNoteLabel } from '../../../lib/route-evidence';
 import { distanceRangeForLabels } from '../../../lib/api-contract';
 
 export function getStaticPaths() {
@@ -2013,8 +2012,6 @@ const groupStructuredData = [
             {staticRoutes.map((route, index) => {
               const active = index === 0;
               const hasConsolidatedRoutePage = Boolean(routePageConsolidationTarget(route.slug));
-              const hasExistingLogisticsNotes = isJacksForkHub || isCurrentRiverHub || isYellowBreechesHub || isSaltRiverHub || isPenobscotHub || isGooseCreekHub || isKinniconickHub;
-              const showConsolidatedLogisticsNotes = (hasConsolidatedRoutePage || Boolean(publicationReview)) && !hasExistingLogisticsNotes;
               return (
                 <article
                   id={`trip-${route.slug}`}
@@ -2058,92 +2055,10 @@ const groupStructuredData = [
                       <span data-group-initial-score>{route.scoreEligibility === 'planning' ? 'Planning route' : 'Loading'}</span>
                     </span>}
                   </button>
-                  {isAccessPlanningHub && <details class="route-choice__trip-notes"><summary>Access details</summary><AccessPlanFacts route={route} routes={group.routes} /></details>}
-                  {!isAccessPlanningHub && (publicationReview || isWillimanticHub || isMerrimackHub || isSpokaneHub || isSaludaHub || isWabashHub || isGooseCreekHub || isKinniconickHub || isSouthLlanoHub || isVillageCreekHub || isElevenPointHub || isJacksForkHub || isCurrentRiverHub || isYellowBreechesHub || isSaltRiverHub || isAnimasHub || isHousatonicHub || isPenobscotHub || hasConsolidatedRoutePage) ? (
-                    <details class="route-choice__trip-notes">
-                      <summary>{isJacksForkHub || isCurrentRiverHub || isYellowBreechesHub ? 'Access, gauge, shuttle, and camping notes' : isSaltRiverHub || isGooseCreekHub || isKinniconickHub ? 'Access, gauge, shuttle, and safety notes' : isAnimasHub || isHousatonicHub ? 'Access, flow, and safety notes' : isPenobscotHub ? 'Access, gauge, shuttle, camping, and safety notes' : 'Access, gauge, and safety notes'}</summary>
-                      <div class="route-choice__trip-notes-panel">
-                        <p>{route.logistics?.summary || route.summary}</p>
-                        <p>
-                          <strong>Put-in:</strong> {route.putIn?.name || 'See linked trail guide'}.
-                          {' '}
-                          <strong>Take-out:</strong> {route.takeOut?.name || 'See linked trail guide'}.
-                        </p>
-                        <p>
-                          <strong>Gauge context:</strong> {route.gaugeSource.siteName}
-                          {route.scoreEligibility !== 'planning' && typeof (route.profile.idealMin ?? route.profile.tooLow) === 'number'
-                            ? `; use ${route.profile.idealMin ?? route.profile.tooLow} ${route.gaugeSource.unit} as this route’s published planning floor.`
-                            : '.'}
-                          {' '}{route.scoreEligibility === 'planning'
-                            ? isKinniconickHub
-                              ? 'KDFWR publishes proxy-gauge recommendations, but this trip has no live score; use the reading as planning context and check local conditions.'
-                              : 'No route-specific numeric flow band is verified; treat this station as context and check local conditions.'
-                            : 'This is route-specific planning guidance, not a safety guarantee; check the live reading and trend before launch.'}
-                        </p>
-                        {isJacksForkHub && route.logistics?.shuttle ? <p><strong>Shuttle:</strong> {route.logistics.shuttle}</p> : null}
-                        {isJacksForkHub && route.logistics?.camping ? <p><strong>Camping:</strong> {route.logistics.camping}</p> : null}
-                        {isJacksForkHub && route.logistics?.permits ? <p><strong>Rules:</strong> {route.logistics.permits}</p> : null}
-                        {isCurrentRiverHub && route.logistics?.shuttle ? <p><strong>Shuttle:</strong> {route.logistics.shuttle}</p> : null}
-                        {isCurrentRiverHub && route.logistics?.camping ? <p><strong>Camping:</strong> {route.logistics.camping}</p> : null}
-                        {isCurrentRiverHub && route.logistics?.permits ? <p><strong>Rules:</strong> {route.logistics.permits}</p> : null}
-                        {isYellowBreechesHub && route.logistics?.shuttle ? <p><strong>Shuttle:</strong> {route.logistics.shuttle}</p> : null}
-                        {isYellowBreechesHub && route.logistics?.camping ? <p><strong>Camping:</strong> {route.logistics.camping}</p> : null}
-                        {isYellowBreechesHub && route.logistics?.permits ? <p><strong>Rules:</strong> {route.logistics.permits}</p> : null}
-                        {isSaltRiverHub && route.logistics?.shuttle ? <p><strong>Shuttle:</strong> {route.logistics.shuttle}</p> : null}
-                        {isSaltRiverHub && route.logistics?.camping ? <p><strong>Camping:</strong> {route.logistics.camping}</p> : null}
-                        {isSaltRiverHub && route.logistics?.permits ? <p><strong>Rules:</strong> {route.logistics.permits}</p> : null}
-                        {isPenobscotHub && route.logistics?.shuttle ? <p><strong>Shuttle:</strong> {route.logistics.shuttle}</p> : null}
-                        {isPenobscotHub && route.logistics?.camping ? <p><strong>Camping:</strong> {route.logistics.camping}</p> : null}
-                        {isPenobscotHub && route.logistics?.permits ? <p><strong>Rules:</strong> {route.logistics.permits}</p> : null}
-                        {isGooseCreekHub && route.logistics?.shuttle ? <p><strong>Shuttle:</strong> {route.logistics.shuttle}</p> : null}
-                        {isGooseCreekHub && route.logistics?.camping ? <p><strong>Camping:</strong> {route.logistics.camping}</p> : null}
-                        {isGooseCreekHub && route.logistics?.permits ? <p><strong>Rules:</strong> {route.logistics.permits}</p> : null}
-                        {isKinniconickHub && route.logistics?.shuttle ? <p><strong>Shuttle:</strong> {route.logistics.shuttle}</p> : null}
-                        {isKinniconickHub && route.logistics?.camping ? <p><strong>Camping:</strong> {route.logistics.camping}</p> : null}
-                        {isKinniconickHub && route.logistics?.permits ? <p><strong>Rules:</strong> {route.logistics.permits}</p> : null}
-                        {showConsolidatedLogisticsNotes && route.logistics?.shuttle ? <p><strong>Shuttle:</strong> {route.logistics.shuttle}</p> : null}
-                        {showConsolidatedLogisticsNotes && route.logistics?.camping ? <p><strong>Camping:</strong> {route.logistics.camping}</p> : null}
-                        {showConsolidatedLogisticsNotes && route.logistics?.permits ? <p><strong>Rules:</strong> {route.logistics.permits}</p> : null}
-                        {route.logistics?.accessCaveats?.length ? (
-                          <ul>{route.logistics.accessCaveats.map((note) => <li>{note}</li>)}</ul>
-                        ) : null}
-                        {route.logistics?.watchFor?.length ? (
-                          <ul>{route.logistics.watchFor.map((note) => <li>{note}</li>)}</ul>
-                        ) : null}
-                        {route.safetyProfile?.safetyNotes?.length ? (
-                          <ul>{route.safetyProfile.safetyNotes.map((note) => <li>{note}</li>)}</ul>
-                        ) : null}
-                        {hasConsolidatedRoutePage && route.evidenceNotes?.length ? (
-                          <div class="route-choice__note-group">
-                            <strong>Route evidence</strong>
-                            <ul>
-                              {route.evidenceNotes.map((note) => (
-                                <li>
-                                  <strong>{evidenceNoteLabel(note)}:</strong> {note.value} {evidenceNoteDetail(note)}
-                                  {note.sourceUrl && /^https?:\/\//i.test(note.sourceUrl) ? <a href={note.sourceUrl} target="_blank" rel="noopener noreferrer"> Source</a> : null}
-                                </li>
-                              ))}
-                            </ul>
-                          </div>
-                        ) : null}
-                        {hasConsolidatedRoutePage && route.sourceLinks?.length ? (
-                          <div class="route-choice__note-group">
-                            <strong>Planning sources</strong>
-                            <ul>
-                              {route.sourceLinks.filter((source) => /^https?:\/\//i.test(source.url)).map((source) => (
-                                <li><a href={source.url} target="_blank" rel="noopener noreferrer">{source.label}</a></li>
-                              ))}
-                            </ul>
-                          </div>
-                        ) : null}
-                      </div>
-                    </details>
-                  ) : null}
-                  {!hasConsolidatedRoutePage ? (
-                    <a class="river-link river-link--inline route-choice__details-link" href={routeDetailHref(route)}>
-                      {hasConsolidatedTrips ? 'View trip option' : 'View route'}
-                    </a>
-                  ) : null}
+                  <details class="route-choice__trip-notes" data-trip-details-fallback>
+                    <summary>View trip details</summary>
+                    <RiverTripDetails route={route} guideHref={!hasConsolidatedRoutePage ? routeDetailHref(route) : undefined} />
+                  </details>
                 </article>
               );
             })}
@@ -2176,7 +2091,7 @@ const groupStructuredData = [
             </div>}
             {staticSelectedRoute && !isAccessPlanningHub ? (
               <div class="river-route-picker__selected-actions">
-                <a class="river-link river-link--inline" href={routeDetailHref(staticSelectedRoute)}>{hasConsolidatedTrips ? 'View trip option' : 'View route details'}</a>
+                <a class="river-link river-link--inline" data-trip-selected-fallback href={`#trip-${staticSelectedRoute.slug}`}>View trip details</a>
               </div>
             ) : null}
           </div>
@@ -2210,13 +2125,18 @@ const groupStructuredData = [
           </div>
         </div>
       </div>
-      <section
-        class="river-route-picker__details"
-        id="river-hub-trip-details"
-        data-group-selected-notes
-        aria-labelledby="river-hub-trip-details-title"
-        hidden
-      ></section>
+      {sourceGroup.routes.filter(route => !group.routes.some(featured => featured.slug === route.slug)).map(route => (
+        <template data-trip-details-extra data-trip-slug={route.slug} data-trip-title={route.reach}>
+          <RiverTripDetails route={route} guideHref={!routePageConsolidationTarget(route.slug) ? routeDetailHref(route) : undefined} />
+        </template>
+      ))}
+      <dialog class="trip-details-dialog" id="river-trip-details-dialog" data-trip-details-dialog aria-labelledby="river-trip-details-title">
+        <header class="trip-details-dialog__header">
+          <div><p class="eyebrow">Trip details</p><h2 id="river-trip-details-title" data-trip-dialog-title></h2></div>
+          <button class="trip-details-dialog__close" type="button" data-trip-dialog-close autofocus aria-label="Close trip details">✕</button>
+        </header>
+        <div class="trip-details-dialog__body" data-trip-dialog-body></div>
+      </dialog>
     </section>
 
     <section class="river-group-page__panel river-hub-context" aria-labelledby="river-hub-context-title">
