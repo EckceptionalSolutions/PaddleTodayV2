@@ -3,6 +3,7 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
 import PaddlePlanningGuide from '../../components/PaddlePlanningGuide.astro';
 import { priorityRouteGuides } from '../../data/priority-paddle-guides';
 import { staticAssetUrl } from '../../lib/static-asset-url.js';
+import { routeGeometryReviewHolds } from '../../lib/route-geometry-review-holds.js';
 import RouteAppHandoff from '../../components/RouteAppHandoff.astro';
 import RouteAppDownload from '../../components/RouteAppDownload.astro';
 import { webFeatureFlags } from '../../lib/web-feature-flags';
@@ -34,6 +35,7 @@ export function getStaticPaths() {
 }
 
 const { river } = Astro.props;
+const geometryReviewReason = routeGeometryReviewHolds.get(river.slug);
 const planningGuide = priorityRouteGuides[river.slug];
 const isPlanningRoute = river.scoreEligibility === 'planning';
 const isLittleMiamiKelleyMilford = river.slug === 'little-miami-river-kelley-milford';
@@ -1522,10 +1524,11 @@ const routeFaqStructuredData = {
         </div>
         <div class="detail-map__links">
           <a class="river-link river-link--inline river-link--primary" data-plan-account href={`/trips/?route=${encodeURIComponent(river.slug)}&name=${encodeURIComponent(river.name)}&putin=${encodeURIComponent(river.putIn?.id || '')}&takeout=${encodeURIComponent(river.takeOut?.id || '')}`}>Plan this route</a>
-          <a class="river-link river-link--inline" href={tripGpxHref} data-trip-gpx data-analytics-event="Export GPX">Download GPX</a>
+          {geometryReviewReason ? <span class="muted">GPX unavailable during route-line review</span> : <a class="river-link river-link--inline" href={tripGpxHref} data-trip-gpx data-analytics-event="Export GPX">Download GPX</a>}
           <a class="river-link river-link--inline" href={tripIcsHref} data-trip-ics data-analytics-event="Export calendar">Add to calendar</a>
           <button class="river-inline-button" type="button" data-trip-share data-analytics-event="Share float plan">Share float plan</button>
         </div>
+        {geometryReviewReason && <p class="muted" data-geometry-review-notice>{geometryReviewReason}</p>}
         <p class="muted river-trip-pack__status" data-trip-status aria-live="polite"></p>
         <textarea class="route-action-menu__manual-copy" data-trip-manual-copy aria-label="Float plan to copy" rows="8" readonly hidden></textarea>
       </section>
@@ -1617,7 +1620,7 @@ const routeFaqStructuredData = {
               Pulling access map tiles. Usually under 5 seconds.
             </p>
             <button class="filter-chip detail-map__retry" type="button" data-detail-map-retry hidden>Retry access map</button>
-            <p class="detail-map__status muted" data-detail-map-line-key hidden></p>
+            <p class="detail-map__status muted" data-detail-map-line-key hidden={!geometryReviewReason}>{geometryReviewReason}</p>
             <span class="map-skip-target" id="access-map-end" tabindex="-1">End of map</span>
           </div>
         </div>
