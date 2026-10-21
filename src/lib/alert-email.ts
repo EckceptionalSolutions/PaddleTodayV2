@@ -3,7 +3,7 @@ import { riverAlertManageUrl } from './alert-links';
 import { riverAlertDeliveryKey } from './alert-delivery';
 import { escapeEmailHtml as escapeHtml, isAzureEmailProvider, sendAzureEmail } from './email-transport';
 import type { RiverDetailSnapshot } from './river-snapshots';
-import { routePageConsolidationTarget } from '../data/route-page-consolidations';
+import { routePageHref } from '../data/route-page-consolidations';
 
 export interface AlertEmailPayload {
   alert: RiverThresholdAlert;
@@ -149,7 +149,7 @@ function thresholdLabel(threshold: RiverAlertThreshold) {
 
 function riverUrl(slug: string) {
   const siteUrl = process.env.SITE_URL || 'https://paddletoday.com';
-  return new URL(routePageConsolidationTarget(slug) ?? `/rivers/${slug}/`, siteUrl).toString();
+  return new URL(routePageHref(slug), siteUrl).toString();
 }
 
 function bestWindowText(snapshot: RiverDetailSnapshot) {

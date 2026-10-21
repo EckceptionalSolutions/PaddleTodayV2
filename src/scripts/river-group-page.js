@@ -19,7 +19,6 @@ import { createBoardMapMarker } from './board-map-controller.js';
 import { favoriteButtonMarkup as buildFavoriteButtonMarkup } from './favorite-button-markup.js';
 import { bindFavoriteButtons, refreshFavoriteButtons } from './favorites-ui.js';
 import { routePageHref } from '../data/route-page-consolidations.ts';
-import { bindRiverTripDialog, tripDetailsButtonMarkup } from './river-trip-dialog.js';
 import { riverTripDetailsHref } from '../lib/trip-actions';
 import {
 } from './ui-taxonomy.js';
@@ -94,6 +93,15 @@ const AUTO_REFRESH_MS = 5 * 60 * 1000;
 const BULLET = ' \u2022 ';
 const DEG_F = '\u00B0F';
 const initialParams = new URLSearchParams(window.location.search);
+// Keep previously saved/shared modal URLs useful after trip details moved to pages.
+const legacyDetailsSlug = initialParams.get('details');
+if (legacyDetailsSlug && JSON.parse(root.dataset.tripSlugs || '[]').includes(legacyDetailsSlug)) {
+  const context = new URLSearchParams();
+  for (const key of ['putin', 'takeout', 'date', 'launch', 'expected', 'timeZone']) {
+    if (initialParams.has(key)) context.set(key, initialParams.get(key));
+  }
+  window.location.replace(routePageHref(legacyDetailsSlug, context));
+}
 if (isAccessPlanningHub) {
   for (const key of ['distance', 'area', 'difficulty', 'camping', 'type', 'sort']) initialParams.delete(key);
 }
@@ -410,7 +418,7 @@ function favoriteButtonMarkup(route) {
       reach: route.reach,
       state: route.state,
       region: route.region,
-      url: riverTripDetailsHref(route, riverId),
+      url: riverTripDetailsHref(route),
     },
     {
       className: 'favorite-toggle favorite-toggle--card favorite-toggle--inline',
@@ -423,7 +431,7 @@ function conditionsLine(route) {
 }
 
 function tripNotesMarkup(route) {
-  return tripDetailsButtonMarkup(route.slug);
+  return `<a class="river-link river-link--inline route-choice__details-button" data-trip-page-link href="${escapeHtml(routePageHref(route.slug))}">View trip details</a>`;
 }
 
 function levelText(route) {
@@ -1335,7 +1343,7 @@ function renderSelectedSummary(route) {
     return;
   }
   const nearby = isAccessPlanningHub ? [] : nearbyPickerRoutes(route);
-  const detailsAction = tripDetailsButtonMarkup(route.slug, true);
+  const detailsAction = tripNotesMarkup(route);
   const nearbyMarkup = nearby.length > 0
     ? `
       <div class="river-route-picker__nearby">
@@ -1697,7 +1705,6 @@ async function loadGroup({ silent = false } = {}) {
     renderRouteTypeFilters(routes);
     updateMoreFiltersVisibility();
     setMobileView(mobileView, { persist: false });
-    tripDialog?.syncSelection();
     renderPicker({ fitMap: true, focusSelected: Boolean(initialSelectedSlug) });
     root.dataset.groupLoaded = 'true';
     hydrateRouteGeometries(routes);
@@ -1792,18 +1799,6 @@ phoneBreakpoint.addEventListener('change', () => {
 });
 
 bindFavoriteButtons(document);
-const tripDialog = bindRiverTripDialog(root, {
-  onSelect: slug => selectPickerRoute(slug, { syncUrl: false }),
-  onShowMap: (slug, checkOnly = false) => {
-    if (!currentResult) return false;
-    if (checkOnly) return true;
-    selectPickerRoute(slug, { reveal: 'map' });
-    groupMap?.scrollIntoView({ block: 'center', behavior: preferredMapScrollBehavior() });
-    groupMap?.setAttribute('tabindex', '-1');
-    groupMap?.focus({ preventScroll: true });
-    return true;
-  },
-});
 setMobileView(mobileView, { persist: false });
 loadGroup();
 if (!isAccessPlanningHub) window.setInterval(() => {

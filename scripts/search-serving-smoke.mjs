@@ -13,7 +13,9 @@ const cases = [
   ['/rivers/juniata-river-greenwood-amity-hall/', 200],
   ['/rivers/barren-river-tailwater-vpa-3/', 301, '/rivers/by-river/barren-river/#trip-barren-river-tailwater-martinsville'],
   ['/rivers/barren-river-tailwater-vpa-3', 301, '/rivers/by-river/barren-river/#trip-barren-river-tailwater-martinsville'],
-  ['/rivers/barren-river-tailwater-martinsville/', 200, undefined, '/rivers/by-river/barren-river/', '/rivers/by-river/barren-river/#trip-barren-river-tailwater-martinsville'],
+  ['/rivers/barren-river-tailwater-martinsville/', 200, undefined, undefined, undefined, 'noindex, follow'],
+  ['/rivers/saco-river-fryeburg-brownfield/', 200, undefined, undefined, undefined, 'noindex, follow'],
+  ['/rivers/edisto-river-mars-oldfield-messervy/', 200, undefined, undefined, undefined, 'noindex, follow'],
   ['/rivers/minnehaha-creek-grays-bay-knollwood/', 301, '/guides/minnehaha-creek-paddling/'],
   ['/rivers/minnehaha-creek-grays-bay-knollwood', 301, '/guides/minnehaha-creek-paddling/'],
   ['/guides/minnehaha-creek-paddling/', 200],
@@ -22,7 +24,7 @@ const cases = [
   [`/rivers/search-check-missing-${nonce}/`, 404],
 ];
 let failures = 0;
-for (const [path, expected, redirect, canonicalPath, metaRefreshPath] of cases) {
+for (const [path, expected, redirect, canonicalPath, metaRefreshPath, expectedRobots] of cases) {
   try {
     const response = await readPage(`${origin}${path}?search-serving-check=${nonce}`);
     const html = response.html;
@@ -33,6 +35,9 @@ for (const [path, expected, redirect, canonicalPath, metaRefreshPath] of cases) 
     const refreshTag = [...html.matchAll(/<meta\b[^>]*>/gi)]
       .find(([tag]) => /\bhttp-equiv=["']refresh["']/i.test(tag))?.[0];
     const refreshContent = refreshTag?.match(/\bcontent=["']([^"']*)["']/i)?.[1];
+    const robots = [...html.matchAll(/<meta\b[^>]*>/gi)]
+      .find(([tag]) => /\bname=["']robots["']/i.test(tag))?.[0]
+      .match(/\bcontent=["']([^"']*)["']/i)?.[1];
     const refreshTarget = refreshContent?.match(/^\s*\d+\s*;\s*url=(.*)$/i)?.[1];
     const normalizedRefreshPath = refreshTarget
       ? (() => {
@@ -44,6 +49,7 @@ for (const [path, expected, redirect, canonicalPath, metaRefreshPath] of cases) 
       && (!redirect || new URL(response.location || '/', origin).href === `${origin}${redirect}`)
       && (expected !== 200 || canonical === `${origin}${canonicalPath || path}`)
       && (!metaRefreshPath || normalizedRefreshPath === metaRefreshPath)
+      && (!expectedRobots || (robots === expectedRobots && !refreshTag))
       && (expected !== 404 || !canonical || canonical !== `${origin}/`);
     console.log(`${ok ? 'ok' : 'FAIL'} ${path}: HTTP ${response.status}, canonical ${canonical || '(none)'}${redirect ? `, redirect ${response.location || '(none)'}` : ''}`);
     if (!ok) failures++;

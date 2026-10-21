@@ -23,3 +23,14 @@ it('keeps retired-route redirects unique and directed to published destinations'
     expect([301, 302]).toContain(rule.statusCode);
   }
 });
+
+it('does not redirect any supported trip away from its detail page', () => {
+  const routing = JSON.parse(readFileSync('staticwebapp.config.json', 'utf8'));
+  for (const route of listRivers()) for (const rule of routing.routes) {
+    if (!rule.redirect) continue;
+    const path = `/rivers/${route.slug}`;
+    const pattern = rule.route.replace(/\/$/, '');
+    const matches = pattern.endsWith('*') ? path.startsWith(pattern.slice(0, -1)) : path === pattern;
+    expect(matches, `Supported trip ${route.slug} is intercepted by ${rule.route}`).toBe(false);
+  }
+});

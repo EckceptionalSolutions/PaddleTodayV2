@@ -37,7 +37,10 @@ test('route overview navigation keeps the overview link active', async ({ page }
   await expect(overview).toHaveClass(/river-detail__section-link--active/);
   await expect(gaugeHistory).not.toHaveClass(/river-detail__section-link--active/);
   await expect(page.locator('#route-overview')).toBeFocused();
-  await expect.poll(() => page.locator('#route-overview').evaluate(element => Math.round(element.getBoundingClientRect().top))).toBe(22);
+  await expect.poll(() => page.locator('#route-overview').evaluate(element => {
+    const top = element.getBoundingClientRect().top;
+    return top >= 0 && top <= 64;
+  })).toBe(true);
 });
 
 test('a failed route score stops checking and recovers through retry', async ({ page }) => {

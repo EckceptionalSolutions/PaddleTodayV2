@@ -45,6 +45,7 @@ import { getBrowserApiClient } from './browser-api-client.js';
 import { createSubmissionCooldown } from './submission-cooldown.js';
 import { buildFloatPlanMessage } from '@paddletoday/trip-pack';
 import { buildRoutePlannerHref } from '../lib/route-segments.ts';
+import { accessDirectionsHref } from '../lib/trip-actions';
 
 const detailLoadingFeedback = createLoadingFeedback('detail');
 const SCORING_DECISION_POLICY_REVISION = 'publication-scoring-2026-09-04';
@@ -205,11 +206,13 @@ const riverContext = {
   distanceLabel: root.dataset.riverDistance ?? '',
   paddleTimeLabel: root.dataset.riverPaddleTime ?? '',
   putIn: {
+    id: root.dataset.putInId || undefined,
     name: root.dataset.putInName ?? 'Put-in',
     latitude: Number(root.dataset.putInLatitude),
     longitude: Number(root.dataset.putInLongitude),
   },
   takeOut: {
+    id: root.dataset.takeOutId || undefined,
     name: root.dataset.takeOutName ?? 'Take-out',
     latitude: Number(root.dataset.takeOutLatitude),
     longitude: Number(root.dataset.takeOutLongitude),
@@ -3500,6 +3503,8 @@ function renderActiveAccessContext() {
 
   setLinkState(accessPutInLink, mapQueryUrl(context.putIn));
   setLinkState(accessTakeOutLink, mapQueryUrl(context.takeOut));
+  setLinkState(root.querySelector('[data-access-putin-directions]'), accessDirectionsHref(context.putIn));
+  setLinkState(root.querySelector('[data-access-takeout-directions]'), accessDirectionsHref(context.takeOut));
   setLinkState(accessDirectionsGoogle, googleDirectionsUrl(context.putIn, context.takeOut));
   setLinkState(accessDirectionsApple, appleDirectionsUrl(context.putIn, context.takeOut));
   setLinkState(accessOpenStreetMap, openStreetMapSegmentUrl(context.putIn, context.takeOut));

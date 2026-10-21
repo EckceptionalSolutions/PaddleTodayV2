@@ -3,8 +3,7 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
 import FeatureIcon from '../../components/FeatureIcon.astro';
 import MapScoreLegendItems from '../../components/MapScoreLegendItems.astro';
 import { getRoutePreviewPhoto } from '../../data/route-gallery';
-import { routePageConsolidationTarget } from '../../data/route-page-consolidations';
-import { routeGuideReviewBySlug } from '../../data/route-guide-publication-reviews';
+import { routePageHref as tripPageHref } from '../../data/route-page-consolidations';
 import { listRiverGroups, listRiverStateGroups } from '../../lib/rivers';
 import { formatRouteSegmentLabel, routeSegmentSummary } from '../../lib/route-segments';
 import { conditionZoneIdForRiver } from '../../lib/condition-zones';
@@ -37,10 +36,8 @@ const stateTitle = scoredRoutes.length
   ? `Best ${stateGroup.name} Rivers to Paddle Today | Paddle Today`
   : `${stateGroup.name} Paddle Routes & Trip Planning | Paddle Today`;
 const stateDescription = `Explore ${stateRouteCount} ${stateGroup.name} paddle ${routeLabel} with access details, trip planning, and source links. ${scoredRoutes.length} support live scores; ${reviewedPlanningCount} are planning-only.`;
-const routePageHref = (route: River) => routePageConsolidationTarget(route.slug) ?? `/rivers/${route.slug}/`;
-const routePageLinkLabel = (route: River) => routeGuideReviewBySlug.get(route.slug)?.mode === 'access-planning'
-  ? 'Review access plan'
-  : routePageConsolidationTarget(route.slug) ? 'View trip option' : 'View route';
+const routePageHref = (route: River) => tripPageHref(route.slug);
+const routePageLinkLabel = (_route: River) => 'View trip details';
 const requestStateHref = `/request-river/#state=${encodeURIComponent(stateGroup.name)}`;
 const formatDifficulty = (difficulty: River['profile']['difficulty']) =>
   difficulty.charAt(0).toUpperCase() + difficulty.slice(1);
@@ -416,8 +413,8 @@ const structuredData = [
             </div>
             <div class="route-choice__footer">
               <span class="route-choice__selection">{route.scoreEligibility === 'planning'
-                ? routePageConsolidationTarget(route.slug) ? 'Planning details in river guide · no live score' : 'Planning details on route page · no live score'
-                : routePageConsolidationTarget(route.slug) ? 'Trip notes and live score in river guide' : 'Live score on route page'}</span>
+                ? 'Planning details · no live score'
+                : 'Trip details and live score'}</span>
               <a class="river-link river-link--inline route-choice__link" href={routePageHref(route)} aria-label={`${routePageLinkLabel(route)}: ${route.name}: ${route.reach}`}>{routePageLinkLabel(route)}</a>
             </div>
           </article>

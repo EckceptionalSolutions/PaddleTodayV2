@@ -1,5 +1,5 @@
 import { listRiverGroups, listRivers } from '../lib/rivers';
-import { routePageConsolidationTarget } from '../data/route-page-consolidations';
+import { routePageHref } from '../data/route-page-consolidations';
 
 export const prerender = true;
 
@@ -11,7 +11,7 @@ export function GET() {
       title: river.name,
       subtitle: river.scoreEligibility === 'planning' ? `${river.reach} · Planning route` : river.reach,
       meta: [river.region, river.state].filter(Boolean).join(' / '),
-      href: routePageConsolidationTarget(river.slug) ?? `/rivers/${river.slug}/`,
+      href: routePageHref(river.slug),
       searchText: [river.name, river.reach, ...(river.aliases ?? []), river.region, river.state].filter(Boolean).join(' '),
     }))
     .sort((left, right) => left.title.localeCompare(right.title));

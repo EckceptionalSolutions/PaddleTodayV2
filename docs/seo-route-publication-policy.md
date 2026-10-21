@@ -6,7 +6,7 @@ Paddle Today helps people choose a paddling trip and interpret dependable curren
 
 Keep an independent, indexable guide when its exact reach has a clear trip purpose and substantial information that helps someone choose or execute that trip. Evidence should establish the actual launch and finish, intervening river or documented itinerary, material obstruction boundaries, applicable gauge context, access terms and shuttle commitment. Explain important uncertainties. A source-named trip, materially different hazard/condition zone, restricted take-out, or independently documented alternative can justify a separate guide. Evidence of established search demand or independent references strengthens the case for retaining an existing page, but demand alone does not establish accurate guidance.
 
-A gauge, unique title, coordinate pair, route length or rewritten summary alone does not earn a separate guide. Longer endpoint combinations can remain useful options without independent pages. Do not manufacture distinct prose to justify every database record.
+A gauge, unique title, coordinate pair, route length or rewritten summary alone does not earn an independently indexable guide. Every supported public trip still has a detail page for navigation and trip tools; longer endpoint combinations can remain useful without independent search publication. Do not manufacture distinct prose to justify every database record.
 
 Planning-only guides can qualify: a well-documented itinerary without a calibrated score can be valuable. Conversely, a score does not automatically justify six pages that reuse the same information.
 
@@ -24,13 +24,15 @@ Keep planning-guide evidence and original source links visible without a live AP
 
 ## Page responsibilities
 
-- State pages help discover and compare rivers and link directly to the current guide or selected access plan.
-- River hubs explain condition zones and tradeoffs, offer focused guide links, and retain useful alternate endpoint choices.
-- Standalone guides give detailed reach-specific instructions and interpretation.
+- State pages help discover and compare rivers and link directly to trip detail pages.
+- River hubs explain condition zones and tradeoffs, offer the same “View trip details” link for every supported trip, and retain useful alternate endpoint choices.
+- Trip pages use the same detail template and tools for scored and planning trips. Authored river and reach guidance adds substance where available; indexing decisions do not create a different navigation pattern.
 
-River-hub cards use the same “View trip details” modal for scored and planning trips. Keep the cards compact and offer “Open full trip guide” inside the modal only when that exact trip retains an independent guide. Every supported trip has the same core navigation, saving, planning and sharing tools; coordinate and export availability follow the evidence. Modal facts and source links come from the published page and remain usable when live conditions fail; without JavaScript the same content remains in expandable trip notes. Opening details aligns the modal, map selection and share URL without scrolling the reader away from the picker. Shared modal links restore the selected trip; browser Back and Forward follow modal history. The modal is a presentation choice, not a change to scoring eligibility, publication decisions or canonical targets.
+Every supported trip renders at `/rivers/<slug>/`, with the same core maps, navigation, saving, planning and sharing tools; coordinate and export availability follow the evidence. Facts and source links are server rendered and remain available without JavaScript or a live conditions response. River cards stay compact and link directly to that page. Saved links, on-site search, state cards, planner links and exports use the same URL. Older shared hub `?details=<slug>` links open the corresponding supported trip page and retain explicit planner context.
 
-Use permanent consolidation delivery through the existing redirect emitter and exact hub trip anchors. Remove retired guides from the sitemap and update every generated link through `routePageHref` / `routePageConsolidationTarget`. Do not canonicalize unrelated trips together or block valid guides in robots.txt.
+Separate search publication from page availability. Previously consolidated public options render HTTP 200 detail pages with `noindex, follow`, self canonicals and no sitemap entry. The indexable guide set and sitemap membership remain unchanged. Keep these pages crawlable so search engines can read the noindex instruction, as described in [Google’s noindex documentation](https://developers.google.com/search/docs/crawling-indexing/block-indexing). The legacy `hasStandaloneRoutePage` helper remains an alias for the explicit `isIndexableRoutePage` policy; it no longer describes product page availability.
+
+Only withdrawn source records and legacy aliases retain consolidation redirects. The redirect emitter must exclude every currently public trip, and static redirect rules must not intercept those pages. Use `routePageHref` for trip navigation and retain `routePageConsolidationTarget` for historical search decisions, redirect targets and review notices. Do not canonicalize unrelated trips together or block trip pages in robots.txt.
 
 ## Review process
 
