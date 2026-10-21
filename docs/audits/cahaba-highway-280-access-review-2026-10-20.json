@@ -1,0 +1,35 @@
+{
+  "reviewedOn": "2026-10-20",
+  "scope": "Named access and export-boundary review; no field inspection or surveyed landing is claimed.",
+  "routeSlug": "cahaba-river-old-overton-highway-280",
+  "sources": [
+    {
+      "url": "https://www.cahabablueway.org/hwy-280/",
+      "method": "Reached through the visible Blueway Map carousel's Hwy. 280 entry and View Details link.",
+      "finding": "Manager describes unimproved left-bank access by a rough vehicle road passing under the highway bridges. Its directions link identifies 33.432020,-86.713973. These are access-reference coordinates, not surveyed shoreline coordinates."
+    },
+    {
+      "url": "https://www.cahabablueway.org/resource_documents/pdf_maps/Grants-Mill-to-280.pdf",
+      "method": "Downloaded the linked one-page PDF, rendered it with Poppler and visually inspected its landing marker, flow direction and dam warning.",
+      "finding": "Landing D is the Hwy. 280 access. The map prohibits continuing downstream and identifies a dam downstream of Hwy. 280. It lists 0.8 miles from Old Overton to Mountain Brook Riverwalk plus 5.7 to Hwy. 280, totaling 6.5 miles."
+    }
+  ],
+  "observedProblem": {
+    "previousTakeOut": { "latitude": 33.4295935, "longitude": -86.7218067 },
+    "previousAsset": "Network-traced multiline geometry ended at the previous take-out, continuing beyond the current manager access reference toward the downstream dam area.",
+    "citationProblem": "The previously referenced /highway-280/ manager page rendered Page Not Found; the current map links /hwy-280/."
+  },
+  "decision": {
+    "takeOutReference": { "latitude": 33.432020, "longitude": -86.713973 },
+    "distanceMiles": 6.5,
+    "geometryAndGpx": "Withheld pending independent review of a replacement trace terminating at the upstream landing. A new straight connector is not substituted.",
+    "tripGuide": "Preserved with the dam warning, source links and qualified access-reference pin.",
+    "numericScoringModel": "Unchanged in this boundary correction. Applicability of the family's shared numeric band remains a separate, documented follow-up."
+  },
+  "limits": [
+    "The vehicle road's passage beneath a bridge is not a paddling instruction.",
+    "Source directions do not establish current legal parking, access availability or a safe launch.",
+    "The former line's precise intersection with the dam has not been independently surveyed; the confirmed error is extension beyond the manager's designated trip endpoint.",
+    "This is a product accuracy correction, not proof of a Google ranking cause or recovery."
+  ]
+}

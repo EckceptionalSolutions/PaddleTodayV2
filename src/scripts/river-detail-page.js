@@ -40,6 +40,7 @@ import {
   parsePaddleTimeHours,
 } from '@paddletoday/api-contract';
 import { loadCanonicalRiverRouteLine } from '../lib/canonical-river-geometries.js';
+import { isRouteGeometryHeld, routeGeometryReviewHolds } from '../lib/route-geometry-review-holds.js';
 import { getBrowserApiClient } from './browser-api-client.js';
 import { createSubmissionCooldown } from './submission-cooldown.js';
 import { buildFloatPlanMessage } from '@paddletoday/trip-pack';
@@ -3373,6 +3374,10 @@ function syncRouteGeoJsonLine(mapRuntime, sourceId, layerId, routeLine, result, 
     layerIds: [layerId],
     sourceIds: [sourceId],
   });
+  if (layerId === 'detail-route-line' && isRouteGeometryHeld(slug) && detailMapLineKey instanceof HTMLElement) {
+    detailMapLineKey.textContent = routeGeometryReviewHolds.get(slug);
+    detailMapLineKey.hidden = false;
+  }
 }
 
 function syncAccessRouteLine(mapRuntime, sourceId, layerId, points, result, paint = {}) {
@@ -3380,7 +3385,7 @@ function syncAccessRouteLine(mapRuntime, sourceId, layerId, points, result, pain
     mapRuntime,
     sourceId,
     layerId,
-    points.length > 1 ? buildAccessRouteLine(points) : null,
+    points.length > 1 && !isRouteGeometryHeld(slug) ? buildAccessRouteLine(points) : null,
     result,
     paint,
   );

@@ -2,6 +2,7 @@ import { readFile, writeFile, readdir } from 'node:fs/promises';
 import { join } from 'node:path';
 import { createHash } from 'node:crypto';
 import { listRivers } from '../src/lib/rivers';
+import { isRouteGeometryHeld } from '../src/lib/route-geometry-review-holds.js';
 
 // Refresh only the inventory of already reviewed assets. This is deliberately
 // separate from retracing geometry: generation provenance remains unchanged.
@@ -14,6 +15,10 @@ const files = await readdir(join(root, 'canonical-river-geometries/routes'));
 const features = [];
 for (const file of files.filter(file => file.endsWith('.json') && ids.has(file.slice(0, -5)))) {
   const feature = JSON.parse(await readFile(join(root, 'canonical-river-geometries/routes', file), 'utf8'));
+  if (isRouteGeometryHeld(file.slice(0, -5))) {
+    if (feature.properties?.routeId !== file.slice(0, -5) || feature.geometry !== null || feature.properties?.geometryReviewStatus !== 'withheld') throw new Error(`Invalid held geometry tombstone: ${file}`);
+    continue;
+  }
   if (feature.type !== 'Feature' || feature.properties?.routeId !== file.slice(0, -5) || feature.geometry?.type !== 'MultiLineString' || !feature.geometry.coordinates.length) throw new Error(`Invalid reviewed geometry: ${file}`);
   features.push(feature);
 }
