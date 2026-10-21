@@ -4,6 +4,7 @@
   "scope": "Current source catalog after explicit pilot decisions; this is proposed build inventory, not a claim about deployed URLs or indexing.",
   "standalonePages": 2004,
   "reviewedPilotFamilies": [
+    "cahaba-river-alabama",
     "saco-river",
     "delaware-river-new-jersey",
     "allagash-river",
@@ -14,9 +15,9 @@
     "snoqualmie-river-washington",
     "contoocook-river-new-hampshire"
   ],
-  "candidates": 342,
+  "candidates": 339,
   "planningCandidates": 107,
-  "scoredCandidates": 235,
+  "scoredCandidates": 232,
   "queue": [
     {
       "slug": "saint-croix-river-lambert-baileyville",
@@ -1026,39 +1027,6 @@
       "role": "scored",
       "nearestSibling": "carson-river-carson-river-park-santa-maria",
       "phraseSimilarity": 0.772,
-      "sharesConditionSetup": true,
-      "status": "needs-editorial-review",
-      "requiredReview": "Check documented reach, access terms, hazard/condition boundaries, distinct trip value and historical demand before deciding guide versus hub option."
-    },
-    {
-      "slug": "cahaba-river-grants-mill-old-overton",
-      "riverId": "cahaba-river-alabama",
-      "state": "Alabama",
-      "role": "scored",
-      "nearestSibling": "cahaba-river-moon-grants-mill",
-      "phraseSimilarity": 0.768,
-      "sharesConditionSetup": true,
-      "status": "needs-editorial-review",
-      "requiredReview": "Check documented reach, access terms, hazard/condition boundaries, distinct trip value and historical demand before deciding guide versus hub option."
-    },
-    {
-      "slug": "cahaba-river-moon-grants-mill",
-      "riverId": "cahaba-river-alabama",
-      "state": "Alabama",
-      "role": "scored",
-      "nearestSibling": "cahaba-river-grants-mill-old-overton",
-      "phraseSimilarity": 0.768,
-      "sharesConditionSetup": true,
-      "status": "needs-editorial-review",
-      "requiredReview": "Check documented reach, access terms, hazard/condition boundaries, distinct trip value and historical demand before deciding guide versus hub option."
-    },
-    {
-      "slug": "cahaba-river-old-overton-highway-280",
-      "riverId": "cahaba-river-alabama",
-      "state": "Alabama",
-      "role": "scored",
-      "nearestSibling": "cahaba-river-moon-grants-mill",
-      "phraseSimilarity": 0.768,
       "sharesConditionSetup": true,
       "status": "needs-editorial-review",
       "requiredReview": "Check documented reach, access terms, hazard/condition boundaries, distinct trip value and historical demand before deciding guide versus hub option."

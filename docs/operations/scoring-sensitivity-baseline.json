@@ -1,9 +1,9 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-10-20T23:36:52.545Z",
+  "generatedAt": "2026-10-21T02:09:50.732Z",
   "fixedEvaluationTime": "2026-06-15T12:00:00.000Z",
   "routeCount": 1637,
-  "scenarioCount": 35292,
+  "scenarioCount": 35281,
   "routes": {
     "lynches-river-indigo-wicklow": {
       "below-too-low": {
@@ -9148,85 +9148,45 @@
       }
     },
     "cahaba-river-moon-grants-mill": {
-      "below-too-low": {
-        "score": 35,
-        "rating": "No-go",
+      "minimum-below": {
+        "score": 51,
+        "rating": "Fair",
         "readiness": "skip",
         "gaugeBand": "too-low",
-        "tomorrowScore": 35,
-        "weekendScore": 27
+        "tomorrowScore": 51,
+        "weekendScore": null
       },
-      "too-low": {
-        "score": 38,
-        "rating": "No-go",
+      "minimum-at": {
+        "score": 55,
+        "rating": "Fair",
         "readiness": "verify",
-        "gaugeBand": "low-shoulder",
-        "tomorrowScore": 38,
-        "weekendScore": 30
+        "gaugeBand": "minimum-met",
+        "tomorrowScore": 55,
+        "weekendScore": null
       },
-      "low-shoulder": {
+      "minimum-above": {
         "score": 63,
         "rating": "Fair",
         "readiness": "verify",
-        "gaugeBand": "low-shoulder",
+        "gaugeBand": "minimum-met",
         "tomorrowScore": 63,
-        "weekendScore": 55
+        "weekendScore": null
       },
-      "ideal-min": {
-        "score": 88,
-        "rating": "Good",
-        "readiness": "ready",
-        "gaugeBand": "ideal",
-        "tomorrowScore": 90,
-        "weekendScore": 82
-      },
-      "ideal-center": {
-        "score": 100,
-        "rating": "Strong",
-        "readiness": "ready",
-        "gaugeBand": "ideal",
-        "tomorrowScore": 100,
-        "weekendScore": 94
-      },
-      "ideal-max": {
-        "score": 88,
-        "rating": "Good",
-        "readiness": "ready",
-        "gaugeBand": "ideal",
-        "tomorrowScore": 90,
-        "weekendScore": 82
-      },
-      "high-shoulder": {
-        "score": 63,
+      "minimum-well-above": {
+        "score": 74,
         "rating": "Fair",
         "readiness": "verify",
-        "gaugeBand": "high-shoulder",
-        "tomorrowScore": 63,
-        "weekendScore": 55
-      },
-      "too-high": {
-        "score": 38,
-        "rating": "No-go",
-        "readiness": "verify",
-        "gaugeBand": "high-shoulder",
-        "tomorrowScore": 38,
-        "weekendScore": 30
-      },
-      "above-too-high": {
-        "score": 32,
-        "rating": "No-go",
-        "readiness": "skip",
-        "gaugeBand": "too-high",
-        "tomorrowScore": 32,
-        "weekendScore": 24
+        "gaugeBand": "minimum-met",
+        "tomorrowScore": 74,
+        "weekendScore": null
       },
       "reference": {
-        "score": 100,
-        "rating": "Strong",
-        "readiness": "ready",
-        "gaugeBand": "ideal",
-        "tomorrowScore": 100,
-        "weekendScore": 94
+        "score": 69,
+        "rating": "Fair",
+        "readiness": "verify",
+        "gaugeBand": "minimum-met",
+        "tomorrowScore": 69,
+        "weekendScore": null
       },
       "missing-gauge": {
         "score": 38,
@@ -9240,113 +9200,65 @@
         "score": 49,
         "rating": "No-go",
         "readiness": "withheld",
-        "gaugeBand": "ideal",
+        "gaugeBand": "minimum-met",
         "tomorrowScore": null,
         "weekendScore": null
       },
       "missing-weather": {
-        "score": 74,
+        "score": 61,
         "rating": "Fair",
         "readiness": "verify",
-        "gaugeBand": "ideal",
+        "gaugeBand": "minimum-met",
         "tomorrowScore": null,
         "weekendScore": null
       },
       "cold-water": {
-        "score": 74,
+        "score": 65,
         "rating": "Fair",
         "readiness": "verify",
-        "gaugeBand": "ideal",
-        "tomorrowScore": 74,
-        "weekendScore": 74
+        "gaugeBand": "minimum-met",
+        "tomorrowScore": 69,
+        "weekendScore": null
       },
       "severe-weather": {
-        "score": 61,
-        "rating": "Fair",
+        "score": 30,
+        "rating": "No-go",
         "readiness": "skip",
-        "gaugeBand": "ideal",
-        "tomorrowScore": 100,
-        "weekendScore": 94
+        "gaugeBand": "minimum-met",
+        "tomorrowScore": 69,
+        "weekendScore": null
       },
       "boundary-0-left": {
-        "score": 38,
+        "score": 55,
+        "rating": "Fair",
+        "readiness": "skip",
+        "gaugeBand": "too-low",
+        "tomorrowScore": 55,
+        "weekendScore": null
+      },
+      "boundary-0-right": {
+        "score": 55,
+        "rating": "Fair",
+        "readiness": "verify",
+        "gaugeBand": "minimum-met",
+        "tomorrowScore": 55,
+        "weekendScore": null
+      },
+      "adverse-trend-mild": {
+        "score": 41,
         "rating": "No-go",
         "readiness": "skip",
         "gaugeBand": "too-low",
-        "tomorrowScore": 38,
-        "weekendScore": 30
-      },
-      "boundary-0-right": {
-        "score": 40,
-        "rating": "No-go",
-        "readiness": "verify",
-        "gaugeBand": "low-shoulder",
-        "tomorrowScore": 40,
-        "weekendScore": 32
-      },
-      "boundary-1-left": {
-        "score": 86,
-        "rating": "Good",
-        "readiness": "verify",
-        "gaugeBand": "low-shoulder",
-        "tomorrowScore": 86,
-        "weekendScore": 78
-      },
-      "boundary-1-right": {
-        "score": 88,
-        "rating": "Good",
-        "readiness": "ready",
-        "gaugeBand": "ideal",
-        "tomorrowScore": 90,
-        "weekendScore": 82
-      },
-      "boundary-2-left": {
-        "score": 88,
-        "rating": "Good",
-        "readiness": "ready",
-        "gaugeBand": "ideal",
-        "tomorrowScore": 90,
-        "weekendScore": 82
-      },
-      "boundary-2-right": {
-        "score": 88,
-        "rating": "Good",
-        "readiness": "verify",
-        "gaugeBand": "high-shoulder",
-        "tomorrowScore": 88,
-        "weekendScore": 80
-      },
-      "boundary-3-left": {
-        "score": 38,
-        "rating": "No-go",
-        "readiness": "verify",
-        "gaugeBand": "high-shoulder",
-        "tomorrowScore": 38,
-        "weekendScore": 30
-      },
-      "boundary-3-right": {
-        "score": 38,
-        "rating": "No-go",
-        "readiness": "skip",
-        "gaugeBand": "too-high",
-        "tomorrowScore": 38,
-        "weekendScore": 30
-      },
-      "adverse-trend-mild": {
-        "score": 51,
-        "rating": "Fair",
-        "readiness": "skip",
-        "gaugeBand": "high-shoulder",
-        "tomorrowScore": 43,
-        "weekendScore": 31
+        "tomorrowScore": 35,
+        "weekendScore": null
       },
       "adverse-trend-rapid": {
-        "score": 43,
+        "score": 33,
         "rating": "No-go",
         "readiness": "skip",
-        "gaugeBand": "high-shoulder",
-        "tomorrowScore": 27,
-        "weekendScore": 11
+        "gaugeBand": "too-low",
+        "tomorrowScore": 21,
+        "weekendScore": null
       }
     },
     "cahaba-river-grants-mill-old-overton": {

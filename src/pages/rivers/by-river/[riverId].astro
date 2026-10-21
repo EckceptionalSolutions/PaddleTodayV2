@@ -2267,7 +2267,9 @@ const groupStructuredData = [
             {publicationReview
               ? isAccessPlanningHub
                 ? `Compare ${group.routeCount} access plans on this page. Select a plan for its map and expand the access, gauge, shuttle and source notes. These records organize launch research; confirm the intervening river locally before choosing a trip.`
-                : `Start with the ${publicationReview.retainedGuides.length} focused reach guides above. All ${group.routeCount} endpoint choices remain available in the picker, including longer combinations with their own take-out, gauge and hazard notes.`
+                : publicationReview.hubOptions.length > 0
+                  ? `Start with the ${publicationReview.retainedGuides.length} focused reach guides above. All ${group.routeCount} endpoint choices remain available in the picker, including longer combinations with their own take-out, gauge and hazard notes.`
+                  : `Use the ${publicationReview.retainedGuides.length} focused reach guides above to compare these separate trips. Each choice keeps its own take-out, gauge applicability and hazard notes in the picker.`
               : isOuachitaHub
               ? 'Choose between the 2.9-mile west-to-east Dragover Day Use reach and the 5.9-mile Remmel Dam–Rockport Whitewater Park run. They are separate outings with different access and flow checks; each route card keeps its own endpoints, gauge, and hazards.'
               : isAndroscogginMaineHub
