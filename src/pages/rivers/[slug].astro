@@ -1520,7 +1520,7 @@ const routeFaqStructuredData = {
         <div>
           <p class="eyebrow section-label">Prepare this trip</p>
           <h3 class="river-subtitle river-subtitle--compact">Take the plan with you</h3>
-          <p class="muted">Save your selected route as a trip, choose a day, and bring your paddling partners along. You can also download the route or share a quick float plan.</p>
+          <p class="muted">Save your selected route as a trip, choose a day, and bring your paddling partners along. {geometryReviewReason ? 'You can also share a quick float plan.' : 'You can also download the route or share a quick float plan.'}</p>
         </div>
         <div class="detail-map__links">
           <a class="river-link river-link--inline river-link--primary" data-plan-account href={`/trips/?route=${encodeURIComponent(river.slug)}&name=${encodeURIComponent(river.name)}&putin=${encodeURIComponent(river.putIn?.id || '')}&takeout=${encodeURIComponent(river.takeOut?.id || '')}`}>Plan this route</a>

@@ -8,6 +8,7 @@ for (const slug of ['cahaba-river-old-overton-highway-280', 'saco-river-route-16
     await page.goto(`/rivers/${slug}/`);
     await expect(page.locator('[data-geometry-review-notice]')).toContainText('Route line and GPX withheld');
     await expect(page.locator('[data-trip-gpx]')).toHaveCount(0);
+    await expect(page.locator('[data-trip-pack]')).not.toContainText('download the route');
     await page.getByRole('link', { name: 'Open access map', exact: true }).click();
     await expect(page.locator('[data-detail-map-line-key]')).toContainText('Route line and GPX withheld');
     await expect(page.locator('[data-detail-map-line-key]')).not.toContainText('Dashed line');
