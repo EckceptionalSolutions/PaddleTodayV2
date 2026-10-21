@@ -1,0 +1,38 @@
+{
+  "reviewedOn": "2026-10-20",
+  "scope": "Published-source citation check for the protected Kelley-to-Milford guide; no field inspection is implied.",
+  "routeSlug": "little-miami-river-kelley-milford",
+  "legacySource": {
+    "url": "https://www.americanwhitewater.org/content/River/show-gauge-info/?reachid=10600",
+    "observation": "The public browser rendered a 404 page. This records the rendered response, not an independently measured HTTP status."
+  },
+  "verifiedSource": {
+    "url": "https://www.americanwhitewater.org/content/River/view/river-detail/10600/flow",
+    "reach": "Kelley Nature Preserve to Milford (Jim Tarrell Park)",
+    "station": "Little Miami River at Milford OH",
+    "usgsSiteId": "03245500",
+    "metric": "gage_height_ft",
+    "unit": "ft",
+    "belowRecommendedBelow": 4.6,
+    "lowRunnable": [4.6, 5.5],
+    "mediumRunnableBestPlay": [5.5, 7.5],
+    "highRunnable": [7.5, 9],
+    "aboveRecommendedAbove": 9
+  },
+  "decision": {
+    "numericModelChanged": false,
+    "gaugeChanged": false,
+    "eligibilityChanged": false,
+    "tripEndpointsChanged": false,
+    "publicationRoleChanged": false,
+    "replaceBrokenCitation": true,
+    "removeUnsupportedUpperEndpointInHighWaterNote": true,
+    "reason": "The current Flow table confirms the existing 4.6 / 5.5–7.5 / 9 ft model. Its high-water category is above 9 ft, without the legacy note's 15 ft endpoint. Link the actual flow table from the model, evidence notes, route source list, trip decision and gauge explainer."
+  },
+  "limits": [
+    "These are community whitewater/play guidelines for the named reach, not universal livery or tubing minima.",
+    "A source check does not establish current access, obstruction or hazard conditions.",
+    "A repaired citation is a product-quality correction, not evidence of Google ranking recovery.",
+    "No other legacy AW citation is assumed broken or numerically wrong solely because its URL matches the same pattern."
+  ]
+}

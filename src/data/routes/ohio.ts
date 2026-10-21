@@ -1134,7 +1134,7 @@ export const ohioRoutes: River[] = [
       "tooHigh": 9,
       "thresholdSource": {
         "label": "American Whitewater Little Miami Kelley-to-Milford gauge guidance",
-        "url": "https://www.americanwhitewater.org/content/River/show-gauge-info/?reachid=10600",
+        "url": "https://www.americanwhitewater.org/content/River/view/river-detail/10600/flow",
         "provider": "american_whitewater"
       },
       "thresholdSourceStrength": "community",
@@ -1166,19 +1166,19 @@ export const ohioRoutes: River[] = [
         "label": "Gauge ladder",
         "value": "4.6 to 9.0 ft runnable range",
         "note": "AW ties the reach to the Little Miami River at Milford gauge and publishes a 4.60-to-9.00 ft range, with 5.50-to-7.50 ft described as the best boatable play level and around 6.5 ft prime.",
-        "sourceUrl": "https://www.americanwhitewater.org/content/River/show-gauge-info/?reachid=10600"
+        "sourceUrl": "https://www.americanwhitewater.org/content/River/view/river-detail/10600/flow"
       },
       {
         "label": "Low-water floor",
         "value": "4.6 ft",
         "note": "AW says below 4.6 ft is way too low and that 4.6-to-5.5 ft is low water with little play and possible walking in the shallows.",
-        "sourceUrl": "https://www.americanwhitewater.org/content/River/show-gauge-info/?reachid=10600"
+        "sourceUrl": "https://www.americanwhitewater.org/content/River/view/river-detail/10600/flow"
       },
       {
         "label": "High-water ceiling",
         "value": "9 ft",
-        "note": "AW treats 9-to-15 ft as sketchy and possibly flooding, with features washed out and other streams running.",
-        "sourceUrl": "https://www.americanwhitewater.org/content/River/show-gauge-info/?reachid=10600"
+        "note": "AW marks levels above 9 ft as above its recommended range and describes sketchy, possibly flooding conditions; features wash out and other streams are running.",
+        "sourceUrl": "https://www.americanwhitewater.org/content/River/view/river-detail/10600/flow"
       },
       {
         "label": "Boathouse Rapid accident history",
@@ -1213,7 +1213,7 @@ export const ohioRoutes: River[] = [
       },
       {
         "label": "American Whitewater Little Miami gauge info",
-        "url": "https://www.americanwhitewater.org/content/River/show-gauge-info/?reachid=10600",
+        "url": "https://www.americanwhitewater.org/content/River/view/river-detail/10600/flow",
         "provider": "american_whitewater"
       },
       {
