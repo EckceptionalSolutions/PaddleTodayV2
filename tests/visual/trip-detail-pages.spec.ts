@@ -81,7 +81,7 @@ test('held routes keep their detail pages and suppress GPX tools', async ({ page
   await page.goto(`/rivers/${slug}/`);
   await expect(page.locator('[data-river-detail]')).toHaveAttribute('data-river-slug', slug);
   await expect(page.locator('[data-trip-gpx]')).toHaveCount(0);
-  await expect(page.locator('[data-geometry-review-notice]')).toContainText('Route line and GPX withheld');
+  await expect(page.locator('[data-geometry-review-notice]')).toContainText('route line and GPX download are unavailable');
   await page.locator('#access-plan').scrollIntoViewIfNeeded();
   await page.screenshot({ path: `output/consistent-trip-pages-${test.info().project.name}.png` });
 });

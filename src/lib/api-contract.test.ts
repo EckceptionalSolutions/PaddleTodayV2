@@ -208,7 +208,7 @@ describe('api-contract serializers', () => {
       { label: 'USGS', tone: 'usgs' },
       { label: 'Official', tone: 'official' },
     ]);
-    expect(summary.summary.cardText).toContain('Ideal window');
+    expect(summary.summary.cardText).toContain('Within preferred range');
     expect(summary.summary.shortExplanation).toBe('Perfect level • Stable • mostly sunny');
     expect(summary.summary.rawSignalLine).toBe('Gauge: 520 cfs • Wind: 8 mph • Temp: 67°F');
     expect(summary.summary.gaugeNow).toBe('520 cfs');
@@ -342,7 +342,7 @@ describe('api-contract serializers', () => {
     expect(planning.river.scoreEligibility).toBe('planning');
     expect(planning.river.scoreEligibilityReason).toBe('proxy_gauge');
     expect(planning.gaugeBandLabel).toBe('Not scored');
-    expect(planning.explanation).toContain('does not issue a same-day score');
+    expect(planning.explanation).toContain('do not issue a daily score');
     expect(planning.readiness.reason).toContain('proxy gauge');
     expect(planning.confidence.reasons).toEqual(['Proxy gauge route']);
   });

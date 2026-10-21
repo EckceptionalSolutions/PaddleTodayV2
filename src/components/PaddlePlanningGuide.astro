@@ -15,7 +15,7 @@ const reviewDateLabel = new Date(`${reviewedOn}T00:00:00Z`).toLocaleDateString('
 ---
 
 <section class="planning-guide" id={id} data-detail-section={id} aria-labelledby={`${id}-title`}>
-  <p class="eyebrow section-label">Trip decisions</p>
+  <p class="eyebrow section-label">Before you go</p>
   <Heading id={`${id}-title`}>{guide.title}</Heading>
   <p class="planning-guide__intro">{guide.introduction}</p>
   <div class="planning-guide__decisions">
@@ -33,15 +33,12 @@ const reviewDateLabel = new Date(`${reviewedOn}T00:00:00Z`).toLocaleDateString('
     ))}
   </div>
   <p class="planning-guide__review muted">
-    Paddle Today source comparison updated <time datetime={reviewedOn}>{reviewDateLabel}</time>.
-    Based on published guides and route records; this is not an on-water inspection or confirmation of current access.
+    Guides and maps checked <time datetime={reviewedOn}>{reviewDateLabel}</time>.
+    We have not inspected this trip in person. Check with the launch manager for current access and closures.
   </p>
 </section>
 
 <style>
-  :global(html body.page-route-detail [data-river-detail] .river-detail__content) > .planning-guide {
-    order: 5;
-  }
   .planning-guide {
     margin-block: 1.5rem;
     padding: clamp(1rem, 2.5vw, 1.75rem);

@@ -165,6 +165,7 @@ const appDownloadConfigJson = JSON.stringify({
       {pageClass.split(/\s+/).includes('page-route-detail') && <link rel="stylesheet" href={`/styles/route-maps.css?v=${assetVersion}`} />}
       {pageClass.split(/\s+/).includes('page-route-detail') && <link rel="stylesheet" href={`/styles/route-page.css?v=${assetVersion}`} />}
       {(pageClass.split(/\s+/).includes('page-route-detail') || Astro.url.pathname.startsWith('/trips/')) && <link rel="stylesheet" href={`/styles/route-trip-plan.css?v=${assetVersion}-guest-plans-20261021`} />}
+      {(pageClass.split(/\s+/).includes('page-route-detail') || pageClass.split(/\s+/).includes('page-river-hub')) && <link rel="stylesheet" href={`/styles/river-reading.css?v=${assetVersion}-20261021`} />}
     <link rel="stylesheet" href={`/styles/interaction-feedback.css?v=${assetVersion}`} />
     <link rel="stylesheet" href={`/styles/site-motion.css?v=${assetVersion}`} />
   </head>
@@ -239,7 +240,7 @@ const appDownloadConfigJson = JSON.stringify({
         <slot />
       </main>
 
-      {!privatePage && !routeDetailPage && <aside class="app-download-prompt" data-app-download-prompt hidden aria-label="Paddle Today app download">
+      {!privatePage && !routeDetailPage && !pageClass.split(/\s+/).includes('page-river-hub') && <aside class="app-download-prompt" data-app-download-prompt hidden aria-label="Paddle Today app download">
         <button
           class="app-download-prompt__dismiss"
           type="button"

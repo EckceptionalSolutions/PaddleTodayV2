@@ -33,6 +33,6 @@ export function evidenceNoteLabel(note: RiverEvidenceNote): string {
 
 export function evidenceNoteDetail(note: RiverEvidenceNote): string | undefined {
   return isRecordedGaugeCheck(note)
-    ? 'This static check records gauge data observed during route review; it is not live telemetry. Check the current gauge and local conditions before paddling.'
+    ? 'This reading was saved when we checked the guide. It is not today’s water level. Check the current gauge and local conditions before paddling.'
     : note.note;
 }

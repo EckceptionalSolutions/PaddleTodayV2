@@ -36,7 +36,7 @@ for (const review of routeGuidePublicationReviews) {
       await expect(details.locator('[data-river-detail]')).toContainText(river.takeOut!.name);
       await expect(details.locator('meta[name="robots"]')).toHaveAttribute('content', review.retainedGuides.includes(selected!) ? 'index, follow' : 'noindex, follow');
       if (river.scoreEligibility === 'planning') await expect(details.locator('#planning-sources')).toBeVisible();
-      if (review.riverId === 'allagash-river') await expect(details.locator('[data-geometry-review-notice]')).toContainText('Route line and GPX withheld');
+      if (review.riverId === 'allagash-river') await expect(details.locator('[data-geometry-review-notice]')).toContainText('route line and GPX download are unavailable');
       await details.close();
     }
     if (review.mode === 'access-planning') {

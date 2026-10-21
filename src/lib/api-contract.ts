@@ -12,7 +12,7 @@ import type {
   RiverSummaryApiItem,
   WeekendSummaryApiItem,
 } from '@paddletoday/api-contract';
-import { buildSourceStrengthViewModel, isColdWeatherDrivenCall } from '@paddletoday/api-contract';
+import { buildSourceStrengthViewModel, gaugeBandDisplayLabel, isColdWeatherDrivenCall } from '@paddletoday/api-contract';
 import { classifyCamping } from './camping-classification';
 import { gaugeDisplayForSource, thresholdAdapterForSource } from './source-adapters';
 import { conditionZoneIdForRiver } from './condition-zones';
@@ -61,7 +61,7 @@ export function serializeSummaryResult(result: RiverScoreResult): RiverSummaryAp
     score: result.score,
     rating: result.rating,
     readiness: result.readiness,
-    gaugeBandLabel: result.gaugeBandLabel,
+    gaugeBandLabel: gaugeBandDisplayLabel(result.gaugeBand, result.gaugeBandLabel),
     explanation: result.explanation,
     confidence: {
       score: result.confidence.score,
@@ -128,7 +128,7 @@ export function serializeWeekendSummaryResult(result: RiverScoreResult): Weekend
     current: {
       score: result.score,
       rating: result.rating,
-      gaugeBandLabel: result.gaugeBandLabel,
+      gaugeBandLabel: gaugeBandDisplayLabel(result.gaugeBand, result.gaugeBandLabel),
     },
     weekend: {
       label: weekend.label,
@@ -238,7 +238,7 @@ export function serializeDetailResult(result: RiverScoreResult): RiverDetailApiR
     rating: result.rating,
     readiness: result.readiness,
     gaugeBand: result.gaugeBand,
-    gaugeBandLabel: result.gaugeBandLabel,
+    gaugeBandLabel: gaugeBandDisplayLabel(result.gaugeBand, result.gaugeBandLabel),
     explanation: result.explanation,
     scoreBreakdown: result.scoreBreakdown,
     confidence: result.confidence,
@@ -374,8 +374,8 @@ export function serializePlanningRoute(route: River, weather: RiverScoreResult['
     gaugeBand: 'unknown',
     gaugeBandLabel: 'Not scored',
     explanation: usesProxy
-      ? 'This route is documented for planning, but Paddle Today does not issue a same-day score because its gauge is a proxy for this reach.'
-      : 'No reach-specific same-day score is issued for this planning route. Check current local water, access and hazards.',
+      ? 'We do not issue a daily score for this trip because the gauge measures a different part of the river. Check water levels locally and read the access and hazard notes before launch.'
+      : 'We do not issue a daily score for this trip. Check local water levels, access and hazards before launch.',
     scoreBreakdown: {
       riverQuality: 0, windAdjustment: 0, temperatureAdjustment: 0, rainAdjustment: 0, comfortAdjustment: 0,
       rawTripScore: 0, finalScore: 0, capReasons: [], riverQualityExplanation: '', windExplanation: '',
@@ -455,7 +455,7 @@ export function serializeRiverHistoryResult(args: {
 function compactCardSummary(result: RiverScoreResult): string {
   const trendFactor = result.factors.find((factor) => factor.id === 'trend');
   const weatherFactor = result.factors.find((factor) => factor.id === 'weather');
-  return `${result.gaugeBandLabel}. ${trendFactor?.value ?? 'Trend unavailable'}. ${weatherFactor?.value ?? 'Weather unavailable'}.`;
+  return `${gaugeBandDisplayLabel(result.gaugeBand, result.gaugeBandLabel)}. ${trendFactor?.value ?? 'Trend unavailable'}. ${weatherFactor?.value ?? 'Weather unavailable'}.`;
 }
 
 function shortCardExplanation(result: RiverScoreResult): string {

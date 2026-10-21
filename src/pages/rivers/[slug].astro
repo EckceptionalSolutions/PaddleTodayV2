@@ -43,11 +43,11 @@ const isPlanningRoute = river.scoreEligibility === 'planning';
 const isLittleMiamiKelleyMilford = river.slug === 'little-miami-river-kelley-milford';
 const gaugeDisplay = gaugeDisplayForSource(river.gaugeSource);
 const thresholdConfidenceLabel = isPlanningRoute
-  ? 'Planning only; no route-specific scoring range'
+  ? 'No published water-level range for this trip'
   : buildSourceStrengthViewModel(river.profile.thresholdSourceStrength).confidenceLabel;
 const formatThresholdValue = (value: number | undefined) => {
   if (typeof value !== 'number') {
-    return 'Not calibrated yet';
+    return 'Water-level guidance unavailable';
   }
 
   if (river.gaugeSource.unit === 'cfs') {
@@ -57,9 +57,9 @@ const formatThresholdValue = (value: number | undefined) => {
   return `${value.toFixed(2).replace(/\\.00$/, '')} ${river.gaugeSource.unit}`;
 };
 const isMinimumOnlyRoute = river.profile.thresholdModel === 'minimum-only';
-const targetBandLabel = isMinimumOnlyRoute ? 'Ideal range' : 'Target band';
+const targetBandLabel = 'Preferred range';
 const targetBandValue = isPlanningRoute
-  ? 'No route-specific band'
+  ? 'No published range for this trip'
   : river.profile.thresholdModel === 'two-sided' &&
       typeof river.profile.idealMin === 'number' &&
       typeof river.profile.idealMax === 'number'
@@ -69,11 +69,11 @@ const minimumOnlyFloor = river.profile.tooLow ?? river.profile.idealMin;
 const hasMinimumOnlyFloor = Number.isFinite(minimumOnlyFloor)
   && (river.gaugeSource.unit !== 'cfs' || (minimumOnlyFloor ?? 0) > 0);
 const lowThresholdValue = isPlanningRoute
-  ? 'Not calibrated for this trip'
+  ? 'Not established for this trip'
   : isMinimumOnlyRoute && !hasMinimumOnlyFloor
     ? 'Not established for this trip'
     : formatThresholdValue(isMinimumOnlyRoute ? minimumOnlyFloor : river.profile.tooLow);
-const highThresholdValue = isPlanningRoute ? 'Not calibrated for this trip' : formatThresholdValue(river.profile.tooHigh);
+const highThresholdValue = isPlanningRoute ? 'Not established for this trip' : formatThresholdValue(river.profile.tooHigh);
 const putIn = river.putIn;
 const takeOut = river.takeOut;
 const logistics = river.logistics;
@@ -264,8 +264,8 @@ const accessSafetyReviewDateLabel = (() => {
 const routeShareTitle = `${river.name}: ${river.reach} | Paddle Today`;
 const routeShareDescription = isPlanningRoute
   ? routeSeoDescription
-  : `Check ${river.name} for ${river.reach}. Live gauge, weather, evidence strength, access details, and today's paddle score before you drive.`;
-const routeShareText = `Today's Paddle Today read for ${river.name} - ${river.reach}: live gauge, weather, evidence strength, access, and a clear paddle call.`;
+  : `Check ${river.name} for ${river.reach}. Live gauge, weather, data reliability, access details, and today's paddle score before you drive.`;
+const routeShareText = `Today's Paddle Today read for ${river.name} - ${river.reach}: live gauge, weather, data reliability, access, and a clear paddle call.`;
 const routeGalleryPhotos = getRouteGalleryPhotos(river);
 const routePreviewPhoto = getRoutePreviewPhoto(river);
 const routePreviewLabel =
@@ -432,13 +432,13 @@ const routeFaqStructuredData = {
           <a class="river-detail__section-link" href="#route-overview" data-detail-nav-link="overview" data-detail-nav-target="route-overview">
             Route overview
           </a>
-          {planningGuide ? (
-            <a class="river-detail__section-link" href="#trip-decisions" data-detail-nav-link="trip-decisions" data-detail-nav-target="trip-decisions">Trip decisions</a>
-          ) : null}
           {!isPlanningRoute ? (
             <a class="river-detail__section-link" href="#route-outlook" data-detail-nav-link="outlook" data-detail-nav-target="route-outlook">
               Outlook
             </a>
+          ) : null}
+          {planningGuide ? (
+            <a class="river-detail__section-link" href="#trip-decisions" data-detail-nav-link="trip-decisions" data-detail-nav-target="trip-decisions">Before you go</a>
           ) : null}
           <a class="river-detail__section-link" href="#access-plan" data-detail-nav-link="plan" data-detail-nav-target="access-plan">
             Access &amp; route
@@ -490,7 +490,7 @@ const routeFaqStructuredData = {
                 <div>
                   <p class="river-detail__hero-map-label">Route location</p>
                   <p class="river-detail__hero-map-status muted" data-detail-hero-map-status data-skeleton role="status">
-                    {isPlanningRoute ? 'Loading the route coverage map.' : 'Loading the route snapshot. This usually takes a few seconds.'}
+                    {isPlanningRoute ? 'Loading the route map.' : 'Loading the route snapshot. This usually takes a few seconds.'}
                   </p>
                 </div>
                 <a class="river-link river-link--inline" href="#route-access-map" data-detail-open-map>Open access map</a>
@@ -567,7 +567,7 @@ const routeFaqStructuredData = {
               </aside>
             ) : (
               <aside class="river-call-panel route-today-score" aria-label="Today's paddle score">
-                <p class="eyebrow">Trip quality</p>
+                <p class="eyebrow">Paddling conditions</p>
                 <div class="river-call-panel__scoreline">
                   <div class="score-orb score-orb--featured" role="img" aria-label="Live score loading">
                     <span class="score-orb__score" data-field="score" data-skeleton>--</span>
@@ -586,7 +586,7 @@ const routeFaqStructuredData = {
 
                     <div class="river-score-tooltip__rows">
                       <article class="river-score-tooltip__row">
-                        <span class="river-score-tooltip__label">River quality</span>
+                        <span class="river-score-tooltip__label">River conditions</span>
                         <strong class="river-score-tooltip__value river-score-breakdown__row-value--positive" data-field="breakdown-river-quality">
                           Checking
                         </strong>
@@ -624,10 +624,10 @@ const routeFaqStructuredData = {
           {isPlanningRoute ? (
             <>
               <article class="route-condition-card route-condition-card--gauge">
-                <span class="route-condition-card__label">Gauge context</span>
-                <strong>Gauge context only</strong>
+                <span class="route-condition-card__label">Water-level station</span>
+                <strong>Check local water levels</strong>
                 <p>{river.gaugeSource.siteName}</p>
-                <small>No route-specific score or flow band; verify local conditions.</small>
+                <small>This station does not establish suitable water levels for this trip.</small>
                   </article>
                   <article class="route-condition-card route-condition-card--weather">
                     <span class="route-condition-card__label">Local weather</span>
@@ -999,6 +999,88 @@ const routeFaqStructuredData = {
 
     <RouteAppDownload riverName={river.name} />
 
+    <section class="river-detail__chapter-head river-detail__chapter-head--overview" id="route-overview" data-detail-section="route-overview" data-detail-nav-group="overview" aria-label="Route overview chapter">
+      <p class="eyebrow section-label">Route overview</p>
+      <h2 class="river-detail__chapter-title">Trip details</h2>
+      <p class="muted river-detail__chapter-copy">
+        Access rules, camping, seasonal conditions and trip length.
+      </p>
+    </section>
+
+    <section class="river-detail__panel river-quick-facts" id="quick-facts" data-detail-section="quick-facts" data-detail-nav-group="overview">
+      <details class="trip-details-disclosure">
+      <summary>Distance, difficulty, rules and camping</summary>
+      <div class="river-detail__quick-grid river-detail__quick-grid--compact river-quick-facts__grid">
+        <article class="snapshot-card snapshot-card--with-icon snapshot-card--featured">
+          <span class="snapshot-card__icon"><FeatureIcon name="map" size={18} /></span>
+          <span class="snapshot-card__label">On-water distance</span>
+          <strong>{logistics?.distanceLabel ?? 'Check source links'}</strong>
+          <small>{river.reach}</small>
+        </article>
+        <article class="snapshot-card snapshot-card--with-icon">
+          <span class="snapshot-card__icon"><FeatureIcon name="mountain" size={18} /></span>
+          <span class="snapshot-card__label">Difficulty</span>
+          <strong>{river.profile.difficulty}</strong>
+          <small>{river.profile.difficultyNotes}</small>
+        </article>
+        <article class="snapshot-card snapshot-card--with-icon snapshot-card--featured">
+          <span class="snapshot-card__icon"><FeatureIcon name="car" size={18} /></span>
+          <span class="snapshot-card__label">Shuttle</span>
+          <strong>{shuttleHeadline}</strong>
+          <small>{logistics?.shuttle ?? 'Confirm shuttle details in the source links.'}</small>
+        </article>
+        <article class="snapshot-card snapshot-card--with-icon">
+          <span class="snapshot-card__icon"><FeatureIcon name="compass" size={18} /></span>
+          <span class="snapshot-card__label">Permits</span>
+          <strong>{permitsHeadline}</strong>
+          <small>{logistics?.permits ?? 'Check local access rules.'}</small>
+        </article>
+        <article class="snapshot-card snapshot-card--with-icon">
+          <span class="snapshot-card__icon"><FeatureIcon name="map" size={18} /></span>
+          <span class="snapshot-card__label">Camping</span>
+          <strong>{campingHeadline}</strong>
+          <small>{logistics?.camping ?? 'Treat this as a day trip unless you confirm otherwise.'}</small>
+        </article>
+        <article class="snapshot-card snapshot-card--with-icon">
+          <span class="snapshot-card__icon"><FeatureIcon name="clock" size={18} /></span>
+          <span class="snapshot-card__label">Season</span>
+          <strong>{seasonHeadline}</strong>
+          <small>{river.profile.seasonNotes}</small>
+        </article>
+      </div>
+      </details>
+    </section>
+
+    <section
+      class="river-detail__panel route-outlook"
+      id="route-outlook"
+      data-detail-section="route-outlook"
+      data-detail-nav-group="outlook"
+      aria-labelledby="route-outlook-title"
+    >
+      <div class="section-head route-outlook__head">
+        <div>
+          <p class="eyebrow section-label">Plan ahead</p>
+          <h2 class="section-title" id="route-outlook-title">Tomorrow and the weekend</h2>
+        </div>
+        <p class="muted section-head__note">
+          Forecasts can change. Check current conditions again before leaving.
+        </p>
+      </div>
+      <div class="outlook-grid" data-outlooks>
+        <article class="outlook-card">
+          <span class="outlook-card__label">Tomorrow</span>
+          <strong>Checking</strong>
+          <p class="muted">Waiting on forecast.</p>
+        </article>
+        <article class="outlook-card">
+          <span class="outlook-card__label">Weekend</span>
+          <strong>Checking</strong>
+          <p class="muted">Waiting on forecast.</p>
+        </article>
+      </div>
+    </section>
+
     {planningGuide ? <PaddlePlanningGuide guide={planningGuide} id="trip-decisions" /> : null}
 
     <section class="river-detail__chapter-head river-detail__chapter-head--plan" aria-label="Plan chapter">
@@ -1031,7 +1113,7 @@ const routeFaqStructuredData = {
 
       <div class="river-launch-plan__body">
         <div class="river-launch-plan__map-shell" id="route-access-map" tabindex="-1" data-detail-map-shell>
-          <p class="river-launch-plan__map-label">Plan this segment</p>
+          <p class="river-launch-plan__map-label">Access map</p>
           <button
             class="filter-chip river-launch-plan__map-toggle"
             type="button"
@@ -1057,7 +1139,7 @@ const routeFaqStructuredData = {
           <article class="river-access-card river-access-card--put-in">
             <span class="river-access-card__eyebrow">Start</span>
             <h3 class="river-logistics__title">Put-in</h3>
-            <strong data-field="active-putin-name">{putIn?.name ?? 'Check source links'}</strong>
+            <strong data-field="active-putin-name">{putIn?.name ?? 'Launch location not confirmed'}</strong>
             <div class="river-access-card__actions">
               {putInMapsUrl ? (
                 <a
@@ -1091,7 +1173,7 @@ const routeFaqStructuredData = {
           <article class="river-access-card river-access-card--take-out">
             <span class="river-access-card__eyebrow">Finish</span>
             <h3 class="river-logistics__title">Take-out</h3>
-            <strong data-field="active-takeout-name">{takeOut?.name ?? 'Check source links'}</strong>
+            <strong data-field="active-takeout-name">{takeOut?.name ?? 'Take-out location not confirmed'}</strong>
             <div class="river-access-card__actions">
               {takeOutMapsUrl ? (
                 <a
@@ -1166,7 +1248,7 @@ const routeFaqStructuredData = {
       {hasAccessPlanner ? (
         <details class="river-access-planner-disclosure">
           <summary>
-            <span>Plan a shorter segment</span>
+            <span>Choose a shorter trip</span>
             <span class="river-detail__disclosure-hint">Optional</span>
           </summary>
         <section class="river-access-planner" data-access-planner>
@@ -1176,7 +1258,7 @@ const routeFaqStructuredData = {
                 <FeatureIcon name="map" size={16} />
                 Access planner
               </p>
-              <h3 class="river-subtitle river-subtitle--compact">Pick a shorter segment</h3>
+              <h3 class="river-subtitle river-subtitle--compact">Choose your launch and take-out</h3>
             </div>
             <p class="muted river-why-panel__section-note">
               This changes launch and take-out logistics, not today&apos;s river score.
@@ -1231,7 +1313,7 @@ const routeFaqStructuredData = {
         </details>
       ) : null}
         <details class="river-launch-plan__support-disclosure">
-          <summary>Access caveats and watch for</summary>
+          <summary>Access notes and hazards</summary>
         <div class="river-launch-plan__support">
           <section class="river-logistics__notes">
             <h3 class="river-logistics__title">Access caveats</h3>
@@ -1245,7 +1327,7 @@ const routeFaqStructuredData = {
           <section class="river-logistics__notes">
             <h3 class="river-logistics__title">Watch for</h3>
             <ul class="compact-list compact-list--checklist">
-              {(logistics?.watchFor ?? ['Use the factor breakdown and source links for the current risk picture.']).map((note) => (
+              {(logistics?.watchFor ?? ['Check current water levels, weather and local access notices.']).map((note) => (
                 <li>{note}</li>
               ))}
             </ul>
@@ -1261,7 +1343,7 @@ const routeFaqStructuredData = {
       <p class="eyebrow section-label">Conditions</p>
       <h2 class="river-detail__chapter-title">Water levels, gauge history, and hourly forecast</h2>
       <p class="muted river-detail__chapter-copy">
-          {isPlanningRoute ? 'Use the gauge context and hourly forecast to verify local conditions before launching.' : 'The top card is the quick read. This lower section keeps the longer gauge trend, gauge context, and hourly forecast together.'}
+          {isPlanningRoute ? 'Check the forecast and local water levels before launching.' : 'Check how the river is changing and what weather to expect.'}
       </p>
     </section>
 
@@ -1275,7 +1357,7 @@ const routeFaqStructuredData = {
 
       <details class="river-conditions-disclosure" open>
         <summary>
-          <span>Gauge history &amp; hourly forecast</span>
+          <span>Water-level history and forecast</span>
           <span class="river-detail__disclosure-hint">Detailed view</span>
         </summary>
 
@@ -1284,7 +1366,7 @@ const routeFaqStructuredData = {
           <p class="river-detail__gauge-note-label">Gauge note</p>
           <p class="river-detail__gauge-note-summary">
             {isPlanningRoute
-              ? `Planning only · no route-specific flow band · ${river.gaugeSource.siteName} is context only`
+              ? `No published water-level range for this trip · ${river.gaugeSource.siteName}`
               : isMinimumOnlyRoute && hasMinimumOnlyFloor
                 ? `Minimum ${lowThresholdValue} · ${river.gaugeSource.siteName}`
                 : isMinimumOnlyRoute && Number.isFinite(river.profile.tooHigh)
@@ -1292,8 +1374,8 @@ const routeFaqStructuredData = {
                 : `${targetBandLabel}: ${targetBandValue} · ${river.gaugeSource.siteName}`}
           </p>
           <details class="river-detail__gauge-note-details">
-            <summary>Gauge context</summary>
-            <p>{isPlanningRoute ? `${river.gaugeSource.siteName} provides context but does not establish a score or flow band for this trip. Follow the route-specific access and hazard notes, linked local sources, and current field conditions before launch.` : river.statusText}</p>
+            <summary>Does this gauge apply to my trip?</summary>
+            <p>{isPlanningRoute ? `${river.gaugeSource.siteName} does not establish suitable water levels for this trip. Check the access and hazard notes and ask locally about current conditions.` : river.statusText}</p>
           </details>
           <p class="muted">New to reading stage or flow? <a class="river-link river-link--inline river-link--ghost" href="/guides/how-to-read-a-river-gauge-for-paddling/">Read the paddler's gauge guide</a>.</p>
         </aside>
@@ -1536,97 +1618,13 @@ const routeFaqStructuredData = {
             <div class="status-banner__body">
               <strong>This route does not receive a Paddle Today score.</strong>
               <p class="muted">{river.gaugeSource.kind === 'proxy'
-                ? 'Access, route, and hazard details are available here. The available gauge is a proxy for this reach, so verify local conditions before launching.'
+                ? 'Access and hazard details are available here. The gauge measures a different part of the river; check water levels locally before launching.'
                 : 'Access, route, and hazard details are available here. Use the linked gauge as reference information; no live Paddle Today score assesses this trip. Verify local conditions before launching.'}</p>
             </div>
           </aside>
       ) : null}
       </div>
       </details>
-    </section>
-
-    <section class="river-detail__chapter-head river-detail__chapter-head--overview" id="route-overview" data-detail-section="route-overview" data-detail-nav-group="overview" aria-label="Route overview chapter">
-      <p class="eyebrow section-label">Route overview</p>
-      <h2 class="river-detail__chapter-title">Quick facts and what&apos;s next</h2>
-      <p class="muted river-detail__chapter-copy">
-        Distance, difficulty, shuttle basics, and the near-term outlook before you commit to the drive.
-      </p>
-    </section>
-
-    <section class="river-detail__panel river-quick-facts" id="quick-facts" data-detail-section="quick-facts" data-detail-nav-group="overview">
-      <p class="eyebrow section-label">
-        <FeatureIcon name="compass" size={16} />
-        Quick facts
-      </p>
-
-      <div class="river-detail__quick-grid river-detail__quick-grid--compact river-quick-facts__grid">
-        <article class="snapshot-card snapshot-card--with-icon snapshot-card--featured">
-          <span class="snapshot-card__icon"><FeatureIcon name="map" size={18} /></span>
-          <span class="snapshot-card__label">On-water distance</span>
-          <strong>{logistics?.distanceLabel ?? 'Check source links'}</strong>
-          <small>{river.reach}</small>
-        </article>
-        <article class="snapshot-card snapshot-card--with-icon">
-          <span class="snapshot-card__icon"><FeatureIcon name="mountain" size={18} /></span>
-          <span class="snapshot-card__label">Difficulty</span>
-          <strong>{river.profile.difficulty}</strong>
-          <small>{river.profile.difficultyNotes}</small>
-        </article>
-        <article class="snapshot-card snapshot-card--with-icon snapshot-card--featured">
-          <span class="snapshot-card__icon"><FeatureIcon name="car" size={18} /></span>
-          <span class="snapshot-card__label">Shuttle</span>
-          <strong>{shuttleHeadline}</strong>
-          <small>{logistics?.shuttle ?? 'Confirm shuttle details in the source links.'}</small>
-        </article>
-        <article class="snapshot-card snapshot-card--with-icon">
-          <span class="snapshot-card__icon"><FeatureIcon name="compass" size={18} /></span>
-          <span class="snapshot-card__label">Permits</span>
-          <strong>{permitsHeadline}</strong>
-          <small>{logistics?.permits ?? 'Check local access rules.'}</small>
-        </article>
-        <article class="snapshot-card snapshot-card--with-icon">
-          <span class="snapshot-card__icon"><FeatureIcon name="map" size={18} /></span>
-          <span class="snapshot-card__label">Camping</span>
-          <strong>{campingHeadline}</strong>
-          <small>{logistics?.camping ?? 'Treat this as a day trip unless you confirm otherwise.'}</small>
-        </article>
-        <article class="snapshot-card snapshot-card--with-icon">
-          <span class="snapshot-card__icon"><FeatureIcon name="clock" size={18} /></span>
-          <span class="snapshot-card__label">Season</span>
-          <strong>{seasonHeadline}</strong>
-          <small>{river.profile.seasonNotes}</small>
-        </article>
-      </div>
-    </section>
-
-    <section
-      class="river-detail__panel route-outlook"
-      id="route-outlook"
-      data-detail-section="route-outlook"
-      data-detail-nav-group="outlook"
-      aria-labelledby="route-outlook-title"
-    >
-      <div class="section-head route-outlook__head">
-        <div>
-          <p class="eyebrow section-label">Plan ahead</p>
-          <h2 class="section-title" id="route-outlook-title">Upcoming outlook</h2>
-        </div>
-        <p class="muted section-head__note">
-          These are early planning reads. Re-check live conditions before you commit to the drive.
-        </p>
-      </div>
-      <div class="outlook-grid" data-outlooks>
-        <article class="outlook-card">
-          <span class="outlook-card__label">Tomorrow</span>
-          <strong>Checking</strong>
-          <p class="muted">Waiting on forecast.</p>
-        </article>
-        <article class="outlook-card">
-          <span class="outlook-card__label">Weekend</span>
-          <strong>Checking</strong>
-          <p class="muted">Waiting on forecast.</p>
-        </article>
-      </div>
     </section>
 
     <section
@@ -1643,9 +1641,9 @@ const routeFaqStructuredData = {
             <FeatureIcon name="camera" size={16} />
             Route gallery
           </p>
-          <h2 class="section-title">See this route on the water</h2>
+          <h2 class="section-title">Photos</h2>
           <p class="muted route-gallery__lede">
-          Photos help show what the access looks like and what the route actually feels like on the water.
+          Check each caption: some photos show the surrounding area rather than this exact trip.
           </p>
         </div>
       </div>
@@ -1725,14 +1723,14 @@ const routeFaqStructuredData = {
       <h2 class="river-detail__chapter-title">{isPlanningRoute ? 'Data and sources' : 'Why this score'}</h2>
       <p class="muted river-detail__chapter-copy">
         {isPlanningRoute
-          ? 'Review the access evidence, route caveats, and original sources. This planning trip has no live score or verified scoring range.'
+          ? 'Read the access and hazard notes and check the linked guides. We do not issue a daily score for this trip.'
           : 'See the gauge, weather, and source notes behind today’s call.'}
       </p>
     </section>
 
     {!isPlanningRoute ? (
     <section class="status-banner status-banner--loading" data-detail-status-banner aria-live="polite">
-      <div class="status-banner__eyebrow">Read quality</div>
+      <div class="status-banner__eyebrow">Data status</div>
       <div class="status-banner__body">
         <strong data-detail-banner-title>Checking live inputs.</strong>
         <p class="muted" data-detail-banner-detail>
@@ -1776,19 +1774,19 @@ const routeFaqStructuredData = {
           <summary class="river-accordion__summary">
             <span>
               <span class="eyebrow section-label">Why this score</span>
-              <strong>Today&apos;s evidence strength is {` `}<span data-field="confidence-detail-label">checking</span></strong>
+              <strong>Data reliability: {` `}<span data-field="confidence-detail-label">checking</span></strong>
             </span>
           </summary>
           <div class="river-accordion__body">
             <p class="muted confidence-detail__intro">
-          Evidence strength mostly comes down to three things: how direct the active gauge is, how clear the range is, and how fresh the data is.
+          This rating reflects whether the gauge measures this part of the river, whether published water-level guidance is available, and how recently the data was updated.
             </p>
 
           <div class="confidence-detail__groups">
             <section class="confidence-detail__group">
               <span class="eyebrow section-label">Why</span>
               <ul class="confidence-rationale" data-confidence-reasons>
-              <li>Checking evidence-strength notes.</li>
+              <li>Checking data sources and update times.</li>
               </ul>
             </section>
 
@@ -1806,12 +1804,12 @@ const routeFaqStructuredData = {
           <summary class="river-accordion__summary">
             <span>
               <span class="eyebrow section-label">Data behind the score</span>
-              <strong>Gauge, thresholds, and timing</strong>
+              <strong>Water levels, published guidance and update times</strong>
             </span>
           </summary>
           <div class="river-accordion__body">
             <p class="muted confidence-detail__intro">
-        These are the live readings and threshold notes behind today's score.
+        These readings and published water-level limits help explain today’s score.
             </p>
           <table class="detail-table">
             <tbody>

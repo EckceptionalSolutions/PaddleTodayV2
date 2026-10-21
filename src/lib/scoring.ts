@@ -18,7 +18,7 @@ import type {
   ScoreRating,
   WeatherSnapshot,
 } from './types';
-import { buildSourceStrengthViewModel } from '@paddletoday/api-contract';
+import { buildSourceStrengthViewModel, gaugeBandDisplayLabel as gaugeBandLabel } from '@paddletoday/api-contract';
 import { staleMinutesForGaugeProvider } from './source-adapters';
 
 const WEATHER_STALE_MINUTES = 180;
@@ -426,9 +426,9 @@ function assessGauge(river: River, gauge: GaugeReading): {
     return {
       points: 45,
       impact: 'warning',
-      detail: 'The river profile does not have a complete threshold set yet, so this score is conservative.',
+      detail: 'Published water-level guidance is incomplete for this trip, so the score is limited.',
       band: 'unknown',
-      bandDetail: 'Thresholds are incomplete, so the app cannot place this river into a reliable flow band yet.',
+      bandDetail: 'There is not enough water-level guidance to assess this reading.',
     };
   }
 
@@ -445,7 +445,7 @@ function assessGauge(river: River, gauge: GaugeReading): {
       impact: 'negative',
       detail: `Below the practical low-water threshold of ${formatGauge(tooLow, gauge.unit)} ${gauge.unit}. Expect scraping or too little water.`,
       band: 'too-low',
-      bandDetail: 'Below the hard low threshold. This is outside the workable paddling band.',
+      bandDetail: 'Below the listed minimum. Expect shallow water and scraping.',
     };
   }
 
@@ -454,9 +454,9 @@ function assessGauge(river: River, gauge: GaugeReading): {
     return {
       points: 30 + clamp(ratio, 0, 1) * 42,
       impact: 'warning',
-      detail: `Below the preferred range, but still above the hard low mark. It's probably still paddleable, just not in its best band of ${formatGauge(idealMin, gauge.unit)} to ${formatGauge(idealMax, gauge.unit)} ${gauge.unit}.`,
+      detail: `Below the preferred range of ${formatGauge(idealMin, gauge.unit)} to ${formatGauge(idealMax, gauge.unit)} ${gauge.unit}, but above the listed minimum. Expect shallower water; check local conditions before launching.`,
       band: 'low-shoulder',
-      bandDetail: 'Low shoulder. Likely paddleable, but still below the preferred target window.',
+      bandDetail: 'Below the preferred range. Shallow sections may be harder to paddle.',
     };
   }
 
@@ -477,13 +477,13 @@ function assessGauge(river: River, gauge: GaugeReading): {
       impact: 'positive',
       detail:
         edgeBias === 'sweet spot'
-          ? `Inside the target window of ${formatGauge(idealMin, gauge.unit)} to ${formatGauge(idealMax, gauge.unit)} ${gauge.unit}, right near the middle.`
-          : `Inside the target window of ${formatGauge(idealMin, gauge.unit)} to ${formatGauge(idealMax, gauge.unit)} ${gauge.unit}, but sitting closer to the ${edgeBias}.`,
+          ? `Near the middle of the preferred range of ${formatGauge(idealMin, gauge.unit)} to ${formatGauge(idealMax, gauge.unit)} ${gauge.unit}.`
+          : `Within the preferred range of ${formatGauge(idealMin, gauge.unit)} to ${formatGauge(idealMax, gauge.unit)} ${gauge.unit}, near its ${edgeBias}.`,
       band: 'ideal',
       bandDetail:
         edgeBias === 'sweet spot'
-          ? 'Ideal window, right near the middle.'
-          : `Ideal window, but closer to the ${edgeBias}.`,
+          ? 'Near the middle of the preferred water-level range.'
+          : `Within the preferred water-level range, near its ${edgeBias}.`,
     };
   }
 
@@ -493,9 +493,9 @@ function assessGauge(river: River, gauge: GaugeReading): {
     return {
       points: 72 - clamp(ratio, 0, 1) * 42,
       impact: 'warning',
-      detail: 'Above the preferred window, but still below the hard high threshold. The current is starting to get pushier than the sweet spot.',
+      detail: 'Above the preferred range, but below the listed upper limit. Expect stronger current and check local hazards before launching.',
       band: 'high-shoulder',
-      bandDetail: 'High shoulder. Still below the hard high threshold, but pushier than the preferred band.',
+      bandDetail: 'Above the preferred range. Expect stronger current.',
     };
   }
 
@@ -2065,8 +2065,8 @@ function buildExplanation(args: {
           : `The gauge reads ${formatGauge(args.gauge.current, args.gauge.unit)} ${args.gauge.unit}, but this route still needs a manual level check.`;
 
   const confidenceSentence = normalizedConfidenceNotes
-    ? `Evidence strength for today's call is ${args.confidence.label.toLowerCase()}. ${normalizedConfidenceNotes}`
-    : `Evidence strength for today's call is ${args.confidence.label.toLowerCase()} because the available source quality and live data coverage are only moderate.`;
+    ? `Data reliability is ${args.confidence.label.toLowerCase()}. ${normalizedConfidenceNotes}`
+    : `Data reliability is ${args.confidence.label.toLowerCase()}: the available sources and recent measurements give an incomplete picture.`;
   const trendSentence = /[.!?]$/.test(args.trendAssessment.detail)
     ? args.trendAssessment.detail
     : `${args.trendAssessment.detail}.`;
@@ -2196,25 +2196,6 @@ function formatRainInches(value: number | null): string {
 
 function clamp(value: number, min: number, max: number): number {
   return Math.min(max, Math.max(min, value));
-}
-
-function gaugeBandLabel(band: GaugeBand): string {
-  switch (band) {
-    case 'ideal':
-      return 'Ideal window';
-    case 'low-shoulder':
-      return 'Low shoulder';
-    case 'high-shoulder':
-      return 'High shoulder';
-    case 'minimum-met':
-      return 'Above minimum';
-    case 'too-low':
-      return 'Too low';
-    case 'too-high':
-      return 'Too high';
-    default:
-      return 'Unknown';
-  }
 }
 
 function buildLiveDataStatus(args: {
