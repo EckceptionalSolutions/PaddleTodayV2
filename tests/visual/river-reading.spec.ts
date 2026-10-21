@@ -34,6 +34,10 @@ for (const riverId of ['cahaba-river-alabama', 'saco-river', 'housatonic-river-m
     await page.route('**/api/**', route => route.fulfill({ status: 503, json: {} }));
     await page.goto(`/rivers/by-river/${riverId}/`);
     await expect(page.locator('[data-app-download-prompt]')).toHaveCount(0);
+    const jumps = await page.locator('.river-group-page__jump-links a').all();
+    const firstJump = await jumps[0].boundingBox();
+    const nextJump = await jumps[1].boundingBox();
+    expect(nextJump!.y > firstJump!.y || nextJump!.x - firstJump!.x - firstJump!.width >= 12).toBe(true);
     await page.getByRole('link', { name: 'Compare trips', exact: true }).click();
     await expect(page).toHaveURL(/#river-trips$/);
     expect(await page.locator('#river-trips').evaluate(el => !!(el.compareDocumentPosition(document.querySelector('#river-hub-context-title')!) & Node.DOCUMENT_POSITION_FOLLOWING))).toBe(true);
