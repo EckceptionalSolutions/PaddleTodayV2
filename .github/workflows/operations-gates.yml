@@ -34,6 +34,9 @@ jobs:
       - name: Run operations gatekeeper
         run: npm run operations:verify
 
+      - name: Test publication handoff and snapshot execution observation
+        run: npx vitest run scripts/lib/merged-deployments.test.ts scripts/lib/snapshot-execution.test.ts
+
       - name: Publish gate summary
         if: always()
         shell: bash

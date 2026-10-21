@@ -1,0 +1,81 @@
+name: Publish merged changes
+run-name: Publication from gates ${{ inputs.gate_run_id || github.event.workflow_run.id }}
+
+on:
+  workflow_run:
+    workflows: ['Operations gates']
+    types: [completed]
+  workflow_dispatch:
+    inputs:
+      gate_run_id:
+        description: 'Successful Operations gates PR run to reconcile'
+        required: true
+        type: string
+
+permissions:
+  contents: read
+  actions: read
+  pull-requests: read
+
+jobs:
+  handoff:
+    if: github.event_name == 'workflow_dispatch' || (github.event.workflow_run.conclusion == 'success' && github.event.workflow_run.event == 'pull_request' && github.event.workflow_run.head_repository.full_name == github.repository)
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    # Hold this lock only for planning/dispatch. Later handoffs compare each
+    # component's published baseline, so a superseded pending handoff loses no changes.
+    concurrency:
+      group: production-merge-handoff
+      cancel-in-progress: false
+    permissions:
+      contents: read
+      actions: write
+      pull-requests: read
+    outputs:
+      has_work: ${{ steps.dispatch.outputs.has_work }}
+    steps:
+      # workflow_run uses trusted default-branch code, never PR artifacts/head code.
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version-file: .nvmrc
+          cache: npm
+      - run: npm ci --ignore-scripts --no-audit --no-fund
+      - name: Reconcile merged source and request component deployments
+        id: dispatch
+        env:
+          GH_TOKEN: ${{ github.token }}
+          GATE_RUN_ID: ${{ inputs.gate_run_id || github.event.workflow_run.id }}
+        run: node scripts/merged-deployment-handoff.mjs
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: publication-handoff
+          path: publication-handoff.json
+          if-no-files-found: warn
+
+  verify:
+    needs: handoff
+    if: needs.handoff.outputs.has_work == 'true'
+    runs-on: ubuntu-latest
+    timeout-minutes: 40
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version-file: .nvmrc
+          cache: npm
+      - run: npm ci --ignore-scripts --no-audit --no-fund
+      - uses: actions/download-artifact@v4
+        with:
+          name: publication-handoff
+      - name: Observe the exact requested runs through completion
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: node scripts/merged-deployment-handoff.mjs --monitor
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: publication-result
+          path: publication-result.json
+          if-no-files-found: warn

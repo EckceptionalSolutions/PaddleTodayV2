@@ -1,4 +1,5 @@
 name: Paddle Today Snapshot Worker
+run-name: Paddle Today Snapshot Worker · ${{ inputs.source_revision || github.sha }} · deploy
 
 on:
   push:
@@ -14,12 +15,18 @@ on:
       - 'scripts/deployment-config.mjs'
       - 'scripts/lib/deployment-config.mjs'
       - 'scripts/snapshot-worker-validate.sh'
+      - 'scripts/wait-for-snapshot-execution.mjs'
+      - 'scripts/lib/snapshot-execution.mjs'
       - 'infra/azure/container-apps-platform.bicep'
       - 'infra/azure/container-apps-job.bicep'
       - 'infra/azure/snapshot-worker/**'
       - '.github/workflows/azure-container-apps-snapshot-worker.yml'
   workflow_dispatch:
     inputs:
+      source_revision:
+        description: 'Exact source commit (defaults to this workflow run revision)'
+        type: string
+        default: ''
       provision_monitoring:
         description: 'Also provision monitoring (requires an identity with monitoring write permissions)'
         type: boolean
@@ -33,6 +40,7 @@ concurrency:
   cancel-in-progress: false
 
 env:
+  SOURCE_REVISION: ${{ inputs.source_revision || github.sha }}
   AZURE_RESOURCE_GROUP: paddletoday
   AZURE_CONTAINER_REGISTRY: paddletodayjobs
   AZURE_CONTAINER_APPS_ENVIRONMENT: paddletoday-jobs
@@ -46,8 +54,12 @@ jobs:
     timeout-minutes: 45
 
     steps:
+      - name: Validate pinned source revision
+        run: '[[ "$SOURCE_REVISION" =~ ^[a-f0-9]{40}$ ]] || { echo "Expected a full source commit SHA"; exit 1; }'
       - name: Checkout repository
         uses: actions/checkout@v4
+        with:
+          ref: ${{ env.SOURCE_REVISION }}
 
       - name: Setup Node
         uses: actions/setup-node@v4
@@ -85,9 +97,9 @@ jobs:
         run: |
           az acr build \
             --registry "$AZURE_CONTAINER_REGISTRY" \
-            --image "$IMAGE_NAME:$GITHUB_SHA" \
+            --image "$IMAGE_NAME:$SOURCE_REVISION" \
             --file infra/azure/snapshot-worker/Dockerfile \
-            --build-arg SOURCE_REVISION="$GITHUB_SHA" \
+            --build-arg SOURCE_REVISION="$SOURCE_REVISION" \
             .
 
       - name: Deploy scheduled Container Apps Job
@@ -106,12 +118,27 @@ jobs:
               snapshotAlertEmail="$SNAPSHOT_ALERT_EMAIL" \
               provisionMonitoring="$PROVISION_SNAPSHOT_MONITORING" \
               snapshotContainerSasUrl="$SNAPSHOT_SAS_URL" \
-              image="$AZURE_CONTAINER_REGISTRY.azurecr.io/$IMAGE_NAME:$GITHUB_SHA" \
+              image="$AZURE_CONTAINER_REGISTRY.azurecr.io/$IMAGE_NAME:$SOURCE_REVISION" \
             --output none
 
       - name: Start one verification execution
+        id: verification
         run: |
-          az containerapp job start \
+          execution_name="$(az containerapp job start \
             --name "$AZURE_CONTAINER_APPS_JOB" \
             --resource-group "$AZURE_RESOURCE_GROUP" \
-            --output none
+            --query name --output tsv)"
+          [[ "$execution_name" =~ ^[a-z0-9-]+$ ]] || { echo 'Missing verification execution name'; exit 1; }
+          echo "execution_name=$execution_name" >> "$GITHUB_OUTPUT"
+
+      - name: Wait for verification execution and image identity
+        env:
+          SNAPSHOT_EXECUTION_NAME: ${{ steps.verification.outputs.execution_name }}
+        run: node scripts/wait-for-snapshot-execution.mjs
+
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: snapshot-verification-execution
+          path: snapshot-verification-execution.json
+          if-no-files-found: warn
