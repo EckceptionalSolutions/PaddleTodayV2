@@ -1,6 +1,6 @@
 # Merged-change publication
 
-`Publish merged changes` observes successful `Operations gates` PR runs. It resolves the tested PR through the commit API (the run's PR list can be empty after squash merging), checks that the same head was merged into this repository's `main`, and reconciles the current main commit against each component's most recent verified deployment.
+`Publish merged changes` observes successful `Operations gates` PR runs. It resolves the tested PR through the commit API (the run's PR list can be empty after squash merging), reads its merge commit through GraphQL, checks that the same head was merged into this repository's `main`, and reconciles the current main commit against each component's most recent verified deployment. The current REST pull response does not provide `merge_commit_sha`.
 
 The handoff uses the push-path filters in the frontend, API, and snapshot-worker workflow files. Unknown baselines and comparison lists that may exceed GitHub's 300-file limit conservatively require deployment. This catches changes from an intermediate handoff replaced in GitHub's pending queue. Asset-only checks and historical jobs without the explicit source/deploy title are not accepted as publication baselines.
 

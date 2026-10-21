@@ -13,7 +13,7 @@ export function githubClient(repository, token, fetchImpl = fetch) {
   assert.ok(token, 'GitHub token is required');
   return async (path, body) => {
     assert.ok((path === '' || path.startsWith('/')) && !path.replace(/\.\.\./g, '').includes('..'), 'Unexpected GitHub API path');
-    const response = await fetchImpl(`https://api.github.com/repos/${repository}${path}`, {
+    const response = await fetchImpl(path === '/graphql' ? 'https://api.github.com/graphql' : `https://api.github.com/repos/${repository}${path}`, {
       method: body === undefined ? 'GET' : 'POST', redirect: 'error', signal: AbortSignal.timeout(30000),
       headers: { accept: 'application/vnd.github+json', authorization: `Bearer ${token}`, 'content-type': 'application/json', 'X-GitHub-Api-Version': '2026-03-10' },
       ...(body === undefined ? {} : { body: JSON.stringify(body) }),
@@ -83,13 +83,23 @@ export async function dispatchMergedDeployments({ api, repository, gateRunId, sl
       if (attempt < 12) await sleep(5000);
     }
     if (!pr.merged_at) { report.status = 'not-merged'; save(); return report; }
-    assert.ok(sha(pr.merge_commit_sha));
-    report.pullRequest = pr.number; report.mergeRevision = pr.merge_commit_sha;
+    // The 2026 REST pull response omits merge_commit_sha. Read the canonical
+    // merge identity explicitly, retaining the tested-head and base checks.
+    const [owner, name] = repository.split('/');
+    const identity = await api('/graphql', {
+      query: 'query PublicationMerge($owner:String!,$name:String!,$number:Int!){repository(owner:$owner,name:$name){pullRequest(number:$number){merged headRefOid baseRefName mergeCommit{oid}}}}',
+      variables: { owner, name, number: pr.number },
+    });
+    assert.ok(!identity.errors?.length, 'Unable to read merged PR identity');
+    const merge = identity.data?.repository?.pullRequest;
+    assert.equal(merge?.merged, true); assert.equal(merge.headRefOid, gate.head_sha); assert.equal(merge.baseRefName, branch);
+    assert.ok(sha(merge.mergeCommit?.oid), 'Merged PR has no verified merge commit');
+    report.pullRequest = pr.number; report.mergeRevision = merge.mergeCommit.oid;
     const target = await api(`/commits/${branch}`);
     assert.ok(sha(target.sha));
     report.sourceRevision = target.sha;
-    if (target.sha !== pr.merge_commit_sha) {
-      const inclusion = await api(`/compare/${pr.merge_commit_sha}...${target.sha}`);
+    if (target.sha !== report.mergeRevision) {
+      const inclusion = await api(`/compare/${report.mergeRevision}...${target.sha}`);
       assert.equal(inclusion.status, 'ahead', 'Tested merge is not in current main');
     }
     for (const file of productionWorkflows) {
