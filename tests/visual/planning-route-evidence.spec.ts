@@ -15,6 +15,15 @@ for (const slug of ['namekagon-river-county-k-whispering-pines', 'saco-river-rou
     }));
     await page.goto(`/rivers/${slug}/`);
     await expect(page.locator('[data-field="planning-weather-summary"]')).toContainText('Check the local forecast');
+    await expect(page.getByRole('link', { name: 'Why some routes are planning only', exact: true })).toHaveAttribute('href', '/about/#route-eligibility');
+    const planningNotice = page.locator('.river-detail__planning-banner');
+    if (river.gaugeSource.kind === 'proxy') {
+      await expect(planningNotice).toContainText('The available gauge is a proxy for this reach');
+    } else {
+      await expect(planningNotice).toContainText('Use the linked gauge as reference information');
+      await expect(planningNotice).not.toContainText('gauge is a proxy');
+    }
+    await expect(page.locator('.route-faq')).toContainText('This planning route has no live Paddle Today score.');
     await expect(page.locator('.route-calibration-callout')).toHaveCount(0);
     await expect(page.locator('[data-confidence-explainer]')).toHaveCount(0);
     await expect(page.locator('#why-this-call')).toHaveCount(0);
@@ -59,6 +68,16 @@ for (const slug of ['namekagon-river-county-k-whispering-pines', 'saco-river-rou
     expect(errors).toEqual([]);
   });
 }
+
+test('planning explanation distinguishes evidence requirements and whitewater policy', async ({ page }) => {
+  await page.goto('/about/#route-eligibility');
+  const heading = page.getByRole('heading', { name: 'Scored and planning-only routes', exact: true });
+  await expect(heading).toBeVisible();
+  const explanation = page.locator('.about-coverage-card__list');
+  await expect(explanation).toContainText('suitable direct gauge');
+  await expect(explanation).toContainText('defensible scoring range is unavailable');
+  await expect(explanation).toContainText('Class IV or harder');
+});
 
 test('Woonasquatucket hub preserves three planning choices and explains held access without live requests', async ({ page }) => {
   await installMapLibreHarness(page);
