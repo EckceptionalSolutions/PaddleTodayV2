@@ -32,7 +32,7 @@ export const priorityRouteGuides: Record<string, PaddlePlanningGuide> = {
       {
         heading: 'Separate a play level from an easy float',
         text: 'The stage band above comes from American Whitewater’s Kelley–Milford guidance for Class I–II features. It does not measure minimum tubing depth or remove the need to scout the dam remnants. Compare the reading, trend and named hazards together.',
-        source: { label: 'American Whitewater reach guidance', url: 'https://www.americanwhitewater.org/content/River/view/river-detail/10600/main' },
+        source: { label: 'American Whitewater reach flow guidance', url: 'https://www.americanwhitewater.org/content/River/view/river-detail/10600/flow' },
       },
       {
         heading: 'Keep observations separate from forecasts',
