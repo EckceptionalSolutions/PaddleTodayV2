@@ -22,6 +22,12 @@ export function bindRiverTripDialog(root) {
     if (fallback) fallback.hidden = true;
     card.insertAdjacentHTML('beforeend', tripDetailsButtonMarkup(card.dataset.routeSlug));
   }
+  // Some hubs start with curated cards and receive additional choices from the API.
+  for (const template of root.querySelectorAll('[data-trip-details-extra]')) {
+    if (!(template instanceof HTMLTemplateElement)) continue;
+    const content = template.content.querySelector('[data-trip-details-content]');
+    if (content) trips.set(template.dataset.tripSlug, { title: template.dataset.tripTitle, content: content.cloneNode(true) });
+  }
   const selectedFallback = root.querySelector('[data-trip-selected-fallback]');
   if (selectedFallback) {
     const slug = selectedFallback.getAttribute('href')?.replace('#trip-', '');

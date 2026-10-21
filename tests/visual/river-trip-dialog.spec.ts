@@ -95,3 +95,11 @@ test('the selected-map action opens the selected trip; refresh preserves modal a
   await expect(action).toBeFocused();
   expect(await page.evaluate(() => document.body.style.overflow)).not.toBe('hidden');
 });
+
+test('choices beyond the initially featured cards also have published modal details', async ({ page }) => {
+  const group = await openHub(page, 'black-creek-mississippi');
+  const river = group.routes.find(route => route.slug === 'black-creek-churchwell-cypress')!;
+  await page.locator(`[data-route-slug="${river.slug}"] [data-trip-details]`).click();
+  await expect(page.getByRole('dialog').getByRole('heading', { level: 2 })).toHaveText(river.reach);
+  await expect(page.getByRole('dialog')).toContainText(river.takeOut!.name);
+});

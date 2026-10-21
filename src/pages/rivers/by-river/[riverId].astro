@@ -2125,6 +2125,11 @@ const groupStructuredData = [
           </div>
         </div>
       </div>
+      {sourceGroup.routes.filter(route => !group.routes.some(featured => featured.slug === route.slug)).map(route => (
+        <template data-trip-details-extra data-trip-slug={route.slug} data-trip-title={route.reach}>
+          <RiverTripDetails route={route} guideHref={!routePageConsolidationTarget(route.slug) ? routeDetailHref(route) : undefined} />
+        </template>
+      ))}
       <dialog class="trip-details-dialog" id="river-trip-details-dialog" data-trip-details-dialog aria-labelledby="river-trip-details-title">
         <header class="trip-details-dialog__header">
           <div><p class="eyebrow">Trip details</p><h2 id="river-trip-details-title" data-trip-dialog-title></h2></div>
