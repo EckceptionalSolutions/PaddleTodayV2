@@ -28,6 +28,8 @@ Keep planning-guide evidence and original source links visible without a live AP
 - River hubs explain condition zones and tradeoffs, offer focused guide links, and retain useful alternate endpoint choices.
 - Standalone guides give detailed reach-specific instructions and interpretation.
 
+River-hub cards use the same “View trip details” modal for scored and planning trips. Keep the cards compact and offer “Open full trip guide” inside the modal only when that exact trip retains an independent guide. Modal facts and source links come from the published page and remain usable when live conditions fail; without JavaScript the same content remains in expandable trip notes. Opening details must preserve the selected map view and page position. The modal is a presentation choice, not a change to scoring eligibility, publication decisions or canonical targets.
+
 Use permanent consolidation delivery through the existing redirect emitter and exact hub trip anchors. Remove retired guides from the sitemap and update every generated link through `routePageHref` / `routePageConsolidationTarget`. Do not canonicalize unrelated trips together or block valid guides in robots.txt.
 
 ## Review process

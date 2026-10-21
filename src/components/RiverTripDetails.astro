@@ -1,0 +1,54 @@
+---
+import type { River } from '../lib/types';
+import { evidenceNoteLabel, evidenceNoteDetail } from '../lib/route-evidence';
+import { routeGeometryReviewHolds } from '../lib/route-geometry-review-holds.js';
+interface Props { route: River; guideHref?: string }
+const { route, guideHref } = Astro.props;
+const planning = route.scoreEligibility === 'planning';
+const floor = route.profile.idealMin ?? route.profile.tooLow;
+const sections = [
+  ['Shuttle', route.logistics?.shuttle],
+  ['Rules and parking', route.logistics?.permits],
+  ['Camping', route.logistics?.camping],
+] as const;
+const lists = [
+  ['Access notes', route.logistics?.accessCaveats],
+  ['Watch for', route.logistics?.watchFor],
+  ['Safety notes', route.safetyProfile?.safetyNotes],
+] as const;
+const sources = route.sourceLinks?.filter(source => /^https?:\/\//i.test(source.url)) ?? [];
+---
+<div class="access-plan-facts" data-trip-details-content>
+  <p class="trip-details-dialog__status">{planning ? 'Planning route · No live score' : 'Scored route · Check current conditions before launch'}</p>
+  <p>{route.logistics?.summary || route.summary}</p>
+  {guideHref && <p class="trip-details-dialog__guide"><a class="river-link river-link--inline" href={guideHref}>Open full trip guide →</a></p>}
+  <dl class="access-plan-facts__endpoints">
+    {[
+      ['Put-in', route.putIn?.name], ['Take-out', route.takeOut?.name],
+      ['Distance', route.logistics?.distanceLabel], ['Typical time', route.logistics?.estimatedPaddleTime],
+    ].map(([label, value]) => <div><dt>{label}</dt><dd>{value || 'Confirm locally'}</dd></div>)}
+  </dl>
+  {routeGeometryReviewHolds.has(route.id) && <p class="trip-details-dialog__caution">{routeGeometryReviewHolds.get(route.id)}</p>}
+  {sections.map(([label, value]) => value && <section><h3>{label}</h3><p>{value}</p></section>)}
+  <section>
+    <h3>Gauge context</h3>
+    <p>{route.gaugeSource.siteName}</p>
+    <p>{planning
+      ? 'Planning only: this trip has no live Paddle Today score. Use the station reading as context and verify local conditions.'
+      : typeof floor === 'number'
+      ? `Published planning floor: ${floor} ${route.gaugeSource.unit}. Check the live reading and trend before launch. This is not a safety guarantee.`
+      : 'Check the live reading, trend and local conditions before launch.'}</p>
+    {route.profile.confidenceNotes && <p>{route.profile.confidenceNotes}</p>}
+  </section>
+  {lists.map(([label, values]) => values?.length > 0 && <section><h3>{label}</h3><ul>{values.map(value => <li>{value}</li>)}</ul></section>)}
+  {(route.evidenceNotes?.length > 0 || sources.length > 0) && <details class="route-choice__sources">
+    <summary>Sources and route evidence</summary>
+    <div>
+      {route.evidenceNotes?.length > 0 && <ul>{route.evidenceNotes.map(note => <li>
+        <strong>{evidenceNoteLabel(note)}:</strong> {note.value} {evidenceNoteDetail(note)}
+        {note.sourceUrl && /^https?:\/\//i.test(note.sourceUrl) && <a href={note.sourceUrl} target="_blank" rel="noopener noreferrer"> Source</a>}
+      </li>)}</ul>}
+      {sources.length > 0 && <ul>{sources.map(source => <li><a href={source.url} target="_blank" rel="noopener noreferrer">{source.label}</a></li>)}</ul>}
+    </div>
+  </details>}
+</div>
