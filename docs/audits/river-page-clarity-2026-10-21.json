@@ -1,0 +1,24 @@
+{
+  "reviewedOn": "2026-10-21",
+  "scope": "Shared river-hub and trip-page presentation, loaded conditions text, map/export messages and representative published guide copy. This is an editorial and usability audit, not a new field inspection or ranking diagnosis.",
+  "examplesReviewed": ["Little Miami", "Cahaba", "Saco", "Allagash", "Androscoggin", "Housatonic"],
+  "findings": [
+    { "problem": "Public text exposes internal scoring and data-processing vocabulary.", "examples": ["low shoulder", "hard low mark", "canonical route geometry", "legacy named hydrography", "capped minimum-only score", "proxy context"], "change": "Use preferred water-level range, gauge location, missing route path and specific access instructions. Keep model identifiers and numerical scoring unchanged." },
+    { "problem": "Hub guides bury the trip chooser under long editorial sections.", "change": "Put filters, trip cards and map directly after the river introduction. Add links to the chooser and river safety notes." },
+    { "problem": "Visual order on trip pages differs from HTML and keyboard-reading order.", "change": "Move overview and outlook markup into the intended reading order and remove section-level CSS ordering." },
+    { "problem": "Repeated facts and heavy card decoration compete with practical actions.", "change": "Place longer trip facts in a native keyboard-accessible disclosure, increase small text, reduce shadows and use simpler reading cards." },
+    { "problem": "Some copy inaccurately says trips have no separate pages.", "change": "Correct the Housatonic description and keep every supported trip linked to its detail page." },
+    { "problem": "The gallery heading implies that regional or nearby-waterway photographs show the exact trip.", "change": "Use a neutral Photos heading and explain that captions identify the location. Preserve credits and existing location qualifications." },
+    { "problem": "Safety and source limitations are phrased as abstract audit findings.", "change": "State concrete consequences: which landing to identify, which part of the river the gauge measures, and why GPX is unavailable. Retain geometry holds and source-review dates." },
+    { "problem": "Initial trip cards use a different duration formatter and truncate longer labels. A floating app promotion obstructs phone trip lists.", "change": "Share the duration formatter between initial and loaded cards, wrap remaining long facts and remove the floating promotion from river hubs. Keep normal navigation and inline app links." }
+  ],
+  "boundaries": {
+    "routeAvailability": "unchanged",
+    "searchPublicationPolicy": "unchanged",
+    "scoringCalculations": "unchanged; sensitivity check required",
+    "coordinatesAndHazards": "unchanged",
+    "reviewDates": "preserved; copy editing does not imply a fresh access or field check"
+  },
+  "remainingEditorialWork": "Local guide facts still need source-by-source and field review where evidence is missing. This shared presentation pass does not establish that every catalog paragraph or access location has been independently verified.",
+  "verification": "See output/river-reading-release.json for build, browser, indexability and deployment evidence."
+}

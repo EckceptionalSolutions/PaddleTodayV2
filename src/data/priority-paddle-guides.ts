@@ -24,7 +24,7 @@ export const priorityRouteGuides: Record<string, PaddlePlanningGuide> = {
   ...cahabaRouteGuides,
   'little-miami-river-kelley-milford': {
     title: 'Plan the Kelley-to-Milford run',
-    introduction: 'Match the launch, take-out and kind of paddling to the same reach before interpreting the Milford reading.',
+    introduction: 'Plan the launch, take-out and known hazards alongside the Milford gauge reading.',
     decisions: [
       {
         heading: 'Find the actual launch',
@@ -156,12 +156,12 @@ export const priorityRiverGuides: Record<string, PaddlePlanningGuide> = {
     ],
   },
   'little-miami-river': {
-    title: 'Choose the Little Miami reach by its endpoints',
-    introduction: 'A shared river name and Milford reading do not make neighboring trips interchangeable.',
+    title: 'Choose your Little Miami trip',
+    introduction: 'These two trips use different landings. Check the water-level guidance and hazards for the trip you choose.',
     decisions: [
       {
         heading: 'Kelley Nature Preserve–Jim Terrell Park',
-        text: 'This 4.9-mile guide pairs a named public launch with the Kelley–Milford whitewater reach. The level band is tied to that reach’s features; review the dam-remnant hazards before choosing it.',
+        text: 'This 4.9-mile guide pairs a named public launch with the Kelley–Milford whitewater reach. The published water-level range applies to these whitewater features. Review the hazards around the old dam remnants before choosing this trip.',
         source: kelley,
         route: { label: 'Open the Kelley–Milford guide', slug: 'little-miami-river-kelley-milford' },
       },

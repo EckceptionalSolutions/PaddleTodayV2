@@ -18,7 +18,7 @@ for (const slug of ['namekagon-river-county-k-whispering-pines', 'saco-river-rou
     await expect(page.getByRole('link', { name: 'Why some routes are planning only', exact: true })).toHaveAttribute('href', '/about/#route-eligibility');
     const planningNotice = page.locator('.river-detail__planning-banner');
     if (river.gaugeSource.kind === 'proxy') {
-      await expect(planningNotice).toContainText('The available gauge is a proxy for this reach');
+      await expect(planningNotice).toContainText('The gauge measures a different part of the river');
     } else {
       await expect(planningNotice).toContainText('Use the linked gauge as reference information');
       await expect(planningNotice).not.toContainText('gauge is a proxy');

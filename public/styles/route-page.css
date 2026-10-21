@@ -1671,73 +1671,8 @@ html body.page-route-detail [data-river-detail] .route-decision-dashboard__grid 
 }
 html body.page-route-detail [data-river-detail] .river-detail__content > * {
   min-width: 0;
-  order: 50;
 }
 
-html body.page-route-detail [data-river-detail] .river-detail__content > .river-detail__hero {
-  order: 1;
-}
-
-html body.page-route-detail [data-river-detail] .river-detail__content > [data-detail-fetch-banner] {
-  order: 2;
-}
-
-html body.page-route-detail [data-river-detail] .river-detail__content > .app-download-prompt--inline {
-  order: 2;
-}
-
-html body.page-route-detail [data-river-detail] .river-detail__content > .river-detail__chapter-head--conditions {
-  order: 8;
-}
-
-html body.page-route-detail [data-river-detail] .river-detail__content > .river-detail__chapter-head--overview {
-  order: 3;
-}
-
-html body.page-route-detail [data-river-detail] .river-detail__content > #quick-facts {
-  order: 4;
-}
-
-html body.page-route-detail [data-river-detail] .river-detail__content > #route-outlook {
-  order: 5;
-}
-
-html body.page-route-detail [data-river-detail] .river-detail__content > .river-detail__chapter-head--plan {
-  order: 6;
-}
-
-html body.page-route-detail [data-river-detail] .river-detail__content > #access-plan {
-  order: 7;
-}
-
-html body.page-route-detail [data-river-detail] .river-detail__content > #river-conditions {
-  order: 8;
-}
-
-html body.page-route-detail [data-river-detail] .river-detail__content > #route-gallery {
-  order: 9;
-}
-
-html body.page-route-detail [data-river-detail] .river-detail__content > .river-detail__chapter-head--understand {
-  order: 10;
-}
-
-html body.page-route-detail [data-river-detail] .river-detail__content > [data-detail-status-banner] {
-  order: 11;
-}
-
-html body.page-route-detail [data-river-detail] .river-detail__content > #why-this-call,
-html body.page-route-detail [data-river-detail] .river-detail__content > #planning-sources {
-  order: 12;
-}
-
-html body.page-route-detail [data-river-detail] .river-detail__content > .route-community {
-  order: 13;
-}
-
-html body.page-route-detail [data-river-detail] .river-detail__content > .river-detail__chapter-head--contribute {
-  order: 14;
-}
 html body.page-route-detail [data-river-detail] .route-overview-trip-fit {
   display: grid;
   grid-template-columns: repeat(4, minmax(0, 1fr));
@@ -1759,7 +1694,7 @@ html body.page-route-detail [data-river-detail] .route-overview-trip-fit > div {
 
 html body.page-route-detail [data-river-detail] .route-overview-trip-fit span {
   color: var(--river-deep);
-  font-size: 0.58rem;
+  font-size: 0.72rem;
   font-weight: 800;
   letter-spacing: 0.11em;
   line-height: 1.1;
@@ -1770,8 +1705,8 @@ html body.page-route-detail [data-river-detail] .route-overview-trip-fit strong 
   overflow-wrap: anywhere;
   color: var(--ink);
   font-family: var(--serif);
-  font-size: 0.82rem;
-  line-height: 1.18;
+  font-size: 0.95rem;
+  line-height: 1.4;
 }
 
 html body.page-route-detail [data-river-detail] .outlook-grid {

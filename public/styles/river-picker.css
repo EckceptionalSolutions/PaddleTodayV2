@@ -1,4 +1,7 @@
 /* River comparison page styles. Shared State/Explore rules remain in global.css. */
+.river-group-page__jump-links { display: flex; flex-wrap: wrap; gap: .6rem 1.25rem; margin: .65rem 0; }
+.river-group-page__jump-links a { display: inline-flex; align-items: center; min-height: 44px; font-weight: 700; text-underline-offset: .25em; }
+#river-trips { scroll-margin-top: 1rem; }
 .page-river-hub .river-group-page__hero-main {
   gap: 0.34rem;
 }
@@ -615,7 +618,8 @@ html body.page-river-hub .river-hub-context__item h3 {
 }
 
 html body.page-river-hub .river-hub-context__item p {
-  font-size: 0.86rem;
+  font-size: 1rem;
+  line-height: 1.65;
 }
 
 html body.page-river-hub .route-faq__list {

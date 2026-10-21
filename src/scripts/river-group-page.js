@@ -23,7 +23,7 @@ import { riverTripDetailsHref } from '../lib/trip-actions';
 import {
 } from './ui-taxonomy.js';
 import { createRequestGuard, isAbortError } from './request-guard.js';
-import { callLabelForDecision, callStateForDecision, ratingToneKey, parsePaddleTimeHours, todayBoardConfidenceWeight } from '@paddletoday/api-contract';
+import { callLabelForDecision, callStateForDecision, ratingToneKey, formatPaddleTimeLabel as shortTimeLabel, todayBoardConfidenceWeight } from '@paddletoday/api-contract';
 import { loadCanonicalRiverRouteLine } from '../lib/canonical-river-geometries.js';
 import { isRouteGeometryHeld, routeGeometryReviewHolds } from '../lib/route-geometry-review-holds.js';
 import { coverageAnchorForRoutes, groupRoutesByConditionScore } from '../lib/river-coverage.js';
@@ -245,7 +245,7 @@ function resetPickerFilters({ render = true } = {}) {
 }
 
 function decisionLabel(route) {
-  if (isCurrentCallUnavailable(route)) return 'Call unavailable';
+  if (isCurrentCallUnavailable(route)) return 'Conditions unavailable';
   return callLabelForDecision(route.rating, route.readiness?.status);
 }
 
@@ -357,18 +357,6 @@ function visiblePickerRoutes(routes) {
     .filter(routeMatchesCampingFilter)
     .filter(routeMatchesTypeFilter)
     .sort(comparePickerRoutes);
-}
-
-function shortTimeLabel(value) {
-  if (!value) return '';
-  const text = String(value).trim();
-  const range = parsePaddleTimeHours(text);
-  if (!range) return text.split(/[;,]/)[0].trim();
-  const useMinutes = range.max <= 1;
-  const scale = useMinutes ? 60 : 1;
-  const min = Number((range.min * scale).toFixed(2));
-  const max = Number((range.max * scale).toFixed(2));
-  return `About ${min === max ? min : `${min}–${max}`} ${useMinutes ? 'min' : 'hr'}`;
 }
 
 function difficultyLabel(value) {
@@ -612,9 +600,9 @@ function routePopupMarkup(route) {
       <p class="score-map-popup__reach">${escapeHtml(route.reach)}</p>
       ${facts ? `<p class="score-map-popup__summary">${escapeHtml(facts)}</p>` : ''}
       ${isPlanningRoute(route)
-        ? '<p class="score-map-popup__summary">Planning route · not scored because the available gauge is a proxy for this reach.</p>'
+        ? '<p class="score-map-popup__summary">Planning route · no daily score. The gauge measures a different part of the river; check water levels locally.</p>'
         : isCurrentCallUnavailable(route)
-        ? `<p class="score-map-popup__verdict">Call unavailable</p><p class="score-map-popup__summary">${escapeHtml(route.readiness?.reason || 'Current readings are unavailable. Check the route sources before planning.')}</p>`
+        ? `<p class="score-map-popup__verdict">Conditions unavailable</p><p class="score-map-popup__summary">${escapeHtml(route.readiness?.reason || 'Current readings are unavailable. Check the route sources before planning.')}</p>`
         : `<div class="score-map-popup__scoreline"><span class="score-map-popup__scorebadge">${escapeHtml(String(route.score))}</span><p class="score-map-popup__verdict">${escapeHtml(mapCallLabelForRating(route.rating))}</p></div><p class="score-map-popup__summary">${escapeHtml(decisionSummary(route))}</p>`}
       <a class="score-map-popup__link score-map-popup__link--button" href="/rivers/${encodeURIComponent(route.slug)}/">View route</a>
     </article>
@@ -1289,7 +1277,7 @@ function renderRouteList(routes) {
             ${isAccessPlanningHub ? '' : isPlanningRoute(route)
               ? '<span class="route-choice__score-compact route-choice__score-compact--planning"><strong>—</strong><span>Planning route</span></span>'
               : isCurrentCallUnavailable(route)
-              ? '<span class="route-choice__score-compact route-choice__score-compact--planning"><strong>—</strong><span>Call unavailable</span></span>'
+              ? '<span class="route-choice__score-compact route-choice__score-compact--planning"><strong>—</strong><span>Conditions unavailable</span></span>'
               : `<span class="route-choice__score-compact route-choice__score-compact--${ratingToneKey(route.rating)}"><strong>${escapeHtml(String(route.score))}</strong><span>${escapeHtml(decisionLabel(route))}</span></span>`}
           </button>
           ${tripNotesMarkup(route)}
@@ -1371,7 +1359,7 @@ function renderSelectedSummary(route) {
     ${isAccessPlanningHub ? '' : isPlanningRoute(route)
       ? '<div class="river-route-picker__selected-decision river-route-picker__selected-decision--planning"><strong>—</strong><span>Planning route · not scored</span></div>'
       : isCurrentCallUnavailable(route)
-      ? '<div class="river-route-picker__selected-decision river-route-picker__selected-decision--planning"><strong>—</strong><span>Call unavailable</span></div>'
+      ? '<div class="river-route-picker__selected-decision river-route-picker__selected-decision--planning"><strong>—</strong><span>Conditions unavailable</span></div>'
       : `<div class="river-route-picker__selected-decision river-route-picker__selected-decision--${ratingToneKey(route.rating)}"><strong>${escapeHtml(String(route.score))}</strong><span>${escapeHtml(decisionLabel(route))}</span></div>`}
     <div class="river-route-picker__selected-actions">
       ${detailsAction}

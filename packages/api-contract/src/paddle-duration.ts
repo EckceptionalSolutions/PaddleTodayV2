@@ -5,6 +5,20 @@ const plainHours = new RegExp(`^(?:about\\s+|~\\s*)?(${number})(?:\\s*(?:to|[-�
 const rangeStart = new RegExp(`(${number})\\s*(?:to|[-–—])\\s*$`, 'i');
 const rangeEnd = new RegExp(`^(${number})(?=$|[\\s,.;])`);
 
+/** Keep trip cards compact without losing open bounds or changing units. */
+export function formatPaddleTimeLabel(value: string | null | undefined): string {
+  if (!value) return '';
+  const text = value.trim();
+  if (/\b(?:at least|at most|up to|under|over|less than|more than|minimum|maximum)\b|\d\s*\+/.test(text.toLowerCase())) return text.split(/[;,]/)[0].trim();
+  const range = parsePaddleTimeHours(text);
+  if (!range) return text.split(/[;,]/)[0].trim();
+  const useMinutes = range.max <= 1;
+  const scale = useMinutes ? 60 : 1;
+  const min = Number((range.min * scale).toFixed(2));
+  const max = Number((range.max * scale).toFixed(2));
+  return `About ${min === max ? min : `${min}–${max}`} ${useMinutes ? 'min' : 'hr'}`;
+}
+
 /** Read a paddling-time label without treating minute values as hours. */
 export function parsePaddleTimeHours(value: string | null | undefined): { min: number; max: number } | null {
   const text = String(value ?? '').trim();

@@ -239,11 +239,11 @@ test('river map score markers exclude withheld measurements', async ({ page }) =
   await expect(scores).toHaveText('74');
   await expect(page.locator('[data-group-route-list]')).toContainText('Unavailable readings');
   const unavailableCard = page.locator('[data-group-route-list] .route-choice').filter({ hasText: 'Unavailable readings' });
-  await expect(unavailableCard).toContainText('Call unavailable');
+  await expect(unavailableCard).toContainText('Conditions unavailable');
   await expect(unavailableCard).not.toContainText('Recommended today');
   await expect(unavailableCard.locator('.route-choice__score-compact strong')).toHaveText('—');
   await unavailableCard.locator('[data-group-route-select]').click();
-  await expect(page.locator('[data-group-selected-summary]')).toContainText('Call unavailable');
+  await expect(page.locator('[data-group-selected-summary]')).toContainText('Conditions unavailable');
 });
 
 test('a stalled river trip map can retry while route details remain available', async ({ page }) => {
@@ -283,7 +283,7 @@ test('failed river comparisons retain static routes without loading or recommend
   const list = page.locator('[data-group-route-list]');
   await expect(list.locator('[data-group-initial-score]').first()).toHaveText('No data');
   await expect(list).not.toContainText('Recommended today');
-  await expect(list.locator('.route-choice__details-link').first()).toBeVisible();
+  await expect(list.locator('[data-trip-page-link]').first()).toBeVisible();
   await expect(page.locator('.river-route-picker__toolbar')).toBeHidden();
   await expect(list.locator('[data-group-route-select]').first()).toBeDisabled();
   await page.route('**/api/river-groups/rum-river.json*', route => route.fulfill({ json: {

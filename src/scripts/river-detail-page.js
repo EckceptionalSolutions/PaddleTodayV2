@@ -28,6 +28,7 @@ import {
 } from './ui-taxonomy.js';
 import { createRequestGuard, isAbortError } from './request-guard.js';
 import {
+  gaugeBandDisplayLabel,
   buildRiverReadinessViewModel,
   buildRiverWeatherViewModel,
   buildScoreBreakdownViewModel,
@@ -3759,7 +3760,7 @@ function heroMapStatusText(points) {
   }
 
   return points.length > 1
-    ? `${distanceLabel} between the stored put-in and take-out.`
+    ? `${distanceLabel} between the listed launch and take-out.`
     : 'One mapped access point is available for this route right now.';
 }
 
@@ -4042,8 +4043,8 @@ async function renderDetailMap(result = null) {
         backgroundMap: detailMapRuntime,
         message:
           points.length > 1
-            ? 'Put-in and take-out markers come from carried-over route data. Confirm launch and parking rules on the ground.'
-            : 'Only one carried-over access point is available for this reach right now.',
+            ? 'Markers show the listed launch and take-out locations. Confirm the exact landing and parking before launch.'
+            : 'Only one access location is listed for this trip.',
       });
     }
   } catch (error) {
@@ -4676,7 +4677,7 @@ function bindTripPackActions() {
       tripGpxRequest = request;
       tripGpxLink.setAttribute('aria-busy', 'true');
       tripGpxLink.setAttribute('aria-disabled', 'true');
-      setElementText(tripStatus, 'Checking for canonical route geometry…');
+      setElementText(tripStatus, 'Checking whether a GPX route is available…');
       try {
         const response = await fetch(request.url, { method: 'HEAD', signal: request.controller.signal });
         if (tripGpxRequest !== request || request.controller.signal.aborted) return;
@@ -4712,6 +4713,7 @@ function renderDetailResult(result) {
       },
     };
   }
+  result = { ...result, gaugeBandLabel: gaugeBandDisplayLabel(result.gaugeBand, result.gaugeBandLabel) };
   latestResult = result;
   root.dataset.routeReadiness = result.readiness?.status || '';
   root.dataset.routeLiveDataOverall = result.liveData?.overall || '';
@@ -5435,7 +5437,7 @@ function renderPlanningRoute(result) {
     const section = root.querySelector(selector);
     if (section instanceof HTMLElement) section.hidden = true;
   }
-  setText('explanation', result?.explanation || 'This route is documented for planning, but does not receive a Paddle Today score.');
+  setText('explanation', result?.explanation || 'Use the access and hazard notes to plan this trip. We do not issue a daily score for it.');
   if (result?.weather) {
     setText('planning-weather-condition', weatherConditionLabel(result.weather.conditionLabel ?? result.weather.weatherCode));
     setText('planning-weather-summary', [

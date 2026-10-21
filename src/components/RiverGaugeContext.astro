@@ -4,9 +4,9 @@ const { slug } = Astro.props;
 ---
 <div id="usgs-gauge-context" data-gauge-context data-slug={slug}>
   <section class="river-detail__panel gauge-context" hidden aria-label="USGS gauge context">
-    <p class="eyebrow section-label">USGS gauge context</p>
+    <p class="eyebrow section-label">USGS measurements</p>
     <h3>More about this gauge</h3>
-    <p class="muted">Measurements at the gauge may differ from your paddling reach. These observations supplement the route’s paddling guidance.</p>
+    <p class="muted">These measurements come from the gauge station. Water depth and current can differ along your trip.</p>
     <p class="muted" data-context-update></p>
     <dl></dl>
     <a data-context-source target="_blank" rel="noopener noreferrer">View USGS gauge data</a>

@@ -8,7 +8,7 @@ test('Moon River explains the published minimum without a full target range', as
   await page.route('**/api/**', route => route.fulfill({ status: 503, json: { error: 'offline' } }));
   await page.goto('/rivers/cahaba-river-moon-grants-mill/');
   await expect(page.locator('.route-calibration-callout')).toContainText('Only a low-water floor is known.');
-  await expect(page.locator('#trip-decisions')).toContainText('Treat 100 cfs as a floor');
+  await expect(page.locator('#trip-decisions')).toContainText('100 cfs is a minimum, not an ideal level');
   await expect(page.locator('#trip-decisions time')).toHaveAttribute('datetime', '2026-10-20');
   expect((await page.locator('script[type="application/ld+json"]').allTextContents()).join(' ')).toContain('100 cfs');
 });
@@ -26,7 +26,7 @@ for (const slug of ['cahaba-river-grants-mill-old-overton', 'cahaba-river-old-ov
     await expect(page.locator('#planning-sources')).toBeVisible();
     await expect(page.locator('.route-faq')).toContainText('This planning route has no live Paddle Today score.');
     if (slug.endsWith('highway-280')) {
-      await expect(page.locator('[data-geometry-review-notice]')).toContainText('Route line and GPX withheld');
+      await expect(page.locator('[data-geometry-review-notice]')).toContainText('route line and GPX download are unavailable');
       await expect(page.locator('[data-trip-gpx]')).toHaveCount(0);
     }
     expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth + 1)).toBe(true);
@@ -37,9 +37,9 @@ test('Cahaba hub links all three guides and explains the scoring distinction', a
   await installMapLibreHarness(page);
   await page.route('**/api/**', route => route.fulfill({ status: 503, json: { error: 'offline' } }));
   await page.goto('/rivers/by-river/cahaba-river-alabama/');
-  await expect(page.getByRole('heading', { name: 'Choose a Cahaba trip before using the gauge', exact: true })).toBeVisible();
+  await expect(page.getByRole('heading', { name: 'Choose your Cahaba trip', exact: true })).toBeVisible();
   await expect(page.locator('[data-group-route-card]')).toHaveCount(3);
   await expect(page.getByRole('link', { name: 'Read the Highway 280 guide', exact: true })).toBeVisible();
-  await expect(page.locator('main')).toContainText('downstream choices remain unscored plans');
+  await expect(page.locator('main')).toContainText('downstream trips have planning information but no daily score');
   await expect(page.locator('main')).not.toContainText('including longer combinations');
 });

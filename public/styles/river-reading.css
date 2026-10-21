@@ -1,0 +1,75 @@
+/* Reading and navigation rules shared by river hubs and trip pages. */
+html body.page-river-hub .river-group-page__hero--fallback,
+html body.page-river-hub .river-group-page__hero--photo,
+html body.page-river-hub .river-group-page__panel,
+html body.page-route-detail [data-river-detail] .river-detail__panel {
+  box-shadow: 0 2px 10px rgba(16, 35, 45, .04);
+}
+html body.page-river-hub .river-group-page__lede {
+  max-width: 72ch;
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 1.65;
+}
+html body.page-river-hub .river-group-page__hero-fact span {
+  font-size: .75rem;
+  line-height: 1.4;
+  letter-spacing: .02em;
+  text-transform: none;
+}
+html body.page-river-hub .river-group-page__panel > p,
+html body.page-river-hub .river-hub-context__item p,
+html body.page-river-hub .planning-guide p,
+html body.page-river-hub .access-planning-context p,
+html body.page-route-detail [data-river-detail] .river-detail__chapter-copy {
+  max-width: 72ch;
+  line-height: 1.65;
+}
+html body.page-river-hub .river-hub-context__item {
+  min-height: 0;
+  background: #fff;
+}
+html body.page-river-hub .river-hub-context__item::before { display: none; }
+html body.page-river-hub .river-hub-context__grid,
+html body.page-river-hub .planning-guide__decisions {
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 19rem), 1fr));
+  align-items: start;
+}
+html body.page-route-detail [data-river-detail] .river-detail__chapter-head {
+  margin-bottom: 0;
+  padding-bottom: .5rem;
+}
+html body.page-route-detail [data-river-detail] .river-detail__chapter-copy {
+  margin: .4rem 0 0;
+  font-size: 1rem;
+}
+.trip-details-disclosure > summary {
+  display: list-item;
+  cursor: pointer;
+  min-height: 44px;
+  padding: .65rem .25rem;
+  color: var(--ink);
+  font-size: 1rem;
+  font-weight: 700;
+}
+.trip-details-disclosure > summary:focus-visible { outline: 2px solid var(--river); outline-offset: 4px; }
+.trip-details-disclosure[open] > summary { margin-bottom: 1rem; }
+html body.page-river-hub [data-initial-unavailable="true"] .river-route-picker__layout { grid-template-columns: minmax(0, 1fr); }
+html body.page-river-hub [data-initial-unavailable="true"] .river-group-page__route-list { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 19rem), 1fr)); gap: 1rem; }
+html body.page-river-hub .route-choice__details-button { margin: .25rem 1rem 1rem; min-height: 44px; align-self: start; }
+html body.page-river-hub .route-choice__facts { font-size: .85rem; line-height: 1.45; }
+html body.page-river-hub .river-route-picker .route-choice__fact { font-size: .85rem; line-height: 1.45; white-space: normal; max-width: 100%; overflow-wrap: break-word; }
+html body.page-route-detail [data-river-detail].river-detail--planning .river-detail__chapter-head--conditions { display: none; }
+html body.page-route-detail [data-river-detail] .river-call-panel__statement,
+html body.page-route-detail [data-river-detail] .planning-status-card__summary {
+  font-size: 1rem;
+  line-height: 1.55;
+}
+@media (max-width: 760px) {
+  html body.page-river-hub .river-group-page__hero-facts .river-group-page__hero-fact:nth-child(n + 3) { display: grid; }
+  html body.page-river-hub .river-group-page__hero-facts { display: flex; flex-wrap: wrap; }
+  html body.page-river-hub .river-group-page__hero-fact { flex: 1 1 8rem; }
+  html body.page-river-hub .river-group-page__title { font-size: clamp(2rem, 9vw, 3rem); }
+  html body.page-river-hub .river-hub-context__grid,
+  html body.page-river-hub .planning-guide__decisions { grid-template-columns: minmax(0, 1fr); }
+}

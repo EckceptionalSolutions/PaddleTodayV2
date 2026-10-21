@@ -1,5 +1,18 @@
 import type { ScoreRating } from './index';
 
+/** Keep old saved readings readable without changing their water-level category. */
+export function gaugeBandDisplayLabel(band: string | null | undefined, fallback = 'Unknown'): string {
+  switch (band) {
+    case 'ideal': return 'Within preferred range';
+    case 'low-shoulder': return 'Below preferred range';
+    case 'high-shoulder': return 'Above preferred range';
+    case 'minimum-met': return 'Above minimum';
+    case 'too-low': return 'Too low';
+    case 'too-high': return 'Too high';
+    default: return fallback;
+  }
+}
+
 export interface ColdWeatherCallInput {
   temperatureF?: number | null;
   next12hWindMphMax?: number | null;
