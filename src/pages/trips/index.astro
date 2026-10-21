@@ -1,11 +1,11 @@
 ---
 import TripAppHandoff from '../../components/TripAppHandoff.astro';
 import BaseLayout from '../../layouts/BaseLayout.astro';
-import WebAccountFeaturesPaused from '../../components/WebAccountFeaturesPaused.astro';
+import GuestTripPlans from '../../components/GuestTripPlans.astro';
 import { webFeatureFlags } from '../../lib/web-feature-flags';
 ---
 <BaseLayout
-  title={webFeatureFlags.webAccountExperience ? 'My trips | PaddleToday' : 'PaddleToday'}
+  title={webFeatureFlags.webAccountExperience ? 'My trips | PaddleToday' : 'Plan a paddle | PaddleToday'}
   noindex
   privatePage
   headerTitle={webFeatureFlags.webAccountExperience ? 'Make time for the water' : 'Find the best paddle near you today'}
@@ -13,7 +13,7 @@ import { webFeatureFlags } from '../../lib/web-feature-flags';
 >
   <div class="trips-page">
     {webFeatureFlags.webAccountExperience && webFeatureFlags.tripAppHandoff && <TripAppHandoff />}
-    {webFeatureFlags.webAccountExperience ? <div id="trips-app" aria-busy="true"><p>Loading your trips…</p></div> : <WebAccountFeaturesPaused />}
+    {webFeatureFlags.webAccountExperience ? <div id="trips-app" aria-busy="true"><p>Loading your trips…</p></div> : <GuestTripPlans />}
     {webFeatureFlags.webAccountExperience && <noscript>Enable JavaScript to sign in and manage trips.</noscript>}
   </div>
   {webFeatureFlags.webAccountExperience && <link rel="stylesheet" href="/styles/trips.css?v=20261006-account" />}

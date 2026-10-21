@@ -37,13 +37,12 @@ import {
   ratingToneKey,
   signedPoints,
   callLabelForDecision,
-  parsePaddleTimeHours,
 } from '@paddletoday/api-contract';
 import { loadCanonicalRiverRouteLine } from '../lib/canonical-river-geometries.js';
 import { isRouteGeometryHeld, routeGeometryReviewHolds } from '../lib/route-geometry-review-holds.js';
 import { getBrowserApiClient } from './browser-api-client.js';
 import { createSubmissionCooldown } from './submission-cooldown.js';
-import { buildFloatPlanMessage } from '@paddletoday/trip-pack';
+import { bindRouteTripPlan } from './route-trip-plan.js';
 import { buildRoutePlannerHref } from '../lib/route-segments.ts';
 import { accessDirectionsHref } from '../lib/trip-actions';
 
@@ -109,11 +108,8 @@ const accessDirectionsApple = root.querySelector('[data-access-directions-apple]
 const accessOpenStreetMap = root.querySelector('[data-access-openstreetmap]');
 const tripGpxLink = root.querySelector('[data-trip-gpx]');
 let tripGpxRequest = null;
-let tripShareRequest = null;
-const tripIcsLink = root.querySelector('[data-trip-ics]');
-const tripShareButton = root.querySelector('[data-trip-share]');
+let tripPlanController = null;
 const tripStatus = root.querySelector('[data-trip-status]');
-const tripManualCopy = root.querySelector('[data-trip-manual-copy]');
 const sectionNavLinks = Array.from(root.querySelectorAll('[data-detail-nav-link]'));
 const detailSections = Array.from(root.querySelectorAll('[data-detail-section]'));
 let pendingDetailSectionNavigation = null;
@@ -4635,67 +4631,21 @@ function renderWeatherVisual(weather) {
 }
 
 function syncTripPackLinks() {
-  const start = activeAccessContext.putIn;
-  const end = activeAccessContext.takeOut;
-  for (const planLink of root.querySelectorAll('[data-plan-account]')) {
-    if (!(planLink instanceof HTMLAnchorElement)) continue;
-    const planUrl = new URL('/trips/', location.origin);
-    planUrl.searchParams.set('route', slug);
-    planUrl.searchParams.set('name', riverContext.name || root.dataset.riverName || '');
-    if (start?.id) planUrl.searchParams.set('putin', start.id);
-    if (end?.id) planUrl.searchParams.set('takeout', end.id);
-    const context = new URLSearchParams(location.search);
-    for (const key of ['date', 'launch', 'expected', 'timeZone']) {
-      const value = context.get(key);
-      if (value && value.length <= 100) planUrl.searchParams.set(key, value);
-    }
-    planLink.href = planUrl.href;
+  const start = activeAccessContext.putIn, end = activeAccessContext.takeOut;
+  tripPlanController?.syncAccess();
+  for (const link of root.querySelectorAll('[data-plan-account]')) {
+    if (link instanceof HTMLAnchorElement) link.href = '#trip-plan';
   }
   if (!start || !end) return;
-
-  const apiBase = window.location.origin;
-  const gpxUrl = new URL(`/api/rivers/${encodeURIComponent(slug)}/trip.gpx`, apiBase);
-  if (start.id) gpxUrl.searchParams.set('putin', start.id);
-  if (end.id) gpxUrl.searchParams.set('takeout', end.id);
-  const launch = new Date(Date.now() + 60 * 60 * 1000);
-  launch.setMinutes(0, 0, 0);
-  const distance = distanceMilesFromLabel(riverContext.distanceLabel);
-  const timeRange = parsePaddleTimeHours(riverContext.paddleTimeLabel);
-  const selectedDistance = distanceMilesFromLabel(activeAccessContext.distanceLabel);
-  const ratio = Number.isFinite(distance) && distance > 0 && Number.isFinite(selectedDistance)
-    ? Math.min(1, Math.max(0, selectedDistance / distance))
-    : 1;
-  const expectedMinutes = Math.max(60, Math.round((timeRange?.max ?? 4) * ratio * 60) + 60);
-  const expected = new Date(launch.getTime() + expectedMinutes * 60 * 1000);
-  const icsUrl = new URL(`/api/rivers/${encodeURIComponent(slug)}/trip.ics`, apiBase);
-  if (start.id) icsUrl.searchParams.set('putin', start.id);
-  if (end.id) icsUrl.searchParams.set('takeout', end.id);
-  icsUrl.searchParams.set('start', launch.toISOString());
-  icsUrl.searchParams.set('end', expected.toISOString());
+  const url = new URL(`/api/rivers/${encodeURIComponent(slug)}/trip.gpx`, location.origin);
+  if (start.id) url.searchParams.set('putin', start.id);
+  if (end.id) url.searchParams.set('takeout', end.id);
   if (tripGpxLink instanceof HTMLAnchorElement) {
-    if (tripGpxLink.href !== gpxUrl.toString()) {
-      cancelTripShare();
-      setElementText(tripStatus, '');
-    }
-    if (tripGpxRequest && tripGpxRequest.url !== gpxUrl.toString()) {
+    if (tripGpxRequest && tripGpxRequest.url !== url.href) {
       cancelTripGpxCheck();
       setElementText(tripStatus, 'Route selection changed. Check GPX availability again.');
     }
-    tripGpxLink.href = gpxUrl.toString();
-  }
-  if (tripIcsLink instanceof HTMLAnchorElement) tripIcsLink.href = icsUrl.toString();
-  return { launch, expected };
-}
-
-function cancelTripShare() {
-  tripShareRequest = null;
-  if (tripShareButton instanceof HTMLButtonElement) {
-    tripShareButton.disabled = false;
-    tripShareButton.setAttribute('aria-busy', 'false');
-  }
-  if (tripManualCopy instanceof HTMLTextAreaElement) {
-    tripManualCopy.hidden = true;
-    tripManualCopy.value = '';
+    tripGpxLink.href = url.href;
   }
 }
 
@@ -4710,9 +4660,13 @@ function cancelTripGpxCheck() {
 }
 
 function bindTripPackActions() {
+  tripPlanController = bindRouteTripPlan(root, {
+    getContext: () => ({ slug, name: riverContext.name, reach: riverContext.reach, putIn: activeAccessContext.putIn, takeOut: activeAccessContext.takeOut, distanceMiles: distanceMilesFromLabel(activeAccessContext.distanceLabel) }),
+    copyText: copyTextToClipboard,
+    onShared: () => trackEvent('Share float plan', plannerAnalyticsProperties()),
+  });
   syncTripPackLinks();
   window.addEventListener('pagehide', cancelTripGpxCheck);
-  window.addEventListener('pagehide', cancelTripShare);
   if (tripGpxLink instanceof HTMLAnchorElement) {
     tripGpxLink.addEventListener('click', async (event) => {
       event.preventDefault();
@@ -4743,69 +4697,6 @@ function bindTripPackActions() {
       }
     });
   }
-  if (!(tripShareButton instanceof HTMLButtonElement)) return;
-  tripShareButton.addEventListener('click', async () => {
-    if (tripShareRequest) return;
-    if (tripManualCopy instanceof HTMLTextAreaElement) tripManualCopy.hidden = true;
-    const timing = syncTripPackLinks();
-    if (!timing) {
-      setElementText(tripStatus, 'Choose access points before sharing a float plan.');
-      return;
-    }
-    const start = activeAccessContext.putIn;
-    const end = activeAccessContext.takeOut;
-    const text = buildFloatPlanMessage({
-      routeSlug: slug,
-      riverName: riverContext.name,
-      reach: riverContext.reach,
-      routeUrl: routeShareContext.url,
-      putIn: { name: start?.name ?? 'Check source', latitude: Number(start?.latitude) || 0, longitude: Number(start?.longitude) || 0 },
-      takeOut: { name: end?.name ?? 'Check source', latitude: Number(end?.latitude) || 0, longitude: Number(end?.longitude) || 0 },
-      distanceMiles: distanceMilesFromLabel(activeAccessContext.distanceLabel),
-      launchAt: timing.launch,
-      expectedTakeOutAt: timing.expected,
-      timeZone: Intl.DateTimeFormat().resolvedOptions().timeZone,
-    });
-    const request = { restoreFocus: document.activeElement === tripShareButton };
-    tripShareRequest = request;
-    tripShareButton.disabled = true;
-    tripShareButton.setAttribute('aria-busy', 'true');
-    setElementText(tripStatus, 'Opening sharing…');
-    try {
-      if (navigator.share) {
-        await navigator.share({ title: `Float plan - ${riverContext.name}`, text });
-        if (tripShareRequest !== request) return;
-        setElementText(tripStatus, 'Float plan shared.');
-      } else {
-        if (!await copyTextToClipboard(text, () => tripShareRequest === request)) throw new Error('Clipboard copy was not accepted.');
-        if (tripShareRequest !== request) return;
-        setElementText(tripStatus, 'Float plan copied to your clipboard.');
-      }
-      trackEvent('Share float plan', plannerAnalyticsProperties());
-    } catch (error) {
-      if (tripShareRequest !== request) return;
-      if (error?.name === 'AbortError') {
-        setElementText(tripStatus, 'Sharing cancelled.');
-        return;
-      }
-      if (tripManualCopy instanceof HTMLTextAreaElement) {
-        tripManualCopy.value = text;
-        tripManualCopy.hidden = false;
-        tripManualCopy.focus();
-        tripManualCopy.select();
-        setElementText(tripStatus, 'Sharing is unavailable. Copy the selected float plan.');
-      } else {
-        setElementText(tripStatus, 'Could not open sharing. Copy the route link instead.');
-      }
-    } finally {
-      if (tripShareRequest === request) {
-        tripShareRequest = null;
-        tripShareButton.disabled = false;
-        tripShareButton.setAttribute('aria-busy', 'false');
-        if (request.restoreFocus && document.activeElement === document.body) tripShareButton.focus({ preventScroll: true });
-      }
-    }
-  });
 }
 
 function renderDetailResult(result) {

@@ -1,5 +1,6 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
+import RouteTripPlan from '../../components/RouteTripPlan.astro';
 import PaddlePlanningGuide from '../../components/PaddlePlanningGuide.astro';
 import { priorityRouteGuides } from '../../data/priority-paddle-guides';
 import { staticAssetUrl } from '../../lib/static-asset-url.js';
@@ -497,7 +498,7 @@ const routeFaqStructuredData = {
             </div>
           </div>
 
-          {webFeatureFlags.webAccountExperience && <p><a class="river-link river-link--inline river-link--primary" data-plan-account href={tripActions.plan}>Plan this route</a></p>}
+          <p><a class="river-link river-link--inline river-link--primary" data-plan-account href="#trip-plan">Plan this route</a></p>
           <section class="route-overview-trip-fit" aria-label="Trip facts">
             <div>
               <span>Distance</span>
@@ -1000,6 +1001,262 @@ const routeFaqStructuredData = {
 
     {planningGuide ? <PaddlePlanningGuide guide={planningGuide} id="trip-decisions" /> : null}
 
+    <section class="river-detail__chapter-head river-detail__chapter-head--plan" aria-label="Plan chapter">
+      <p class="eyebrow section-label">Plan</p>
+      <h2 class="river-detail__chapter-title">Plan your trip</h2>
+      <p class="muted river-detail__chapter-copy">
+        Launch points, shuttle details, distance, and access notes.
+      </p>
+    </section>
+
+    <section class="river-detail__panel river-launch-plan" id="access-plan" data-detail-section="access-plan" data-detail-nav-group="plan">
+      <p class="eyebrow section-label">
+        <FeatureIcon name="map" size={16} />
+        Route logistics
+      </p>
+      <div class="river-launch-plan__hero">
+        <div class="river-launch-plan__copy">
+          <h2 class="river-subtitle">Access and shuttle</h2>
+          <p class="muted">
+            {logistics?.summary ??
+              'Use the links below to confirm launch, shuttle, and access rules.'}
+          </p>
+
+        </div>
+      </div>
+
+
+
+
+
+      <div class="river-launch-plan__body">
+        <div class="river-launch-plan__map-shell" id="route-access-map" tabindex="-1" data-detail-map-shell>
+          <p class="river-launch-plan__map-label">Plan this segment</p>
+          <button
+            class="filter-chip river-launch-plan__map-toggle"
+            type="button"
+            data-detail-map-toggle
+            hidden
+            aria-expanded="true"
+          >
+            Hide map
+          </button>
+          <div class="detail-map-frame detail-map-frame--launch-plan" data-map-skip-region>
+            <a class="map-skip-link" href="#access-map-end">Skip map</a>
+            <div class="detail-map" data-detail-map aria-label={`${river.name} access map`}></div>
+            <p class="detail-map__status muted" data-detail-map-status data-skeleton role="status" tabindex="-1">
+              Pulling access map tiles. Usually under 5 seconds.
+            </p>
+            <button class="filter-chip detail-map__retry" type="button" data-detail-map-retry hidden>Retry access map</button>
+            <p class="detail-map__status muted" data-detail-map-line-key hidden={!geometryReviewReason}>{geometryReviewReason}</p>
+            <span class="map-skip-target" id="access-map-end" tabindex="-1">End of map</span>
+          </div>
+        </div>
+
+        <div class="river-access-grid">
+          <article class="river-access-card river-access-card--put-in">
+            <span class="river-access-card__eyebrow">Start</span>
+            <h3 class="river-logistics__title">Put-in</h3>
+            <strong data-field="active-putin-name">{putIn?.name ?? 'Check source links'}</strong>
+            <div class="river-access-card__actions">
+              {putInMapsUrl ? (
+                <a
+                  class="river-link river-link--inline river-access-card__map-link"
+                  href={putInMapsUrl}
+                  target="_blank"
+                  rel="noreferrer"
+                  data-access-putin-link
+                >
+                  Open map
+                </a>
+              ) : null}
+              {accessDirectionsHref(putIn) && <a class="river-link river-link--inline" href={accessDirectionsHref(putIn)} target="_blank" rel="noreferrer" data-access-putin-directions>Directions to put-in</a>}
+              {typeof putIn?.latitude === 'number' && typeof putIn?.longitude === 'number' ? (
+                <button
+                  class="river-inline-button"
+                  type="button"
+                  data-copy-coords
+                  data-copy-label="Put-in"
+                  data-copy-value={`${putIn.latitude}, ${putIn.longitude}`}
+                  data-default-label="Copy coordinates"
+                  data-field="active-putin-copy"
+                >
+                  Copy coordinates
+                </button>
+              ) : null}
+            </div>
+            <p class="muted" data-field="active-putin-note">{primaryAccessCaveat}</p>
+          </article>
+
+          <article class="river-access-card river-access-card--take-out">
+            <span class="river-access-card__eyebrow">Finish</span>
+            <h3 class="river-logistics__title">Take-out</h3>
+            <strong data-field="active-takeout-name">{takeOut?.name ?? 'Check source links'}</strong>
+            <div class="river-access-card__actions">
+              {takeOutMapsUrl ? (
+                <a
+                  class="river-link river-link--inline river-access-card__map-link"
+                  href={takeOutMapsUrl}
+                  target="_blank"
+                  rel="noreferrer"
+                  data-access-takeout-link
+                >
+                  Open map
+                </a>
+              ) : null}
+              {accessDirectionsHref(takeOut) && <a class="river-link river-link--inline" href={accessDirectionsHref(takeOut)} target="_blank" rel="noreferrer" data-access-takeout-directions>Directions to take-out</a>}
+              {typeof takeOut?.latitude === 'number' && typeof takeOut?.longitude === 'number' ? (
+                <button
+                  class="river-inline-button"
+                  type="button"
+                  data-copy-coords
+                  data-copy-label="Take-out"
+                  data-copy-value={`${takeOut.latitude}, ${takeOut.longitude}`}
+                  data-default-label="Copy coordinates"
+                  data-field="active-takeout-copy"
+                >
+                  Copy coordinates
+                </button>
+              ) : null}
+            </div>
+            <p class="muted" data-field="active-takeout-note">{secondaryAccessCaveat}</p>
+          </article>
+        </div>
+
+        <h3 class="river-subtitle">Road shuttle</h3>
+          <div class="detail-map__links detail-map__links--primary">
+            {directionsGoogleUrl ? (
+              <a
+                class="river-link river-link--inline river-link--primary"
+                href={directionsGoogleUrl}
+                target="_blank"
+                rel="noreferrer"
+                data-access-directions-google
+                data-analytics-event="Open route directions"
+                data-analytics-label="google"
+              >
+                Driving shuttle route
+              </a>
+            ) : null}
+            {directionsAppleUrl ? (
+              <a
+                class="river-link river-link--inline"
+                href={directionsAppleUrl}
+                target="_blank"
+                rel="noreferrer"
+                data-access-directions-apple
+                data-analytics-event="Open route directions"
+                data-analytics-label="apple"
+              >
+                Shuttle in Apple Maps
+              </a>
+            ) : null}
+            <a
+              class="river-link river-link--inline"
+              href={openStreetMapUrl}
+              target="_blank"
+              rel="noreferrer"
+              data-access-openstreetmap
+              data-analytics-event="Open route map"
+              data-analytics-label="openstreetmap"
+            >
+              OpenStreetMap
+            </a>
+          </div>
+      {hasAccessPlanner ? (
+        <details class="river-access-planner-disclosure">
+          <summary>
+            <span>Plan a shorter segment</span>
+            <span class="river-detail__disclosure-hint">Optional</span>
+          </summary>
+        <section class="river-access-planner" data-access-planner>
+          <div class="river-why-panel__section-head">
+            <div>
+              <p class="eyebrow section-label">
+                <FeatureIcon name="map" size={16} />
+                Access planner
+              </p>
+              <h3 class="river-subtitle river-subtitle--compact">Pick a shorter segment</h3>
+            </div>
+            <p class="muted river-why-panel__section-note">
+              This changes launch and take-out logistics, not today&apos;s river score.
+            </p>
+          </div>
+
+          <div class="river-access-planner__controls">
+            <label class="river-access-planner__field">
+              <span class="snapshot-card__label">Put-in</span>
+              <select data-access-putin>
+                {(river.accessPoints ?? []).map((point, index) => (
+                  <option value={point.id} selected={index === 0}>{point.name}</option>
+                ))}
+              </select>
+            </label>
+            <label class="river-access-planner__field">
+              <span class="snapshot-card__label">Take-out</span>
+              <select data-access-takeout>
+                {(river.accessPoints ?? []).map((point, index, points) => (
+                  <option value={point.id} selected={index === points.length - 1}>{point.name}</option>
+                ))}
+              </select>
+            </label>
+          </div>
+
+          <div class="river-detail__quick-grid river-detail__quick-grid--compact river-access-planner__metrics">
+            <article class="snapshot-card">
+              <span class="snapshot-card__label">On-water distance</span>
+              <strong data-access-distance>
+                {defaultAccessDistance !== null
+                  ? `${defaultAccessDistance.toFixed(1)} mi`
+                  : logistics?.distanceLabel ?? 'Check source'}
+              </strong>
+              <small data-access-shape>{defaultAccessShape}</small>
+            </article>
+            <article class="snapshot-card">
+              <span class="snapshot-card__label">On-water time</span>
+              <strong data-access-time>{typicalTimeHeadline}</strong>
+              <small data-access-stage>Full route option</small>
+            </article>
+            <article class="snapshot-card">
+              <span class="snapshot-card__label">Shuttle</span>
+              <strong data-access-shuttle>{shuttleHeadline ?? 'Check shuttle details'}</strong>
+              <small data-access-note>Choose a shorter in/out pair for a shorter day.</small>
+            </article>
+          </div>
+
+          <p class="muted river-access-planner__summary" data-access-summary>{defaultAccessSummary}</p>
+
+          <script type="application/json" data-access-points set:html={accessPlannerPointsJson}></script>
+        </section>
+        </details>
+      ) : null}
+        <details class="river-launch-plan__support-disclosure">
+          <summary>Access caveats and watch for</summary>
+        <div class="river-launch-plan__support">
+          <section class="river-logistics__notes">
+            <h3 class="river-logistics__title">Access caveats</h3>
+            <ul class="compact-list compact-list--checklist">
+              {(logistics?.accessCaveats ?? ['Check parking, launch, and access rules on the ground.']).map((note) => (
+                <li>{note}</li>
+              ))}
+            </ul>
+          </section>
+
+          <section class="river-logistics__notes">
+            <h3 class="river-logistics__title">Watch for</h3>
+            <ul class="compact-list compact-list--checklist">
+              {(logistics?.watchFor ?? ['Use the factor breakdown and source links for the current risk picture.']).map((note) => (
+                <li>{note}</li>
+              ))}
+            </ul>
+          </section>
+        </div>
+        </details>
+        <RouteTripPlan gpxHref={tripGpxHref} calendarAvailable={Boolean(tripIcsHref)} geometryReviewReason={geometryReviewReason} />
+      </div>
+    </section>
+
+
     <section class="river-detail__chapter-head river-detail__chapter-head--conditions" aria-label="Conditions chapter">
       <p class="eyebrow section-label">Conditions</p>
       <h2 class="river-detail__chapter-title">Water levels, gauge history, and hourly forecast</h2>
@@ -1369,272 +1626,6 @@ const routeFaqStructuredData = {
           <strong>Checking</strong>
           <p class="muted">Waiting on forecast.</p>
         </article>
-      </div>
-    </section>
-
-    <section class="river-detail__chapter-head river-detail__chapter-head--plan" aria-label="Plan chapter">
-      <p class="eyebrow section-label">Plan</p>
-      <h2 class="river-detail__chapter-title">Plan your trip</h2>
-      <p class="muted river-detail__chapter-copy">
-        Launch points, shuttle details, distance, and access notes.
-      </p>
-    </section>
-
-    <section class="river-detail__panel river-launch-plan" id="access-plan" data-detail-section="access-plan" data-detail-nav-group="plan">
-      <p class="eyebrow section-label">
-        <FeatureIcon name="map" size={16} />
-        Route logistics
-      </p>
-      <div class="river-launch-plan__hero">
-        <div class="river-launch-plan__copy">
-          <h2 class="river-subtitle">Access and shuttle</h2>
-          <p class="muted">
-            {logistics?.summary ??
-              'Use the links below to confirm launch, shuttle, and access rules.'}
-          </p>
-          <div class="detail-map__links detail-map__links--primary">
-            {directionsGoogleUrl ? (
-              <a
-                class="river-link river-link--inline river-link--primary"
-                href={directionsGoogleUrl}
-                target="_blank"
-                rel="noreferrer"
-                data-access-directions-google
-                data-analytics-event="Open route directions"
-                data-analytics-label="google"
-              >
-                Directions
-              </a>
-            ) : null}
-            {directionsAppleUrl ? (
-              <a
-                class="river-link river-link--inline"
-                href={directionsAppleUrl}
-                target="_blank"
-                rel="noreferrer"
-                data-access-directions-apple
-                data-analytics-event="Open route directions"
-                data-analytics-label="apple"
-              >
-                Apple Maps
-              </a>
-            ) : null}
-            <a
-              class="river-link river-link--inline"
-              href={openStreetMapUrl}
-              target="_blank"
-              rel="noreferrer"
-              data-access-openstreetmap
-              data-analytics-event="Open route map"
-              data-analytics-label="openstreetmap"
-            >
-              OpenStreetMap
-            </a>
-          </div>
-        </div>
-      </div>
-
-      {hasAccessPlanner ? (
-        <details class="river-access-planner-disclosure">
-          <summary>
-            <span>Plan a shorter segment</span>
-            <span class="river-detail__disclosure-hint">Optional</span>
-          </summary>
-        <section class="river-access-planner" data-access-planner>
-          <div class="river-why-panel__section-head">
-            <div>
-              <p class="eyebrow section-label">
-                <FeatureIcon name="map" size={16} />
-                Access planner
-              </p>
-              <h3 class="river-subtitle river-subtitle--compact">Pick a shorter segment</h3>
-            </div>
-            <p class="muted river-why-panel__section-note">
-              This changes launch and take-out logistics, not today&apos;s river score.
-            </p>
-          </div>
-
-          <div class="river-access-planner__controls">
-            <label class="river-access-planner__field">
-              <span class="snapshot-card__label">Put-in</span>
-              <select data-access-putin>
-                {(river.accessPoints ?? []).map((point, index) => (
-                  <option value={point.id} selected={index === 0}>{point.name}</option>
-                ))}
-              </select>
-            </label>
-            <label class="river-access-planner__field">
-              <span class="snapshot-card__label">Take-out</span>
-              <select data-access-takeout>
-                {(river.accessPoints ?? []).map((point, index, points) => (
-                  <option value={point.id} selected={index === points.length - 1}>{point.name}</option>
-                ))}
-              </select>
-            </label>
-          </div>
-
-          <div class="river-detail__quick-grid river-detail__quick-grid--compact river-access-planner__metrics">
-            <article class="snapshot-card">
-              <span class="snapshot-card__label">On-water distance</span>
-              <strong data-access-distance>
-                {defaultAccessDistance !== null
-                  ? `${defaultAccessDistance.toFixed(1)} mi`
-                  : logistics?.distanceLabel ?? 'Check source'}
-              </strong>
-              <small data-access-shape>{defaultAccessShape}</small>
-            </article>
-            <article class="snapshot-card">
-              <span class="snapshot-card__label">On-water time</span>
-              <strong data-access-time>{typicalTimeHeadline}</strong>
-              <small data-access-stage>Full route option</small>
-            </article>
-            <article class="snapshot-card">
-              <span class="snapshot-card__label">Shuttle</span>
-              <strong data-access-shuttle>{shuttleHeadline ?? 'Check shuttle details'}</strong>
-              <small data-access-note>Choose a shorter in/out pair for a shorter day.</small>
-            </article>
-          </div>
-
-          <p class="muted river-access-planner__summary" data-access-summary>{defaultAccessSummary}</p>
-
-          <script type="application/json" data-access-points set:html={accessPlannerPointsJson}></script>
-        </section>
-        </details>
-      ) : null}
-
-      <section class="river-trip-pack" data-trip-pack>
-        <div>
-          <p class="eyebrow section-label">Prepare this trip</p>
-          <h3 class="river-subtitle river-subtitle--compact">Take the plan with you</h3>
-          <p class="muted">Save your selected route as a trip, choose a day, and bring your paddling partners along. {geometryReviewReason ? 'You can also share a quick float plan.' : 'You can also download the route or share a quick float plan.'}</p>
-        </div>
-        <div class="detail-map__links">
-          <a class="river-link river-link--inline river-link--primary" data-plan-account href={tripActions.plan}>Plan this route</a>
-          {geometryReviewReason ? <span class="muted">GPX unavailable during route-line review</span> : tripGpxHref ? <a class="river-link river-link--inline" href={tripGpxHref} data-trip-gpx data-analytics-event="Export GPX">Download GPX</a> : <span class="muted">GPX unavailable until access and route geometry are established</span>}
-          {tripIcsHref && <a class="river-link river-link--inline" href={tripIcsHref} data-trip-ics data-analytics-event="Export calendar">Add to calendar</a>}
-          <button class="river-inline-button" type="button" data-trip-share data-analytics-event="Share float plan">Share float plan</button>
-        </div>
-        {geometryReviewReason && <p class="muted" data-geometry-review-notice>{geometryReviewReason}</p>}
-        <p class="muted river-trip-pack__status" data-trip-status aria-live="polite"></p>
-        <textarea class="route-action-menu__manual-copy" data-trip-manual-copy aria-label="Float plan to copy" rows="8" readonly hidden></textarea>
-      </section>
-
-      <div class="river-launch-plan__body">
-        <div class="river-access-grid">
-          <article class="river-access-card river-access-card--put-in">
-            <span class="river-access-card__eyebrow">Start</span>
-            <h3 class="river-logistics__title">Put-in</h3>
-            <strong data-field="active-putin-name">{putIn?.name ?? 'Check source links'}</strong>
-            <div class="river-access-card__actions">
-              {putInMapsUrl ? (
-                <a
-                  class="river-link river-link--inline river-access-card__map-link"
-                  href={putInMapsUrl}
-                  target="_blank"
-                  rel="noreferrer"
-                  data-access-putin-link
-                >
-                  Open map
-                </a>
-              ) : null}
-              {accessDirectionsHref(putIn) && <a class="river-link river-link--inline" href={accessDirectionsHref(putIn)} target="_blank" rel="noreferrer" data-access-putin-directions>Directions to put-in</a>}
-              {typeof putIn?.latitude === 'number' && typeof putIn?.longitude === 'number' ? (
-                <button
-                  class="river-inline-button"
-                  type="button"
-                  data-copy-coords
-                  data-copy-label="Put-in"
-                  data-copy-value={`${putIn.latitude}, ${putIn.longitude}`}
-                  data-default-label="Copy coordinates"
-                  data-field="active-putin-copy"
-                >
-                  Copy coordinates
-                </button>
-              ) : null}
-            </div>
-            <p class="muted" data-field="active-putin-note">{primaryAccessCaveat}</p>
-          </article>
-
-          <article class="river-access-card river-access-card--take-out">
-            <span class="river-access-card__eyebrow">Finish</span>
-            <h3 class="river-logistics__title">Take-out</h3>
-            <strong data-field="active-takeout-name">{takeOut?.name ?? 'Check source links'}</strong>
-            <div class="river-access-card__actions">
-              {takeOutMapsUrl ? (
-                <a
-                  class="river-link river-link--inline river-access-card__map-link"
-                  href={takeOutMapsUrl}
-                  target="_blank"
-                  rel="noreferrer"
-                  data-access-takeout-link
-                >
-                  Open map
-                </a>
-              ) : null}
-              {accessDirectionsHref(takeOut) && <a class="river-link river-link--inline" href={accessDirectionsHref(takeOut)} target="_blank" rel="noreferrer" data-access-takeout-directions>Directions to take-out</a>}
-              {typeof takeOut?.latitude === 'number' && typeof takeOut?.longitude === 'number' ? (
-                <button
-                  class="river-inline-button"
-                  type="button"
-                  data-copy-coords
-                  data-copy-label="Take-out"
-                  data-copy-value={`${takeOut.latitude}, ${takeOut.longitude}`}
-                  data-default-label="Copy coordinates"
-                  data-field="active-takeout-copy"
-                >
-                  Copy coordinates
-                </button>
-              ) : null}
-            </div>
-            <p class="muted" data-field="active-takeout-note">{secondaryAccessCaveat}</p>
-          </article>
-        </div>
-
-        <div class="river-launch-plan__map-shell" id="route-access-map" tabindex="-1" data-detail-map-shell>
-          <p class="river-launch-plan__map-label">Plan this segment</p>
-          <button
-            class="filter-chip river-launch-plan__map-toggle"
-            type="button"
-            data-detail-map-toggle
-            hidden
-            aria-expanded="true"
-          >
-            Hide map
-          </button>
-          <div class="detail-map-frame detail-map-frame--launch-plan" data-map-skip-region>
-            <a class="map-skip-link" href="#access-map-end">Skip map</a>
-            <div class="detail-map" data-detail-map aria-label={`${river.name} access map`}></div>
-            <p class="detail-map__status muted" data-detail-map-status data-skeleton role="status" tabindex="-1">
-              Pulling access map tiles. Usually under 5 seconds.
-            </p>
-            <button class="filter-chip detail-map__retry" type="button" data-detail-map-retry hidden>Retry access map</button>
-            <p class="detail-map__status muted" data-detail-map-line-key hidden={!geometryReviewReason}>{geometryReviewReason}</p>
-            <span class="map-skip-target" id="access-map-end" tabindex="-1">End of map</span>
-          </div>
-        </div>
-
-        <details class="river-launch-plan__support-disclosure">
-          <summary>Access caveats and watch for</summary>
-        <div class="river-launch-plan__support">
-          <section class="river-logistics__notes">
-            <h3 class="river-logistics__title">Access caveats</h3>
-            <ul class="compact-list compact-list--checklist">
-              {(logistics?.accessCaveats ?? ['Check parking, launch, and access rules on the ground.']).map((note) => (
-                <li>{note}</li>
-              ))}
-            </ul>
-          </section>
-
-          <section class="river-logistics__notes">
-            <h3 class="river-logistics__title">Watch for</h3>
-            <ul class="compact-list compact-list--checklist">
-              {(logistics?.watchFor ?? ['Use the factor breakdown and source links for the current risk picture.']).map((note) => (
-                <li>{note}</li>
-              ))}
-            </ul>
-          </section>
-        </div>
-        </details>
       </div>
     </section>
 

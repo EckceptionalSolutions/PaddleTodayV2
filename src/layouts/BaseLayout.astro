@@ -164,6 +164,7 @@ const appDownloadConfigJson = JSON.stringify({
       {pageClass.split(/\s+/).includes('page-route-detail') && <link rel="stylesheet" href={`/styles/route-base.css?v=${assetVersion}`} />}
       {pageClass.split(/\s+/).includes('page-route-detail') && <link rel="stylesheet" href={`/styles/route-maps.css?v=${assetVersion}`} />}
       {pageClass.split(/\s+/).includes('page-route-detail') && <link rel="stylesheet" href={`/styles/route-page.css?v=${assetVersion}`} />}
+      {(pageClass.split(/\s+/).includes('page-route-detail') || Astro.url.pathname.startsWith('/trips/')) && <link rel="stylesheet" href={`/styles/route-trip-plan.css?v=${assetVersion}-guest-plans-20261021`} />}
     <link rel="stylesheet" href={`/styles/interaction-feedback.css?v=${assetVersion}`} />
     <link rel="stylesheet" href={`/styles/site-motion.css?v=${assetVersion}`} />
   </head>

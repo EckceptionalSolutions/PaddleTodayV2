@@ -1,0 +1,30 @@
+---
+interface Props { gpxHref?: string; calendarAvailable: boolean; geometryReviewReason?: string }
+const { gpxHref, calendarAvailable, geometryReviewReason } = Astro.props;
+---
+<section class="river-trip-pack" id="trip-plan" data-trip-pack data-detail-section="trip-plan" data-detail-nav-group="plan" tabindex="-1">
+  <p class="eyebrow section-label">Plan this paddle</p>
+  <h3 class="river-subtitle">Choose your trip times</h3>
+  <p class="muted">No account needed. Check the selected access points above, then choose both dates and times. For an overnight paddle, set take-out to the following date.</p>
+  <fieldset class="route-trip-plan__fields">
+    <legend>Trip schedule</legend>
+    <label>Launch date and time<input type="datetime-local" data-trip-launch required /></label>
+    <label>Expected take-out date and time<input type="datetime-local" data-trip-end required /></label>
+    <label>Time zone<select data-trip-zone required aria-describedby="trip-zone-help"><option value="">Choose time zone</option></select></label>
+  </fieldset>
+  <p class="muted" id="trip-zone-help">Times use the selected time zone. Check it against the river’s location before saving or sharing.</p>
+  <div class="detail-map__links">
+    <button class="river-link river-link--inline river-link--primary" type="button" data-trip-save-plan data-trip-requires-js hidden>Save plan in this browser</button>
+    {calendarAvailable && <button class="river-link river-link--inline" type="button" data-trip-ics data-trip-requires-js hidden>Add to calendar</button>}
+    <button class="river-inline-button" type="button" data-trip-share data-trip-requires-js hidden>Share float plan</button>
+    <a class="river-link river-link--inline" href="/trips/browser/">Browser plans</a>
+  </div>
+  <p class="muted">Browser plans stay on this device. Sharing opens your device’s share tools or gives you text to copy.</p>
+  <noscript><p>Enable JavaScript to save a browser plan, choose a time zone, or export a scheduled plan. Maps, directions, source notes and available GPX files still work.</p></noscript>
+  <p class="muted river-trip-pack__status" data-trip-status role="status" aria-live="polite"></p>
+  <textarea class="route-action-menu__manual-copy" data-trip-manual-copy aria-label="Float plan to copy" rows="8" readonly hidden></textarea>
+  {geometryReviewReason ? <p class="muted" data-geometry-review-notice>{geometryReviewReason}</p> : gpxHref
+    ? <p><a class="river-link river-link--inline" href={gpxHref} data-trip-gpx data-analytics-event="Export GPX">Download GPX</a> <span class="muted">Route geometry only; no schedule required.</span></p>
+    : <p class="muted">GPX unavailable until access and route geometry are established.</p>}
+  {geometryReviewReason && <p class="muted">GPX unavailable during route-line review.</p>}
+</section>
