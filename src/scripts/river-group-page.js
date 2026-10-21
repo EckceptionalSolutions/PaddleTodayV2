@@ -20,6 +20,7 @@ import { favoriteButtonMarkup as buildFavoriteButtonMarkup } from './favorite-bu
 import { bindFavoriteButtons, refreshFavoriteButtons } from './favorites-ui.js';
 import { routePageHref } from '../data/route-page-consolidations.ts';
 import { bindRiverTripDialog, tripDetailsButtonMarkup } from './river-trip-dialog.js';
+import { riverTripDetailsHref } from '../lib/trip-actions';
 import {
 } from './ui-taxonomy.js';
 import { createRequestGuard, isAbortError } from './request-guard.js';
@@ -78,7 +79,6 @@ const campingFilterSelect = root.querySelector('[data-group-camping-filter]');
 const routeTypeFilterSelect = root.querySelector('[data-group-route-type-filter]');
 const sortSelect = root.querySelector('[data-group-sort]');
 const selectedSummary = root.querySelector('[data-group-selected-summary]');
-bindRiverTripDialog(root);
 const moreFilters = root.querySelector('[data-group-more-filters]');
 const activeFilterCount = root.querySelector('[data-group-filter-count]');
 const clearFiltersButton = root.querySelector('[data-group-clear-filters]');
@@ -98,7 +98,7 @@ if (isAccessPlanningHub) {
   for (const key of ['distance', 'area', 'difficulty', 'camping', 'type', 'sort']) initialParams.delete(key);
 }
 const anchorSelectedSlug = window.location.hash.match(/^#trip-(.+)$/)?.[1] || null;
-const initialSelectedSlug = initialParams.get('route') || anchorSelectedSlug;
+const initialSelectedSlug = initialParams.get('details') || initialParams.get('route') || anchorSelectedSlug;
 const distanceFilterValues = new Set(['all', 'short', 'medium', 'long']);
 const sortModeValues = new Set(['recommended', 'shortest', 'longest', 'easiest', 'confidence']);
 
@@ -181,7 +181,7 @@ function syncPickerUrl({ selectTrip = false } = {}) {
   } else if (/^#trip-/.test(url.hash)) {
     url.hash = '';
   }
-  window.history.replaceState({}, '', url);
+  window.history.replaceState(window.history.state, '', url);
 }
 
 function setMobileView(view, { persist = true } = {}) {
@@ -410,7 +410,7 @@ function favoriteButtonMarkup(route) {
       reach: route.reach,
       state: route.state,
       region: route.region,
-      url: routePageHref(route.slug),
+      url: riverTripDetailsHref(route, riverId),
     },
     {
       className: 'favorite-toggle favorite-toggle--card favorite-toggle--inline',
@@ -1298,6 +1298,7 @@ function renderRouteList(routes) {
       selectPickerRoute(card.dataset.routeSlug, { reveal: 'map' });
     });
   }
+  refreshFavoriteButtons(routeList);
 }
 
 function nearbyPickerRoutes(route) {
@@ -1565,8 +1566,8 @@ function renderPicker({ fitMap = false, focusSelected = false } = {}) {
   syncPickerUrl();
 }
 
-function selectPickerRoute(slug, { focusMap = true, reveal = null, scrollToSelection = false } = {}) {
-  if (!currentResult) return;
+function selectPickerRoute(slug, { focusMap = true, reveal = null, scrollToSelection = false, syncUrl = true } = {}) {
+  if (!currentResult) { selectedSlug = slug; return; }
   const focusBeforeSelection = document.activeElement;
   const selectedRoute = currentResult.routes.find((route) => route.slug === slug);
   if (!selectedRoute) return;
@@ -1585,7 +1586,7 @@ function selectPickerRoute(slug, { focusMap = true, reveal = null, scrollToSelec
   if (reveal) {
     setMobileView(reveal);
   }
-  syncPickerUrl({ selectTrip: true });
+  if (syncUrl) syncPickerUrl({ selectTrip: true });
   if (scrollToSelection) {
     const viewVersion = mobileViewVersion;
     window.setTimeout(() => {
@@ -1696,6 +1697,7 @@ async function loadGroup({ silent = false } = {}) {
     renderRouteTypeFilters(routes);
     updateMoreFiltersVisibility();
     setMobileView(mobileView, { persist: false });
+    tripDialog?.syncSelection();
     renderPicker({ fitMap: true, focusSelected: Boolean(initialSelectedSlug) });
     root.dataset.groupLoaded = 'true';
     hydrateRouteGeometries(routes);
@@ -1790,6 +1792,18 @@ phoneBreakpoint.addEventListener('change', () => {
 });
 
 bindFavoriteButtons(document);
+const tripDialog = bindRiverTripDialog(root, {
+  onSelect: slug => selectPickerRoute(slug, { syncUrl: false }),
+  onShowMap: (slug, checkOnly = false) => {
+    if (!currentResult) return false;
+    if (checkOnly) return true;
+    selectPickerRoute(slug, { reveal: 'map' });
+    groupMap?.scrollIntoView({ block: 'center', behavior: preferredMapScrollBehavior() });
+    groupMap?.setAttribute('tabindex', '-1');
+    groupMap?.focus({ preventScroll: true });
+    return true;
+  },
+});
 setMobileView(mobileView, { persist: false });
 loadGroup();
 if (!isAccessPlanningHub) window.setInterval(() => {

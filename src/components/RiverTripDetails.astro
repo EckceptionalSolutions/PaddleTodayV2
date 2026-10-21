@@ -2,8 +2,10 @@
 import type { River } from '../lib/types';
 import { evidenceNoteLabel, evidenceNoteDetail } from '../lib/route-evidence';
 import { routeGeometryReviewHolds } from '../lib/route-geometry-review-holds.js';
-interface Props { route: River; guideHref?: string }
-const { route, guideHref } = Astro.props;
+import FavoriteButton from './FavoriteButton.astro';
+import { accessMapHref, accessDirectionsHref, accessCoordinates, shuttleDirections, tripActionLinks } from '../lib/trip-actions';
+interface Props { route: River; guideHref?: string; hubId: string }
+const { route, guideHref, hubId } = Astro.props;
 const planning = route.scoreEligibility === 'planning';
 const floor = route.profile.idealMin ?? route.profile.tooLow;
 const sections = [
@@ -17,22 +19,61 @@ const lists = [
   ['Safety notes', route.safetyProfile?.safetyNotes],
 ] as const;
 const sources = route.sourceLinks?.filter(source => /^https?:\/\//i.test(source.url)) ?? [];
+const actions = tripActionLinks(route, hubId);
+const shuttle = shuttleDirections(route.putIn, route.takeOut);
+const geometryHold = routeGeometryReviewHolds.get(route.id);
 ---
-<div class="access-plan-facts" data-trip-details-content>
+<div class="access-plan-facts" data-trip-details-content data-trip-name={route.name} data-trip-reach={route.reach} data-trip-share-url={actions.details}>
   <p class="trip-details-dialog__status">{planning ? 'Planning route · No live score' : 'Scored route · Check current conditions before launch'}</p>
   <p>{route.logistics?.summary || route.summary}</p>
+  <div class="trip-details-dialog__actions" aria-label="Trip actions">
+    <FavoriteButton className="favorite-toggle favorite-toggle--inline" slug={route.slug} name={route.name} reach={route.reach} state={route.state} region={route.region} url={actions.details} />
+    <a class="river-link river-link--inline" href={actions.plan}>Plan this trip</a>
+    <button type="button" class="river-link river-link--inline" data-modal-share>Share trip</button>
+    <button type="button" class="river-link river-link--inline" data-modal-copy-link>Copy trip link</button>
+    <button type="button" class="river-link river-link--inline" data-modal-show-map>Show this trip on map</button>
+  </div>
+  <p class="trip-details-dialog__feedback" data-modal-status role="status" aria-live="polite"></p>
+  <textarea data-modal-manual-copy aria-label="Text to copy" rows="4" readonly hidden></textarea>
   {guideHref && <p class="trip-details-dialog__guide"><a class="river-link river-link--inline" href={guideHref}>Open full trip guide →</a></p>}
   <dl class="access-plan-facts__endpoints">
     {[
-      ['Put-in', route.putIn?.name], ['Take-out', route.takeOut?.name],
       ['Distance', route.logistics?.distanceLabel], ['Typical time', route.logistics?.estimatedPaddleTime],
     ].map(([label, value]) => <div><dt>{label}</dt><dd>{value || 'Confirm locally'}</dd></div>)}
   </dl>
+  <div class="trip-details-dialog__access">
+    {([['Put-in', route.putIn], ['Take-out', route.takeOut]] as const).map(([label, point]) => <section>
+      <h3>{label}</h3><strong data-modal-access-name={label === 'Put-in' ? 'put-in' : 'take-out'}>{point?.name || 'Confirm locally'}</strong>
+      {accessCoordinates(point) ? <div class="trip-details-dialog__actions">
+        <a href={accessMapHref(point)} target="_blank" rel="noopener noreferrer">Open {label.toLowerCase()} map</a>
+        <a href={accessDirectionsHref(point)} target="_blank" rel="noopener noreferrer">Directions to {label.toLowerCase()}</a>
+        <button type="button" class="river-inline-button" data-modal-copy-coordinates={accessCoordinates(point)} aria-label={`Copy ${label.toLowerCase()} coordinates`}>Copy coordinates</button>
+      </div> : <p>Map coordinates are unavailable; confirm the access with the source.</p>}
+    </section>)}
+  </div>
+  {shuttle.google && <p><a href={shuttle.google} target="_blank" rel="noopener noreferrer">Driving shuttle route</a>{' · '}<a href={shuttle.apple} target="_blank" rel="noopener noreferrer">Shuttle in Apple Maps</a></p>}
   {routeGeometryReviewHolds.has(route.id) && <p class="trip-details-dialog__caution">{routeGeometryReviewHolds.get(route.id)}</p>}
+  <section aria-label="Trip downloads">
+    <h3>Take the plan with you</h3>
+    {geometryHold ? <p>GPX unavailable during route-line review.</p> : actions.gpx
+      ? <p><a href={actions.gpx} data-modal-gpx>Download GPX</a></p>
+      : <p>GPX is unavailable until the access points and route line are established.</p>}
+    {actions.calendar && <details class="route-choice__sources" data-modal-calendar>
+      <summary>Add to calendar</summary>
+      <div data-modal-calendar-form data-calendar-url={actions.calendar}>
+        <p>Choose your launch and expected finish. Times use your device’s timezone<span data-modal-timezone></span>.</p>
+        <label>Launch time<input type="datetime-local" name="start" required /></label>
+        <label>Expected take-out time<input type="datetime-local" name="end" required /></label>
+        <button type="button" class="river-link river-link--inline" data-modal-calendar-download hidden>Download calendar event</button>
+        <noscript><p>Calendar downloads need JavaScript to use your timezone. You can still open the trip planner above.</p></noscript>
+      </div>
+    </details>}
+  </section>
   {sections.map(([label, value]) => value && <section><h3>{label}</h3><p>{value}</p></section>)}
   <section>
     <h3>Gauge context</h3>
     <p>{route.gaugeSource.siteName}</p>
+    {route.gaugeSource.detailUrl && /^https?:\/\//i.test(route.gaugeSource.detailUrl) && <p><a href={route.gaugeSource.detailUrl} target="_blank" rel="noopener noreferrer">Open official gauge</a></p>}
     <p>{planning
       ? 'Planning only: this trip has no live Paddle Today score. Use the station reading as context and verify local conditions.'
       : typeof floor === 'number'
@@ -41,7 +82,7 @@ const sources = route.sourceLinks?.filter(source => /^https?:\/\//i.test(source.
     {route.profile.confidenceNotes && <p>{route.profile.confidenceNotes}</p>}
   </section>
   {lists.map(([label, values]) => values?.length > 0 && <section><h3>{label}</h3><ul>{values.map(value => <li>{value}</li>)}</ul></section>)}
-  {(route.evidenceNotes?.length > 0 || sources.length > 0) && <details class="route-choice__sources">
+  {(route.evidenceNotes?.length > 0 || sources.length > 0) && <details class="route-choice__sources" data-modal-sources>
     <summary>Sources and route evidence</summary>
     <div>
       {route.evidenceNotes?.length > 0 && <ul>{route.evidenceNotes.map(note => <li>

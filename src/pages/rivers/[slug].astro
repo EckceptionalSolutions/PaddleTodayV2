@@ -7,6 +7,7 @@ import { routeGeometryReviewHolds } from '../../lib/route-geometry-review-holds.
 import RouteAppHandoff from '../../components/RouteAppHandoff.astro';
 import RouteAppDownload from '../../components/RouteAppDownload.astro';
 import { webFeatureFlags } from '../../lib/web-feature-flags';
+import { accessMapHref, shuttleDirections } from '../../lib/trip-actions';
 
 import FeatureIcon from '../../components/FeatureIcon.astro';
 import GaugeBand from '../../components/GaugeBand.astro';
@@ -85,28 +86,9 @@ const safetyNotes = safetyModel.notes;
 const safetyHazards = safetyModel.hazards;
 const criticalSafetyNote = safetyNotes[0] ?? null;
 const supportingSafetyNotes = safetyNotes.slice(1);
-const putInMapsUrl =
-  typeof putIn?.latitude === 'number' && typeof putIn?.longitude === 'number'
-    ? `https://www.google.com/maps?q=${putIn.latitude},${putIn.longitude}`
-    : undefined;
-const takeOutMapsUrl =
-  typeof takeOut?.latitude === 'number' && typeof takeOut?.longitude === 'number'
-    ? `https://www.google.com/maps?q=${takeOut.latitude},${takeOut.longitude}`
-    : undefined;
-const directionsGoogleUrl =
-  typeof putIn?.latitude === 'number' &&
-  typeof putIn?.longitude === 'number' &&
-  typeof takeOut?.latitude === 'number' &&
-  typeof takeOut?.longitude === 'number'
-    ? `https://www.google.com/maps/dir/?api=1&origin=${encodeURIComponent(`${putIn.latitude},${putIn.longitude}`)}&destination=${encodeURIComponent(`${takeOut.latitude},${takeOut.longitude}`)}`
-    : undefined;
-const directionsAppleUrl =
-  typeof putIn?.latitude === 'number' &&
-  typeof putIn?.longitude === 'number' &&
-  typeof takeOut?.latitude === 'number' &&
-  typeof takeOut?.longitude === 'number'
-    ? `https://maps.apple.com/?saddr=${encodeURIComponent(`${putIn.latitude},${putIn.longitude}`)}&daddr=${encodeURIComponent(`${takeOut.latitude},${takeOut.longitude}`)}&dirflg=d`
-    : undefined;
+const putInMapsUrl = accessMapHref(putIn);
+const takeOutMapsUrl = accessMapHref(takeOut);
+const { google: directionsGoogleUrl, apple: directionsAppleUrl } = shuttleDirections(putIn, takeOut);
 const openStreetMapUrl = `https://www.openstreetmap.org/?mlat=${river.latitude}&mlon=${river.longitude}#map=11/${river.latitude}/${river.longitude}`;
 const shuttleHeadline = logisticsModel.shuttleHeadline;
 const typicalTimeHeadline = logistics?.estimatedPaddleTime?.split(/[;,]/)[0]?.trim() || 'Check route notes';

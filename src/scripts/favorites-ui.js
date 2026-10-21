@@ -87,7 +87,7 @@ export function refreshFavoriteButtons(root = document) {
   }
 }
 
-export function bindFavoriteButtons(root = document, { onToggle } = {}) {
+export function bindFavoriteButtons(root = document, { onToggle, onError } = {}) {
   if (boundRoots.has(root)) {
     refreshFavoriteButtons(root);
     return () => {};
@@ -121,6 +121,7 @@ export function bindFavoriteButtons(root = document, { onToggle } = {}) {
     try {
       saved = toggleFavorite(favorite);
     } catch (error) {
+      if (typeof onError === 'function') onError({ button, error });
       showActionFeedback('Could not update Saved routes. ' + (error instanceof SyntaxError ? 'Stored routes could not be read. Your list was kept.' : error.message || 'Browser storage is unavailable.'));
       return;
     }
