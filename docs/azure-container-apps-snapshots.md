@@ -53,6 +53,12 @@ data roles. Azure-hosted runs also treat the NOAA MRMS rainfall endpoint as an
 optional provider because its Azure responses currently return HTTP 403;
 NWS weather and gauge coverage remain protected by the normal quality gates.
 
+Station observations older than three hours fall back to the hourly forecast,
+using the forecast hour's timestamp and source label. Supplemental NWS grid
+failures leave hourly temperature, wind, and rain probability available. The
+snapshot quality gate requires fresh weather on at least 85% of scored routes;
+stale observations do not count toward that threshold.
+
 ## Operations
 
 List recent executions:

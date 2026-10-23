@@ -1,4 +1,5 @@
 import { fetchJson } from './http';
+import { WEATHER_STALE_MINUTES } from './weather-freshness';
 import {
   addDaysToDateKey,
   forecastDateKey,
@@ -93,7 +94,7 @@ export async function fetchNwsWeatherSnapshot(
   const forecastHourlyUrl = point.properties?.forecastHourly;
   const forecastGridDataUrl = point.properties?.forecastGridData;
   const observationStationsUrl = point.properties?.observationStations;
-  if (!forecastHourlyUrl || !forecastGridDataUrl) {
+  if (!forecastHourlyUrl) {
     return null;
   }
 
@@ -103,15 +104,25 @@ export async function fetchNwsWeatherSnapshot(
       retries: 2,
       headers: NWS_HEADERS,
     }),
-    fetchJson<NwsGridDataResponse>(forecastGridDataUrl, {
+    forecastGridDataUrl ? fetchJson<NwsGridDataResponse>(forecastGridDataUrl, {
       timeoutMs: 10_000,
       retries: 2,
       headers: NWS_HEADERS,
-    }),
+    }).catch((error): NwsGridDataResponse => {
+      console.warn(`[weather] NWS supplemental grid unavailable for ${latitude},${longitude}`, error);
+      return {};
+    }) : Promise.resolve<NwsGridDataResponse>({}),
     fetchLatestObservation(observationStationsUrl),
   ]);
 
-  const periods = Array.isArray(hourly.properties?.periods) ? hourly.properties.periods : [];
+  const now = Date.now();
+  const allPeriods = Array.isArray(hourly.properties?.periods) ? hourly.properties.periods : [];
+  const upcomingPeriods = allPeriods.filter((period) =>
+    typeof period.endTime === 'string' && Date.parse(period.endTime) > now
+  );
+  // NWS can include elapsed hours. Keep an old forecast's original timestamp
+  // when no upcoming hours remain, so a fetch never makes old data look fresh.
+  const periods = upcomingPeriods.length > 0 ? upcomingPeriods : allPeriods;
   if (periods.length === 0) {
     return null;
   }
@@ -119,7 +130,14 @@ export async function fetchNwsWeatherSnapshot(
   const nowPeriod = periods[0];
   const forecastTimeZone = point.properties?.timeZone ?? null;
   const forecastReferenceTime = nowPeriod.startTime ?? new Date().toISOString();
-  const observationProps = latestObservation?.properties;
+  const stationTimestamp = latestObservation?.properties?.timestamp;
+  const stationAgeMs = typeof stationTimestamp === 'string' ? now - Date.parse(stationTimestamp) : NaN;
+  // A delayed observation must not override the current forecast's values or
+  // timestamp. Allow five minutes of clock skew, but reject bad future dates.
+  const observationProps = Number.isFinite(stationAgeMs) &&
+    stationAgeMs >= -5 * 60_000 && stationAgeMs <= WEATHER_STALE_MINUTES * 60_000
+    ? latestObservation?.properties
+    : undefined;
   const observedAt =
     typeof observationProps?.timestamp === 'string' ? observationProps.timestamp : nowPeriod.startTime ?? null;
   const observationTempF = convertTemperatureToF(
@@ -195,7 +213,7 @@ export async function fetchNwsWeatherSnapshot(
     next12hPrecipProbabilityMax: precipProbabilities.length > 0 ? Math.max(...precipProbabilities) : null,
     next12hPrecipitationIn: precipAmounts.length > 0 ? sum(precipAmounts) : null,
     next12hPrecipStartsInHours: firstRainHour
-      ? Math.max(0, Math.round((new Date(firstRainHour.time).getTime() - new Date(observedAt ?? firstRainHour.time).getTime()) / 3_600_000))
+      ? Math.max(0, Math.round((new Date(firstRainHour.time).getTime() - now) / 3_600_000))
       : null,
     next12hWindMphMax: windValues.length > 0 ? Math.max(...windValues) : nowWindMph,
     next12hStormRisk: next12h.some((point) => /(storm|thunder)/i.test(point.conditionLabel ?? '')),
