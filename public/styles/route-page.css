@@ -1,4 +1,15 @@
 /* Route-page-specific layout and controls. Access-map styling lives in route-maps.css. */
+.route-embed-link {
+  display: inline-flex;
+  align-items: center;
+  justify-self: end;
+  min-height: 44px;
+  padding-inline: 0.35rem;
+  color: var(--river-deep);
+  font-size: 0.75rem;
+  text-underline-offset: 3px;
+}
+
 @media (max-width: 760px) {
   html body [data-river-detail] .river-detail__section-nav--desktop {
     position: static !important;
