@@ -1,0 +1,91 @@
+---
+import { listRivers } from '../../lib/rivers';
+import { DEFAULT_EMBED_ROUTE, EMBED_FRAME_HEIGHT } from '../../lib/route-embed';
+import BrandLockup from '../../components/BrandLockup.astro';
+const routes = listRivers().sort((a, b) => a.name.localeCompare(b.name) || a.reach.localeCompare(b.reach));
+const defaultRoute = routes.find(route => route.slug === DEFAULT_EMBED_ROUTE) ?? routes[0];
+---
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="robots" content="noindex, follow" />
+    <title>A river on your website | Paddle Today route cards</title>
+    <meta name="description" content="Embed a Paddle Today conditions card on your website with the route score, weather, water level, and a visual water-range indicator." />
+    <link rel="stylesheet" href="/styles/route-embed-builder.css?v=20261022-referrals-1" />
+  </head>
+  <body>
+    <header class="builder-header">
+      <a href="/" class="builder-brand"><BrandLockup size={60} imageAlt="" tagline={null}/></a>
+      <span class="builder-header-label">For the places that bring people to the water</span>
+      <a class="builder-back" href="/">Explore Paddle Today <span aria-hidden="true">↗</span></a>
+    </header>
+    <main class="builder-main">
+      <div class="builder-intro">
+        <p class="builder-eyebrow"><span></span> A little local knowledge. A better day out.</p>
+        <h1>Your river.<br/>On your website.</h1>
+        <p>Give your visitors the conditions at a glance. One embeddable card with the Paddle Today score, weather, and a visual guide to the water level.</p>
+        <div class="builder-promise"><span>Free to use</span><span>No account needed</span></div>
+      </div>
+      <nav class="builder-jump" aria-label="Card builder steps"><a href="#customize">Customize</a><a href="#preview">Preview</a><a href="#install">Get the code</a></nav>
+      <section class="builder-controls builder-panel" id="customize" aria-labelledby="builder-title">
+        <div class="builder-step-heading"><span class="builder-step">01</span><div><h2 id="builder-title">Make it yours</h2><p>Choose a route and a style that feels at home.</p></div></div>
+        <label class="builder-field-label" for="route-select">Your river route</label>
+        <select id="route-select">
+          {routes.map(route => <option value={route.slug} selected={route.slug === defaultRoute.slug} data-name={route.name} data-reach={route.reach} data-state={route.state} data-search={[route.name, route.reach, route.state, ...(route.aliases ?? [])].join(' ')}>{route.name} · {route.state} — {route.reach}</option>)}
+        </select>
+        <div class="builder-route-picker" id="route-picker" hidden>
+          <button type="button" class="builder-selected-route" id="selected-route" aria-expanded="false" aria-controls="route-search-panel">
+            <svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true"><path d="M3 7c4-4 5 4 9 0s5 4 9 0M3 13c4-4 5 4 9 0s5 4 9 0M3 19c4-4 5 4 9 0s5 4 9 0" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+            <span><strong id="selected-name">{defaultRoute.name}</strong><small id="selected-reach">{defaultRoute.reach}</small><em id="selected-state">{defaultRoute.state}</em></span>
+            <span class="builder-change">Change <span aria-hidden="true">⌄</span></span>
+          </button>
+          <div class="builder-search-panel" id="route-search-panel" hidden>
+            <label for="route-search" class="builder-field-label">Find your river</label>
+            <div class="builder-search-wrap"><svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><circle cx="10.5" cy="10.5" r="6.5" fill="none" stroke="currentColor" stroke-width="1.6"/><path d="m16 16 4 4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg><input type="search" id="route-search" placeholder="River, state, or access point" autocomplete="off" aria-describedby="route-count"/></div>
+            <p class="builder-hint" id="route-count" role="status">Search {routes.length.toLocaleString('en-US')} routes.</p>
+            <ul class="builder-search-results" id="route-results" aria-label="Matching routes"></ul>
+          </div>
+        </div>
+        <fieldset class="builder-layout"><legend>Card layout</legend><div class="builder-layout-options">
+          <label><input type="radio" name="layout" value="standard" checked/><span><i class="layout-swatch standard" aria-hidden="true"><b></b><b></b><b></b></i><strong>Scenic</strong><small>A little river inspiration</small></span></label>
+          <label><input type="radio" name="layout" value="compact"/><span><i class="layout-swatch compact" aria-hidden="true"><b></b><b></b><b></b></i><strong>Compact</strong><small>Made for smaller spaces</small></span></label>
+        </div></fieldset>
+        <fieldset class="builder-theme"><legend>Color theme</legend><div class="builder-theme-options"><label><input type="radio" name="theme" value="light" checked/><span><i class="theme-swatch light"></i>Light</span></label><label><input type="radio" name="theme" value="dark"/><span><i class="theme-swatch dark"></i>Dark</span></label></div></fieldset>
+        <fieldset class="builder-accent"><legend>Match your website</legend><div class="builder-accent-options">
+          <label><input type="radio" name="accent" value="forest" checked/><span><i class="accent-swatch forest"></i>Forest</span></label>
+          <label><input type="radio" name="accent" value="river"/><span><i class="accent-swatch river"></i>River</span></label>
+          <label><input type="radio" name="accent" value="clay"/><span><i class="accent-swatch clay"></i>Clay</span></label>
+        </div></fieldset>
+        <div class="builder-referrals">
+          <label class="builder-field-label" for="partner-tag">Partner tag <span class="builder-optional">optional</span></label>
+          <input class="builder-partner" type="text" id="partner-tag" placeholder="e.g. riverbend-campground" maxlength="64" aria-describedby="partner-hint partner-attribution" autocomplete="off" spellcheck="false"/>
+          <p class="builder-hint" id="partner-hint">Use one stable, public tag per partner website to compare the visitors each card sends to Paddle Today.</p>
+          <p class="builder-attribution" id="partner-attribution" role="status"></p>
+        </div>
+        <details class="builder-advanced" id="advanced-settings"><summary>Branding settings <span aria-hidden="true">+</span></summary><div>
+          <label class="builder-checkbox"><input type="checkbox" id="show-branding" checked/><span>Show Paddle Today credit<small>Optional. The full route is always one click away.</small></span></label>
+        </div></details>
+      </section>
+      <section class="builder-preview" id="preview" aria-labelledby="preview-title">
+        <div class="builder-preview-top"><div><span class="builder-preview-dot"></span><h2 id="preview-title">Your card, in the wild</h2></div><div class="builder-widths" role="group" aria-label="Preview width"><button type="button" data-preview-width="420" aria-pressed="true">Wide</button><button type="button" data-preview-width="320" aria-pressed="false">Narrow</button></div></div>
+        <div class="builder-preview-surface"><div class="builder-frame-wrap" id="preview-wrap"><iframe data-paddletoday-route id="route-preview" src={`/embed/routes/${defaultRoute.slug}/?preview=1`} title={`${defaultRoute.name} — route card preview`} width="100%" height={EMBED_FRAME_HEIGHT} style="border:0;display:block;width:100%;border-radius:24px" referrerpolicy="strict-origin-when-cross-origin"></iframe></div><p class="builder-preview-caption">Their next adventure starts right here.</p></div>
+        <div class="builder-benefits"><span><svg viewBox="0 0 20 20" width="16" height="16" aria-hidden="true"><path d="m4 10 4 4 8-8" fill="none" stroke="currentColor" stroke-width="1.5"/></svg> Fits your website</span><span><svg viewBox="0 0 20 20" width="16" height="16" aria-hidden="true"><path d="M15 6a6 6 0 1 0 1 6M15 2v5h-5" fill="none" stroke="currentColor" stroke-width="1.5"/></svg> Updates itself</span><span><svg viewBox="0 0 20 20" width="16" height="16" aria-hidden="true"><path d="M10 17s-7-4-7-9a4 4 0 0 1 7-2 4 4 0 0 1 7 2c0 5-7 9-7 9Z" fill="none" stroke="currentColor" stroke-width="1.5"/></svg> No visitor sign-in</span></div>
+      </section>
+      <section class="builder-install builder-panel" id="install" aria-labelledby="install-title">
+        <div class="builder-step-heading"><span class="builder-step">02</span><div><h2 id="install-title">Bring it to your site</h2><p>Copy once. Paste into an HTML or embed block.</p></div></div>
+        <button class="builder-copy" type="button" id="copy-code"><svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><rect x="8" y="8" width="12" height="13" rx="2" fill="none" stroke="currentColor" stroke-width="1.7"/><path d="M16 8V5a2 2 0 0 0-2-2H5a2 2 0 0 0-2 2v9a2 2 0 0 0 2 2h3" fill="none" stroke="currentColor" stroke-width="1.7"/></svg><span data-copy-label>Copy embed code</span><span class="builder-copy-arrow" aria-hidden="true">↗</span></button>
+        <p class="builder-copy-status" id="copy-status" role="status"></p>
+        <button type="button" class="builder-share" id="copy-preview"><svg viewBox="0 0 20 20" width="15" height="15" aria-hidden="true"><path d="m8 12 4-4M7 13l-1 1a3 3 0 0 1-4-4l3-3a3 3 0 0 1 4 0m2 0 1-1a3 3 0 0 1 4 4l-3 3a3 3 0 0 1-4 0" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg><span>Copy configuration link</span></button>
+        <label class="builder-manual-link" id="preview-link-fallback" hidden>Configuration link<input type="text" id="preview-link" readonly/></label>
+        <p id="share-status" class="builder-copy-status" role="status"></p>
+        <details class="builder-code-details" id="code-details"><summary>View embed code</summary><label class="builder-field-label" for="embed-code">Your embed code</label><textarea id="embed-code" readonly spellcheck="false" rows="7"></textarea></details>
+        <details class="builder-help"><summary>How to add it to your website</summary><p><strong>WordPress:</strong> add a Custom HTML block.<br/><strong>Squarespace:</strong> add an Embed block.<br/><strong>Wix:</strong> use an Embed HTML element.</p><p>Some plans restrict custom code. If scripts are stripped, the iframe still works at its default height; allow more height for long route names or photo credits.</p><p>The card refreshes while visible, labels older readings, and keeps the route link available during a gauge outage. No cookies or visitor accounts. The small script only adjusts the card’s height.</p><p>The partner tag attributes visits after someone opens Paddle Today. The card itself sends no analytics. Links in this builder’s preview are excluded from partner results.</p></details>
+      </section>
+    </main>
+    <footer class="builder-footer"><span>Good days start with a little local knowledge.</span><a href="/contact/">Questions? Get in touch ↗</a></footer>
+    <script src="/embed.js" is:inline defer></script>
+    <script>import '../../scripts/route-embed-builder';</script>
+  </body>
+</html>

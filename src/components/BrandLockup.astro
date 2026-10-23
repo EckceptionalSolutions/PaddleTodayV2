@@ -1,0 +1,21 @@
+---
+interface Props {
+  tagline?: string | null;
+  size?: number;
+  imageAlt?: string;
+}
+const { tagline = 'Find the best paddle near you today', size = 180, imageAlt = 'Paddle Today' } = Astro.props;
+---
+<picture>
+  <source srcset="/brand/paddle-today-logo-180.webp" type="image/webp" />
+  <img class="brand__logo" src="/brand/paddle-today-logo-transparent-512.png" alt={imageAlt} width={size} height={size} decoding="async" />
+</picture>
+<div class="brand__copy brand__copy--with-wordmark">
+  <span class="brand__eyebrow">Paddle Today</span>
+  {tagline && <span class="brand__title">{tagline}</span>}
+</div>
+<style>
+  .brand__copy { display:grid; gap:.28rem; min-width:0; }
+  .brand__eyebrow { font-family:"Avenir Next","Trebuchet MS","Gill Sans",sans-serif; font-size:.76rem; font-weight:400; letter-spacing:.13em; text-transform:uppercase; color:var(--brand-muted,var(--muted,#5c7380)); }
+  .brand__title { font-family:var(--serif,"Iowan Old Style","Palatino Linotype","Book Antiqua",Georgia,serif); font-size:1.12rem; font-weight:400; line-height:1.05; letter-spacing:normal; color:var(--brand-ink,var(--ink,#10232d)); max-width:24ch; }
+</style>

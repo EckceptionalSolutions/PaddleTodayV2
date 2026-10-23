@@ -413,6 +413,8 @@ export interface HourlyWeatherPoint {
 }
 
 export interface WeatherSnapshot {
+  /** IANA timezone from the forecast location; older snapshots may omit it. */
+  timeZone?: string | null;
   observedAt: string | null;
   temperatureF: number | null;
   windMph: number | null;

@@ -22,6 +22,7 @@ const PRODUCT_EVENTS = [
   "route_photo_contribution_submitted",
 ];
 const WEB_CONVERSIONS = [
+  "Route card referral",
   "Route view",
   "Guide-to-route click",
   "Submit route request",

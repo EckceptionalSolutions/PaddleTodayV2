@@ -22,7 +22,7 @@ export default defineConfig({
         const pathname = new URL(page).pathname.replace(/\/$/, '') || '/';
         const tripSlug = pathname.match(/^\/rivers\/([^/]+)$/)?.[1];
         if (tripSlug && !isIndexableRoutePage(tripSlug)) return false;
-        return !['/404', '/404.html', '/admin', '/alerts/unsubscribe', '/favorites', '/request-river', '/trips', '/share', '/account']
+        return !['/404', '/404.html', '/admin', '/alerts/unsubscribe', '/favorites', '/request-river', '/trips', '/share', '/account', '/embed']
           .some((excluded) => pathname === excluded || pathname.startsWith(`${excluded}/`));
       },
     }),

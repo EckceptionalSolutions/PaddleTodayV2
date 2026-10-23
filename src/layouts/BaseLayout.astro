@@ -1,6 +1,7 @@
 ---
 import FeatureIcon from '../components/FeatureIcon.astro';
 import AccountMenu from '../components/AccountMenu.astro';
+import BrandLockup from '../components/BrandLockup.astro';
 
 import { appleAppId, appStoreUrl, playStoreUrl } from '../lib/app-store-links';
 import { listRiverStateGroups } from '../lib/rivers';
@@ -169,7 +170,7 @@ const appDownloadConfigJson = JSON.stringify({
     <link rel="stylesheet" href={`/styles/interaction-feedback.css?v=${assetVersion}`} />
     <link rel="stylesheet" href={`/styles/site-motion.css?v=${assetVersion}`} />
   </head>
-  <body class={pageClass}>
+  <body class={pageClass} data-analytics-enabled={String(!privatePage && import.meta.env.PROD && !!umamiWebsiteId)}>
     <div class="navigation-feedback" data-navigation-feedback hidden>
       <div class="navigation-feedback__track" aria-hidden="true"><span class="navigation-feedback__bar"></span></div>
       <span class="navigation-feedback__message" data-navigation-message role="status" aria-live="polite"></span>
@@ -178,21 +179,7 @@ const appDownloadConfigJson = JSON.stringify({
       <a class="skip-link" href="#main-content">Skip to content</a>
       <header class="site-header">
         <a class="brand" href="/">
-          <picture>
-            <source srcset="/brand/paddle-today-logo-180.webp" type="image/webp" />
-            <img
-              class="brand__logo"
-              src="/brand/paddle-today-logo-transparent-512.png"
-              alt="Paddle Today"
-              width="180"
-              height="180"
-              decoding="async"
-            />
-          </picture>
-          <div class="brand__copy brand__copy--with-wordmark">
-            <span class="brand__eyebrow">Paddle Today</span>
-            <span class="brand__title">{headerTitle}</span>
-          </div>
+          <BrandLockup tagline={headerTitle} />
         </a>
 
         <div class="site-header__meta">

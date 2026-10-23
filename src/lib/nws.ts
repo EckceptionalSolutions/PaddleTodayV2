@@ -205,6 +205,7 @@ export async function fetchNwsWeatherSnapshot(
       : next12h[0]?.precipProbability ?? null;
 
   return {
+    timeZone: forecastTimeZone,
     observedAt,
     temperatureF: nowTempF,
     windMph: nowWindMph,
