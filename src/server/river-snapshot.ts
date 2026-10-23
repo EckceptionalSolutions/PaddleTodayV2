@@ -3,6 +3,7 @@ import { getUpstreamTelemetry } from '../lib/http';
 import { captureRiverSnapshots, getStoredRiverDetailSnapshot } from '../lib/river-snapshots';
 import { getAllRiverScores, listScoredRivers } from '../lib/rivers';
 import { assertScoredCatalogCoverage } from '../lib/catalog-coverage';
+import { assertSnapshotQuality } from '../lib/snapshot-quality';
 import {
   assessUpstreamHealth,
   DEFAULT_UPSTREAM_HEALTH_THRESHOLDS,
@@ -80,27 +81,6 @@ function assertUpstreamHealth() {
   if (!assessment.ok) {
     throw new Error(
       `Upstream health gate failed: ${assessment.issues.join('; ')}. Existing production snapshots were preserved.`,
-    );
-  }
-}
-
-function assertSnapshotQuality(results: Awaited<ReturnType<typeof getAllRiverScores>>) {
-  if (results.length === 0) {
-    throw new Error('Snapshot capture returned no river scores.');
-  }
-
-  const gaugeUsable = results.filter((result) => result.liveData.gauge.state !== 'unavailable').length;
-  const weatherUsable = results.filter((result) => result.liveData.weather.state !== 'unavailable').length;
-  const gaugeRatio = gaugeUsable / results.length;
-  const weatherRatio = weatherUsable / results.length;
-
-  console.log(
-    `[snapshots] quality gauge=${gaugeUsable}/${results.length} (${percent(gaugeRatio)}) weather=${weatherUsable}/${results.length} (${percent(weatherRatio)})`,
-  );
-
-  if (gaugeRatio < 0.75 || weatherRatio < 0.85) {
-    throw new Error(
-      `Snapshot quality gate failed: usable gauge ${percent(gaugeRatio)}, usable weather ${percent(weatherRatio)}. Existing production snapshots were preserved.`,
     );
   }
 }

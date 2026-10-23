@@ -20,8 +20,8 @@ import type {
 } from './types';
 import { buildSourceStrengthViewModel, gaugeBandDisplayLabel as gaugeBandLabel } from '@paddletoday/api-contract';
 import { staleMinutesForGaugeProvider } from './source-adapters';
+import { WEATHER_STALE_MINUTES } from './weather-freshness';
 
-const WEATHER_STALE_MINUTES = 180;
 const MINIMUM_ONLY_SCORE_CAP = 74;
 
 interface ScoreLimit {
