@@ -164,7 +164,7 @@ const appDownloadConfigJson = JSON.stringify({
       {Astro.url.pathname.startsWith('/rivers/by-river/') && <link rel="stylesheet" href={`/styles/river-picker.css?v=${assetVersion}-river-reading-20261021`} />}
       {pageClass.split(/\s+/).includes('page-route-detail') && <link rel="stylesheet" href={`/styles/route-base.css?v=${assetVersion}`} />}
       {pageClass.split(/\s+/).includes('page-route-detail') && <link rel="stylesheet" href={`/styles/route-maps.css?v=${assetVersion}`} />}
-      {pageClass.split(/\s+/).includes('page-route-detail') && <link rel="stylesheet" href={`/styles/route-page.css?v=${assetVersion}-river-reading-20261021`} />}
+      {pageClass.split(/\s+/).includes('page-route-detail') && <link rel="stylesheet" href={`/styles/route-page.css?v=${assetVersion}-embed-discovery-20261023`} />}
       {(pageClass.split(/\s+/).includes('page-route-detail') || Astro.url.pathname.startsWith('/trips/')) && <link rel="stylesheet" href={`/styles/route-trip-plan.css?v=${assetVersion}-guest-plans-20261021`} />}
       {(pageClass.split(/\s+/).includes('page-route-detail') || pageClass.split(/\s+/).includes('page-river-hub')) && <link rel="stylesheet" href={`/styles/river-reading.css?v=${assetVersion}-20261021`} />}
     <link rel="stylesheet" href={`/styles/interaction-feedback.css?v=${assetVersion}`} />
@@ -281,6 +281,7 @@ const appDownloadConfigJson = JSON.stringify({
           <a class="site-footer__link" href="/favorites/">Saved routes</a>
           <a class="site-footer__link" href="/states/">States</a>
           <a class="site-footer__link" href="/guides/">Guides</a>
+          <a class="site-footer__link" href="/embed/">Embed river conditions</a>
           <a class="site-footer__link" href="/request-river/">Request a Route</a>
           <a class="site-footer__link" href="/contact/">Contact</a>
           <a class="site-footer__link" href="/privacy/">Privacy</a>
