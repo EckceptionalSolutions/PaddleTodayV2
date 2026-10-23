@@ -1,0 +1,98 @@
+---
+import { listRivers } from '../../../lib/rivers';
+import { getRoutePreviewPhoto } from '../../../data/route-gallery';
+import { routeEmbedPlanUrl, routeEmbedBrandUrl } from '../../../lib/route-embed';
+import { formatPaddleTimeLabel } from '@paddletoday/api-contract';
+import WeatherIcon from '../../../components/embed/WeatherIcon.astro';
+import BrandLockup from '../../../components/BrandLockup.astro';
+
+export function getStaticPaths() {
+  return listRivers().map(river => ({ params: { slug: river.slug }, props: { river } }));
+}
+const { river } = Astro.props;
+const photo = getRoutePreviewPhoto(river);
+const planning = river.scoreEligibility === 'planning';
+const origin = Astro.site?.origin ?? 'https://paddletoday.com';
+const routeUrl = routeEmbedPlanUrl(origin, river.slug).href;
+const timeLabel = formatPaddleTimeLabel(river.logistics?.estimatedPaddleTime);
+const photoContext = photo.isPlaceholder ? 'Representative river image' : photo.sourceKind === 'route' ? 'Route photograph · not current conditions' : 'River context · not this exact reach';
+---
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="robots" content="noindex, follow" />
+    <title>{river.name} route card | Paddle Today</title>
+    <link rel="stylesheet" href="/styles/route-embed.css?v=20261022-brand-2" />
+    <script is:inline>const settings = new URLSearchParams(location.search); document.documentElement.dataset.theme = settings.get('theme') === 'dark' ? 'dark' : 'light'; document.documentElement.dataset.layout = settings.get('layout') === 'compact' ? 'compact' : 'standard'; document.documentElement.dataset.accent = ['river', 'clay'].includes(settings.get('accent')) ? settings.get('accent') : 'forest';</script>
+  </head>
+  <body class="embed-body">
+    <article class="route-embed" data-route-embed data-slug={river.slug} data-planning={String(planning)} aria-labelledby="route-title">
+      <header class="embed-masthead" data-brand>
+        <a class="embed-brand" href={routeEmbedBrandUrl(origin, river.slug).href} target="_blank" rel="noopener nofollow" data-brand-link><BrandLockup size={56} imageAlt="" tagline={null} /></a>
+      </header>
+      <div class="embed-hero">
+        <img class="embed-photo" src={photo.src} alt={photo.alt} width="960" height="540" decoding="async" loading="lazy" />
+        <div class="embed-hero-shade"></div>
+        <span class="embed-eyebrow"><svg viewBox="0 0 24 24" width="17" height="17" aria-hidden="true"><path d="M2 8c3-4 5 4 9 0s6 4 11 0M2 14c3-4 5 4 9 0s6 4 11 0" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/></svg> Find your next paddle</span>
+        <div class="embed-route-heading">
+          <p class="embed-location">{river.state}</p>
+          <h1 id="route-title">{river.name}</h1>
+          <p class="embed-reach">{river.reach}</p>
+          <div class="embed-route-facts">{river.logistics?.distanceLabel && <span><svg viewBox="0 0 20 20" width="14" height="14" aria-hidden="true"><path d="M3 15h10a4 4 0 0 0 0-8H7m0 0 3-3M7 7l3 3" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>{river.logistics.distanceLabel}</span>}<span>{river.profile.difficulty[0].toUpperCase() + river.profile.difficulty.slice(1)}</span>{timeLabel && timeLabel.length <= 28 && <span title={`Estimated paddle time: ${river.logistics?.estimatedPaddleTime}`} aria-label={`Estimated paddle time: ${timeLabel}`}><svg viewBox="0 0 20 20" width="13" height="13" aria-hidden="true"><circle cx="10" cy="10" r="7" fill="none" stroke="currentColor" stroke-width="1.4"/><path d="M10 6v4l3 2" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/></svg>{timeLabel}</span>}</div>
+        </div>
+      </div>
+      <div class="embed-content">
+        <div class="embed-date-line"><span data-date-label>Conditions for</span><time data-conditions-date>Checking date…</time></div>
+        <div class="embed-conditions-grid">
+        <section class="embed-score" aria-label="Paddle Today score" data-score-tone="unavailable">
+          <div class="embed-score-ring" data-score-ring role="img" aria-label="Score unavailable"><div><strong data-score-value>—</strong><small>/ 100</small></div></div>
+          <div class="embed-score-copy"><p class="embed-section-label">Paddle score</p><h2 data-score-label>{planning ? 'Planning route' : 'Checking conditions'}</h2><p data-score-detail>{planning ? 'This trip does not receive a daily score.' : 'Water, weather, and route guidance.'}</p></div>
+        </section>
+        <section class="embed-water" aria-label="Water conditions">
+        <div class="embed-reading-heading">
+          <span class="embed-section-label" data-metric>{planning ? 'Your next river trip' : river.gaugeSource.unit === 'ft' ? 'Water level' : 'River flow'}</span>
+          <span class="embed-status" data-reading-status data-state={planning ? 'planning' : 'loading'}><span></span><span data-status-text>{planning ? 'Planning route' : 'Checking reading'}</span></span>
+        </div>
+        <div class="embed-reading" aria-live="polite" aria-atomic="true">
+          <div class="embed-value-row"><p class="embed-value"><span data-reading-value>{planning ? 'Trip guide' : '—'}</span><span class="embed-unit" data-reading-unit></span></p><div class="embed-trend-block"><span class="embed-trend" data-trend="unknown"><span data-trend-arrow aria-hidden="true">↔</span> <span data-trend-label>{planning ? 'Access & trip details' : 'Trend unavailable'}</span></span><span class="embed-change" data-change hidden></span></div></div>
+          <p class="embed-observed" data-observed>{planning ? 'No calibrated gauge reading for this trip.' : 'Loading the latest available observation…'}</p>
+          <p class="embed-reading-note" data-reading-note hidden></p>
+        </div>
+        <div class="embed-water-band" data-water-band hidden role="img" aria-label="Water-level guidance">
+          <div class="embed-band-heading"><strong data-band-status></strong><span data-band-range></span></div>
+          <div class="embed-band-track" aria-hidden="true"><span class="embed-band-marker" data-band-marker></span></div>
+          <div class="embed-band-labels" aria-hidden="true"><span data-band-low>Low</span><span data-band-mid>Preferred</span><span data-band-high>High</span></div>
+        </div>
+        <p class="embed-band-unavailable" data-band-unavailable>{planning ? 'No calibrated water-level range for this trip.' : 'Checking the route’s water-level guidance…'}</p>
+        </section>
+        </div>
+        <section class="embed-weather" aria-label="Route weather" data-weather-state="unavailable">
+          <div class="embed-weather-heading"><span class="embed-section-label">Weather</span><span data-weather-status>Checking weather</span></div>
+          <div class="embed-weather-summary"><WeatherIcon size={28}/><strong data-weather-temp>—</strong><span data-weather-condition>Weather unavailable</span></div>
+          <div class="embed-weather-facts"><div><svg viewBox="0 0 20 20" width="16" height="16" aria-hidden="true"><path d="M2 7h10a3 3 0 1 0-3-3M2 11h13a3 3 0 1 1-3 3M4 15h3" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/></svg><span><strong data-weather-wind>—</strong><small data-weather-wind-label>Wind · next 12h</small></span></div><div><svg viewBox="0 0 20 20" width="16" height="16" aria-hidden="true"><path d="M10 2s-6 6-6 10a6 6 0 0 0 12 0c0-4-6-10-6-10Z" fill="none" stroke="currentColor" stroke-width="1.4"/></svg><span><strong data-weather-rain>—</strong><small>Rain · next 12h</small></span></div></div>
+          <p class="embed-weather-risk" data-weather-risk hidden></p>
+          <div class="embed-forecast" data-forecast hidden>
+            <div class="embed-forecast-heading"><strong>Hourly forecast</strong><div class="embed-forecast-navigation"><span data-forecast-dates></span><div class="embed-forecast-controls" data-forecast-controls hidden><button type="button" data-forecast-previous aria-label="Earlier forecast hours">‹</button><button type="button" data-forecast-next aria-label="Later forecast hours">›</button></div></div></div>
+            <div class="embed-forecast-scroll" tabindex="0" role="region" aria-label="Hourly temperature, rain chance, and wind. Scroll for more hours."><ol class="embed-forecast-hours" data-forecast-hours></ol></div>
+            <p class="embed-forecast-key"><span>Rain chance · wind mph</span><span data-forecast-zone></span></p>
+          </div>
+          <p class="embed-forecast-empty" data-forecast-empty>Hourly forecast unavailable.</p>
+          <p class="embed-weather-observed" data-weather-observed></p>
+        </section>
+        <details class="embed-history" data-history hidden><summary>Recent water-level trend <span aria-hidden="true">⌄</span></summary><div class="embed-chart" data-chart-region hidden>
+          <div class="embed-chart-heading"><span data-chart-duration>Recent observations</span><span data-chart-range></span></div>
+          <svg viewBox="0 0 320 64" preserveAspectRatio="none" role="img" aria-label="Recent gauge observations" data-chart><defs><linearGradient id="chart-fill" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="currentColor" stop-opacity=".19"/><stop offset="100%" stop-color="currentColor" stop-opacity="0"/></linearGradient></defs><path data-chart-area fill="url(#chart-fill)"/><path data-chart-line fill="none" stroke="currentColor" stroke-width="2.4" vector-effect="non-scaling-stroke" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          <div class="embed-chart-labels"><span data-chart-start></span><span data-chart-end></span></div>
+        </div></details>
+        <p class="embed-gauge-name"><span>{planning ? 'Explore access points, maps, and route notes' : river.gaugeSource.siteName}</span>{!planning && <a class="embed-source" href={river.gaugeSource.detailUrl} target="_blank" rel="noopener nofollow">{river.gaugeSource.provider === 'usgs' ? 'USGS' : 'MN DNR'} ↗</a>}</p>
+        <a class="embed-plan-link" href={routeUrl} target="_blank" rel="noopener" data-plan-link>Plan this paddle <svg viewBox="0 0 24 24" width="19" height="19" aria-hidden="true"><path d="M5 12h14m-6-6 6 6-6 6" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+        <p class="embed-caveat">Scores are planning aids. Check access, hazards, and local conditions before you go.</p>
+      </div>
+      <details class="embed-photo-credit"><summary>About the photo</summary><p>{photoContext}. {photo.caption}.{photo.credit && ` Photo: ${photo.credit}.`} {photo.takenLabel}</p></details>
+    </article>
+    <template data-forecast-hour><li class="embed-forecast-hour"><time></time><WeatherIcon/><strong data-hour-temp></strong><span data-hour-rain></span><span data-hour-wind></span></li></template>
+    <script>import '../../../scripts/route-embed-card';</script>
+  </body>
+</html>

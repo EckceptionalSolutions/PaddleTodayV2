@@ -1,8 +1,50 @@
+import { EMBED_REFERRAL_STORAGE_KEY, resolveEmbedReferral, embedReferralProperties } from '../lib/embed-referrals';
+
 const ANALYTICS_EVENT_ATTRIBUTE = 'data-analytics-event';
+const analyticsAllowed = document.body?.dataset.analyticsEnabled === 'true';
+let referral = null;
+let referralArrival = false;
+if (analyticsAllowed) {
+  let stored = null;
+  try { stored = sessionStorage.getItem(EMBED_REFERRAL_STORAGE_KEY); } catch { /* Storage may be blocked. */ }
+  const resolved = resolveEmbedReferral(new URL(location.href), stored, document.referrer);
+  referral = resolved.referral;
+  referralArrival = resolved.arrival;
+  try {
+    if (referral) sessionStorage.setItem(EMBED_REFERRAL_STORAGE_KEY, JSON.stringify(referral));
+    else sessionStorage.removeItem(EMBED_REFERRAL_STORAGE_KEY);
+  } catch { /* Direct landing attribution still works without storage. */ }
+}
+
+// The deferred provider may load after page modules. Retain a small startup
+// queue so a slow tracker does not systematically lose referral arrivals.
+const pendingEvents = [];
+const trackerDeadline = Date.now() + 15_000;
+let trackerTimer;
 
 function analyticsEnabled() {
-  return typeof window.umami?.track === 'function';
+  return analyticsAllowed && typeof window.umami?.track === 'function';
 }
+
+function sendEvent(name, properties) {
+  try {
+    const pending = window.umami.track(name, properties);
+    if (pending && typeof pending.catch === 'function') pending.catch(() => {});
+  } catch { /* Analytics must never interrupt a successful action. */ }
+}
+
+function flushEvents() {
+  clearTimeout(trackerTimer);
+  trackerTimer = undefined;
+  if (analyticsEnabled()) {
+    for (const { name, properties } of pendingEvents.splice(0)) sendEvent(name, properties);
+  } else if (pendingEvents.length && Date.now() < trackerDeadline) {
+    trackerTimer = setTimeout(flushEvents, 250);
+  } else pendingEvents.length = 0;
+}
+
+document.querySelector('script[data-website-id]')?.addEventListener('load', flushEvents, { once: true });
+window.addEventListener('pagehide', () => { clearTimeout(trackerTimer); pendingEvents.length = 0; });
 
 function pageContext() {
   const route = document.querySelector('[data-river-detail]');
@@ -112,11 +154,13 @@ function eventProperties(target) {
 
 export function trackEvent(name, properties = {}) {
   try {
-    if (!name || !analyticsEnabled()) return;
-    const pending = window.umami.track(name, cleanProperties({ ...pageContext(), ...properties }));
-    // Analytics must not interrupt navigation or make a received submission look
-    // failed. The provider can fail synchronously or reject its network request.
-    if (pending && typeof pending.catch === 'function') pending.catch(() => {});
+    if (!name || !analyticsAllowed) return;
+    const data = cleanProperties({ ...pageContext(), ...properties, ...embedReferralProperties(referral) });
+    if (analyticsEnabled()) { flushEvents(); sendEvent(name, data); }
+    else if (Date.now() < trackerDeadline && pendingEvents.length < 32) {
+      pendingEvents.push({ name, properties: data });
+      if (!trackerTimer) flushEvents();
+    }
   } catch {
     // Tracking is optional; keep the user's action successful.
   }
@@ -152,3 +196,5 @@ document.addEventListener('submit', (event) => {
   const submitter = event.submitter instanceof HTMLElement ? event.submitter : null;
   trackEvent(name, eventProperties(submitter ?? target));
 });
+
+if (referralArrival) trackEvent('Route card referral');

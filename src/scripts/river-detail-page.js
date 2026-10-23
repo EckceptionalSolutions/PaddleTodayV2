@@ -1,3 +1,4 @@
+import { gaugeBandVisualModel } from '../lib/gauge-band-visual';
 ﻿import {
   clearMapMarkers,
   createMapMarker,
@@ -2615,100 +2616,6 @@ function formatGaugeMetric(value, unit, fallback = 'Unavailable') {
   }
 
   return `${Math.round(value).toLocaleString('en-US')} ${unit}`;
-}
-
-function gaugeBandVisualModel(result) {
-  const gauge = result?.gauge;
-  const profile = result?.river?.profile;
-  const unit = gauge?.unit || result?.river?.gaugeSource?.unit;
-
-  if (!gauge || typeof gauge.current !== 'number' || !profile || !unit) {
-    return null;
-  }
-
-  const createScale = (rawMin, rawMax) => {
-    const span = Math.max(rawMax - rawMin, unit === 'ft' ? 0.5 : 25);
-    const domainMin = rawMin - span * 0.06;
-    const domainMax = rawMax + span * 0.06;
-    const domain = Math.max(domainMax - domainMin, unit === 'ft' ? 0.5 : 25);
-    return {
-      domainMin,
-      domainMax,
-      percent(value) {
-        return clamp(((value - domainMin) / domain) * 100, 0, 100);
-      },
-    };
-  };
-
-  const markerTone = ['too-low', 'too-high'].includes(result.gaugeBand)
-    ? 'skip'
-    : ['low-shoulder', 'high-shoulder', 'minimum-met'].includes(result.gaugeBand)
-      ? 'watch'
-      : 'good';
-
-  if (
-    profile.thresholdModel === 'two-sided' &&
-    typeof profile.idealMin === 'number' &&
-    typeof profile.idealMax === 'number' &&
-    profile.idealMax > profile.idealMin
-  ) {
-    const idealSpan = Math.max(profile.idealMax - profile.idealMin, unit === 'ft' ? 0.5 : 25);
-    const lowEdge =
-      typeof profile.tooLow === 'number' && profile.tooLow < profile.idealMin
-        ? profile.tooLow
-        : profile.idealMin - idealSpan * 0.75;
-    const highEdge =
-      typeof profile.tooHigh === 'number' && profile.tooHigh > profile.idealMax
-        ? profile.tooHigh
-        : profile.idealMax + idealSpan * 0.75;
-    const scale = createScale(
-      Math.min(lowEdge, profile.idealMin, gauge.current),
-      Math.max(highEdge, profile.idealMax, gauge.current),
-    );
-    const usableStart = scale.percent(profile.idealMin);
-    const usableEnd = scale.percent(profile.idealMax);
-
-    return {
-      currentPercent: scale.percent(gauge.current),
-      usableStart,
-      usableWidth: Math.max(usableEnd - usableStart, 8),
-      currentLabel: formatGaugeMetric(gauge.current, unit),
-      statusLabel: result.gaugeBandLabel || 'Current gauge band',
-      lowLabel: 'Below target',
-      targetLabel: `${formatGaugeMetric(profile.idealMin, unit)}–${formatGaugeMetric(profile.idealMax, unit)}`,
-      highLabel: 'Above target',
-      markerTone,
-      ariaLabel: `Current gauge ${formatGaugeMetric(gauge.current, unit)}. Preferred band ${formatGaugeMetric(profile.idealMin, unit)} to ${formatGaugeMetric(profile.idealMax, unit)}.`,
-    };
-  }
-
-  if (profile.thresholdModel === 'minimum-only' && typeof profile.tooLow === 'number') {
-    const floor = profile.tooLow;
-    const referenceSpan = Math.max(
-      Math.abs(gauge.current - floor),
-      Math.abs(floor) * 0.5,
-      unit === 'ft' ? 1 : 100,
-    );
-    const lowEdge = Math.min(gauge.current, floor - referenceSpan * 0.55);
-    const highEdge = Math.max(gauge.current, floor + referenceSpan * 1.45);
-    const scale = createScale(lowEdge, highEdge);
-    const usableStart = scale.percent(floor);
-
-    return {
-      currentPercent: scale.percent(gauge.current),
-      usableStart,
-      usableWidth: Math.max(100 - usableStart, 12),
-      currentLabel: formatGaugeMetric(gauge.current, unit),
-      statusLabel: result.gaugeBandLabel || 'Minimum met',
-      lowLabel: 'Below floor',
-      targetLabel: `Floor ${formatGaugeMetric(floor, unit)}`,
-      highLabel: 'Above floor',
-      markerTone,
-      ariaLabel: `Current gauge ${formatGaugeMetric(gauge.current, unit)}. Minimum paddling floor ${formatGaugeMetric(floor, unit)}.`,
-    };
-  }
-
-  return null;
 }
 
 function renderGaugeBandVisuals(result) {

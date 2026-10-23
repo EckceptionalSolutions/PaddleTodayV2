@@ -44,6 +44,34 @@ PUBLIC_UMAMI_SCRIPT_SRC=https://cloud.umami.is/script.js
 
 An Umami API key is not available on the current plan. Tracking and the Umami dashboard still work, but the automated weekly report marks Umami as a manual-review source. Do not upgrade solely for reporting: Search Console supplies automated web acquisition quality, Cloudflare supplies validated traffic volume, and Firebase/GA4 supplies automated native product behavior.
 
+### Partner Route-Card Pilot
+
+Assign one stable public tag per partner website, such as `riverbend-campground`. Enter it in the visible **Partner tag** field at `/embed/`; the copied iframe carries it. Avoid personal names, email addresses, and private identifiers. The builder shows the normalized tag before copying. Keep tags stable throughout the pilot and compare the same date range for all three partners.
+
+Both **Plan this paddle** and the Paddle Today brand link carry `utm_campaign=route-embed`, `utm_medium=referral`, `utm_source=<partner>`, and `utm_content=<card-route-slug>`. Builder preview links use a separate `route-embed-preview` campaign and do not create partner-referral events. Untagged cards are recorded as `embed_partner=unattributed`; do not treat that bucket as a named partner.
+
+The embedded card and height adapter do not load analytics. Once someone opens a public Paddle Today page from a tagged card, the existing Umami tracker records **Route card referral**. Its properties are:
+
+| Property | Meaning |
+| --- | --- |
+| `embed_partner` | Public partner tag, or `unattributed` |
+| `embed_route` | Route displayed in the original card |
+| `embed_entry` | `route` for the planning link; `brand` for the brand link |
+| `embed_campaign` | `route-embed` |
+
+The same fields accompany existing public-site action events for up to 30 minutes from entry, in the current tab. On a later route page, `route` describes the current route while `embed_route` retains the original card route. A new tagged partner entry replaces the old attribution; another UTM campaign, an external untagged entry, or expiry clears it. Private pages do not initialize analytics or referral storage. Blocked session storage still permits direct-landing attribution; it prevents carrying the tag to the next page.
+
+Review results in the existing Umami dashboard; no new paid integration is needed:
+
+1. Select Paddle Today and a common pilot date range. In **Events**, choose **Route card referral** and inspect **Properties → embed_partner**. This is the partner arrival breakdown. Use `embed_route` and `embed_entry` to distinguish routes and entry links.
+2. Review **Toggle favorite** with `label=save`, **Open route directions**, **Export GPX**, and **Open app download**. Group/filter each by `embed_partner` to see which partners produce useful planning actions. Exclude `label=unsave` from saves.
+3. Use the **UTM** view with Campaign `route-embed` and Source equal to a partner tag to cross-check landing-page traffic. For actions after internal navigation, use the event properties above because the UTM query may no longer be in the address bar.
+4. Keep a weekly table of partner tag, referral arrivals, saves, directions, GPX exports, and app-link opens. Record partner placement dates and downtime so partial weeks are not compared as equal exposure. If API access becomes available, `npm run metrics:weekly` includes the overall **Route card referral** count; the current plan still requires dashboard review for partner breakdowns.
+
+These are observed event counts, not unique paddlers, bookings, completed trips, or proof of repeat use. Reloading a tagged landing can record another arrival, and one arrival can create multiple actions. Do not call action-count/arrival ratios user conversion rates. No iframe-impression event is collected, so this does not measure click-through rate. Analytics blockers and failed tracking requests can undercount. Tags are public attribution hints, not authenticated proof that a partner sent a visit. Judge the pilot by actual referrals and useful actions; ask partners separately about repeat use before adding features or expanding distribution.
+
+Umami documents the [UTM view](https://docs.umami.is/docs/utm), [event properties](https://docs.umami.is/docs/event-data), and [property filters](https://docs.umami.is/docs/filters).
+
 ### Cloudflare Traffic Summary
 
 Cloudflare is edge and operational traffic measurement, not product analytics. Use it to validate request volume, visits, transfer, regional spikes, bot pressure, and API/error changes.
@@ -98,9 +126,11 @@ Common safe properties:
 - `label`
 - `platform`
 - `href`
+- `embed_campaign`, `embed_partner`, `embed_route`, and `embed_entry` during an active partner attribution window
 
 | Event                     | Trigger                                                  | Required properties                                          | Optional properties                                            | Expected page context            |
 | ------------------------- | -------------------------------------------------------- | ------------------------------------------------------------ | -------------------------------------------------------------- | -------------------------------- |
+| `Route card referral`     | Public page opens from a valid tagged route-card campaign | `path`, `embed_campaign`, `embed_partner`, `embed_route`, `embed_entry` | `route`, `river`, `state`, `region` on route landings | Public route or home page |
 | `Route view`              | Route detail script initializes                          | `path`, `route`, `river`, `state`, `region`                  | none                                                           | Route detail page                |
 | `Share route`             | X, Facebook, or copy route action click                  | `path`, `route`, `river`, `state`, `region`, `label`         | `href`                                                         | Route detail page                |
 | `Toggle favorite`         | Save/unsave route button succeeds locally                | `path`, `route`, `river`, `state`, `region`, `label`         | none                                                           | Route cards and route detail     |
