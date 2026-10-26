@@ -1,6 +1,6 @@
 # iOS 1.1.6 release preparation
 
-Prepared October 26, 2026. Status: **source candidate prepared; signing, Apple provider setup, and native QA pending.**
+Prepared October 26, 2026. Status: **signed candidate available in internal TestFlight; Apple provider setup and native regression QA pending.**
 
 ## Candidate identity
 
@@ -8,10 +8,12 @@ Prepared October 26, 2026. Status: **source candidate prepared; signing, Apple p
 - Bundle ID: `com.paddletoday.mobile`; Apple Team `F73XS8FMPL`.
 - Candidate: `1.1.6 (37)`, using the current shared mobile source from main at `22480da85` plus this preparation change.
 - Confirmed live iOS release: `1.1.3 (36)`, Ready for Distribution, observed in App Store Connect on October 26.
-- Last successful iOS EAS build: `031f40ef-f9d3-4b8f-b20a-818cfe87ba34`, September 16, version `1.1.3 (36)`.
-- Latest attempted iOS build: `12641381-fe85-4978-8d10-389053c4e5f0`, October 1. Failed because its provisioning profile lacked Associated Domains and Sign in with Apple entitlements.
+- Successful candidate EAS build: [`07df0fe3-9230-4c92-9ddc-60d38cd8380a`](https://expo.dev/accounts/eckceptionalsolutions/projects/paddletoday-mobile/builds/07df0fe3-9230-4c92-9ddc-60d38cd8380a), version `1.1.6 (37)`, source commit `d346e89c4094c691739ebaade8704b9abee1cc58`.
+- Prior failed iOS build: `12641381-fe85-4978-8d10-389053c4e5f0`, October 1. Its provisioning profile lacked Associated Domains and Sign in with Apple entitlements; those signing issues are now resolved.
 - Android parity reference: version `1.1.6`, version code `30`, signed bundle from PR #73. The October 6 release record says this was a Play production **draft**, pending manual testing and a GPS foreground-service demonstration. This preparation does not establish Android publication.
-- There is no new signed IPA or TestFlight upload yet. Never submit an older build with `--latest` as a substitute for this candidate.
+- TestFlight submission `d1a90170-3007-424c-815b-7a48af37b791` finished. App Store Connect build `06fe57fd-ed6f-47d0-a4d4-81634cad9d58` is `VALID` and `IN_BETA_TESTING` for the existing internal Team (Expo) group. External beta review and App Review have not been submitted.
+- Downloaded IPA identity is `com.paddletoday.mobile`, `1.1.6 (37)`. SHA-256: `fec7b0b6e244ef8854009e4c2cedd3ff81555dd8ea37c3266c53492916acf0d7`. Its embedded profile includes Apple sign-in, Associated Domains, and production APNs; its Info.plist includes the Google callback scheme and location background mode.
+- App Store version draft `28b7f9c6-843c-4201-a1e4-2077cb46b550` is `PREPARE_FOR_SUBMISSION`, with build 37 attached, US English What's New saved, and release type `MANUAL`. It has not been submitted for App Review.
 
 ## Shared features included since iOS 1.1.3
 
@@ -27,22 +29,22 @@ Prepared October 26, 2026. Status: **source candidate prepared; signing, Apple p
 
 This uses current shared main source, including common mobile fixes merged after the Android 1.1.6 bundle. It is feature parity with that prepared Android release plus those shared fixes; it is not a claim that every platform-specific behavior has been device tested.
 
-## Apple and Firebase blockers observed
+## Account setup and device QA status
 
-1. The existing EAS App Store Connect API key has Admin role, but authenticated reads of versions, builds, and bundle IDs return `403 FORBIDDEN.REQUIRED_AGREEMENTS_MISSING_OR_EXPIRED`, with a link to `/business`. The account holder must complete the pending agreement in the correct Apple team, then retry. No agreement was accepted by the agent.
-2. The local Apple Developer CLI session has expired. The existing EAS API key may handle provisioning after the agreement is effective; if interactive Apple login is still required, the owner must authenticate locally. Never put passwords or verification codes in this document or chat.
-3. Firebase project `paddletoday-9933a`: Google provider read returned enabled; Apple provider read returned `404 CONFIGURATION_NOT_FOUND`. Apple sign-in cannot function until it is configured.
-4. The current EAS App Store provisioning profile, portal ID `S3J7Q6XW49`, is active until May 14, 2027. Its expiration alone does not establish that it contains the newly required entitlements. Refresh/replace it and verify the signed result before building.
-5. App Store Connect reads through the existing Chrome window work, but two input attempts, including recovery, failed with `SendInput sent 0 of 1 events; GetLastError=87`. No draft or store metadata was changed through that browser session.
+1. Resolved: the owner accepted the updated Apple Developer agreement, restoring API access. No agreement was accepted by the agent.
+2. Resolved: Associated Domains and Apple sign-in were enabled on the bundle ID. New App Store profile `926U9QVB9M` uses the existing distribution certificate, expires May 14, 2027, and is configured in EAS. No new private signing certificate or API key was created.
+3. Remaining blocker: Firebase project `paddletoday-9933a` has Google enabled but Apple returned `404 CONFIGURATION_NOT_FOUND`. Apple sign-in and its deletion/revocation flow cannot be signed off until the provider and code-flow credentials are configured.
+4. Connected physical device: `iPhone14,5`, iOS `26.5.2`, paired over USB with Developer Mode enabled. Apple's Developer Disk Image is mounted. Screen capture and accessibility inspection work; the direct touch media-stream service refuses this iOS version (requires iOS 27), and accessibility activation requests had no observed effect. No signed WebDriverAgent runner is installed, so current regression testing requires user-assisted taps.
+5. The installed `1.1.3 (36)` opened and loaded Today from production. A two-route Saved baseline was captured locally before upgrading. The owner has been asked to install `1.1.6 (37)` from TestFlight; installation and candidate regression results are not yet verified. Do not report the old-build baseline as a candidate regression pass.
 
 ### Required account setup
 
-- Enable Associated Domains and Sign in with Apple for `com.paddletoday.mobile` on team `F73XS8FMPL`.
+- Completed: Associated Domains and Sign in with Apple for `com.paddletoday.mobile` on team `F73XS8FMPL`.
 - Configure Firebase Authentication's Apple provider, including the Apple Services ID and OAuth code-flow Team ID, Key ID, and private key. The complete code-flow configuration is needed for the existing account-deletion token revocation path, even when primary sign-in uses native identity tokens.
 - Use return URL `https://paddletoday-9933a.firebaseapp.com/__/auth/handler` for the Apple Services ID.
 - Configure Apple's private email relay for Firebase's actual sender (normally `noreply@paddletoday-9933a.firebaseapp.com`) and any customized email sender, so email recovery works for Hide My Email accounts.
 - Retain the existing iOS Firebase OAuth client and `REVERSED_CLIENT_ID` URL scheme; inspect the prebuilt Info.plist and test the Google return path on the signed build.
-- Regenerate the App Store provisioning profile with the required capabilities. Keep private keys in Apple/Firebase/EAS credential storage, never in git, release archives, or screenshots.
+- Completed: the App Store provisioning profile was regenerated with the required capabilities. Keep private keys in Apple/Firebase/EAS credential storage, never in git, release archives, or screenshots.
 
 ## What's New draft
 

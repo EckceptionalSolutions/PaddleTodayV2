@@ -52,24 +52,21 @@
       "locationWhenInUse": "PaddleToday uses your location to show nearby paddling options and to record a route only while you choose to record a paddle.",
       "locationAlways": "PaddleToday records your route only during a paddle you start, including while your screen is locked. Recording stops when you pause or finish."
     },
-    "nativeXcodeBuild": "not_started",
-    "testFlightUpload": "not_started",
-    "physicalIosQA": "not_run",
+    "nativeXcodeBuild": "passed",
+    "testFlightUpload": "finished",
+    "physicalIosQA": "pre-upgrade baseline captured; candidate installation and regression pending",
     "codeCommit": "9fecdaa07025d03d4fd45c46e32038244ae2af52",
-    "pushEntitlementNote": "Expo introspection shows the development APNs default; verify aps-environment=production in the distribution-signed IPA."
+    "pushEntitlementNote": "Downloaded IPA embedded profile has aps-environment=production.",
+    "compiledSourceCommit": "d346e89c4094c691739ebaade8704b9abee1cc58",
+    "repositoryOperationsGates": {
+      "status": "passed",
+      "runId": 40328696234
+    }
   },
   "blockers": [
     {
-      "name": "Apple agreements",
-      "status": "Apple API returned 403 FORBIDDEN.REQUIRED_AGREEMENTS_MISSING_OR_EXPIRED; Developer account banner still requested updated Program License Agreement acceptance after initial owner retry"
-    },
-    {
       "name": "Firebase Apple provider",
       "status": "404 CONFIGURATION_NOT_FOUND; Google provider enabled"
-    },
-    {
-      "name": "Provisioning profile",
-      "status": "Existing active profile expires 2027-05-14 but refresh and entitlement verification still required"
     },
     {
       "name": "Native device verification",
@@ -78,5 +75,40 @@
   ],
   "appReviewSubmitted": false,
   "publicReleasePerformed": false,
-  "pullRequest": "https://github.com/EckceptionalSolutions/PaddleTodayV2/pull/125"
+  "pullRequest": "https://github.com/EckceptionalSolutions/PaddleTodayV2/pull/125",
+  "build": {
+    "id": "07df0fe3-9230-4c92-9ddc-60d38cd8380a",
+    "status": "FINISHED",
+    "version": "1.1.6",
+    "buildNumber": "37",
+    "ipaSha256": "fec7b0b6e244ef8854009e4c2cedd3ff81555dd8ea37c3266c53492916acf0d7"
+  },
+  "testFlight": {
+    "submissionId": "d1a90170-3007-424c-815b-7a48af37b791",
+    "submissionStatus": "FINISHED",
+    "appleBuildId": "06fe57fd-ed6f-47d0-a4d4-81634cad9d58",
+    "processingState": "VALID",
+    "internalBuildState": "IN_BETA_TESTING",
+    "externalBuildState": "READY_FOR_BETA_SUBMISSION"
+  },
+  "resolved": [
+    {
+      "name": "Apple agreements",
+      "status": "Owner accepted updated Developer agreement; API access restored"
+    },
+    {
+      "name": "Signing capabilities and profile",
+      "status": "Associated Domains and Apple sign-in enabled; App Store profile 926U9QVB9M refreshed and verified"
+    }
+  ],
+  "appStoreDraft": {
+    "id": "28b7f9c6-843c-4201-a1e4-2077cb46b550",
+    "version": "1.1.6",
+    "state": "PREPARE_FOR_SUBMISSION",
+    "releaseType": "MANUAL",
+    "buildNumber": "37",
+    "buildId": "06fe57fd-ed6f-47d0-a4d4-81634cad9d58",
+    "whatsNewSaved": true,
+    "appReviewSubmitted": false
+  }
 }

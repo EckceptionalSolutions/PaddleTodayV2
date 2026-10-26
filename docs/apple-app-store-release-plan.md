@@ -1,6 +1,6 @@
 # Apple App Store Release Plan
 
-Current preparation: [iOS 1.1.6 (37)](ios-release-1.1.6.md), October 26, 2026, brings the shared Android features to iOS and adds Google and Sign in with Apple. Source preparation is underway; Apple agreements, provider configuration, signing, and native QA are not yet complete. iOS 1.1.3 (36) is the confirmed live release.
+Current preparation: [iOS 1.1.6 (37)](ios-release-1.1.6.md), October 26, 2026, brings the shared Android features to iOS and adds Google and Sign in with Apple. The signed candidate is available in internal TestFlight; an App Store draft has build 37 and release notes saved with manual release. Apple agreements and signing are resolved. Firebase Apple provider configuration and native regression QA remain pending. iOS 1.1.3 (36) is the confirmed live release.
 
 The sections below are historical notes from September 15 and earlier, including the initial 1.0 release. Use the linked candidate document for current build numbers, blockers, privacy changes, and release copy.
 
