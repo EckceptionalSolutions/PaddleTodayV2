@@ -1,6 +1,6 @@
 # iOS 1.1.6 release preparation
 
-Prepared October 26, 2026. Status: **signed candidate available in internal TestFlight; Apple provider setup and native regression QA pending.**
+Prepared October 26, 2026. Status: **build 37 is blocked by independently reproduced iPhone map interaction failure; replacement build 38 is being prepared. Apple provider setup and remaining native regression QA are pending.**
 
 ## Candidate identity
 
@@ -34,8 +34,9 @@ This uses current shared main source, including common mobile fixes merged after
 1. Resolved: the owner accepted the updated Apple Developer agreement, restoring API access. No agreement was accepted by the agent.
 2. Resolved: Associated Domains and Apple sign-in were enabled on the bundle ID. New App Store profile `926U9QVB9M` uses the existing distribution certificate, expires May 14, 2027, and is configured in EAS. No new private signing certificate or API key was created.
 3. Remaining blocker: Firebase project `paddletoday-9933a` has Google enabled but Apple returned `404 CONFIGURATION_NOT_FOUND`. Apple sign-in and its deletion/revocation flow cannot be signed off until the provider and code-flow credentials are configured.
-4. Connected physical device: `iPhone14,5`, iOS `26.5.2`, paired over USB with Developer Mode enabled. Apple's Developer Disk Image is mounted. Screen capture and accessibility inspection work; the direct touch media-stream service refuses this iOS version (requires iOS 27), and accessibility activation requests had no observed effect. No signed WebDriverAgent runner is installed, so current regression testing requires user-assisted taps.
-5. The installed `1.1.3 (36)` opened and loaded Today from production. A two-route Saved baseline was captured locally before upgrading. The owner has been asked to install `1.1.6 (37)` from TestFlight; installation and candidate regression results are not yet verified. Do not report the old-build baseline as a candidate regression pass.
+4. Connected physical device: `iPhone14,5`, iOS `26.5.2`, paired over USB with Developer Mode and UI Automation enabled. The official Appium WebDriverAgent 16.15.3 runner was signed using the existing team certificate and a profile restricted to this phone, installed successfully, and launched through XCTest. Automated navigation, taps, swipes, screenshots, and accessibility inspection now work.
+5. The owner installed `1.1.6 (37)` through TestFlight; the version was independently verified. The two exact Saved routes and count survived the upgrade from `1.1.3 (36)`. Today loaded production content and retained the planning location. Weekend loaded forecasts and responded to filtering and scrolling. Explore list navigation opened the river hub; its first request failed and Retry loaded 39 Mississippi routes. These are bounded checks, not completion of the full regression suite.
+6. Release blocker reproduced with automated marker clicks, coordinate taps, and pans: Explore renders but ignores map gestures. Programmatic focus controls and surrounding app controls work. React Native 0.81.5's `RCTViewManager.m` applies `pointerEvents="auto"` to a plain UIView by setting interaction on and immediately falling through to the `none` case. `MKMapView` is such a view. The replacement moves pointer-event and accessibility gating to the React Native wrapper and leaves the native map's interaction enabled by default. Build 38 must pass real-device map selection, pan, and static-preview scrolling before this blocker is closed.
 
 ### Required account setup
 
