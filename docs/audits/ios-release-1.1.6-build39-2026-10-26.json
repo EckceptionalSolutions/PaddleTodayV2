@@ -1,0 +1,33 @@
+{
+  "date": "2026-10-26",
+  "candidate": {
+    "version": "1.1.6",
+    "build": "39",
+    "sourceCommit": "11280b0a46a9d6a399920418f5ac4ed5f6ea8eab",
+    "buildId": "a417a15f-e8c7-4faa-83b1-401b2f1cfc97",
+    "nativeBuildStatus": "IN_PROGRESS",
+    "submissionId": "0089ceb2-72a8-471f-a3eb-27033b1c8c79",
+    "submissionStatus": "AWAITING_BUILD",
+    "reason": "Refresh connected-provider account controls immediately after native or email linking",
+    "deviceInstalled": false,
+    "validation": {
+      "mobileTypecheck": "passed",
+      "mobileUnitTests": 278,
+      "mobileTestFiles": 55,
+      "releaseReadinessChecks": 72
+    },
+    "deviceRegressionBaseline": "Official TestFlight build 38; replacement 39 still requires device checks."
+  },
+  "regressionBaseline": {
+    "build": "38",
+    "audit": "ios-release-1.1.6-2026-10-26.json",
+    "sameDeviceCloudRestoreVerified": true,
+    "appleHideMyEmailVerified": true,
+    "googleSignInVerified": true,
+    "localGpsDiscardVerified": true
+  },
+  "nativeDeviceRetestComplete": false,
+  "appStoreDraftBuildNumber": "38",
+  "appReviewSubmitted": false,
+  "publicReleasePerformed": false
+}
