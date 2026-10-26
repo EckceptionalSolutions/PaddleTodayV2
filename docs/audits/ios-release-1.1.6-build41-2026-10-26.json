@@ -68,7 +68,9 @@
     "observedAt": "2026-10-26T22:20:02.848Z"
   },
   "mainAccountRestored": true,
-  "failedChecks": [],
+  "failedChecks": [
+    "cold-start Weekend push opens Today instead of Weekend"
+  ],
   "pendingChecks": [
     "actual email and Apple relay delivery",
     "Apple-linked deletion/token revocation with a disposable Apple identity",
@@ -137,5 +139,72 @@
     "privacyManifestCount": 29,
     "manifestPathsAndHashesUnchanged": true,
     "auditAppliesToBuild41": true
-  }
+  },
+  "deliveryFollowup": {
+    "date": "2026-10-26",
+    "email": {
+      "clientRestDeliveryVerified": true,
+      "deliveredAt": "2026-10-26T23:00:00Z",
+      "sender": "noreply@paddletoday-9933a.firebaseapp.com",
+      "recipientScope": "Owner-approved disposable QA alias",
+      "gmailSenderAndRecipientDetailsVerified": true,
+      "transportTlsShown": true,
+      "officialNativeRequestAccepted": true,
+      "officialNativeOriginDeliveryVerified": false,
+      "completeNativeMailToAppJourneyVerified": false,
+      "appleRelayDeliveryVerified": false,
+      "currentBlocker": {
+        "status": 400,
+        "accepted": false,
+        "error": "QUOTA_EXCEEDED : Exceeded daily quota for email sign-in."
+      },
+      "furtherSendsStopped": true,
+      "billingPlanVerified": false,
+      "ownerBillingReviewRequested": true,
+      "billingChangesPerformed": false,
+      "newQaIdentityCreated": false
+    },
+    "push": {
+      "testedBuild": "41",
+      "distribution": "Official TestFlight",
+      "singlePhysicalPhoneScopeVerified": true,
+      "scopeMethod": "Unique native Today off/on transitions matched server subscription",
+      "todayAndWeekendOriginalPreferencesRestored": true,
+      "recipientCountPerSend": 1,
+      "productionSchedulerConfigChanged": false,
+      "schedulerHistoryOrCooldownsChanged": false,
+      "foregroundDeliveryVisibleInNotificationCenter": true,
+      "foregroundOpenTodayVerified": true,
+      "backgroundStateBeforeSend": 3,
+      "backgroundSuspendedStateObserved": 2,
+      "backgroundDeliveryVisibleInNotificationCenter": true,
+      "backgroundOpenWeekendVerified": true,
+      "notRunningStateBeforeColdOpen": 1,
+      "coldDeliveryVisibleInNotificationCenter": true,
+      "coldOpenExpected": "/weekend",
+      "coldOpenActual": "/",
+      "coldOpenPassed": false,
+      "notificationOpenGesture": "Native right swipe; direct runner taps did not open system notifications",
+      "fixCandidate": "42",
+      "fixNativeRetestPassed": false,
+      "receipts": {
+        "foreground": {
+          "status": "ok",
+          "error": null
+        },
+        "background": {
+          "status": "ok",
+          "error": null
+        },
+        "cold": {
+          "status": "ok",
+          "error": null
+        }
+      }
+    },
+    "releaseReady": false,
+    "appReviewSubmitted": false,
+    "publicReleasePerformed": false
+  },
+  "supersedingBuild": "42"
 }

@@ -1,0 +1,182 @@
+{
+  "date": "2026-10-26",
+  "email": {
+    "clientRestDeliveryVerified": true,
+    "deliveredAt": "2026-10-26T23:00:00Z",
+    "sender": "noreply@paddletoday-9933a.firebaseapp.com",
+    "recipientScope": "Owner-approved disposable QA alias",
+    "gmailSenderAndRecipientDetailsVerified": true,
+    "transportTlsShown": true,
+    "officialNativeRequestAccepted": true,
+    "officialNativeOriginDeliveryVerified": false,
+    "completeNativeMailToAppJourneyVerified": false,
+    "appleRelayDeliveryVerified": false,
+    "currentBlocker": {
+      "status": 400,
+      "accepted": false,
+      "error": "QUOTA_EXCEEDED : Exceeded daily quota for email sign-in."
+    },
+    "furtherSendsStopped": true,
+    "billingPlanVerified": false,
+    "ownerBillingReviewRequested": true,
+    "billingChangesPerformed": false,
+    "newQaIdentityCreated": false
+  },
+  "push": {
+    "testedBuild": "41",
+    "distribution": "Official TestFlight",
+    "singlePhysicalPhoneScopeVerified": true,
+    "scopeMethod": "Unique native Today off/on transitions matched server subscription",
+    "todayAndWeekendOriginalPreferencesRestored": true,
+    "recipientCountPerSend": 1,
+    "productionSchedulerConfigChanged": false,
+    "schedulerHistoryOrCooldownsChanged": false,
+    "foregroundDeliveryVisibleInNotificationCenter": true,
+    "foregroundOpenTodayVerified": true,
+    "backgroundStateBeforeSend": 3,
+    "backgroundSuspendedStateObserved": 2,
+    "backgroundDeliveryVisibleInNotificationCenter": true,
+    "backgroundOpenWeekendVerified": true,
+    "notRunningStateBeforeColdOpen": 1,
+    "coldDeliveryVisibleInNotificationCenter": true,
+    "coldOpenExpected": "/weekend",
+    "coldOpenActual": "/",
+    "coldOpenPassed": false,
+    "notificationOpenGesture": "Native right swipe; direct runner taps did not open system notifications",
+    "fixCandidate": "42",
+    "fixNativeRetestPassed": true,
+    "receipts": {
+      "foreground": {
+        "status": "ok",
+        "error": null
+      },
+      "background": {
+        "status": "ok",
+        "error": null
+      },
+      "cold": {
+        "status": "ok",
+        "error": null
+      }
+    },
+    "build41FailureFixedIn": "42"
+  },
+  "releaseReady": false,
+  "appReviewSubmitted": false,
+  "publicReleasePerformed": false,
+  "build42PushRetest": {
+    "coldWeekendPassed": true,
+    "backgroundWeekendPassed": true,
+    "foregroundTodayPassed": true,
+    "routeDetailPassed": true,
+    "routeDetailAlsoColdOpened": true,
+    "normalRelaunchDidNotReplay": true,
+    "originalSavedNamesRetained": true,
+    "unchangedOriginalRouteLabels": 5,
+    "mainAccountBackupVerified": true,
+    "sameMainAccountIdentityVerified": true,
+    "originalAlertPreferencesRestored": true,
+    "automationStoppedVerified": true,
+    "appLeftOnSaved": true,
+    "singlePhoneRecipientOnly": true,
+    "schedulerConfigOrHistoryChanged": false,
+    "coldSendAppState": 1,
+    "coldOpenAppState": 1,
+    "backgroundSendAppState": 3,
+    "backgroundOpenAppState": 2,
+    "pushes": {
+      "foreground": {
+        "mode": "foreground",
+        "version": "1.1.6",
+        "build": "42",
+        "sentAt": "2026-10-26T23:44:20.359Z",
+        "title": "PaddleToday QA 42 - foreground",
+        "body": "iOS 1.1.6 release delivery test for this iPhone.",
+        "expectedUrl": "/",
+        "exactPhoneScopeVerified": true,
+        "recipientCount": 1,
+        "productionDryRun": false,
+        "ticket": {
+          "provider": "expo",
+          "id": "01a17a99-c17c-733a-965f-8ab50efde235",
+          "deliveryKey": "bb5ee9141dd9acca7a318449d716751c47a50040",
+          "deliveryStatus": "accepted"
+        },
+        "receipt": {
+          "status": "ok",
+          "error": null
+        },
+        "receiptCheckedAt": "2026-10-26T23:45:16.003Z"
+      },
+      "background": {
+        "mode": "background",
+        "version": "1.1.6",
+        "build": "42",
+        "sentAt": "2026-10-26T23:43:02.800Z",
+        "title": "PaddleToday QA 42 - background",
+        "body": "iOS 1.1.6 release delivery test for this iPhone.",
+        "expectedUrl": "/weekend",
+        "exactPhoneScopeVerified": true,
+        "recipientCount": 1,
+        "productionDryRun": false,
+        "ticket": {
+          "provider": "expo",
+          "id": "01a17a98-9281-7178-aee8-0d9c8c8859bb",
+          "deliveryKey": "7ad10ad6403030ed1bc92294306bc1c83ba210df",
+          "deliveryStatus": "accepted"
+        },
+        "receipt": {
+          "status": "ok",
+          "error": null
+        },
+        "receiptCheckedAt": "2026-10-26T23:43:26.309Z"
+      },
+      "cold": {
+        "mode": "cold",
+        "version": "1.1.6",
+        "build": "42",
+        "sentAt": "2026-10-26T23:41:00.157Z",
+        "title": "PaddleToday QA 42 - cold",
+        "body": "iOS 1.1.6 release delivery test for this iPhone.",
+        "expectedUrl": "/weekend",
+        "exactPhoneScopeVerified": true,
+        "recipientCount": 1,
+        "productionDryRun": false,
+        "ticket": {
+          "provider": "expo",
+          "id": "01a17a96-b39e-752e-a86d-9d9bee8db998",
+          "deliveryKey": "121dc0be84381efa7b849343f871f29a35c5bf0f",
+          "deliveryStatus": "accepted"
+        },
+        "receipt": {
+          "status": "ok",
+          "error": null
+        },
+        "receiptCheckedAt": "2026-10-26T23:41:23.457Z"
+      },
+      "route": {
+        "mode": "route",
+        "version": "1.1.6",
+        "build": "42",
+        "sentAt": "2026-10-26T23:45:15.562Z",
+        "title": "PaddleToday QA 42 - route",
+        "body": "iOS 1.1.6 release delivery test for this iPhone.",
+        "expectedUrl": "/river/minnesota-river-le-sueur-henderson",
+        "exactPhoneScopeVerified": true,
+        "recipientCount": 1,
+        "productionDryRun": false,
+        "ticket": {
+          "provider": "expo",
+          "id": "01a17a9a-9913-738c-8dfd-8e1522ecab4c",
+          "deliveryKey": "06840fb45426c1c4e524966f5d8024fdf37aa0bb",
+          "deliveryStatus": "accepted"
+        },
+        "receipt": {
+          "status": "ok",
+          "error": null
+        },
+        "receiptCheckedAt": "2026-10-26T23:46:18.519Z"
+      }
+    }
+  }
+}
