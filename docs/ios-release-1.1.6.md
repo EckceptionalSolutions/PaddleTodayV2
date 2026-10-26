@@ -1,8 +1,8 @@
 # iOS 1.1.6 release preparation
 
-Prepared October 26, 2026. Status: **official TestFlight build 38 is installed and passed marker selection, route navigation/Back, pan and saved-count checks. Apple/Firebase and private email relay configuration are complete. Apple Hide My Email sign-in, backup/manual sync, session persistence and temporary trip save/reopen/cleanup passed. Google OAuth return/linking also passed, but revealed stale provider controls until relaunch. The refresh fix is prepared for build 39. Fresh Google sign-in and cloud restore after local clearing also passed. Remaining email, deletion/revocation, moving GPS/cloud-save and iPad QA are pending.**
+Prepared October 26, 2026. Status: **candidate 1.1.6 (39) compiled and passed signed-package inspection; its TestFlight submission is queued. Official build 38 remains installed and passed Apple/Google sign-in, cloud restore after sign-out, basic trip and local GPS control regression. Build 39 fixes the stale connected-provider controls found in that baseline; replacement-device QA and other release gates remain pending.**
 
-## Candidate identity
+## Last device-tested candidate: build 38
 
 - App: PaddleToday: River Conditions, App Store Connect ID `6769542734`.
 - Bundle ID: `com.paddletoday.mobile`; Apple Team `F73XS8FMPL`.
@@ -111,6 +111,6 @@ On a physical iPhone and iPad, verify upgrade from 1.1.3 without losing saved/of
 - [EAS iOS submission](https://docs.expo.dev/submit/ios/)
 - Android release evidence: `docs/audits/mobile-tab-loading-2026-10-06.md`.
 
-## Next candidate: build 39
+## Current replacement candidate: build 39
 
-Build 38 successfully linked Google but kept its Connect Google control visible until relaunch. React Native Firebase replaces `auth().currentUser` after `linkWithCredential` without an auth-identity change event. The account screen now refreshes its User state after a completed native provider action and uses the returned User after email linking. Build 39 contains this display-state fix, compiled from `11280b0a46a9d6a399920418f5ac4ed5f6ea8eab`. All 278 mobile tests, TypeScript and 72 release checks pass. EAS build `a417a15f-e8c7-4faa-83b1-401b2f1cfc97` is in progress; TestFlight submission `0089ceb2-72a8-471f-a3eb-27033b1c8c79` is awaiting that build. Native device verification is pending. Build 38 remains the current TestFlight/device and manual App Store draft build until the replacement is verified.
+Build 38 successfully linked Google but kept its Connect Google control visible until relaunch. React Native Firebase replaces `auth().currentUser` after `linkWithCredential` without an auth-identity change event. The account screen now refreshes its User state after a completed native provider action and uses the returned User after email linking. Build 39 contains this display-state fix, compiled from `11280b0a46a9d6a399920418f5ac4ed5f6ea8eab`. All 278 mobile tests, TypeScript and 72 release checks pass. EAS build `a417a15f-e8c7-4faa-83b1-401b2f1cfc97` is `FINISHED`; TestFlight submission `0089ceb2-72a8-471f-a3eb-27033b1c8c79` is `IN_QUEUE`. Signed IPA inspection verified version/build, bundle ID, Apple/Associated Domains entitlements, Google callback, production APNs and background location. IPA SHA-256: `065e9bf2b18a3910d910fdee0cb463c39f7c9324e7d6d4d576e28d87829ee150`. The functional commit passed GitHub operations run `40392635448`. Native device verification is pending. Build 38 remains the current TestFlight/device and manual App Store draft build until the replacement is verified.
