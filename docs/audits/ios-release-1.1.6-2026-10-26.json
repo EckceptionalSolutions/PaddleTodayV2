@@ -22,7 +22,7 @@
     "releaseReadinessChecks": 72,
     "productionApiSmokeChecks": 8,
     "productionIosJsExport": "passed",
-    "hermesBundleSha256": "d5ec76ebe883f512203b711876dd1154ea55b31eb672febc75512ed130df8747",
+    "hermesBundleSha256": "09e236e9594033f6386f8dafa1df70ef1eaab34897eab864be3024cb6ea8d8c2",
     "iosConfiguration": {
       "version": "1.1.6",
       "buildNumber": "37",
@@ -54,7 +54,9 @@
     },
     "nativeXcodeBuild": "not_started",
     "testFlightUpload": "not_started",
-    "physicalIosQA": "not_run"
+    "physicalIosQA": "not_run",
+    "codeCommit": "9fecdaa07025d03d4fd45c46e32038244ae2af52",
+    "pushEntitlementNote": "Expo introspection shows the development APNs default; verify aps-environment=production in the distribution-signed IPA."
   },
   "blockers": [
     {
@@ -75,5 +77,6 @@
     }
   ],
   "appReviewSubmitted": false,
-  "publicReleasePerformed": false
+  "publicReleasePerformed": false,
+  "pullRequest": "https://github.com/EckceptionalSolutions/PaddleTodayV2/pull/125"
 }

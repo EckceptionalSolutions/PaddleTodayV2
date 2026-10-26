@@ -80,6 +80,8 @@ Retain existing support/marketing/privacy URLs, review contact details, and manu
 
 ## Validation and build path
 
+Verified locally on October 26: all 72 release readiness checks, mobile TypeScript, all 278 mobile tests across 55 files, all 8 public-production API smoke checks, and a production iOS Hermes export passed. The audit JSON records the bundle hash and generated configuration. The introspected APNs entitlement defaults to development; the signed distribution IPA must use production.
+
 Run `npm run mobile:release-check`, `npm run mobile:typecheck`, `npm test --workspace @paddletoday/mobile`, and `npm run mobile:api-smoke`. Inspect Expo's generated iOS configuration for Apple Sign In, Associated Domains, Google URL scheme, location usage strings/background mode, and production API values. Export the production iOS JavaScript bundle before the native build.
 
 After the account/provisioning blockers are resolved, run from `apps/mobile`:
