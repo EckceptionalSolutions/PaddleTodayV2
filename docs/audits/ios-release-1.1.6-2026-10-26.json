@@ -53,8 +53,8 @@
       "locationAlways": "PaddleToday records your route only during a paddle you start, including while your screen is locked. Recording stops when you pause or finish."
     },
     "nativeXcodeBuild": "passed",
-    "testFlightUpload": "IN_QUEUE",
-    "physicalIosQA": "Partial automated regression on a phone-specific signed copy of build 38; map interaction and Saved preservation passed. Full account/GPS/iPad QA pending.",
+    "testFlightUpload": "FINISHED; Apple VALID, IN_BETA_TESTING",
+    "physicalIosQA": "Official TestFlight build 38 installed and verified; saved count, marker selection, route details/Back and pan passed. Broader ad hoc build-38 map checks passed. Full account/GPS/iPad QA pending.",
     "codeCommit": "85a7107cdf6b7ef9a6b5d65c117757779831f3b6",
     "pushEntitlementNote": "Downloaded IPA embedded profile has aps-environment=production.",
     "compiledSourceCommit": "85a7107cdf6b7ef9a6b5d65c117757779831f3b6",
@@ -68,14 +68,6 @@
     "productionApiSmokeScope": "8 checks ran for the initial shared-source candidate; the map fix does not change API code."
   },
   "blockers": [
-    {
-      "name": "Firebase Apple provider",
-      "status": "Fresh lookup: 404 CONFIGURATION_NOT_FOUND; Google provider enabled. Apple Developer login requested from owner."
-    },
-    {
-      "name": "Official TestFlight build 38 upload",
-      "status": "EAS submission IN_QUEUE; no build 38 in App Store Connect yet."
-    },
     {
       "name": "Remaining release verification",
       "status": "Successful provider sign-in, account backup/deletion and trip flows, GPS/background/photos, notification delivery, iPad, current screenshots and published App Privacy remain pending."
@@ -93,8 +85,13 @@
   },
   "testFlight": {
     "submissionId": "97cabbf5-59c0-476d-bf03-fd81e2b8542b",
-    "status": "IN_QUEUE",
-    "officialBuild38Installed": false
+    "status": "FINISHED",
+    "appleBuildId": "70f95de2-6841-4271-98c0-60fbaeb1ee39",
+    "processingState": "VALID",
+    "internalBuildState": "IN_BETA_TESTING",
+    "externalBuildState": "READY_FOR_BETA_SUBMISSION",
+    "officialBuild38Installed": true,
+    "signerIdentity": "TestFlight Beta Distribution"
   },
   "resolved": [
     {
@@ -112,6 +109,18 @@
     {
       "name": "Map interaction failure",
       "status": "Native UIView pointerEvents auto disables MKMapView in React Native 0.81.5. Gating moved to React Native wrapper. Build 38 device checks pass for marker selection, route navigation, pan and static/interactive Weekend previews."
+    },
+    {
+      "name": "Firebase Apple provider and code flow",
+      "status": "Owner approved dedicated Apple key creation and transfer to Firebase. Services ID, callback, team/key/native bundle and private code-flow key verified; Apple and Google providers enabled. No key material is included in this audit."
+    },
+    {
+      "name": "Apple private email relay configuration",
+      "status": "Exact default Firebase noreply sender registered; Apple shows green SPF. Actual Hide My Email delivery remains untested."
+    },
+    {
+      "name": "Official TestFlight build 38",
+      "status": "Upload FINISHED; Apple VALID and in internal beta testing; installed with owner-approved replacement warning. Installation Proxy confirms TestFlight Beta Distribution."
     }
   ],
   "appStoreDraft": {
@@ -119,9 +128,8 @@
     "version": "1.1.6",
     "state": "PREPARE_FOR_SUBMISSION",
     "releaseType": "MANUAL",
-    "buildNumber": null,
-    "buildId": null,
-    "reason": "Build 37 failed map regression; waiting for replacement 38 to finish TestFlight upload.",
+    "buildNumber": "38",
+    "buildId": "70f95de2-6841-4271-98c0-60fbaeb1ee39",
     "whatsNewSaved": true,
     "appReviewSubmitted": false
   },
@@ -154,7 +162,7 @@
   },
   "physicalDeviceRegression": {
     "method": "Signed Appium WebDriverAgent runner through XCTest; automated taps, normal swipes, screenshots and UI hierarchy assertions.",
-    "distribution": "Phone-specific ad hoc signed copy of the EAS production artifact; official TestFlight upload is queued.",
+    "distribution": "Official Apple TestFlight 1.1.6 (38); Installation Proxy reports TestFlight Beta Distribution.",
     "packageVerification": {
       "version": "1.1.6",
       "build": "38",
@@ -190,6 +198,28 @@
     ],
     "complete": false,
     "releaseReady": false,
-    "temporaryTestDataCleaned": true
+    "temporaryTestDataCleaned": true,
+    "officialTestFlightPassedChecks": [
+      "installed-version",
+      "saved-route-preservation",
+      "explore-marker-selection",
+      "explore-route-detail-and-back",
+      "explore-pan",
+      "apple-native-entry"
+    ]
+  },
+  "appleProviderSetup": {
+    "projectId": "paddletoday-9933a",
+    "clientId": "com.paddletoday.mobile.signin",
+    "teamId": "F73XS8FMPL",
+    "bundleId": "com.paddletoday.mobile",
+    "keyId": "9KFZDTX239",
+    "enabled": true,
+    "providerConfigurationVerified": true,
+    "privateKeyReturnedByVerification": true,
+    "realSignInAndRevocationTested": false,
+    "privateEmailRelaySenderRegistered": true,
+    "privateEmailRelaySpfVerified": true,
+    "privateEmailRelayDeliveryTested": false
   }
 }
