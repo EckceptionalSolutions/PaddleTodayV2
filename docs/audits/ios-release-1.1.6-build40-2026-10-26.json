@@ -1,0 +1,27 @@
+{
+  "date": "2026-10-26",
+  "candidate": {
+    "build": "40",
+    "sourceCommit": "4af499a57b699f30bc9acaa082cca9ef23acbbed",
+    "buildId": "5fe81759-bc8b-4644-8119-298d153baf7e",
+    "submissionId": "5fda582f-316a-46cd-853b-b982d638d6e3",
+    "reason": "Handle Firebase Hosting email sign-in links through the native callback; preserve the full action URL for authentication.",
+    "version": "1.1.6",
+    "nativeBuildStatus": "IN_PROGRESS",
+    "submissionStatus": "AWAITING_BUILD",
+    "deviceInstalled": false,
+    "validation": {
+      "mobileUnitTests": 290,
+      "mobileTestFiles": 56,
+      "mobileTypecheck": "passed",
+      "releaseReadinessChecks": 72,
+      "actualControlledLinkRecognizedByParser": true
+    }
+  },
+  "regressionBaselineBuild": "39",
+  "emailFixDeviceRetestComplete": false,
+  "releaseReady": false,
+  "appStoreDraftBuildNumber": "39",
+  "appReviewSubmitted": false,
+  "publicReleasePerformed": false
+}

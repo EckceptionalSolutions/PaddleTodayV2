@@ -267,26 +267,22 @@
     "tokenRevocationTested": false
   },
   "nextCandidate": {
+    "build": "40",
+    "sourceCommit": "4af499a57b699f30bc9acaa082cca9ef23acbbed",
+    "buildId": "5fe81759-bc8b-4644-8119-298d153baf7e",
+    "submissionId": "5fda582f-316a-46cd-853b-b982d638d6e3",
+    "reason": "Handle Firebase Hosting email sign-in links through the native callback; preserve the full action URL for authentication.",
     "version": "1.1.6",
-    "build": "39",
-    "sourceCommit": "11280b0a46a9d6a399920418f5ac4ed5f6ea8eab",
-    "buildId": "a417a15f-e8c7-4faa-83b1-401b2f1cfc97",
-    "nativeBuildStatus": "FINISHED",
-    "submissionId": "0089ceb2-72a8-471f-a3eb-27033b1c8c79",
-    "submissionStatus": "IN_QUEUE",
-    "reason": "Refresh connected-provider account controls immediately after native or email linking",
+    "nativeBuildStatus": "IN_PROGRESS",
+    "submissionStatus": "AWAITING_BUILD",
     "deviceInstalled": false,
     "validation": {
+      "mobileUnitTests": 290,
+      "mobileTestFiles": 56,
       "mobileTypecheck": "passed",
-      "mobileUnitTests": 278,
-      "mobileTestFiles": 55,
-      "releaseReadinessChecks": 72
-    },
-    "deviceRegressionBaseline": "Official TestFlight build 38; replacement 39 still requires device checks.",
-    "ipaSha256": "065e9bf2b18a3910d910fdee0cb463c39f7c9324e7d6d4d576e28d87829ee150",
-    "javascriptSha256": "31065f7940837261234c1ac6d1c161e654f1d301766f3a0d4949a22052dd5980",
-    "compiledAt": "2026-10-26T20:13:46.459Z",
-    "signedPackageVerified": true
+      "releaseReadinessChecks": 72,
+      "actualControlledLinkRecognizedByParser": true
+    }
   },
-  "auditScope": "Official TestFlight build 38 device regression baseline; current replacement candidate is recorded separately as build 39."
+  "auditScope": "Official build 38 historical device baseline. Build 39 installation and email-routing failure are recorded separately; build 40 is the replacement candidate."
 }

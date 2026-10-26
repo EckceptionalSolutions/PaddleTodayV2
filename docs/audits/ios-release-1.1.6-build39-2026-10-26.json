@@ -7,20 +7,22 @@
     "buildId": "a417a15f-e8c7-4faa-83b1-401b2f1cfc97",
     "nativeBuildStatus": "FINISHED",
     "submissionId": "0089ceb2-72a8-471f-a3eb-27033b1c8c79",
-    "submissionStatus": "IN_QUEUE",
+    "submissionStatus": "FINISHED",
     "reason": "Refresh connected-provider account controls immediately after native or email linking",
-    "deviceInstalled": false,
+    "deviceInstalled": true,
     "validation": {
       "mobileTypecheck": "passed",
       "mobileUnitTests": 278,
       "mobileTestFiles": 55,
       "releaseReadinessChecks": 72
     },
-    "deviceRegressionBaseline": "Official TestFlight build 38; replacement 39 still requires device checks.",
+    "deviceRegressionBaseline": "Official build 39 installed and tested; email Hosting route failure blocks release.",
     "ipaSha256": "065e9bf2b18a3910d910fdee0cb463c39f7c9324e7d6d4d576e28d87829ee150",
     "javascriptSha256": "31065f7940837261234c1ac6d1c161e654f1d301766f3a0d4949a22052dd5980",
     "compiledAt": "2026-10-26T20:13:46.459Z",
-    "signedPackageVerified": true
+    "signedPackageVerified": true,
+    "appleBuildId": "2dfda37b-eabf-4c2d-b83a-d6ceb3ad37de",
+    "appleProcessingState": "VALID"
   },
   "regressionBaseline": {
     "build": "38",
@@ -31,7 +33,7 @@
     "localGpsDiscardVerified": true
   },
   "nativeDeviceRetestComplete": false,
-  "appStoreDraftBuildNumber": "38",
+  "appStoreDraftBuildNumber": "39",
   "appReviewSubmitted": false,
   "publicReleasePerformed": false,
   "signedPackageInspection": {
@@ -77,6 +79,22 @@
     "mobileTestFiles": 55,
     "releaseReadinessChecks": 72,
     "nativeXcodeBuild": "passed",
-    "deviceRegressionBuild39": "not_run; TestFlight submission queued"
-  }
+    "deviceRegressionBuild39": "partial; email Hosting callback failed; main session restored"
+  },
+  "deviceChecks": [
+    "upgrade-from-official-38",
+    "main-Apple-Google-account-retained",
+    "both-original-saved-routes-retained",
+    "backup-2-routes-0-plans",
+    "account-deletion-confirm-and-cancel",
+    "nearby-notification-settings-open",
+    "native-email-send-accepted-for-exact-approved-QA-alias",
+    "fresh-Google-main-session-restore-and-full-sync-after-QA-attempt"
+  ],
+  "failedDeviceChecks": [
+    "Firebase Hosting email link opens native Page not found"
+  ],
+  "mainAccountRestored": true,
+  "releaseReady": false,
+  "supersededByBuild": "40"
 }

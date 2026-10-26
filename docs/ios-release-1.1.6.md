@@ -1,8 +1,8 @@
 # iOS 1.1.6 release preparation
 
-Prepared October 26, 2026. Status: **candidate 1.1.6 (39) compiled and passed signed-package inspection; its TestFlight submission is queued. Official build 38 remains installed and passed Apple/Google sign-in, cloud restore after sign-out, basic trip and local GPS control regression. Build 39 fixes the stale connected-provider controls found in that baseline; replacement-device QA and other release gates remain pending.**
+Prepared October 26, 2026. Status: **official build 39 is installed and selected in the manual App Store draft. It retained the main account and saved routes, but a controlled Firebase Hosting email link opened Page not found. Replacement build 40 adds the missing native callback mapping; all 290 mobile tests, TypeScript and 72 release checks pass. Native compilation and email/photo/deletion retesting remain pending. This release is not ready for App Review.**
 
-## Last device-tested candidate: build 38
+## Historical regression baseline: build 38
 
 - App: PaddleToday: River Conditions, App Store Connect ID `6769542734`.
 - Bundle ID: `com.paddletoday.mobile`; Apple Team `F73XS8FMPL`.
@@ -13,7 +13,7 @@ Prepared October 26, 2026. Status: **candidate 1.1.6 (39) compiled and passed si
 - Android parity reference: version `1.1.6`, version code `30`, signed bundle from PR #73. The October 6 release record says this was a Play production **draft**, pending manual testing and a GPS foreground-service demonstration. This preparation does not establish Android publication.
 - Build 38 TestFlight submission `97cabbf5-59c0-476d-bf03-fd81e2b8542b` is `FINISHED`; Apple build `70f95de2-6841-4271-98c0-60fbaeb1ee39` is `VALID` and `IN_BETA_TESTING`. The official build is installed on the connected iPhone and reports `TestFlight Beta Distribution`. Superseded build 37 remains in the existing internal Team (Expo) group, but failed the map regression. External beta review and App Review have not been submitted.
 - Downloaded store IPA identity is `com.paddletoday.mobile`, `1.1.6 (38)`. SHA-256: `d5b4546db0a44da5897af9961376bb8f2df764db72f12de9bf803ec7483cf57f`. Apple sign-in, Associated Domains, Google callback configuration and production APNs are present.
-- App Store draft `28b7f9c6-843c-4201-a1e4-2077cb46b550` remains `PREPARE_FOR_SUBMISSION` with saved release notes and `MANUAL` release. Failed build 37 was detached; verified build 38 is now attached, pending remaining QA.
+- App Store draft `28b7f9c6-843c-4201-a1e4-2077cb46b550` remains `PREPARE_FOR_SUBMISSION` with saved release notes and `MANUAL` release. Failed build 37 was detached; build 38 was attached and subsequently replaced in the draft by build 39, pending remaining QA.
 
 ## Shared features included since iOS 1.1.3
 
@@ -84,7 +84,7 @@ App Review access to account-only features must be agreed with the reviewer: pro
 
 Update App Privacy for account identifiers/email, saved routes/notes and trip/log content, private photos, and precise GPS tracks linked to the signed-in user. Nearby notification planning locations also leave the device when opted in. Retain the no-tracking declaration only while analytics/SDK behavior remains consistent. Current privacy worksheet corrections accompany this change; published Apple labels still require verification and update.
 
-Retain existing support/marketing/privacy URLs, review contact details, and manual release. Retain the existing iOS `1.1.6` draft and saved notes, keep the verified `1.1.6 (38)` build, and update screenshots/disclosures as necessary. Do not submit for App Review or release publicly during preparation.
+Retain existing support/marketing/privacy URLs, review contact details, and manual release. Retain the existing iOS `1.1.6` draft and saved notes. Build 39 is currently attached; replace it with build 40 only after that candidate is verified. Update screenshots/disclosures as necessary. Do not submit for App Review or release publicly during preparation.
 
 ## Validation and build path
 
@@ -111,6 +111,20 @@ On a physical iPhone and iPad, verify upgrade from 1.1.3 without losing saved/of
 - [EAS iOS submission](https://docs.expo.dev/submit/ios/)
 - Android release evidence: `docs/audits/mobile-tab-loading-2026-10-06.md`.
 
-## Current replacement candidate: build 39
+## Build 39 account-state fix and device findings
 
-Build 38 successfully linked Google but kept its Connect Google control visible until relaunch. React Native Firebase replaces `auth().currentUser` after `linkWithCredential` without an auth-identity change event. The account screen now refreshes its User state after a completed native provider action and uses the returned User after email linking. Build 39 contains this display-state fix, compiled from `11280b0a46a9d6a399920418f5ac4ed5f6ea8eab`. All 278 mobile tests, TypeScript and 72 release checks pass. EAS build `a417a15f-e8c7-4faa-83b1-401b2f1cfc97` is `FINISHED`; TestFlight submission `0089ceb2-72a8-471f-a3eb-27033b1c8c79` is `IN_QUEUE`. Signed IPA inspection verified version/build, bundle ID, Apple/Associated Domains entitlements, Google callback, production APNs and background location. IPA SHA-256: `065e9bf2b18a3910d910fdee0cb463c39f7c9324e7d6d4d576e28d87829ee150`. The functional commit passed GitHub operations run `40392635448`. Native device verification is pending. Build 38 remains the current TestFlight/device and manual App Store draft build until the replacement is verified.
+Build 38 successfully linked Google but kept its Connect Google control visible until relaunch. React Native Firebase replaces `auth().currentUser` after `linkWithCredential` without an auth-identity change event. Build 39 refreshes the account User state after native actions and uses the returned User after email linking. It compiled from `11280b0a46a9d6a399920418f5ac4ed5f6ea8eab`; EAS build `a417a15f-e8c7-4faa-83b1-401b2f1cfc97` and submission `0089ceb2-72a8-471f-a3eb-27033b1c8c79` are FINISHED. Apple build `2dfda37b-eabf-4c2d-b83a-d6ceb3ad37de` is VALID. IPA SHA-256: `065e9bf2b18a3910d910fdee0cb463c39f7c9324e7d6d4d576e28d87829ee150`.
+
+Official 39 upgrade preserved the main linked account, both exact Saved routes and full backup (2 routes, 0 plans). Connected Apple/Google controls correctly reflect the already-linked account; a newly linked provider's immediate refresh still needs a fresh link test. Account deletion confirmation/cancel and nearby notification settings opened. After a verified backup, the main account was signed out for an owner-approved disposable email QA identity. The exact alias was asserted before native send; Firebase accepted it. Scoped Gmail inbox/spam search did not confirm receipt, so mail delivery remains unverified. A controlled Firebase-admin-generated link was then used strictly for callback diagnosis; it opened native Page not found. A diagnostic URL rewrite also did not establish login. No QA account, private log, or photo upload was created. The main Google session was restored, both exact original Saved names were asserted, and full sync returned 2 routes and 0 plans.
+
+## Current replacement candidate: build 40
+
+Firebase Hosting issues mobile email links at `/__/auth/links?link=...`; the native intent mapper handled river/trip links but omitted this path. Build 40 maps only this project's trusted HTTPS Hosting/action URLs for sign-in to `/auth/callback`, preserving the complete action in callback parameters. The callback consumes that value even during a warm navigation, when the original initial URL may be unrelated. Both account entry and account settings normalize the Hosting wrapper before Firebase validation. Other email actions, malformed links, other hosts and HTTP are excluded from this mapping. Firebase still validates the one-time action and matching email.
+
+Source: `4af499a57`. EAS build `5fe81759-bc8b-4644-8119-298d153baf7e`, TestFlight submission `5fda582f-316a-46cd-853b-b982d638d6e3`. At preparation time the native build is IN_PROGRESS and submission AWAITING_BUILD. Local validation passed TypeScript, all 290 mobile tests across 56 files, and 72 release checks. The controlled failing link was also recognized by the new parser without printing its action code. Actual cold/warm native callback, disposable-account photo sync/deletion, Apple revocation, push delivery and iPad remain open.
+
+## Screenshot and privacy preparation
+
+Six iPhone composition drafts use complete native captures from official builds 38/39 plus the earlier verified ad hoc Weekend capture. They retain source hashes and provenance. Access/Weekend need cleaner captures, all final screenshots need candidate/demo-area review, and no iPad captures were fabricated. These review images were not uploaded to App Store Connect.
+
+The exact signed build 39 IPA contained 29 privacy manifests. The worksheet and `ios-build39-privacy-review-2026-10-26.json` map 16 proposed data types, including account-linked GPS/Fitness and GoogleSignIn SDK declarations. The web privacy-policy source now describes background recording, Firebase diagnostics, provider linking/private relay and Apple deletion authorization. Local desktop/mobile renders passed content and overflow checks. No policy deployment occurred. Published Apple labels remain unchanged; a User ID setup is staged but incomplete. Complete review before publishing those labels, which affect the live product page independently of release submission.
