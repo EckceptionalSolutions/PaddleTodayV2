@@ -1,6 +1,6 @@
 import MaterialCommunityIcons from '@expo/vector-icons/MaterialCommunityIcons';
 import AsyncStorage from '@react-native-async-storage/async-storage';
-import auth, { EmailAuthProvider, GoogleAuthProvider, isSignInWithEmailLink, onAuthStateChanged, sendSignInLinkToEmail, signInWithCredential, signInWithEmailLink } from '@react-native-firebase/auth';
+import auth, { EmailAuthProvider, isSignInWithEmailLink, onAuthStateChanged, sendSignInLinkToEmail, signInWithCredential, signInWithEmailLink } from '@react-native-firebase/auth';
 import { useLocalSearchParams, useRouter } from 'expo-router';
 import * as Linking from 'expo-linking';
 import * as SecureStore from 'expo-secure-store';
@@ -8,11 +8,13 @@ import { useEffect, useRef, useState } from 'react';
 import { ActivityIndicator, Image, ImageBackground, KeyboardAvoidingView, Platform, Pressable, ScrollView, StyleSheet, Text, TextInput, useWindowDimensions, View } from 'react-native';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import { AppButton } from '../components/app-button';
+import { AppleSignInButton } from '../components/apple-sign-in-button';
 import { WebReady } from '../components/web-ready';
 import { prepareAccountLocalData, requestAccountBackup } from '../lib/account-backup';
 import { clearGuestImportConsent, grantGuestImportConsent } from '../lib/account-local-state';
 import { PENDING_EMAIL, PENDING_EMAIL_ACTION, PENDING_EMAIL_RETURN_TO } from '../lib/auth-secure-store-keys';
 import { emailLinkDomainOption } from '../lib/email-link-domain';
+import { appleSignInCredential, googleSignInCredential, nativeSignInMethods } from '../lib/native-sign-in';
 import { completeWelcome, consumePendingLaunchTarget } from '../lib/onboarding';
 import { colors, radius, spacing, typography } from '../theme/tokens';
 
@@ -49,7 +51,10 @@ function AccountEntryContent({ isWelcome, defaultReturnTo }: { isWelcome: boolea
   const finalizedUid = useRef<string | null>(null);
   const emailLinkInProgress = useRef(false);
   const authEnabled = process.env.EXPO_PUBLIC_ACCOUNT_AUTH_ENABLED === '1';
-  const googleEnabled = authEnabled && Platform.OS !== 'web' && Boolean(GOOGLE_WEB_CLIENT_ID);
+  const methods = nativeSignInMethods(Platform.OS, GOOGLE_WEB_CLIENT_ID,
+    process.env.EXPO_PUBLIC_GOOGLE_IOS_SIGN_IN_ENABLED === '1', process.env.EXPO_PUBLIC_APPLE_SIGN_IN_ENABLED === '1');
+  const googleEnabled = authEnabled && methods.google;
+  const appleEnabled = authEnabled && methods.apple;
   const emailEnabled = authEnabled && Platform.OS !== 'web' && Boolean(LINK_DOMAIN);
   const resendSeconds = Math.max(0, Math.ceil((resendAt - now) / 1000));
 
@@ -135,17 +140,11 @@ function AccountEntryContent({ isWelcome, defaultReturnTo }: { isWelcome: boolea
     setBusy(true);
     setMessage('');
     try {
-      const { GoogleSignin, isCancelledResponse } = await import('@react-native-google-signin/google-signin');
-      GoogleSignin.configure({ webClientId: GOOGLE_WEB_CLIENT_ID });
-      await GoogleSignin.hasPlayServices();
-      const result = await GoogleSignin.signIn();
-      if (isCancelledResponse(result)) {
+      const credential = await googleSignInCredential(GOOGLE_WEB_CLIENT_ID);
+      if (!credential) {
         setMessage('Sign-in was canceled. You can try again or continue without an account.');
         return;
       }
-      const tokens = await GoogleSignin.getTokens();
-      if (!tokens.idToken) throw new Error('Google did not return an ID token.');
-      const credential = GoogleAuthProvider.credential(tokens.idToken);
       const current = auth().currentUser;
       if (current) await current.linkWithCredential(credential);
       else await signInWithCredential(auth(), credential);
@@ -156,6 +155,27 @@ function AccountEntryContent({ isWelcome, defaultReturnTo }: { isWelcome: boolea
       setMessage(code.includes('cancel')
         ? 'Sign-in was canceled. You can try again or continue without an account.'
         : 'Google sign-in could not be completed. Check your connection and try again.');
+    } finally { if (!auth().currentUser) await clearGuestImportConsent().catch(() => {}); setBusy(false); }
+  }
+
+  async function runAppleSignIn() {
+    if (busy || !appleEnabled) return;
+    try { await prepareGuestDataImport(); }
+    catch { setMessage('This phone’s saved data could not be checked. Sign-in was paused to protect it.'); return; }
+    setBusy(true);
+    setMessage('');
+    try {
+      const credential = await appleSignInCredential();
+      const current = auth().currentUser;
+      if (current) await current.linkWithCredential(credential);
+      else await signInWithCredential(auth(), credential);
+      const user = auth().currentUser;
+      if (user) await finishSuccessfulSignIn(user);
+    } catch (error) {
+      const code = error && typeof error === 'object' && 'code' in error ? String(error.code).toLowerCase() : '';
+      setMessage(code.includes('cancel')
+        ? 'Sign-in was canceled. You can try again or continue without an account.'
+        : 'Apple sign-in could not be completed. Check your connection and try again.');
     } finally { if (!auth().currentUser) await clearGuestImportConsent().catch(() => {}); setBusy(false); }
   }
 
@@ -323,8 +343,9 @@ function AccountEntryContent({ isWelcome, defaultReturnTo }: { isWelcome: boolea
             <>
               <Text style={styles.sectionTitle}>{isWelcome ? 'Choose how to start' : 'Choose a sign-in method'}</Text>
               {googleEnabled ? <AppButton label="Continue with Google" icon="google" busy={busy} onPress={() => void runGoogleSignIn()} style={styles.actionButton} /> : null}
+              {appleEnabled ? <AppleSignInButton busy={busy} onPress={() => void runAppleSignIn()} style={styles.actionButton} /> : null}
               {emailEnabled ? <AppButton label="Continue with email" icon="email-outline" variant="secondary" busy={busy} onPress={() => { setEmailStep(true); setMessage(''); }} style={styles.actionButton} /> : null}
-              {!googleEnabled && !emailEnabled ? <Text style={styles.unavailable}>Account sign-in is unavailable in this build. You can still explore PaddleToday.</Text> : null}
+              {!googleEnabled && !appleEnabled && !emailEnabled ? <Text style={styles.unavailable}>Account sign-in is unavailable in this build. You can still explore PaddleToday.</Text> : null}
               {!isAccountContext ? <AppButton label={isWelcome ? 'Explore PaddleToday' : 'Back to PaddleToday without signing in'} icon="arrow-right" variant="secondary" busy={busy} onPress={() => void continueWithoutAccount()} style={styles.actionButton} /> : null}
             </>
           )}

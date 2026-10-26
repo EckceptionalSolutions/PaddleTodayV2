@@ -1,0 +1,79 @@
+{
+  "date": "2026-10-26",
+  "app": "PaddleToday",
+  "candidate": {
+    "version": "1.1.6",
+    "iosBuildNumber": "37",
+    "bundleIdentifier": "com.paddletoday.mobile",
+    "sourceBase": "22480da85",
+    "lastLiveIosVersion": "1.1.3",
+    "lastLiveIosBuildNumber": "36"
+  },
+  "androidReference": {
+    "version": "1.1.6",
+    "versionCode": 30,
+    "sourcePullRequest": 73,
+    "publicationVerified": false
+  },
+  "validation": {
+    "mobileUnitTests": 278,
+    "mobileTestFiles": 55,
+    "mobileTypecheck": "passed",
+    "releaseReadinessChecks": 72,
+    "productionApiSmokeChecks": 8,
+    "productionIosJsExport": "passed",
+    "hermesBundleSha256": "d5ec76ebe883f512203b711876dd1154ea55b31eb672febc75512ed130df8747",
+    "iosConfiguration": {
+      "version": "1.1.6",
+      "buildNumber": "37",
+      "bundleIdentifier": "com.paddletoday.mobile",
+      "usesAppleSignIn": true,
+      "entitlements": {
+        "com.apple.developer.associated-domains": [
+          "applinks:paddletoday.com",
+          "applinks:paddletoday-9933a.firebaseapp.com"
+        ],
+        "com.apple.developer.applesignin": [
+          "Default"
+        ],
+        "aps-environment": "development"
+      },
+      "urlSchemes": [
+        "paddletoday",
+        "com.paddletoday.mobile",
+        "com.googleusercontent.apps.378411608143-uf9pge58t4a55op8rabebrvsq2rsqld2",
+        "exp+paddletoday-mobile",
+        "app-1-378411608143-ios-8eb321f8ba3e8ff4fd623a"
+      ],
+      "backgroundModes": [
+        "fetch",
+        "location"
+      ],
+      "locationWhenInUse": "PaddleToday uses your location to show nearby paddling options and to record a route only while you choose to record a paddle.",
+      "locationAlways": "PaddleToday records your route only during a paddle you start, including while your screen is locked. Recording stops when you pause or finish."
+    },
+    "nativeXcodeBuild": "not_started",
+    "testFlightUpload": "not_started",
+    "physicalIosQA": "not_run"
+  },
+  "blockers": [
+    {
+      "name": "Apple agreements",
+      "status": "Apple API returned 403 FORBIDDEN.REQUIRED_AGREEMENTS_MISSING_OR_EXPIRED; Developer account banner still requested updated Program License Agreement acceptance after initial owner retry"
+    },
+    {
+      "name": "Firebase Apple provider",
+      "status": "404 CONFIGURATION_NOT_FOUND; Google provider enabled"
+    },
+    {
+      "name": "Provisioning profile",
+      "status": "Existing active profile expires 2027-05-14 but refresh and entitlement verification still required"
+    },
+    {
+      "name": "Native device verification",
+      "status": "iPhone/iPad sign-in, upgrade, GPS/background, links, privacy labels and screenshots pending"
+    }
+  ],
+  "appReviewSubmitted": false,
+  "publicReleasePerformed": false
+}
