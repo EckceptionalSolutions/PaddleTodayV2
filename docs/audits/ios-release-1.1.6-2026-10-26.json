@@ -54,7 +54,7 @@
     },
     "nativeXcodeBuild": "passed",
     "testFlightUpload": "FINISHED; Apple VALID, IN_BETA_TESTING",
-    "physicalIosQA": "Official TestFlight build 38 installed and verified; saved count, marker selection, route details/Back and pan passed. Broader ad hoc build-38 map checks passed. Full account/GPS/iPad QA pending.",
+    "physicalIosQA": "Official TestFlight build 38: map interaction, Apple Hide My Email sign-in, backup/manual sync, cold-relaunch session persistence, original saved-route retention, and temporary trip save/reopen/synced cleanup passed. Remaining provider, deletion/revocation, GPS/photos/notifications and iPad QA pending. Local stationary GPS start, background return, pause/resume and discard passed; no track uploaded. Moving-track accuracy, cloud-save and other release gates remain pending.",
     "codeCommit": "85a7107cdf6b7ef9a6b5d65c117757779831f3b6",
     "pushEntitlementNote": "Downloaded IPA embedded profile has aps-environment=production.",
     "compiledSourceCommit": "85a7107cdf6b7ef9a6b5d65c117757779831f3b6",
@@ -70,7 +70,11 @@
   "blockers": [
     {
       "name": "Remaining release verification",
-      "status": "Successful provider sign-in, account backup/deletion and trip flows, GPS/background/photos, notification delivery, iPad, current screenshots and published App Privacy remain pending."
+      "status": "Google/email authentication and provider linking; cross-device restore/conflicts; account deletion and Apple revocation; invitation, GPS/background/photos, notification delivery, iPad, current screenshots and published App Privacy remain pending. Apple Hide My Email authentication, backup/session persistence and basic trip creation/reopen/cleanup now pass."
+    },
+    {
+      "name": "Connected-provider UI refresh",
+      "status": "Build 38 linked Google successfully but retained the old connect control until relaunch. Build 39 source refreshes User state after linking; compilation and device retest pending."
     }
   ],
   "appReviewSubmitted": false,
@@ -121,6 +125,10 @@
     {
       "name": "Official TestFlight build 38",
       "status": "Upload FINISHED; Apple VALID and in internal beta testing; installed with owner-approved replacement warning. Installation Proxy confirms TestFlight Beta Distribution."
+    },
+    {
+      "name": "Apple Hide My Email device authentication",
+      "status": "Owner completed passcode authentication on official TestFlight build 38. Private relay account, backup/manual sync, cold-relaunch session persistence and saved-route preservation verified. Relay email delivery and token revocation remain untested."
     }
   ],
   "appStoreDraft": {
@@ -189,12 +197,23 @@
       "explore-route-detail-and-back",
       "explore-pan",
       "weekend-static-map-scroll",
-      "weekend-interactive-map"
+      "weekend-interactive-map",
+      "apple-hide-my-email-sign-in",
+      "signed-in-backup-and-manual-sync",
+      "apple-session-cold-relaunch",
+      "signed-in-saved-preservation",
+      "trip-create-sync-relaunch-reopen-cleanup",
+      "gps-local-start",
+      "gps-background-return",
+      "gps-pause-resume",
+      "gps-screen-lock",
+      "gps-local-discard-cleanup"
     ],
     "pendingChecks": [
       "account-and-sign-in",
       "gps-background-photos-notification-delivery",
-      "ipad"
+      "ipad",
+      "moving-gps-accuracy-and-cloud-save"
     ],
     "complete": false,
     "releaseReady": false,
@@ -205,8 +224,29 @@
       "explore-marker-selection",
       "explore-route-detail-and-back",
       "explore-pan",
-      "apple-native-entry"
-    ]
+      "apple-native-entry",
+      "apple-hide-my-email-sign-in",
+      "signed-in-backup-and-manual-sync",
+      "apple-session-cold-relaunch",
+      "signed-in-saved-preservation",
+      "trip-create-sync-relaunch-reopen-cleanup",
+      "gps-local-start",
+      "gps-background-return",
+      "gps-pause-resume",
+      "gps-screen-lock",
+      "gps-local-discard-cleanup",
+      "google-oauth-return-and-provider-link"
+    ],
+    "temporaryTripRemovedAndSynced": true,
+    "temporaryRecordingEditorPrepared": false,
+    "gpsRecordingStarted": true,
+    "gpsTrackDiscarded": true,
+    "gpsTrackUploaded": false,
+    "gpsScreenLockTested": true,
+    "failedChecks": [
+      "connected-provider-ui-refresh"
+    ],
+    "locationPermissionRestoredToWhileUsing": true
   },
   "appleProviderSetup": {
     "projectId": "paddletoday-9933a",
@@ -217,9 +257,17 @@
     "enabled": true,
     "providerConfigurationVerified": true,
     "privateKeyReturnedByVerification": true,
-    "realSignInAndRevocationTested": false,
     "privateEmailRelaySenderRegistered": true,
     "privateEmailRelaySpfVerified": true,
-    "privateEmailRelayDeliveryTested": false
+    "privateEmailRelayDeliveryTested": false,
+    "realSignInTested": true,
+    "hideMyEmailSignInTested": true,
+    "tokenRevocationTested": false
+  },
+  "nextCandidate": {
+    "version": "1.1.6",
+    "build": "39",
+    "reason": "Refresh connected-provider account controls immediately after linking",
+    "nativeBuildStatus": "not_started"
   }
 }

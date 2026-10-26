@@ -138,7 +138,8 @@ function AccountContent() {
         await currentUser.reauthenticateWithCredential(credential);
       } else if (action === 'link' && currentUser) {
         const credential = EmailAuthProvider.credentialWithLink(pendingEmail, url);
-        await currentUser.linkWithCredential(credential);
+        const result = await currentUser.linkWithCredential(credential);
+        if (isCurrent()) setUser(result.user);
       } else if (currentUser) {
         setMessage('Another account is signed in on this phone. Sign out before using this link, or connect this email from the signed-in account.');
         return;
@@ -185,7 +186,12 @@ function AccountContent() {
       catch { setMessage('This phone’s saved data could not be checked. Sign-in was paused to protect it.'); return; }
     }
     setBusy(true); setMessage('');
-    try { await action(); }
+    try {
+      await action();
+      // Linking updates Firebase's user without changing the signed-in identity,
+      // so onAuthStateChanged does not refresh the connected-provider controls.
+      setUser(auth().currentUser);
+    }
     catch (error) {
       const code = error && typeof error === 'object' && 'code' in error ? String(error.code) : '';
       if (!code.toLowerCase().includes('cancel')) setMessage('Sign-in could not be completed. Check your connection and try again.');
