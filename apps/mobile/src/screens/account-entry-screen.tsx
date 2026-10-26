@@ -14,6 +14,7 @@ import { prepareAccountLocalData, requestAccountBackup } from '../lib/account-ba
 import { clearGuestImportConsent, grantGuestImportConsent } from '../lib/account-local-state';
 import { PENDING_EMAIL, PENDING_EMAIL_ACTION, PENDING_EMAIL_RETURN_TO } from '../lib/auth-secure-store-keys';
 import { emailLinkDomainOption } from '../lib/email-link-domain';
+import { incomingEmailLink } from '../lib/incoming-email-link';
 import { appleSignInCredential, googleSignInCredential, nativeSignInMethods } from '../lib/native-sign-in';
 import { completeWelcome, consumePendingLaunchTarget } from '../lib/onboarding';
 import { colors, radius, spacing, typography } from '../theme/tokens';
@@ -30,7 +31,8 @@ export default function AccountEntryScreen({ isWelcome = false, defaultReturnTo 
 
 function AccountEntryContent({ isWelcome, defaultReturnTo }: { isWelcome: boolean; defaultReturnTo: string }) {
   const router = useRouter();
-  const params = useLocalSearchParams<{ returnTo?: string | string[] }>();
+  const params = useLocalSearchParams<{ returnTo?: string | string[]; emailLink?: string | string[] }>();
+  const callbackEmailLink = Array.isArray(params.emailLink) ? params.emailLink[0] : params.emailLink;
   const insets = useSafeAreaInsets();
   const { height } = useWindowDimensions();
   const returnTo = safeReturnTo(Array.isArray(params.returnTo) ? params.returnTo[0] : params.returnTo, defaultReturnTo);
@@ -87,10 +89,11 @@ function AccountEntryContent({ isWelcome, defaultReturnTo }: { isWelcome: boolea
     if (Platform.OS === 'web' || !authEnabled) return;
     let active = true;
     const handle = (url: string | null) => { if (url) void consumeEmailLink(url, () => active); };
-    void Linking.getInitialURL().then(handle);
+    if (callbackEmailLink) handle(callbackEmailLink);
+    else void Linking.getInitialURL().then(handle);
     const subscription = Linking.addEventListener('url', ({ url }) => handle(url));
     return () => { active = false; subscription.remove(); };
-  }, []);
+  }, [callbackEmailLink]);
 
   async function finishSuccessfulSignIn(user: NonNullable<ReturnType<typeof auth>['currentUser']>) {
     if (finalizedUid.current === user.uid) return;
@@ -214,7 +217,8 @@ function AccountEntryContent({ isWelcome, defaultReturnTo }: { isWelcome: boolea
 
   async function consumeEmailLink(explicitUrl?: string, isCurrent = () => true) {
     if (Platform.OS === 'web' || !authEnabled) return;
-    const url = explicitUrl ?? await Linking.getInitialURL();
+    const receivedUrl = explicitUrl ?? await Linking.getInitialURL();
+    const url = receivedUrl ? incomingEmailLink(receivedUrl) ?? receivedUrl : null;
     if (!url || !isSignInWithEmailLink(auth(), url)) return;
     const pendingEmail = await SecureStore.getItemAsync(PENDING_EMAIL);
     if (!pendingEmail) {

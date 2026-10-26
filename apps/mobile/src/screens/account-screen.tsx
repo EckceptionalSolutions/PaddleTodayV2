@@ -24,6 +24,7 @@ import { setAccountBackupStatus } from '../lib/account-status';
 import { clearAccountLocalOwner, clearGuestImportConsent, grantGuestImportConsent } from '../lib/account-local-state';
 import { PENDING_EMAIL, PENDING_EMAIL_ACTION } from '../lib/auth-secure-store-keys';
 import { emailLinkDomainOption } from '../lib/email-link-domain';
+import { incomingEmailLink } from '../lib/incoming-email-link';
 import { appleSignInCredential, googleSignInCredential, nativeSignInMethods } from '../lib/native-sign-in';
 import { hasPendingTrips, syncTrips } from '../lib/trip-session';
 import { colors, spacing } from '../theme/tokens';
@@ -114,7 +115,8 @@ function AccountContent() {
   }, [pathname]);
 
   async function consumeEmailLink(explicitUrl?: string, isCurrent = () => true) {
-    const url = explicitUrl ?? await Linking.getInitialURL();
+    const receivedUrl = explicitUrl ?? await Linking.getInitialURL();
+    const url = receivedUrl ? incomingEmailLink(receivedUrl) ?? receivedUrl : null;
     if (!url || !isSignInWithEmailLink(auth(), url)) return;
     const pendingEmail = await SecureStore.getItemAsync(PENDING_EMAIL);
     if (!pendingEmail) {

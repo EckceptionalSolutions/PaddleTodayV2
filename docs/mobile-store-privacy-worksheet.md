@@ -31,60 +31,40 @@ Updated October 26, 2026 for the iOS 1.1.6 candidate. These are draft disclosure
 | Product events | Firebase Analytics in preview/production builds | Yes, to Firebase/Google | Not intentionally linked | Analytics / diagnostics | Includes app open, route open, save toggle, directions, report, route-alert and area-notification lifecycle events, diagnostic, feedback prompt/submission category, and store-review events. Feedback text, email, coordinates, and push tokens are excluded. Advertising-oriented collection is disabled in `apps/mobile/firebase.json`. |
 | API request logs | Production API/hosting | Yes, server-side | Potentially via IP/request metadata | App functionality / security / diagnostics | Covered by web/API hosting operations. |
 
-## Apple App Privacy Draft
+## Apple App Privacy — build 39 source audit
 
-### Data Used To Track Users
+Inspected the signed build 39 IPA on October 26, 2026: 29 privacy manifests plus application data flows. The current App Store Connect page was read; these corrections have **not** been published. The detailed source mapping is in `docs/audits/ios-build39-privacy-review-2026-10-26.json`.
 
-Recommended draft answer: `No`.
+| Data type | Linked to identity | Purposes | Tracking |
+| --- | --- | --- | --- |
+| Fitness | Yes | AppFunctionality | No |
+| CoarseLocation | Yes | AppFunctionality, ProductPersonalization | No |
+| CrashData | No | Analytics, AppFunctionality | No |
+| CustomerSupport | Yes | AppFunctionality | No |
+| DeviceID | Yes | Analytics, AppFunctionality | No |
+| EmailAddress | Yes | AppFunctionality | No |
+| Name | Yes | AppFunctionality | No |
+| OtherDataTypes | Yes | Analytics, AppFunctionality | No |
+| OtherDiagnosticData | No | Analytics, AppFunctionality | No |
+| OtherUsageData | Yes | Analytics | No |
+| OtherUserContent | Yes | AppFunctionality | No |
+| PhoneNumber | Yes | AppFunctionality | No |
+| PhotosorVideos | Yes | AppFunctionality | No |
+| PreciseLocation | Yes | AppFunctionality, ProductPersonalization | No |
+| ProductInteraction | No | Analytics | No |
+| UserID | Yes | Analytics, AppFunctionality | No |
 
-Rationale: the app does not use third-party advertising or cross-app/site tracking. Reconfirm if any analytics/ad SDK is added later.
+The GoogleSignIn manifest in this exact IPA declares linked phone-related data, coarse location, device IDs, other usage data and other data types, even though the app only asks for basic Google sign-in scopes. Include SDK collection in addition to data exposed through the app UI. Firebase Authentication declares linked User ID for App Functionality; GoogleSignIn additionally declares User ID for Analytics. The app stores account-linked GPS recaps, so Precise Location is linked even though the maps SDK alone declares unlinked location.
 
-### Data Linked To The User
+Saved paddle-track distance and duration are physical-activity data and are included as linked Fitness. This does not assert collection of clinical health data.
 
-Likely disclose:
+In-app support/feedback may include a reply email and submitted content. Declare Customer Support for App Functionality; do not assume the optional-disclosure exemption applies to every submission. No advertising/tracking use was found in the inspected manifests or enabled configuration.
 
-- Contact Info -> Email Address
-  - Collected for optional account sign-in/recovery, alert emails, route request follow-up, route report follow-up, and optional app-feedback follow-up.
-  - Purpose: App Functionality, Developer Communications.
-- User Content -> Photos or Videos
-  - Collected when the user attaches route report photos or private paddle recap photos.
-  - Purpose: App Functionality.
-- User Content -> Other User Content
-  - Backed-up saved routes/notes, trip plans and membership/RSVP/shuttle details, private paddle logs, route report text, route request notes, app feedback, corrections, access/hazard notes.
-  - Purpose: App Functionality, Developer Communications.
-- Identifiers -> User ID
-  - Firebase account UID and linked provider identity for authentication, backup, trip membership, and deletion.
-  - Purpose: App Functionality.
-- Location -> Precise Location
-  - User-started GPS tracks saved with the private account recap.
-  - Purpose: App Functionality; optional.
+Firebase Analytics and Crashlytics are automatically enabled in production. The current app has no in-app diagnostics opt-out. Optional account/location features do not make automatic diagnostic collection optional.
 
-Review whether these should be marked linked to identity because submissions include email/name and are stored together for moderation.
+Sources: [Apple definitions](https://developer.apple.com/app-store/app-privacy-details/), [GoogleSignIn manifest](https://github.com/google/GoogleSignIn-iOS/blob/main/GoogleSignIn/Sources/Resources/PrivacyInfo.xcprivacy), [Firebase disclosure guidance](https://firebase.google.com/docs/ios/app-store-data-collection).
 
-### Data Not Linked To The User
-
-Likely disclose for Firebase-enabled preview/production builds:
-
-- Diagnostics -> Crash Data
-  - Purpose: App Functionality / Analytics.
-- Diagnostics -> Performance Data or Other Diagnostic Data
-  - Purpose: App Functionality / Analytics.
-- Usage Data -> Product Interaction
-  - Purpose: Analytics, if product events are uploaded.
-
-Likely disclose:
-
-- Location -> Precise Location or Coarse Location
-  - Purpose: App Functionality and notifications.
-  - Required: No. Planning location may leave the device for scoped discovery or opted-in nearby notifications. This row excludes account-linked GPS recap tracks, disclosed above.
-
-Question for final review: Apple may still consider permissioned location "collected" depending on how the form interprets on-device use. If no coordinates leave the device, document the rationale before submission.
-
-### Data Not Collected
-
-Recommended draft: no financial info, contacts, browsing history, search history, health/fitness metrics, sensitive info, or purchases are intentionally collected by this candidate. Account identifiers and Firebase app-instance/installation identifiers are collected and must not be marked absent. Review paddling logs and GPS routes under the appropriate user-content and location categories.
-
-Reconfirm third-party SDK behavior, especially Firebase, Expo, maps, and hosting logs.
+Publication steps: finish each new data-type questionnaire, set the linkage and purposes above, review the resulting product-page preview, and coordinate publication with the new release/privacy-policy deployment. No App Review submission or public release is implied.
 
 ## Google Play Data Safety Draft
 
@@ -117,16 +97,16 @@ Likely disclose:
   - Purpose: App functionality/content moderation.
   - Required: No.
 - App activity -> App interactions
-  - Firebase Analytics product events.
+  - Firebase Analytics product events are automatically enabled in production; there is no in-app opt-out.
   - Purpose: Analytics, App functionality, Diagnostics.
-  - Required: No.
+  - Treat automatic collection as required unless the submitted Android build provides a verified opt-out.
 - Personal info -> User IDs; App activity -> Other user-generated content
   - Account identifiers, backed-up saved routes/notes, trip membership/plans and private paddle logs.
   - Purpose: App functionality; optional account features.
 - App info and performance -> Crash logs / Diagnostics
-  - Firebase Crashlytics.
+  - Firebase Crashlytics is automatically enabled in production; there is no in-app opt-out.
   - Purpose: Analytics, App functionality.
-  - Required: No.
+  - Treat automatic collection as required unless the submitted Android build provides a verified opt-out.
 
 ### Data Security
 
@@ -145,7 +125,7 @@ Mark these optional where the form allows it:
 - Alert email.
 - Route request email.
 - Route report name/email/report/photos.
-- Diagnostics/analytics if not required for app functionality.
+Automatic diagnostics/analytics cannot be marked optional merely because they are not essential to core navigation. Verify the submitted Android artifact and available collection controls independently from the iOS SDK audit.
 
 ## Privacy Policy Follow-Up
 
@@ -167,9 +147,9 @@ Before submission, verify it explicitly covers:
 
 ## Open Decisions Before Submission
 
-- Are Firebase Analytics and Crashlytics enabled in the submitted build?
-- Are product events considered analytics for store forms?
-- Does the final build upload device coordinates anywhere, or only compute locally?
+- Resolved for iOS build 39: Analytics and Crashlytics are enabled automatically; product events use Analytics.
+- Resolved: scoped discovery, opted-in nearby notifications and synced GPS recaps send location off device. GPS recaps are linked to the account.
+- Pending: publish the reviewed Apple labels and deploy the matching privacy-policy copy after final review. The User ID questionnaire is staged but incomplete; published labels remain unchanged.
 - Are alerts fully production-email backed for MVP?
 - Is route report/photo moderation operational before public launch?
 - Who handles deletion requests sent to `hello@paddletoday.com`?
