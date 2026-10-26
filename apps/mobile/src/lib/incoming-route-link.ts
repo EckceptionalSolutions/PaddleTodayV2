@@ -3,7 +3,7 @@ import { incomingEmailLink } from './incoming-email-link';
 /** Map verified website links without changing unrelated custom-scheme/internal links. */
 export function incomingRouteLink(path: string): string {
   const emailLink = incomingEmailLink(path);
-  if (emailLink) return '/auth/callback?emailLink=' + encodeURIComponent(emailLink);
+  if (emailLink) return '/sign-in?returnTo=%2Faccount&emailLink=' + encodeURIComponent(emailLink);
   try {
     const url = new URL(path, 'https://paddletoday.com');
     if (url.protocol !== 'https:' || url.host !== 'paddletoday.com') return path;

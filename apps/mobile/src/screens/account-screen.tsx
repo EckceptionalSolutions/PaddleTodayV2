@@ -1,15 +1,11 @@
 import auth, {
   AppleAuthProvider,
-  EmailAuthProvider,
-  isSignInWithEmailLink,
   onAuthStateChanged,
   sendSignInLinkToEmail,
   signInWithCredential,
-  signInWithEmailLink,
   reauthenticateWithCredential,
   signOut,
 } from '@react-native-firebase/auth';
-import * as Linking from 'expo-linking';
 import * as SecureStore from 'expo-secure-store';
 import { usePathname, useRouter } from 'expo-router';
 import { WebReady } from '../components/web-ready';
@@ -24,7 +20,6 @@ import { setAccountBackupStatus } from '../lib/account-status';
 import { clearAccountLocalOwner, clearGuestImportConsent, grantGuestImportConsent } from '../lib/account-local-state';
 import { PENDING_EMAIL, PENDING_EMAIL_ACTION } from '../lib/auth-secure-store-keys';
 import { emailLinkDomainOption } from '../lib/email-link-domain';
-import { incomingEmailLink } from '../lib/incoming-email-link';
 import { appleSignInCredential, googleSignInCredential, nativeSignInMethods } from '../lib/native-sign-in';
 import { hasPendingTrips, syncTrips } from '../lib/trip-session';
 import { colors, spacing } from '../theme/tokens';
@@ -55,13 +50,11 @@ function AccountContent() {
   const [cooldownEmail, setCooldownEmail] = useState('');
   const [resendAvailableAt, setResendAvailableAt] = useState(0);
   const [clockNow, setClockNow] = useState(Date.now());
-  const [emailLinkUrl, setEmailLinkUrl] = useState<string | null>(null);
   const [busy, setBusy] = useState(false);
   const [message, setMessage] = useState('');
   const [backup, setBackup] = useState<AccountBackupSummary | null>(null);
   const [conflicts, setConflicts] = useState<AccountConflict[]>([]);
   const [deletionPending, setDeletionPending] = useState(false);
-  const emailLinkInProgress = useRef(false);
   const lastAuthUid = useRef<string | null>(null);
   const normalizedEmail = email.trim().toLowerCase();
   const sentLinkForCurrentEmail = emailSent && normalizedEmail === sentEmail;
@@ -89,7 +82,6 @@ function AccountContent() {
     setUser(value);
     if (value) {
       if (pathname === '/account') {
-        void consumeEmailLink();
         void inspectPendingDeletion(value).then((pending) => {
           if (!pending) { resumeAccountBackup(); void backupNow(); }
         });
@@ -104,82 +96,6 @@ function AccountContent() {
     if (!user) { setConflicts([]); return; }
     void listAccountConflicts(user.uid).then(setConflicts).catch(() => {});
   }, [user, backup]);
-
-  useEffect(() => {
-    if (pathname !== '/account') return;
-    let active = true;
-    const consume = (url: string | null) => { if (url) void consumeEmailLink(url, () => active); };
-    void Linking.getInitialURL().then(consume);
-    const subscription = Linking.addEventListener('url', ({ url }) => consume(url));
-    return () => { active = false; subscription.remove(); };
-  }, [pathname]);
-
-  async function consumeEmailLink(explicitUrl?: string, isCurrent = () => true) {
-    const receivedUrl = explicitUrl ?? await Linking.getInitialURL();
-    const url = receivedUrl ? incomingEmailLink(receivedUrl) ?? receivedUrl : null;
-    if (!url || !isSignInWithEmailLink(auth(), url)) return;
-    const pendingEmail = await SecureStore.getItemAsync(PENDING_EMAIL);
-    if (!pendingEmail) {
-      if (auth().currentUser) {
-        setMessage('Open this link on the device where you requested it to protect the account already signed in here.');
-      } else {
-        setEmailLinkUrl(url);
-        setMessage('Enter the same email address used to request this link to finish signing in.');
-      }
-      return;
-    }
-    if (emailLinkInProgress.current) return;
-    emailLinkInProgress.current = true;
-    setBusy(true);
-    try {
-      const action = await SecureStore.getItemAsync(PENDING_EMAIL_ACTION);
-      const currentUser = auth().currentUser;
-      const wasReauthentication = action === 'reauthenticate' && Boolean(currentUser);
-      if (action === 'reauthenticate' && currentUser) {
-        const credential = EmailAuthProvider.credentialWithLink(pendingEmail, url);
-        await currentUser.reauthenticateWithCredential(credential);
-      } else if (action === 'link' && currentUser) {
-        const credential = EmailAuthProvider.credentialWithLink(pendingEmail, url);
-        const result = await currentUser.linkWithCredential(credential);
-        if (isCurrent()) setUser(result.user);
-      } else if (currentUser) {
-        setMessage('Another account is signed in on this phone. Sign out before using this link, or connect this email from the signed-in account.');
-        return;
-      } else {
-        await prepareGuestDataImport();
-        await signInWithEmailLink(auth(), pendingEmail, url);
-      }
-      await SecureStore.deleteItemAsync(PENDING_EMAIL);
-      await SecureStore.deleteItemAsync(PENDING_EMAIL_ACTION);
-      setEmailSent(false);
-      setSentEmail('');
-      setResendAvailableAt(0);
-      if (isCurrent()) setMessage(wasReauthentication
-        ? 'Email verified. You can now retry account deletion.'
-        : 'Email verified. Your account is ready.');
-    } catch {
-      await clearGuestImportConsent().catch(() => {});
-      if (isCurrent()) setMessage('That link could not be used. Request a fresh sign-in link and try again.');
-    } finally { emailLinkInProgress.current = false; if (isCurrent()) setBusy(false); }
-  }
-
-  async function finishCrossDeviceEmailLink() {
-    const normalized = email.trim().toLowerCase();
-    if (!emailLinkUrl || !isSignInWithEmailLink(auth(), emailLinkUrl)) return;
-    if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(normalized)) { setMessage('Enter the email address used to request this link.'); return; }
-    try { await prepareGuestDataImport(); }
-    catch { setMessage('This phone’s saved data could not be checked. Sign-in was paused to protect it.'); return; }
-    setBusy(true);
-    try {
-      await signInWithEmailLink(auth(), normalized, emailLinkUrl);
-      setEmailLinkUrl(null);
-      setEmailSent(false);
-      setSentEmail('');
-      setMessage('Email verified. Your account is ready.');
-    } catch {
-      setMessage('That link could not be used with this email. Request a fresh sign-in link and try again.');
-    } finally { if (!auth().currentUser) await clearGuestImportConsent().catch(() => {}); setBusy(false); }
-  }
 
   async function runLogin(action: () => Promise<unknown>) {
     if (Platform.OS === 'web' || busy) return;
@@ -475,8 +391,7 @@ function AccountContent() {
           <AppButton label={resendSeconds > 0 ? `${emailSent && normalizedEmail === sentEmail ? 'Send another link' : 'Try again'} in ${resendSeconds}s` : 'Connect email with a sign-in link'} variant="secondary" busy={busy} disabled={busy || resendSeconds > 0} onPress={() => void sendEmailLink()} />
           <AppButton label="Back to account options" variant="secondary" disabled={busy} onPress={() => setEmailEntryVisible(false)} />
         </> : <AppButton label="Connect email with a sign-in link" variant="secondary" busy={busy} onPress={() => { setEmailEntryVisible(true); setMessage(''); }} /> : null}
-        {sentLinkForCurrentEmail && !emailLinkUrl ? <AppButton label="Use a different email" variant="secondary" disabled={busy} onPress={() => { setEmail(''); setEmailSent(false); setSentEmail(''); setMessage('Enter a different address. A new link will be sent to that address.'); }} /> : null}
-        {emailLinkUrl ? <AppButton label="Finish connecting email" busy={busy} onPress={() => void finishCrossDeviceEmailLink()} /> : null}
+        {sentLinkForCurrentEmail ? <AppButton label="Use a different email" variant="secondary" disabled={busy} onPress={() => { setEmail(''); setEmailSent(false); setSentEmail(''); setMessage('Enter a different address. A new link will be sent to that address.'); }} /> : null}
         <AppButton label="Sync now" busyLabel="Syncing…" busy={busy} onPress={() => void backupNow()} />
         {backup ? <Text style={styles.body}>{backup.routes} saved routes and {backup.drafts} trip plans. {backup.pending ? 'Changes are waiting to sync. ' : ''}{backup.conflicts ? backup.conflicts + ' changes need review. ' : ''}{backup.lastSyncedAt ? `Last fully synced on this phone ${new Date(backup.lastSyncedAt).toLocaleString()}.` : ''}</Text> : null}
         {conflicts.map((conflict) => <View key={conflict.key} style={styles.conflict}>

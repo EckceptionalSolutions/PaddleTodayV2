@@ -9,7 +9,8 @@ describe('Firebase email link entry', () => {
   it.each([action, hosting])('opens the callback with the complete action for cold and warm entry: %s', link => {
     expect(incomingEmailLink(link)).toBe(action);
     const route = new URL(incomingRouteLink(link), 'https://paddletoday.com');
-    expect(route.pathname).toBe('/auth/callback');
+    expect(route.pathname).toBe('/sign-in');
+    expect(route.searchParams.get('returnTo')).toBe('/account');
     expect(route.searchParams.get('emailLink')).toBe(action);
   });
   it('accepts the project web.app Hosting domain', () => {

@@ -2,7 +2,6 @@ import MaterialCommunityIcons from '@expo/vector-icons/MaterialCommunityIcons';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import auth, { EmailAuthProvider, isSignInWithEmailLink, onAuthStateChanged, sendSignInLinkToEmail, signInWithCredential, signInWithEmailLink } from '@react-native-firebase/auth';
 import { useLocalSearchParams, useRouter } from 'expo-router';
-import * as Linking from 'expo-linking';
 import * as SecureStore from 'expo-secure-store';
 import { useEffect, useRef, useState } from 'react';
 import { ActivityIndicator, Image, ImageBackground, KeyboardAvoidingView, Platform, Pressable, ScrollView, StyleSheet, Text, TextInput, useWindowDimensions, View } from 'react-native';
@@ -47,6 +46,7 @@ function AccountEntryContent({ isWelcome, defaultReturnTo }: { isWelcome: boolea
   const [signedInUid, setSignedInUid] = useState<string | null>(null);
   const [localSetupFailed, setLocalSetupFailed] = useState(false);
   const [emailVerified, setEmailVerified] = useState(false);
+  const [emailBlockedBySignedInAccount, setEmailBlockedBySignedInAccount] = useState(false);
   const completionReturnTo = useRef<string | null>(null);
   const [resendAt, setResendAt] = useState(0);
   const [now, setNow] = useState(Date.now());
@@ -78,7 +78,7 @@ function AccountEntryContent({ isWelcome, defaultReturnTo }: { isWelcome: boolea
       setSignedInUid(user?.uid ?? null);
       if (user && finalizedUid.current !== user.uid) {
         void SecureStore.getItemAsync(PENDING_EMAIL_ACTION).then(action => {
-          if (active && action !== 'reauthenticate') return finishSuccessfulSignIn(user);
+          if (active && action !== 'reauthenticate' && action !== 'link' && !callbackEmailLink) return finishSuccessfulSignIn(user);
         });
       }
     });
@@ -88,11 +88,8 @@ function AccountEntryContent({ isWelcome, defaultReturnTo }: { isWelcome: boolea
   useEffect(() => {
     if (Platform.OS === 'web' || !authEnabled) return;
     let active = true;
-    const handle = (url: string | null) => { if (url) void consumeEmailLink(url, () => active); };
-    if (callbackEmailLink) handle(callbackEmailLink);
-    else void Linking.getInitialURL().then(handle);
-    const subscription = Linking.addEventListener('url', ({ url }) => handle(url));
-    return () => { active = false; subscription.remove(); };
+    if (callbackEmailLink) void consumeEmailLink(callbackEmailLink, () => active);
+    return () => { active = false; };
   }, [callbackEmailLink]);
 
   async function finishSuccessfulSignIn(user: NonNullable<ReturnType<typeof auth>['currentUser']>) {
@@ -215,13 +212,17 @@ function AccountEntryContent({ isWelcome, defaultReturnTo }: { isWelcome: boolea
     } finally { setBusy(false); }
   }
 
-  async function consumeEmailLink(explicitUrl?: string, isCurrent = () => true) {
+  async function consumeEmailLink(receivedUrl: string, isCurrent = () => true) {
     if (Platform.OS === 'web' || !authEnabled) return;
-    const receivedUrl = explicitUrl ?? await Linking.getInitialURL();
     const url = receivedUrl ? incomingEmailLink(receivedUrl) ?? receivedUrl : null;
     if (!url || !isSignInWithEmailLink(auth(), url)) return;
     const pendingEmail = await SecureStore.getItemAsync(PENDING_EMAIL);
     if (!pendingEmail) {
+      if (auth().currentUser) {
+        setEmailBlockedBySignedInAccount(true);
+        setMessage('Open this link where you requested it, or sign out before signing in to another account.');
+        return;
+      }
       setEmailLinkUrl(url);
       setEmailStep(true);
       setMessage('Enter the same email address used to request this link.');
@@ -243,6 +244,7 @@ function AccountEntryContent({ isWelcome, defaultReturnTo }: { isWelcome: boolea
       } else if (pendingAction === 'link' && activeUser) {
         await activeUser.linkWithCredential(EmailAuthProvider.credentialWithLink(pendingEmail, url));
       } else if (activeUser) {
+        setEmailBlockedBySignedInAccount(true);
         setMessage('Another account is signed in on this device. Open the link where it was requested, or sign out first.');
         return;
       } else {
@@ -263,6 +265,11 @@ function AccountEntryContent({ isWelcome, defaultReturnTo }: { isWelcome: boolea
   }
 
   async function finishCrossDeviceEmailLink() {
+    if (auth().currentUser) {
+      setEmailBlockedBySignedInAccount(true);
+      setMessage('Sign out before using an email link for another account.');
+      return;
+    }
     const normalized = email.trim().toLowerCase();
     if (!emailLinkUrl || !isSignInWithEmailLink(auth(), emailLinkUrl)) return;
     if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(normalized)) { setMessage('Enter the email address used to request this link.'); return; }
@@ -288,7 +295,7 @@ function AccountEntryContent({ isWelcome, defaultReturnTo }: { isWelcome: boolea
 
   const continueAfterSignIn = async () => {
     await SecureStore.deleteItemAsync(PENDING_EMAIL_RETURN_TO).catch(() => {});
-    router.replace((safeReturnTo(completionReturnTo.current ?? (await consumePendingLaunchTarget()) ?? undefined, returnTo)) as never);
+    router.dismissTo((safeReturnTo(completionReturnTo.current ?? (await consumePendingLaunchTarget()) ?? undefined, returnTo)) as never);
   };
 
   return (
@@ -322,6 +329,12 @@ function AccountEntryContent({ isWelcome, defaultReturnTo }: { isWelcome: boolea
               <Text accessibilityRole="header" style={styles.resultTitle}>Your saved data needs attention</Text>
               <Text style={styles.resultBody}>{message}</Text>
               <AppButton label="Retry saved data setup" busy={busy} onPress={() => { const user = auth().currentUser; if (user) void finishSuccessfulSignIn(user); }} style={styles.actionButton} />
+            </View>
+          ) : emailBlockedBySignedInAccount ? (
+            <View style={styles.resultCard} accessibilityLiveRegion="polite">
+              <Text accessibilityRole="header" style={styles.resultTitle}>An account is already signed in</Text>
+              <Text style={styles.resultBody}>{message}</Text>
+              <AppButton label="Open Account & Backup" onPress={() => router.dismissTo('/account' as never)} style={styles.actionButton} />
             </View>
           ) : emailVerified ? (
             <View style={styles.resultCard} accessibilityLiveRegion="polite">
