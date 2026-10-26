@@ -1,19 +1,19 @@
 # iOS 1.1.6 release preparation
 
-Prepared October 26, 2026. Status: **build 37 is blocked by independently reproduced iPhone map interaction failure; replacement build 38 is being prepared. Apple provider setup and remaining native regression QA are pending.**
+Prepared October 26, 2026. Status: **build 38 passed targeted iPhone map regression using a phone-specific signed copy of the compiled app. Its official TestFlight upload is queued. Apple provider setup and remaining account/GPS/iPad QA are pending.**
 
 ## Candidate identity
 
 - App: PaddleToday: River Conditions, App Store Connect ID `6769542734`.
 - Bundle ID: `com.paddletoday.mobile`; Apple Team `F73XS8FMPL`.
-- Candidate: `1.1.6 (37)`, using the current shared mobile source from main at `22480da85` plus this preparation change.
+- Candidate: `1.1.6 (38)`, using shared mobile source from main at `22480da85` plus sign-in preparation and the map touch fix, compiled from `85a7107cdf6b7ef9a6b5d65c117757779831f3b6`.
 - Confirmed live iOS release: `1.1.3 (36)`, Ready for Distribution, observed in App Store Connect on October 26.
-- Successful candidate EAS build: [`07df0fe3-9230-4c92-9ddc-60d38cd8380a`](https://expo.dev/accounts/eckceptionalsolutions/projects/paddletoday-mobile/builds/07df0fe3-9230-4c92-9ddc-60d38cd8380a), version `1.1.6 (37)`, source commit `d346e89c4094c691739ebaade8704b9abee1cc58`.
+- Successful replacement EAS build: [`1c95ec16-5d3e-4895-83d8-c1453eeac727`](https://expo.dev/accounts/eckceptionalsolutions/projects/paddletoday-mobile/builds/1c95ec16-5d3e-4895-83d8-c1453eeac727), version `1.1.6 (38)`, source commit `85a7107cdf6b7ef9a6b5d65c117757779831f3b6`.
 - Prior failed iOS build: `12641381-fe85-4978-8d10-389053c4e5f0`, October 1. Its provisioning profile lacked Associated Domains and Sign in with Apple entitlements; those signing issues are now resolved.
 - Android parity reference: version `1.1.6`, version code `30`, signed bundle from PR #73. The October 6 release record says this was a Play production **draft**, pending manual testing and a GPS foreground-service demonstration. This preparation does not establish Android publication.
-- TestFlight submission `d1a90170-3007-424c-815b-7a48af37b791` finished. App Store Connect build `06fe57fd-ed6f-47d0-a4d4-81634cad9d58` is `VALID` and `IN_BETA_TESTING` for the existing internal Team (Expo) group. External beta review and App Review have not been submitted.
-- Downloaded IPA identity is `com.paddletoday.mobile`, `1.1.6 (37)`. SHA-256: `fec7b0b6e244ef8854009e4c2cedd3ff81555dd8ea37c3266c53492916acf0d7`. Its embedded profile includes Apple sign-in, Associated Domains, and production APNs; its Info.plist includes the Google callback scheme and location background mode.
-- App Store version draft `28b7f9c6-843c-4201-a1e4-2077cb46b550` is `PREPARE_FOR_SUBMISSION`, with build 37 attached, US English What's New saved, and release type `MANUAL`. It has not been submitted for App Review.
+- Build 38 TestFlight submission `97cabbf5-59c0-476d-bf03-fd81e2b8542b` is `IN_QUEUE`; Apple has not received it yet. Superseded build 37 remains in the existing internal Team (Expo) group, but failed the map regression. External beta review and App Review have not been submitted.
+- Downloaded store IPA identity is `com.paddletoday.mobile`, `1.1.6 (38)`. SHA-256: `d5b4546db0a44da5897af9961376bb8f2df764db72f12de9bf803ec7483cf57f`. Apple sign-in, Associated Domains, Google callback configuration and production APNs are present.
+- App Store draft `28b7f9c6-843c-4201-a1e4-2077cb46b550` remains `PREPARE_FOR_SUBMISSION` with saved release notes and `MANUAL` release. Failed build 37 was detached; the draft awaits build 38 after upload and remaining QA.
 
 ## Shared features included since iOS 1.1.3
 
@@ -36,7 +36,9 @@ This uses current shared main source, including common mobile fixes merged after
 3. Remaining blocker: Firebase project `paddletoday-9933a` has Google enabled but Apple returned `404 CONFIGURATION_NOT_FOUND`. Apple sign-in and its deletion/revocation flow cannot be signed off until the provider and code-flow credentials are configured.
 4. Connected physical device: `iPhone14,5`, iOS `26.5.2`, paired over USB with Developer Mode and UI Automation enabled. The official Appium WebDriverAgent 16.15.3 runner was signed using the existing team certificate and a profile restricted to this phone, installed successfully, and launched through XCTest. Automated navigation, taps, swipes, screenshots, and accessibility inspection now work.
 5. The owner installed `1.1.6 (37)` through TestFlight; the version was independently verified. The two exact Saved routes and count survived the upgrade from `1.1.3 (36)`. Today loaded production content and retained the planning location. Weekend loaded forecasts and responded to filtering and scrolling. Explore list navigation opened the river hub; its first request failed and Retry loaded 39 Mississippi routes. These are bounded checks, not completion of the full regression suite.
-6. Release blocker reproduced with automated marker clicks, coordinate taps, and pans: Explore renders but ignores map gestures. Programmatic focus controls and surrounding app controls work. React Native 0.81.5's `RCTViewManager.m` applies `pointerEvents="auto"` to a plain UIView by setting interaction on and immediately falling through to the `none` case. `MKMapView` is such a view. The replacement moves pointer-event and accessibility gating to the React Native wrapper and leaves the native map's interaction enabled by default. Build 38 must pass real-device map selection, pan, and static-preview scrolling before this blocker is closed.
+6. Build 37's marker failure was independently reproduced. React Native 0.81.5's `RCTViewManager.m` applies `pointerEvents="auto"` to a plain UIView by setting interaction on and immediately falling through to the `none` case. `MKMapView` is such a view. Build 38 moves pointer-event and accessibility gating to the React Native wrapper. On the phone, two distinct Explore markers opened matching drawers; route details and Back worked; a normal pan changed marker coordinates; the static Weekend map allowed page scrolling; enabling its interactive mode allowed a marker to open the correct route, then returned to static mode.
+7. These build 38 checks used an ad hoc signed copy because EAS Submit was queued. The compiled JavaScript, native `__TEXT` sections of all four binaries, and Info.plist values were compared with the store IPA and are unchanged. Feature entitlements are preserved; only App Store-only `beta-reports-active` is omitted for the ad hoc profile. The installer accepted the corrected package. Both exact Saved route names and count 2 survived. TestFlight receipt/distribution behavior still needs verification on Apple's official build 38.
+8. Build 37 additionally passed an offline cold-relaunch journey with Wi-Fi disabled and a downloaded trip packet reopened from Saved. Wi-Fi was restored, the temporary packet removed, and the Weekend filter restored. Google web-auth consent and native Apple sign-in introduction opened and cancelled cleanly; email entry opened. None of these checks establishes successful authentication, account sync/deletion, photo upload, notification delivery, or GPS/background recording.
 
 ### Required account setup
 
