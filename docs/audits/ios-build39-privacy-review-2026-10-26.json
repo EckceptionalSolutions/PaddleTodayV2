@@ -192,5 +192,18 @@
     "Analytics and Crashlytics are automatically enabled in production; the app has no in-app diagnostics opt-out.",
     "A pending User ID setup was opened in App Store Connect; no Publish action has been used.",
     "Saved paddle track distance and duration describe physical activity; disclose linked Fitness in addition to the precise GPS coordinates."
-  ]
+  ],
+  "appliesToBuilds": [
+    "39",
+    "40",
+    "41"
+  ],
+  "manifestComparisonBuild41": {
+    "baseBuild": "39",
+    "candidateBuild": "41",
+    "privacyManifestCount": 29,
+    "manifestPathsAndHashesUnchanged": true,
+    "auditAppliesToBuild41": true
+  },
+  "webPolicyDeployed": false
 }

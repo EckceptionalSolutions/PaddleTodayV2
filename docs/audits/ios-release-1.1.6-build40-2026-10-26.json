@@ -7,21 +7,93 @@
     "submissionId": "5fda582f-316a-46cd-853b-b982d638d6e3",
     "reason": "Handle Firebase Hosting email sign-in links through the native callback; preserve the full action URL for authentication.",
     "version": "1.1.6",
-    "nativeBuildStatus": "IN_PROGRESS",
-    "submissionStatus": "AWAITING_BUILD",
-    "deviceInstalled": false,
+    "nativeBuildStatus": "FINISHED",
+    "submissionStatus": "FINISHED",
+    "deviceInstalled": true,
     "validation": {
       "mobileUnitTests": 290,
       "mobileTestFiles": 56,
       "mobileTypecheck": "passed",
       "releaseReadinessChecks": 72,
       "actualControlledLinkRecognizedByParser": true
-    }
+    },
+    "deviceDistribution": "ad hoc compiled-code equivalent",
+    "appleBuildId": "84847de4-3671-46c1-9336-dfd953828a8a",
+    "appleProcessingState": "VALID",
+    "ipaSha256": "1a0d62edd6589d55f7618c72599c34643263c8ddab0d0c25dfee926a5546d99c",
+    "javascriptSha256": "0e0d4a13d649649253893c5976d8b21ac0ae1fd04b9723c1762740872fe4f214"
   },
   "regressionBaselineBuild": "39",
-  "emailFixDeviceRetestComplete": false,
+  "emailFixDeviceRetestComplete": true,
   "releaseReady": false,
   "appStoreDraftBuildNumber": "39",
   "appReviewSubmitted": false,
-  "publicReleasePerformed": false
+  "publicReleasePerformed": false,
+  "signedPackageInspection": {
+    "version": "1.1.6",
+    "build": "40",
+    "bundleId": "com.paddletoday.mobile",
+    "ipaSha256": "1a0d62edd6589d55f7618c72599c34643263c8ddab0d0c25dfee926a5546d99c",
+    "javascriptSha256": "0e0d4a13d649649253893c5976d8b21ac0ae1fd04b9723c1762740872fe4f214",
+    "signedEntitlements": {
+      "application-identifier": "F73XS8FMPL.com.paddletoday.mobile",
+      "aps-environment": "production",
+      "beta-reports-active": true,
+      "com.apple.developer.applesignin": [
+        "Default"
+      ],
+      "com.apple.developer.associated-domains": [
+        "applinks:paddletoday.com",
+        "applinks:paddletoday-9933a.firebaseapp.com"
+      ],
+      "com.apple.developer.team-identifier": "F73XS8FMPL",
+      "get-task-allow": false
+    },
+    "backgroundModes": [
+      "fetch",
+      "location"
+    ],
+    "urlSchemes": [
+      "paddletoday",
+      "com.paddletoday.mobile",
+      "com.googleusercontent.apps.378411608143-uf9pge58t4a55op8rabebrvsq2rsqld2",
+      "exp+paddletoday-mobile",
+      "app-1-378411608143-ios-8eb321f8ba3e8ff4fd623a"
+    ],
+    "distribution": "App Store; no provisioned device list",
+    "profileExpiresAt": "2027-05-14T20:43:27",
+    "hasCompiledJavaScript": true
+  },
+  "passedDeviceChecks": [
+    "main account and both Saved routes retained after install",
+    "exact approved alias native email-send accepted",
+    "unmodified controlled Firebase Hosting warm email callback authenticated",
+    "QA identity verified distinct from protected main Apple+Google account",
+    "generated private custom-route recap synced",
+    "selected only public PaddleToday-logo photo with PHPicker",
+    "photo uploaded and displayed with All changes saved",
+    "sign-out followed by verified process-not-running cold Hosting link entry",
+    "cold email callback required matching email then authenticated",
+    "cold callback Back returned to Today",
+    "restored QA history count 1 and private recap with 1 photo after sign-out and cold sign-in",
+    "disposable email account deleted through native app",
+    "Firebase QA identity absent after deletion",
+    "server QA deletion complete with 0 logs, 0 photo metadata and 0 photo bytes",
+    "main Google session restored with full sync and both exact original Saved names",
+    "main session survived cold relaunch"
+  ],
+  "failedDeviceChecks": [
+    "warm callback Back can return to original sign-in Preparing screen",
+    "sign-out/deletion can re-read consumed initial email link and show stale email entry"
+  ],
+  "qaCleanup": {
+    "qaOnlyScope": true,
+    "remainingQaLogs": 0,
+    "remainingQaPhotoMetadata": 0,
+    "remainingQaPhotoBytes": 0,
+    "serverDeletionComplete": true,
+    "observedAt": "2026-10-26T21:58:55.632Z"
+  },
+  "mainAccountRestored": true,
+  "supersededByBuild": "41"
 }

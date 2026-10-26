@@ -31,9 +31,9 @@ Updated October 26, 2026 for the iOS 1.1.6 candidate. These are draft disclosure
 | Product events | Firebase Analytics in preview/production builds | Yes, to Firebase/Google | Not intentionally linked | Analytics / diagnostics | Includes app open, route open, save toggle, directions, report, route-alert and area-notification lifecycle events, diagnostic, feedback prompt/submission category, and store-review events. Feedback text, email, coordinates, and push tokens are excluded. Advertising-oriented collection is disabled in `apps/mobile/firebase.json`. |
 | API request logs | Production API/hosting | Yes, server-side | Potentially via IP/request metadata | App functionality / security / diagnostics | Covered by web/API hosting operations. |
 
-## Apple App Privacy — build 39 source audit
+## Apple App Privacy - builds 39-41 SDK/source audit
 
-Inspected the signed build 39 IPA on October 26, 2026: 29 privacy manifests plus application data flows. The current App Store Connect page was read; these corrections have **not** been published. The detailed source mapping is in `docs/audits/ios-build39-privacy-review-2026-10-26.json`.
+Inspected the signed build 39 IPA on October 26, 2026: 29 privacy manifests plus application data flows. The packaged manifest paths and hashes match exactly in builds 40 and 41. The current App Store Connect page was read; these corrections have **not** been published. The detailed source mapping is in `docs/audits/ios-build39-privacy-review-2026-10-26.json`.
 
 | Data type | Linked to identity | Purposes | Tracking |
 | --- | --- | --- | --- |

@@ -1,0 +1,141 @@
+{
+  "date": "2026-10-26",
+  "candidate": {
+    "version": "1.1.6",
+    "build": "41",
+    "sourceCommit": "0c6767ebbf786af14bb504aade973e1708cdc5de",
+    "buildId": "4c07027b-8edb-4d7f-b041-916f5cbeb25c",
+    "submissionId": "5a20a29b-c0d4-49d6-b121-fbae4a60ad44",
+    "nativeBuildStatus": "FINISHED",
+    "submissionStatus": "FINISHED",
+    "deviceInstalled": true,
+    "reason": "Give email actions a single callback owner; reuse the sign-in route and dismiss to the return screen; protect an already signed-in account from unrequested links.",
+    "validation": {
+      "mobileUnitTests": 290,
+      "mobileTestFiles": 56,
+      "mobileTypecheck": "passed",
+      "releaseReadinessChecks": 72,
+      "functionalCommitOperationsGates": "passed",
+      "functionalCommitOperationsRunId": 40408700053
+    },
+    "deviceDistribution": "Official TestFlight Beta Distribution",
+    "appleBuildId": "8bda044f-d380-4a1a-89a5-605121376c1b",
+    "appleProcessingState": "VALID",
+    "ipaSha256": "f39416707adf50986a52139667edf1856c38cfcfb817da9fced70cdb132b4063",
+    "javascriptSha256": "5c7009a9a69d77ed3d39745feaff4865915794077b2bfffc4071e26a612c88a0",
+    "compiledAt": "2026-10-26T22:04:56.897Z",
+    "signedPackageVerified": true
+  },
+  "regressionBaselineBuild": "40",
+  "nativeRetestComplete": false,
+  "releaseReady": false,
+  "appStoreDraftBuildNumber": "41",
+  "appReviewSubmitted": false,
+  "publicReleasePerformed": false,
+  "targetedEmailRetestComplete": true,
+  "officialTestFlightPassedChecks": [
+    "installed version/build/signer independently verified",
+    "main linked Apple/Google account and full 2-route/0-plan backup retained across replacement",
+    "controlled Hosting warm email callback with matching-email confirmation",
+    "warm callback Back returns to More without stale Preparing screen",
+    "sign-out returns fresh sign-in choices",
+    "process verified not running before cold Hosting-link launch",
+    "cold email callback with matching-email confirmation",
+    "disposable QA identity verified separate from protected main account",
+    "native QA deletion returns fresh choices without replaying the consumed link",
+    "Firebase QA identity absent after deletion",
+    "server QA deletion complete with zero logs/photo metadata/photo bytes",
+    "fresh main Google sign-in restores full backup",
+    "main session and both exact original Saved route names retained after cold relaunch"
+  ],
+  "phoneQaAdditionalPassedChecks": [
+    "native email request accepted after exact input assertion",
+    "already-signed-in main account protected from an unrequested QA link",
+    "guard returns to the same main identity with backup intact",
+    "warm/cold email authentication and warm Back navigation",
+    "sign-out/deletion freshness",
+    "QA identity deletion and scoped server cleanup",
+    "map marker opens matching route drawer; details/Back and Access load",
+    "Weekend overview loads",
+    "current candidate captures for Today/conditions/Explore/Access/Weekend/Saved"
+  ],
+  "qaCleanup": {
+    "qaOnlyScope": true,
+    "remainingQaLogs": 0,
+    "remainingQaPhotoMetadata": 0,
+    "remainingQaPhotoBytes": 0,
+    "serverDeletionComplete": true,
+    "observedAt": "2026-10-26T22:20:02.848Z"
+  },
+  "mainAccountRestored": true,
+  "failedChecks": [],
+  "pendingChecks": [
+    "actual email and Apple relay delivery",
+    "Apple-linked deletion/token revocation with a disposable Apple identity",
+    "actual push delivery",
+    "native iPad layout/screenshots",
+    "separate-device sync/conflicts and invitation journeys",
+    "moving GPS accuracy and cloud-save journey",
+    "final screenshot/demo-data review and App Privacy publication/privacy-policy deployment"
+  ],
+  "signedPackageInspection": {
+    "version": "1.1.6",
+    "build": "41",
+    "bundleId": "com.paddletoday.mobile",
+    "ipaSha256": "f39416707adf50986a52139667edf1856c38cfcfb817da9fced70cdb132b4063",
+    "javascriptSha256": "5c7009a9a69d77ed3d39745feaff4865915794077b2bfffc4071e26a612c88a0",
+    "signedEntitlements": {
+      "application-identifier": "F73XS8FMPL.com.paddletoday.mobile",
+      "aps-environment": "production",
+      "beta-reports-active": true,
+      "com.apple.developer.applesignin": [
+        "Default"
+      ],
+      "com.apple.developer.associated-domains": [
+        "applinks:paddletoday.com",
+        "applinks:paddletoday-9933a.firebaseapp.com"
+      ],
+      "com.apple.developer.team-identifier": "F73XS8FMPL",
+      "get-task-allow": false
+    },
+    "backgroundModes": [
+      "fetch",
+      "location"
+    ],
+    "urlSchemes": [
+      "paddletoday",
+      "com.paddletoday.mobile",
+      "com.googleusercontent.apps.378411608143-uf9pge58t4a55op8rabebrvsq2rsqld2",
+      "exp+paddletoday-mobile",
+      "app-1-378411608143-ios-8eb321f8ba3e8ff4fd623a"
+    ],
+    "distribution": "App Store; no provisioned device list",
+    "profileExpiresAt": "2027-05-14T20:43:27",
+    "hasCompiledJavaScript": true
+  },
+  "phoneQaPackageComparison": {
+    "version": "1.1.6",
+    "build": "41",
+    "compiledJavaScriptUnchanged": true,
+    "nativeTextSectionsUnchanged": true,
+    "nativeBinaryCount": 4,
+    "infoPlistValuesUnchanged": true,
+    "appCapabilitiesMatchStoreArtifact": true,
+    "distributionEntitlementDifference": "App Store-only beta-reports-active omitted for the ad hoc profile",
+    "originalIpaSha256": "f39416707adf50986a52139667edf1856c38cfcfb817da9fced70cdb132b4063",
+    "phoneIpaSha256": "20a23d63be86b93121c8707a7de30ab0909a1abe50ecb810929ffca058f7ddcf",
+    "compiledJavaScriptSha256": "5c7009a9a69d77ed3d39745feaff4865915794077b2bfffc4071e26a612c88a0",
+    "associatedDomains": [
+      "applinks:paddletoday.com",
+      "applinks:paddletoday-9933a.firebaseapp.com"
+    ],
+    "apsEnvironment": "production"
+  },
+  "privacyManifestComparison": {
+    "baseBuild": "39",
+    "candidateBuild": "41",
+    "privacyManifestCount": 29,
+    "manifestPathsAndHashesUnchanged": true,
+    "auditAppliesToBuild41": true
+  }
+}
