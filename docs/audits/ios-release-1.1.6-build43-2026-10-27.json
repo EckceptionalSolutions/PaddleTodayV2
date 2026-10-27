@@ -53,7 +53,8 @@
     "functionalSourceOperationsRun": 40524612743,
     "tabletWidthBrowserChecks": 9,
     "nativeIpadSimulatorRun": 40527331722,
-    "nativeIpadSimulatorResult": "pending"
+    "nativeIpadSimulatorResult": "pending",
+    "productionMobileApiSmokeChecks": 8
   },
   "privacyPublished": true,
   "privacyDataTypes": 16,
@@ -68,5 +69,12 @@
     "Complete current screenshots and native tablet evidence.",
     "Resolve reliable App Review sign-in access.",
     "Live Apple revocation and Hide My Email forwarding remain unverified; no disposable Apple identity is available."
-  ]
+  ],
+  "storeMetadata": {
+    "ageRatingQuestionnaireComplete": true,
+    "incorrectLootBoxAnswerCorrected": true,
+    "socialMediaQuestionsComplete": true,
+    "existingUgcDisclosureRetained": true,
+    "publicDescriptionUpdatedInDraft": true
+  }
 }

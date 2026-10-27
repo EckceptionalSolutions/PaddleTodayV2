@@ -1,0 +1,26 @@
+{
+  "ageRatingCorrection": {
+    "observedAt": "2026-10-27T15:15:50.052979+00:00",
+    "draftAppInfoId": "9cc4b174-3c86-425c-b99e-d50a454b2ecd",
+    "draftOnly": true,
+    "correctedLootBox": false,
+    "socialMedia": false,
+    "socialMediaAgeRestricted": false,
+    "userGeneratedContentRetained": true,
+    "calculatedGlobalAgeRating": "4+",
+    "reviewSubmitted": false
+  },
+  "descriptionUpdate": {
+    "observedAt": "2026-10-27T15:17:58.427Z",
+    "version": "1.1.6",
+    "locale": "en-US",
+    "draftOnly": true,
+    "descriptionSaved": true,
+    "descriptionCharacters": 2181,
+    "descriptionSha256": "61227bcc17bfc39fefa8da51db46199a0c65b120ff35a860cba7c884a151fa37",
+    "unrelatedListingFieldsUnchanged": true,
+    "appReviewSubmitted": false
+  },
+  "accountReviewAccess": "Owner asked whether dedicated Google is necessary. Explained that Google specifically is optional but Apple requests demo-account access; ordinary email/password sign-in would require another build. No personal credentials supplied.",
+  "appReviewSubmitted": false
+}
