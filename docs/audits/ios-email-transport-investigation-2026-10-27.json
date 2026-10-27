@@ -1,0 +1,54 @@
+{
+  "observedAt": "2026-10-27T13:05:20.645840+00:00",
+  "build": "42",
+  "distribution": "Official TestFlight Beta Distribution",
+  "email": {
+    "additionalFirebaseSignInRequests": 0,
+    "freshOwnerMailboxSearchIncludesSpamAndTrash": true,
+    "newFirebaseMessagesObserved": false,
+    "azureControl": {
+      "requestCount": 1,
+      "requestedAt": "2026-10-27T12:56:14.032Z",
+      "providerAcceptedAt": "2026-10-27T12:56:40.933Z",
+      "providerStatus": "Succeeded",
+      "sameApprovedQaRecipientOnly": true,
+      "mailboxDelivered": true,
+      "folder": "Inbox",
+      "senderDomain": "paddletoday.com",
+      "dkimDomain": "paddletoday.com",
+      "tlsVerified": true,
+      "authenticationLinkIncluded": false
+    },
+    "conclusion": "Existing Azure transport reaches the approved QA inbox; Firebase default sign-in delivery remains unverified. This control does not prove Firebase suppression, a native SDK defect, or production authentication delivery.",
+    "smtpConfigurationPrepared": true,
+    "smtpCredentialCreated": false,
+    "liveFirebaseEmailConfigurationChanged": false,
+    "ownerApprovalPendingForNewCredentialAndFirebaseStorage": true,
+    "fullNativeMailToAppJourneyVerified": false
+  },
+  "moreTab": {
+    "originalBlankOccurrenceRetained": true,
+    "freshMainGoogleSignInCompleted": true,
+    "returnedToAccount": true,
+    "backToMoreContentVisible": true,
+    "weekendToMoreContentVisible": true,
+    "alreadyAuthenticatedSignInEntryReturnedToWeekend": true,
+    "moreAfterWeekendSignInReturnVisible": true,
+    "blankReproducedInThisRetest": false,
+    "rootCauseEstablished": false,
+    "sourceChangeMade": false,
+    "gateClosed": false
+  },
+  "account": {
+    "sameProtectedMainIdentityVerified": true,
+    "mainGoogleSessionRestored": true,
+    "bothOriginalSavedRoutesUnchanged": true,
+    "savedRoutes": 2,
+    "tripPlans": 0,
+    "manualSyncPassed": true,
+    "mainAccountDeletedOrRevoked": false
+  },
+  "releaseReady": false,
+  "appReviewSubmitted": false,
+  "publicReleasePerformed": false
+}
