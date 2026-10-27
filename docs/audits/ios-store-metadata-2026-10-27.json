@@ -22,5 +22,45 @@
     "appReviewSubmitted": false
   },
   "accountReviewAccess": "Dedicated Google reviewer credentials are saved privately in App Store Connect and tested successfully on official TestFlight build 43. Separate demo content persisted after cold relaunch; protected main identity and both original Saved routes were restored. No credentials or review account identifiers are included in repository evidence.",
-  "appReviewSubmitted": false
+  "appReviewSubmitted": false,
+  "currentScreenshotUpload": {
+    "observedAt": "2026-10-27T17:16:00.938Z",
+    "version": "1.1.6",
+    "build": "43",
+    "locale": "en-US",
+    "draftOnly": true,
+    "api": "App Asset Library",
+    "images": 15,
+    "compositionsPrepared": 18,
+    "formats": [
+      {
+        "placementGroup": "IPHONE_DYNAMIC_ISLAND_LARGE_PROFILE",
+        "count": 6,
+        "width": 1290,
+        "height": 2796
+      },
+      {
+        "placementGroup": "IPHONE_FACE_ID_LARGE_PROFILE",
+        "count": 3,
+        "width": 1242,
+        "height": 2688
+      },
+      {
+        "placementGroup": "IPAD_13_PROFILE",
+        "count": 6,
+        "width": 2064,
+        "height": 2752
+      }
+    ],
+    "sourceCommit": "c4e803d043805a3644a5263f14b10b47a758066e",
+    "authenticNativeSimulatorFrames": true,
+    "ownerDataUsed": false,
+    "allAppleAssetsComplete": true,
+    "allPlacementsActive": true,
+    "placementOrderVerified": true,
+    "specificationsVerifiedAgainstCurrentAppleReferenceData": true,
+    "originalAssetsBackedUp": true,
+    "legacyStuckUploadsReplaced": true,
+    "appReviewSubmitted": false
+  }
 }
