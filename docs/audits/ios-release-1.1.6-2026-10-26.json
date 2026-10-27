@@ -1,0 +1,331 @@
+{
+  "date": "2026-10-26",
+  "app": "PaddleToday",
+  "candidate": {
+    "version": "1.1.6",
+    "iosBuildNumber": "38",
+    "bundleIdentifier": "com.paddletoday.mobile",
+    "sourceBase": "22480da85",
+    "lastLiveIosVersion": "1.1.3",
+    "lastLiveIosBuildNumber": "36",
+    "sourceCommit": "85a7107cdf6b7ef9a6b5d65c117757779831f3b6"
+  },
+  "androidReference": {
+    "version": "1.1.6",
+    "versionCode": 30,
+    "sourcePullRequest": 73,
+    "publicationVerified": false
+  },
+  "validation": {
+    "mobileUnitTests": 278,
+    "mobileTestFiles": 55,
+    "mobileTypecheck": "passed",
+    "releaseReadinessChecks": 72,
+    "productionApiSmokeChecks": 8,
+    "productionIosJsExport": "passed during EAS build 38",
+    "iosConfiguration": {
+      "version": "1.1.6",
+      "buildNumber": "38",
+      "bundleIdentifier": "com.paddletoday.mobile",
+      "usesAppleSignIn": true,
+      "entitlements": {
+        "com.apple.developer.associated-domains": [
+          "applinks:paddletoday.com",
+          "applinks:paddletoday-9933a.firebaseapp.com"
+        ],
+        "com.apple.developer.applesignin": [
+          "Default"
+        ],
+        "aps-environment": "production"
+      },
+      "urlSchemes": [
+        "paddletoday",
+        "com.paddletoday.mobile",
+        "com.googleusercontent.apps.378411608143-uf9pge58t4a55op8rabebrvsq2rsqld2",
+        "exp+paddletoday-mobile",
+        "app-1-378411608143-ios-8eb321f8ba3e8ff4fd623a"
+      ],
+      "backgroundModes": [
+        "fetch",
+        "location"
+      ],
+      "locationWhenInUse": "PaddleToday uses your location to show nearby paddling options and to record a route only while you choose to record a paddle.",
+      "locationAlways": "PaddleToday records your route only during a paddle you start, including while your screen is locked. Recording stops when you pause or finish."
+    },
+    "nativeXcodeBuild": "passed",
+    "testFlightUpload": "FINISHED; Apple VALID, IN_BETA_TESTING",
+    "physicalIosQA": "Official TestFlight build 38: map interaction, Apple Hide My Email sign-in, backup/manual sync, cold-relaunch session persistence, original saved-route retention, and temporary trip save/reopen/synced cleanup passed. Remaining provider, deletion/revocation, GPS/photos/notifications and iPad QA pending. Local stationary GPS start, background return, pause/resume and discard passed; no track uploaded. Moving-track accuracy, cloud-save and other release gates remain pending.",
+    "codeCommit": "85a7107cdf6b7ef9a6b5d65c117757779831f3b6",
+    "pushEntitlementNote": "Downloaded IPA embedded profile has aps-environment=production.",
+    "compiledSourceCommit": "85a7107cdf6b7ef9a6b5d65c117757779831f3b6",
+    "repositoryOperationsGates": {
+      "status": "passed",
+      "runId": 40361602383,
+      "sourceCommit": "85a7107cdf6b7ef9a6b5d65c117757779831f3b6"
+    },
+    "initialHermesExportSha256": "09e236e9594033f6386f8dafa1df70ef1eaab34897eab864be3024cb6ea8d8c2",
+    "hermesBundleSha256": "ae3c66361c0a2538fc99eca0b7d13fd95ee0466a8639b93fd1d1beb9e9e0f61c",
+    "productionApiSmokeScope": "8 checks ran for the initial shared-source candidate; the map fix does not change API code."
+  },
+  "blockers": [
+    "Apple private relay forwarding remains unverified; new Azure sender is registered with green SPF",
+    "Earlier blank More occurrence remains unresolved; focused Google/email return checks rendered correctly",
+    "Apple-linked deletion/token revocation with a disposable Apple identity",
+    "native iPad layout/screenshots",
+    "separate-device sync/conflicts and invitation journeys",
+    "moving GPS accuracy and cloud-save journey",
+    "final screenshot/demo-data review and App Privacy publication/privacy-policy deployment"
+  ],
+  "appReviewSubmitted": false,
+  "publicReleasePerformed": false,
+  "pullRequest": "https://github.com/EckceptionalSolutions/PaddleTodayV2/pull/125",
+  "build": {
+    "id": "1c95ec16-5d3e-4895-83d8-c1453eeac727",
+    "status": "FINISHED",
+    "version": "1.1.6",
+    "buildNumber": "38",
+    "ipaSha256": "d5b4546db0a44da5897af9961376bb8f2df764db72f12de9bf803ec7483cf57f"
+  },
+  "testFlight": {
+    "submissionId": "97cabbf5-59c0-476d-bf03-fd81e2b8542b",
+    "status": "FINISHED",
+    "appleBuildId": "70f95de2-6841-4271-98c0-60fbaeb1ee39",
+    "processingState": "VALID",
+    "internalBuildState": "IN_BETA_TESTING",
+    "externalBuildState": "READY_FOR_BETA_SUBMISSION",
+    "officialBuild38Installed": true,
+    "signerIdentity": "TestFlight Beta Distribution"
+  },
+  "resolved": [
+    {
+      "name": "Apple agreements",
+      "status": "Owner accepted updated Developer agreement; API access restored"
+    },
+    {
+      "name": "Signing capabilities and profile",
+      "status": "Associated Domains and Apple sign-in enabled; App Store profile 926U9QVB9M refreshed and verified"
+    },
+    {
+      "name": "Physical iPhone automation",
+      "status": "Official WebDriverAgent installed and working through XCTest with existing team signing."
+    },
+    {
+      "name": "Map interaction failure",
+      "status": "Native UIView pointerEvents auto disables MKMapView in React Native 0.81.5. Gating moved to React Native wrapper. Build 38 device checks pass for marker selection, route navigation, pan and static/interactive Weekend previews."
+    },
+    {
+      "name": "Firebase Apple provider and code flow",
+      "status": "Owner approved dedicated Apple key creation and transfer to Firebase. Services ID, callback, team/key/native bundle and private code-flow key verified; Apple and Google providers enabled. No key material is included in this audit."
+    },
+    {
+      "name": "Apple private email relay configuration",
+      "status": "Exact default Firebase noreply sender registered; Apple shows green SPF. Actual Hide My Email delivery remains untested."
+    },
+    {
+      "name": "Official TestFlight build 38",
+      "status": "Upload FINISHED; Apple VALID and in internal beta testing; installed with owner-approved replacement warning. Installation Proxy confirms TestFlight Beta Distribution."
+    },
+    {
+      "name": "Apple Hide My Email device authentication",
+      "status": "Owner completed passcode authentication on official TestFlight build 38. Private relay account, backup/manual sync, cold-relaunch session persistence and saved-route preservation verified. Relay email delivery and token revocation remain untested."
+    }
+  ],
+  "appStoreDraft": {
+    "id": "28b7f9c6-843c-4201-a1e4-2077cb46b550",
+    "version": "1.1.6",
+    "state": "PREPARE_FOR_SUBMISSION",
+    "releaseType": "MANUAL",
+    "buildNumber": "42",
+    "buildId": "7f1e69fc-b9a1-448e-8727-b322f246f10d",
+    "whatsNewSaved": true,
+    "appReviewSubmitted": false
+  },
+  "previousCandidate": {
+    "candidate": {
+      "version": "1.1.6",
+      "iosBuildNumber": "37",
+      "bundleIdentifier": "com.paddletoday.mobile",
+      "sourceBase": "22480da85",
+      "lastLiveIosVersion": "1.1.3",
+      "lastLiveIosBuildNumber": "36",
+      "sourceCommit": "d346e89c4094c691739ebaade8704b9abee1cc58"
+    },
+    "build": {
+      "id": "07df0fe3-9230-4c92-9ddc-60d38cd8380a",
+      "status": "FINISHED",
+      "version": "1.1.6",
+      "buildNumber": "37",
+      "ipaSha256": "fec7b0b6e244ef8854009e4c2cedd3ff81555dd8ea37c3266c53492916acf0d7"
+    },
+    "testFlight": {
+      "submissionId": "d1a90170-3007-424c-815b-7a48af37b791",
+      "submissionStatus": "FINISHED",
+      "appleBuildId": "06fe57fd-ed6f-47d0-a4d4-81634cad9d58",
+      "processingState": "VALID",
+      "internalBuildState": "IN_BETA_TESTING",
+      "externalBuildState": "READY_FOR_BETA_SUBMISSION"
+    },
+    "nativeOutcome": "Build 37 failed real-device map interaction; superseded by 38."
+  },
+  "physicalDeviceRegression": {
+    "method": "Signed Appium WebDriverAgent runner through XCTest; automated taps, normal swipes, screenshots and UI hierarchy assertions.",
+    "distribution": "Official Apple TestFlight 1.1.6 (38); Installation Proxy reports TestFlight Beta Distribution.",
+    "packageVerification": {
+      "version": "1.1.6",
+      "build": "38",
+      "compiledJavaScriptUnchanged": true,
+      "nativeTextSectionsUnchanged": true,
+      "nativeBinaryCount": 4,
+      "infoPlistValuesUnchanged": true,
+      "appCapabilitiesMatchStoreArtifact": true,
+      "distributionEntitlementDifference": "App Store-only beta-reports-active omitted for the ad hoc profile",
+      "originalIpaSha256": "d5b4546db0a44da5897af9961376bb8f2df764db72f12de9bf803ec7483cf57f",
+      "phoneIpaSha256": "f5651f802aa6d9ac3e5e929419e7c169fe479c1b5414813c3b0332661519475d",
+      "compiledJavaScriptSha256": "ae3c66361c0a2538fc99eca0b7d13fd95ee0466a8639b93fd1d1beb9e9e0f61c",
+      "associatedDomains": [
+        "applinks:paddletoday.com",
+        "applinks:paddletoday-9933a.firebaseapp.com"
+      ],
+      "apsEnvironment": "production"
+    },
+    "passedChecks": [
+      "installed-version",
+      "saved-route-preservation",
+      "today-production-data",
+      "explore-marker-selection",
+      "explore-route-detail-and-back",
+      "explore-pan",
+      "weekend-static-map-scroll",
+      "weekend-interactive-map",
+      "apple-hide-my-email-sign-in",
+      "signed-in-backup-and-manual-sync",
+      "apple-session-cold-relaunch",
+      "signed-in-saved-preservation",
+      "trip-create-sync-relaunch-reopen-cleanup",
+      "gps-local-start",
+      "gps-background-return",
+      "gps-pause-resume",
+      "gps-screen-lock",
+      "gps-local-discard-cleanup",
+      "fresh-google-sign-in-and-cloud-restore"
+    ],
+    "pendingChecks": [
+      "account-and-sign-in",
+      "gps-background-photos-notification-delivery",
+      "ipad",
+      "moving-gps-accuracy-and-cloud-save"
+    ],
+    "complete": false,
+    "releaseReady": false,
+    "temporaryTestDataCleaned": true,
+    "officialTestFlightPassedChecks": [
+      "installed-version",
+      "saved-route-preservation",
+      "explore-marker-selection",
+      "explore-route-detail-and-back",
+      "explore-pan",
+      "apple-native-entry",
+      "apple-hide-my-email-sign-in",
+      "signed-in-backup-and-manual-sync",
+      "apple-session-cold-relaunch",
+      "signed-in-saved-preservation",
+      "trip-create-sync-relaunch-reopen-cleanup",
+      "gps-local-start",
+      "gps-background-return",
+      "gps-pause-resume",
+      "gps-screen-lock",
+      "gps-local-discard-cleanup",
+      "google-oauth-return-and-provider-link",
+      "fresh-google-sign-in-and-cloud-restore"
+    ],
+    "temporaryTripRemovedAndSynced": true,
+    "temporaryRecordingEditorPrepared": false,
+    "gpsRecordingStarted": true,
+    "gpsTrackDiscarded": true,
+    "gpsTrackUploaded": false,
+    "gpsScreenLockTested": true,
+    "failedChecks": [
+      "connected-provider-ui-refresh"
+    ],
+    "locationPermissionRestoredToWhileUsing": true
+  },
+  "appleProviderSetup": {
+    "projectId": "paddletoday-9933a",
+    "clientId": "com.paddletoday.mobile.signin",
+    "teamId": "F73XS8FMPL",
+    "bundleId": "com.paddletoday.mobile",
+    "keyId": "9KFZDTX239",
+    "enabled": true,
+    "providerConfigurationVerified": true,
+    "privateKeyReturnedByVerification": true,
+    "privateEmailRelaySenderRegistered": true,
+    "privateEmailRelaySpfVerified": true,
+    "privateEmailRelayDeliveryTested": false,
+    "realSignInTested": true,
+    "hideMyEmailSignInTested": true,
+    "tokenRevocationTested": false
+  },
+  "nextCandidate": {
+    "version": "1.1.6",
+    "build": "42",
+    "sourceCommit": "da8768d04b3b3b6f7cb8c6157037ff52ea15431b",
+    "buildId": "2130cbc4-34df-4b64-8211-01060114d16d",
+    "submissionId": "e4d77fcf-037a-4c8e-8fa0-9f6a92d7c6c6",
+    "nativeBuildStatus": "FINISHED",
+    "submissionStatus": "FINISHED",
+    "appleBuildId": "7f1e69fc-b9a1-448e-8727-b322f246f10d",
+    "appleProcessingState": "VALID",
+    "deviceInstalled": true,
+    "deviceDistribution": "Official TestFlight Beta Distribution",
+    "reason": "Retain notification destinations until authentication/onboarding readiness; consume once and clear the matching native response.",
+    "ipaSha256": "2784e32bfb0084ba4b232b2460bd20618af03528d59df5795143b8875e938c0f",
+    "javascriptSha256": "80537228db6f56512a8b7f286c0fac1a57eb0c36b9468c76a5e50d2032db5944",
+    "compiledAt": "2026-10-26T23:35:50.031Z",
+    "signedPackageVerified": true,
+    "validation": {
+      "mobileUnitTests": 308,
+      "mobileTestFiles": 57,
+      "mobileTypecheck": "passed",
+      "releaseReadinessChecks": 72,
+      "functionalCommitOperationsGates": "passed",
+      "functionalCommitOperationsRunId": 40420062813
+    }
+  },
+  "auditScope": "candidate/build/testFlight/physicalDeviceRegression retain the historical build-38 baseline. Current candidate is official 42, detailed in its separate audit. appStoreDraft/blockers/currentCandidate describe current state.",
+  "currentCandidate": {
+    "version": "1.1.6",
+    "build": "42",
+    "sourceCommit": "da8768d04b3b3b6f7cb8c6157037ff52ea15431b",
+    "buildId": "2130cbc4-34df-4b64-8211-01060114d16d",
+    "submissionId": "e4d77fcf-037a-4c8e-8fa0-9f6a92d7c6c6",
+    "nativeBuildStatus": "FINISHED",
+    "submissionStatus": "FINISHED",
+    "appleBuildId": "7f1e69fc-b9a1-448e-8727-b322f246f10d",
+    "appleProcessingState": "VALID",
+    "deviceInstalled": true,
+    "deviceDistribution": "Official TestFlight Beta Distribution",
+    "reason": "Retain notification destinations until authentication/onboarding readiness; consume once and clear the matching native response.",
+    "ipaSha256": "2784e32bfb0084ba4b232b2460bd20618af03528d59df5795143b8875e938c0f",
+    "javascriptSha256": "80537228db6f56512a8b7f286c0fac1a57eb0c36b9468c76a5e50d2032db5944",
+    "compiledAt": "2026-10-26T23:35:50.031Z",
+    "signedPackageVerified": true,
+    "validation": {
+      "mobileUnitTests": 308,
+      "mobileTestFiles": 57,
+      "mobileTypecheck": "passed",
+      "releaseReadinessChecks": 72,
+      "functionalCommitOperationsGates": "passed",
+      "functionalCommitOperationsRunId": 40420062813
+    }
+  },
+  "latestFollowup": "docs/audits/ios-azure-smtp-email-2026-10-27.json",
+  "azureSmtpEmailFollowup20261027": {
+    "nativeMailToAppVerified": true,
+    "build": "42",
+    "transport": "CUSTOM_SMTP",
+    "qaDeletedAndMainRestored": true,
+    "appleRelayRegisteredSpfGreen": true,
+    "appleRelayForwardingVerified": false,
+    "audit": "ios-azure-smtp-email-2026-10-27.json"
+  }
+}

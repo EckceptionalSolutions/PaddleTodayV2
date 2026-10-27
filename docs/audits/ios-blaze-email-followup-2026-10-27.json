@@ -1,0 +1,69 @@
+{
+  "date": "2026-10-27",
+  "build": "42",
+  "distribution": "Official TestFlight Beta Distribution",
+  "firebasePlan": {
+    "previous": "Spark",
+    "current": "Blaze",
+    "ownerExplicitlyAuthorized": true,
+    "consoleActivationVerified": true,
+    "budgetAlertConfiguredAndVerified": true,
+    "billingAccountIdentifiersIncluded": false,
+    "newPaymentInstrumentCreatedOrIdentityPlatformEnabled": false
+  },
+  "email": {
+    "nativeRequestCount": 1,
+    "nativeRequestStartedAt": "2026-10-27T12:01:36.012270+00:00",
+    "nativeRequestAccepted": true,
+    "nativeDeliveryObserved": false,
+    "nativeFirstLinkRetiredBeforeControl": true,
+    "directClientControlCount": 1,
+    "directClientControlAt": "2026-10-27T12:10:35.086796+00:00",
+    "directClientControlAccepted": true,
+    "directClientControlHttpStatus": 200,
+    "previousDailyQuotaErrorReturnedByControl": false,
+    "controlDeliveryObserved": false,
+    "adminGeneratedLinkUsed": false,
+    "sameApprovedQaAliasOnly": true,
+    "mailboxObservation": {
+      "observedAt": "2026-10-27T12:19:15.963Z",
+      "ownerMailboxVerified": true,
+      "exactQaRecipientSearchVerified": true,
+      "searchIncludesSpamAndTrash": true,
+      "observedSignInEmailTimestamps": [
+        "2026 October 26 23:00 UTC"
+      ],
+      "newOctober27MessageObserved": false
+    },
+    "fullMailToAppJourneyVerified": false,
+    "appleRelayDeliveryVerified": false,
+    "additionalSendsStopped": true
+  },
+  "account": {
+    "mainGoogleRestoreCompleted": true,
+    "sameProtectedMainIdentityVerified": true,
+    "savedRoutes": 2,
+    "tripPlans": 0,
+    "bothOriginalSavedNamesUnchanged": true,
+    "backupComplete": true,
+    "newQaIdentityCreated": false,
+    "qaIdentityAbsentAfterRetest": true,
+    "mainIdentityHasAppleAndGoogle": true,
+    "mainAccountDeletedOrRevoked": false
+  },
+  "additionalDeviceObservation": {
+    "screen": "More",
+    "trigger": "First More-tab selection after fresh main Google sign-in return",
+    "status": "blank_content_observed_requires_reproduction",
+    "tabBarRemainedVisible": true,
+    "persistedAcrossMultipleSnapshots": true,
+    "coldRelaunchRecoveredContent": true,
+    "rootCauseEstablished": false,
+    "sourceChangeMade": false
+  },
+  "automationStoppedVerified": true,
+  "appLeftOnSaved": true,
+  "releaseReady": false,
+  "appReviewSubmitted": false,
+  "publicReleasePerformed": false
+}

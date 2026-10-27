@@ -15,6 +15,12 @@ Explore weekend options with forecast context where available. Compare shorter o
 KEEP YOUR FAVORITES CLOSE
 Save rivers for quick condition checks when you are ready to paddle again.
 
+BACK UP YOUR ROUTES AND PLANS
+Sign in with Apple, Google, or an email link to back up saved routes, personal notes, and trip plans. Account sign-in is optional for browsing routes and saving favorites locally.
+
+PLAN TOGETHER AND KEEP PRIVATE RECAPS
+Organize trip itineraries and shuttle details, invite other paddlers, and keep private paddle recaps with notes and photos. Optional GPS recording starts when you choose to record a paddle and can continue in the background or while the screen is locked. Pause or finish to stop recording. Personal recaps, photos, and GPS tracks are not included in shared trip links.
+
 COVERAGE AND CONDITIONS
 Browse supported rivers in the app to check coverage for your area. Route information, live scores, and forecasts vary with available sources.
 

@@ -1,0 +1,209 @@
+{
+  "date": "2026-10-26",
+  "build": "39",
+  "manifestFilesInspected": 29,
+  "publishedAppPrivacyChanged": false,
+  "proposedDataTypes": {
+    "OtherDiagnosticData": {
+      "linked": false,
+      "tracking": false,
+      "purposes": [
+        "Analytics",
+        "AppFunctionality"
+      ],
+      "sources": [
+        "Firebase diagnostics",
+        "FirebaseAuth_Privacy.bundle",
+        "FirebaseCrashlytics_Privacy.bundle",
+        "FirebaseInstallations_Privacy.bundle",
+        "GoogleDataTransport_Privacy.bundle"
+      ]
+    },
+    "UserID": {
+      "linked": true,
+      "tracking": false,
+      "purposes": [
+        "Analytics",
+        "AppFunctionality"
+      ],
+      "sources": [
+        "FirebaseAuth_Privacy.bundle",
+        "GoogleSignIn.bundle"
+      ]
+    },
+    "Name": {
+      "linked": true,
+      "tracking": false,
+      "purposes": [
+        "AppFunctionality"
+      ],
+      "sources": [
+        "GoogleSignIn.bundle"
+      ]
+    },
+    "EmailAddress": {
+      "linked": true,
+      "tracking": false,
+      "purposes": [
+        "AppFunctionality"
+      ],
+      "sources": [
+        "GoogleSignIn.bundle"
+      ]
+    },
+    "PhoneNumber": {
+      "linked": true,
+      "tracking": false,
+      "purposes": [
+        "AppFunctionality"
+      ],
+      "sources": [
+        "GoogleSignIn.bundle"
+      ]
+    },
+    "OtherDataTypes": {
+      "linked": true,
+      "tracking": false,
+      "purposes": [
+        "Analytics",
+        "AppFunctionality"
+      ],
+      "sources": [
+        "GoogleSignIn.bundle"
+      ]
+    },
+    "CoarseLocation": {
+      "linked": true,
+      "tracking": false,
+      "purposes": [
+        "AppFunctionality",
+        "ProductPersonalization"
+      ],
+      "sources": [
+        "GoogleSignIn.bundle",
+        "planning area/nearby notifications"
+      ]
+    },
+    "DeviceID": {
+      "linked": true,
+      "tracking": false,
+      "purposes": [
+        "Analytics",
+        "AppFunctionality"
+      ],
+      "sources": [
+        "Expo push token and Firebase installation",
+        "GoogleSignIn.bundle"
+      ]
+    },
+    "OtherUsageData": {
+      "linked": true,
+      "tracking": false,
+      "purposes": [
+        "Analytics"
+      ],
+      "sources": [
+        "GoogleSignIn.bundle"
+      ]
+    },
+    "PreciseLocation": {
+      "linked": true,
+      "tracking": false,
+      "purposes": [
+        "AppFunctionality",
+        "ProductPersonalization"
+      ],
+      "sources": [
+        "ReactNativeMapsPrivacy.bundle",
+        "private GPS recap and route ranking"
+      ]
+    },
+    "CrashData": {
+      "linked": false,
+      "tracking": false,
+      "purposes": [
+        "Analytics",
+        "AppFunctionality"
+      ],
+      "sources": [
+        "Firebase Crashlytics",
+        "FirebaseCrashlytics_Privacy.bundle"
+      ]
+    },
+    "PhotosorVideos": {
+      "linked": true,
+      "tracking": false,
+      "purposes": [
+        "AppFunctionality"
+      ],
+      "sources": [
+        "private recap and route report photos"
+      ]
+    },
+    "OtherUserContent": {
+      "linked": true,
+      "tracking": false,
+      "purposes": [
+        "AppFunctionality"
+      ],
+      "sources": [
+        "saved notes, trips, private logs and submissions"
+      ]
+    },
+    "CustomerSupport": {
+      "linked": true,
+      "tracking": false,
+      "purposes": [
+        "AppFunctionality"
+      ],
+      "sources": [
+        "in-app feedback/support submissions with optional reply email"
+      ]
+    },
+    "ProductInteraction": {
+      "linked": false,
+      "tracking": false,
+      "purposes": [
+        "Analytics"
+      ],
+      "sources": [
+        "Firebase app interaction events"
+      ]
+    },
+    "Fitness": {
+      "linked": true,
+      "tracking": false,
+      "purposes": [
+        "AppFunctionality"
+      ],
+      "sources": [
+        "private GPS recap distanceMeters and durationSeconds"
+      ]
+    }
+  },
+  "sdkSources": {
+    "googleSignIn": "https://github.com/google/GoogleSignIn-iOS/blob/main/GoogleSignIn/Sources/Resources/PrivacyInfo.xcprivacy",
+    "firebase": "https://firebase.google.com/docs/ios/app-store-data-collection",
+    "apple": "https://developer.apple.com/app-store/app-privacy-details/"
+  },
+  "notes": [
+    "GoogleSignIn manifest declares linked PhoneNumber, OtherDataTypes, OtherUsageData, CoarseLocation and DeviceID; these must not be omitted merely because the app does not request a phone field.",
+    "App account-linked GPS takes precedence over the maps SDK unlinked-location declaration.",
+    "Analytics and Crashlytics are automatically enabled in production; the app has no in-app diagnostics opt-out.",
+    "A pending User ID setup was opened in App Store Connect; no Publish action has been used.",
+    "Saved paddle track distance and duration describe physical activity; disclose linked Fitness in addition to the precise GPS coordinates."
+  ],
+  "appliesToBuilds": [
+    "39",
+    "40",
+    "41"
+  ],
+  "manifestComparisonBuild41": {
+    "baseBuild": "39",
+    "candidateBuild": "41",
+    "privacyManifestCount": 29,
+    "manifestPathsAndHashesUnchanged": true,
+    "auditAppliesToBuild41": true
+  },
+  "webPolicyDeployed": false
+}

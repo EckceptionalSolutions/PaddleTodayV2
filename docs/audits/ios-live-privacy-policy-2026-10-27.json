@@ -1,0 +1,27 @@
+{
+  "observedAt": "2026-10-27T15:05:48.097Z",
+  "sourceBranch": "codex/ios-privacy-policy",
+  "sourceCommit": "34b9820b84a88a45fe3798613117e63518ad8b57",
+  "mergedMainCommit": "bd1cd556196872aeed693c392be25212b4398094",
+  "pullRequest": 127,
+  "frontendDeploymentRun": 40524958013,
+  "httpStatus": 200,
+  "contentAssertions": 6,
+  "views": [
+    {
+      "name": "desktop",
+      "width": 1280,
+      "height": 1100,
+      "horizontalOverflow": false,
+      "allSectionsScrolledAndVisible": true
+    },
+    {
+      "name": "phone",
+      "width": 390,
+      "height": 844,
+      "horizontalOverflow": false,
+      "allSectionsScrolledAndVisible": true
+    }
+  ],
+  "livePolicyPublished": true
+}

@@ -1,20 +1,16 @@
 import auth, {
   AppleAuthProvider,
-  EmailAuthProvider,
-  GoogleAuthProvider,
-  isSignInWithEmailLink,
   onAuthStateChanged,
   sendSignInLinkToEmail,
   signInWithCredential,
-  signInWithEmailLink,
   reauthenticateWithCredential,
   signOut,
 } from '@react-native-firebase/auth';
-import * as Linking from 'expo-linking';
 import * as SecureStore from 'expo-secure-store';
 import { usePathname, useRouter } from 'expo-router';
 import { WebReady } from '../components/web-ready';
 import { AppButton } from '../components/app-button';
+import { AppleSignInButton } from '../components/apple-sign-in-button';
 import { SectionCard } from '../components/section-card';
 import { apiClient } from '../api/client';
 import { accountOutboxKey, lastSuccessfulSyncKey, deactivateAccountLocalData, listAccountConflicts, pauseAccountBackup, resolveAccountConflict, resumeAccountBackup, syncAccountBackup, type AccountBackupSummary, type AccountConflict } from '../lib/account-backup';
@@ -24,6 +20,7 @@ import { setAccountBackupStatus } from '../lib/account-status';
 import { clearAccountLocalOwner, clearGuestImportConsent, grantGuestImportConsent } from '../lib/account-local-state';
 import { PENDING_EMAIL, PENDING_EMAIL_ACTION } from '../lib/auth-secure-store-keys';
 import { emailLinkDomainOption } from '../lib/email-link-domain';
+import { appleSignInCredential, googleSignInCredential, nativeSignInMethods } from '../lib/native-sign-in';
 import { hasPendingTrips, syncTrips } from '../lib/trip-session';
 import { colors, spacing } from '../theme/tokens';
 import AsyncStorage from '@react-native-async-storage/async-storage';
@@ -34,7 +31,8 @@ const LINK_DOMAIN = process.env.EXPO_PUBLIC_FIREBASE_AUTH_LINK_DOMAIN?.trim();
 const GOOGLE_WEB_CLIENT_ID = process.env.EXPO_PUBLIC_GOOGLE_WEB_CLIENT_ID?.trim();
 const GOOGLE_IOS_SIGN_IN_ENABLED = process.env.EXPO_PUBLIC_GOOGLE_IOS_SIGN_IN_ENABLED === '1';
 const APPLE_SIGN_IN_ENABLED = process.env.EXPO_PUBLIC_APPLE_SIGN_IN_ENABLED === '1';
-const GOOGLE_SIGN_IN_ENABLED = Boolean(GOOGLE_WEB_CLIENT_ID) && (Platform.OS !== 'ios' || GOOGLE_IOS_SIGN_IN_ENABLED);
+const methods = nativeSignInMethods(Platform.OS, GOOGLE_WEB_CLIENT_ID, GOOGLE_IOS_SIGN_IN_ENABLED, APPLE_SIGN_IN_ENABLED);
+const GOOGLE_SIGN_IN_ENABLED = methods.google;
 
 export default function AccountScreen() {
   return <WebReady title="Loading account"><AccountContent /></WebReady>;
@@ -52,13 +50,11 @@ function AccountContent() {
   const [cooldownEmail, setCooldownEmail] = useState('');
   const [resendAvailableAt, setResendAvailableAt] = useState(0);
   const [clockNow, setClockNow] = useState(Date.now());
-  const [emailLinkUrl, setEmailLinkUrl] = useState<string | null>(null);
   const [busy, setBusy] = useState(false);
   const [message, setMessage] = useState('');
   const [backup, setBackup] = useState<AccountBackupSummary | null>(null);
   const [conflicts, setConflicts] = useState<AccountConflict[]>([]);
   const [deletionPending, setDeletionPending] = useState(false);
-  const emailLinkInProgress = useRef(false);
   const lastAuthUid = useRef<string | null>(null);
   const normalizedEmail = email.trim().toLowerCase();
   const sentLinkForCurrentEmail = emailSent && normalizedEmail === sentEmail;
@@ -86,7 +82,6 @@ function AccountContent() {
     setUser(value);
     if (value) {
       if (pathname === '/account') {
-        void consumeEmailLink();
         void inspectPendingDeletion(value).then((pending) => {
           if (!pending) { resumeAccountBackup(); void backupNow(); }
         });
@@ -102,80 +97,6 @@ function AccountContent() {
     void listAccountConflicts(user.uid).then(setConflicts).catch(() => {});
   }, [user, backup]);
 
-  useEffect(() => {
-    if (pathname !== '/account') return;
-    let active = true;
-    const consume = (url: string | null) => { if (url) void consumeEmailLink(url, () => active); };
-    void Linking.getInitialURL().then(consume);
-    const subscription = Linking.addEventListener('url', ({ url }) => consume(url));
-    return () => { active = false; subscription.remove(); };
-  }, [pathname]);
-
-  async function consumeEmailLink(explicitUrl?: string, isCurrent = () => true) {
-    const url = explicitUrl ?? await Linking.getInitialURL();
-    if (!url || !isSignInWithEmailLink(auth(), url)) return;
-    const pendingEmail = await SecureStore.getItemAsync(PENDING_EMAIL);
-    if (!pendingEmail) {
-      if (auth().currentUser) {
-        setMessage('Open this link on the device where you requested it to protect the account already signed in here.');
-      } else {
-        setEmailLinkUrl(url);
-        setMessage('Enter the same email address used to request this link to finish signing in.');
-      }
-      return;
-    }
-    if (emailLinkInProgress.current) return;
-    emailLinkInProgress.current = true;
-    setBusy(true);
-    try {
-      const action = await SecureStore.getItemAsync(PENDING_EMAIL_ACTION);
-      const currentUser = auth().currentUser;
-      const wasReauthentication = action === 'reauthenticate' && Boolean(currentUser);
-      if (action === 'reauthenticate' && currentUser) {
-        const credential = EmailAuthProvider.credentialWithLink(pendingEmail, url);
-        await currentUser.reauthenticateWithCredential(credential);
-      } else if (action === 'link' && currentUser) {
-        const credential = EmailAuthProvider.credentialWithLink(pendingEmail, url);
-        await currentUser.linkWithCredential(credential);
-      } else if (currentUser) {
-        setMessage('Another account is signed in on this phone. Sign out before using this link, or connect this email from the signed-in account.');
-        return;
-      } else {
-        await prepareGuestDataImport();
-        await signInWithEmailLink(auth(), pendingEmail, url);
-      }
-      await SecureStore.deleteItemAsync(PENDING_EMAIL);
-      await SecureStore.deleteItemAsync(PENDING_EMAIL_ACTION);
-      setEmailSent(false);
-      setSentEmail('');
-      setResendAvailableAt(0);
-      if (isCurrent()) setMessage(wasReauthentication
-        ? 'Email verified. You can now retry account deletion.'
-        : 'Email verified. Your account is ready.');
-    } catch {
-      await clearGuestImportConsent().catch(() => {});
-      if (isCurrent()) setMessage('That link could not be used. Request a fresh sign-in link and try again.');
-    } finally { emailLinkInProgress.current = false; if (isCurrent()) setBusy(false); }
-  }
-
-  async function finishCrossDeviceEmailLink() {
-    const normalized = email.trim().toLowerCase();
-    if (!emailLinkUrl || !isSignInWithEmailLink(auth(), emailLinkUrl)) return;
-    if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(normalized)) { setMessage('Enter the email address used to request this link.'); return; }
-    try { await prepareGuestDataImport(); }
-    catch { setMessage('This phone’s saved data could not be checked. Sign-in was paused to protect it.'); return; }
-    setBusy(true);
-    try {
-      await signInWithEmailLink(auth(), normalized, emailLinkUrl);
-      setEmailLinkUrl(null);
-      setEmailSent(false);
-      setSentEmail('');
-      setMessage('Email verified. Your account is ready.');
-    } catch {
-      setMessage('That link could not be used with this email. Request a fresh sign-in link and try again.');
-    } finally { if (!auth().currentUser) await clearGuestImportConsent().catch(() => {}); setBusy(false); }
-  }
-
   async function runLogin(action: () => Promise<unknown>) {
     if (Platform.OS === 'web' || busy) return;
     if (!auth().currentUser) {
@@ -183,41 +104,43 @@ function AccountContent() {
       catch { setMessage('This phone’s saved data could not be checked. Sign-in was paused to protect it.'); return; }
     }
     setBusy(true); setMessage('');
-    try { await action(); }
+    try {
+      await action();
+      // Linking updates Firebase's user without changing the signed-in identity,
+      // so onAuthStateChanged does not refresh the connected-provider controls.
+      setUser(auth().currentUser);
+    }
     catch (error) {
       const code = error && typeof error === 'object' && 'code' in error ? String(error.code) : '';
       if (!code.toLowerCase().includes('cancel')) setMessage('Sign-in could not be completed. Check your connection and try again.');
     } finally { if (!auth().currentUser) await clearGuestImportConsent().catch(() => {}); setBusy(false); }
   }
 
+  async function confirmProviderLink(provider: 'Apple' | 'Google' | 'email') {
+    const current = auth().currentUser;
+    if (!current || (provider !== 'Apple' && !current.providerData.some(item => item.providerId === 'apple.com'))) return true;
+    return new Promise<boolean>(resolve => {
+      Alert.alert('Connect sign-in methods?',
+        `This connects your ${provider} sign-in with the other sign-in methods on this PaddleToday account. If Apple hides your email, the private relay address and the identity from your other sign-in method will belong to the same account.`,
+        [{ text: 'Cancel', style: 'cancel', onPress: () => resolve(false) }, { text: 'Connect', onPress: () => resolve(true) }],
+        { cancelable: true, onDismiss: () => resolve(false) });
+    });
+  }
+
   async function signInGoogle() {
+    if (!await confirmProviderLink('Google')) return;
     const webClientId = GOOGLE_WEB_CLIENT_ID;
     if (!webClientId) throw new Error('Google sign-in has not been configured.');
-    const { GoogleSignin, isCancelledResponse } = await import('@react-native-google-signin/google-signin');
-    GoogleSignin.configure({ webClientId });
-    await GoogleSignin.hasPlayServices();
-    const result = await GoogleSignin.signIn();
-    if (isCancelledResponse(result)) return;
-    const tokens = await GoogleSignin.getTokens();
-    if (!tokens.idToken) throw new Error('Google did not return an ID token.');
-    const credential = GoogleAuthProvider.credential(tokens.idToken);
+    const credential = await googleSignInCredential(webClientId);
+    if (!credential) return;
     const current = auth().currentUser;
     if (current) await current.linkWithCredential(credential);
     else await signInWithCredential(auth(), credential);
   }
 
   async function signInApple() {
-    if (Platform.OS !== 'ios') throw new Error('Sign in with Apple is available on iPhone and iPad.');
-    const AppleAuthentication = await import('expo-apple-authentication');
-    const Crypto = await import('expo-crypto');
-    const nonce = Crypto.randomUUID();
-    const hashedNonce = await Crypto.digestStringAsync(Crypto.CryptoDigestAlgorithm.SHA256, nonce);
-    const result = await AppleAuthentication.signInAsync({
-      requestedScopes: [AppleAuthentication.AppleAuthenticationScope.EMAIL, AppleAuthentication.AppleAuthenticationScope.FULL_NAME],
-      nonce: hashedNonce,
-    });
-    if (!result.identityToken) throw new Error('Apple did not return an identity token.');
-    const credential = AppleAuthProvider.credential(result.identityToken, nonce);
+    if (!await confirmProviderLink('Apple')) return;
+    const credential = await appleSignInCredential();
     const current = auth().currentUser;
     if (current) await current.linkWithCredential(credential);
     else await signInWithCredential(auth(), credential);
@@ -229,6 +152,7 @@ function AccountContent() {
     if (remainingForAddress > 0) { setMessage(`Please wait ${remainingForAddress} seconds before requesting another email link to this address.`); return; }
     if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(normalized)) { setMessage('Enter a valid email address.'); return; }
     if (!LINK_DOMAIN) { setMessage('Email sign-in has not been configured on this build.'); return; }
+    if (!await confirmProviderLink('email')) return;
     if (!auth().currentUser) {
       try { await prepareGuestDataImport(); }
       catch { setMessage('This phone’s saved data could not be checked. Email sign-in was paused to protect it.'); return; }
@@ -312,7 +236,8 @@ function AccountContent() {
         const appleUserId = activeUser.providerData.find((item) => item.providerId === 'apple.com')?.uid;
         const result = await AppleAuthentication.signInAsync({ requestedScopes: [], nonce: hashedNonce });
         if (!result.user || result.user !== appleUserId) throw new Error('Sign in with the same Apple account before deleting this account.');
-        if (result.authorizationCode) await auth().revokeToken(result.authorizationCode);
+        if (!result.authorizationCode) throw new Error('Apple did not return an authorization code. Retry account deletion.');
+        await auth().revokeToken(result.authorizationCode);
       }
       const token = await activeUser.getIdToken(true);
       deletionToken = token;
@@ -363,14 +288,9 @@ function AccountContent() {
     if (providerIds.includes('google.com')) {
       const webClientId = GOOGLE_WEB_CLIENT_ID;
       if (!webClientId) throw new Error('recent_authentication_required');
-      const { GoogleSignin, isCancelledResponse } = await import('@react-native-google-signin/google-signin');
-      GoogleSignin.configure({ webClientId });
-      await GoogleSignin.hasPlayServices();
-      const result = await GoogleSignin.signIn();
-      if (isCancelledResponse(result)) throw new Error('recent_authentication_required');
-      const token = await GoogleSignin.getTokens();
-      if (!token.idToken) throw new Error('recent_authentication_required');
-      await reauthenticateWithCredential(activeUser, GoogleAuthProvider.credential(token.idToken));
+      const credential = await googleSignInCredential(webClientId);
+      if (!credential) throw new Error('recent_authentication_required');
+      await reauthenticateWithCredential(activeUser, credential);
       return;
     }
     if (providerIds.includes('apple.com')) {
@@ -463,7 +383,7 @@ function AccountContent() {
       {user ? <>
         <Text style={styles.body}>Signed in{user.email ? ' as ' + user.email : ''}.</Text>
         <Text style={styles.body}>Connect another sign-in method so you can recover your account if you lose access to one.</Text>
-        {APPLE_SIGN_IN_ENABLED && Platform.OS === 'ios' && !user.providerData.some((item) => item.providerId === 'apple.com') ? <AppButton label="Connect Apple" variant="secondary" disabled={busy} onPress={() => void runLogin(signInApple)} /> : null}
+        {methods.apple && !user.providerData.some((item) => item.providerId === 'apple.com') ? <AppleSignInButton busy={busy} onPress={() => void runLogin(signInApple)} /> : null}
         {GOOGLE_SIGN_IN_ENABLED && !user.providerData.some((item) => item.providerId === 'google.com') ? <AppButton label="Connect Google" variant="secondary" disabled={busy} onPress={() => void runLogin(signInGoogle)} /> : null}
         {!user.providerData.some((item) => item.providerId === 'password') ? emailEntryVisible ? <>
           <TextInput value={email} onChangeText={setEmail} autoCapitalize="none" autoComplete="email" keyboardType="email-address"
@@ -471,8 +391,7 @@ function AccountContent() {
           <AppButton label={resendSeconds > 0 ? `${emailSent && normalizedEmail === sentEmail ? 'Send another link' : 'Try again'} in ${resendSeconds}s` : 'Connect email with a sign-in link'} variant="secondary" busy={busy} disabled={busy || resendSeconds > 0} onPress={() => void sendEmailLink()} />
           <AppButton label="Back to account options" variant="secondary" disabled={busy} onPress={() => setEmailEntryVisible(false)} />
         </> : <AppButton label="Connect email with a sign-in link" variant="secondary" busy={busy} onPress={() => { setEmailEntryVisible(true); setMessage(''); }} /> : null}
-        {sentLinkForCurrentEmail && !emailLinkUrl ? <AppButton label="Use a different email" variant="secondary" disabled={busy} onPress={() => { setEmail(''); setEmailSent(false); setSentEmail(''); setMessage('Enter a different address. A new link will be sent to that address.'); }} /> : null}
-        {emailLinkUrl ? <AppButton label="Finish connecting email" busy={busy} onPress={() => void finishCrossDeviceEmailLink()} /> : null}
+        {sentLinkForCurrentEmail ? <AppButton label="Use a different email" variant="secondary" disabled={busy} onPress={() => { setEmail(''); setEmailSent(false); setSentEmail(''); setMessage('Enter a different address. A new link will be sent to that address.'); }} /> : null}
         <AppButton label="Sync now" busyLabel="Syncing…" busy={busy} onPress={() => void backupNow()} />
         {backup ? <Text style={styles.body}>{backup.routes} saved routes and {backup.drafts} trip plans. {backup.pending ? 'Changes are waiting to sync. ' : ''}{backup.conflicts ? backup.conflicts + ' changes need review. ' : ''}{backup.lastSyncedAt ? `Last fully synced on this phone ${new Date(backup.lastSyncedAt).toLocaleString()}.` : ''}</Text> : null}
         {conflicts.map((conflict) => <View key={conflict.key} style={styles.conflict}>

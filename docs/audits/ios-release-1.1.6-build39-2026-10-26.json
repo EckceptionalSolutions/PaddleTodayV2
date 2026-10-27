@@ -1,0 +1,100 @@
+{
+  "date": "2026-10-26",
+  "candidate": {
+    "version": "1.1.6",
+    "build": "39",
+    "sourceCommit": "11280b0a46a9d6a399920418f5ac4ed5f6ea8eab",
+    "buildId": "a417a15f-e8c7-4faa-83b1-401b2f1cfc97",
+    "nativeBuildStatus": "FINISHED",
+    "submissionId": "0089ceb2-72a8-471f-a3eb-27033b1c8c79",
+    "submissionStatus": "FINISHED",
+    "reason": "Refresh connected-provider account controls immediately after native or email linking",
+    "deviceInstalled": true,
+    "validation": {
+      "mobileTypecheck": "passed",
+      "mobileUnitTests": 278,
+      "mobileTestFiles": 55,
+      "releaseReadinessChecks": 72
+    },
+    "deviceRegressionBaseline": "Official build 39 installed and tested; email Hosting route failure blocks release.",
+    "ipaSha256": "065e9bf2b18a3910d910fdee0cb463c39f7c9324e7d6d4d576e28d87829ee150",
+    "javascriptSha256": "31065f7940837261234c1ac6d1c161e654f1d301766f3a0d4949a22052dd5980",
+    "compiledAt": "2026-10-26T20:13:46.459Z",
+    "signedPackageVerified": true,
+    "appleBuildId": "2dfda37b-eabf-4c2d-b83a-d6ceb3ad37de",
+    "appleProcessingState": "VALID"
+  },
+  "regressionBaseline": {
+    "build": "38",
+    "audit": "ios-release-1.1.6-2026-10-26.json",
+    "sameDeviceCloudRestoreVerified": true,
+    "appleHideMyEmailVerified": true,
+    "googleSignInVerified": true,
+    "localGpsDiscardVerified": true
+  },
+  "nativeDeviceRetestComplete": false,
+  "appStoreDraftBuildNumber": "39",
+  "appReviewSubmitted": false,
+  "publicReleasePerformed": false,
+  "signedPackageInspection": {
+    "version": "1.1.6",
+    "build": "39",
+    "bundleId": "com.paddletoday.mobile",
+    "ipaSha256": "065e9bf2b18a3910d910fdee0cb463c39f7c9324e7d6d4d576e28d87829ee150",
+    "javascriptSha256": "31065f7940837261234c1ac6d1c161e654f1d301766f3a0d4949a22052dd5980",
+    "signedEntitlements": {
+      "application-identifier": "F73XS8FMPL.com.paddletoday.mobile",
+      "aps-environment": "production",
+      "beta-reports-active": true,
+      "com.apple.developer.applesignin": [
+        "Default"
+      ],
+      "com.apple.developer.associated-domains": [
+        "applinks:paddletoday.com",
+        "applinks:paddletoday-9933a.firebaseapp.com"
+      ],
+      "com.apple.developer.team-identifier": "F73XS8FMPL",
+      "get-task-allow": false
+    },
+    "backgroundModes": [
+      "fetch",
+      "location"
+    ],
+    "urlSchemes": [
+      "paddletoday",
+      "com.paddletoday.mobile",
+      "com.googleusercontent.apps.378411608143-uf9pge58t4a55op8rabebrvsq2rsqld2",
+      "exp+paddletoday-mobile",
+      "app-1-378411608143-ios-8eb321f8ba3e8ff4fd623a"
+    ],
+    "distribution": "App Store; no provisioned device list",
+    "profileExpiresAt": "2027-05-14T20:43:27",
+    "hasCompiledJavaScript": true
+  },
+  "validation": {
+    "functionalCommitOperationsGates": "passed",
+    "functionalCommitOperationsRunId": 40392635448,
+    "mobileTypecheck": "passed",
+    "mobileUnitTests": 278,
+    "mobileTestFiles": 55,
+    "releaseReadinessChecks": 72,
+    "nativeXcodeBuild": "passed",
+    "deviceRegressionBuild39": "partial; email Hosting callback failed; main session restored"
+  },
+  "deviceChecks": [
+    "upgrade-from-official-38",
+    "main-Apple-Google-account-retained",
+    "both-original-saved-routes-retained",
+    "backup-2-routes-0-plans",
+    "account-deletion-confirm-and-cancel",
+    "nearby-notification-settings-open",
+    "native-email-send-accepted-for-exact-approved-QA-alias",
+    "fresh-Google-main-session-restore-and-full-sync-after-QA-attempt"
+  ],
+  "failedDeviceChecks": [
+    "Firebase Hosting email link opens native Page not found"
+  ],
+  "mainAccountRestored": true,
+  "releaseReady": false,
+  "supersededByBuild": "40"
+}

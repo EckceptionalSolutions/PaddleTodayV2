@@ -1,0 +1,350 @@
+{
+  "date": "2026-10-26",
+  "email": {
+    "clientRestDeliveryVerified": true,
+    "deliveredAt": "2026-10-26T23:00:00Z",
+    "sender": "noreply@paddletoday-9933a.firebaseapp.com",
+    "recipientScope": "Owner-approved disposable QA alias",
+    "gmailSenderAndRecipientDetailsVerified": true,
+    "transportTlsShown": true,
+    "officialNativeRequestAccepted": true,
+    "officialNativeOriginDeliveryVerified": false,
+    "completeNativeMailToAppJourneyVerified": false,
+    "appleRelayDeliveryVerified": false,
+    "currentBlocker": {
+      "status": 400,
+      "accepted": false,
+      "error": "QUOTA_EXCEEDED : Exceeded daily quota for email sign-in."
+    },
+    "furtherSendsStopped": true,
+    "billingPlanVerified": false,
+    "ownerBillingReviewRequested": true,
+    "billingChangesPerformed": false,
+    "newQaIdentityCreated": false
+  },
+  "push": {
+    "testedBuild": "41",
+    "distribution": "Official TestFlight",
+    "singlePhysicalPhoneScopeVerified": true,
+    "scopeMethod": "Unique native Today off/on transitions matched server subscription",
+    "todayAndWeekendOriginalPreferencesRestored": true,
+    "recipientCountPerSend": 1,
+    "productionSchedulerConfigChanged": false,
+    "schedulerHistoryOrCooldownsChanged": false,
+    "foregroundDeliveryVisibleInNotificationCenter": true,
+    "foregroundOpenTodayVerified": true,
+    "backgroundStateBeforeSend": 3,
+    "backgroundSuspendedStateObserved": 2,
+    "backgroundDeliveryVisibleInNotificationCenter": true,
+    "backgroundOpenWeekendVerified": true,
+    "notRunningStateBeforeColdOpen": 1,
+    "coldDeliveryVisibleInNotificationCenter": true,
+    "coldOpenExpected": "/weekend",
+    "coldOpenActual": "/",
+    "coldOpenPassed": false,
+    "notificationOpenGesture": "Native right swipe; direct runner taps did not open system notifications",
+    "fixCandidate": "42",
+    "fixNativeRetestPassed": true,
+    "receipts": {
+      "foreground": {
+        "status": "ok",
+        "error": null
+      },
+      "background": {
+        "status": "ok",
+        "error": null
+      },
+      "cold": {
+        "status": "ok",
+        "error": null
+      }
+    },
+    "build41FailureFixedIn": "42"
+  },
+  "releaseReady": false,
+  "appReviewSubmitted": false,
+  "publicReleasePerformed": false,
+  "build42PushRetest": {
+    "coldWeekendPassed": true,
+    "backgroundWeekendPassed": true,
+    "foregroundTodayPassed": true,
+    "routeDetailPassed": true,
+    "routeDetailAlsoColdOpened": true,
+    "normalRelaunchDidNotReplay": true,
+    "originalSavedNamesRetained": true,
+    "unchangedOriginalRouteLabels": 5,
+    "mainAccountBackupVerified": true,
+    "sameMainAccountIdentityVerified": true,
+    "originalAlertPreferencesRestored": true,
+    "automationStoppedVerified": true,
+    "appLeftOnSaved": true,
+    "singlePhoneRecipientOnly": true,
+    "schedulerConfigOrHistoryChanged": false,
+    "coldSendAppState": 1,
+    "coldOpenAppState": 1,
+    "backgroundSendAppState": 3,
+    "backgroundOpenAppState": 2,
+    "pushes": {
+      "foreground": {
+        "mode": "foreground",
+        "version": "1.1.6",
+        "build": "42",
+        "sentAt": "2026-10-26T23:44:20.359Z",
+        "title": "PaddleToday QA 42 - foreground",
+        "body": "iOS 1.1.6 release delivery test for this iPhone.",
+        "expectedUrl": "/",
+        "exactPhoneScopeVerified": true,
+        "recipientCount": 1,
+        "productionDryRun": false,
+        "ticket": {
+          "provider": "expo",
+          "id": "01a17a99-c17c-733a-965f-8ab50efde235",
+          "deliveryKey": "bb5ee9141dd9acca7a318449d716751c47a50040",
+          "deliveryStatus": "accepted"
+        },
+        "receipt": {
+          "status": "ok",
+          "error": null
+        },
+        "receiptCheckedAt": "2026-10-26T23:45:16.003Z"
+      },
+      "background": {
+        "mode": "background",
+        "version": "1.1.6",
+        "build": "42",
+        "sentAt": "2026-10-26T23:43:02.800Z",
+        "title": "PaddleToday QA 42 - background",
+        "body": "iOS 1.1.6 release delivery test for this iPhone.",
+        "expectedUrl": "/weekend",
+        "exactPhoneScopeVerified": true,
+        "recipientCount": 1,
+        "productionDryRun": false,
+        "ticket": {
+          "provider": "expo",
+          "id": "01a17a98-9281-7178-aee8-0d9c8c8859bb",
+          "deliveryKey": "7ad10ad6403030ed1bc92294306bc1c83ba210df",
+          "deliveryStatus": "accepted"
+        },
+        "receipt": {
+          "status": "ok",
+          "error": null
+        },
+        "receiptCheckedAt": "2026-10-26T23:43:26.309Z"
+      },
+      "cold": {
+        "mode": "cold",
+        "version": "1.1.6",
+        "build": "42",
+        "sentAt": "2026-10-26T23:41:00.157Z",
+        "title": "PaddleToday QA 42 - cold",
+        "body": "iOS 1.1.6 release delivery test for this iPhone.",
+        "expectedUrl": "/weekend",
+        "exactPhoneScopeVerified": true,
+        "recipientCount": 1,
+        "productionDryRun": false,
+        "ticket": {
+          "provider": "expo",
+          "id": "01a17a96-b39e-752e-a86d-9d9bee8db998",
+          "deliveryKey": "121dc0be84381efa7b849343f871f29a35c5bf0f",
+          "deliveryStatus": "accepted"
+        },
+        "receipt": {
+          "status": "ok",
+          "error": null
+        },
+        "receiptCheckedAt": "2026-10-26T23:41:23.457Z"
+      },
+      "route": {
+        "mode": "route",
+        "version": "1.1.6",
+        "build": "42",
+        "sentAt": "2026-10-26T23:45:15.562Z",
+        "title": "PaddleToday QA 42 - route",
+        "body": "iOS 1.1.6 release delivery test for this iPhone.",
+        "expectedUrl": "/river/minnesota-river-le-sueur-henderson",
+        "exactPhoneScopeVerified": true,
+        "recipientCount": 1,
+        "productionDryRun": false,
+        "ticket": {
+          "provider": "expo",
+          "id": "01a17a9a-9913-738c-8dfd-8e1522ecab4c",
+          "deliveryKey": "06840fb45426c1c4e524966f5d8024fdf37aa0bb",
+          "deliveryStatus": "accepted"
+        },
+        "receipt": {
+          "status": "ok",
+          "error": null
+        },
+        "receiptCheckedAt": "2026-10-26T23:46:18.519Z"
+      }
+    }
+  },
+  "followup20261027": {
+    "date": "2026-10-27",
+    "build": "42",
+    "distribution": "Official TestFlight Beta Distribution",
+    "firebasePlan": {
+      "previous": "Spark",
+      "current": "Blaze",
+      "ownerExplicitlyAuthorized": true,
+      "consoleActivationVerified": true,
+      "budgetAlertConfiguredAndVerified": true,
+      "billingAccountIdentifiersIncluded": false,
+      "newPaymentInstrumentCreatedOrIdentityPlatformEnabled": false
+    },
+    "email": {
+      "nativeRequestCount": 1,
+      "nativeRequestStartedAt": "2026-10-27T12:01:36.012270+00:00",
+      "nativeRequestAccepted": true,
+      "nativeDeliveryObserved": false,
+      "nativeFirstLinkRetiredBeforeControl": true,
+      "directClientControlCount": 1,
+      "directClientControlAt": "2026-10-27T12:10:35.086796+00:00",
+      "directClientControlAccepted": true,
+      "directClientControlHttpStatus": 200,
+      "previousDailyQuotaErrorReturnedByControl": false,
+      "controlDeliveryObserved": false,
+      "adminGeneratedLinkUsed": false,
+      "sameApprovedQaAliasOnly": true,
+      "mailboxObservation": {
+        "observedAt": "2026-10-27T12:19:15.963Z",
+        "ownerMailboxVerified": true,
+        "exactQaRecipientSearchVerified": true,
+        "searchIncludesSpamAndTrash": true,
+        "observedSignInEmailTimestamps": [
+          "2026 October 26 23:00 UTC"
+        ],
+        "newOctober27MessageObserved": false
+      },
+      "fullMailToAppJourneyVerified": false,
+      "appleRelayDeliveryVerified": false,
+      "additionalSendsStopped": true
+    },
+    "account": {
+      "mainGoogleRestoreCompleted": true,
+      "sameProtectedMainIdentityVerified": true,
+      "savedRoutes": 2,
+      "tripPlans": 0,
+      "bothOriginalSavedNamesUnchanged": true,
+      "backupComplete": true,
+      "newQaIdentityCreated": false,
+      "qaIdentityAbsentAfterRetest": true,
+      "mainIdentityHasAppleAndGoogle": true,
+      "mainAccountDeletedOrRevoked": false
+    },
+    "additionalDeviceObservation": {
+      "screen": "More",
+      "trigger": "First More-tab selection after fresh main Google sign-in return",
+      "status": "blank_content_observed_requires_reproduction",
+      "tabBarRemainedVisible": true,
+      "persistedAcrossMultipleSnapshots": true,
+      "coldRelaunchRecoveredContent": true,
+      "rootCauseEstablished": false,
+      "sourceChangeMade": false
+    },
+    "automationStoppedVerified": true,
+    "appLeftOnSaved": true,
+    "releaseReady": false,
+    "appReviewSubmitted": false,
+    "publicReleasePerformed": false
+  },
+  "currentEmailStatus": "Azure SMTP active; one native-origin request delivered to the approved QA inbox and its link completed sign-in on official TestFlight 42. QA deleted; main account restored. Apple relay sender registration/SPF verified; actual relay forwarding remains open.",
+  "azureSmtpEmailFollowup20261027": {
+    "observedAt": "2026-10-27T13:40:16.845712+00:00",
+    "build": "42",
+    "distribution": "Official TestFlight Beta Distribution",
+    "ownerExplicitlyApproved": true,
+    "configuration": {
+      "verifiedAt": "2026-10-27T13:35:41.353525+00:00",
+      "project": "paddletoday-9933a",
+      "transport": "CUSTOM_SMTP",
+      "senderEmail": "river-alerts@paddletoday.com",
+      "host": "smtp.azurecomm.net",
+      "port": 587,
+      "securityMode": "START_TLS",
+      "credentialExpiresAt": "2027-04-25T13:24:05.424829Z",
+      "singleDedicatedCredentialVerified": true,
+      "assignmentRestrictedToExistingCommunicationResource": true,
+      "roleActions": [
+        "Microsoft.Communication/CommunicationServices/read",
+        "Microsoft.Communication/CommunicationServices/write",
+        "Microsoft.Communication/EmailServices/write"
+      ],
+      "applicationApiPermissionsRequested": false,
+      "emailTemplatesAndCallbackUnchanged": true,
+      "emailEnumerationProtectionEnabled": true,
+      "identityPlatformUpgradePerformed": false,
+      "secretPrintedOrStoredOnDisk": false,
+      "nativeMailToAppVerified": true,
+      "bothAndroidAndIosUseThisProject": true
+    },
+    "control": {
+      "count": 1,
+      "recipientScope": "Approved disposable QA alias only",
+      "smtpAcceptedAt": "2026-10-27T13:24:40.875633+00:00",
+      "inboxDeliveryVerified": true,
+      "tlsAndDomainSignatureVerified": true,
+      "authenticationLinkIncluded": false
+    },
+    "nativeEmail": {
+      "requestCount": 1,
+      "requestedAt": "2026-10-27T13:27:58.713144+00:00",
+      "requestAccepted": true,
+      "inboxDeliveryVerified": true,
+      "subject": "Sign in to PaddleToday requested at 2026 October 27 13:28 UTC",
+      "nativeGmailMessageOpened": true,
+      "deliveredLinkTappedInGmail": true,
+      "installedAppOpened": true,
+      "sameQaIdentitySignedIn": true,
+      "adminGeneratedLinkUsed": false,
+      "returnDestination": "/account",
+      "nativeMailToAppJourneyVerified": true,
+      "coldStartDeliveryJourneyTestedInThisFollowup": false
+    },
+    "appleRelay": {
+      "newSender": "river-alerts@paddletoday.com",
+      "registered": true,
+      "appleGreenSpfVerified": true,
+      "previousFirebaseSenderRetained": true,
+      "actualHideMyEmailForwardingVerified": false,
+      "proof": "apple-relay-azure-sender-registered-20261027.png"
+    },
+    "qaCleanup": {
+      "qaIdentityAbsent": true,
+      "identityDistinctFromProtectedMain": true,
+      "emailProviderOnly": true,
+      "qaOnlyScope": true,
+      "remainingQaLogs": 0,
+      "remainingQaPhotoMetadata": 0,
+      "remainingQaPhotoBytes": 0,
+      "serverDeletionComplete": true,
+      "observedAt": "2026-10-27T13:33:19.764Z"
+    },
+    "mainAccount": {
+      "sameProtectedMainIdentityRestored": true,
+      "appleAndGoogleRemainConnected": true,
+      "savedRoutes": 2,
+      "tripPlans": 0,
+      "bothOriginalSavedRoutesUnchanged": true,
+      "manualSyncPassed": true,
+      "deletedOrRevoked": false
+    },
+    "moreAfterGoogleReturn": {
+      "contentVisible": true,
+      "earlierBlankOccurrenceResolved": false
+    },
+    "automationStoppedVerified": true,
+    "appLeftOnSaved": true,
+    "appCodeChanged": false,
+    "newBuildCreated": false,
+    "appReviewSubmitted": false,
+    "publicAppReleasePerformed": false,
+    "releaseReady": false,
+    "limitations": [
+      "One native-origin warm email-to-app sign-in journey on official build 42 was verified; Android device completion was not retested.",
+      "The shared project configuration applies to both platforms.",
+      "Apple relay registration and SPF are verified; actual Hide My Email forwarding remains open.",
+      "The dedicated SMTP credential expires 2027-04-25 and must be rotated before then."
+    ]
+  }
+}

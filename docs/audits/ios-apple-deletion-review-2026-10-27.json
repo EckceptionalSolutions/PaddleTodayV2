@@ -1,0 +1,30 @@
+{
+  "observedAt": "2026-10-27T15:07:13.403862+00:00",
+  "candidateBuild": "43",
+  "nativeDeletionSourceUnchangedFrom": "42",
+  "liveConfiguration": {
+    "appleEnabled": true,
+    "nativeBundleConfigured": true,
+    "servicesIdConfigured": true,
+    "teamIdConfigured": true,
+    "keyIdConfigured": true,
+    "privateKeyConfigured": true
+  },
+  "staticReview": {
+    "freshNonce": true,
+    "reauthenticationRequired": true,
+    "providerIdentityChecked": true,
+    "authorizationCodeRequired": true,
+    "firebaseNativeRevocationCalledBeforeServerDeletion": true,
+    "revocationFailurePreventsServerDeletion": true,
+    "rnFirebaseBridgeForwardsAuthorizationCodeToFirebaseIosSdk": true
+  },
+  "focusedValidation": {
+    "accountDeletionContractTestsPassed": 1,
+    "nativeSignInBackupAndLocalStateTestsPassed": 23
+  },
+  "liveAppleRevocationTested": false,
+  "reason": "Owner has no disposable Apple identity/device. The protected main account must not be deleted or revoked.",
+  "mainAccountDeletedOrRevoked": false,
+  "liveDisposableEmailAccountDeletionPassedOnBuild": "42"
+}

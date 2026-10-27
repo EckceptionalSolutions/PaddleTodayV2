@@ -142,6 +142,25 @@ check('production Android build creates app bundle', () => easConfig.build?.prod
 check('production build uses explicit native versions', () => easConfig.build?.production?.autoIncrement !== true);
 check('production native account sign-in is enabled', () => easConfig.build?.production?.env?.EXPO_PUBLIC_ACCOUNT_AUTH_ENABLED === '1');
 check('production Google sign-in client is configured', () => Boolean(easConfig.build?.production?.env?.EXPO_PUBLIC_GOOGLE_WEB_CLIENT_ID));
+check('production iOS Google sign-in includes Sign in with Apple', () => {
+  const env = easConfig.build?.production?.env ?? {};
+  return env.EXPO_PUBLIC_GOOGLE_IOS_SIGN_IN_ENABLED !== '1' || env.EXPO_PUBLIC_APPLE_SIGN_IN_ENABLED === '1';
+});
+check('production Apple sign-in config includes the native plugin and entitlement', () => {
+  const env = easConfig.build?.production?.env ?? {};
+  const previous = Object.fromEntries(Object.keys(env).map(key => [key, process.env[key]]));
+  try {
+    Object.assign(process.env, env);
+    const configured = requireFromScript(join(mobileRoot, 'app.config.js'))({ config: appConfig }).expo;
+    return env.EXPO_PUBLIC_APPLE_SIGN_IN_ENABLED !== '1'
+      || (configured.ios?.usesAppleSignIn === true && configured.plugins?.includes('expo-apple-authentication'));
+  } finally {
+    for (const [key, value] of Object.entries(previous)) {
+      if (value === undefined) delete process.env[key];
+      else process.env[key] = value;
+    }
+  }
+});
 check('production Google client matches Firebase native config', () => {
   const firebaseConfig = readJson(join(mobileRoot, 'firebase/google-services.json'));
   const webClientId = easConfig.build?.production?.env?.EXPO_PUBLIC_GOOGLE_WEB_CLIENT_ID;

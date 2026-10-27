@@ -2,6 +2,21 @@ name: Paddle Today iOS Production Build And Submit
 
 on:
   workflow_dispatch:
+    inputs:
+      target:
+        description: Store upload or unsigned native iPad layout check
+        type: choice
+        options: [store, ipad-simulator]
+        default: store
+      source_revision:
+        description: Exact source commit for an iPad simulator check
+        type: string
+        default: c4e803d043805a3644a5263f14b10b47a758066e
+      capture_scope:
+        description: Native screens to check
+        type: choice
+        options: [all, route-details, explore-list]
+        default: all
 
 concurrency:
   group: ios-production-submit
@@ -9,6 +24,7 @@ concurrency:
 
 jobs:
   build_and_submit_ios_production:
+    if: inputs.target != 'ipad-simulator'
     runs-on: ubuntu-latest
     timeout-minutes: 120
     env:
@@ -51,3 +67,72 @@ jobs:
       - name: Build iOS production and submit to App Store Connect
         working-directory: apps/mobile
         run: eas build --platform ios --profile production --auto-submit --non-interactive
+
+  ipad_simulator:
+    if: inputs.target == 'ipad-simulator'
+    runs-on: macos-15
+    timeout-minutes: 60
+    permissions:
+      contents: read
+    env:
+      MAESTRO_CLI_NO_ANALYTICS: '1'
+      CI: '1'
+      NATIVE_CAPTURE_SCOPE: ${{ inputs.capture_scope || 'all' }}
+    steps:
+      - uses: actions/checkout@v4
+      - name: Validate exact application revision
+        env:
+          SOURCE_REVISION: ${{ inputs.source_revision }}
+        run: |
+          [[ "$SOURCE_REVISION" =~ ^[0-9a-f]{40}$ ]]
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ inputs.source_revision }}
+          path: source
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22.12.0'
+          cache: npm
+          cache-dependency-path: source/package-lock.json
+      - uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: '17'
+      - name: Select installed Xcode and production public configuration
+        run: |
+          sudo xcode-select -s /Applications/Xcode_26.3.app/Contents/Developer
+          node - <<'NODE'
+          const fs = require('fs');
+          const config = JSON.parse(fs.readFileSync('source/apps/mobile/eas.json'));
+          for (const [key, value] of Object.entries(config.build.production.env)) {
+            if (!key.startsWith('EXPO_PUBLIC_') || /[\r\n]/.test(value)) throw Error('Unexpected configuration');
+            fs.appendFileSync(process.env.GITHUB_ENV, `${key}=${value}\n`);
+          }
+          NODE
+      - name: Install application dependencies
+        working-directory: source
+        run: npm ci --no-audit --no-fund
+      - name: Restore exact native simulator application
+        id: simulator_cache
+        uses: actions/cache/restore@v4
+        with:
+          path: ${{ runner.temp }}/ios-simulator-build-cache
+          key: ios-simulator-v1-${{ runner.arch }}-xcode26.3-${{ inputs.source_revision }}
+      - name: Compile native simulator application
+        run: bash scripts/ios-ipad-simulator-check.sh "$GITHUB_WORKSPACE/source" prepare
+      - name: Cache compiled simulator before UI checks
+        if: steps.simulator_cache.outputs.cache-hit != 'true'
+        uses: actions/cache/save@v4
+        with:
+          path: ${{ runner.temp }}/ios-simulator-build-cache
+          key: ios-simulator-v1-${{ runner.arch }}-xcode26.3-${{ inputs.source_revision }}
+      - name: Check native iPad and iPhone layouts and capture demo screenshots
+        run: bash scripts/ios-ipad-simulator-check.sh "$GITHUB_WORKSPACE/source" capture
+      - name: Upload public demo screenshots and validation evidence
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: ios-ipad-simulator-${{ inputs.source_revision }}
+          path: ${{ runner.temp }}/ipad-evidence/
+          retention-days: 7
+          if-no-files-found: warn
