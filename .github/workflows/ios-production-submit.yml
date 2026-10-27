@@ -106,8 +106,22 @@ jobs:
       - name: Install application dependencies
         working-directory: source
         run: npm ci --no-audit --no-fund
-      - name: Build and capture native iPad simulator
-        run: bash scripts/ios-ipad-simulator-check.sh "$GITHUB_WORKSPACE/source"
+      - name: Restore exact native simulator application
+        id: simulator_cache
+        uses: actions/cache/restore@v4
+        with:
+          path: ${{ runner.temp }}/ios-simulator-build-cache
+          key: ios-simulator-v1-${{ runner.arch }}-xcode26.3-${{ inputs.source_revision }}
+      - name: Compile native simulator application
+        run: bash scripts/ios-ipad-simulator-check.sh "$GITHUB_WORKSPACE/source" prepare
+      - name: Cache compiled simulator before UI checks
+        if: steps.simulator_cache.outputs.cache-hit != 'true'
+        uses: actions/cache/save@v4
+        with:
+          path: ${{ runner.temp }}/ios-simulator-build-cache
+          key: ios-simulator-v1-${{ runner.arch }}-xcode26.3-${{ inputs.source_revision }}
+      - name: Check native iPad and iPhone layouts and capture demo screenshots
+        run: bash scripts/ios-ipad-simulator-check.sh "$GITHUB_WORKSPACE/source" capture
       - name: Upload public demo screenshots and validation evidence
         if: always()
         uses: actions/upload-artifact@v4

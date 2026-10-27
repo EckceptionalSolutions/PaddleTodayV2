@@ -1,42 +1,39 @@
 #!/usr/bin/env bash
 set -euo pipefail
 SOURCE="${1:?Application checkout required}"
+PHASE="${2:?prepare or capture required}"
 EVIDENCE="$RUNNER_TEMP/ipad-evidence"
 DERIVED="$RUNNER_TEMP/ipad-derived"
+CACHE="$RUNNER_TEMP/ios-simulator-build-cache"
+APP="$CACHE/PaddleToday.app"
 mkdir -p "$EVIDENCE"
-export EVIDENCE SOURCE
+export EVIDENCE SOURCE APP CACHE
+if [[ "$PHASE" == prepare ]]; then
+  if [[ -d "$APP" ]]; then
+    echo 'Using exact-source compiled simulator cache.'
+    exit 0
+  fi
 cd "$SOURCE/apps/mobile"
-npx expo prebuild --platform ios --no-install > "$EVIDENCE/prebuild.log" 2>&1
-(cd ios && pod install --repo-update) > "$EVIDENCE/pods.log" 2>&1
-xcrun simctl list devices available --json > "$RUNNER_TEMP/ipad-devices.json"
-export SIMULATOR_ID="$(python3 - <<'PY'
-import json,os
-d=json.load(open(os.environ['RUNNER_TEMP']+'/ipad-devices.json'))['devices']
-choices=[(runtime,device) for runtime,devices in d.items() if 'iOS-26' in runtime for device in devices if 'iPad Pro 13' in device['name'] and device['isAvailable']]
-if not choices: raise SystemExit('No installed iPad Pro 13-inch iOS 26 simulator')
-runtime,device=sorted(choices,key=lambda c:c[0])[-1]
-json.dump({'runtime':runtime,'device':device['name'],'udid':device['udid']},open(os.environ['EVIDENCE']+'/simulator.json','w'),indent=2)
-print(device['udid'])
-PY
-)"
-xcrun simctl boot "$SIMULATOR_ID"
-xcrun simctl bootstatus "$SIMULATOR_ID" -b
-xcrun simctl status_bar "$SIMULATOR_ID" override --time '9:41' --dataNetwork wifi --wifiMode active --wifiBars 3 --batteryState charged --batteryLevel 100
-xcodebuild -workspace ios/PaddleToday.xcworkspace -scheme PaddleToday -configuration Release -sdk iphonesimulator -destination "id=$SIMULATOR_ID" -derivedDataPath "$DERIVED" ONLY_ACTIVE_ARCH=YES CODE_SIGNING_ALLOWED=NO > "$EVIDENCE/xcodebuild.log" 2>&1
-APP="$DERIVED/Build/Products/Release-iphonesimulator/PaddleToday.app"
-test -d "$APP"
-xcrun simctl install "$SIMULATOR_ID" "$APP"
-CONTAINER="$(xcrun simctl get_app_container "$SIMULATOR_ID" com.paddletoday.mobile data)"
-export CONTAINER APP
+npx expo prebuild --platform ios --no-install 2>&1 | tee "$EVIDENCE/prebuild.log"
+(cd ios && pod install --repo-update) 2>&1 | tee "$EVIDENCE/pods.log"
+xcodebuild -quiet -workspace ios/PaddleToday.xcworkspace -scheme PaddleToday -configuration Release -sdk iphonesimulator -destination 'generic/platform=iOS Simulator' -derivedDataPath "$DERIVED" ARCHS="$(uname -m)" ONLY_ACTIVE_ARCH=YES CODE_SIGNING_ALLOWED=NO 2>&1 | tee "$EVIDENCE/xcodebuild.log"
+mkdir -p "$CACHE"
+ditto "$DERIVED/Build/Products/Release-iphonesimulator/PaddleToday.app" "$APP"
 python3 - <<'PY'
-import os,json,pathlib,plistlib,subprocess,hashlib
-p=pathlib.Path(os.environ['CONTAINER'])/'Library/Application Support/com.paddletoday.mobile/RCTAsyncLocalStorage_V1'
-p.mkdir(parents=True,exist_ok=True)
-# Only local guest demo preferences. No authentication tokens or production account data.
-values={'paddletoday:welcome-completed:v1':'1','paddletoday:welcome-choice:v1':'guest','paddletoday:user-location':json.dumps({'latitude':44.98,'longitude':-93.26,'label':'Minneapolis, MN','source':'search'})}
-(p/'manifest.json').write_text(json.dumps(values))
+import os,json,plistlib,subprocess,hashlib
 info=plistlib.load(open(os.environ['APP']+'/Info.plist','rb'))
-json.dump({'sourceCommit':subprocess.check_output(['git','-C',os.environ['SOURCE'],'rev-parse','HEAD'],text=True).strip(),'version':info['CFBundleShortVersionString'],'build':info['CFBundleVersion'],'nativeSimulator':True,'physicalDevice':False,'testFlightBinary':False,'identity':'local guest','planningLocation':'synthetic Minneapolis demo preference','xcode':subprocess.check_output(['xcodebuild','-version'],text=True).strip()},open(os.environ['EVIDENCE']+'/provenance.json','w'),indent=2)
+json.dump({'sourceCommit':subprocess.check_output(['git','-C',os.environ['SOURCE'],'rev-parse','HEAD'],text=True).strip(),'version':info['CFBundleShortVersionString'],'build':info['CFBundleVersion'],'nativeSimulator':True,'physicalDevice':False,'testFlightBinary':False,'identity':'local guest','planningLocation':'synthetic Minneapolis demo preference','savedRoutes':'Two public demo routes; no owner account data','javascriptSha256':hashlib.sha256(open(os.environ['APP']+'/main.jsbundle','rb').read()).hexdigest(),'xcode':subprocess.check_output(['xcodebuild','-version'],text=True).strip()},open(os.environ['CACHE']+'/provenance.json','w'),indent=2)
+PY
+  exit 0
+fi
+[[ "$PHASE" == capture ]]
+test -d "$APP"
+cp "$CACHE/provenance.json" "$EVIDENCE/provenance.json"
+python3 - <<'PY'
+import json,os,subprocess,hashlib
+p=json.load(open(os.environ['CACHE']+'/provenance.json'))
+assert p['sourceCommit']==subprocess.check_output(['git','-C',os.environ['SOURCE'],'rev-parse','HEAD'],text=True).strip()
+assert p['javascriptSha256']==hashlib.sha256(open(os.environ['APP']+'/main.jsbundle','rb').read()).hexdigest()
 PY
 cd "$RUNNER_TEMP"
 curl --fail --location --silent --show-error https://github.com/mobile-dev-inc/Maestro/releases/download/cli-2.12.0/maestro.zip -o maestro.zip
@@ -46,4 +43,19 @@ test "${#CHECKSUM}" = 64
 echo "$CHECKSUM  maestro.zip" | shasum -a 256 -c -
 unzip -q maestro.zip -d maestro-install
 export PATH="$RUNNER_TEMP/maestro-install/maestro/bin:$PATH"
-maestro --device "$SIMULATOR_ID" test --test-output-dir "$EVIDENCE/maestro" "$GITHUB_WORKSPACE/tests/mobile-native/ipad-guest.yaml"
+FAILED=0
+for DEVICE_KIND in ipad iphone; do
+  export DEVICE_KIND
+  mkdir -p "$EVIDENCE/$DEVICE_KIND"
+  xcrun simctl list devices available --json > "$RUNNER_TEMP/ipad-devices.json"
+  export SIMULATOR_ID="$(python3 "$GITHUB_WORKSPACE/scripts/ios-simulator-demo-state.py" select)"
+  xcrun simctl boot "$SIMULATOR_ID"
+  xcrun simctl bootstatus "$SIMULATOR_ID" -b
+  xcrun simctl status_bar "$SIMULATOR_ID" override --time '9:41' --dataNetwork wifi --wifiMode active --wifiBars 3 --batteryState charged --batteryLevel 100
+  xcrun simctl install "$SIMULATOR_ID" "$APP"
+  export CONTAINER="$(xcrun simctl get_app_container "$SIMULATOR_ID" com.paddletoday.mobile data)"
+  python3 "$GITHUB_WORKSPACE/scripts/ios-simulator-demo-state.py" seed
+  maestro --device "$SIMULATOR_ID" test --test-output-dir "$EVIDENCE/$DEVICE_KIND/maestro" "$GITHUB_WORKSPACE/tests/mobile-native/ipad-guest.yaml" || FAILED=1
+  xcrun simctl shutdown "$SIMULATOR_ID"
+done
+exit "$FAILED"
