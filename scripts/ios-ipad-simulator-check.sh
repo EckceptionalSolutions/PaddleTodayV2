@@ -43,6 +43,11 @@ test "${#CHECKSUM}" = 64
 echo "$CHECKSUM  maestro.zip" | shasum -a 256 -c -
 unzip -q maestro.zip -d maestro-install
 export PATH="$RUNNER_TEMP/maestro-install/maestro/bin:$PATH"
+case "${NATIVE_CAPTURE_SCOPE:-all}" in
+  all) FLOW="$GITHUB_WORKSPACE/tests/mobile-native/ipad-guest.yaml" ;;
+  route-details) FLOW="$GITHUB_WORKSPACE/tests/mobile-native/route-screens.yaml" ;;
+  *) echo 'Unknown capture scope'; exit 1 ;;
+esac
 FAILED=0
 for DEVICE_KIND in ipad iphone; do
   export DEVICE_KIND
@@ -55,7 +60,7 @@ for DEVICE_KIND in ipad iphone; do
   xcrun simctl install "$SIMULATOR_ID" "$APP"
   export CONTAINER="$(xcrun simctl get_app_container "$SIMULATOR_ID" com.paddletoday.mobile data)"
   python3 "$GITHUB_WORKSPACE/scripts/ios-simulator-demo-state.py" seed
-  maestro --device "$SIMULATOR_ID" test --test-output-dir "$EVIDENCE/$DEVICE_KIND/maestro" "$GITHUB_WORKSPACE/tests/mobile-native/ipad-guest.yaml" || FAILED=1
+  maestro --device "$SIMULATOR_ID" test --test-output-dir "$EVIDENCE/$DEVICE_KIND/maestro" "$FLOW" || FAILED=1
   xcrun simctl shutdown "$SIMULATOR_ID"
 done
 exit "$FAILED"

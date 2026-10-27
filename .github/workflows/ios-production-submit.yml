@@ -12,6 +12,11 @@ on:
         description: Exact source commit for an iPad simulator check
         type: string
         default: c4e803d043805a3644a5263f14b10b47a758066e
+      capture_scope:
+        description: Native screens to check
+        type: choice
+        options: [all, route-details]
+        default: all
 
 concurrency:
   group: ios-production-submit
@@ -72,6 +77,7 @@ jobs:
     env:
       MAESTRO_CLI_NO_ANALYTICS: '1'
       CI: '1'
+      NATIVE_CAPTURE_SCOPE: ${{ inputs.capture_scope || 'all' }}
     steps:
       - uses: actions/checkout@v4
       - name: Validate exact application revision

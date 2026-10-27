@@ -29,14 +29,16 @@ name: Native iPad guest navigation and layout evidence
 - tapOn: More
 - assertVisible: Safety and app help
 - takeScreenshot: 08-more
-- openLink: paddletoday:///river/minnesota-river-le-sueur-henderson
-- runFlow:
-    when:
-      visible: Open
-    commands:
-      - tapOn: Open
+- tapOn: Saved routes
+- scrollUntilVisible:
+    element:
+      text: 'Open route: Minnesota River, Le Sueur to Henderson'
+    direction: DOWN
+- tapOn:
+    text: 'Open route: Minnesota River, Le Sueur to Henderson'
+    waitToSettleTimeoutMs: 1000
 - extendedWaitUntil:
-    visible: WHY THIS CALL
+    visible: '(?i).*why this call.*'
     timeout: 30000
 - takeScreenshot: 02-conditions
 - scrollUntilVisible:
