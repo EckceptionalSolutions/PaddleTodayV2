@@ -1,5 +1,5 @@
 {
-  "observedAt": "2026-10-27T15:35:02.335559+00:00",
+  "observedAt": "2026-10-27T16:31:56.314961+00:00",
   "version": "1.1.6",
   "build": "43",
   "sourceCommit": "c4e803d043805a3644a5263f14b10b47a758066e",
@@ -96,13 +96,12 @@
   "privacyDataTypes": 16,
   "livePrivacyPolicyPublished": true,
   "reviewNotesSaved": true,
-  "dedicatedReviewCredentialsProvided": false,
+  "dedicatedReviewCredentialsProvided": true,
   "appReviewSubmitted": false,
   "publicAppReleasePerformed": false,
   "releaseReady": false,
   "remaining": [
-    "Complete current native screenshots and native tablet layout evidence.",
-    "Resolve reliable App Review sign-in access."
+    "Complete current native screenshots and native tablet layout evidence."
   ],
   "storeMetadata": {
     "ageRatingQuestionnaireComplete": true,
@@ -274,20 +273,48 @@
     "automationStoppedVerified": true
   },
   "reviewMetadata": {
-    "observedAt": "2026-10-27T15:33:22.454Z",
+    "observedAt": "2026-10-27T16:30:39.678Z",
     "version": "1.1.6",
     "build": "43",
     "notesSaved": true,
-    "notesCharacters": 2697,
-    "notesSha256": "e333a2c2c83522fb43d4a3564e0870d6f52c6837f0421856e47a85988321bf7e",
+    "notesCharacters": 3271,
+    "notesSha256": "c4799e5cb6ad9173ba510eb44f7f5306f179f575dd5c1741f7fd7138c80ae58d",
     "contactDetailsUnchanged": true,
     "demoFieldsUnchanged": true,
-    "dedicatedDemoCredentialsPresent": false,
+    "dedicatedDemoCredentialsPresent": true,
+    "reviewerGoogleLoginTestPassed": true,
+    "reviewerDemoDataDescribed": true,
     "appReviewSubmitted": false
   },
   "untestedLimits": [
     "Live Apple authorization revocation: no disposable Apple identity/device available. Code, Firebase code-flow configuration, native bridge and deletion-contract tests were checked.",
     "Actual Apple private-relay forwarding: sender registration and green SPF verified.",
     "Cross-device native sync/conflict/invitation and moving GPS/cloud-save remain unverified."
-  ]
+  ],
+  "reviewerLoginPassed": true,
+  "reviewerLogin": {
+    "observedAt": "2026-10-27T16:31:13.596764+00:00",
+    "version": "1.1.6",
+    "build": "43",
+    "distribution": "Official TestFlight",
+    "reviewCredentialsSavedInAppStoreConnect": true,
+    "savedPasswordAcceptedByGoogle": true,
+    "normalGoogleConsentCompleted": true,
+    "extraVerificationChallengeObserved": false,
+    "reviewerLoginPassed": true,
+    "reviewerAccountSeparateFromMain": true,
+    "demoSavedRoutes": 2,
+    "demoSyncedTripPlans": 1,
+    "demoPlanUndated": true,
+    "demoContentPersistedAcrossColdRelaunch": true,
+    "mainIdentityRestored": true,
+    "mainCompleteBackupVerified": true,
+    "originalSavedRoutesUnchanged": true,
+    "reviewerRoutesAbsentFromMain": true,
+    "mainAccountDeletedOrRevoked": false,
+    "appLeftOnSaved": true,
+    "reviewerCredentialsIncludedInEvidence": false,
+    "appReviewSubmitted": false,
+    "automationStoppedVerified": true
+  }
 }
