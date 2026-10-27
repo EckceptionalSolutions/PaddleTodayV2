@@ -28,7 +28,7 @@
   ],
   "candidateBuild": "43",
   "candidateChange": "Use immediate tab switches on iOS, preserving existing Android/web and reduced-motion behavior",
-  "physicalFixVerified": false,
+  "physicalFixVerified": true,
   "nativeIpadAvailable": false,
   "disposableAppleIdentityAvailable": false,
   "appReviewSubmitted": false,
@@ -72,5 +72,12 @@
     "restoredReduceMotion": false,
     "savedRoutesMatchBaseline": true,
     "interpretation": "Supports the tab animation hypothesis; build 43 still requires independent physical verification with Reduce Motion off."
+  },
+  "fixedInBuild": "43",
+  "build43NormalMotionChecks": {
+    "navigation": 9,
+    "controlledResume": 8,
+    "blankObserved": false,
+    "mainAccountAndSavedRoutesPreserved": true
   }
 }

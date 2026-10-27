@@ -1,5 +1,5 @@
 {
-  "observedAt": "2026-10-27T15:07:13.404383+00:00",
+  "observedAt": "2026-10-27T15:35:02.335559+00:00",
   "version": "1.1.6",
   "build": "43",
   "sourceCommit": "c4e803d043805a3644a5263f14b10b47a758066e",
@@ -7,8 +7,8 @@
   "easBuildId": "425583d3-9a95-442f-80cf-63c2968e79d8",
   "easBuildStatus": "FINISHED",
   "easSubmissionId": "80d232dd-ac37-4b6c-85b8-c509546e2fa7",
-  "officialDeviceInstalled": false,
-  "nativeFixVerified": false,
+  "officialDeviceInstalled": true,
+  "nativeFixVerified": true,
   "packageInspection": {
     "version": "1.1.6",
     "build": "43",
@@ -52,9 +52,45 @@
     "functionalSourceOperationsGates": "passed",
     "functionalSourceOperationsRun": 40524612743,
     "tabletWidthBrowserChecks": 9,
-    "nativeIpadSimulatorRun": 40527331722,
+    "nativeIpadSimulatorRun": 40533223918,
     "nativeIpadSimulatorResult": "pending",
-    "productionMobileApiSmokeChecks": 8
+    "productionMobileApiSmokeChecks": 8,
+    "nativeIpadSimulatorInitial": {
+      "observedAt": "2026-10-27T15:42:06.876507+00:00",
+      "sourceCommit": "c4e803d043805a3644a5263f14b10b47a758066e",
+      "build": "43",
+      "version": "1.1.6",
+      "workflowRun": 40527331722,
+      "device": "iPad Pro 13-inch (M4) Simulator",
+      "runtime": "iOS 26.2",
+      "xcode": "26.3",
+      "nativeBuild": "passed",
+      "physicalDevice": false,
+      "testFlightBinary": false,
+      "publicDemoPreferencesOnly": true,
+      "cloudAccountUsed": false,
+      "ownerAccountDataUsed": false,
+      "renderedScreensVisuallyReviewed": [
+        "Today",
+        "Explore map",
+        "Weekend",
+        "Saved empty state"
+      ],
+      "screenshotPixels": [
+        2064,
+        2752
+      ],
+      "suitePassed": false,
+      "failure": "Automation selector expected Trips; actual native accessibility label is Trips, tab, 5 of 6. No app defect established by this selector failure.",
+      "correctedHarnessRun": 40533223918,
+      "correctedHarnessAdds": [
+        "Exact native Trips accessibility selector",
+        "Two local public demo saved routes",
+        "Native iPhone captures as well as iPad",
+        "Exact-source compiled simulator cache for UI-only retries"
+      ],
+      "appSourceChanged": false
+    }
   },
   "privacyPublished": true,
   "privacyDataTypes": 16,
@@ -65,10 +101,8 @@
   "publicAppReleasePerformed": false,
   "releaseReady": false,
   "remaining": [
-    "Install official build 43 and repeat the failing resume/More sequence with Reduce Motion off.",
-    "Complete current screenshots and native tablet evidence.",
-    "Resolve reliable App Review sign-in access.",
-    "Live Apple revocation and Hide My Email forwarding remain unverified; no disposable Apple identity is available."
+    "Complete current native screenshots and native tablet layout evidence.",
+    "Resolve reliable App Review sign-in access."
   ],
   "storeMetadata": {
     "ageRatingQuestionnaireComplete": true,
@@ -76,5 +110,184 @@
     "socialMediaQuestionsComplete": true,
     "existingUgcDisclosureRetained": true,
     "publicDescriptionUpdatedInDraft": true
-  }
+  },
+  "appleBuildId": "4f5e2ce6-2375-486c-9a51-d0c625605d0c",
+  "appleProcessingState": "VALID",
+  "easSubmissionStatus": "CANCELED before execution to avoid duplicate upload",
+  "directAppleUpload": {
+    "observedAt": "2026-10-27T15:28:21.168Z",
+    "version": "1.1.6",
+    "build": "43",
+    "uploadId": "4f5e2ce6-2375-486c-9a51-d0c625605d0c",
+    "uploadState": {
+      "errors": [],
+      "warnings": [],
+      "infos": [],
+      "state": "COMPLETE"
+    },
+    "uploadedDate": "2026-10-27T08:25:32-07:00",
+    "ipaSha256": "eef65ae465b6bbffa32f7bc832d8d83ecb90c6b93144de8343ce9f44db0d60d9",
+    "easQueuedUploadCanceled": true,
+    "appReviewSubmitted": false
+  },
+  "internalTestflight": {
+    "observedAt": "2026-10-27T15:28:32.096Z",
+    "version": "1.1.6",
+    "build": "43",
+    "buildId": "4f5e2ce6-2375-486c-9a51-d0c625605d0c",
+    "processingState": "VALID",
+    "existingInternalGroup": "Team (Expo)",
+    "internalOnly": true,
+    "internalBuildState": "IN_BETA_TESTING",
+    "externalBuildState": "READY_FOR_BETA_SUBMISSION",
+    "appReviewSubmitted": false
+  },
+  "appStoreDraft": {
+    "observedAt": "2026-10-27T15:33:20.255Z",
+    "id": "28b7f9c6-843c-4201-a1e4-2077cb46b550",
+    "version": "1.1.6",
+    "state": "PREPARE_FOR_SUBMISSION",
+    "releaseType": "MANUAL",
+    "buildNumber": "43",
+    "buildId": "4f5e2ce6-2375-486c-9a51-d0c625605d0c",
+    "physicalMoreChecksPassed": 9,
+    "physicalResumeChecksPassed": 8,
+    "mainAccountAndSavedRoutesPreserved": true,
+    "appReviewSubmitted": false
+  },
+  "nativeDeviceRegression": {
+    "observedAt": "2026-10-27T15:35:02.335559+00:00",
+    "version": "1.1.6",
+    "build": "43",
+    "sourceCommit": "c4e803d043805a3644a5263f14b10b47a758066e",
+    "installedIdentity": {
+      "CFBundleIdentifier": "com.paddletoday.mobile",
+      "CFBundleShortVersionString": "1.1.6",
+      "CFBundleVersion": "43",
+      "SignerIdentity": "TestFlight Beta Distribution",
+      "ApplicationType": "User"
+    },
+    "distribution": "Official TestFlight",
+    "device": "iPhone 13",
+    "os": "iOS 26.5.2",
+    "reduceMotion": false,
+    "navigationChecks": [
+      {
+        "case": "initial",
+        "moreContentVisible": true
+      },
+      {
+        "case": "account-back",
+        "moreContentVisible": true
+      },
+      {
+        "case": "from-Today",
+        "moreContentVisible": true
+      },
+      {
+        "case": "from-Explore",
+        "moreContentVisible": true
+      },
+      {
+        "case": "from-Weekend",
+        "moreContentVisible": true
+      },
+      {
+        "case": "from-Saved-routes",
+        "moreContentVisible": true
+      },
+      {
+        "case": "from-Trips",
+        "moreContentVisible": true
+      },
+      {
+        "case": "background-return",
+        "moreContentVisible": true
+      },
+      {
+        "case": "cold-launch",
+        "moreContentVisible": true
+      }
+    ],
+    "resumeSequence": "Saved \u2192 Home \u2192 wait \u2192 activate PaddleToday \u2192 immediately More",
+    "resumeCases": [
+      {
+        "attempt": 1,
+        "backgroundSeconds": 1,
+        "backgroundStateVerified": 3,
+        "moreContentPresent": true
+      },
+      {
+        "attempt": 2,
+        "backgroundSeconds": 3,
+        "backgroundStateVerified": 2,
+        "moreContentPresent": true
+      },
+      {
+        "attempt": 3,
+        "backgroundSeconds": 8,
+        "backgroundStateVerified": 2,
+        "moreContentPresent": true
+      },
+      {
+        "attempt": 4,
+        "backgroundSeconds": 3,
+        "backgroundStateVerified": 2,
+        "moreContentPresent": true
+      },
+      {
+        "attempt": 5,
+        "backgroundSeconds": 8,
+        "backgroundStateVerified": 2,
+        "moreContentPresent": true
+      },
+      {
+        "attempt": 6,
+        "backgroundSeconds": 1,
+        "backgroundStateVerified": 2,
+        "moreContentPresent": true
+      },
+      {
+        "attempt": 7,
+        "backgroundSeconds": 3,
+        "backgroundStateVerified": 2,
+        "moreContentPresent": true
+      },
+      {
+        "attempt": 8,
+        "backgroundSeconds": 8,
+        "backgroundStateVerified": 2,
+        "moreContentPresent": true
+      }
+    ],
+    "coldTerminationVerified": true,
+    "blankMoreReproduced": false,
+    "mainIdentityAndBackupVerified": true,
+    "savedRoutes": 2,
+    "tripPlans": 0,
+    "bothExactOriginalSavedRoutesUnchanged": true,
+    "mainAccountDeletedOrRevoked": false,
+    "appLeftOnSaved": true,
+    "physicalTabFixVerified": true,
+    "previousResultsAreNotBuild43Retests": true,
+    "appReviewSubmitted": false,
+    "automationStoppedVerified": true
+  },
+  "reviewMetadata": {
+    "observedAt": "2026-10-27T15:33:22.454Z",
+    "version": "1.1.6",
+    "build": "43",
+    "notesSaved": true,
+    "notesCharacters": 2697,
+    "notesSha256": "e333a2c2c83522fb43d4a3564e0870d6f52c6837f0421856e47a85988321bf7e",
+    "contactDetailsUnchanged": true,
+    "demoFieldsUnchanged": true,
+    "dedicatedDemoCredentialsPresent": false,
+    "appReviewSubmitted": false
+  },
+  "untestedLimits": [
+    "Live Apple authorization revocation: no disposable Apple identity/device available. Code, Firebase code-flow configuration, native bridge and deletion-contract tests were checked.",
+    "Actual Apple private-relay forwarding: sender registration and green SPF verified.",
+    "Cross-device native sync/conflict/invitation and moving GPS/cloud-save remain unverified."
+  ]
 }

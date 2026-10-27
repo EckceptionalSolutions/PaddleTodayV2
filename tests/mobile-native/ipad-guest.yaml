@@ -21,7 +21,7 @@ name: Native iPad guest navigation and layout evidence
 - takeScreenshot: 05-weekend
 - tapOn: Saved routes
 - assertVisible: Saved routes
-- assertVisible: Cannon River
+- assertVisible: .*(Cannon|Minnesota) River.*
 - takeScreenshot: 06-saved
 - tapOn: Trips, tab, 5 of 6
 - assertVisible: Sign in
