@@ -43,13 +43,15 @@ test "${#CHECKSUM}" = 64
 echo "$CHECKSUM  maestro.zip" | shasum -a 256 -c -
 unzip -q maestro.zip -d maestro-install
 export PATH="$RUNNER_TEMP/maestro-install/maestro/bin:$PATH"
+DEVICE_KINDS="ipad iphone"
 case "${NATIVE_CAPTURE_SCOPE:-all}" in
   all) FLOW="$GITHUB_WORKSPACE/tests/mobile-native/ipad-guest.yaml" ;;
   route-details) FLOW="$GITHUB_WORKSPACE/tests/mobile-native/route-screens.yaml" ;;
+  explore-list) FLOW="$GITHUB_WORKSPACE/tests/mobile-native/explore-list.yaml"; DEVICE_KINDS="iphone" ;;
   *) echo 'Unknown capture scope'; exit 1 ;;
 esac
 FAILED=0
-for DEVICE_KIND in ipad iphone; do
+for DEVICE_KIND in $DEVICE_KINDS; do
   export DEVICE_KIND
   mkdir -p "$EVIDENCE/$DEVICE_KIND"
   xcrun simctl list devices available --json > "$RUNNER_TEMP/ipad-devices.json"

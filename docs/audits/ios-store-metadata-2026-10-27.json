@@ -21,6 +21,6 @@
     "unrelatedListingFieldsUnchanged": true,
     "appReviewSubmitted": false
   },
-  "accountReviewAccess": "Owner asked whether dedicated Google is necessary. Explained that Google specifically is optional but Apple requests demo-account access; ordinary email/password sign-in would require another build. No personal credentials supplied.",
+  "accountReviewAccess": "Dedicated Google reviewer credentials are saved privately in App Store Connect and tested successfully on official TestFlight build 43. Separate demo content persisted after cold relaunch; protected main identity and both original Saved routes were restored. No credentials or review account identifiers are included in repository evidence.",
   "appReviewSubmitted": false
 }

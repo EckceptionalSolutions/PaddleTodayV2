@@ -15,7 +15,7 @@ on:
       capture_scope:
         description: Native screens to check
         type: choice
-        options: [all, route-details]
+        options: [all, route-details, explore-list]
         default: all
 
 concurrency:
