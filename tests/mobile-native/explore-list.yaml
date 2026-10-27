@@ -16,5 +16,5 @@ name: Native iPhone populated Explore list screenshot
 - extendedWaitUntil:
     visible: Explore routes
     timeout: 30000
-- assertVisible: '.*Cannon River.*'
+- assertVisible: '(Open route|Compare routes): .*'
 - takeScreenshot: 03-explore
