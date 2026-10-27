@@ -68,8 +68,8 @@
     "productionApiSmokeScope": "8 checks ran for the initial shared-source candidate; the map fix does not change API code."
   },
   "blockers": [
-    "native-origin email and Apple relay delivery remain unverified after approved Blaze activation",
-    "investigate blank More content observed once after Google return; cold relaunch recovered",
+    "Apple private relay forwarding remains unverified; new Azure sender is registered with green SPF",
+    "Earlier blank More occurrence remains unresolved; focused Google/email return checks rendered correctly",
     "Apple-linked deletion/token revocation with a disposable Apple identity",
     "native iPad layout/screenshots",
     "separate-device sync/conflicts and invitation journeys",
@@ -318,5 +318,14 @@
       "functionalCommitOperationsRunId": 40420062813
     }
   },
-  "latestFollowup": "docs/audits/ios-blaze-email-followup-2026-10-27.json"
+  "latestFollowup": "docs/audits/ios-azure-smtp-email-2026-10-27.json",
+  "azureSmtpEmailFollowup20261027": {
+    "nativeMailToAppVerified": true,
+    "build": "42",
+    "transport": "CUSTOM_SMTP",
+    "qaDeletedAndMainRestored": true,
+    "appleRelayRegisteredSpfGreen": true,
+    "appleRelayForwardingVerified": false,
+    "audit": "ios-azure-smtp-email-2026-10-27.json"
+  }
 }

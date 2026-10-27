@@ -248,5 +248,103 @@
     "appReviewSubmitted": false,
     "publicReleasePerformed": false
   },
-  "currentEmailStatus": "Blaze active; native and direct client requests accepted, but no new QA inbox delivery observed. Delivery remains unverified."
+  "currentEmailStatus": "Azure SMTP active; one native-origin request delivered to the approved QA inbox and its link completed sign-in on official TestFlight 42. QA deleted; main account restored. Apple relay sender registration/SPF verified; actual relay forwarding remains open.",
+  "azureSmtpEmailFollowup20261027": {
+    "observedAt": "2026-10-27T13:40:16.845712+00:00",
+    "build": "42",
+    "distribution": "Official TestFlight Beta Distribution",
+    "ownerExplicitlyApproved": true,
+    "configuration": {
+      "verifiedAt": "2026-10-27T13:35:41.353525+00:00",
+      "project": "paddletoday-9933a",
+      "transport": "CUSTOM_SMTP",
+      "senderEmail": "river-alerts@paddletoday.com",
+      "host": "smtp.azurecomm.net",
+      "port": 587,
+      "securityMode": "START_TLS",
+      "credentialExpiresAt": "2027-04-25T13:24:05.424829Z",
+      "singleDedicatedCredentialVerified": true,
+      "assignmentRestrictedToExistingCommunicationResource": true,
+      "roleActions": [
+        "Microsoft.Communication/CommunicationServices/read",
+        "Microsoft.Communication/CommunicationServices/write",
+        "Microsoft.Communication/EmailServices/write"
+      ],
+      "applicationApiPermissionsRequested": false,
+      "emailTemplatesAndCallbackUnchanged": true,
+      "emailEnumerationProtectionEnabled": true,
+      "identityPlatformUpgradePerformed": false,
+      "secretPrintedOrStoredOnDisk": false,
+      "nativeMailToAppVerified": true,
+      "bothAndroidAndIosUseThisProject": true
+    },
+    "control": {
+      "count": 1,
+      "recipientScope": "Approved disposable QA alias only",
+      "smtpAcceptedAt": "2026-10-27T13:24:40.875633+00:00",
+      "inboxDeliveryVerified": true,
+      "tlsAndDomainSignatureVerified": true,
+      "authenticationLinkIncluded": false
+    },
+    "nativeEmail": {
+      "requestCount": 1,
+      "requestedAt": "2026-10-27T13:27:58.713144+00:00",
+      "requestAccepted": true,
+      "inboxDeliveryVerified": true,
+      "subject": "Sign in to PaddleToday requested at 2026 October 27 13:28 UTC",
+      "nativeGmailMessageOpened": true,
+      "deliveredLinkTappedInGmail": true,
+      "installedAppOpened": true,
+      "sameQaIdentitySignedIn": true,
+      "adminGeneratedLinkUsed": false,
+      "returnDestination": "/account",
+      "nativeMailToAppJourneyVerified": true,
+      "coldStartDeliveryJourneyTestedInThisFollowup": false
+    },
+    "appleRelay": {
+      "newSender": "river-alerts@paddletoday.com",
+      "registered": true,
+      "appleGreenSpfVerified": true,
+      "previousFirebaseSenderRetained": true,
+      "actualHideMyEmailForwardingVerified": false,
+      "proof": "apple-relay-azure-sender-registered-20261027.png"
+    },
+    "qaCleanup": {
+      "qaIdentityAbsent": true,
+      "identityDistinctFromProtectedMain": true,
+      "emailProviderOnly": true,
+      "qaOnlyScope": true,
+      "remainingQaLogs": 0,
+      "remainingQaPhotoMetadata": 0,
+      "remainingQaPhotoBytes": 0,
+      "serverDeletionComplete": true,
+      "observedAt": "2026-10-27T13:33:19.764Z"
+    },
+    "mainAccount": {
+      "sameProtectedMainIdentityRestored": true,
+      "appleAndGoogleRemainConnected": true,
+      "savedRoutes": 2,
+      "tripPlans": 0,
+      "bothOriginalSavedRoutesUnchanged": true,
+      "manualSyncPassed": true,
+      "deletedOrRevoked": false
+    },
+    "moreAfterGoogleReturn": {
+      "contentVisible": true,
+      "earlierBlankOccurrenceResolved": false
+    },
+    "automationStoppedVerified": true,
+    "appLeftOnSaved": true,
+    "appCodeChanged": false,
+    "newBuildCreated": false,
+    "appReviewSubmitted": false,
+    "publicAppReleasePerformed": false,
+    "releaseReady": false,
+    "limitations": [
+      "One native-origin warm email-to-app sign-in journey on official build 42 was verified; Android device completion was not retested.",
+      "The shared project configuration applies to both platforms.",
+      "Apple relay registration and SPF are verified; actual Hide My Email forwarding remains open.",
+      "The dedicated SMTP credential expires 2027-04-25 and must be rotated before then."
+    ]
+  }
 }
