@@ -1,6 +1,18 @@
 # iOS 1.1.6 release preparation
 
-Prepared October 26, 2026. Status: **official TestFlight 1.1.6 (42) is installed and selected in the manual App Store draft. Foreground/background/cold notification destinations and single-route navigation pass; the main account and both original Saved routes are retained. All 308 mobile tests, TypeScript, 72 release checks and functional-commit GitHub gates pass. Blaze and Azure SMTP are active; a native-origin email-to-Gmail-to-app sign-in journey passed on official 42. A blank More-tab occurrence after Google return needs investigation; Apple relay/revocation, iPad and other device/store gates remain open. The release is not ready for App Review.**
+Updated October 27, 2026. Status: **build 42 is blocked by a reproducible native blank More tab after background return. Build 43 is compiled from `c4e803d043805a3644a5263f14b10b47a758066e` with iOS tab fading disabled, but still needs official TestFlight installation and physical verification. All 308 mobile tests, TypeScript, 72 release checks and functional-source GitHub gates pass. The owner-approved Reduce Motion diagnostic passed five resume sequences with the original setting restored Off and both Saved routes preserved. App Privacy's 16 data types are published and the updated privacy policy is live. Email delivery and notification evidence on build 42 remains a regression baseline. Current screenshots, native tablet evidence, reliable reviewer account access, and live Apple-specific deletion/relay limits remain open. The release is not ready for App Review.**
+
+## Current candidate: build 43
+
+- EAS build: `425583d3-9a95-442f-80cf-63c2968e79d8`, finished. Auto-upload submission: `80d232dd-ac37-4b6c-85b8-c509546e2fa7`.
+- Signed store package SHA-256: `eef65ae465b6bbffa32f7bc832d8d83ecb90c6b93144de8343ce9f44db0d60d9`. Bundle, version/build, production push, Apple sign-in and associated-domain entitlements were inspected. All 29 packaged privacy manifests match build 39's reviewed manifests.
+- The build-42 failure and controlled diagnostic are recorded in `docs/audits/ios-build42-more-resume-2026-10-27.json`. Five successful sequences with Reduce Motion enabled support the animation hypothesis; this is not physical proof that build 43 fixes it.
+- Nine tablet-width browser checks pass. The owner has no iPad; a separate unsigned native iPad simulator check of the exact build-43 application source is running through GitHub Actions. Browser checks and simulator checks must retain their own provenance.
+- App Privacy publication is recorded in `docs/audits/ios-app-privacy-published-2026-10-27.json`. The policy-only PR #127 was merged from current main, deployed successfully and verified live in desktop and phone layouts; see `docs/audits/ios-live-privacy-policy-2026-10-27.json`.
+- Apple deletion code/configuration and focused tests were checked; the owner has no disposable Apple identity. The main identity was not deleted or revoked. See `docs/audits/ios-apple-deletion-review-2026-10-27.json` for that explicit limitation.
+- App Review walkthrough notes are saved, but dedicated reviewer credentials have not been provided. The current native account screen supports Apple, Google and email links, not reusable email/password entry. Do not use the owner's personal credentials.
+- App Store version 1.1.6 remains a manual draft, currently selecting build 42 until build 43 passes the physical checks. No App Review submission or public app release has occurred.
+
 
 ## Historical regression baseline: build 38
 

@@ -8,8 +8,17 @@
   "tabBarRemainedVisible": true,
   "recovery": "Switch to Today, then back to More",
   "controlledResumeProbe": [
-    {"backgroundSeconds": 1, "backgroundAppState": 3, "moreContentVisible": true},
-    {"backgroundSeconds": 3, "backgroundAppState": 2, "moreContentVisible": false, "stillBlankAfterSixSeconds": true}
+    {
+      "backgroundSeconds": 1,
+      "backgroundAppState": 3,
+      "moreContentVisible": true
+    },
+    {
+      "backgroundSeconds": 3,
+      "backgroundAppState": 2,
+      "moreContentVisible": false,
+      "stillBlankAfterSixSeconds": true
+    }
   ],
   "probeSequence": "Select Saved, press Home, wait, reactivate PaddleToday and immediately select More",
   "inference": "The native iOS tab fade/screen-detachment interaction matches the reproduced symptom and upstream reports. The candidate removes the iOS tab fade; a new native package and physical retest are required before calling it fixed.",
@@ -23,5 +32,45 @@
   "nativeIpadAvailable": false,
   "disposableAppleIdentityAvailable": false,
   "appReviewSubmitted": false,
-  "build42ReadyForSubmission": false
+  "build42ReadyForSubmission": false,
+  "reduceMotionDiagnostic": {
+    "originalReduceMotion": false,
+    "enabledStateVerified": true,
+    "cases": [
+      {
+        "attempt": 1,
+        "backgroundSeconds": 1,
+        "backgroundStateVerified": 3,
+        "moreContentPresent": true
+      },
+      {
+        "attempt": 2,
+        "backgroundSeconds": 3,
+        "backgroundStateVerified": 2,
+        "moreContentPresent": true
+      },
+      {
+        "attempt": 3,
+        "backgroundSeconds": 8,
+        "backgroundStateVerified": 2,
+        "moreContentPresent": true
+      },
+      {
+        "attempt": 4,
+        "backgroundSeconds": 3,
+        "backgroundStateVerified": 2,
+        "moreContentPresent": true
+      },
+      {
+        "attempt": 5,
+        "backgroundSeconds": 8,
+        "backgroundStateVerified": 2,
+        "moreContentPresent": true
+      }
+    ],
+    "restored": true,
+    "restoredReduceMotion": false,
+    "savedRoutesMatchBaseline": true,
+    "interpretation": "Supports the tab animation hypothesis; build 43 still requires independent physical verification with Reduce Motion off."
+  }
 }

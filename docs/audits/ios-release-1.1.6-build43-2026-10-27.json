@@ -1,0 +1,72 @@
+{
+  "observedAt": "2026-10-27T15:07:13.404383+00:00",
+  "version": "1.1.6",
+  "build": "43",
+  "sourceCommit": "c4e803d043805a3644a5263f14b10b47a758066e",
+  "change": "Disable native iOS tab fading to avoid a blank selected tab after background return. Android/web animation behavior is unchanged.",
+  "easBuildId": "425583d3-9a95-442f-80cf-63c2968e79d8",
+  "easBuildStatus": "FINISHED",
+  "easSubmissionId": "80d232dd-ac37-4b6c-85b8-c509546e2fa7",
+  "officialDeviceInstalled": false,
+  "nativeFixVerified": false,
+  "packageInspection": {
+    "version": "1.1.6",
+    "build": "43",
+    "bundleId": "com.paddletoday.mobile",
+    "ipaSha256": "eef65ae465b6bbffa32f7bc832d8d83ecb90c6b93144de8343ce9f44db0d60d9",
+    "javascriptSha256": "851961c4777386fdeaa50936a58f187e774e25dd3995881436fd1ef8834e9045",
+    "signedEntitlements": {
+      "application-identifier": "F73XS8FMPL.com.paddletoday.mobile",
+      "aps-environment": "production",
+      "beta-reports-active": true,
+      "com.apple.developer.applesignin": [
+        "Default"
+      ],
+      "com.apple.developer.associated-domains": [
+        "applinks:paddletoday.com",
+        "applinks:paddletoday-9933a.firebaseapp.com"
+      ],
+      "com.apple.developer.team-identifier": "F73XS8FMPL",
+      "get-task-allow": false
+    },
+    "backgroundModes": [
+      "fetch",
+      "location"
+    ],
+    "urlSchemes": [
+      "paddletoday",
+      "com.paddletoday.mobile",
+      "com.googleusercontent.apps.378411608143-uf9pge58t4a55op8rabebrvsq2rsqld2",
+      "exp+paddletoday-mobile",
+      "app-1-378411608143-ios-8eb321f8ba3e8ff4fd623a"
+    ],
+    "distribution": "App Store; no provisioned device list",
+    "profileExpiresAt": "2027-05-14T20:43:27",
+    "hasCompiledJavaScript": true
+  },
+  "validation": {
+    "mobileTests": 308,
+    "mobileTestFiles": 57,
+    "mobileTypecheck": "passed",
+    "releaseChecks": 72,
+    "functionalSourceOperationsGates": "passed",
+    "functionalSourceOperationsRun": 40524612743,
+    "tabletWidthBrowserChecks": 9,
+    "nativeIpadSimulatorRun": 40527331722,
+    "nativeIpadSimulatorResult": "pending"
+  },
+  "privacyPublished": true,
+  "privacyDataTypes": 16,
+  "livePrivacyPolicyPublished": true,
+  "reviewNotesSaved": true,
+  "dedicatedReviewCredentialsProvided": false,
+  "appReviewSubmitted": false,
+  "publicAppReleasePerformed": false,
+  "releaseReady": false,
+  "remaining": [
+    "Install official build 43 and repeat the failing resume/More sequence with Reduce Motion off.",
+    "Complete current screenshots and native tablet evidence.",
+    "Resolve reliable App Review sign-in access.",
+    "Live Apple revocation and Hide My Email forwarding remain unverified; no disposable Apple identity is available."
+  ]
+}
