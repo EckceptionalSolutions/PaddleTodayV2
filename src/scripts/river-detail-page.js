@@ -1,4 +1,5 @@
 import { gaugeBandVisualModel } from '../lib/gauge-band-visual';
+import { routeCallExplanation } from '../lib/route-call-explanation.js';
 ﻿import {
   clearMapMarkers,
   createMapMarker,
@@ -19,7 +20,6 @@ import { trackEvent } from './analytics.js';
 import { createLoadingFeedback } from './loading-feedback.js';
 
 import { isCurrentCallUnavailable } from '../lib/current-call-availability.js';
-import { staticAssetUrl } from '../lib/static-asset-url.js';
 import {
   callDisplayLabel,
   confidenceDisplayLabel,
@@ -421,28 +421,25 @@ function routeGalleryElements() {
   };
 }
 
+function syncCommunityPresentation() {
+  if (!(routeGallery instanceof HTMLElement)) return;
+  const hasContent = approvedRoutePhotos.length > 0 || (routeCommunity instanceof HTMLElement && !routeCommunity.hidden);
+  routeGallery.classList.toggle('route-gallery--empty', !hasContent);
+  const emptyNote = routeGallery.querySelector('[data-route-gallery-empty-note]');
+  const lede = routeGallery.querySelector('[data-route-gallery-lede]');
+  if (emptyNote instanceof HTMLElement) emptyNote.hidden = hasContent;
+  if (lede instanceof HTMLElement) lede.hidden = !hasContent;
+}
+
 function renderApprovedRouteGallery() {
   if (!(routeGalleryViewer instanceof HTMLElement)) {
     return;
   }
 
+  syncCommunityPresentation();
+  routeGalleryViewer.hidden = approvedRoutePhotos.length === 0;
   if (approvedRoutePhotos.length === 0) {
-    routeGalleryViewer.innerHTML = `
-      <div class="route-gallery__empty" data-route-gallery-empty>
-        <div class="route-gallery__empty-art" aria-hidden="true">
-          <img src="${staticAssetUrl('/gallery/fallbacks/river-fallback-wide.jpg')}" alt="" loading="lazy" decoding="async" />
-        </div>
-        <div class="route-gallery__empty-copy">
-          <h3 class="route-gallery__empty-title">No approved route photos yet</h3>
-          <p class="muted">
-            Start the gallery with shots of the access, river character, or any detail that helps paddlers know what this run actually looks like.
-          </p>
-          <div class="route-gallery__cta-row">
-            <a class="river-link river-link--inline" href="#share-trip">Share photos or report conditions</a>
-          </div>
-        </div>
-      </div>
-    `;
+    routeGalleryViewer.innerHTML = '';
     return;
   }
 
@@ -653,6 +650,7 @@ function renderCommunityReports(reports) {
     if (routeCommunityStats instanceof HTMLElement) {
       routeCommunityStats.hidden = true;
     }
+    syncCommunityPresentation();
     return;
   }
 
@@ -737,6 +735,7 @@ function renderCommunityReports(reports) {
         : ''
     }
   `;
+  syncCommunityPresentation();
 }
 
 async function loadApprovedCommunity() {
@@ -774,7 +773,7 @@ function initializeContributionControls() {
 }
 
 function setupLazyCommunityContent() {
-  const lazyTargets = [routeCommunity, document.getElementById('share-trip')]
+  const lazyTargets = [routeGallery, document.getElementById('share-trip')]
     .filter((target) => target instanceof HTMLElement);
 
   if (lazyTargets.length === 0) {
@@ -1385,6 +1384,7 @@ function activateRouteReportPane() {
   const shareTripSection = document.getElementById('share-trip');
   if (shareTripSection instanceof HTMLElement) {
     scrollToDetailSection(shareTripSection);
+    routeReportNameInput?.focus({ preventScroll: true });
   }
 }
 
@@ -1489,6 +1489,13 @@ function detailScrollOffset() {
 function scrollToDetailSection(section, { behavior } = {}) {
   if (!(section instanceof HTMLElement)) {
     return;
+  }
+
+  // Anchors into optional tools must reveal them before measuring and focusing.
+  let ancestor = section;
+  while (ancestor && ancestor !== root) {
+    if (ancestor instanceof HTMLDetailsElement) ancestor.open = true;
+    ancestor = ancestor.parentElement;
   }
 
   pendingDetailSectionNavigation = root.classList.contains('river-detail--loading') ? section : null;
@@ -1663,7 +1670,7 @@ function isDataLimitedNoGo(result) {
 function decisionLabel(input) {
   const rating = typeof input === 'string' ? input : input?.rating;
   if (typeof input !== 'string') {
-    const readiness = currentCallReadiness(input);
+    const readiness = hasHardSkip(input) && currentCallReadiness(input) !== 'withheld' ? 'skip' : currentCallReadiness(input);
     return callLabelForDecision(rating, readiness);
   }
   return callDisplayLabel(rating, { liveData: typeof input === 'string' ? null : input?.liveData });
@@ -1727,15 +1734,12 @@ function decisionStatement(result) {
   const rating = result?.rating;
   const readiness = currentCallReadiness(result);
   if (readiness === 'withheld') {
-    return `Call unavailable. ${result?.readiness?.reason ?? 'Live river data is stale, so verify the gauge and access sources directly.'}`;
+    return result?.readiness?.reason ?? 'Live river data is stale, so verify the gauge and access sources directly.';
   }
-  if (readiness === 'verify') {
-    return `Watch closely. ${result?.readiness?.reason ?? 'Verify the flagged conditions before launching.'}`;
-  }
-  if (readiness === 'skip' || hasHardSkip(result)) {
+  if (decisionLabel(result) === 'Skip today') {
     const skipItem = firstSkipChecklistItem(result);
     if (skipItem?.label === 'Weather window') {
-      return `Gauge looks good, but ${weatherSkipReason(result)} makes this a skip today.`;
+      return `The weather check flags ${weatherSkipReason(result)}.`;
     }
     if (skipItem?.label && skipItem?.detail) {
       return `${skipItem.label} is failing: ${skipItem.detail}`;
@@ -1743,7 +1747,10 @@ function decisionStatement(result) {
     if (skipItem?.label) {
       return `${skipItem.label} is failing, so treat today as a skip until you verify it directly.`;
     }
-    return 'A required trip check is failing, so treat today as a skip until you verify it directly.';
+    return result?.readiness?.reason || String(result?.explanation || '').split(/(?<=[.!?])\s+/)[0] || 'Check the gauge, weather and local hazards before reconsidering this trip.';
+  }
+  if (readiness === 'verify') {
+    return result?.readiness?.reason ?? 'Verify the flagged conditions before launching.';
   }
   if (rating === 'Strong') return 'Conditions line up especially well right now.';
   if (rating === 'Good' && isColdWeatherDrivenCall(result?.weather, result?.gaugeBand)) {
@@ -1800,20 +1807,12 @@ function formatGaugeValue(value, unit) {
 
 function decorateDecision(element, result) {
   if (!(element instanceof HTMLElement)) return;
-  const rating = typeof result === 'string' ? result : result?.rating;
-
   element.classList.remove('decision-pill--paddle', 'decision-pill--maybe', 'decision-pill--skip');
-  const readiness = typeof result === 'string' ? null : result?.readiness?.status;
+  const call = decisionLabel(result);
   element.classList.add(
-    readiness === 'withheld' || readiness === 'verify'
-      ? 'decision-pill--maybe'
-      : typeof result !== 'string' && (readiness === 'skip' || hasHardSkip(result))
-      ? 'decision-pill--skip'
-      : rating === 'Strong' || rating === 'Good'
-      ? 'decision-pill--paddle'
-      : rating === 'Fair'
-        ? 'decision-pill--maybe'
-        : 'decision-pill--skip'
+    call === 'Skip today' ? 'decision-pill--skip'
+      : call === 'Paddle today' ? 'decision-pill--paddle'
+      : 'decision-pill--maybe'
   );
 }
 
@@ -2809,51 +2808,9 @@ function renderDecisionSummary(result) {
     .split(/(?<=[.!?])\s+/)
     .map((sentence) => sentence.trim())
     .filter(Boolean);
-  const todaysCall = decisionStatement(result);
-  const scoreLine =
-    currentCallReadiness(result) === 'withheld'
-      ? 'Score unavailable until live reads refresh.'
-      : typeof result.score === 'number' && result.rating
-      ? hasHardSkip(result)
-        ? `Score ${result.score}; route inputs rate ${ratingLabel(result)}`
-        : `Score ${result.score}; ${ratingLabel(result)}`
-      : 'Score unavailable';
-  const watchouts = sentences.filter((sentence) =>
-    /wind|gust|dropping|falling|rising|cold|temperature|uncertainty|stale|re-check|check|limited|floor|minimum|low side|high side|less guidance/i.test(sentence)
-  );
-  const why = sentences.filter((sentence) => !watchouts.includes(sentence)).slice(1, 4);
-  const whyLabel =
-    hasHardSkip(result)
-      ? "What is working"
-      : result.rating === 'Fair'
-        ? "Why it is still paddleable"
-        : 'Why it works';
-  const beforeCommitting = result.liveData?.overall === 'live'
-    ? 'Refresh this page, scan access notes, and confirm the route still matches your skill, boat, and shuttle plan.'
-    : 'Refresh this page and open the source link before relying on this route call.';
-  const visibleWhy = why.slice(0, 1);
-  const visibleWatchouts = watchouts.slice(0, 1);
-  const additionalContext = [...why.slice(1), ...watchouts.slice(1)].slice(0, 4);
-  const moreContext = additionalContext.length > 0
-    ? `
-      <details class="river-detail__decision-summary-more">
-        <summary>More context</summary>
-        <ul class="compact-list">
-          ${additionalContext.map((sentence) => `<li>${escapeHtml(sentence)}</li>`).join('')}
-        </ul>
-      </details>
-    `
-    : '';
-
-  summary.innerHTML = `
-    <div class="river-detail__decision-summary">
-      <p><strong>Today's call:</strong> ${escapeHtml(todaysCall)} <span class="river-detail__decision-score">${escapeHtml(scoreLine)}</span></p>
-      ${visibleWhy.length > 0 ? `<p><strong>${whyLabel}:</strong> ${escapeHtml(visibleWhy.join(' '))}</p>` : ''}
-      ${visibleWatchouts.length > 0 ? `<p><strong>What to watch:</strong> ${escapeHtml(visibleWatchouts.join(' '))}</p>` : ''}
-      <p><strong>Before committing:</strong> ${escapeHtml(beforeCommitting)}</p>
-      ${moreContext}
-    </div>
-  `;
+  summary.innerHTML = sentences.length > 1
+    ? `<ul class="compact-list">${sentences.slice(1, 6).map(sentence => `<li>${escapeHtml(sentence)}</li>`).join('')}</ul>`
+    : '<p>Supporting explanation is unavailable. Check the linked gauge and weather sources.</p>';
 }
 
 function gustSummary(weather) {
@@ -4638,9 +4595,9 @@ function renderDetailResult(result) {
   if (!callWithheld) root.classList.add(`river-detail--${ratingKey}`);
 
   setText('score', callWithheld ? '--' : String(result.score));
-  setText('rating', callWithheld ? 'Not enough data' : ratingLabel(result));
+  setText('rating', callWithheld ? 'Unavailable' : 'out of 100');
   renderDecisionSummary(result);
-  setText('decision-line', decisionStatement(result));
+  setText('decision-line', routeCallExplanation(result, { unavailable: callWithheld, fallback: decisionStatement(result) }));
   updateShareActions(result);
   updateAlertCtaCopy(result);
   renderScoreConditions(result);
@@ -5285,6 +5242,23 @@ collapseLowerScoreDetails();
 bindAlertForm();
 bindRouteActions();
 bindRouteReportCtas();
+const contributionDisclosure = document.getElementById('share-trip');
+contributionDisclosure?.addEventListener('toggle', () => {
+  if (contributionDisclosure.open) initializeContributionControls();
+});
+root.addEventListener('click', event => {
+  const link = event.target instanceof Element ? event.target.closest('a[href="#share-trip"]') : null;
+  if (!link || link.hasAttribute('data-route-report-cta') || event.button !== 0 || event.metaKey || event.ctrlKey || event.shiftKey || event.altKey) return;
+  event.preventDefault();
+  initializeContributionControls();
+  history.replaceState(null, '', '#share-trip');
+  scrollToDetailSection(contributionDisclosure);
+});
+window.addEventListener('hashchange', () => {
+  if (location.hash === '#trip-plan' || location.hash === '#share-trip') {
+    scrollToDetailSection(document.getElementById(location.hash.slice(1)));
+  }
+});
 bindScoreFeedbackButtons();
 trackEvent('Route view', routeAnalyticsProperties());
 bindFavoriteButtons(document, {

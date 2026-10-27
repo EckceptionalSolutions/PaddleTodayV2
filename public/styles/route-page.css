@@ -2720,3 +2720,102 @@ html body.page-route-detail [data-river-detail] .gauge-current-panel__history > 
     grid-template-areas: "summary" "meta" "note" "links" "hydrograph";
   }
 }
+
+/* Keep the original route composition; simplify optional controls in place. */
+html body.page-route-detail [data-river-detail].river-detail--refined :is(.route-weather-details, .route-plan-disclosure, .route-contribution-disclosure, .route-station-details, .route-discovery) > summary {
+  padding: .75rem .3rem;
+  min-height: 44px;
+  cursor: pointer;
+  color: var(--river-deep);
+  font-size: .95rem;
+  font-weight: 700;
+}
+
+html body.page-route-detail [data-river-detail].river-detail--refined .route-weather-details {
+  grid-area: weather;
+  min-width: 0;
+}
+
+html body.page-route-detail [data-river-detail].river-detail--refined :is(.route-weather-details, .route-plan-disclosure) {
+  margin-top: .75rem;
+  border-top: 1px solid rgba(16, 35, 45, .14);
+}
+
+html body.page-route-detail [data-river-detail].river-detail--refined .route-contribution-disclosure > .route-contribute {
+  display: block;
+}
+
+html body.page-route-detail [data-river-detail].river-detail--refined .route-gallery__empty {
+  display: block;
+  min-height: 0;
+  padding: 1rem;
+}
+
+/* Quieter supporting links and optional access tools. */
+html body.page-route-detail [data-river-detail].river-detail--refined .route-overview-source,
+html body.page-route-detail [data-river-detail].river-detail--refined .route-overview-source:hover {
+  width: fit-content;
+  padding: .1rem 0;
+  border: 0;
+  border-radius: 0;
+  background: transparent;
+  box-shadow: none;
+  color: var(--river-deep);
+  font-size: .8rem;
+  text-decoration: underline;
+  text-underline-offset: .2em;
+}
+
+/* Empty reports need one invitation, with the form in the same section. */
+html body.page-route-detail [data-river-detail] .route-gallery > .route-contribution-disclosure {
+  margin-top: .75rem;
+  border-top: 1px solid rgba(16, 35, 45, .1);
+}
+
+html body.page-route-detail [data-river-detail] .route-gallery--empty {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: .3rem 1rem;
+  align-items: center;
+}
+
+html body.page-route-detail [data-river-detail] .route-gallery--empty > .route-gallery__intro {
+  grid-column: 1;
+  margin: 0;
+}
+
+html body.page-route-detail [data-river-detail] .route-gallery__empty-note {
+  margin: 0;
+  font-size: .85rem;
+  line-height: 1.5;
+}
+
+html body.page-route-detail [data-river-detail] .route-gallery--empty > .route-gallery__empty-note {
+  grid-column: 1;
+}
+
+html body.page-route-detail [data-river-detail] .route-gallery--empty > .route-gallery__layout {
+  display: none;
+}
+
+html body.page-route-detail [data-river-detail] .route-gallery--empty > .route-contribution-disclosure {
+  grid-column: 2;
+  grid-row: 1 / 3;
+  margin: 0;
+  border: 0;
+}
+
+html body.page-route-detail [data-river-detail] .route-gallery--empty > .route-contribution-disclosure[open] {
+  grid-column: 1 / -1;
+  grid-row: auto;
+}
+
+@media (max-width: 700px) {
+  html body.page-route-detail [data-river-detail] .route-gallery--empty {
+    grid-template-columns: minmax(0, 1fr);
+  }
+  html body.page-route-detail [data-river-detail] .route-gallery--empty > .route-contribution-disclosure {
+    grid-column: 1;
+    grid-row: auto;
+  }
+}

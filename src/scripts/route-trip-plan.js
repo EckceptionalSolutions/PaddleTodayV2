@@ -20,6 +20,7 @@ export function bindRouteTripPlan(root, { getContext, copyText, onShared }) {
     manual.hidden = true; manual.value = ''; message('');
   }
   const params = new URLSearchParams(location.search);
+  if (panel instanceof HTMLDetailsElement && ['start', 'end', 'date', 'launch', 'expected', 'timeZone'].some(key => params.has(key))) panel.open = true;
   const deviceZone = Intl.DateTimeFormat().resolvedOptions().timeZone || 'UTC';
   const incomingZone = params.get('timeZone');
   const timeZone = incomingZone ? validTimeZone(incomingZone) ? incomingZone : '' : deviceZone;

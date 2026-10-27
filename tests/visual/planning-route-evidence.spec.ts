@@ -23,7 +23,8 @@ for (const slug of ['namekagon-river-county-k-whispering-pines', 'saco-river-rou
       await expect(planningNotice).toContainText('Use the linked gauge as reference information');
       await expect(planningNotice).not.toContainText('gauge is a proxy');
     }
-    await expect(page.locator('.route-faq')).toContainText('This planning route has no live Paddle Today score.');
+    await expect(page.locator('.route-faq')).toHaveCount(0);
+    await expect(page.locator('.planning-status-card--overview')).toContainText('No same-day score');
     await expect(page.locator('.route-calibration-callout')).toHaveCount(0);
     await expect(page.locator('[data-confidence-explainer]')).toHaveCount(0);
     await expect(page.locator('#why-this-call')).toHaveCount(0);
@@ -32,7 +33,7 @@ for (const slug of ['namekagon-river-county-k-whispering-pines', 'saco-river-rou
     await expect(sources).toBeVisible();
     await page.locator('[data-detail-nav-link="sources"]').click();
     await expect(page).toHaveURL(/#planning-sources$/);
-    await sources.getByText('What to know before you go', { exact: true }).click();
+    await sources.getByText('Published evidence and verification notes', { exact: true }).click();
     await expect(sources.locator('.factor-list')).toBeVisible();
     await sources.getByText('Check the source links', { exact: true }).click();
     await expect(sources.locator('.source-list')).toBeVisible();
@@ -117,8 +118,7 @@ for (const slug of ['hatchet-creek-highway-280-highway-231']) {
     await expect(page.locator('.route-calibration-callout')).toContainText('Only a low-water floor is known.');
     await expect(page.locator('[data-confidence-explainer]')).toHaveCount(1);
     await expect(page.locator('#why-this-call')).toHaveCount(1);
-    const schema = await page.locator('script[type="application/ld+json"]').allTextContents();
-    expect(schema.join('\n')).toContain(
+    await expect(page.locator('.river-detail__gauge-note-summary')).toContainText(
       `${floor!.toLocaleString('en-US')} ${river.gaugeSource.unit}`,
     );
   });

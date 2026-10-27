@@ -2,8 +2,8 @@
 interface Props { gpxHref?: string; calendarAvailable: boolean; geometryReviewReason?: string }
 const { gpxHref, calendarAvailable, geometryReviewReason } = Astro.props;
 ---
-<section class="river-trip-pack" id="trip-plan" data-trip-pack data-detail-section="trip-plan" data-detail-nav-group="plan" tabindex="-1">
-  <p class="eyebrow section-label">Plan this paddle</p>
+<details class="river-trip-pack route-plan-disclosure" id="trip-plan" data-trip-pack data-detail-section="trip-plan" data-detail-nav-group="overview" tabindex="-1">
+  <summary>Plan this paddle</summary>
   <h3 class="river-subtitle">Choose your trip times</h3>
   <p class="muted">No account needed. Check the selected access points above, then choose both dates and times. For an overnight paddle, set take-out to the following date.</p>
   <fieldset class="route-trip-plan__fields">
@@ -27,4 +27,4 @@ const { gpxHref, calendarAvailable, geometryReviewReason } = Astro.props;
     ? <p><a class="river-link river-link--inline" href={gpxHref} data-trip-gpx data-analytics-event="Export GPX">Download GPX</a> <span class="muted">Route geometry only; no schedule required.</span></p>
     : <p class="muted">GPX unavailable until access and route geometry are established.</p>}
   {geometryReviewReason && <p class="muted">GPX unavailable during route-line review.</p>}
-</section>
+</details>

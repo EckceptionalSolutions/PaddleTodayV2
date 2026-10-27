@@ -4,12 +4,24 @@ const { slug } = Astro.props;
 ---
 <div id="usgs-gauge-context" data-gauge-context data-slug={slug}>
   <section class="river-detail__panel gauge-context" hidden aria-label="USGS gauge context">
-    <p class="eyebrow section-label">USGS measurements</p>
-    <h3>More about this gauge</h3>
-    <p class="muted">These measurements come from the gauge station. Water depth and current can differ along your trip.</p>
-    <p class="muted" data-context-update></p>
-    <dl></dl>
-    <a data-context-source target="_blank" rel="noopener noreferrer">View USGS gauge data</a>
+    <div class="gauge-context__head">
+      <div>
+        <p class="eyebrow section-label">Station observations</p>
+        <h3>USGS measurements</h3>
+      </div>
+      <a class="river-link river-link--inline" data-context-source target="_blank" rel="noopener noreferrer">View USGS data</a>
+    </div>
+    <div class="gauge-context__column-head" aria-hidden="true"><span>Measurement</span><span>Reading</span><span>Observed</span></div>
+    <dl class="gauge-context__readings" data-context-readings></dl>
+    <div class="gauge-context__meta">
+      <span data-context-update></span>
+      <span data-context-coverage hidden>Coverage gaps · see notes</span>
+    </div>
+    <details class="gauge-context__notes">
+      <summary>Measurement notes and coverage</summary>
+      <p class="muted">These are observations at the station. Water depth and current can differ along your trip.</p>
+      <dl data-context-notes></dl>
+    </details>
   </section>
 </div>
 <script>
@@ -22,29 +34,58 @@ const { slug } = Astro.props;
       if (!context) return;
       const section = anchor.querySelector<HTMLElement>('section')!;
       const update = section.querySelector('[data-context-update]')!;
+      const readings = section.querySelector('[data-context-readings]')!;
+      const notes = section.querySelector('[data-context-notes]')!;
+      const shortDateTime = new Intl.DateTimeFormat('en-US', { month: 'short', day: 'numeric', hour: 'numeric', minute: '2-digit' });
+      const shortDate = new Intl.DateTimeFormat('en-US', { month: 'short', day: 'numeric', timeZone: 'UTC' });
       const renderFreshness = () => {
-        update.textContent = `${Date.now() - Date.parse(context.fetchedAt) > 15 * 60_000 ? 'Saved update · ' : ''}Retrieved ${new Date(context.fetchedAt).toLocaleString()}`;
+        update.textContent = `${Date.now() - Date.parse(context.fetchedAt) > 15 * 60_000 ? 'Saved update · ' : ''}Retrieved ${shortDateTime.format(new Date(context.fetchedAt))}`;
         section.querySelectorAll<HTMLElement>('time').forEach(time => {
           const old = Date.now() - Date.parse(time.dateTime) > Number(time.dataset.staleHours) * 3_600_000;
-          time.textContent = `${old ? 'Older observation · ' : ''}${time.dateTime.length === 10 ? `Daily mean for ${time.dateTime}` : `Observed ${new Date(time.dateTime).toLocaleString()}`}`;
+          const daily = time.dateTime.length === 10;
+          const date = new Date(daily ? `${time.dateTime}T12:00:00Z` : time.dateTime);
+          time.textContent = `${old ? 'Older · ' : ''}${daily ? 'Daily mean · ' : ''}${daily ? shortDate.format(date) : shortDateTime.format(date)}`;
+          time.title = `${old ? 'Older observation · ' : ''}${daily ? `Daily mean for ${time.dateTime}` : `Observed ${date.toLocaleString()}`}`;
+          time.setAttribute('aria-label', time.title);
+          time.classList.toggle('gauge-context__time--old', old);
         });
       };
       for (const row of gaugeContextRows(context)) {
+        const noteTerm = document.createElement('dt');
+        noteTerm.textContent = row.label;
+        const detail = document.createElement('dd');
+        detail.textContent = row.detail;
+        notes.append(noteTerm, detail);
+        if (row.label === 'Coverage') {
+          section.querySelector<HTMLElement>('[data-context-coverage]')!.hidden = false;
+          continue;
+        }
+
+        const metric = document.createElement('div');
+        metric.className = 'gauge-context__row';
         const term = document.createElement('dt');
         term.textContent = row.label;
         const description = document.createElement('dd');
+        description.className = 'gauge-context__reading';
         const value = document.createElement('strong');
         value.textContent = row.value;
-        const detail = document.createElement('p');
-        detail.textContent = row.detail;
-        description.append(value, detail);
+        description.append(value);
+        if (row.qualifierLabel) {
+          const qualifier = document.createElement('span');
+          qualifier.className = 'gauge-context__qualifier';
+          qualifier.textContent = row.qualifierLabel;
+          description.append(qualifier);
+        }
+        const observed = document.createElement('dd');
+        observed.className = 'gauge-context__observed';
         if (row.observedAt) {
           const time = document.createElement('time');
           time.dateTime = row.observedAt;
           time.dataset.staleHours = String(row.staleAfterHours ?? 2);
-          description.append(time);
+          observed.append(time);
         }
-        section.querySelector('dl')!.append(term, description);
+        metric.append(term, description, observed);
+        readings.append(metric);
       }
       section.querySelector<HTMLAnchorElement>('[data-context-source]')!.href = context.sourceUrl;
       renderFreshness();
@@ -63,8 +104,36 @@ const { slug } = Astro.props;
 </script>
 <style>
   .gauge-context[hidden] { display: none; }
-  .gauge-context :global(dt) { font-weight: 600; margin-top: 1rem; }
-  .gauge-context :global(dd) { margin: .25rem 0 0; }
-  .gauge-context :global(dd p) { margin: .25rem 0; }
-  .gauge-context :global(time) { font-size: .875rem; opacity: .8; }
+  .gauge-context { container: gauge-measurements / inline-size; }
+  .gauge-context__head { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: .65rem 1rem; margin-bottom: 1rem; }
+  .gauge-context__head h3 { margin: .2rem 0 0; font-size: 1.2rem; }
+  .gauge-context__head .eyebrow { margin: 0; }
+  .gauge-context__head a { font-size: .8rem; }
+  .gauge-context__column-head,
+  .gauge-context :global(.gauge-context__row) { display: grid; grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr) minmax(0, 1fr); gap: .25rem 1rem; align-items: center; }
+  .gauge-context__column-head { color: var(--muted); font-size: .72rem; padding-bottom: .5rem; }
+  .gauge-context__readings { margin: 0; }
+  .gauge-context :global(.gauge-context__row) { padding: .7rem 0; border-top: 1px solid rgba(16, 35, 45, .1); }
+  .gauge-context :global(.gauge-context__row dt) { margin: 0; color: var(--ink-soft); font-size: .85rem; font-weight: 600; line-height: 1.4; }
+  .gauge-context :global(.gauge-context__row dd) { margin: 0; min-width: 0; }
+  .gauge-context :global(.gauge-context__reading) { display: grid; gap: .18rem; }
+  .gauge-context :global(.gauge-context__reading strong) { font-family: var(--serif); font-size: 1.08rem; line-height: 1.35; overflow-wrap: anywhere; }
+  .gauge-context :global(.gauge-context__qualifier) { color: var(--muted); font-size: .72rem; line-height: 1.35; }
+  .gauge-context :global(time) { display: block; color: var(--muted); font-size: .75rem; line-height: 1.4; }
+  .gauge-context :global(.gauge-context__time--old) { color: #8a5a14; }
+  .gauge-context__meta { display: flex; gap: .4rem 1rem; flex-wrap: wrap; color: var(--muted); font-size: .75rem; line-height: 1.5; padding: .75rem 0 .25rem; border-top: 1px solid rgba(16, 35, 45, .1); }
+  .gauge-context__meta [hidden] { display: none; }
+  .gauge-context__notes { margin-top: .3rem; }
+  .gauge-context__notes > summary { cursor: pointer; color: var(--river-deep); font-size: .82rem; font-weight: 600; padding: .6rem 0; min-height: 44px; box-sizing: border-box; }
+  .gauge-context__notes p,
+  .gauge-context__notes :global(dd) { font-size: .82rem; line-height: 1.5; }
+  .gauge-context__notes :global(dt) { margin-top: .8rem; font-size: .82rem; font-weight: 600; }
+  .gauge-context__notes :global(dd) { margin: .2rem 0 0; color: var(--muted); }
+  @container gauge-measurements (max-width: 540px) {
+    .gauge-context__column-head { display: none; }
+    .gauge-context :global(.gauge-context__row) { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: .15rem .75rem; }
+    .gauge-context :global(.gauge-context__row dt) { grid-row: 1 / 3; }
+    .gauge-context :global(.gauge-context__observed) { grid-column: 2; }
+    .gauge-context :global(.gauge-context__reading strong) { font-size: 1rem; }
+  }
 </style>

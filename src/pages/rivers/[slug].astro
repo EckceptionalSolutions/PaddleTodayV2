@@ -3,10 +3,8 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
 import RouteTripPlan from '../../components/RouteTripPlan.astro';
 import PaddlePlanningGuide from '../../components/PaddlePlanningGuide.astro';
 import { priorityRouteGuides } from '../../data/priority-paddle-guides';
-import { staticAssetUrl } from '../../lib/static-asset-url.js';
 import { routeGeometryReviewHolds } from '../../lib/route-geometry-review-holds.js';
 import RouteAppHandoff from '../../components/RouteAppHandoff.astro';
-import RouteAppDownload from '../../components/RouteAppDownload.astro';
 import { webFeatureFlags } from '../../lib/web-feature-flags';
 import { accessMapHref, accessDirectionsHref, shuttleDirections, tripActionLinks } from '../../lib/trip-actions';
 
@@ -19,7 +17,7 @@ import LoadingFeedback from '../../components/LoadingFeedback.astro';
 import { getRouteGalleryPhotos, getRoutePreviewPhoto } from '../../data/route-gallery';
 import { getRouteSocialCard } from '../../data/route-social-cards';
 import { FAVORITE_STAR_PATH } from '../../lib/favorites-icon.js';
-import { listRivers, listRiverStateGroups } from '../../lib/rivers';
+import { listRivers } from '../../lib/rivers';
 import { isIndexableRoutePage, routePageHref } from '../../data/route-page-consolidations';
 import { gaugeDisplayForSource } from '../../lib/source-adapters';
 import { evidenceNoteDetail, evidenceNoteLabel } from '../../lib/route-evidence';
@@ -81,7 +79,6 @@ const logisticsModel = buildRiverDetailLogisticsViewModel(logistics);
 const safetyProfile = river.safetyProfile;
 const safetyModel = buildRouteSafetyViewModel(safetyProfile);
 const safetyLevel = safetyModel.riskLevel;
-const safetyHeading = safetyModel.title;
 const safetySummary = safetyModel.summary;
 const safetyNotes = safetyModel.notes;
 const safetyHazards = safetyModel.hazards;
@@ -184,15 +181,6 @@ const hasSameRiverRoutes = siblingRoutes.length > 0;
 const hasNearbyRoutes = nearbyRoutes.length > 0;
 const routeDiscoveryGridClass =
   hasSameRiverRoutes && hasNearbyRoutes ? 'route-discovery__grid' : 'route-discovery__grid route-discovery__grid--single';
-const slugifyFragment = (value: string) =>
-  value
-    .trim()
-    .toLowerCase()
-    .replace(/[^a-z0-9]+/g, '-')
-    .replace(/^-+|-+$/g, '');
-const stateGroup = listRiverStateGroups().find((group) => group.name === river.state);
-const stateHref = stateGroup ? `/states/${stateGroup.slug}/` : null;
-const regionHref = stateGroup ? `/states/${stateGroup.slug}/#region-${slugifyFragment(river.region)}` : null;
 const siteUrl = Astro.site?.href ?? 'https://paddletoday.com/';
 const homeUrl = new URL('/', siteUrl).href;
 const routeUrl = new URL(`/rivers/${river.slug}/`, siteUrl).href;
@@ -266,7 +254,6 @@ const routeShareDescription = isPlanningRoute
   ? routeSeoDescription
   : `Check ${river.name} for ${river.reach}. Live gauge, weather, data reliability, access details, and today's paddle score before you drive.`;
 const routeShareText = `Today's Paddle Today read for ${river.name} - ${river.reach}: live gauge, weather, data reliability, access, and a clear paddle call.`;
-const routeGalleryPhotos = getRouteGalleryPhotos(river);
 const routePreviewPhoto = getRoutePreviewPhoto(river);
 const routePreviewLabel =
   routePreviewPhoto.sourceKind === 'route'
@@ -280,6 +267,8 @@ const routePreviewCaption =
     : routePreviewPhoto.sourceKind === 'river'
       ? `${routePreviewPhoto.caption} — not necessarily this exact reach.`
       : 'Representative river image — not this exact route.';
+
+const routeGalleryPhotos = getRouteGalleryPhotos(river).filter(photo => photo.src !== routePreviewPhoto.src);
 const routeSocialCard = getRouteSocialCard(river.slug);
 const routeShareCardHref = routeSocialCard?.src ?? '/brand/paddle-today-share-card-v3-1200x630.png';
 const routeGalleryPhotosJson = JSON.stringify(routeGalleryPhotos);
@@ -314,64 +303,11 @@ const breadcrumbItems = [
         },
       ]),
 ];
-const routeDistancePhrase = logistics?.distanceLabel?.trim().replace(/^About\b/i, 'about');
-const routeAccessAnswer =
-  putIn?.name && takeOut?.name
-    ? `This route starts at ${putIn.name} and ends at ${takeOut.name}${routeDistancePhrase ? `, ${routeDistancePhrase} on the water` : ''}.`
-    : `This route covers ${river.reach}${routeDistancePhrase ? `, ${routeDistancePhrase} on the water` : ''}.`;
-const routeFaqSubject = isLittleMiamiKelleyMilford
-  ? 'Kelley-to-Milford route on the Little Miami River'
-  : `${river.reach} route on the ${river.name}`;
-
-const waterLevelAnswer = isPlanningRoute
-  ? `This planning route has no live Paddle Today score. Review the linked water-level sources, current access notices and route-specific hazards before travel.`
-  : isMinimumOnlyRoute && hasMinimumOnlyFloor
-  ? `Paddle Today watches ${river.gaugeSource.siteName} and uses ${lowThresholdValue} as the conservative low-water floor for this route. The ideal range still needs more paddler reports.`
-  : isMinimumOnlyRoute
-    ? `No low-water floor or ideal range is established for this route.${Number.isFinite(river.profile.tooHigh) ? ` Paddle Today uses an upper-flow screen of ${highThresholdValue} at ${river.gaugeSource.siteName}; a reading below that screen does not establish safe passage.` : ''} Review the linked source and exact reach hazards before travel.`
-  : `Paddle Today watches ${river.gaugeSource.siteName} and treats ${targetBandValue} as the target band for this route, with weather and recent trend included in the final score.`;
-const beginnerAnswer = isLittleMiamiKelleyMilford
-  ? `Paddle Today lists this route as moderate and notes Class I–II play features, low-head-dam remnants, strainers, and cold-water hazards. Review current levels and the hazard notes against your group's experience and equipment before launching.`
-  : isPlanningRoute
-    ? `This is listed as a ${river.profile.difficulty} route. Review the difficulty notes, hazards and current access conditions against your group's skills. No live score assesses this trip.`
-
-    : river.profile.difficulty === 'easy'
-    ? `This is listed as an easy route, but conditions still matter. Check today's score, water level, weather, and access notes before you go.`
-    : river.profile.difficulty === 'moderate'
-      ? `This is listed as a moderate route. Expect more planning than an easy float, and use the live score, route notes, and source links before committing.`
-      : `This is listed as a hard route. Treat the live score as a planning aid, then confirm conditions, hazards, access, and group skill before launching.`;
-const faqItems = [
-  {
-    question: `What water level is best for the ${routeFaqSubject}?`,
-    answer: waterLevelAnswer,
-  },
-  {
-    question: `Where does the ${routeFaqSubject} start and end?`,
-    answer: routeAccessAnswer,
-  },
-  {
-    question: `Is the ${routeFaqSubject} suitable for beginners?`,
-    answer: beginnerAnswer,
-  },
-];
 const routeStructuredData = {
   '@context': 'https://schema.org',
   '@type': 'BreadcrumbList',
   '@id': `${routeUrl}#breadcrumbs`,
   itemListElement: breadcrumbItems,
-};
-const routeFaqStructuredData = {
-  '@context': 'https://schema.org',
-  '@type': 'FAQPage',
-  '@id': `${routeUrl}#faq`,
-  mainEntity: faqItems.map((item) => ({
-    '@type': 'Question',
-    name: item.question,
-    acceptedAnswer: {
-      '@type': 'Answer',
-      text: item.answer,
-    },
-  })),
 };
 ---
 
@@ -379,7 +315,7 @@ const routeFaqStructuredData = {
   title={routeSeoTitle}
   noindex={!isIndexableRoutePage(river.slug)}
   description={routeSeoDescription}
-  structuredData={[routeStructuredData, routeFaqStructuredData]}
+  structuredData={[routeStructuredData]}
   socialTitle={routeShareTitle}
   socialDescription={routeShareDescription}
   socialImage={routeSocialCard?.src ?? '/brand/paddle-today-share-card-v3-1200x630.png'}
@@ -393,7 +329,7 @@ const routeFaqStructuredData = {
   <RouteAppHandoff slug={river.slug} />
 
   <article
-    class:list={["river-detail", isPlanningRoute && "river-detail--planning"]}
+    class:list={["river-detail", "river-detail--refined", isPlanningRoute && "river-detail--planning"]}
     data-river-detail
     data-river-slug={river.slug}
     data-river-id={river.riverId}
@@ -432,27 +368,14 @@ const routeFaqStructuredData = {
           <a class="river-detail__section-link" href="#route-overview" data-detail-nav-link="overview" data-detail-nav-target="route-overview">
             Route overview
           </a>
-          {!isPlanningRoute ? (
-            <a class="river-detail__section-link" href="#route-outlook" data-detail-nav-link="outlook" data-detail-nav-target="route-outlook">
-              Outlook
-            </a>
-          ) : null}
-          {planningGuide ? (
-            <a class="river-detail__section-link" href="#trip-decisions" data-detail-nav-link="trip-decisions" data-detail-nav-target="trip-decisions">Before you go</a>
-          ) : null}
-          <a class="river-detail__section-link" href="#access-plan" data-detail-nav-link="plan" data-detail-nav-target="access-plan">
-            Access &amp; route
+          <a class="river-detail__section-link" href="#conditions" data-detail-nav-link="conditions" data-detail-nav-target="conditions">
+            Conditions
           </a>
-          {!isPlanningRoute ? (
-            <a class="river-detail__section-link" href="#river-conditions" data-detail-nav-link="conditions" data-detail-nav-target="river-conditions">
-              Gauge history
-            </a>
-          ) : null}
           <a class="river-detail__section-link" href="#route-gallery" data-detail-nav-link="reports" data-detail-nav-target="route-gallery">
             Photos &amp; reports
           </a>
           <a class="river-detail__section-link" href={isPlanningRoute ? '#planning-sources' : '#why-this-call'} data-detail-nav-link="sources" data-detail-nav-target={isPlanningRoute ? 'planning-sources' : 'why-this-call'}>
-            {isPlanningRoute ? 'Sources' : 'Score & sources'}
+            Sources &amp; methodology
           </a>
         </div>
       </nav>
@@ -472,7 +395,7 @@ const routeFaqStructuredData = {
               <span class="river-detail__reach">{river.reach}</span>
             </h1>
 
-            <p class="route-seo-intro">{routeIntro}</p>
+            <p class="route-seo-intro">{isLittleMiamiKelleyMilford ? "A 4.9-mile Class I–II run from Kelley Nature Preserve to Jim Terrell Park in Milford. Review the dam-remnant hazards against your group’s skills." : routeIntro}</p>
             {accessSafetyReviewDateLabel ? (
               <p class="muted" style="margin: 0.55rem 0 0;">
                 Access and safety sources last checked {accessSafetyReviewDateLabel}.
@@ -498,7 +421,6 @@ const routeFaqStructuredData = {
             </div>
           </div>
 
-          <p><a class="river-link river-link--inline river-link--primary" data-plan-account href="#trip-plan">Plan this route</a></p>
           <section class="route-overview-trip-fit" aria-label="Trip facts">
             <div>
               <span>Distance</span>
@@ -506,7 +428,7 @@ const routeFaqStructuredData = {
             </div>
             <div>
               <span>Difficulty</span>
-              <strong>{formatDifficulty(river.profile.difficulty) ?? 'Check source'}</strong>
+              <strong>{isLittleMiamiKelleyMilford ? 'Class I–II' : formatDifficulty(river.profile.difficulty) ?? 'Check source'}</strong>
             </div>
             <div>
               <span>Typical time</span>
@@ -518,24 +440,6 @@ const routeFaqStructuredData = {
             </div>
           </section>
 
-          {isLittleMiamiKelleyMilford ? (
-            <aside class="river-detail__gauge-note" aria-label="Little Miami River water level guide">
-              <p class="river-detail__gauge-note-label">Water levels · Milford gauge guide</p>
-              <p class="river-detail__gauge-note-summary">
-                Preferred range: {targetBandValue} · Low-water floor: {lowThresholdValue} · High-water ceiling: {highThresholdValue}
-              </p>
-              <p>
-                American Whitewater describes this as a Class I–II play reach. Levels above {highThresholdValue} can become sketchy or flood-prone; verify the current gauge and hazards before launching.
-              </p>
-              <p>
-                <a href={river.profile.thresholdSource.url} target="_blank" rel="noreferrer">American Whitewater level guidance</a>
-                {river.gaugeSource.detailUrl ? (
-                  <> · <a href={river.gaugeSource.detailUrl} target="_blank" rel="noreferrer">USGS Milford gauge</a></>
-                ) : null}
-              </p>
-            </aside>
-          ) : null}
-
         </div>
 
         <aside class="route-decision-rail" aria-label="Today's decision">
@@ -545,8 +449,8 @@ const routeFaqStructuredData = {
               <p class="eyebrow">Paddle today?</p>
               <h2 id="route-decision-title">Today at a glance</h2>
               {!isPlanningRoute ? (
-                <p class="route-decision-dashboard__live-meta" aria-label="Live data updated">
-                  <span>Live data</span>
+                <p class="route-decision-dashboard__live-meta" aria-label="Live Data updated">
+                  <span>Live Data</span>
                   <span aria-hidden="true">·</span>
                   <time data-field="generated-at">Checking</time>
                 </p>
@@ -574,12 +478,15 @@ const routeFaqStructuredData = {
                     <span class="score-orb__rating" data-field="rating" data-skeleton>Checking</span>
                   </div>
                 </div>
-                <p class="river-call-panel__statement" data-field="decision-line" data-skeleton>Checking today's read.</p>
+                <div class="river-call-panel__statement">
+                  <span data-field="decision-line" data-skeleton>Checking the latest gauge and weather.</span>
+                </div>
                 <details class="river-score-tooltip route-today-score__breakdown">
                   <summary class="river-score-tooltip__summary">
                     <span>Score breakdown</span>
                   </summary>
                   <div class="river-score-tooltip__panel">
+                    <div class="river-detail__summary" data-field="explanation" data-skeleton>Checking supporting evidence.</div>
                     <p class="muted river-score-tooltip__intro" data-field="breakdown-summary">
                       Checking what's driving today's score.
                     </p>
@@ -674,27 +581,7 @@ const routeFaqStructuredData = {
               )}
             </div>
 
-            <section class={`route-decision-dashboard__safety-signal route-decision-dashboard__safety-signal--${safetyLevel}`} aria-label="Safety signal">
-              <div class="route-decision-dashboard__safety-head">
-                <span class="route-decision-dashboard__safety-label">Safety</span>
-                <strong>{safetyHeading}</strong>
-              </div>
-              {safetyHazards.length > 0 ? (
-                <div class="route-decision-dashboard__safety-chips" aria-label="Known safety considerations">
-                  {safetyHazards.map((hazard) => <span>{hazard.label}</span>)}
-                </div>
-              ) : (
-                <p class="route-decision-dashboard__safety-summary">{safetySummary}</p>
-              )}
-            </section>
 
-            {!isPlanningRoute ? (
-              <div class="route-decision-dashboard__freshness" aria-label="Data freshness">
-                <span>Gauge observed</span>
-                <strong data-field="observed-at">Checking</strong>
-                <small>Paddle Today updated <span data-field="generated-at">Checking</span></small>
-              </div>
-            ) : null}
 
           </div>
         </section>
@@ -746,21 +633,14 @@ const routeFaqStructuredData = {
           </figure>
 
           <div class="route-overview-support__details">
-            <p class="eyebrow route-overview-support__kicker">Need to know</p>
-              <details class="route-overview-explanation" open>
-                <summary>Why this call</summary>
-                <div class="river-detail__summary" data-field="explanation" data-skeleton>
-                  {isPlanningRoute ? 'This route is documented for planning, but does not receive a Paddle Today score.' : 'Pulling the latest gauge and weather. This usually takes a few seconds.'}
-                </div>
-              </details>
-
-              <aside class={`route-safety-card route-safety-card--${safetyLevel}`} aria-label="Route safety reminder">
+              <aside class={`route-safety-card route-critical-hazards route-safety-card--${safetyLevel}`} aria-label="Route safety reminder">
               <div class="route-safety-card__head">
                 <p class="route-safety-card__eyebrow">Safety</p>
                 <h2>Route safety</h2>
-                <strong class="route-safety-card__status">{safetyHeading}</strong>
+                <strong class="route-safety-card__status">{isLittleMiamiKelleyMilford ? 'Whitewater skills' : safetyModel.title}</strong>
               </div>
-              <p>{safetySummary}</p>
+              <p>{isLittleMiamiKelleyMilford ? 'Class I–II features require boat control in moving water and the judgment to scout the old dam remnants.' : safetySummary}</p>
+              {criticalSafetyNote ? <p class="route-safety-card__critical">{criticalSafetyNote}</p> : null}
               {safetyHazards.length > 0 ? (
                 <div class="route-safety-card__chips" aria-label="Known safety considerations">
                   {safetyHazards.map((hazard) => (
@@ -768,11 +648,10 @@ const routeFaqStructuredData = {
                   ))}
                 </div>
               ) : null}
-              {criticalSafetyNote || supportingSafetyNotes.length > 0 ? (
+              {supportingSafetyNotes.length > 0 ? (
                 <details class="route-safety-card__details">
                   <summary>Safety details</summary>
                   <div class="route-safety-card__details-body">
-                    {criticalSafetyNote ? <p class="route-safety-card__critical">{criticalSafetyNote}</p> : null}
                     {supportingSafetyNotes.length > 0 ? (
                       <ul class="compact-list route-safety-card__notes">
                         {supportingSafetyNotes.map((note) => (
@@ -787,12 +666,12 @@ const routeFaqStructuredData = {
             </aside>
 
             <a
-              class="river-link river-link--wide route-overview-source"
+              class="route-overview-source"
               href={river.profile.thresholdSource.url}
               target="_blank"
               rel="noreferrer"
             >
-              View Primary Source
+              View primary source
             </a>
           </div>
         </div>
@@ -1000,38 +879,17 @@ const routeFaqStructuredData = {
       </div>
     </section>
 
-    <RouteAppDownload riverName={river.name} />
 
     <section class="river-detail__chapter-head river-detail__chapter-head--overview" id="route-overview" data-detail-section="route-overview" data-detail-nav-group="overview" aria-label="Route overview chapter">
       <p class="eyebrow section-label">Route overview</p>
       <h2 class="river-detail__chapter-title">Trip details</h2>
-      <p class="muted river-detail__chapter-copy">
-        Access rules, camping, seasonal conditions and trip length.
-      </p>
+      <p class="muted river-detail__chapter-copy">Access rules, camping and seasonal notes.</p>
     </section>
 
     <section class="river-detail__panel river-quick-facts" id="quick-facts" data-detail-section="quick-facts" data-detail-nav-group="overview">
       <details class="trip-details-disclosure">
-      <summary>Distance, difficulty, rules and camping</summary>
+      <summary>Permits, camping and season</summary>
       <div class="river-detail__quick-grid river-detail__quick-grid--compact river-quick-facts__grid">
-        <article class="snapshot-card snapshot-card--with-icon snapshot-card--featured">
-          <span class="snapshot-card__icon"><FeatureIcon name="map" size={18} /></span>
-          <span class="snapshot-card__label">On-water distance</span>
-          <strong>{logistics?.distanceLabel ?? 'Check source links'}</strong>
-          <small>{river.reach}</small>
-        </article>
-        <article class="snapshot-card snapshot-card--with-icon">
-          <span class="snapshot-card__icon"><FeatureIcon name="mountain" size={18} /></span>
-          <span class="snapshot-card__label">Difficulty</span>
-          <strong>{river.profile.difficulty}</strong>
-          <small>{river.profile.difficultyNotes}</small>
-        </article>
-        <article class="snapshot-card snapshot-card--with-icon snapshot-card--featured">
-          <span class="snapshot-card__icon"><FeatureIcon name="car" size={18} /></span>
-          <span class="snapshot-card__label">Shuttle</span>
-          <strong>{shuttleHeadline}</strong>
-          <small>{logistics?.shuttle ?? 'Confirm shuttle details in the source links.'}</small>
-        </article>
         <article class="snapshot-card snapshot-card--with-icon">
           <span class="snapshot-card__icon"><FeatureIcon name="compass" size={18} /></span>
           <span class="snapshot-card__label">Permits</span>
@@ -1054,51 +912,7 @@ const routeFaqStructuredData = {
       </details>
     </section>
 
-    <section
-      class="river-detail__panel route-outlook"
-      id="route-outlook"
-      data-detail-section="route-outlook"
-      data-detail-nav-group="outlook"
-      aria-labelledby="route-outlook-title"
-    >
-      <div class="section-head route-outlook__head">
-        <div>
-          <p class="eyebrow section-label">Plan ahead</p>
-          <h2 class="section-title" id="route-outlook-title">Tomorrow and the weekend</h2>
-        </div>
-        <p class="muted section-head__note">
-          Forecasts can change. Check current conditions again before leaving.
-        </p>
-      </div>
-      <div class="outlook-grid" data-outlooks>
-        <article class="outlook-card">
-          <span class="outlook-card__label">Tomorrow</span>
-          <strong>Checking</strong>
-          <p class="muted">Waiting on forecast.</p>
-        </article>
-        <article class="outlook-card">
-          <span class="outlook-card__label">Weekend</span>
-          <strong>Checking</strong>
-          <p class="muted">Waiting on forecast.</p>
-        </article>
-      </div>
-    </section>
-
-    {planningGuide ? <PaddlePlanningGuide guide={planningGuide} id="trip-decisions" /> : null}
-
-    <section class="river-detail__chapter-head river-detail__chapter-head--plan" aria-label="Plan chapter">
-      <p class="eyebrow section-label">Plan</p>
-      <h2 class="river-detail__chapter-title">Plan your trip</h2>
-      <p class="muted river-detail__chapter-copy">
-        Launch points, shuttle details, distance, and access notes.
-      </p>
-    </section>
-
-    <section class="river-detail__panel river-launch-plan" id="access-plan" data-detail-section="access-plan" data-detail-nav-group="plan">
-      <p class="eyebrow section-label">
-        <FeatureIcon name="map" size={16} />
-        Route logistics
-      </p>
+    <section class="river-detail__panel river-launch-plan" id="access-plan" data-detail-section="access-plan" data-detail-nav-group="overview">
       <div class="river-launch-plan__hero">
         <div class="river-launch-plan__copy">
           <h2 class="river-subtitle">Access and shuttle</h2>
@@ -1142,8 +956,10 @@ const routeFaqStructuredData = {
           <article class="river-access-card river-access-card--put-in">
             <span class="river-access-card__eyebrow">Start</span>
             <h3 class="river-logistics__title">Put-in</h3>
+            {isLittleMiamiKelleyMilford ? <p class="muted">Kelley Nature Preserve, 297 Center Street, Loveland. <a href="https://www.clermontparks.org/kelley-nature-preserve/" target="_blank" rel="noreferrer">Launch information</a></p> : null}
             <strong data-field="active-putin-name">{putIn?.name ?? 'Launch location not confirmed'}</strong>
             <div class="river-access-card__actions">
+              {accessDirectionsHref(putIn) && <a class="river-link river-link--inline river-link--primary" href={accessDirectionsHref(putIn)} target="_blank" rel="noreferrer" data-access-putin-directions aria-label="Directions to put-in">Directions</a>}
               {putInMapsUrl ? (
                 <a
                   class="river-link river-link--inline river-access-card__map-link"
@@ -1155,7 +971,6 @@ const routeFaqStructuredData = {
                   Open map
                 </a>
               ) : null}
-              {accessDirectionsHref(putIn) && <a class="river-link river-link--inline" href={accessDirectionsHref(putIn)} target="_blank" rel="noreferrer" data-access-putin-directions>Directions to put-in</a>}
               {typeof putIn?.latitude === 'number' && typeof putIn?.longitude === 'number' ? (
                 <button
                   class="river-inline-button"
@@ -1169,6 +984,7 @@ const routeFaqStructuredData = {
                   Copy coordinates
                 </button>
               ) : null}
+
             </div>
             <p class="muted" data-field="active-putin-note">{primaryAccessCaveat}</p>
           </article>
@@ -1178,6 +994,7 @@ const routeFaqStructuredData = {
             <h3 class="river-logistics__title">Take-out</h3>
             <strong data-field="active-takeout-name">{takeOut?.name ?? 'Take-out location not confirmed'}</strong>
             <div class="river-access-card__actions">
+              {accessDirectionsHref(takeOut) && <a class="river-link river-link--inline river-link--primary" href={accessDirectionsHref(takeOut)} target="_blank" rel="noreferrer" data-access-takeout-directions aria-label="Directions to take-out">Directions</a>}
               {takeOutMapsUrl ? (
                 <a
                   class="river-link river-link--inline river-access-card__map-link"
@@ -1189,7 +1006,6 @@ const routeFaqStructuredData = {
                   Open map
                 </a>
               ) : null}
-              {accessDirectionsHref(takeOut) && <a class="river-link river-link--inline" href={accessDirectionsHref(takeOut)} target="_blank" rel="noreferrer" data-access-takeout-directions>Directions to take-out</a>}
               {typeof takeOut?.latitude === 'number' && typeof takeOut?.longitude === 'number' ? (
                 <button
                   class="river-inline-button"
@@ -1203,12 +1019,14 @@ const routeFaqStructuredData = {
                   Copy coordinates
                 </button>
               ) : null}
+
             </div>
             <p class="muted" data-field="active-takeout-note">{secondaryAccessCaveat}</p>
           </article>
         </div>
 
         <h3 class="river-subtitle">Road shuttle</h3>
+        {logistics?.shuttle ? <p class="muted" data-shuttle-instructions>{logistics.shuttle}</p> : null}
           <div class="detail-map__links detail-map__links--primary">
             {directionsGoogleUrl ? (
               <a
@@ -1247,6 +1065,7 @@ const routeFaqStructuredData = {
             >
               OpenStreetMap
             </a>
+
           </div>
       {hasAccessPlanner ? (
         <details class="river-access-planner-disclosure">
@@ -1315,58 +1134,41 @@ const routeFaqStructuredData = {
         </section>
         </details>
       ) : null}
-        <details class="river-launch-plan__support-disclosure">
-          <summary>Access notes and hazards</summary>
-        <div class="river-launch-plan__support">
-          <section class="river-logistics__notes">
-            <h3 class="river-logistics__title">Access caveats</h3>
-            <ul class="compact-list compact-list--checklist">
-              {(logistics?.accessCaveats ?? ['Check parking, launch, and access rules on the ground.']).map((note) => (
-                <li>{note}</li>
-              ))}
-            </ul>
-          </section>
-
-          <section class="river-logistics__notes">
-            <h3 class="river-logistics__title">Watch for</h3>
-            <ul class="compact-list compact-list--checklist">
-              {(logistics?.watchFor ?? ['Check current water levels, weather and local access notices.']).map((note) => (
-                <li>{note}</li>
-              ))}
-            </ul>
-          </section>
-        </div>
-        </details>
+        {!isLittleMiamiKelleyMilford && (logistics?.accessCaveats?.length ?? 0) > 2 ? (
+          <details class="river-launch-plan__support-disclosure">
+            <summary>Additional access notes</summary>
+            <ul class="compact-list">{logistics?.accessCaveats?.slice(2).map(note => <li>{note}</li>)}</ul>
+          </details>
+        ) : null}
+        {!isLittleMiamiKelleyMilford && supportingSafetyNotes.length > 0 ? (
+          <details class="river-launch-plan__support-disclosure">
+            <summary>More route and safety guidance</summary>
+            <ul class="compact-list">{supportingSafetyNotes.map(note => <li>{note}</li>)}</ul>
+            <a href="/terms/">Terms and safety</a>
+          </details>
+        ) : null}
+        {planningGuide && !isLittleMiamiKelleyMilford ? (
+          <details class="river-launch-plan__support-disclosure">
+            <summary>More trip guidance</summary>
+            <PaddlePlanningGuide guide={planningGuide} id="trip-decisions" />
+          </details>
+        ) : null}
         <RouteTripPlan gpxHref={tripGpxHref} calendarAvailable={Boolean(tripIcsHref)} geometryReviewReason={geometryReviewReason} />
       </div>
     </section>
 
 
-    <section class="river-detail__chapter-head river-detail__chapter-head--conditions" aria-label="Conditions chapter">
-      <p class="eyebrow section-label">Conditions</p>
-      <h2 class="river-detail__chapter-title">Water levels, gauge history, and hourly forecast</h2>
+    <section class="river-detail__chapter-head river-detail__chapter-head--conditions" id="conditions" data-detail-section="conditions" data-detail-nav-group="conditions" aria-label="Conditions chapter">
+      <h2 class="river-detail__chapter-title">Conditions</h2>
       <p class="muted river-detail__chapter-copy">
           {isPlanningRoute ? 'Check the forecast and local water levels before launching.' : 'Check how the river is changing and what weather to expect.'}
       </p>
     </section>
 
-    {river.gaugeSource.provider === 'usgs' && <RiverGaugeContext slug={river.slug} />}
-    {river.gaugeSource.provider === 'usgs' && <RiverCameras slug={river.slug} siteName={river.gaugeSource.siteName} />}
     <section class="river-detail__panel river-why-score" id="river-conditions" data-detail-section="river-conditions" data-detail-nav-group="conditions">
-      <p class="eyebrow section-label">
-        <FeatureIcon name="compass" size={16} />
-        Gauge detail
-      </p>
-
-      <details class="river-conditions-disclosure" open>
-        <summary>
-          <span>Water-level history and forecast</span>
-          <span class="river-detail__disclosure-hint">Detailed view</span>
-        </summary>
 
       <div class="river-detail__conditions-details">
         <aside class="river-detail__gauge-note" aria-label="Gauge note">
-          <p class="river-detail__gauge-note-label">Gauge note</p>
           <p class="river-detail__gauge-note-summary">
             {isPlanningRoute
               ? `No published water-level range for this trip · ${river.gaugeSource.siteName}`
@@ -1380,6 +1182,7 @@ const routeFaqStructuredData = {
             <summary>Does this gauge apply to my trip?</summary>
             <p>{isPlanningRoute ? `${river.gaugeSource.siteName} does not establish suitable water levels for this trip. Check the access and hazard notes and ask locally about current conditions.` : river.statusText}</p>
           </details>
+          {isLittleMiamiKelleyMilford ? <p>American Whitewater’s range applies to Class I–II play features, not minimum tubing depth. Low-water floor: {lowThresholdValue}; upper ceiling: {highThresholdValue}. <a href={river.profile.thresholdSource.url} target="_blank" rel="noreferrer">Published level guidance</a></p> : null}
           <p class="muted">New to reading stage or flow? <a class="river-link river-link--inline river-link--ghost" href="/guides/how-to-read-a-river-gauge-for-paddling/">Read the paddler's gauge guide</a>.</p>
         </aside>
 
@@ -1387,10 +1190,6 @@ const routeFaqStructuredData = {
         <section class="river-visual-panel river-visual-panel--gauge">
           <div class="river-why-panel__section-head">
             <div>
-              <p class="eyebrow section-label">
-                <FeatureIcon name="gauge" size={16} />
-                Gauge
-              </p>
               <h3 class="river-subtitle river-subtitle--compact" data-field="gauge-visual-title">Recent trend</h3>
             </div>
             <p class="muted river-why-panel__section-note" data-field="chart-caption" id="gauge-chart-description">
@@ -1574,6 +1373,8 @@ const routeFaqStructuredData = {
           </div>
         </section>
 
+        <details class="route-weather-details">
+          <summary>Detailed weather</summary>
         <section class="river-visual-panel river-visual-panel--weather">
           <div class="river-why-panel__section-head">
             <div>
@@ -1613,6 +1414,7 @@ const routeFaqStructuredData = {
             </section>
           </div>
         </section>
+        </details>
         </div>
 
       {isPlanningRoute ? (
@@ -1627,11 +1429,47 @@ const routeFaqStructuredData = {
           </aside>
       ) : null}
       </div>
-      </details>
+    </section>
+    <section
+      class="river-detail__panel route-outlook"
+      id="route-outlook"
+      data-detail-section="route-outlook"
+      data-detail-nav-group="conditions"
+      aria-labelledby="route-outlook-title"
+    >
+      <div class="section-head route-outlook__head">
+        <div>
+          <p class="eyebrow section-label">Plan ahead</p>
+          <h2 class="section-title" id="route-outlook-title">Tomorrow and the weekend</h2>
+        </div>
+        <p class="muted section-head__note">
+          Forecasts can change. Check current conditions again before leaving.
+        </p>
+      </div>
+      <div class="outlook-grid" data-outlooks>
+        <article class="outlook-card">
+          <span class="outlook-card__label">Tomorrow</span>
+          <strong>Checking</strong>
+          <p class="muted">Waiting on forecast.</p>
+        </article>
+        <article class="outlook-card">
+          <span class="outlook-card__label">Weekend</span>
+          <strong>Checking</strong>
+          <p class="muted">Waiting on forecast.</p>
+        </article>
+      </div>
     </section>
 
+    {river.gaugeSource.provider === 'usgs' ? (
+      <details class="river-detail__panel route-station-details">
+        <summary>Station details and river cameras</summary>
+        <RiverGaugeContext slug={river.slug} />
+        <RiverCameras slug={river.slug} siteName={river.gaugeSource.siteName} />
+      </details>
+    ) : null}
+
     <section
-      class="river-detail__panel route-gallery"
+      class:list={["river-detail__panel", "route-gallery", routeGalleryPhotos.length === 0 && "route-gallery--empty"]}
       id="route-gallery"
       data-detail-section="route-gallery"
       data-detail-nav-group="reports"
@@ -1640,19 +1478,52 @@ const routeFaqStructuredData = {
     >
       <div class="route-gallery__intro">
         <div class="route-gallery__intro-copy">
-          <p class="eyebrow section-label">
-            <FeatureIcon name="camera" size={16} />
-            Route gallery
-          </p>
-          <h2 class="section-title">Photos</h2>
-          <p class="muted route-gallery__lede">
-          Check each caption: some photos show the surrounding area rather than this exact trip.
+          <h2 class="section-title">Photos and recent reports</h2>
+          <p class="muted route-gallery__lede" data-route-gallery-lede hidden={routeGalleryPhotos.length === 0}>
+          Look for recent access, obstruction and hazard observations. Context photos may show a different part of the river.
           </p>
         </div>
       </div>
 
+    <section
+      class="river-detail__panel route-community"
+      data-route-community
+      data-detail-section="community-reports"
+      data-detail-nav-group="reports"
+      hidden
+    >
+      <div class="route-gallery__intro">
+        <div class="route-gallery__intro-copy">
+          <p class="eyebrow section-label">
+            <FeatureIcon name="compass" size={16} />
+            Paddler reports
+          </p>
+          <h3 class="section-title">Recent notes from paddlers</h3>
+          <p class="muted route-gallery__lede">
+            A few quick notes from people who were on this route recently.
+          </p>
+        </div>
+        <div class="route-gallery__stats route-community__stats" data-route-community-stats hidden>
+          <span class="pill" data-route-community-count></span>
+          <span class="pill" data-route-community-freshness></span>
+        </div>
+      </div>
+      <div class="route-community__list" data-route-community-list></div>
+      <div class="route-gallery__cta-row route-community__cta-row">
+        <a
+          class="river-link river-link--inline"
+          href="#share-trip"
+          data-route-report-cta
+          data-analytics-event="Open condition report"
+        >
+          Report recent conditions
+        </a>
+      </div>
+    </section>
+
+      <p class="muted route-gallery__empty-note" data-route-gallery-empty-note hidden={routeGalleryPhotos.length > 0}>Share a recent access update, hazard observation or photo.</p>
       <div class="route-gallery__layout">
-        <div class="route-gallery__viewer" data-route-gallery-viewer>
+        <div class="route-gallery__viewer" data-route-gallery-viewer hidden={routeGalleryPhotos.length === 0}>
           {routeGalleryPhotos.length > 0 ? (
             <>
               <figure class="route-gallery__figure" data-route-gallery-figure>
@@ -1695,355 +1566,13 @@ const routeFaqStructuredData = {
                 </div>
               ) : null}
             </>
-          ) : (
-            <div class="route-gallery__empty" data-route-gallery-empty>
-              <div class="route-gallery__empty-art" aria-hidden="true">
-                <img src={staticAssetUrl('/gallery/fallbacks/river-fallback-wide.jpg')} alt="" loading="lazy" decoding="async" />
-              </div>
-              <div class="route-gallery__empty-copy">
-                <h3 class="route-gallery__empty-title">No approved route photos yet</h3>
-                <p class="muted">
-                  Start the gallery with shots of the access, river character, or any detail that helps paddlers know what this run actually looks like.
-                </p>
-                <div class="route-gallery__cta-row">
-                  <a
-                    class="river-link river-link--inline"
-                    href="#share-trip"
-                    data-analytics-event="Open condition report"
-                  >
-                    Share photos or report conditions
-                  </a>
-                </div>
-              </div>
-            </div>
-          )}
+          ) : null}
         </div>
       </div>
-    </section>
-
-    <section class="river-detail__chapter-head river-detail__chapter-head--understand" aria-label={isPlanningRoute ? 'Planning sources chapter' : 'Score and sources chapter'}>
-      <p class="eyebrow section-label">{isPlanningRoute ? 'Sources' : 'Score & sources'}</p>
-      <h2 class="river-detail__chapter-title">{isPlanningRoute ? 'Data and sources' : 'Why this score'}</h2>
-      <p class="muted river-detail__chapter-copy">
-        {isPlanningRoute
-          ? 'Read the access and hazard notes and check the linked guides. We do not issue a daily score for this trip.'
-          : 'See the gauge, weather, and source notes behind today’s call.'}
-      </p>
-    </section>
-
-    {!isPlanningRoute ? (
-    <section class="status-banner status-banner--loading" data-detail-status-banner aria-live="polite">
-      <div class="status-banner__eyebrow">Data status</div>
-      <div class="status-banner__body">
-        <strong data-detail-banner-title>Checking live inputs.</strong>
-        <p class="muted" data-detail-banner-detail>
-          Pulling the latest gauge and weather. Usually under 10 seconds.
-        </p>
-      </div>
-      <div class="status-banner__grid" data-detail-reliability-grid>
-        <article class="status-banner__item">
-          <span class="status-banner__label">Gauge input</span>
-          <strong data-field="reliability-gauge-title">Checking</strong>
-          <p class="muted" data-field="reliability-gauge-detail">
-            Waiting on the gauge read.
-          </p>
-        </article>
-        <article class="status-banner__item">
-          <span class="status-banner__label">Weather input</span>
-          <strong data-field="reliability-weather-title">Checking</strong>
-          <p class="muted" data-field="reliability-weather-detail">
-            Waiting on weather.
-          </p>
-        </article>
-        <article class="status-banner__item">
-          <span class="status-banner__label">Next step</span>
-          <strong data-field="reliability-action-title">Checking</strong>
-          <p class="muted" data-field="reliability-action-detail">
-            Waiting on enough data to give the next step.
-          </p>
-        </article>
-      </div>
-    </section>
-    ) : null}
-
-    <section
-      class="river-detail__panel river-accordion-group"
-      id={isPlanningRoute ? 'planning-sources' : 'why-this-call'}
-      data-detail-section={isPlanningRoute ? 'planning-sources' : 'why-this-call'}
-      data-detail-nav-group="sources"
-    >
-      {!isPlanningRoute ? <>
-        <details class="river-accordion" data-confidence-explainer>
-          <summary class="river-accordion__summary">
-            <span>
-              <span class="eyebrow section-label">Why this score</span>
-              <strong>Data reliability: {` `}<span data-field="confidence-detail-label">checking</span></strong>
-            </span>
-          </summary>
-          <div class="river-accordion__body">
-            <p class="muted confidence-detail__intro">
-          This rating reflects whether the gauge measures this part of the river, whether published water-level guidance is available, and how recently the data was updated.
-            </p>
-
-          <div class="confidence-detail__groups">
-            <section class="confidence-detail__group">
-              <span class="eyebrow section-label">Why</span>
-              <ul class="confidence-rationale" data-confidence-reasons>
-              <li>Checking data sources and update times.</li>
-              </ul>
-            </section>
-
-            <section class="confidence-detail__group" data-confidence-warnings-group hidden>
-              <span class="eyebrow section-label">Watch for</span>
-              <ul class="confidence-rationale confidence-rationale--warnings" data-confidence-warnings>
-              <li>Checking evidence cautions.</li>
-              </ul>
-            </section>
-          </div>
-        </div>
-      </details>
-
-        <details class="river-accordion">
-          <summary class="river-accordion__summary">
-            <span>
-              <span class="eyebrow section-label">Data behind the score</span>
-              <strong>Water levels, published guidance and update times</strong>
-            </span>
-          </summary>
-          <div class="river-accordion__body">
-            <p class="muted confidence-detail__intro">
-        These readings and published water-level limits help explain today’s score.
-            </p>
-          <table class="detail-table">
-            <tbody>
-              <tr>
-                <td>Gauge site</td>
-                <td>{river.gaugeSource.siteName}</td>
-              </tr>
-              <tr>
-                <td data-field="primary-gauge-label">{gaugeDisplay.primaryMetricLabel}</td>
-                <td data-field="gauge-now">Checking</td>
-              </tr>
-              <tr>
-                <td data-field="secondary-gauge-label">{gaugeDisplay.secondaryMetricLabel ?? 'Secondary gauge metric'}</td>
-                <td data-field="discharge-now">Checking</td>
-              </tr>
-              <tr>
-                <td>24h trend</td>
-                <td data-field="trend">Checking</td>
-              </tr>
-              <tr>
-                <td>24h change</td>
-                <td data-field="flow-change-24h">Checking</td>
-              </tr>
-              <tr>
-                <td>Current band</td>
-                <td data-field="flow-band">Checking</td>
-              </tr>
-              <tr>
-                <td>Rain last 24h</td>
-                <td data-field="recent-rain-24h">Checking</td>
-              </tr>
-              <tr>
-                <td>Rain last 72h</td>
-                <td data-field="recent-rain-72h">Checking</td>
-              </tr>
-              <tr>
-                <td>Air temp</td>
-                <td data-field="weather-air-temp">Checking</td>
-              </tr>
-              <tr>
-                <td>Water temp</td>
-                <td data-field="weather-water-temp">Checking</td>
-              </tr>
-              <tr>
-                <td>Wind</td>
-                <td data-field="weather-wind">Checking</td>
-              </tr>
-              <tr>
-                <td>Gusts</td>
-                <td data-field="weather-gusts">Checking</td>
-              </tr>
-              <tr>
-                <td>Rain timing</td>
-                <td data-field="weather-rain-risk">Checking</td>
-              </tr>
-              <tr>
-                <td>{targetBandLabel}</td>
-                <td>{targetBandValue}</td>
-              </tr>
-              <tr>
-                <td>{isMinimumOnlyRoute && hasMinimumOnlyFloor ? 'Known low-water floor' : 'Low threshold'}</td>
-                <td>{lowThresholdValue}</td>
-              </tr>
-              <tr>
-                <td>High threshold</td>
-                <td>{highThresholdValue}</td>
-              </tr>
-              <tr>
-                <td>Evidence strength behind the range</td>
-                <td>{thresholdConfidenceLabel}</td>
-              </tr>
-              <tr>
-                <td>Gauge observed</td>
-                <td data-field="observed-at">Checking</td>
-              </tr>
-                <tr>
-                  <td>Paddle Today updated</td>
-                  <td data-field="generated-at">Checking</td>
-                </tr>
-              <tr>
-                <td>Main source behind this score</td>
-                <td>{river.profile.thresholdSource.label}</td>
-              </tr>
-              <tr>
-                <td>Gauge source</td>
-                <td data-field="gauge-source">Checking</td>
-              </tr>
-              <tr>
-                <td>Weather source</td>
-                <td data-field="weather-source">Checking</td>
-              </tr>
-              <tr>
-                <td>Rainfall source</td>
-                <td data-field="rainfall-source">Checking</td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
-      </details>
-      </> : null}
-
-      <details class="river-accordion">
-        <summary class="river-accordion__summary">
-          <span>
-            <span class="eyebrow section-label">Notes</span>
-            <strong>What to know before you go</strong>
-          </span>
-        </summary>
-        <div class="river-accordion__body">
-          <p class="muted confidence-detail__intro">
-        These notes cover the access details, route quirks, and source caveats most likely to matter once you get there.
-          </p>
-          <ul class="factor-list">
-            {river.evidenceNotes.map((note) => (
-              <li class="factor-item impact-neutral">
-                <div class="factor-item__head">
-                  <span class="factor-item__label">{evidenceNoteLabel(note)}</span>
-                  <span class="factor-item__value">{note.value}</span>
-                </div>
-                {evidenceNoteDetail(note) ? (
-                  <p class="muted" style="margin: 0.55rem 0 0;">{evidenceNoteDetail(note)}</p>
-                ) : null}
-                {note.sourceUrl && /^https?:\/\//i.test(note.sourceUrl) ? (
-                  <p style="margin: 0.55rem 0 0;">
-                    <a href={note.sourceUrl} target="_blank" rel="noreferrer">
-                      Source
-                    </a>
-                  </p>
-                ) : null}
-              </li>
-            ))}
-          </ul>
-        </div>
-      </details>
-
-        <details class="river-accordion">
-          <summary class="river-accordion__summary">
-            <span>
-              <span class="eyebrow section-label">Verify it yourself</span>
-          <strong>Check the source links</strong>
-            </span>
-          </summary>
-        <div class="river-accordion__body">
-          <p class="muted confidence-detail__intro">
-        Use these links to double-check the gauge, route details, and access notes before you head out.
-          </p>
-          <ul class="source-list">
-            {river.sourceLinks.map((source) => (
-              <li>
-                <a href={source.url} target="_blank" rel="noreferrer">{source.label}</a>
-              </li>
-            ))}
-          </ul>
-        </div>
-      </details>
-    </section>
-
-    <section
-      class="river-detail__panel route-community"
-      data-route-community
-      data-detail-section="community-reports"
-      data-detail-nav-group="reports"
-      hidden
-    >
-      <div class="route-gallery__intro">
-        <div class="route-gallery__intro-copy">
-          <p class="eyebrow section-label">
-            <FeatureIcon name="compass" size={16} />
-            Paddler reports
-          </p>
-          <h2 class="section-title">Recent notes from paddlers</h2>
-          <p class="muted route-gallery__lede">
-            A few quick notes from people who were on this route recently.
-          </p>
-        </div>
-        <div class="route-gallery__stats route-community__stats" data-route-community-stats hidden>
-          <span class="pill" data-route-community-count></span>
-          <span class="pill" data-route-community-freshness></span>
-        </div>
-      </div>
-      <div class="route-community__list" data-route-community-list></div>
-      <div class="route-gallery__cta-row route-community__cta-row">
-        <a
-          class="river-link river-link--inline"
-          href="#share-trip"
-          data-route-report-cta
-          data-analytics-event="Open condition report"
-        >
-          Report recent conditions
-        </a>
-      </div>
-    </section>
-
-    <section class="river-detail__chapter-head river-detail__chapter-head--contribute" aria-label="Reports chapter">
-      <p class="eyebrow section-label">Reports</p>
-      <h2 class="river-detail__chapter-title">Paddler reports</h2>
-      <p class="muted river-detail__chapter-copy">
-        See recent photos and notes from people on the route.
-      </p>
-    </section>
-
-    {!isPlanningRoute && isMinimumOnlyRoute && hasMinimumOnlyFloor ? (
-      <aside class="route-calibration-callout" aria-label="More level reports needed">
-        <div>
-          <p class="route-calibration-callout__kicker">More level reports needed</p>
-          <h2>Only a low-water floor is known.</h2>
-          <p>
-            We can tell when this route is likely too low, but we do not yet have enough reports to define a best range. If you paddled it recently, send a condition report with how the level felt.
-          </p>
-        </div>
-        <a
-          class="river-link river-link--inline"
-          href="#share-trip"
-          data-route-report-cta
-          data-analytics-event="Open condition report"
-        >
-          Report recent conditions
-        </a>
-      </aside>
-    ) : null}
-
-    <section class="river-detail__panel river-report-panel" data-detail-section="share-trip" data-detail-nav-group="reports">
-      <p class="eyebrow section-label">
-        <FeatureIcon name="camera" size={16} />
-        Share your trip
-      </p>
-      <div class="river-report-panel__content route-contribute" id="share-trip">
-        <div class="route-contribute__intro">
-          <h2 class="river-subtitle river-subtitle--compact">Help build the route page</h2>
-          <p class="muted">Add photos or send a quick condition report.</p>
-        </div>
+    <details class="route-contribution-disclosure" id="share-trip" data-detail-section="share-trip" data-detail-nav-group="reports">
+      <summary>Add a photo or report</summary>
+      <div class="river-report-panel__content route-contribute">
+        <p class="muted">Access changes, obstructions and dated hazard photos are especially useful.</p>
 
         <div class="route-contribute__tabs" role="tablist" aria-label="Contribution options">
           <button
@@ -2337,54 +1866,279 @@ const routeFaqStructuredData = {
           </section>
         </div>
       </div>
+    </details>
+
     </section>
 
-    <section class="river-detail__panel route-discovery" data-detail-section="related-routes" data-detail-nav-group="plan" aria-labelledby="related-routes-title">
-      <div class="river-detail__chapter-head river-detail__chapter-head--plan route-discovery__head">
-        <p class="eyebrow section-label">
-          <FeatureIcon name="compass" size={16} />
-          Keep exploring
-        </p>
-        <h2 class="river-detail__chapter-title" id="related-routes-title">More routes to check next</h2>
-        <p class="muted river-detail__chapter-copy">
-          Compare another stretch on this river, or explore different rivers within {nearbyRouteRadiusMiles} straight-line miles.
+    {!isPlanningRoute && isMinimumOnlyRoute && hasMinimumOnlyFloor ? (
+      <aside class="route-calibration-callout" aria-label="More level reports needed">
+        <div>
+          <p class="route-calibration-callout__kicker">More level reports needed</p>
+          <h2>Only a low-water floor is known.</h2>
+          <p>
+            We can tell when this route is likely too low, but we do not yet have enough reports to define a best range. If you paddled it recently, send a condition report with how the level felt.
+          </p>
+        </div>
+        <a
+          class="river-link river-link--inline"
+          href="#share-trip"
+          data-route-report-cta
+          data-analytics-event="Open condition report"
+        >
+          Report recent conditions
+        </a>
+      </aside>
+    ) : null}
+
+    <section class="river-detail__chapter-head river-detail__chapter-head--understand" aria-label={isPlanningRoute ? 'Planning sources chapter' : 'Score and sources chapter'}>
+      <h2 class="river-detail__chapter-title">Sources and methodology</h2>
+      <p class="muted river-detail__chapter-copy">{accessSafetyReviewDateLabel ? `Access and safety sources checked ${accessSafetyReviewDateLabel}.` : planningGuide ? `Guides and maps checked ${planningGuide.reviewedOn ?? '2026-10-19'}.` : 'Review source dates and published guidance below.'} We have not inspected this trip in person.</p>
+    </section>
+
+    <section
+      class="river-detail__panel river-accordion-group"
+      id={isPlanningRoute ? 'planning-sources' : 'why-this-call'}
+      data-detail-section={isPlanningRoute ? 'planning-sources' : 'why-this-call'}
+      data-detail-nav-group="sources"
+    >
+      {!isPlanningRoute ? <>
+        <details class="river-accordion" data-confidence-explainer>
+          <summary class="river-accordion__summary">
+            <span>
+              <span class="eyebrow section-label">Why this score</span>
+              <strong>Data reliability: {` `}<span data-field="confidence-detail-label">checking</span></strong>
+            </span>
+          </summary>
+          <div class="river-accordion__body">
+    {!isPlanningRoute ? (
+    <section class="status-banner status-banner--loading" data-detail-status-banner aria-live="polite">
+      <div class="status-banner__eyebrow">Data status</div>
+      <div class="status-banner__body">
+        <strong data-detail-banner-title>Checking live inputs.</strong>
+        <p class="muted" data-detail-banner-detail>
+          Pulling the latest gauge and weather. Usually under 10 seconds.
         </p>
       </div>
+      <div class="status-banner__grid" data-detail-reliability-grid>
+        <article class="status-banner__item">
+          <span class="status-banner__label">Gauge input</span>
+          <strong data-field="reliability-gauge-title">Checking</strong>
+          <p class="muted" data-field="reliability-gauge-detail">
+            Waiting on the gauge read.
+          </p>
+        </article>
+        <article class="status-banner__item">
+          <span class="status-banner__label">Weather input</span>
+          <strong data-field="reliability-weather-title">Checking</strong>
+          <p class="muted" data-field="reliability-weather-detail">
+            Waiting on weather.
+          </p>
+        </article>
+        <article class="status-banner__item">
+          <span class="status-banner__label">Next step</span>
+          <strong data-field="reliability-action-title">Checking</strong>
+          <p class="muted" data-field="reliability-action-detail">
+            Waiting on enough data to give the next step.
+          </p>
+        </article>
+      </div>
+    </section>
+    ) : null}
 
+            <p class="muted confidence-detail__intro">
+          This rating reflects whether the gauge measures this part of the river, whether published water-level guidance is available, and how recently the data was updated.
+            </p>
+
+          <div class="confidence-detail__groups">
+            <section class="confidence-detail__group">
+              <span class="eyebrow section-label">Why</span>
+              <ul class="confidence-rationale" data-confidence-reasons>
+              <li>Checking data sources and update times.</li>
+              </ul>
+            </section>
+
+            <section class="confidence-detail__group" data-confidence-warnings-group hidden>
+              <span class="eyebrow section-label">Watch for</span>
+              <ul class="confidence-rationale confidence-rationale--warnings" data-confidence-warnings>
+              <li>Checking evidence cautions.</li>
+              </ul>
+            </section>
+          </div>
+        </div>
+      </details>
+
+        <details class="river-accordion">
+          <summary class="river-accordion__summary">
+            <span>
+              <span class="eyebrow section-label">Data behind the score</span>
+              <strong>Water levels, published guidance and update times</strong>
+            </span>
+          </summary>
+          <div class="river-accordion__body">
+            <p class="muted confidence-detail__intro">
+        These readings and published water-level limits help explain today’s score.
+            </p>
+          <table class="detail-table">
+            <tbody>
+              <tr>
+                <td>Gauge site</td>
+                <td>{river.gaugeSource.siteName}</td>
+              </tr>
+              <tr>
+                <td data-field="primary-gauge-label">{gaugeDisplay.primaryMetricLabel}</td>
+                <td data-field="gauge-now">Checking</td>
+              </tr>
+              <tr>
+                <td data-field="secondary-gauge-label">{gaugeDisplay.secondaryMetricLabel ?? 'Secondary gauge metric'}</td>
+                <td data-field="discharge-now">Checking</td>
+              </tr>
+              <tr>
+                <td>24h trend</td>
+                <td data-field="trend">Checking</td>
+              </tr>
+              <tr>
+                <td>24h change</td>
+                <td data-field="flow-change-24h">Checking</td>
+              </tr>
+              <tr>
+                <td>Current band</td>
+                <td data-field="flow-band">Checking</td>
+              </tr>
+              <tr>
+                <td>Rain last 24h</td>
+                <td data-field="recent-rain-24h">Checking</td>
+              </tr>
+              <tr>
+                <td>Rain last 72h</td>
+                <td data-field="recent-rain-72h">Checking</td>
+              </tr>
+              <tr>
+                <td>Air temp</td>
+                <td data-field="weather-air-temp">Checking</td>
+              </tr>
+              <tr>
+                <td>Water temp</td>
+                <td data-field="weather-water-temp">Checking</td>
+              </tr>
+              <tr>
+                <td>Wind</td>
+                <td data-field="weather-wind">Checking</td>
+              </tr>
+              <tr>
+                <td>Gusts</td>
+                <td data-field="weather-gusts">Checking</td>
+              </tr>
+              <tr>
+                <td>Rain timing</td>
+                <td data-field="weather-rain-risk">Checking</td>
+              </tr>
+              <tr>
+                <td>{targetBandLabel}</td>
+                <td>{targetBandValue}</td>
+              </tr>
+              <tr>
+                <td>{isMinimumOnlyRoute && hasMinimumOnlyFloor ? 'Known low-water floor' : 'Low threshold'}</td>
+                <td>{lowThresholdValue}</td>
+              </tr>
+              <tr>
+                <td>High threshold</td>
+                <td>{highThresholdValue}</td>
+              </tr>
+              <tr>
+                <td>Evidence strength behind the range</td>
+                <td>{thresholdConfidenceLabel}</td>
+              </tr>
+              <tr>
+                <td>Gauge observed</td>
+                <td data-field="observed-at">Checking</td>
+              </tr>
+                <tr>
+                  <td>Paddle Today updated</td>
+                  <td data-field="generated-at">Checking</td>
+                </tr>
+              <tr>
+                <td>Main source behind this score</td>
+                <td>{river.profile.thresholdSource.label}</td>
+              </tr>
+              <tr>
+                <td>Gauge source</td>
+                <td data-field="gauge-source">Checking</td>
+              </tr>
+              <tr>
+                <td>Weather source</td>
+                <td data-field="weather-source">Checking</td>
+              </tr>
+              <tr>
+                <td>Rainfall source</td>
+                <td data-field="rainfall-source">Checking</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </details>
+      </> : null}
+
+      <details class="river-accordion">
+        <summary class="river-accordion__summary">
+          <span>
+            <span class="eyebrow section-label">Notes</span>
+            <strong>Published evidence and verification notes</strong>
+          </span>
+        </summary>
+        <div class="river-accordion__body">
+          <p class="muted confidence-detail__intro">
+        These notes cover the access details, route quirks, and source caveats most likely to matter once you get there.
+          </p>
+          <ul class="factor-list">
+            {river.evidenceNotes.map((note) => (
+              <li class="factor-item impact-neutral">
+                <div class="factor-item__head">
+                  <span class="factor-item__label">{evidenceNoteLabel(note)}</span>
+                  <span class="factor-item__value">{note.value}</span>
+                </div>
+                {evidenceNoteDetail(note) ? (
+                  <p class="muted" style="margin: 0.55rem 0 0;">{evidenceNoteDetail(note)}</p>
+                ) : null}
+                {note.sourceUrl && /^https?:\/\//i.test(note.sourceUrl) ? (
+                  <p style="margin: 0.55rem 0 0;">
+                    <a href={note.sourceUrl} target="_blank" rel="noreferrer">
+                      Source
+                    </a>
+                  </p>
+                ) : null}
+              </li>
+            ))}
+          </ul>
+        </div>
+      </details>
+
+        <details class="river-accordion">
+          <summary class="river-accordion__summary">
+            <span>
+              <span class="eyebrow section-label">Verify it yourself</span>
+          <strong>Check the source links</strong>
+            </span>
+          </summary>
+        <div class="river-accordion__body">
+          <p class="muted confidence-detail__intro">
+        Use these links to double-check the gauge, route details, and access notes before you head out.
+          </p>
+          {isLittleMiamiKelleyMilford ? <p>The Milford gauge is an observation at its station; weather and outlooks are forecasts. Neither verifies current obstructions or access.</p> : null}
+          <ul class="source-list">
+            {river.sourceLinks.map((source) => (
+              <li>
+                <a href={source.url} target="_blank" rel="noreferrer">{source.label}</a>
+              </li>
+            ))}
+          </ul>
+        </div>
+      </details>
+    </section>
+
+    {hasSameRiverRoutes || hasNearbyRoutes ? (
+    <details class="river-detail__panel route-discovery" data-detail-section="related-routes" data-detail-nav-group="overview" aria-labelledby="related-routes-title">
+      <summary id="related-routes-title">Other routes nearby</summary>
       <div class={routeDiscoveryGridClass}>
-        {stateHref ? (
-          <section class="route-discovery__group" aria-labelledby="state-region-routes-title">
-            <div class="route-discovery__group-head">
-              <h3 id="state-region-routes-title">More in {river.state}</h3>
-              <a href={stateHref}>All {stateGroup?.routeCount} routes</a>
-            </div>
-            <div class="route-discovery__list">
-              <a
-                class="route-discovery__link"
-                href={stateHref}
-                data-analytics-event="Open related route"
-                data-analytics-label="state"
-              >
-                <span class="route-discovery__route">{river.state} route guide</span>
-                <span class="route-discovery__meta">Browse every tracked {river.state} route.</span>
-                <span class="route-discovery__cta" aria-hidden="true">View state</span>
-              </a>
-              {regionHref ? (
-                <a
-                  class="route-discovery__link"
-                  href={regionHref}
-                  data-analytics-event="Open related route"
-                  data-analytics-label="region"
-                >
-                  <span class="route-discovery__route">{river.region}</span>
-                  <span class="route-discovery__meta">Jump to routes in this region.</span>
-                  <span class="route-discovery__cta" aria-hidden="true">View region</span>
-                </a>
-              ) : null}
-            </div>
-          </section>
-        ) : null}
-
         {hasSameRiverRoutes ? (
           <section class="route-discovery__group" aria-labelledby="same-river-routes-title">
             <div class="route-discovery__group-head">
@@ -2392,7 +2146,7 @@ const routeFaqStructuredData = {
               {riverHubHref ? <a href={riverHubHref}>All {siblingRoutes.length + 1}</a> : null}
             </div>
             <div class="route-discovery__list">
-              {siblingRoutes.slice(0, 4).map((candidate) => (
+              {siblingRoutes.slice(0, 1).map((candidate) => (
                 <a
                   class="route-discovery__link"
                   href={routePageHref(candidate.slug)}
@@ -2417,7 +2171,7 @@ const routeFaqStructuredData = {
               <h3 id="nearby-routes-title">Nearby routes within {nearbyRouteRadiusMiles} miles</h3>
             </div>
             <div class="route-discovery__list">
-              {nearbyRoutes.map((candidate) => (
+              {nearbyRoutes.slice(0, 1).map((candidate) => (
                 <a
                   class="route-discovery__link"
                   href={routePageHref(candidate.slug)}
@@ -2438,34 +2192,8 @@ const routeFaqStructuredData = {
           </section>
         ) : null}
       </div>
-    </section>
-
-    <section class="river-detail__panel route-faq" data-detail-section="route-faq" data-detail-nav-group="plan" aria-labelledby="route-faq-title">
-      <div class="river-detail__chapter-head river-detail__chapter-head--plan route-faq__head">
-        <p class="eyebrow section-label">
-          <FeatureIcon name="compass" size={16} />
-          Quick answers
-        </p>
-        <h2 class="river-detail__chapter-title" id="route-faq-title">
-          {isLittleMiamiKelleyMilford ? 'Kelley-to-Milford paddling FAQ' : `${river.name} paddling FAQ`}
-        </h2>
-      </div>
-
-      <div class="route-faq__list">
-        {faqItems.map((item) => (
-          <details class="river-accordion route-faq__item">
-            <summary class="river-accordion__summary">
-              <span>
-                <strong>{item.question}</strong>
-              </span>
-            </summary>
-            <div class="river-accordion__body">
-              <p class="muted">{item.answer}</p>
-            </div>
-          </details>
-        ))}
-      </div>
-    </section>
+    </details>
+    ) : null}
 
     <section class="river-detail__panel river-report-panel" data-detail-section="flag-change" data-detail-nav-group="reports">
       <p class="eyebrow section-label">

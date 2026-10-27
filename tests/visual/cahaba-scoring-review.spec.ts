@@ -10,7 +10,8 @@ test('Moon River explains the published minimum without a full target range', as
   await expect(page.locator('.route-calibration-callout')).toContainText('Only a low-water floor is known.');
   await expect(page.locator('#trip-decisions')).toContainText('100 cfs is a minimum, not an ideal level');
   await expect(page.locator('#trip-decisions time')).toHaveAttribute('datetime', '2026-10-20');
-  expect((await page.locator('script[type="application/ld+json"]').allTextContents()).join(' ')).toContain('100 cfs');
+  await expect(page.locator('.river-detail__gauge-note-summary')).toContainText('100 cfs');
+  expect((await page.locator('script[type="application/ld+json"]').allTextContents()).join(' ')).not.toContain('FAQPage');
 });
 
 for (const slug of ['cahaba-river-grants-mill-old-overton', 'cahaba-river-old-overton-highway-280']) {
@@ -22,9 +23,11 @@ for (const slug of ['cahaba-river-grants-mill-old-overton', 'cahaba-river-old-ov
     await expect(page.locator('[data-field="planning-weather-summary"]')).toContainText('Check the local forecast');
     await expect(page.locator('.river-detail__planning-banner')).toContainText('Use the linked gauge as reference information');
     await expect(page.locator('.route-calibration-callout')).toHaveCount(0);
+    await expect(page.locator('#trip-decisions')).toBeHidden();
+    await page.getByText('More trip guidance', { exact: true }).click();
     await expect(page.locator('#trip-decisions')).toBeVisible();
     await expect(page.locator('#planning-sources')).toBeVisible();
-    await expect(page.locator('.route-faq')).toContainText('This planning route has no live Paddle Today score.');
+    await expect(page.locator('.planning-status-card--overview')).toContainText('No same-day score');
     if (slug.endsWith('highway-280')) {
       await expect(page.locator('[data-geometry-review-notice]')).toContainText('route line and GPX download are unavailable');
       await expect(page.locator('[data-trip-gpx]')).toHaveCount(0);

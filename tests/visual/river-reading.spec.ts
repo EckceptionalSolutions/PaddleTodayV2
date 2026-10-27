@@ -19,11 +19,12 @@ for (const slug of ['little-miami-river-kelley-milford', 'saco-river-fryeburg-br
     await details.locator('summary').focus();
     await page.keyboard.press('Enter');
     await expect(details).toHaveAttribute('open', '');
-    await expect(details.getByText('On-water distance', { exact: true })).toBeVisible();
+    await expect(details.getByText('Permits', { exact: true })).toBeVisible();
+    await expect(page.locator('[data-overview-distance]')).toBeVisible();
     await expect(page.locator('[data-access-putin-directions]')).toHaveAttribute('href', /destination=/);
     expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth + 1)).toBe(true);
-    await page.locator('[data-plan-account]').click();
-    await expect(page).toHaveURL(/#trip-plan$/);
+    await page.locator('#trip-plan > summary').click();
+    await expect(page.locator('#trip-plan')).toHaveAttribute('open', '');
     await expect(page.locator('[data-trip-save-plan]')).toBeVisible();
   });
 }

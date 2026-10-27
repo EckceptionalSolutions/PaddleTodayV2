@@ -48,7 +48,7 @@ test('route overview and access map reflow with enlarged text', async ({ page })
   await expect(page.locator('[data-detail-map-status]')).toHaveAttribute('data-map-state', 'ready');
   await page.addStyleTag({ content: 'html { font-size: 200% !important; }' });
   await expect.poll(() => page.evaluate(() => document.documentElement.scrollWidth - innerWidth)).toBeLessThanOrEqual(1);
-  for (const selector of ['[data-detail-map-shell]', '.route-decision-dashboard', '.river-call-panel__statement', '.route-decision-dashboard__heading h2', '.route-decision-dashboard__live-meta time', '.route-decision-dashboard__freshness strong']) {
+  for (const selector of ['[data-detail-map-shell]', '.route-decision-dashboard', '.river-call-panel__statement', '.route-decision-dashboard__heading h2', '.route-decision-dashboard__live-meta time', '.route-condition-card [data-field="observed-at"]']) {
     const bounds = await page.locator(selector).first().boundingBox();
     expect(bounds).not.toBeNull();
     expect(bounds!.x).toBeGreaterThanOrEqual(0);
