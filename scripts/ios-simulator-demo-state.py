@@ -20,6 +20,7 @@ elif sys.argv[1] == 'seed':
         {'slug': 'minnesota-river-le-sueur-henderson', 'name': 'Minnesota River', 'reach': 'Le Sueur to Henderson', 'savedAt': '2026-10-27T09:41:00Z'},
     ]
     values = {'paddletoday:welcome-completed:v1': '1', 'paddletoday:welcome-choice:v1': 'guest',
+              'paddletoday:account-backup-invitation-dismissed:v1': '1',
               'paddletoday:user-location': json.dumps({'latitude': 44.98, 'longitude': -93.26, 'label': 'Minneapolis, MN', 'source': 'search'}),
               'paddletoday:saved-rivers': json.dumps(routes)}
     (storage / 'manifest.json').write_text(json.dumps(values))
