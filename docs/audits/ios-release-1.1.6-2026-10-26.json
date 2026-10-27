@@ -68,7 +68,8 @@
     "productionApiSmokeScope": "8 checks ran for the initial shared-source candidate; the map fix does not change API code."
   },
   "blockers": [
-    "native-origin email delivery and mail-to-app completion after Firebase quota resolution; Apple relay delivery",
+    "native-origin email and Apple relay delivery remain unverified after approved Blaze activation",
+    "investigate blank More content observed once after Google return; cold relaunch recovered",
     "Apple-linked deletion/token revocation with a disposable Apple identity",
     "native iPad layout/screenshots",
     "separate-device sync/conflicts and invitation journeys",
@@ -316,5 +317,6 @@
       "functionalCommitOperationsGates": "passed",
       "functionalCommitOperationsRunId": 40420062813
     }
-  }
+  },
+  "latestFollowup": "docs/audits/ios-blaze-email-followup-2026-10-27.json"
 }
