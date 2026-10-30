@@ -1,9 +1,9 @@
 {
-  "generatedAt": "2026-10-17T12:20:35.272Z",
+  "generatedAt": "2026-10-30T01:01:39.694Z",
   "scope": "metadata-and-package freshness; live gauge freshness remains provider-runtime data",
   "totals": {
-    "routesReviewed": 2925,
-    "findings": 1094,
+    "routesReviewed": 2927,
+    "findings": 1096,
     "high": 0
   },
   "findings": [
@@ -2935,6 +2935,26 @@
       "slug": "cedar-river-kohlmann-brookwood",
       "state": "Iowa",
       "scored": true,
+      "issues": [
+        "camping-status-missing",
+        "endpoint-package-incomplete"
+      ],
+      "severity": "medium"
+    },
+    {
+      "slug": "yellow-river-stonebrook-volney",
+      "state": "Iowa",
+      "scored": false,
+      "issues": [
+        "camping-status-missing",
+        "endpoint-package-incomplete"
+      ],
+      "severity": "medium"
+    },
+    {
+      "slug": "yellow-river-smithfield-volney",
+      "state": "Iowa",
+      "scored": false,
       "issues": [
         "camping-status-missing",
         "endpoint-package-incomplete"
@@ -9010,7 +9030,7 @@
     {
       "slug": "namekagon-river-county-k-whispering-pines",
       "state": "Wisconsin",
-      "scored": true,
+      "scored": false,
       "issues": [
         "camping-status-missing",
         "endpoint-package-incomplete"

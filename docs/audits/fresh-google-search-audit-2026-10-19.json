@@ -1,0 +1,110 @@
+{
+  "observedOn": "2026-10-19",
+  "timezone": "America/Chicago",
+  "property": "sc-domain:paddletoday.com",
+  "access": "Authenticated browser access succeeded; supersedes earlier same-day access limitation.",
+  "scope": "Read-only reports and production crawl; one Google live test; no indexing or validation submission.",
+  "performance": {
+    "searchType": "WEB",
+    "filters": "All queries, countries, devices",
+    "current28Days": { "start": "2026-09-20", "end": "2026-10-17", "clicks": 4, "impressions": 282, "ctrPercent": 1.4, "averagePosition": 27 },
+    "previous28Days": { "start": "2026-08-23", "end": "2026-09-19", "clicks": 10, "impressions": 366, "ctrPercent": 2.7, "averagePosition": 35.1 },
+    "current7Days": { "start": "2026-10-11", "end": "2026-10-17", "clicks": 2, "impressions": 41, "ctrPercent": 4.9, "averagePosition": 15.5 },
+    "previous7Days": { "start": "2026-10-04", "end": "2026-10-10", "clicks": 1, "impressions": 64, "ctrPercent": 1.6, "averagePosition": 23.3 },
+    "fixedNineRiverCohort": { "current28DayClicks": 0, "previous28DayClicks": 0, "current28DayImpressions": 30, "previous28DayImpressions": 63, "savedBaselineImpressions": 5560 },
+    "exports": ["../../output/seo-audit-2026-10-19/performance-28d/", "../../output/seo-audit-2026-10-19/performance-7d/"]
+  },
+  "indexing": {
+    "reportUpdated": "2026-10-11",
+    "allKnown": { "indexed": 754, "notIndexed": 3338, "discoveredNotIndexed": 1603, "crawledNotIndexed": 521, "alternateCanonical": 1074, "notFound": 65, "redirect": 63, "noindex": 10, "differentGoogleCanonical": 2, "forbidden": 0 },
+    "submitted": { "indexed": 590, "notIndexed": 1931, "discoveredNotIndexed": 1603, "crawledNotIndexed": 298, "alternateCanonical": 24, "notFound": 5, "differentGoogleCanonical": 1, "forbidden": 0 },
+    "note": "Report snapshots include historical URLs and precede current sitemap. Do not derive current sitemap coverage by mixing dates."
+  },
+  "sitemap": { "status": "Success", "lastRead": "2026-10-17", "reportedDiscovered": 2509, "liveUrls": 2509 },
+  "crawl": {
+    "totalSitemapUrls": 2509,
+    "initialHttp200": 2508,
+    "initialFetchErrors": 1,
+    "retry": { "url": "https://paddletoday.com/rivers/iowa-river-marengo-amana/", "status": 200, "canonical": "https://paddletoday.com/rivers/iowa-river-marengo-amana/" },
+    "duplicateTitleGroups": 0,
+    "duplicateDescriptionGroups": 9,
+    "duplicateDescriptionPages": 22,
+    "homepageReachable": 2509,
+    "maximumHtmlLinkDepth": 2,
+    "depthCounts": { "0": 1, "1": 57, "2": 2451 },
+    "catalogTypes": { "standaloneRoute": 2065, "riverHub": 382, "stateAndDirectory": 49, "other": 13 },
+    "evidenceDirectory": "../../output/seo-audit-2026-10-19/"
+  },
+  "inspections": [
+    {
+      "url": "https://paddletoday.com/rivers/little-miami-river-kelley-milford/",
+      "status": "Indexed",
+      "lastCrawlAsDisplayed": "Oct 18, 2026, 7:01:40 AM",
+      "agent": "Googlebot smartphone",
+      "fetch": "Successful",
+      "crawlAllowed": true,
+      "indexingAllowed": true,
+      "canonicalAgreement": true,
+      "liveTestAsDisplayed": "Oct 19, 2026, 2:54 PM",
+      "liveTest": "URL is available to Google; page can be indexed",
+      "testedHtml": { "routeSpecificTitleAndDescription": true, "gaugeFt": 5.16, "score": 69, "weatherAndExplanationRendered": true },
+      "sitemapsField": "Temporary processing error"
+    },
+    {
+      "url": "https://paddletoday.com/rivers/volga-river-klocks-island-heron-road/",
+      "status": "Crawled - currently not indexed",
+      "lastCrawlAsDisplayed": "Oct 10, 2026, 3:55:14 AM",
+      "agent": "Googlebot smartphone",
+      "fetch": "Successful",
+      "crawlAllowed": true,
+      "indexingAllowed": true,
+      "canonicalAgreement": true,
+      "currentHttpStatus": 200,
+      "sitemapsField": "Temporary processing error"
+    },
+    {
+      "url": "https://paddletoday.com/rivers/des-moines-river-highway-30-sportsman/",
+      "status": "Duplicate, Google chose different canonical than user",
+      "lastCrawlAsDisplayed": "Sep 30, 2026, 1:54:37 AM",
+      "fetch": "Successful",
+      "crawlAllowed": true,
+      "indexingAllowed": true,
+      "declaredCanonical": "https://paddletoday.com/rivers/des-moines-river-highway-30-sportsman/",
+      "googleCanonical": "https://paddletoday.com/rivers/redwood-river-vesta-wabasso/",
+      "currentBothPagesHttpStatus": 200,
+      "currentBothPagesHaveDistinctIdentityAndSelfCanonicals": true,
+      "note": "Stored crawl predates current October 16 deployment. Cause of historical Google selection unresolved."
+    }
+  ],
+  "links": {
+    "external": 203,
+    "targets": { "privacy": 102, "homepage": 100, "contact": 1 },
+    "linkingSites": { "google.com": 178, "apple.com": 16, "chrome-stats.com": 6, "foxdata.com": 2, "eckceptionalsolutions.com": 1 },
+    "internal": 29755,
+    "caveat": "Sampled report, not complete backlink inventory. No route or hub targets shown."
+  },
+  "crawlStats": {
+    "reportUpdated": "2026-10-17",
+    "windowDays": 90,
+    "requests": 19958,
+    "averageResponseMs": 405,
+    "http200Percent": 95,
+    "http404Percent": 3,
+    "http5xxPercent": "<1",
+    "refreshPercent": 91,
+    "discoveryPercent": 9,
+    "jsonPercent": 51,
+    "htmlPercent": 29,
+    "resourceLoadPercent": 58,
+    "apexHost": "Problems in the past",
+    "wwwHost": "No problems",
+    "caveat": "Daily failure timeline not inspected in this audit."
+  },
+  "manualActions": "No issues detected",
+  "securityIssues": "No issues detected",
+  "interpretation": "Persistent ranking loss plus limited indexing selection; broad automated content assessment and weak independent recognition are plausible, not proven causes.",
+  "productionChanges": false,
+  "indexRequests": 0,
+  "validationSubmissions": 0,
+  "outreachSent": 0
+}
