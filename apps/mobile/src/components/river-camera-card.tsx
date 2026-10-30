@@ -8,7 +8,8 @@ import { apiClient } from '../api/client';
 import { useFreshnessClock } from '../hooks/use-freshness-clock';
 import { useOnlineStatus } from '../hooks/use-online-status';
 import { openExternalUrl } from '../lib/external-links';
-import { colors, radius, spacing, typography } from '../theme/tokens';
+import { radius, spacing, typography, type AppColors } from '../theme/tokens';
+import { useThemedStyles } from '../theme/theme-provider';
 import { AppButton } from './app-button';
 import { SectionCard } from './section-card';
 
@@ -38,6 +39,7 @@ export function RiverCameraCard({ slug, siteName, viewportCheck }: {
 }
 
 function CameraFrame({ camera, online }: { camera: RiverCamera; online: boolean }) {
+  const styles = useThemedStyles(createStyles);
   const insets = useSafeAreaInsets();
   const [failed, setFailed] = useState(false);
   const [expanded, setExpanded] = useState(false);
@@ -65,7 +67,7 @@ function CameraFrame({ camera, online }: { camera: RiverCamera; online: boolean 
   </View>;
 }
 
-const styles = StyleSheet.create({
+const createStyles = (colors: AppColors) => StyleSheet.create({
   frame: { gap: spacing.sm },
   name: { ...typography.label, color: colors.text },
   caption: { ...typography.supporting, color: colors.textMuted },

@@ -7,13 +7,15 @@ import { useNearViewport } from '../hooks/use-near-viewport';
 import { useFreshnessClock } from '../hooks/use-freshness-clock';
 import { useOnlineStatus } from '../hooks/use-online-status';
 import { openExternalUrl } from '../lib/external-links';
-import { colors, spacing, typography } from '../theme/tokens';
+import { spacing, typography, type AppColors } from '../theme/tokens';
+import { useThemedStyles } from '../theme/theme-provider';
 import { AppButton } from './app-button';
 import { SectionCard } from './section-card';
 
 export function RiverGaugeContextCard({ slug, viewportCheck }: {
   slug: string; viewportCheck: MutableRefObject<(() => void) | null>;
 }) {
+  const styles = useThemedStyles(createStyles);
   const { anchor, nearViewport, checkViewport } = useNearViewport(viewportCheck);
   const online = useOnlineStatus();
   const now = useFreshnessClock(nearViewport);
@@ -38,7 +40,7 @@ export function RiverGaugeContextCard({ slug, viewportCheck }: {
   </View>;
 }
 
-const styles = StyleSheet.create({
+const createStyles = (colors: AppColors) => StyleSheet.create({
   row: { gap: spacing.xs, marginVertical: spacing.xs },
   label: { ...typography.label, color: colors.textMuted },
   value: { ...typography.section, color: colors.text },

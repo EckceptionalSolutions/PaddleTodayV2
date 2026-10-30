@@ -1,10 +1,12 @@
 import { StyleSheet, Text, View } from 'react-native';
 import { useIsFocused } from '@react-navigation/native';
 import { useStoredLocation } from '../hooks/use-stored-location';
-import { colors, radius, spacing, typography } from '../theme/tokens';
+import { radius, spacing, typography, type AppColors } from '../theme/tokens';
+import { useThemedStyles } from '../theme/theme-provider';
 import { AppButton } from './app-button';
 
 export function LocationStorageNotice() {
+  const styles = useThemedStyles(createStyles);
   const { location, storageState, retryLocationSave } = useStoredLocation();
   const focused = useIsFocused();
   if (!focused || !storageState.error) return null;
@@ -15,7 +17,7 @@ export function LocationStorageNotice() {
     <AppButton label="Retry saving location" busy={storageState.saving} busyLabel="Saving location…" onPress={() => void retryLocationSave()} />
   </View>;
 }
-const styles = StyleSheet.create({
+const createStyles = (colors: AppColors) => StyleSheet.create({
   notice: { padding: spacing.md, gap: spacing.sm, borderRadius: radius.md, borderWidth: 1, borderColor: colors.border, backgroundColor: colors.canvasMuted },
   message: { ...typography.supporting, color: colors.text },
 });

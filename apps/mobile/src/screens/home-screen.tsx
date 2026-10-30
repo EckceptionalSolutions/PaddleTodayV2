@@ -49,7 +49,8 @@ import {
   type NearbyRiverPick,
 } from '../lib/ranking';
 import { useSavedRivers } from '../providers/saved-rivers-provider';
-import { colors, radius, spacing } from '../theme/tokens';
+import { radius, spacing, type AppColors } from '../theme/tokens';
+import { useAppTheme, useThemedStyles } from '../theme/theme-provider';
 import { MotionReveal } from '../components/motion-reveal';
 import { useReducedMotion } from '../hooks/use-reduced-motion';
 
@@ -88,6 +89,8 @@ const HomeContent = memo(function HomeContent({ summaryQuery, searchCatalog, sea
   searchOpen: boolean;
   setSearchOpen: (open: boolean) => void;
 }) {
+  const { colors } = useAppTheme();
+  const styles = useThemedStyles(createStyles);
   const reducedMotion = useReducedMotion();
   const router = useRouter();
   const insets = useSafeAreaInsets();
@@ -417,6 +420,8 @@ function BoardHero({
   onOpenStatus: (intent: ExploreIntentId) => void;
   onSetLocation: () => void;
 }) {
+  const { colors } = useAppTheme();
+  const styles = useThemedStyles(createStyles);
   const imageUri = headline ? photoForRiver(headline.river) : photoForRiver({ slug: 'fallback' });
 
   const callsUnavailable = snapshot.unavailable > 0
@@ -436,11 +441,11 @@ function BoardHero({
           {headline ? (
             <Pressable accessibilityRole="button" accessibilityLabel={`View ${headline.river.name}: ${headline.river.reach}`} style={styles.heroContent} onPress={onOpen} android_ripple={{ color: 'rgba(255,255,255,0.16)' }}>
               <View style={styles.heroScoreRow}>
-                <View style={[styles.scoreOrb, { backgroundColor: decisionColors(headline.rating, routeDecisionPresentation(headline).readiness).backgroundColor }]}>
-                  <Text style={[styles.heroVerdictText, { color: decisionColors(headline.rating, routeDecisionPresentation(headline).readiness).textColor }]}>
+                <View style={[styles.scoreOrb, { backgroundColor: decisionColors(headline.rating, routeDecisionPresentation(headline).readiness, colors).backgroundColor }]}>
+                  <Text style={[styles.heroVerdictText, { color: decisionColors(headline.rating, routeDecisionPresentation(headline).readiness, colors).textColor }]}>
                     {routeDecisionPresentation(headline).label}
                   </Text>
-                  <Text style={[styles.heroVerdictMeta, { color: decisionColors(headline.rating, routeDecisionPresentation(headline).readiness).textColor }]}>{routeDecisionPresentation(headline).scoreLabel}</Text>
+                  <Text style={[styles.heroVerdictMeta, { color: decisionColors(headline.rating, routeDecisionPresentation(headline).readiness, colors).textColor }]}>{routeDecisionPresentation(headline).scoreLabel}</Text>
                 </View>
                 {onToggleSaved ? <SaveToggleButton routeSlug={headline.river.slug} routeLabel={`${headline.river.name}: ${headline.river.reach}`} compact saved={saved} onPress={onToggleSaved} /> : null}
               </View>
@@ -488,6 +493,8 @@ function FirstLocationSetup({
   onChooseLocation: () => void;
   onBrowseRoutes: () => void;
 }) {
+  const { colors } = useAppTheme();
+  const styles = useThemedStyles(createStyles);
   const supportingCopy = status === 'denied'
     ? 'Location access is off. Choose a city or ZIP to set your starting point.'
     : status === 'error'
@@ -546,6 +553,7 @@ function RiverCarousel({
   children: ReactNode;
   emptyState: ReactNode;
 }) {
+  const styles = useThemedStyles(createStyles);
   return (
     <View style={styles.todayCallsSection}>
       <SectionHeading
@@ -591,6 +599,8 @@ function RiverImageCard({
   onToggleSaved: () => void;
   onOpen: () => void;
 }) {
+  const { colors } = useAppTheme();
+  const styles = useThemedStyles(createStyles);
   return (
     <Pressable accessibilityRole="button" accessibilityLabel={`View ${river.river.name}: ${river.river.reach}`} style={styles.imageCard} onPress={onOpen} android_ripple={{ color: colors.canvasMuted }}>
       <ImageBackground
@@ -640,6 +650,7 @@ function SectionHeading({
   title: string;
   subtitle: string;
 }) {
+  const styles = useThemedStyles(createStyles);
   return (
     <View style={styles.sectionHeading}>
       <View style={styles.sectionHeadingTop}>
@@ -664,6 +675,7 @@ function ExploreActionStrip({
   onOpenExplore: () => void;
   onOpenIntent: (intent: ExploreIntentId) => void;
 }) {
+  const styles = useThemedStyles(createStyles);
   const nearbyRequest = useRef<object | null>(null);
   const [nearbyMessage, setNearbyMessage] = useState('');
   useFocusEffect(useCallback(() => () => { nearbyRequest.current = null; }, []));
@@ -723,6 +735,8 @@ function ExploreActionChip({
   disabled?: boolean;
   onPress: () => void;
 }) {
+  const { colors } = useAppTheme();
+  const styles = useThemedStyles(createStyles);
   return (
     <Pressable
       style={[styles.exploreActionChip, disabled ? styles.exploreActionDisabled : null]}
@@ -741,6 +755,8 @@ function ExploreActionChip({
 }
 
 function KnownRouteSearch({ onOpen }: { onOpen: () => void }) {
+  const { colors } = useAppTheme();
+  const styles = useThemedStyles(createStyles);
   return (
     <Pressable accessibilityRole="button" accessibilityLabel="Search for a river or route" style={styles.knownSearchCard} onPress={onOpen} android_ripple={{ color: colors.canvasMuted }}>
       <Text style={styles.knownSearchLabel}>Know where you want to go?</Text>
@@ -763,6 +779,7 @@ function ZeroReadyActions({
   onWeekend: () => void;
   onExplore: () => void;
 }) {
+  const styles = useThemedStyles(createStyles);
   return (
     <View style={styles.zeroReadyCard}>
       <Text style={styles.zeroReadyTitle}>{watchCount === 0 && unavailableCount > 0 ? 'Current calls need more evidence' : 'No Paddle calls right now'}</Text>
@@ -790,6 +807,8 @@ function ModeTabs({
   saveError: boolean;
   onRetrySave: () => void;
 }) {
+  const { colors } = useAppTheme();
+  const styles = useThemedStyles(createStyles);
   return (
     <View style={styles.previewSortCard}>
       <Text style={styles.previewSortLabel}>Sort today’s routes</Text>
@@ -842,6 +861,7 @@ function EmptyMode({
   hasLocation: boolean;
   locationStatus: string;
 }) {
+  const styles = useThemedStyles(createStyles);
   const message =
     mode === 'closest' && !hasLocation
         ? locationStatus === 'requesting'
@@ -868,6 +888,7 @@ function OutOfRangeState({
   onRequestRoute: () => void;
   onBrowseRoutes: () => void;
 }) {
+  const styles = useThemedStyles(createStyles);
   return (
     <View style={styles.outOfRangeCard}>
       <Text style={styles.emptyTitle}>No routes near {locationLabel}</Text>
@@ -887,6 +908,8 @@ function OutOfRangeState({
 }
 
 function SnapshotPill({ label, value, tone, onPress }: { label: string; value: number; tone: object; onPress: () => void }) {
+  const { colors } = useAppTheme();
+  const styles = useThemedStyles(createStyles);
   return (
     <Pressable style={[styles.snapshotPill, tone]} onPress={onPress} android_ripple={{ color: colors.canvasMuted }}
       accessibilityRole="button" accessibilityLabel={`${value} ${label} ${value === 1 ? 'route' : 'routes'}`} accessibilityHint={`Show ${label.toLowerCase()} routes in Explore.`}>
@@ -1056,7 +1079,7 @@ function homeFactItems(river: BoardItem) {
 }
 
 
-const styles = StyleSheet.create({
+const createStyles = (colors: AppColors) => StyleSheet.create({
   screen: {
     flex: 1,
     backgroundColor: colors.canvas,
@@ -1090,7 +1113,7 @@ const styles = StyleSheet.create({
     width: 64,
     height: 64,
     borderRadius: 32,
-    backgroundColor: '#E0EFE9',
+    backgroundColor: colors.strongSoft,
     alignItems: 'center',
     justifyContent: 'center',
   },
@@ -1148,7 +1171,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
     padding: spacing.md,
-    backgroundColor: 'rgba(247, 249, 247, 0.82)',
+    backgroundColor: colors.surfaceOverlay,
   },
   lockedTodayMessage: {
     alignItems: 'center',
@@ -1159,7 +1182,7 @@ const styles = StyleSheet.create({
     borderRadius: radius.lg,
     borderWidth: 1,
     borderColor: colors.border,
-    backgroundColor: 'rgba(255, 255, 255, 0.92)',
+    backgroundColor: colors.surfaceOverlay,
   },
   lockedTodayTitle: {
     color: colors.text,
@@ -1196,7 +1219,7 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
   },
   appName: {
-    color: colors.surfaceStrong,
+    color: colors.onImage,
     fontSize: 34,
     lineHeight: 38,
     fontWeight: '900',
@@ -1220,7 +1243,7 @@ const styles = StyleSheet.create({
     minWidth: 132,
     minHeight: 60,
     borderRadius: 19,
-    backgroundColor: 'rgba(255, 255, 255, 0.92)',
+    backgroundColor: colors.surfaceOverlay,
     alignItems: 'center',
     justifyContent: 'center',
     paddingHorizontal: 12,
@@ -1246,7 +1269,7 @@ const styles = StyleSheet.create({
     letterSpacing: 0.4,
   },
   headlineName: {
-    color: colors.surfaceStrong,
+    color: colors.onImage,
     fontSize: 28,
     lineHeight: 32,
     fontWeight: '900',
@@ -1257,7 +1280,7 @@ const styles = StyleSheet.create({
     fontWeight: '700',
   },
   headlineText: {
-    color: colors.surfaceStrong,
+    color: colors.onImage,
     fontSize: 13,
     lineHeight: 19,
     fontWeight: '700',
@@ -1301,13 +1324,13 @@ const styles = StyleSheet.create({
     gap: spacing.xs,
   },
   snapshotStrong: {
-    backgroundColor: '#E0EFE9',
+    backgroundColor: colors.strongSoft,
   },
   snapshotFair: {
-    backgroundColor: '#F3E8CC',
+    backgroundColor: colors.fairSoft,
   },
   snapshotNoGo: {
-    backgroundColor: '#F2DDD6',
+    backgroundColor: colors.noGoSoft,
   },
   snapshotValue: {
     color: colors.text,
@@ -1402,8 +1425,8 @@ const styles = StyleSheet.create({
   zeroReadyCard: {
     borderRadius: radius.lg,
     borderWidth: 1,
-    borderColor: '#D7C6A2',
-    backgroundColor: '#F3E8CC',
+    borderColor: colors.warningBorder,
+    backgroundColor: colors.fairSoft,
     padding: spacing.md,
     gap: spacing.sm,
   },
@@ -1469,7 +1492,7 @@ const styles = StyleSheet.create({
     fontWeight: '800',
   },
   modeTabTextActive: {
-    color: colors.surfaceStrong,
+    color: colors.onAccent,
   },
   todayCallsSection: {
     gap: spacing.sm,
@@ -1532,7 +1555,7 @@ const styles = StyleSheet.create({
     minWidth: 112,
     minHeight: 48,
     borderRadius: 15,
-    backgroundColor: 'rgba(255, 255, 255, 0.92)',
+    backgroundColor: colors.surfaceOverlay,
     alignItems: 'center',
     justifyContent: 'center',
     paddingHorizontal: spacing.sm,
@@ -1554,7 +1577,7 @@ const styles = StyleSheet.create({
     gap: 4,
   },
   imageCardTitle: {
-    color: colors.surfaceStrong,
+    color: colors.onImage,
     fontSize: 21,
     lineHeight: 25,
     fontWeight: '900',
@@ -1635,7 +1658,7 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
   },
   emptyPrimaryButtonText: {
-    color: colors.surfaceStrong,
+    color: colors.onAccent,
     fontSize: 13,
     fontWeight: '900',
   },

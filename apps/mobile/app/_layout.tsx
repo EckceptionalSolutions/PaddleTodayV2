@@ -1,6 +1,6 @@
 import '../src/lib/suppress-web-font-timeout';
 import '../src/lib/paddle-tracking';
-import { DefaultTheme, ThemeProvider } from '@react-navigation/native';
+import { DarkTheme, DefaultTheme, ThemeProvider } from '@react-navigation/native';
 import { StatusBar } from 'expo-status-bar';
 import { Stack, router } from 'expo-router';
 import AsyncStorage from '@react-native-async-storage/async-storage';
@@ -15,7 +15,8 @@ import {
 } from '../src/lib/native-notifications';
 import { initObservability, trackAppEvent, withObservability } from '../src/lib/observability';
 import { AppProviders } from '../src/providers/app-providers';
-import { colors } from '../src/theme/tokens';
+import { type AppColors } from '../src/theme/tokens';
+import { AppThemeProvider, useAppTheme, useThemedStyles } from '../src/theme/theme-provider';
 import {
   consumeFirstRouteOpenPending,
   migrateOnboardingStorage,
@@ -39,20 +40,26 @@ export const unstable_settings = {
   initialRouteName: '(tabs)',
 };
 
-const navigationTheme = {
-  ...DefaultTheme,
-  colors: {
-    ...DefaultTheme.colors,
-    background: colors.canvas,
-    card: colors.canvas,
-    border: colors.border,
-    text: colors.text,
-    primary: colors.accent,
-    notification: colors.accent,
-  },
-};
-
 function RootLayout() {
+  return <AppThemeProvider><ObservedRootLayout /></AppThemeProvider>;
+}
+
+function ThemedRootLayout() {
+  const { colors, colorScheme, ready } = useAppTheme();
+  const styles = useThemedStyles(createStyles);
+  const baseTheme = colorScheme === 'dark' ? DarkTheme : DefaultTheme;
+  const navigationTheme = {
+    ...baseTheme,
+    colors: {
+      ...baseTheme.colors,
+      background: colors.canvas,
+      card: colors.canvas,
+      border: colors.border,
+      text: colors.text,
+      primary: colors.accent,
+      notification: colors.accent,
+    },
+  };
   const reducedMotion = useReducedMotion();
   const pathname = usePathname();
   const entryRoute = pathname === '/welcome' || pathname === '/sign-in' || pathname === '/tour' || pathname.startsWith('/auth/callback');
@@ -152,7 +159,7 @@ function RootLayout() {
     <AppProviders>
       <AreaNotificationOnboarding active={onboardingChecked && !entryRoute} />
       <ThemeProvider value={navigationTheme}>
-        <StatusBar style="dark" />
+        <StatusBar style={colorScheme === 'dark' ? 'light' : 'dark'} />
         <View style={{ flex: 1 }}>
         <ConnectivityNotice />
         <Stack
@@ -186,7 +193,7 @@ function RootLayout() {
         </Stack>
         </View>
         <FeedbackExperience pathname={pathname} />
-        {!onboardingChecked && !entryRoute ? (
+        {!ready || (!onboardingChecked && !entryRoute) ? (
           <View style={styles.onboardingGate} accessibilityLabel="Loading Paddle Today">
             <ActivityIndicator color={colors.accent} />
           </View>
@@ -196,7 +203,7 @@ function RootLayout() {
   );
 }
 
-const styles = StyleSheet.create({
+const createStyles = (colors: AppColors) => StyleSheet.create({
   onboardingGate: {
     ...StyleSheet.absoluteFillObject,
     alignItems: 'center',
@@ -232,4 +239,6 @@ function notificationUrl(data: unknown) {
   return typeof url === 'string' && url.startsWith('/') ? url : null;
 }
 
-export default withObservability(RootLayout);
+const ObservedRootLayout = withObservability(ThemedRootLayout);
+
+export default RootLayout;

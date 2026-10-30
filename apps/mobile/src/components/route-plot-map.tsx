@@ -1,10 +1,12 @@
+import { darkMapStyle } from '../theme/native-map-style';
 import type { default as NativeMapView } from 'react-native-maps';
 import { useIsFocused } from '@react-navigation/native';
 import { distanceMiles } from '@paddletoday/api-contract';
 import { forwardRef, memo, useCallback, useEffect, useImperativeHandle, useMemo, useRef, useState } from 'react';
 import { FlatList, Modal, Platform, Pressable, StyleSheet, Text, View, useWindowDimensions } from 'react-native';
 import { clusterFocusRegion, isMapCluster, mapViewportPoints, mapScoreLayout, type MapViewport } from '../lib/map-viewport';
-import { colors, radius, spacing } from '../theme/tokens';
+import { radius, spacing, type AppColors } from '../theme/tokens';
+import { useAppTheme, useThemedStyles } from '../theme/theme-provider';
 import { androidMarkerImage, androidUserMarkerImage } from '../lib/android-map-marker-images';
 import { mapMarkerBatch } from '../lib/map-marker-batch';
 import {
@@ -96,6 +98,8 @@ export const RoutePlotMap = forwardRef<RoutePlotMapHandle, {
   declutterScores = false,
   dimUnselectedMarkers = true,
 }, ref) {
+  const { colors, colorScheme } = useAppTheme();
+  const styles = useThemedStyles(createStyles);
   const backgroundSpans = useMemo(() => {
     const span = finiteSpanCoordinates(backgroundSpanCoordinates);
     return [
@@ -330,6 +334,8 @@ export const RoutePlotMap = forwardRef<RoutePlotMapHandle, {
     return (
       <View style={[styles.shell, fullBleed ? styles.fullBleedShell : null]} onLayout={(event) => setMapWidth(event.nativeEvent.layout.width)}>
         <MapView
+          userInterfaceStyle={colorScheme}
+          customMapStyle={colorScheme === 'dark' ? darkMapStyle : []}
           ref={mapRef}
           pointerEvents={interactive ? 'auto' : 'none'}
           accessibilityElementsHidden={!interactive}
@@ -409,7 +415,7 @@ export const RoutePlotMap = forwardRef<RoutePlotMapHandle, {
             const dimmed = dimUnselectedMarkers && Boolean(selectedId && !selected);
             const showScore = scoreLayout ? scoreLayout.scoreIds.has(point.id) : isMapCluster(point) || selected || showScoreMarkers;
             if (markerMode === 'pin') {
-              const pinColor = pinColorForPoint(point, selected);
+              const pinColor = pinColorForPoint(point, selected, colors);
 
               return (
                 <Marker
@@ -528,7 +534,7 @@ export const RoutePlotMap = forwardRef<RoutePlotMapHandle, {
                 style={[
                   showScore ? styles.marker : styles.dotMarker,
                   dimmed ? styles.markerDimmed : null,
-                  toneForRating(point.rating),
+                  toneForRating(point.rating, colors),
                   selected ? styles.markerSelectedTone : null,
                 ]}
               >
@@ -567,6 +573,8 @@ const NativeScoreMarker = memo(function NativeScoreMarker({
   showScore: boolean;
   onSelect: (point: RoutePlotPoint) => void;
 }) {
+  const { colors } = useAppTheme();
+  const styles = useThemedStyles(createStyles);
   const markerRef = useRef<import('react-native-maps').MapMarker | null>(null);
   const image = Platform.OS === 'android' && !selected
     ? androidMarkerImage(point.rating, showScore ? markerTextForPoint(point) : 'dot') : undefined;
@@ -585,7 +593,7 @@ const NativeScoreMarker = memo(function NativeScoreMarker({
     setTracking(true);
     const timeout = setTimeout(() => setTracking(false), 450);
     return () => clearTimeout(timeout);
-  }, [image, selected, dimmed, showScore, point.score, point.rating, point.markerLabel]);
+  }, [colors, image, selected, dimmed, showScore, point.score, point.rating, point.markerLabel]);
   const Marker = getNativeMaps()!.Marker;
   // Reuse SDK images for ordinary Android dots and score badges. A selected
   // marker and unusual labels retain the custom view and selection border.
@@ -623,11 +631,11 @@ const NativeScoreMarker = memo(function NativeScoreMarker({
           showScore ? styles.nativeScoreMarker : styles.nativeDotMarker,
           dimmed ? styles.nativeMarkerDimmed : null,
           selected ? styles.nativeMarkerSelected : null,
-          toneForRating(point.rating),
+          toneForRating(point.rating, colors),
           selected ? styles.nativeMarkerSelectedTone : null,
           isMapCluster(point) ? styles.nativeClusterMarker : null,
         ]} collapsable={false}>
-          {showScore ? <Text style={styles.nativeMarkerText} allowFontScaling={false} numberOfLines={1} adjustsFontSizeToFit>{markerTextForPoint(point)}</Text> : null}
+          {showScore ? <Text style={[styles.nativeMarkerText, selected ? { color: colors.onImage } : null]} allowFontScaling={false} numberOfLines={1} adjustsFontSizeToFit>{markerTextForPoint(point)}</Text> : null}
         </View>
       </View>
     </Marker>
@@ -643,6 +651,7 @@ function getNativeMaps(): typeof import('react-native-maps') | null {
 }
 
 function ShowAllButton({ onPress, mapHeight }: { onPress: () => void; mapHeight: number }) {
+  const styles = useThemedStyles(createStyles);
   return (
     <Pressable
       style={[styles.showAllButton, { top: Math.max(spacing.sm, mapHeight - spacing.sm - 48) }]}
@@ -664,7 +673,9 @@ function MapFooter({
   selectedPoint: RoutePlotPoint | null;
   onViewSelected?: (point: RoutePlotPoint) => void;
 }) {
-  const legendItems = legendItemsForPoints(points);
+  const { colors } = useAppTheme();
+  const styles = useThemedStyles(createStyles);
+  const legendItems = legendItemsForPoints(points, colors);
 
   return (
     <View style={styles.footer}>
@@ -703,6 +714,7 @@ function MapFooter({
 
 
 function LegendDot({ color, label }: { color: string; label: string }) {
+  const styles = useThemedStyles(createStyles);
   return (
     <View style={styles.legendItem}>
       <View style={[styles.legendDot, { backgroundColor: color }]} />
@@ -720,6 +732,7 @@ function ProjectedRouteSpan({
   bounds: { minLat: number; maxLat: number; minLon: number; maxLon: number };
   tone: 'background' | 'selected';
 }) {
+  const styles = useThemedStyles(createStyles);
   const projected = coordinates.map((point) => projectPointNumber(point.latitude, point.longitude, bounds));
   const left = Math.min(...projected.map((point) => point.left));
   const right = Math.max(...projected.map((point) => point.left));
@@ -809,15 +822,15 @@ function mapEdgePadding(
   };
 }
 
-function pinColorForPoint(point: RoutePlotPoint, selected: boolean) {
+function pinColorForPoint(point: RoutePlotPoint, selected: boolean, colors: AppColors) {
   if (selected) {
     return SELECTED_MARKER_COLOR;
   }
 
-  return toneForRating(point.rating).backgroundColor;
+  return toneForRating(point.rating, colors).backgroundColor;
 }
 
-const styles = StyleSheet.create({
+const createStyles = (colors: AppColors) => StyleSheet.create({
   clusterBackdrop: { flex: 1, justifyContent: 'center', padding: spacing.xl, backgroundColor: 'rgba(0,0,0,0.4)' },
   clusterSheet: { maxHeight: '75%', padding: spacing.lg, borderRadius: radius.lg, backgroundColor: colors.surfaceStrong },
   clusterChoice: { minHeight: 48, justifyContent: 'center', paddingVertical: spacing.sm, borderBottomWidth: 1, borderBottomColor: colors.border },
@@ -868,7 +881,7 @@ const styles = StyleSheet.create({
     opacity: 0.58,
   },
   nativeMarkerText: {
-    color: colors.surfaceStrong,
+    color: colors.onAccent,
     fontSize: 11,
     fontWeight: '900',
     lineHeight: 14,
@@ -891,7 +904,7 @@ const styles = StyleSheet.create({
     backgroundColor: colors.accent,
   },
   mapCanvas: {
-    backgroundColor: '#DDE7E0',
+    backgroundColor: colors.mapLand,
     position: 'relative',
     overflow: 'hidden',
   },
@@ -901,7 +914,7 @@ const styles = StyleSheet.create({
     right: 0,
     top: '50%',
     height: 1,
-    backgroundColor: 'rgba(31, 42, 36, 0.09)',
+    backgroundColor: colors.mapGrid,
   },
   gridLineVertical: {
     position: 'absolute',
@@ -909,7 +922,7 @@ const styles = StyleSheet.create({
     bottom: 0,
     left: '50%',
     width: 1,
-    backgroundColor: 'rgba(31, 42, 36, 0.09)',
+    backgroundColor: colors.mapGrid,
   },
   riverRibbonOne: {
     position: 'absolute',
@@ -985,11 +998,12 @@ const styles = StyleSheet.create({
     borderColor: colors.surfaceStrong,
   },
   markerText: {
-    color: colors.surfaceStrong,
+    color: colors.onAccent,
     fontSize: 11,
     fontWeight: '900',
   },
   markerTextSelected: {
+    color: colors.onImage,
     fontSize: 13,
   },
   markerDimmed: {
@@ -1073,7 +1087,7 @@ const styles = StyleSheet.create({
     borderRadius: radius.pill,
     borderWidth: 1,
     borderColor: colors.border,
-    backgroundColor: 'rgba(255, 255, 255, 0.94)',
+    backgroundColor: colors.surfaceOverlay,
   },
   showAllButtonText: {
     color: colors.accent,
@@ -1087,7 +1101,7 @@ const styles = StyleSheet.create({
     backgroundColor: colors.accent,
   },
   viewCardButtonText: {
-    color: colors.surfaceStrong,
+    color: colors.onAccent,
     fontSize: 12,
     fontWeight: '900',
   },

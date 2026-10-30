@@ -4,7 +4,8 @@ import * as Files from 'expo-file-system/legacy';
 import { Component, createElement, type ComponentType, type ErrorInfo, type PropsWithChildren, type ReactNode } from 'react';
 import { Pressable, StyleSheet, Text, View } from 'react-native';
 import { recordFeedbackUsageEvent } from './feedback-usage';
-import { colors, radius, spacing } from '../theme/tokens';
+import { radius, spacing, type AppColors } from '../theme/tokens';
+import { useThemedStyles } from '../theme/theme-provider';
 import { QUERY_CACHE_FILE_NAME, QUERY_CACHE_STORAGE_KEY } from './query-cache';
 
 type EventProperties = Record<string, boolean | number | string | null | undefined>;
@@ -65,29 +66,7 @@ class RenderErrorBoundary extends Component<
       return this.props.children;
     }
 
-    return createElement(
-      View,
-      { style: styles.renderErrorState, accessibilityRole: 'alert' },
-      createElement(Text, { style: styles.renderErrorTitle, accessibilityRole: 'header' }, 'This screen needs a reset'),
-      createElement(
-        Text,
-        { style: styles.renderErrorBody },
-        'PaddleToday could not display this screen. Reload PaddleToday to try again.'
-      ),
-      createElement(
-        Pressable,
-        {
-          style: styles.renderErrorButton,
-          onPress: () => void this.recover(),
-          accessibilityRole: 'button',
-          accessibilityLabel: 'Reload PaddleToday',
-          disabled: this.state.recovering,
-          accessibilityState: { disabled: this.state.recovering, busy: this.state.recovering },
-          'aria-busy': this.state.recovering,
-        },
-        createElement(Text, { style: styles.renderErrorButtonText }, this.state.recovering ? 'Reloading…' : 'Reload app')
-      )
-    );
+    return createElement(RenderErrorFallback, { recovering: this.state.recovering, onRecover: () => void this.recover() });
   }
 
   private recovering = false;
@@ -108,6 +87,33 @@ class RenderErrorBoundary extends Component<
       this.setState({ hasError: false, recovering: false });
     }
   }
+}
+
+function RenderErrorFallback({ recovering, onRecover }: { recovering: boolean; onRecover: () => void }) {
+  const styles = useThemedStyles(createStyles);
+  return createElement(
+    View,
+    { style: styles.renderErrorState, accessibilityRole: 'alert' },
+    createElement(Text, { style: styles.renderErrorTitle, accessibilityRole: 'header' }, 'This screen needs a reset'),
+    createElement(
+      Text,
+      { style: styles.renderErrorBody },
+      'PaddleToday could not display this screen. Reload PaddleToday to try again.'
+    ),
+    createElement(
+      Pressable,
+      {
+        style: styles.renderErrorButton,
+        onPress: onRecover,
+        accessibilityRole: 'button',
+        accessibilityLabel: 'Reload PaddleToday',
+        disabled: recovering,
+        accessibilityState: { disabled: recovering, busy: recovering },
+        'aria-busy': recovering,
+      },
+      createElement(Text, { style: styles.renderErrorButtonText }, recovering ? 'Reloading…' : 'Reload app')
+    )
+  );
 }
 
 export function captureAppException(error: unknown, context?: { name?: string; extra?: EventProperties }) {
@@ -254,7 +260,7 @@ function toError(error: unknown) {
   return new Error(typeof error === 'string' ? error : JSON.stringify(error));
 }
 
-const styles = StyleSheet.create({
+const createStyles = (colors: AppColors) => StyleSheet.create({
   renderErrorState: {
     flex: 1,
     backgroundColor: colors.canvas,
@@ -285,7 +291,7 @@ const styles = StyleSheet.create({
     marginTop: spacing.sm,
   },
   renderErrorButtonText: {
-    color: colors.surfaceStrong,
+    color: colors.onAccent,
     fontSize: 14,
     fontWeight: '900',
   },

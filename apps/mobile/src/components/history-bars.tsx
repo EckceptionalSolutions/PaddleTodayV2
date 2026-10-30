@@ -1,8 +1,11 @@
 import type { RiverHistoryDaySummary } from '@paddletoday/api-contract';
 import { StyleSheet, Text, View } from 'react-native';
-import { colors, spacing } from '../theme/tokens';
+import { spacing, type AppColors } from '../theme/tokens';
+import { useAppTheme, useThemedStyles } from '../theme/theme-provider';
 
 export function HistoryBars({ days }: { days: RiverHistoryDaySummary[] }) {
+  const { colors } = useAppTheme();
+  const styles = useThemedStyles(createStyles);
   if (days.length === 0) {
     return <Text style={styles.empty}>Not enough history yet.</Text>;
   }
@@ -22,7 +25,7 @@ export function HistoryBars({ days }: { days: RiverHistoryDaySummary[] }) {
           return (
             <View key={day.date} style={styles.column}>
               <Text style={styles.scoreLabel}>{day.avgScore}</Text>
-              <View style={[styles.bar, { height: barHeight }, barTone(day.latestRating)]} />
+              <View style={[styles.bar, { height: barHeight }, barTone(day.latestRating, colors)]} />
               <Text style={styles.dayLabel}>
                 {new Date(`${day.date}T12:00:00`).toLocaleDateString('en-US', {
                   weekday: 'short',
@@ -36,14 +39,14 @@ export function HistoryBars({ days }: { days: RiverHistoryDaySummary[] }) {
   );
 }
 
-function barTone(rating: RiverHistoryDaySummary['latestRating']) {
+function barTone(rating: RiverHistoryDaySummary['latestRating'], colors: AppColors) {
   if (rating === 'Strong') return { backgroundColor: colors.strong };
   if (rating === 'Good') return { backgroundColor: colors.good };
   if (rating === 'Fair') return { backgroundColor: colors.fair };
   return { backgroundColor: colors.noGo };
 }
 
-const styles = StyleSheet.create({
+const createStyles = (colors: AppColors) => StyleSheet.create({
   wrap: {
     gap: spacing.md,
   },

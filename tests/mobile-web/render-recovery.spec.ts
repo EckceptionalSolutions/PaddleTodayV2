@@ -5,6 +5,7 @@ import fixture from './fixtures/route-detail.json' with { type: 'json' };
 for (const activation of ['keyboard', 'double click']) test(`a display error recovers through ${activation}`,  async ({ page }) => {
   await page.addInitScript(() => {
     localStorage.setItem('paddletoday:welcome-completed:v1', '1');
+    localStorage.setItem('paddletoday:appearance:v1', 'dark');
     const state = window as unknown as { cacheResets: number };
     state.cacheResets = 0;
     const remove = Storage.prototype.removeItem;
@@ -18,8 +19,11 @@ for (const activation of ['keyboard', 'double click']) test(`a display error rec
   await page.route('**/api/rivers/rice-creek-peltier-to-long-lake.json', (route) => route.fulfill({ json: broken ? { ...fixture, result: { ...fixture.result, river: { ...fixture.result.river, name: { invalid: true } } } } : fixture }));
   const fulfillMobile = await installMobileBoardFixtures(page);
   await page.route('**/api/mobile/{summary,explore}.json**', (route) => fulfillMobile(route, { json: { rivers: [] } }));
+  await page.emulateMedia({ colorScheme: 'light' });
   await page.goto('/river/rice-creek-peltier-to-long-lake');
   await expect(page.getByRole('heading', { name: 'This screen needs a reset', exact: true })).toBeVisible();
+  await expect(page.getByRole('heading', { name: 'This screen needs a reset', exact: true })).toHaveCSS('color', 'rgb(240, 243, 234)');
+  await expect(page.locator('body')).toHaveCSS('background-color', 'rgb(16, 26, 22)');
   broken = false;
   const resetsBefore = await page.evaluate(() => (window as unknown as { cacheResets: number }).cacheResets);
   const reload = page.getByRole('button', { name: 'Reload PaddleToday', exact: true });

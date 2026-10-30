@@ -5,7 +5,8 @@ import { MotionPhotoBackground } from './motion-photo-background';
 import { callForRating, normalizeApiText } from '../lib/format';
 import { compactPaddleTime, routePreviewFactItems } from '../lib/route-facts';
 import { useRoutePhoto } from '../hooks/use-route-photo';
-import { colors, radius, spacing } from '../theme/tokens';
+import { radius, spacing, type AppColors } from '../theme/tokens';
+import { useAppTheme, useThemedStyles } from '../theme/theme-provider';
 import { QualityPill } from './rating-pill';
 import { SaveToggleButton } from './save-toggle-button';
 import { RoutePhotoFallback } from './route-photo-fallback';
@@ -25,6 +26,8 @@ export function WeekendRiverCard({
   onToggleSaved?: () => void;
   onPress: () => void;
 }) {
+  const { colors } = useAppTheme();
+  const styles = useThemedStyles(createStyles);
   const riskExplanation = cardRiskExplanation(river);
   const { photo, unavailable, onError } = useRoutePhoto(river.river);
   const showFallback = unavailable;
@@ -86,7 +89,7 @@ export function WeekendRiverCard({
 
       {river.river.estimatedPaddleTime && compactPaddleTime(river.river.estimatedPaddleTime) !== normalizeApiText(river.river.estimatedPaddleTime) ? <Text style={styles.paddleTimeNote}>Paddle time: {normalizeApiText(river.river.estimatedPaddleTime)}</Text> : null}
       {riskExplanation ? (
-        <View style={[styles.riskPanel, !isStale && riskToneStyle(river)]}>
+        <View style={[styles.riskPanel, !isStale && riskToneStyle(river, styles)]}>
           <Text style={styles.riskLabel}>{isStale ? 'Previous outlook' : planRiskLabel(river)}</Text>
           <Text style={styles.explanation}>{riskExplanation}</Text>
         </View>
@@ -101,7 +104,7 @@ export function WeekendRiverCard({
   );
 }
 
-const styles = StyleSheet.create({
+const createStyles = (colors: AppColors) => StyleSheet.create({
   paddleTimeNote: { paddingHorizontal: spacing.md, color: colors.textMuted, fontSize: 13, lineHeight: 19 },
   illustrativeLabel: { color: colors.textMuted, fontSize: 11, paddingHorizontal: spacing.md },
   savedScore: { backgroundColor: colors.canvasMuted },
@@ -221,13 +224,13 @@ const styles = StyleSheet.create({
     marginHorizontal: spacing.md,
   },
   riskStable: {
-    backgroundColor: '#E0EFE9',
+    backgroundColor: colors.strongSoft,
   },
   riskWeather: {
-    backgroundColor: '#F3E8CC',
+    backgroundColor: colors.fairSoft,
   },
   riskUncertain: {
-    backgroundColor: '#F2DDD6',
+    backgroundColor: colors.noGoSoft,
   },
   riskLabel: {
     color: colors.text,
@@ -287,7 +290,7 @@ function cardRiskExplanation(river: WeekendSummaryApiItem) {
   return cleaned;
 }
 
-function riskToneStyle(river: WeekendSummaryApiItem) {
+function riskToneStyle(river: WeekendSummaryApiItem, styles: ReturnType<typeof createStyles>) {
   const label = planRiskLabel(river);
   if (label === 'Looks steady') return styles.riskStable;
   if (label === 'Forecast watch' || label === 'Recheck before launch') return styles.riskWeather;

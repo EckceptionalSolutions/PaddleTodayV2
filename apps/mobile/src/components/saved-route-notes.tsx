@@ -4,9 +4,11 @@ import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import { useReducedMotion } from '../hooks/use-reduced-motion';
 import { AppButton } from './app-button';
 import { type SavedRiverRecord, useSavedRivers } from '../providers/saved-rivers-provider';
-import { colors } from '../theme/tokens';
+import { type AppColors } from '../theme/tokens';
+import { useAppTheme, useThemedStyles } from '../theme/theme-provider';
 
 export function SavedRouteNotes({ river, onEdit }: { river: SavedRiverRecord; onEdit: (river: SavedRiverRecord) => void }) {
+  const styles = useThemedStyles(createStyles);
   const [expanded, setExpanded] = useState(false);
   const note = river.notes || '';
   const preview = Array.from(note).slice(0, 180).join('').split('\n').slice(0, 3).join('\n').trimEnd();
@@ -27,6 +29,8 @@ export function SavedRouteNotes({ river, onEdit }: { river: SavedRiverRecord; on
 }
 
 export function SavedRouteNotesEditor({ river, onClose }: { river: SavedRiverRecord; onClose: () => void }) {
+  const { colors } = useAppTheme();
+  const styles = useThemedStyles(createStyles);
   const { updateSavedRiverNotes } = useSavedRivers();
   const [draft, setDraft] = useState(river.notes || '');
   const [saving, setSaving] = useState(false);
@@ -84,7 +88,7 @@ export function SavedRouteNotesEditor({ river, onClose }: { river: SavedRiverRec
   );
 }
 
-const styles = StyleSheet.create({
+const createStyles = (colors: AppColors) => StyleSheet.create({
   screen: { flex: 1, backgroundColor: colors.canvas },
   preview: { padding: 12, gap: 8 },
   previewActions: { flexDirection: 'row', flexWrap: 'wrap', gap: 4 },

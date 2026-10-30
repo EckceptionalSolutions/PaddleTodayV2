@@ -23,7 +23,8 @@ import { WebReady } from '../components/web-ready';
 import { AppButton } from '../components/app-button';
 import { trackAppEvent } from '../lib/observability';
 import { selectBestNowPicks } from '../lib/ranking';
-import { colors, radius, spacing } from '../theme/tokens';
+import { radius, spacing, type AppColors } from '../theme/tokens';
+import { useAppTheme, useThemedStyles } from '../theme/theme-provider';
 
 type Feature = {
   icon: React.ComponentProps<typeof MaterialCommunityIcons>['name'];
@@ -55,6 +56,8 @@ export default function WelcomeScreen() {
 }
 
 function WelcomeContent() {
+  const { colors } = useAppTheme();
+  const styles = useThemedStyles(createStyles);
   const reducedMotion = useReducedMotion();
   const insets = useSafeAreaInsets();
   const { height: windowHeight, width: windowWidth } = useWindowDimensions();
@@ -79,7 +82,7 @@ function WelcomeContent() {
     [bestPicks],
   );
   const previewRating: ScoreRating = previewRoute?.rating ?? 'Good';
-  const previewTone = scoreTone(previewRating);
+  const previewTone = scoreTone(previewRating, colors);
   const previewRouteMeta = previewRoute
     ? previewRoute.river.reach
     : 'Sample values · not current conditions';
@@ -414,7 +417,7 @@ function WelcomeContent() {
                       ]}
                     >
                       <Text style={styles.scoreExampleLabel}>{factor.label}</Text>
-                      <Text style={[styles.scoreExampleValue, scorePointTone(factor.value)]}>
+                      <Text style={[styles.scoreExampleValue, scorePointTone(factor.value, colors)]}>
                         {signedPoints(factor.value)}
                       </Text>
                     </View>
@@ -549,6 +552,7 @@ function WelcomeContent() {
 }
 
 function BrandLockup() {
+  const styles = useThemedStyles(createStyles);
   return (
     <View style={styles.brandLockup}>
       <Image
@@ -563,23 +567,23 @@ function BrandLockup() {
   );
 }
 
-function scoreTone(rating?: ScoreRating) {
+function scoreTone(rating: ScoreRating | undefined, colors: AppColors) {
   if (rating === 'Strong') {
-    return { background: '#E0EFE9', text: colors.strong };
+    return { background: colors.strongSoft, text: colors.strong };
   }
   if (rating === 'Good') {
-    return { background: '#E8EFD9', text: colors.good };
+    return { background: colors.goodSoft, text: colors.good };
   }
   if (rating === 'Fair') {
-    return { background: '#F3E8CC', text: colors.fair };
+    return { background: colors.fairSoft, text: colors.fair };
   }
   if (rating === 'No-go') {
-    return { background: '#F2DDD6', text: colors.noGo };
+    return { background: colors.noGoSoft, text: colors.noGo };
   }
   return { background: colors.accentSoft, text: colors.accent };
 }
 
-function scorePointTone(value: number) {
+function scorePointTone(value: number, colors: AppColors) {
   if (value > 0) {
     return { color: colors.accentDeep };
   }
@@ -589,7 +593,7 @@ function scorePointTone(value: number) {
   return { color: colors.textMuted };
 }
 
-const styles = StyleSheet.create({
+const createStyles = (colors: AppColors) => StyleSheet.create({
   screen: { flex: 1, backgroundColor: colors.canvas },
   carouselScreen: { paddingHorizontal: 18 },
   carousel: { flex: 1, minHeight: 0, overflow: 'hidden' },
@@ -650,7 +654,7 @@ const styles = StyleSheet.create({
     aspectRatio: 1.5,
     overflow: 'hidden',
     borderWidth: 1,
-    borderColor: '#BFD2C9',
+    borderColor: colors.accentBorder,
     borderRadius: radius.lg,
     backgroundColor: '#2F5D53',
   },
@@ -686,7 +690,7 @@ const styles = StyleSheet.create({
     paddingVertical: 11,
     paddingHorizontal: 12,
     borderRadius: radius.md,
-    backgroundColor: 'rgba(255, 255, 255, 0.9)',
+    backgroundColor: colors.surfaceOverlay,
   },
   routeScoreCopyShort: { marginHorizontal: 10, marginTop: -16, paddingVertical: 6, paddingHorizontal: 9 },
   routeScoreKicker: { color: colors.accent, fontSize: 9, lineHeight: 12, fontWeight: '900', letterSpacing: 0.6 },
@@ -719,7 +723,7 @@ const styles = StyleSheet.create({
     borderRadius: 16,
     alignItems: 'center',
     justifyContent: 'center',
-    backgroundColor: '#E8EFD9',
+    backgroundColor: colors.goodSoft,
   },
   scoreValue: { color: colors.good, fontSize: 23, lineHeight: 25, fontWeight: '900' },
   scoreLabel: { color: colors.good, fontSize: 9, fontWeight: '900', letterSpacing: 0.5 },

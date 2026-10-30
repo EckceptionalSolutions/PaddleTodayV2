@@ -1,6 +1,7 @@
 import MaterialCommunityIcons from '@expo/vector-icons/MaterialCommunityIcons';
 import { ActivityIndicator, ScrollView, StyleSheet, Text, View } from 'react-native';
-import { colors, radius, spacing, typography } from '../theme/tokens';
+import { radius, spacing, typography, type AppColors } from '../theme/tokens';
+import { useAppTheme, useThemedStyles } from '../theme/theme-provider';
 import { AppButton } from './app-button';
 import { MotionReveal } from './motion-reveal';
 import { useReducedMotion } from '../hooks/use-reduced-motion';
@@ -12,6 +13,8 @@ export function AppLoadingState({
   title: string;
   body?: string;
 }) {
+  const { colors } = useAppTheme();
+  const styles = useThemedStyles(createStyles);
   return (
     <ScrollView style={styles.stateScroll} contentContainerStyle={styles.centerState}>
       <ActivityIndicator size="large" color={colors.accent} />
@@ -38,6 +41,8 @@ export function AppErrorState({
   retrying?: boolean;
   onRetry?: () => void;
 }) {
+  const { colors } = useAppTheme();
+  const styles = useThemedStyles(createStyles);
   return (
     <ScrollView style={styles.stateScroll} contentContainerStyle={styles.centerState}>
       <View style={styles.iconShell}>
@@ -74,6 +79,7 @@ export function AppRefreshNotice({
   retrying?: boolean;
   onRetry: () => void;
 }) {
+  const styles = useThemedStyles(createStyles);
   const reducedMotion = useReducedMotion();
   if (!isError && !isStale) {
     return null;
@@ -101,7 +107,7 @@ function formatRelativeTime(timestamp: number) {
   return elapsedHours === 1 ? '1 hour ago' : `${elapsedHours} hours ago`;
 }
 
-const styles = StyleSheet.create({
+const createStyles = (colors: AppColors) => StyleSheet.create({
   stateScroll: { flex: 1, backgroundColor: colors.canvas },
   centerState: {
     flexGrow: 1,
@@ -115,7 +121,7 @@ const styles = StyleSheet.create({
     width: 54,
     height: 54,
     borderRadius: 27,
-    backgroundColor: '#F2DDD6',
+    backgroundColor: colors.noGoSoft,
     alignItems: 'center',
     justifyContent: 'center',
     marginBottom: spacing.xs,
@@ -139,9 +145,9 @@ const styles = StyleSheet.create({
   },
   refreshNotice: {
     borderRadius: radius.md,
-    backgroundColor: '#F3E8CC',
+    backgroundColor: colors.fairSoft,
     borderWidth: 1,
-    borderColor: '#D8C58E',
+    borderColor: colors.warningBorder,
     padding: spacing.md,
     flexDirection: 'row',
     flexWrap: 'wrap',

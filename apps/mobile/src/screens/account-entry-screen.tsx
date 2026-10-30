@@ -14,7 +14,8 @@ import { clearGuestImportConsent, grantGuestImportConsent } from '../lib/account
 import { PENDING_EMAIL, PENDING_EMAIL_ACTION, PENDING_EMAIL_RETURN_TO } from '../lib/auth-secure-store-keys';
 import { emailLinkDomainOption } from '../lib/email-link-domain';
 import { completeWelcome, consumePendingLaunchTarget } from '../lib/onboarding';
-import { colors, radius, spacing, typography } from '../theme/tokens';
+import { radius, spacing, typography, type AppColors } from '../theme/tokens';
+import { useAppTheme, useThemedStyles } from '../theme/theme-provider';
 
 const LINK_DOMAIN = process.env.EXPO_PUBLIC_FIREBASE_AUTH_LINK_DOMAIN?.trim();
 const GOOGLE_WEB_CLIENT_ID = process.env.EXPO_PUBLIC_GOOGLE_WEB_CLIENT_ID?.trim();
@@ -27,6 +28,8 @@ export default function AccountEntryScreen({ isWelcome = false, defaultReturnTo 
 }
 
 function AccountEntryContent({ isWelcome, defaultReturnTo }: { isWelcome: boolean; defaultReturnTo: string }) {
+  const { colors } = useAppTheme();
+  const styles = useThemedStyles(createStyles);
   const router = useRouter();
   const params = useLocalSearchParams<{ returnTo?: string | string[] }>();
   const insets = useSafeAreaInsets();
@@ -354,7 +357,7 @@ function safeReturnTo(value: string | undefined, fallback: string) {
   return value;
 }
 
-const styles = StyleSheet.create({
+const createStyles = (colors: AppColors) => StyleSheet.create({
   root: { flex: 1, backgroundColor: colors.canvas },
   scroll: { flexGrow: 1, width: '100%', maxWidth: 520, alignSelf: 'center', paddingHorizontal: spacing.md, gap: spacing.md },
   backToMore: { minHeight: 44, flexDirection: 'row', alignItems: 'center', alignSelf: 'flex-start', gap: spacing.xs },

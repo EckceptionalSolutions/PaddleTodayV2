@@ -6,7 +6,8 @@ import { useReducedMotion } from '../hooks/use-reduced-motion';
 import { routePreviewFactItems } from '../lib/route-facts';
 import { routeDecisionPresentation } from '../lib/map-decision';
 import { routeGroupMetaForRoute } from '../lib/route-groups';
-import { colors, radius, spacing } from '../theme/tokens';
+import { radius, spacing, type AppColors } from '../theme/tokens';
+import { useAppTheme, useThemedStyles } from '../theme/theme-provider';
 import { AppButton } from './app-button';
 import { QualityPill, decisionColors } from './rating-pill';
 
@@ -48,6 +49,8 @@ export function RouteSearchModal({
   /** Trip editors select a catalog route or create a private custom route. */
   onCreateCustom?: () => void;
 }) {
+  const { colors } = useAppTheme();
+  const styles = useThemedStyles(createStyles);
   const reducedMotion = useReducedMotion();
   const inputRef = useRef<TextInput>(null);
   const active = query.trim().length > 0;
@@ -145,8 +148,8 @@ export function RouteSearchModal({
                   const routeCount = routeGroupMetaForRoute(river, routeCounts).routeCount;
                   return (
                     <Pressable accessibilityRole="button" accessibilityLabel={`${onCreateCustom ? 'Choose' : 'View'} ${river.river.name}: ${river.river.reach}`} key={river.river.slug} style={styles.knownSearchResult} onPress={() => onOpenRiver(river)}>
-                      <View style={[styles.knownSearchScore, searchScoreTone(river).score]}>
-                        <Text style={[styles.knownSearchScoreText, searchScoreTone(river).text]}>{routeDecisionPresentation(river).score ?? '—'}</Text>
+                      <View style={[styles.knownSearchScore, searchScoreTone(river, colors).score]}>
+                        <Text style={[styles.knownSearchScoreText, searchScoreTone(river, colors).text]}>{routeDecisionPresentation(river).score ?? '—'}</Text>
                       </View>
                       <View style={styles.knownSearchCopy}>
                         <View style={styles.knownSearchTopLine}>
@@ -185,8 +188,8 @@ export function RouteSearchModal({
   );
 }
 
-function searchScoreTone(river: RiverSummaryApiItem) {
-  const tone = decisionColors(river.rating, river.river.scoreEligibility === 'planning' ? 'withheld' : river.readiness.status);
+function searchScoreTone(river: RiverSummaryApiItem, colors: AppColors) {
+  const tone = decisionColors(river.rating, river.river.scoreEligibility === 'planning' ? 'withheld' : river.readiness.status, colors);
   return { score: { backgroundColor: tone.backgroundColor }, text: { color: tone.textColor } };
 }
 
@@ -197,7 +200,7 @@ function stateLabel(state: string) {
     .join(' ');
 }
 
-const styles = StyleSheet.create({
+const createStyles = (colors: AppColors) => StyleSheet.create({
   knownSearchResults: {
     gap: spacing.xs,
   },

@@ -18,7 +18,8 @@ import * as Crypto from 'expo-crypto';
 import { newTripPlan } from '@paddletoday/api-contract';
 import { tripSession, TRIP_RETURN_KEY } from '../lib/trip-session';
 import { PrepareOfflineTrip } from './offline-trip-actions';
-import { colors, radius, spacing } from '../theme/tokens';
+import { radius, spacing, type AppColors } from '../theme/tokens';
+import { useAppTheme, useThemedStyles } from '../theme/theme-provider';
 
 type PrepareTripSheetProps = {
   visible: boolean;
@@ -32,6 +33,7 @@ type PrepareTripSheetProps = {
 };
 
 export function PrepareTripSheet({ visible, offlineFirst = false, detail, putIn, takeOut, accessPoints, onClose, onAction }: PrepareTripSheetProps) {
+  const styles = useThemedStyles(createStyles);
   const reducedMotion = useReducedMotion();
   const distanceMiles = selectedDistance(accessPoints, putIn, takeOut, detail);
   const estimated = distanceMiles ? estimateSegmentDurationMinutes(detail.river.distanceLabel, detail.river.estimatedPaddleTime, distanceMiles) : null;
@@ -366,10 +368,13 @@ export function PrepareTripSheet({ visible, offlineFirst = false, detail, putIn,
 }
 
 function Field({ label, multiline, keyboardType, value, onChangeText, inputRef, editable = true, error }: { error?: string; editable?: boolean; inputRef?: RefObject<TextInput | null>; label: string; value: string; onChangeText: (value: string) => void; multiline?: boolean; keyboardType?: 'number-pad' }) {
+  const { colors } = useAppTheme();
+  const styles = useThemedStyles(createStyles);
   return <View style={styles.field}><Text style={styles.label}>{label}</Text><TextInput editable={editable} ref={inputRef} accessibilityLabel={label} aria-invalid={Boolean(error)} accessibilityHint={error} value={value} onChangeText={onChangeText} multiline={multiline} keyboardType={keyboardType} placeholderTextColor={colors.textMuted} style={[styles.input, multiline ? styles.multiline : null]} />{error ? <Text accessibilityLiveRegion="polite" style={styles.status}>{error}</Text> : null}</View>;
 }
 
 function ActionButton({ label, detail, onPress, primary, pending = false, pendingLabel = 'Checking GPX…', disabled = false }: { disabled?: boolean; pending?: boolean; pendingLabel?: string; label: string; detail: string; onPress: () => void; primary?: boolean }) {
+  const styles = useThemedStyles(createStyles);
   return <Pressable style={[styles.actionButton, primary ? styles.actionButtonPrimary : null]} disabled={disabled || pending} aria-busy={pending} accessibilityState={{ disabled: disabled || pending, busy: pending }} onPress={onPress} accessibilityRole="button" accessibilityLabel={label}><Text style={[styles.actionLabel, primary ? styles.actionLabelPrimary : null]}>{pending ? pendingLabel : label}</Text><Text style={[styles.actionDetail, primary ? styles.actionDetailPrimary : null]}>{detail}</Text></Pressable>;
 }
 
@@ -401,8 +406,8 @@ function validate(plan: TripPlanInput, checkIn: string) {
 }
 function hasCoordinates(point: RiverAccessPoint): point is RiverAccessPoint & { latitude: number; longitude: number } { return Number.isFinite(point.latitude) && Number.isFinite(point.longitude); }
 
-const styles = StyleSheet.create({
+const createStyles = (colors: AppColors) => StyleSheet.create({
   closeButton: { minHeight: 48, minWidth: 48, alignItems: 'center', justifyContent: 'center' },
   scroll: { flex: 1 },
-  screen: { flex: 1, backgroundColor: colors.canvas }, header: { width: '100%', maxWidth: 640, alignSelf: 'center', flexDirection: 'row', justifyContent: 'space-between', alignItems: 'flex-start', padding: spacing.lg, borderBottomWidth: 1, borderBottomColor: colors.border, backgroundColor: colors.surface }, headerCopy: { flex: 1, gap: 3 }, kicker: { color: colors.accent, fontSize: 11, fontWeight: '900', textTransform: 'uppercase', letterSpacing: 1 }, title: { color: colors.text, fontSize: 22, fontWeight: '900' }, subtitle: { color: colors.textMuted, fontSize: 12 }, close: { color: colors.accent, fontWeight: '900', padding: spacing.xs }, content: { width: '100%', maxWidth: 640, alignSelf: 'center', padding: spacing.lg, gap: spacing.sm, paddingBottom: spacing.xl * 2 }, sectionTitle: { color: colors.text, fontSize: 16, fontWeight: '900', marginTop: spacing.sm }, help: { color: colors.textMuted, fontSize: 12, lineHeight: 17 }, field: { gap: 4 }, label: { color: colors.textMuted, fontSize: 11, fontWeight: '800' }, input: { minHeight: 44, borderRadius: radius.sm, borderWidth: 1, borderColor: colors.border, backgroundColor: colors.surfaceStrong, paddingHorizontal: spacing.sm, color: colors.text, fontSize: 14 }, multiline: { minHeight: 72, paddingTop: spacing.sm, textAlignVertical: 'top' }, estimate: { color: colors.accentDeep, backgroundColor: colors.accentSoft, borderRadius: radius.sm, padding: spacing.sm, fontSize: 12, lineHeight: 17 }, status: { color: colors.noGo, fontSize: 12, fontWeight: '800' }, actions: { gap: spacing.sm, marginTop: spacing.sm }, actionButton: { borderRadius: radius.md, borderWidth: 1, borderColor: colors.border, backgroundColor: colors.surface, padding: spacing.md, gap: 3 }, actionButtonPrimary: { backgroundColor: colors.accent, borderColor: colors.accent }, actionLabel: { color: colors.text, fontSize: 14, fontWeight: '900' }, actionLabelPrimary: { color: colors.surfaceStrong }, actionDetail: { color: colors.textMuted, fontSize: 12 }, actionDetailPrimary: { color: colors.accentSoft }, footer: { color: colors.textMuted, fontSize: 11, lineHeight: 16, marginTop: spacing.sm },
+  screen: { flex: 1, backgroundColor: colors.canvas }, header: { width: '100%', maxWidth: 640, alignSelf: 'center', flexDirection: 'row', justifyContent: 'space-between', alignItems: 'flex-start', padding: spacing.lg, borderBottomWidth: 1, borderBottomColor: colors.border, backgroundColor: colors.surface }, headerCopy: { flex: 1, gap: 3 }, kicker: { color: colors.accent, fontSize: 11, fontWeight: '900', textTransform: 'uppercase', letterSpacing: 1 }, title: { color: colors.text, fontSize: 22, fontWeight: '900' }, subtitle: { color: colors.textMuted, fontSize: 12 }, close: { color: colors.accent, fontWeight: '900', padding: spacing.xs }, content: { width: '100%', maxWidth: 640, alignSelf: 'center', padding: spacing.lg, gap: spacing.sm, paddingBottom: spacing.xl * 2 }, sectionTitle: { color: colors.text, fontSize: 16, fontWeight: '900', marginTop: spacing.sm }, help: { color: colors.textMuted, fontSize: 12, lineHeight: 17 }, field: { gap: 4 }, label: { color: colors.textMuted, fontSize: 11, fontWeight: '800' }, input: { minHeight: 44, borderRadius: radius.sm, borderWidth: 1, borderColor: colors.border, backgroundColor: colors.surfaceStrong, paddingHorizontal: spacing.sm, color: colors.text, fontSize: 14 }, multiline: { minHeight: 72, paddingTop: spacing.sm, textAlignVertical: 'top' }, estimate: { color: colors.accentDeep, backgroundColor: colors.accentSoft, borderRadius: radius.sm, padding: spacing.sm, fontSize: 12, lineHeight: 17 }, status: { color: colors.noGo, fontSize: 12, fontWeight: '800' }, actions: { gap: spacing.sm, marginTop: spacing.sm }, actionButton: { borderRadius: radius.md, borderWidth: 1, borderColor: colors.border, backgroundColor: colors.surface, padding: spacing.md, gap: 3 }, actionButtonPrimary: { backgroundColor: colors.accent, borderColor: colors.accent }, actionLabel: { color: colors.text, fontSize: 14, fontWeight: '900' }, actionLabelPrimary: { color: colors.onAccent }, actionDetail: { color: colors.textMuted, fontSize: 12 }, actionDetailPrimary: { color: colors.onAccent }, footer: { color: colors.textMuted, fontSize: 11, lineHeight: 16, marginTop: spacing.sm },
 });

@@ -4,7 +4,8 @@ import { useState } from 'react';
 import { Modal, Pressable, ScrollView, StyleSheet, Text, View } from 'react-native';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import { useReducedMotion } from '../hooks/use-reduced-motion';
-import { colors, radius, spacing } from '../theme/tokens';
+import { radius, spacing, type AppColors } from '../theme/tokens';
+import { useAppTheme, useThemedStyles } from '../theme/theme-provider';
 
 export function AccessPointSelector({
   label,
@@ -17,6 +18,8 @@ export function AccessPointSelector({
   selectedId: string | null;
   onSelect: (point: RiverRouteAccessPoint) => void;
 }) {
+  const { colors } = useAppTheme();
+  const styles = useThemedStyles(createStyles);
   const insets = useSafeAreaInsets();
   const reducedMotion = useReducedMotion();
   const [open, setOpen] = useState(false);
@@ -79,7 +82,7 @@ export function AccessPointSelector({
                         {formatSegmentMile(point.mileFromStart)}
                       </Text>
                     </View>
-                    {selected ? <MaterialCommunityIcons name="check" color={colors.surfaceStrong} size={19} /> : null}
+                    {selected ? <MaterialCommunityIcons name="check" color={colors.onAccent} size={19} /> : null}
                   </Pressable>
                 );
               })}
@@ -100,7 +103,7 @@ function formatSegmentMile(mile: number) {
   return `Mile ${mile.toFixed(mile >= 10 ? 0 : 1).replace(/\.0$/, '')}`;
 }
 
-const styles = StyleSheet.create({
+const createStyles = (colors: AppColors) => StyleSheet.create({
   accessSelector: {
     gap: spacing.xs,
   },
@@ -209,7 +212,7 @@ const styles = StyleSheet.create({
     fontWeight: '900',
   },
   accessDropdownItemNameSelected: {
-    color: colors.surfaceStrong,
+    color: colors.onAccent,
   },
   accessDropdownItemMeta: {
     color: colors.textMuted,
@@ -217,6 +220,6 @@ const styles = StyleSheet.create({
     fontWeight: '800',
   },
   accessDropdownItemMetaSelected: {
-    color: colors.surfaceStrong,
+    color: colors.onAccent,
   },
 });

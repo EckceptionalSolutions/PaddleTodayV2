@@ -1,6 +1,7 @@
 import type { PropsWithChildren, ReactNode } from 'react';
 import { StyleSheet, Text, View } from 'react-native';
-import { colors, radius, shadow, spacing, typography } from '../theme/tokens';
+import { radius, shadowForColors, spacing, typography, type AppColors } from '../theme/tokens';
+import { useThemedStyles } from '../theme/theme-provider';
 
 export function SectionCard({
   title,
@@ -12,6 +13,7 @@ export function SectionCard({
   subtitle?: string;
   accessory?: ReactNode;
 }>) {
+  const styles = useThemedStyles(createStyles);
   return (
     <View style={styles.card}>
       <View style={styles.header}>
@@ -26,7 +28,7 @@ export function SectionCard({
   );
 }
 
-const styles = StyleSheet.create({
+const createStyles = (colors: AppColors) => StyleSheet.create({
   card: {
     backgroundColor: colors.surfaceStrong,
     borderRadius: radius.lg,
@@ -34,7 +36,7 @@ const styles = StyleSheet.create({
     borderColor: colors.border,
     padding: spacing.md,
     gap: spacing.sm,
-    ...shadow,
+    ...shadowForColors(colors),
   },
   header: {
     flexDirection: 'row',

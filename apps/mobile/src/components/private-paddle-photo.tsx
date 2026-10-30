@@ -1,10 +1,13 @@
 import { useEffect, useState } from 'react';
 import { ActivityIndicator, Image, StyleSheet, Text, View } from 'react-native';
 import type { tripSession } from '../lib/trip-session';
-import { colors, radius, spacing, typography } from '../theme/tokens';
+import { radius, spacing, typography, type AppColors } from '../theme/tokens';
+import { useAppTheme, useThemedStyles } from '../theme/theme-provider';
 import { AppButton } from './app-button';
 
 export function PrivatePaddlePhoto({ repo, logId, id, height = 220 }: { repo: NonNullable<ReturnType<typeof tripSession>>; logId: string; id: string; height?: number }) {
+  const { colors } = useAppTheme();
+  const styles = useThemedStyles(createStyles);
   const [photo, setPhoto] = useState<{ repo: typeof repo; logId: string; id: string; uri?: string; error?: boolean } | null>(null);
   const [attempt, setAttempt] = useState(0);
   useEffect(() => {
@@ -20,7 +23,7 @@ export function PrivatePaddlePhoto({ repo, logId, id, height = 220 }: { repo: No
     {current?.error ? <><Text style={styles.copy}>This private photo couldn’t load. Try again when connected.</Text><AppButton label="Retry photo" variant="secondary" onPress={() => setAttempt(value => value + 1)} /></> : <><ActivityIndicator color={colors.accent} /><Text style={styles.copy}>Loading your photo…</Text></>}
   </View>;
 }
-const styles = StyleSheet.create({
+const createStyles = (colors: AppColors) => StyleSheet.create({
   image: { width: '100%', borderRadius: radius.md },
   placeholder: { padding: spacing.md, gap: spacing.sm, justifyContent: 'center', alignItems: 'center', borderRadius: radius.md, backgroundColor: colors.canvasMuted },
   copy: { ...typography.supporting, color: colors.textMuted, textAlign: 'center' },

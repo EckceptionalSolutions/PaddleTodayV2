@@ -2,7 +2,8 @@ import MaterialCommunityIcons from '@expo/vector-icons/MaterialCommunityIcons';
 import { Pressable, StyleSheet, Text, useWindowDimensions, View } from 'react-native';
 import { MotionPhotoBackground } from './motion-photo-background';
 import { useRoutePhoto } from '../hooks/use-route-photo';
-import { colors, radius, spacing } from '../theme/tokens';
+import { radius, spacing, type AppColors } from '../theme/tokens';
+import { useAppTheme, useThemedStyles } from '../theme/theme-provider';
 import { RoutePhotoFallback } from './route-photo-fallback';
 
 interface RoutePhotoCardProps {
@@ -25,6 +26,8 @@ export function RoutePhotoCard({
   showCaption = true,
   onContributePhotos,
 }: RoutePhotoCardProps) {
+  const { colors } = useAppTheme();
+  const styles = useThemedStyles(createStyles);
   const { width: windowWidth } = useWindowDimensions();
   const narrowLayout = windowWidth < 360;
   const { photo, unavailable, onError } = useRoutePhoto(river);
@@ -42,7 +45,7 @@ export function RoutePhotoCard({
         <View style={[styles.placeholderBadge, compact ? styles.placeholderBadgeCompact : null]}>
           <MaterialCommunityIcons
             name="image"
-            color={colors.surfaceStrong}
+            color={colors.onImage}
             size={compact ? 13 : 14}
           />
           <Text style={[styles.placeholderBadgeText, compact ? styles.placeholderBadgeTextCompact : null]}>
@@ -73,7 +76,7 @@ export function RoutePhotoCard({
   );
 }
 
-const styles = StyleSheet.create({
+const createStyles = (colors: AppColors) => StyleSheet.create({
   photo: {
     borderRadius: radius.lg,
     overflow: 'hidden',
@@ -99,14 +102,14 @@ const styles = StyleSheet.create({
     paddingRight: spacing.md,
   },
   captionKicker: {
-    color: colors.surfaceStrong,
+    color: colors.onImage,
     fontSize: 11,
     fontWeight: '900',
     textTransform: 'uppercase',
     letterSpacing: 0.4,
   },
   captionTitle: {
-    color: colors.surfaceStrong,
+    color: colors.onImage,
     fontSize: 22,
     lineHeight: 27,
     fontWeight: '900',
@@ -132,7 +135,7 @@ const styles = StyleSheet.create({
     paddingHorizontal: 9,
   },
   placeholderBadgeText: {
-    color: colors.surfaceStrong,
+    color: colors.onImage,
     fontSize: 11,
     fontWeight: '900',
     textTransform: 'uppercase',
@@ -161,7 +164,7 @@ const styles = StyleSheet.create({
   },
   contributeText: {
     flexShrink: 1,
-    color: colors.surfaceStrong,
+    color: colors.onImage,
     fontSize: 12,
     fontWeight: '900',
   },

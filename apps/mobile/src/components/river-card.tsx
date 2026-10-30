@@ -5,7 +5,8 @@ import { normalizeApiText } from '../lib/format';
 import { routeDecisionPresentation } from '../lib/map-decision';
 import { useRoutePhoto } from '../hooks/use-route-photo';
 import { compactPaddleTime, routeDecisionLine, routePreviewFactItems } from '../lib/route-facts';
-import { colors, radius, spacing } from '../theme/tokens';
+import { radius, spacing, type AppColors } from '../theme/tokens';
+import { useAppTheme, useThemedStyles } from '../theme/theme-provider';
 import { QualityPill } from './rating-pill';
 import { SaveToggleButton } from './save-toggle-button';
 import { RoutePhotoFallback } from './route-photo-fallback';
@@ -35,6 +36,8 @@ export function RiverCard({
   segmentEndpointLabel?: string;
   routeCount?: number;
 }) {
+  const { colors } = useAppTheme();
+  const styles = useThemedStyles(createStyles);
   const decision = routeDecisionPresentation(river);
   const facts = routePreviewFactItems(river.river, {
     includeNoCamping: true,
@@ -114,6 +117,7 @@ export function RiverCard({
 }
 
 function RouteCardPhoto({ river }: { river: RiverSummaryApiItem }) {
+  const styles = useThemedStyles(createStyles);
   const { photo, unavailable, onError } = useRoutePhoto(river.river);
   if (unavailable) {
     return <View style={styles.photo}><RoutePhotoFallback compact label="Photo unavailable" /></View>;
@@ -131,10 +135,10 @@ function RouteCardPhoto({ river }: { river: RiverSummaryApiItem }) {
   );
 }
 
-const styles = StyleSheet.create({
-  changeNotice: { padding: 12, backgroundColor: '#edf5f3', borderRadius: 8, gap: 4 },
-  changeTitle: { color: '#234c49', fontSize: 12, fontWeight: '700' },
-  changeText: { color: '#234c49', fontSize: 13, lineHeight: 19 },
+const createStyles = (colors: AppColors) => StyleSheet.create({
+  changeNotice: { padding: 12, backgroundColor: colors.accentSoft, borderRadius: 8, gap: 4 },
+  changeTitle: { color: colors.accentDeep, fontSize: 12, fontWeight: '700' },
+  changeText: { color: colors.accentDeep, fontSize: 13, lineHeight: 19 },
   card: {
     backgroundColor: colors.surfaceStrong,
     borderRadius: radius.lg,
@@ -168,7 +172,7 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
   },
   photoBadgeText: {
-    color: colors.surfaceStrong,
+    color: colors.onImage,
     fontSize: 10,
     fontWeight: '900',
     textTransform: 'uppercase',
@@ -272,7 +276,7 @@ const styles = StyleSheet.create({
   },
   warningRow: {
     borderRadius: radius.md,
-    backgroundColor: '#F3E8CC',
+    backgroundColor: colors.fairSoft,
     paddingHorizontal: spacing.sm,
     paddingVertical: spacing.sm,
     gap: 2,

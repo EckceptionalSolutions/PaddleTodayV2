@@ -107,7 +107,8 @@ import { androidBottomInset } from '../lib/safe-area';
 import { useAlertPreferences } from '../providers/alert-preferences-provider';
 import { useSavedRivers } from '../providers/saved-rivers-provider';
 import { useRecentRoute } from '../hooks/use-recent-route';
-import { colors, radius, spacing } from '../theme/tokens';
+import { radius, spacing, type AppColors } from '../theme/tokens';
+import { useAppTheme, useThemedStyles } from '../theme/theme-provider';
 
 const DETAIL_SECTIONS = ['Today', 'Access', 'Reports', 'More'] as const;
 const ANDROID_NAV_CONTROL_MIN_INSET = 96;
@@ -128,6 +129,8 @@ type GaugeBandVisualModel = {
 };
 
 export default function RiverDetailScreen() {
+  const { colors } = useAppTheme();
+  const styles = useThemedStyles(createStyles);
   const reducedMotion = useReducedMotion();
   const { width: windowWidth } = useWindowDimensions();
   const compactHeader = windowWidth < 480;
@@ -758,10 +761,10 @@ export default function RiverDetailScreen() {
                 <Text style={styles.planningHeroMark}>—</Text>
               </View>
             ) : (
-              <View style={[styles.heroScore, { backgroundColor: decisionColors(detail.rating, decisionReadiness).backgroundColor }]}>
+              <View style={[styles.heroScore, { backgroundColor: decisionColors(detail.rating, decisionReadiness, colors).backgroundColor }]}>
                 <MaterialCommunityIcons
                   name={verdictIconForDecision(detail.rating, decisionReadiness)}
-                  color={decisionColors(detail.rating, decisionReadiness).textColor}
+                  color={decisionColors(detail.rating, decisionReadiness, colors).textColor}
                   size={28}
                 />
               </View>
@@ -892,7 +895,7 @@ export default function RiverDetailScreen() {
                     value={detail.gauge ? formatGaugeValue(detail.gauge.current, detail.gauge.unit) : detail.gaugeBandLabel}
                     subvalue={detail.gauge ? detail.gaugeBandLabel : 'No current reading'}
                     detail={normalizeApiText(effectiveLiveData.gauge.detail)}
-                    tone={conditionToneForStatus(checklistStatusForLabel(checklist, 'Gauge window'))}
+                    tone={conditionToneForStatus(checklistStatusForLabel(checklist, 'Gauge window'), styles)}
                   />
                   <GaugeBandCard detail={detail} />
                   <ConditionRow
@@ -901,7 +904,7 @@ export default function RiverDetailScreen() {
                     value={trendValue(detail)}
                     subvalue={trendSubvalue(detail)}
                     detail=""
-                    tone={conditionToneForStatus(checklistStatusForLabel(checklist, 'Trend check'))}
+                    tone={conditionToneForStatus(checklistStatusForLabel(checklist, 'Trend check'), styles)}
                   />
                   <ConditionRow
                     icon="weather-partly-cloudy"
@@ -909,7 +912,7 @@ export default function RiverDetailScreen() {
                     value={readiness.weather.compactValue}
                     subvalue={readiness.weather.conditionLabel}
                     detail={normalizeApiText(effectiveLiveData.weather.detail)}
-                    tone={conditionToneForStatus(checklistStatusForLabel(checklist, 'Weather window'))}
+                    tone={conditionToneForStatus(checklistStatusForLabel(checklist, 'Weather window'), styles)}
                   />
                   <WeatherDecisionCard view={weatherView} refreshing={detailQuery.isFetching} onRefresh={() => void refreshRouteConditions()} />
                 </View>
@@ -1303,6 +1306,8 @@ function RouteDetailLoadingState({ river, bottomInset }: {
   river?: RiverSummaryApiItem['river'];
   bottomInset: number;
 }) {
+  const { colors } = useAppTheme();
+  const styles = useThemedStyles(createStyles);
   const router = useRouter();
   const compactHeader = useWindowDimensions().width < 480;
   const actionCount = river?.scoreEligibility === 'planning' ? 2 : 3;
@@ -1341,7 +1346,7 @@ function RouteDetailLoadingState({ river, bottomInset }: {
   );
 }
 
-function decisionSummaryItems(detail: RiverDetailApiResult) {
+function decisionSummaryItems(detail: RiverDetailApiResult, styles: ReturnType<typeof createStyles>) {
   const checklistByLabel = new Map(detail.checklist.map((item) => [item.label, item]));
   const warnings = detail.checklist.filter((item) => item.status !== 'go');
   const working = detail.checklist.filter((item) => item.status === 'go');
@@ -1352,13 +1357,13 @@ function decisionSummaryItems(detail: RiverDetailApiResult) {
     ? {
         label: gatedReadiness.status === 'withheld' ? 'Why no call' : gatedReadiness.status === 'skip' ? 'Why skip' : 'Why watch',
         text: normalizeApiText(gatedReadiness.reason),
-        tone: conditionToneForStatus(gatedReadiness.status === 'skip' ? 'skip' : 'watch'),
+        tone: conditionToneForStatus(gatedReadiness.status === 'skip' ? 'skip' : 'watch', styles),
       }
     : firstWarning
     ? {
         label: 'Cautions',
         text: normalizeApiText(firstWarning.detail),
-        tone: conditionToneForStatus(firstWarning.status),
+        tone: conditionToneForStatus(firstWarning.status, styles),
       }
     : {
         label: 'Weather check',
@@ -1370,7 +1375,7 @@ function decisionSummaryItems(detail: RiverDetailApiResult) {
     {
       label: 'Pros',
       text: normalizeApiText(primaryWorking?.detail ?? detail.explanation),
-      tone: conditionToneForStatus(primaryWorking?.status ?? 'watch'),
+      tone: conditionToneForStatus(primaryWorking?.status ?? 'watch', styles),
     },
     conditionItem,
   ].filter((item) => item.text.trim().length > 0);
@@ -1469,7 +1474,7 @@ function checklistStatusForLabel(checklist: DecisionChecklistItem[], label: stri
   return checklist.find((item) => item.label === label)?.status ?? 'watch';
 }
 
-function conditionToneForStatus(status: DecisionChecklistItem['status']) {
+function conditionToneForStatus(status: DecisionChecklistItem['status'], styles: ReturnType<typeof createStyles>) {
   if (status === 'go') return styles.conditionGood;
   if (status === 'watch') return styles.conditionWatch;
   return styles.conditionSkip;
@@ -1498,6 +1503,7 @@ function conditionFreshnessText(detail: RiverDetailApiResult) {
 }
 
 function DecisionSummary({ detail, stale = false }: { detail: RiverDetailApiResult; stale?: boolean }) {
+  const styles = useThemedStyles(createStyles);
   const [showPrevious, setShowPrevious] = useState(false);
   if (stale) return <View style={styles.decisionSummary}>
     <Text style={styles.decisionSummaryLabel}>Saved conditions</Text>
@@ -1509,7 +1515,7 @@ function DecisionSummary({ detail, stale = false }: { detail: RiverDetailApiResu
     </Pressable>
     {showPrevious ? <Text style={styles.decisionBulletText}>{normalizeApiText(detail.explanation)}</Text> : null}
   </View>;
-  const items = decisionSummaryItems(detail).slice(0, 2);
+  const items = decisionSummaryItems(detail, styles).slice(0, 2);
   return (
     <View style={styles.decisionSummary}>
       <Text style={styles.decisionSummaryLabel}>Why this call</Text>
@@ -1529,6 +1535,8 @@ function DecisionSummary({ detail, stale = false }: { detail: RiverDetailApiResu
 }
 
 function ScoreExplanationCard({ breakdown, isStale, unavailable }: { breakdown: ScoreBreakdown; isStale: boolean; unavailable: boolean }) {
+  const { colors } = useAppTheme();
+  const styles = useThemedStyles(createStyles);
   const reducedMotion = useReducedMotion();
   const [expanded, setExpanded] = useState(false);
   const model = buildScoreBreakdownViewModel(breakdown);
@@ -1569,7 +1577,7 @@ function ScoreExplanationCard({ breakdown, isStale, unavailable }: { breakdown: 
             {model.rows.map((row) => (
               <View key={row.key} style={styles.scoreWhyRow}>
                 <Text style={styles.scoreWhyLabel}>{labels[row.key]}</Text>
-                <Text style={[styles.scoreWhyValue, scoreBreakdownValueTone(row.value)]}>{signedPoints(row.value)}</Text>
+                <Text style={[styles.scoreWhyValue, scoreBreakdownValueTone(row.value, colors)]}>{signedPoints(row.value)}</Text>
               </View>
             ))}
           </MotionReveal>
@@ -1599,7 +1607,7 @@ function routeSourceLabels(detail: RiverDetailApiResult) {
   return [detail.river.gaugeSource.display.shortLabel || detail.river.gaugeSource.display.label];
 }
 
-function scoreBreakdownValueTone(value: number) {
+function scoreBreakdownValueTone(value: number, colors: AppColors) {
   if (value > 0) {
     return { color: colors.accentDeep };
   }
@@ -1626,10 +1634,12 @@ function ConditionRow({
   detail: string;
   tone: object;
 }) {
+  const { colors } = useAppTheme();
+  const styles = useThemedStyles(createStyles);
   return (
     <View style={styles.conditionRow}>
       <View style={[styles.conditionIcon, tone]}>
-        <MaterialCommunityIcons name={icon} color={colors.surfaceStrong} size={18} />
+        <MaterialCommunityIcons name={icon} color={colors.onAccent} size={18} />
       </View>
       <View style={styles.conditionCopy}>
         <Text style={styles.conditionLabel}>{label}</Text>
@@ -1642,7 +1652,8 @@ function ConditionRow({
 }
 
 function GaugeBandCard({ detail }: { detail: RiverDetailApiResult }) {
-  const model = gaugeBandVisualModel(detail);
+  const styles = useThemedStyles(createStyles);
+  const model = gaugeBandVisualModel(detail, styles);
 
   if (!model) {
     return null;
@@ -1694,6 +1705,8 @@ function GaugeBandCard({ detail }: { detail: RiverDetailApiResult }) {
 }
 
 function GaugeSourceActions({ detail }: { detail: RiverDetailApiResult }) {
+  const { colors } = useAppTheme();
+  const styles = useThemedStyles(createStyles);
   const sourceUrl = detail.river.gaugeSource.detailUrl;
   const hydrographUrl = detail.river.gaugeSource.hydrographUrl;
 
@@ -1728,6 +1741,8 @@ function GaugeSourceActions({ detail }: { detail: RiverDetailApiResult }) {
 }
 
 function RouteSafetyPanel({ detail }: { detail: RiverDetailApiResult }) {
+  const { colors } = useAppTheme();
+  const styles = useThemedStyles(createStyles);
   const reducedMotion = useReducedMotion();
   const profile = detail.river.safetyProfile;
   const safetyModel = buildRouteSafetyViewModel(profile, {
@@ -1751,7 +1766,7 @@ function RouteSafetyPanel({ detail }: { detail: RiverDetailApiResult }) {
       >
         <MaterialCommunityIcons
           name={advanced ? 'alert-octagon-outline' : caution ? 'alert-outline' : 'shield-check-outline'}
-          color={advanced ? colors.noGo : caution ? '#9A5F19' : colors.accent}
+          color={advanced ? colors.noGo : caution ? colors.fair : colors.accent}
           size={20}
         />
         <View style={styles.safetyHeaderText}>
@@ -1760,7 +1775,7 @@ function RouteSafetyPanel({ detail }: { detail: RiverDetailApiResult }) {
         </View>
         <MotionChevron
           expanded={expanded}
-          color={advanced ? colors.noGo : caution ? '#9A5F19' : colors.accent}
+          color={advanced ? colors.noGo : caution ? colors.fair : colors.accent}
           size={20}
         />
       </Pressable>
@@ -1784,6 +1799,8 @@ function RouteSafetyPanel({ detail }: { detail: RiverDetailApiResult }) {
 }
 
 function RouteBasicsCard({ detail }: { detail: RiverDetailApiResult }) {
+  const { colors } = useAppTheme();
+  const styles = useThemedStyles(createStyles);
   const basics = [
     { label: 'Paddle time', value: compactPaddleTime(detail.river.estimatedPaddleTime) || 'Not tracked', icon: 'clock-outline' },
     { label: 'Difficulty', value: capitalize(detail.river.profile.difficulty), icon: 'waves' },
@@ -1809,6 +1826,7 @@ function RouteBasicsCard({ detail }: { detail: RiverDetailApiResult }) {
 }
 
 function AboutRouteCard({ detail }: { detail: RiverDetailApiResult }) {
+  const styles = useThemedStyles(createStyles);
   const logistics = detail.river.logistics;
 
   return (
@@ -1831,6 +1849,7 @@ function AboutRouteCard({ detail }: { detail: RiverDetailApiResult }) {
 }
 
 function LogisticsPanel({ title, body }: { title: string; body: string }) {
+  const styles = useThemedStyles(createStyles);
   return (
     <View style={styles.logisticsPanel}>
       <View style={styles.logisticsPanelHeader}>
@@ -1853,6 +1872,7 @@ function LogisticsBulletList({
   empty: string;
   tone?: 'normal' | 'warning';
 }) {
+  const styles = useThemedStyles(createStyles);
   const visibleItems = items.map(normalizeApiText).filter(Boolean);
 
   return (
@@ -1878,6 +1898,7 @@ function LogisticsBulletList({
 }
 
 function LogisticsIcon({ title, warning = false }: { title: string; warning?: boolean }) {
+  const { colors } = useAppTheme();
   return (
     <MaterialCommunityIcons
       name={logisticsIconName(title) as never}
@@ -1888,6 +1909,8 @@ function LogisticsIcon({ title, warning = false }: { title: string; warning?: bo
 }
 
 function TripPlanningCard({ detail }: { detail: RiverDetailApiResult }) {
+  const { colors } = useAppTheme();
+  const styles = useThemedStyles(createStyles);
   const logistics = buildRiverDetailLogisticsViewModel(detail.river.logistics);
   const rows = [
     { label: 'Shuttle', value: logistics.compactShuttle, icon: 'car' },
@@ -1912,6 +1935,8 @@ function TripPlanningCard({ detail }: { detail: RiverDetailApiResult }) {
 }
 
 function OutlookRows({ outlooks, isStale }: { outlooks: RiverOutlook[]; isStale: boolean }) {
+  const { colors } = useAppTheme();
+  const styles = useThemedStyles(createStyles);
   if (outlooks.length === 0) {
     return <Text style={styles.emptyText}>No forecasts are available for this route yet.</Text>;
   }
@@ -1927,9 +1952,9 @@ function OutlookRows({ outlooks, isStale }: { outlooks: RiverOutlook[]; isStale:
                 {outlook.availability === 'available' ? isStale ? 'Saved forecast' : 'Available' : 'No forecast'}
               </Text>
             </View>
-            <View style={[styles.outlookScore, !isStale && outlook.rating ? ratingBackground(outlook.rating) : styles.outlookScoreMuted]}>
-              <Text style={[styles.outlookScoreValue, !isStale && outlook.rating ? { color: ratingColors(outlook.rating).textColor } : null]}>{outlook.scoreRange ? `${outlook.scoreRange.min}-${outlook.scoreRange.max}` : (outlook.score ?? '--')}</Text>
-              <Text style={[styles.outlookScoreLabel, !isStale && outlook.rating ? { color: ratingColors(outlook.rating).textColor } : null]}>
+            <View style={[styles.outlookScore, !isStale && outlook.rating ? ratingBackground(outlook.rating, colors) : styles.outlookScoreMuted]}>
+              <Text style={[styles.outlookScoreValue, !isStale && outlook.rating ? { color: ratingColors(outlook.rating, colors).textColor } : null]}>{outlook.scoreRange ? `${outlook.scoreRange.min}-${outlook.scoreRange.max}` : (outlook.score ?? '--')}</Text>
+              <Text style={[styles.outlookScoreLabel, !isStale && outlook.rating ? { color: ratingColors(outlook.rating, colors).textColor } : null]}>
                 {isStale ? 'Saved forecast score' : outlook.rating
                   ? `${callForRating(outlook.rating, outlook.id === 'weekend' ? 'weekend' : 'today', true)} · ${qualityForRating(outlook.rating)}`
                   : 'No forecast yet'}
@@ -1950,6 +1975,7 @@ function OutlookRows({ outlooks, isStale }: { outlooks: RiverOutlook[]; isStale:
 }
 
 function HourlyWeatherStrip({ view }: { view: ReturnType<typeof currentWeatherView> }) {
+  const styles = useThemedStyles(createStyles);
   const { fontScale } = useWindowDimensions();
   const [expandedTime, setExpandedTime] = useState<string | null>(null);
   const points = (view.weather?.todayHourly ?? []).slice(0, 10);
@@ -2000,6 +2026,8 @@ function compactWeatherDescription(value: string) {
 }
 
 function WeatherDecisionCard({ view, refreshing, onRefresh }: { view: ReturnType<typeof currentWeatherView>; refreshing: boolean; onRefresh: () => void }) {
+  const { colors } = useAppTheme();
+  const styles = useThemedStyles(createStyles);
   const model = buildHourlyWeatherTimingViewModel(view.weather);
 
   if (!model) {
@@ -2010,7 +2038,7 @@ function WeatherDecisionCard({ view, refreshing, onRefresh }: { view: ReturnType
     </View>;
   }
 
-  const badge = mobileWeatherDecisionBadge(model);
+  const badge = mobileWeatherDecisionBadge(model, styles);
 
   return (
     <View style={styles.weatherDecisionPanel}>
@@ -2020,7 +2048,7 @@ function WeatherDecisionCard({ view, refreshing, onRefresh }: { view: ReturnType
           <Text style={styles.weatherDecisionTitle}>{view.reference ? 'Current paddle window unavailable' : model.title}</Text>
         </View>
         <View style={[styles.weatherDecisionBadge, view.reference ? { backgroundColor: colors.textMuted } : badge.style]}>
-          <MaterialCommunityIcons name={view.reference ? 'history' : badge.icon} color={colors.surfaceStrong} size={15} />
+          <MaterialCommunityIcons name={view.reference ? 'history' : badge.icon} color={colors.onAccent} size={15} />
           <Text style={styles.weatherDecisionBadgeText}>{view.reference ? 'Reference' : model.badgeLabel}</Text>
         </View>
       </View>
@@ -2029,7 +2057,7 @@ function WeatherDecisionCard({ view, refreshing, onRefresh }: { view: ReturnType
       <ScrollView horizontal showsHorizontalScrollIndicator={false} contentContainerStyle={styles.weatherTimeline}>
         {model.points.map((point, index) => {
           const risk = point.risk;
-          const riskVisual = mobileHourlyWeatherRiskVisual(risk);
+          const riskVisual = mobileHourlyWeatherRiskVisual(risk, colors);
           return (
             <View
               key={`${point.time}-${index}`}
@@ -2054,6 +2082,7 @@ function WeatherDecisionCard({ view, refreshing, onRefresh }: { view: ReturnType
 }
 
 function PlanningStatusCard({ detail, referenceWeather }: { detail: RiverDetailApiResult; referenceWeather: boolean }) {
+  const styles = useThemedStyles(createStyles);
   const weather = detail.weather;
   const weatherSummary = weather
     ? [
@@ -2108,6 +2137,7 @@ function PlanningStatusCard({ detail, referenceWeather }: { detail: RiverDetailA
 }
 
 function GaugeTrendChart({ detail }: { detail: RiverDetailApiResult }) {
+  const styles = useThemedStyles(createStyles);
   const chartRef = useRef<ScrollView>(null);
   const { fontScale } = useWindowDimensions();
   const unit = detail.gauge?.unit ?? detail.river.gaugeSource.unit;
@@ -2171,6 +2201,7 @@ function GaugeTrendChart({ detail }: { detail: RiverDetailApiResult }) {
 }
 
 function GaugeSummaryPill({ label, value }: { label: string; value: string }) {
+  const styles = useThemedStyles(createStyles);
   return (
     <View style={styles.gaugeSummaryPill}>
       <Text style={styles.gaugeSummaryLabel}>{label}</Text>
@@ -2180,6 +2211,7 @@ function GaugeSummaryPill({ label, value }: { label: string; value: string }) {
 }
 
 function MetricPill({ label, value }: { label: string; value: string }) {
+  const styles = useThemedStyles(createStyles);
   return (
     <View style={styles.metricPill}>
       <Text style={styles.metricPillLabel} numberOfLines={1}>{label}</Text>
@@ -2201,6 +2233,8 @@ function HeroIconButton({
   accessibilityLabel: string;
   onPress: () => void;
 }) {
+  const { colors } = useAppTheme();
+  const styles = useThemedStyles(createStyles);
   return (
     <Pressable
       style={[styles.heroIconButton, selected ? styles.heroIconButtonSelected : null]}
@@ -2212,7 +2246,7 @@ function HeroIconButton({
       accessibilityLabel={accessibilityLabel}
       android_ripple={{ color: colors.canvasMuted, borderless: true }}
     >
-      <MaterialCommunityIcons name={icon as never} size={20} color={selected ? colors.surfaceStrong : colors.accent} />
+      <MaterialCommunityIcons name={icon as never} size={20} color={selected ? colors.onAccent : colors.accent} />
     </Pressable>
   );
 }
@@ -2224,6 +2258,8 @@ function DetailSectionTabs({
   activeSection: DetailSection;
   onSelect: (section: DetailSection) => void;
 }) {
+  const { colors } = useAppTheme();
+  const styles = useThemedStyles(createStyles);
   return (
     <View style={styles.sectionTabs}>
       {DETAIL_SECTIONS.map((section) => {
@@ -2258,6 +2294,7 @@ function AccessCard({
   point: RiverAccessPoint | undefined;
   emptyLabel: string;
 }) {
+  const styles = useThemedStyles(createStyles);
   const url = mapUrlForAccessPoint(point);
 
   return (
@@ -2298,6 +2335,7 @@ function AccessPlanner({
   onPutInChange: (point: RiverRouteAccessPoint) => void;
   onTakeOutChange: (point: RiverRouteAccessPoint) => void;
 }) {
+  const styles = useThemedStyles(createStyles);
   if (points.length <= 2) {
     return null;
   }
@@ -2356,6 +2394,7 @@ function AccessMetrics({
   distanceLabel: string;
   paddleTime?: string;
 }) {
+  const styles = useThemedStyles(createStyles);
   return (
     <>
     <View style={styles.accessMeta}>
@@ -2513,6 +2552,7 @@ function openGaugeSource(detail: RiverDetailApiResult, url: string, target: 'det
 }
 
 function CommunityPhotoCard({ photo }: { photo: ApprovedCommunityPhoto }) {
+  const styles = useThemedStyles(createStyles);
   const imageUrl = resolveApiUrl(photo.src);
   const [failedUrl, setFailedUrl] = useState<string | null>(null);
   const description = normalizeApiText(photo.alt || photo.caption || 'Approved route photo');
@@ -2538,6 +2578,7 @@ function CommunityPhotoCard({ photo }: { photo: ApprovedCommunityPhoto }) {
 }
 
 function CommunityReportCard({ report }: { report: ApprovedTripReport }) {
+  const styles = useThemedStyles(createStyles);
   const metaBits = [formatTripDate(report.tripDate), sentimentLabel(report.sentiment), report.contributorName].filter(Boolean);
 
   return (
@@ -2574,7 +2615,7 @@ function trendSubvalue(detail: RiverDetailApiResult) {
   return '24h change unavailable';
 }
 
-function mobileWeatherDecisionBadge(model: HourlyWeatherTimingViewModel): {
+function mobileWeatherDecisionBadge(model: HourlyWeatherTimingViewModel, styles: ReturnType<typeof createStyles>): {
   icon: keyof typeof MaterialCommunityIcons.glyphMap;
   style: ViewStyle;
 } {
@@ -2590,7 +2631,7 @@ function mobileWeatherDecisionBadge(model: HourlyWeatherTimingViewModel): {
   return { icon: 'alert-circle', style: styles.weatherDecisionBadgeSkip };
 }
 
-function mobileHourlyWeatherRiskVisual(risk: HourlyWeatherRisk): {
+function mobileHourlyWeatherRiskVisual(risk: HourlyWeatherRisk, colors: AppColors): {
   icon: keyof typeof MaterialCommunityIcons.glyphMap;
   color: string;
 } {
@@ -2640,7 +2681,7 @@ function compactGaugeSample(value: number, unit: RiverDetailApiResult['river']['
   return `${rounded}`;
 }
 
-function gaugeBandVisualModel(detail: RiverDetailApiResult): GaugeBandVisualModel | null {
+function gaugeBandVisualModel(detail: RiverDetailApiResult, styles: ReturnType<typeof createStyles>): GaugeBandVisualModel | null {
   const gauge = detail.gauge;
   const unit = detail.river.gaugeSource.unit;
   const { idealMin, idealMax, tooLow, tooHigh, thresholdModel } = detail.river.profile;
@@ -2679,7 +2720,7 @@ function gaugeBandVisualModel(detail: RiverDetailApiResult): GaugeBandVisualMode
     lowLabel: formatGaugeValue(lowEdge, unit),
     idealLabel: 'Target',
     highLabel: formatGaugeValue(highEdge, unit),
-    markerTone: gaugeBandMarkerTone(detail.gaugeBand),
+    markerTone: gaugeBandMarkerTone(detail.gaugeBand, styles),
   };
 }
 
@@ -2711,7 +2752,7 @@ function gaugeBandStatusLabel(detail: RiverDetailApiResult, idealMin: number, id
   return 'Middle of target';
 }
 
-function gaugeBandMarkerTone(gaugeBand: RiverDetailApiResult['gaugeBand']) {
+function gaugeBandMarkerTone(gaugeBand: RiverDetailApiResult['gaugeBand'], styles: ReturnType<typeof createStyles>) {
   if (gaugeBand === 'too-low' || gaugeBand === 'too-high') {
     return styles.conditionSkip;
   }
@@ -2737,8 +2778,8 @@ function logisticsIconName(title: string) {
   return 'information-outline';
 }
 
-function ratingBackground(rating: string) {
-  return { backgroundColor: ratingColors(rating).backgroundColor };
+function ratingBackground(rating: string, colors: AppColors) {
+  return { backgroundColor: ratingColors(rating, colors).backgroundColor };
 }
 
 function capitalize(value: string) {
@@ -2797,7 +2838,7 @@ function ageLabel(value: string) {
   return `${diffMonths}mo ago`;
 }
 
-const styles = StyleSheet.create({
+const createStyles = (colors: AppColors) => StyleSheet.create({
   decisionDisclosure: { minHeight: 44, justifyContent: 'center' },
   loadingPlaceholder: {
     backgroundColor: colors.canvasMuted,
@@ -3023,7 +3064,7 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
   },
   planningPrimaryActionText: {
-    color: colors.surfaceStrong,
+    color: colors.onAccent,
     fontSize: 13,
     fontWeight: '900',
   },
@@ -3247,7 +3288,7 @@ const styles = StyleSheet.create({
     fontWeight: '900',
   },
   sectionTabTextSelected: {
-    color: colors.surfaceStrong,
+    color: colors.onAccent,
   },
   conditionList: {
     gap: spacing.sm,
@@ -3355,7 +3396,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
   gaugeBandCurrentText: {
-    color: colors.surfaceStrong,
+    color: colors.onAccent,
     fontSize: 12,
     fontWeight: '900',
   },
@@ -3374,7 +3415,7 @@ const styles = StyleSheet.create({
     borderRadius: radius.pill,
     backgroundColor: colors.accentSoft,
     borderWidth: 1,
-    borderColor: '#A8C1B7',
+    borderColor: colors.accentBorder,
   },
   gaugeBandMarker: {
     position: 'absolute',
@@ -3500,12 +3541,12 @@ const styles = StyleSheet.create({
     gap: spacing.xs,
   },
   safetyPanelCaution: {
-    borderColor: '#D8A45E',
-    backgroundColor: '#FFF5E5',
+    borderColor: colors.warningBorder,
+    backgroundColor: colors.fairSoft,
   },
   safetyPanelAdvanced: {
-    borderColor: '#D99A86',
-    backgroundColor: '#FBE9E4',
+    borderColor: colors.dangerBorder,
+    backgroundColor: colors.noGoSoft,
   },
   safetyHeader: {
     minHeight: 48,
@@ -3555,8 +3596,8 @@ const styles = StyleSheet.create({
     paddingVertical: 5,
   },
   safetyChipCaution: {
-    borderColor: '#D8A45E',
-    backgroundColor: '#FFF9EF',
+    borderColor: colors.warningBorder,
+    backgroundColor: colors.fairSoft,
   },
   safetyChipText: {
     color: colors.text,
@@ -3565,7 +3606,7 @@ const styles = StyleSheet.create({
     fontWeight: '900',
   },
   safetyChipTextCaution: {
-    color: '#7A5319',
+    color: colors.fair,
   },
   safetyNote: {
     color: colors.textMuted,
@@ -3586,9 +3627,9 @@ const styles = StyleSheet.create({
     gap: spacing.sm,
   },
   logisticsPanelWarning: {
-    backgroundColor: '#F7E9E3',
+    backgroundColor: colors.noGoSoft,
     borderWidth: 1,
-    borderColor: '#E1B8A7',
+    borderColor: colors.dangerBorder,
   },
   logisticsPanelHeader: {
     flexDirection: 'row',
@@ -3735,7 +3776,7 @@ const styles = StyleSheet.create({
     borderRadius: radius.md,
     backgroundColor: colors.accentSoft,
     borderWidth: 1,
-    borderColor: '#BFD6CC',
+    borderColor: colors.accentBorder,
     padding: spacing.md,
     gap: spacing.md,
   },
@@ -3890,7 +3931,7 @@ const styles = StyleSheet.create({
     minHeight: 70,
     borderRadius: radius.md,
     borderWidth: 1,
-    borderColor: '#BFD6CC',
+    borderColor: colors.accentBorder,
     backgroundColor: colors.accentSoft,
     padding: spacing.md,
     flexDirection: 'row',
@@ -4017,7 +4058,7 @@ const styles = StyleSheet.create({
     backgroundColor: colors.accentSoft,
     borderRadius: radius.lg,
     borderWidth: 1,
-    borderColor: '#BFD6CC',
+    borderColor: colors.accentBorder,
     padding: spacing.md,
     flexDirection: 'row',
     alignItems: 'center',
@@ -4044,7 +4085,7 @@ const styles = StyleSheet.create({
     paddingVertical: 11,
   },
   reportCtaButtonText: {
-    color: colors.surfaceStrong,
+    color: colors.onAccent,
     fontSize: 13,
     fontWeight: '900',
   },
@@ -4094,7 +4135,7 @@ const styles = StyleSheet.create({
   },
   weatherCardCurrent: {
     backgroundColor: colors.accentSoft,
-    borderColor: '#BFD6CC',
+    borderColor: colors.accentBorder,
   },
   weatherHour: {
     color: colors.text,
@@ -4173,7 +4214,7 @@ const styles = StyleSheet.create({
     backgroundColor: colors.noGo,
   },
   weatherDecisionBadgeText: {
-    color: colors.surfaceStrong,
+    color: colors.onAccent,
     fontSize: 11,
     fontWeight: '900',
   },
@@ -4194,16 +4235,16 @@ const styles = StyleSheet.create({
     gap: 4,
   },
   weatherTimelineCellCurrent: {
-    borderColor: '#BFD6CC',
+    borderColor: colors.accentBorder,
     backgroundColor: colors.accentSoft,
   },
   weatherTimelineCellWatch: {
     borderColor: 'rgba(138, 106, 42, 0.46)',
-    backgroundColor: '#F7EEDB',
+    backgroundColor: colors.fairSoft,
   },
   weatherTimelineCellSkip: {
     borderColor: 'rgba(140, 74, 54, 0.5)',
-    backgroundColor: '#F5E2D9',
+    backgroundColor: colors.noGoSoft,
   },
   weatherTimelineHour: {
     color: colors.text,
@@ -4278,7 +4319,7 @@ const styles = StyleSheet.create({
     maxWidth: 18,
     minHeight: 14,
     borderRadius: 999,
-    backgroundColor: '#A8C1B7',
+    backgroundColor: colors.accentBorder,
   },
   gaugeBarLatest: {
     backgroundColor: colors.accent,

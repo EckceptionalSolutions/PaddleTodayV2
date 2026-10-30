@@ -5,7 +5,8 @@ import { useReducedMotion } from '../hooks/use-reduced-motion';
 import { alertThresholdLabel } from '../lib/alerts';
 import { useAlertPreferences } from '../providers/alert-preferences-provider';
 import { AlertPreferencesNotice } from './alert-preferences-notice';
-import { colors, radius, spacing } from '../theme/tokens';
+import { radius, spacing, type AppColors } from '../theme/tokens';
+import { useAppTheme, useThemedStyles } from '../theme/theme-provider';
 
 export function AlertSetupSheet({
   visible,
@@ -28,6 +29,8 @@ export function AlertSetupSheet({
   onClose: () => void;
   onNativeAlert: (threshold: RiverAlertThreshold) => void;
 }) {
+  const { colors } = useAppTheme();
+  const styles = useThemedStyles(createStyles);
   const reducedMotion = useReducedMotion();
   const { routeAlerts, isHydrated, loadError } = useAlertPreferences();
   const savedThresholds = isHydrated && !loadError ? (['good', 'strong'] as const).filter(threshold =>
@@ -76,7 +79,7 @@ export function AlertSetupSheet({
                       aria-busy={isPending}
                       onPress={() => onNativeAlert(threshold)}
                     >
-                      <MaterialCommunityIcons name={saved ? "check" : "bell-ring-outline"} color={colors.surfaceStrong} size={16} />
+                      <MaterialCommunityIcons name={saved ? "check" : "bell-ring-outline"} color={colors.onAccent} size={16} />
                       <Text style={styles.alertButtonText}>
                         {isPending ? 'Saving...' : `At ${alertThresholdLabel(threshold)}${saved ? ' · Saved' : ''}`}
                       </Text>
@@ -95,7 +98,7 @@ export function AlertSetupSheet({
 }
 
 
-const styles = StyleSheet.create({
+const createStyles = (colors: AppColors) => StyleSheet.create({
   alertSheetScrim: {
     flex: 1,
     justifyContent: 'flex-end',
@@ -188,7 +191,7 @@ const styles = StyleSheet.create({
     flexShrink: 1,
     textAlign: 'center',
     lineHeight: 18,
-    color: colors.surfaceStrong,
+    color: colors.onAccent,
     fontSize: 13,
     fontWeight: '900',
   },

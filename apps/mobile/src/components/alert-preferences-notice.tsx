@@ -1,9 +1,11 @@
 import { StyleSheet, Text, View } from 'react-native';
 import { useAlertPreferences } from '../providers/alert-preferences-provider';
-import { colors, radius, spacing } from '../theme/tokens';
+import { radius, spacing, type AppColors } from '../theme/tokens';
+import { useThemedStyles } from '../theme/theme-provider';
 import { AppButton } from './app-button';
 
 export function AlertPreferencesNotice() {
+  const styles = useThemedStyles(createStyles);
   const { loadError, saveError, busy, retryStorage } = useAlertPreferences();
   if (!loadError && !saveError) return null;
   return <View style={styles.notice}>
@@ -19,7 +21,7 @@ export function AlertPreferencesNotice() {
       busy={busy} busyLabel="Retrying…" variant="secondary" onPress={() => void retryStorage()} />
   </View>;
 }
-const styles = StyleSheet.create({
+const createStyles = (colors: AppColors) => StyleSheet.create({
   notice: { padding: spacing.md, gap: spacing.sm, backgroundColor: colors.canvasMuted, borderColor: colors.border, borderWidth: 1, borderRadius: radius.md },
   title: { color: colors.text, fontSize: 15, lineHeight: 20, fontWeight: '800' },
   body: { color: colors.textMuted, fontSize: 13, lineHeight: 19 },

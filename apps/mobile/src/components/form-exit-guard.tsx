@@ -3,12 +3,14 @@ import { useEffect, useState } from 'react';
 import { Keyboard, Modal, ScrollView, StyleSheet, Text, View } from 'react-native';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import { useReducedMotion } from '../hooks/use-reduced-motion';
-import { colors, radius, spacing, typography } from '../theme/tokens';
+import { radius, spacing, typography, type AppColors } from '../theme/tokens';
+import { useThemedStyles } from '../theme/theme-provider';
 import { AppButton } from './app-button';
 
 export function FormExitGuard({ hasChanges, busy, title, message, stayLabel }: {
   hasChanges: boolean; busy: boolean; title: string; message?: string; stayLabel?: string;
 }) {
+  const styles = useThemedStyles(createStyles);
   const navigation = useNavigation();
   const insets = useSafeAreaInsets();
   const reducedMotion = useReducedMotion();
@@ -42,7 +44,7 @@ export function FormExitGuard({ hasChanges, busy, title, message, stayLabel }: {
   </Modal>;
 }
 
-const styles = StyleSheet.create({
+const createStyles = (colors: AppColors) => StyleSheet.create({
   scrim: { flex: 1, paddingHorizontal: spacing.md, justifyContent: 'center', alignItems: 'center', backgroundColor: 'rgba(0,0,0,0.4)' },
   sheet: { width: '100%', maxWidth: 480, maxHeight: '100%', flexGrow: 0, borderRadius: radius.lg, backgroundColor: colors.surfaceStrong },
   content: { padding: spacing.lg, gap: spacing.md },

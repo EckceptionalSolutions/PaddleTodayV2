@@ -1,12 +1,14 @@
 import { WebReady } from '../src/components/web-ready';
 import { SectionCard } from '../src/components/section-card';
 import { ScrollView, StyleSheet, Text } from 'react-native';
-import { colors, spacing } from '../src/theme/tokens';
+import { spacing, type AppColors } from '../src/theme/tokens';
+import { useThemedStyles } from '../src/theme/theme-provider';
 import { AppButton } from '../src/components/app-button';
 import { openExternalUrl } from '../src/lib/external-links';
 import { resolveWebUrl } from '../src/lib/api-base-url';
 
 export default function AccountWebScreen() {
+  const styles = useThemedStyles(createStyles);
   return <WebReady title="Account">
     <ScrollView contentContainerStyle={styles.page}>
       <SectionCard title="Welcome to PaddleToday" subtitle="Your next paddle starts here.">
@@ -17,7 +19,7 @@ export default function AccountWebScreen() {
   </WebReady>;
 }
 
-const styles = StyleSheet.create({
+const createStyles = (colors: AppColors) => StyleSheet.create({
   page: { padding: spacing.md },
   body: { color: colors.textMuted, fontSize: 15, lineHeight: 22 },
 });

@@ -14,7 +14,8 @@ import { tripSession, subscribeTripSession, TRIP_RETURN_KEY } from '../lib/trip-
 import { resolveApiBaseUrl, resolveWebUrl } from '../lib/api-base-url';
 import { AppButton } from '../components/app-button';
 import { SectionCard } from '../components/section-card';
-import { colors, radius, shadow, spacing, typography } from '../theme/tokens';
+import { radius, shadowForColors, spacing, typography, type AppColors } from '../theme/tokens';
+import { useAppTheme, useThemedStyles } from '../theme/theme-provider';
 import { apiClient } from '../api/client';
 import { tripDeviceStorage } from '../lib/trip-device-storage';
 import { useExploreCatalogQuery } from '../api/queries';
@@ -40,6 +41,8 @@ import { tripNotes, withTripNotes } from '@paddletoday/api-contract';
 
 const emptyWater = () => ({ gaugeId: '', gaugeName: '', value: '', unit: '', measuredAt: '', source: '', note: '' });
 export default function TripsScreen() {
+  const { colors } = useAppTheme();
+  const styles = useThemedStyles(createStyles);
   const params = useLocalSearchParams<{ id?: string; invite?: string; view?: string; route?: string; name?: string }>();
   const insets = useSafeAreaInsets();
   const headerHeight = useHeaderHeight();
@@ -699,6 +702,8 @@ export default function TripsScreen() {
   </>;
 }
 function TripsHero({ compact, showTitle = true, lastSync, pendingCount }: { compact: boolean; showTitle?: boolean; lastSync?: string | number | null; pendingCount: number }) {
+  const { colors } = useAppTheme();
+  const styles = useThemedStyles(createStyles);
   const syncLabel = pendingCount
     ? `${pendingCount} saved change${pendingCount === 1 ? '' : 's'} waiting to sync`
     : lastSync
@@ -725,6 +730,7 @@ function TripTabs({ tab, upcomingCount, pastCount, onSelect }: {
   pastCount: number;
   onSelect: (next: 'upcoming' | 'past') => void;
 }) {
+  const styles = useThemedStyles(createStyles);
   return <View style={styles.segmentedTabs}>
     {([
       { id: 'upcoming', label: 'Plans', count: upcomingCount },
@@ -746,6 +752,8 @@ function TripTabs({ tab, upcomingCount, pastCount, onSelect }: {
 }
 
 function UpcomingTripCard({ trip, unread, onOpen }: { trip: Trip; unread: boolean; onOpen: () => void }) {
+  const { colors } = useAppTheme();
+  const styles = useThemedStyles(createStyles);
   return <View style={styles.tripCard}>
     <View style={styles.cardTopline}>
       <MetaPill icon="calendar-month-outline" label={`${readableTripDate(trip.date)}${trip.launch ? ` · ${trip.launch}` : ''}`} />
@@ -768,6 +776,8 @@ function UpcomingTripCard({ trip, unread, onOpen }: { trip: Trip; unread: boolea
 }
 
 function PastTripCard({ trip, onOpen, onLog }: { trip: Trip; onOpen: () => void; onLog: () => void }) {
+  const { colors } = useAppTheme();
+  const styles = useThemedStyles(createStyles);
   const status = trip.status === 'cancelled' ? 'Cancelled' : 'Completed';
   return <View style={styles.tripCard}>
     <View style={styles.cardTopline}>
@@ -788,6 +798,8 @@ function PastTripCard({ trip, onOpen, onLog }: { trip: Trip; onOpen: () => void;
 }
 
 function PaddleLogCard({ log, repo, onOpen, onPlanAgain }: { log: PaddleLogInput & { id: string; photos: { id: string }[] }; repo: NonNullable<ReturnType<typeof tripSession>>; onOpen: () => void; onPlanAgain: () => void }) {
+  const { colors } = useAppTheme();
+  const styles = useThemedStyles(createStyles);
   return <View style={styles.tripCard}>
     <View style={styles.cardTopline}>
       <MetaPill icon="notebook-outline" label={readableTripDate(log.date)} />
@@ -806,6 +818,8 @@ function PaddleLogCard({ log, repo, onOpen, onPlanAgain }: { log: PaddleLogInput
 }
 
 function MetaPill({ icon, label }: { icon: ComponentProps<typeof MaterialCommunityIcons>['name']; label: string }) {
+  const { colors } = useAppTheme();
+  const styles = useThemedStyles(createStyles);
   return <View style={styles.metaPill}>
     <MaterialCommunityIcons name={icon} size={15} color={colors.accentDeep} />
     <Text style={styles.metaPillText}>{label}</Text>
@@ -819,6 +833,8 @@ function TripsEmptyState({ icon, title, body, actionLabel, onAction }: {
   actionLabel?: string;
   onAction?: () => void;
 }) {
+  const { colors } = useAppTheme();
+  const styles = useThemedStyles(createStyles);
   return <View style={styles.emptyCard}>
     <View style={styles.emptyIcon}><MaterialCommunityIcons name={icon} size={28} color={colors.accentDeep} /></View>
     <Text style={styles.emptyTitle}>{title}</Text>
@@ -844,9 +860,11 @@ function ScheduleField({ label, value, onChange, disabled, optional = false, dat
   return <TripTimeField label={label} manualLabel={`${label} (${dateOnly ? 'YYYY-MM-DD' : 'YYYY-MM-DD HH:MM'})`} value={value} onChange={onChange} editable={!disabled} inputRef={inputRef} optional={optional} dateOnly={dateOnly} />;
 }
 function Field({ label, value, onChange, placeholder, multiline = false, keyboardType, disabled = false }: { label: string; value: string; onChange: (v: string) => void; placeholder?: string; multiline?: boolean; keyboardType?: 'number-pad'; disabled?: boolean }) {
+  const { colors } = useAppTheme();
+  const styles = useThemedStyles(createStyles);
   return <View style={styles.field}><Text style={styles.label}>{label}</Text><TextInput editable={!disabled} accessibilityLabel={label} value={value} onChangeText={onChange} placeholder={placeholder} placeholderTextColor={colors.textMuted} multiline={multiline} keyboardType={keyboardType} style={[styles.input, multiline && { minHeight: 100, textAlignVertical: 'top' }]} /></View>;
 }
-const styles = StyleSheet.create({
+const createStyles = (colors: AppColors) => StyleSheet.create({
   page: { padding: spacing.md, paddingTop: 55, paddingBottom: 40, gap: 14, backgroundColor: colors.canvas },
   hero: { paddingVertical: spacing.sm, gap: spacing.sm },
   heroCompact: { paddingVertical: spacing.xs },
@@ -876,13 +894,13 @@ const styles = StyleSheet.create({
   offlineLinkText: { flex: 1, color: colors.accentDeep, fontSize: 13, fontWeight: '800' },
   notice: { flexDirection: 'row', alignItems: 'flex-start', gap: 9, padding: spacing.md, backgroundColor: colors.accentSoft, borderRadius: radius.md, borderWidth: 1, borderColor: colors.border },
   noticeText: { flex: 1, color: colors.text, fontSize: 13, lineHeight: 19 },
-  welcomeCard: { padding: spacing.lg, gap: spacing.sm, borderRadius: radius.lg, borderWidth: 1, borderColor: colors.border, backgroundColor: colors.surfaceStrong, ...shadow },
+  welcomeCard: { padding: spacing.lg, gap: spacing.sm, borderRadius: radius.lg, borderWidth: 1, borderColor: colors.border, backgroundColor: colors.surfaceStrong, ...shadowForColors(colors) },
   welcomeIcon: { width: 50, height: 50, alignItems: 'center', justifyContent: 'center', borderRadius: 17, backgroundColor: colors.accentSoft },
   welcomeTitle: { ...typography.section, color: colors.text, marginTop: 3 },
   welcomeCopy: { ...typography.supporting, color: colors.textMuted },
   welcomeActions: { flexDirection: 'row', flexWrap: 'wrap', gap: spacing.sm, marginTop: spacing.xs },
   welcomeAction: { flexGrow: 1, flexBasis: 135 },
-  startCard: { alignItems: 'flex-start', gap: spacing.sm, padding: spacing.lg, borderRadius: radius.lg, borderWidth: 1, borderColor: colors.border, backgroundColor: colors.surfaceStrong, ...shadow },
+  startCard: { alignItems: 'flex-start', gap: spacing.sm, padding: spacing.lg, borderRadius: radius.lg, borderWidth: 1, borderColor: colors.border, backgroundColor: colors.surfaceStrong, ...shadowForColors(colors) },
   startIcon: { width: 52, height: 52, alignItems: 'center', justifyContent: 'center', borderRadius: 17, backgroundColor: colors.accentSoft },
   startTitle: { ...typography.section, color: colors.text, marginTop: spacing.xs },
   startCopy: { ...typography.supporting, color: colors.textMuted },
@@ -894,21 +912,21 @@ const styles = StyleSheet.create({
   segmentButton: { flex: 1, minHeight: 43, flexDirection: 'row', alignItems: 'center', justifyContent: 'center', gap: 7, paddingHorizontal: 8, borderRadius: radius.md },
   segmentButtonActive: { backgroundColor: colors.accentDeep },
   segmentLabel: { color: colors.textMuted, fontSize: 14, fontWeight: '800' },
-  segmentLabelActive: { color: colors.surfaceStrong },
+  segmentLabelActive: { color: colors.onAccent },
   segmentCount: { minWidth: 21, height: 21, textAlign: 'center', textAlignVertical: 'center', overflow: 'hidden', borderRadius: radius.pill, backgroundColor: colors.canvasMuted, color: colors.textMuted, fontSize: 11, fontWeight: '900' },
-  segmentCountActive: { backgroundColor: 'rgba(255, 255, 255, 0.18)', color: colors.surfaceStrong },
+  segmentCountActive: { backgroundColor: 'rgba(255, 255, 255, 0.18)', color: colors.onAccent },
   field: { gap: 6, marginVertical: 3 },
   recapPrivacy: { flexDirection: 'row', alignItems: 'center', gap: 6 },
   journalIllustration: { minHeight: 74, flexDirection: 'row', alignItems: 'center', gap: spacing.md, borderRadius: radius.md, padding: spacing.md, backgroundColor: colors.accentSoft },
   journalLabel: { ...typography.supporting, color: colors.accentDeep, fontWeight: '700', flexShrink: 1 },
   label: { fontSize: 13, fontWeight: '700', color: colors.textMuted },
   input: { minHeight: 48, paddingHorizontal: 14, paddingVertical: 11, borderWidth: 1, borderColor: colors.border, borderRadius: radius.md, backgroundColor: colors.surfaceStrong, color: colors.text, fontSize: 15 },
-  tripCard: { padding: spacing.md, gap: 10, borderWidth: 1, borderColor: colors.border, borderRadius: radius.lg, backgroundColor: colors.surfaceStrong, ...shadow },
+  tripCard: { padding: spacing.md, gap: 10, borderWidth: 1, borderColor: colors.border, borderRadius: radius.lg, backgroundColor: colors.surfaceStrong, ...shadowForColors(colors) },
   cardTopline: { flexDirection: 'row', flexWrap: 'wrap', alignItems: 'center', justifyContent: 'space-between', gap: 8 },
   metaPill: { maxWidth: '100%', minHeight: 28, flexDirection: 'row', alignItems: 'center', gap: 6, paddingHorizontal: 9, paddingVertical: 5, borderRadius: radius.pill, backgroundColor: colors.accentSoft },
   metaPillText: { flexShrink: 1, color: colors.accentDeep, fontSize: 11, lineHeight: 16, fontWeight: '800' },
-  updatedPill: { paddingHorizontal: 9, paddingVertical: 5, borderRadius: radius.pill, backgroundColor: '#F3E8C9' },
-  updatedText: { color: '#695321', fontSize: 10, fontWeight: '900' },
+  updatedPill: { paddingHorizontal: 9, paddingVertical: 5, borderRadius: radius.pill, backgroundColor: colors.fairSoft },
+  updatedText: { color: colors.fair, fontSize: 10, fontWeight: '900' },
   pastDate: { color: colors.textMuted, fontSize: 11, fontWeight: '700' },
   tripCardTitle: { ...typography.section, color: colors.text, marginTop: 2 },
   tripRiverName: { color: colors.textMuted, fontSize: 13, lineHeight: 18, fontWeight: '700' },

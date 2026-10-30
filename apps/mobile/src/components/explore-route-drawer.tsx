@@ -18,7 +18,8 @@ import { routeDecisionLine } from '../lib/route-facts';
 import { formatPaddleTimeRange } from '../lib/format';
 import { RoutePhotoCard } from './route-photo-card';
 import { decisionColors } from './rating-pill';
-import { colors, radius, spacing } from '../theme/tokens';
+import { radius, spacing, type AppColors } from '../theme/tokens';
+import { useAppTheme, useThemedStyles } from '../theme/theme-provider';
 
 export type MapSheetSnap = 'peek' | 'half' | 'full';
 
@@ -58,6 +59,8 @@ export function ExploreRouteDrawer({
   onContributePhotos,
   onToggleSaved,
 }: ExploreRouteDrawerProps) {
+  const { colors } = useAppTheme();
+  const styles = useThemedStyles(createStyles);
   const { isUpdatingSavedRiver } = useSavedRivers();
   const saving = isUpdatingSavedRiver(selectedRiver.river.slug);
   const { height: windowHeight } = useWindowDimensions();
@@ -69,7 +72,7 @@ export function ExploreRouteDrawer({
   const selectedDirectionsUrl = mapUrlForAccessPoint(selectedPutIn);
   const full = sheetSnap === 'full';
   const decision = routeDecisionPresentation(selectedRiver);
-  const tone = decisionColors(selectedRiver.rating, decision.readiness);
+  const tone = decisionColors(selectedRiver.rating, decision.readiness, colors);
   const segmentLabel = formatRouteSegmentLabel(selectedRiver.segmentSummary ?? null, selectedRiver.selectedSegment ?? null);
   const photo = <RoutePhotoCard key={`photo:${selectedRiver.river.slug}`} river={selectedRiver.river} compact
     height={full ? 86 : 78} onContributePhotos={() => onContributePhotos(selectedRiver.river.slug)} />;
@@ -251,6 +254,8 @@ function DrawerDetailItem({
   label: string;
   value: string;
 }) {
+  const { colors } = useAppTheme();
+  const styles = useThemedStyles(createStyles);
   return (
     <View style={styles.drawerDetailItem}>
       <MaterialCommunityIcons name={icon} color={colors.accent} size={16} />
@@ -372,7 +377,7 @@ function capitalize(value: string) {
   return value.slice(0, 1).toUpperCase() + value.slice(1);
 }
 
-const styles = StyleSheet.create({
+const createStyles = (colors: AppColors) => StyleSheet.create({
   fullMapSheet: {
     bottom: 0,
   },
@@ -525,7 +530,7 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
   },
   mapPreviewOpenText: {
-    color: colors.surfaceStrong,
+    color: colors.onAccent,
     fontSize: 13,
     fontWeight: '900',
   },

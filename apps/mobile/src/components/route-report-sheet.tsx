@@ -20,7 +20,8 @@ import { TripTimeField, type TripTimeFieldHandle } from './trip-time-field';
 import { CharacterCount } from './character-count';
 import type { RouteReportValidationError, RouteReportValidationField } from '../lib/route-report-validation';
 import { useReducedMotion } from '../hooks/use-reduced-motion';
-import { colors, radius, spacing } from '../theme/tokens';
+import { radius, spacing, type AppColors } from '../theme/tokens';
+import { useAppTheme, useThemedStyles } from '../theme/theme-provider';
 
 export interface SelectedReportPhoto {
   id: string;
@@ -102,6 +103,8 @@ export function RouteReportSheet({
   onToggleContactConsent,
   onSubmit,
 }: RouteReportSheetProps) {
+  const { colors } = useAppTheme();
+  const styles = useThemedStyles(createStyles);
   const dateInput = useRef<TripTimeFieldHandle>(null);
   const reducedMotion = useReducedMotion();
   const photoLimitReached = photos.length >= maxPhotos;
@@ -417,6 +420,7 @@ function SentimentPicker({
   disabled: boolean;
   onChange: (value: CreateRouteContributionRequest['tripSentiment']) => void;
 }) {
+  const styles = useThemedStyles(createStyles);
   const options = [
     { value: '', label: 'No rating' },
     { value: 'great', label: 'Great' },
@@ -467,6 +471,7 @@ function ChoicePicker<T extends string>({
   options: ReadonlyArray<{ value: T; label: string }>;
   onChange: (value: T | '') => void;
 }) {
+  const styles = useThemedStyles(createStyles);
   return (
     <View style={styles.choiceGroup} onLayout={onLayout}>
       <Text style={styles.choiceLabel}>{label} *</Text>
@@ -496,7 +501,7 @@ function ChoicePicker<T extends string>({
   );
 }
 
-const styles = StyleSheet.create({
+const createStyles = (colors: AppColors) => StyleSheet.create({
   fieldError: { color: colors.noGo, fontSize: 13, lineHeight: 19 },
   sheetScrim: {
     flex: 1,
@@ -573,7 +578,7 @@ const styles = StyleSheet.create({
     borderRadius: radius.md,
     backgroundColor: colors.accentSoft,
     borderWidth: 1,
-    borderColor: '#BFD6CC',
+    borderColor: colors.accentBorder,
     padding: spacing.md,
     gap: 3,
   },
@@ -644,7 +649,7 @@ const styles = StyleSheet.create({
     opacity: 0.55,
   },
   reportPhotoButtonText: {
-    color: colors.surfaceStrong,
+    color: colors.onAccent,
     fontSize: 13,
     fontWeight: '900',
   },
@@ -735,7 +740,7 @@ const styles = StyleSheet.create({
     borderColor: colors.accent,
   },
   checkboxMark: {
-    color: colors.surfaceStrong,
+    color: colors.onAccent,
     fontSize: 14,
     fontWeight: '900',
   },
@@ -755,7 +760,7 @@ const styles = StyleSheet.create({
     opacity: 0.65,
   },
   reportSubmitText: {
-    color: colors.surfaceStrong,
+    color: colors.onAccent,
     fontSize: 14,
     fontWeight: '900',
   },

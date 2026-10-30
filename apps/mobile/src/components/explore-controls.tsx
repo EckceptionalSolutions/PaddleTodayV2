@@ -1,7 +1,8 @@
 import MaterialCommunityIcons from '@expo/vector-icons/MaterialCommunityIcons';
 import { useRef } from 'react';
 import { Platform, Pressable, ScrollView, StyleSheet, Text, TextInput, View } from 'react-native';
-import { colors, radius, spacing } from '../theme/tokens';
+import { radius, spacing, type AppColors } from '../theme/tokens';
+import { useAppTheme, useThemedStyles } from '../theme/theme-provider';
 
 export type ExploreSort = 'best' | 'nearest' | 'confidence' | 'score' | 'name';
 
@@ -28,6 +29,8 @@ export function ExploreSearchBar({
   onQueryChange: (query: string) => void;
   onSubmit?: () => void;
 }) {
+  const { colors } = useAppTheme();
+  const styles = useThemedStyles(createStyles);
   const inputRef = useRef<TextInput | null>(null);
   return (
     <View style={styles.searchBar}>
@@ -75,6 +78,8 @@ export function ExploreSortFilterBar({
   onFilterPress: () => void;
   onSortChange: (sort: ExploreSort) => void;
 }) {
+  const { colors } = useAppTheme();
+  const styles = useThemedStyles(createStyles);
   const filterActive = activeFilterCount > 0;
 
   return (
@@ -102,7 +107,7 @@ export function ExploreSortFilterBar({
       >
         <MaterialCommunityIcons
           name="tune-variant"
-          color={filterActive ? colors.surfaceStrong : colors.accent}
+          color={filterActive ? colors.onAccent : colors.accent}
           size={18}
         />
         <Text style={[styles.filterButtonText, filterActive ? styles.filterButtonTextActive : null]}>
@@ -122,6 +127,8 @@ export function ChoiceChip({
   selected: boolean;
   onPress: () => void;
 }) {
+  const { colors } = useAppTheme();
+  const styles = useThemedStyles(createStyles);
   return (
     <Pressable
       style={({ pressed }) => [
@@ -166,7 +173,7 @@ function webInputProps(onText: (value: string) => void) {
   };
 }
 
-const styles = StyleSheet.create({
+const createStyles = (colors: AppColors) => StyleSheet.create({
   searchBar: {
     minHeight: 48,
     borderRadius: radius.pill,
@@ -227,13 +234,13 @@ const styles = StyleSheet.create({
     fontWeight: '800',
   },
   filterButtonTextActive: {
-    color: colors.surfaceStrong,
+    color: colors.onAccent,
   },
   choiceChip: {
     minHeight: 44,
     borderRadius: radius.pill,
     borderWidth: 1,
-    borderColor: '#C8BDAB',
+    borderColor: colors.border,
     backgroundColor: colors.surfaceStrong,
     paddingHorizontal: 14,
     alignItems: 'center',
@@ -256,6 +263,6 @@ const styles = StyleSheet.create({
     fontWeight: '800',
   },
   choiceChipTextSelected: {
-    color: colors.surfaceStrong,
+    color: colors.onAccent,
   },
 });

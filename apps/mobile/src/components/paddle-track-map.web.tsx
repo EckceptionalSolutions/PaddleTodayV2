@@ -1,9 +1,11 @@
 import type { PaddleTrack } from '@paddletoday/api-contract';
 import { StyleSheet, Text, View } from 'react-native';
 import { decodePaddleTrackPolylines } from '../lib/paddle-tracking';
-import { colors, radius } from '../theme/tokens';
+import { radius, type AppColors } from '../theme/tokens';
+import { useThemedStyles } from '../theme/theme-provider';
 
 export function PaddleTrackMap({ track, height = 220 }: { track: PaddleTrack; height?: number }) {
+  const styles = useThemedStyles(createStyles);
   const segments = decodePaddleTrackPolylines(track);
   const points = segments.flat();
   if (!points.length) return null;
@@ -31,7 +33,7 @@ export function PaddleTrackMap({ track, height = 220 }: { track: PaddleTrack; he
   </View>;
 }
 
-const styles = StyleSheet.create({
+const createStyles = (colors: AppColors) => StyleSheet.create({
   frame: { height: 220, overflow: 'hidden', borderRadius: radius.md, backgroundColor: colors.canvasMuted, position: 'relative' },
   label: { position: 'absolute', top: 12, left: 14, zIndex: 2, color: colors.textMuted, fontSize: 11, fontWeight: '800', textTransform: 'uppercase' },
   line: { position: 'absolute', height: 4, borderRadius: 2, backgroundColor: colors.accentDeep },

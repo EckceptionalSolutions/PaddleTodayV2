@@ -4,11 +4,13 @@ import { useCallback, useRef, useState } from 'react';
 import { StyleSheet, Text, View } from 'react-native';
 import { listTripDrafts, removeTripDraft, tripDraftKey, type TripDraftRecord } from '../lib/trip-drafts';
 import { parseTripTime } from '../lib/trip-time';
-import { colors, spacing, typography } from '../theme/tokens';
+import { spacing, typography, type AppColors } from '../theme/tokens';
+import { useThemedStyles } from '../theme/theme-provider';
 import { AppButton } from './app-button';
 import { SectionCard } from './section-card';
 
 export function SavedTripDrafts({ routeNames, onResume }: { routeNames: Record<string, string>; onResume: (record: TripDraftRecord) => void }) {
+  const styles = useThemedStyles(createStyles);
   const [records, setRecords] = useState<TripDraftRecord[]>([]);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(false);
@@ -95,7 +97,7 @@ export function SavedTripDrafts({ routeNames, onResume }: { routeNames: Record<s
       onPress={() => { setExpanded(value => !value); setConfirmRemove(null); }} /> : null}
   </SectionCard>;
 }
-const styles = StyleSheet.create({
+const createStyles = (colors: AppColors) => StyleSheet.create({
   draft: { borderTopWidth: 1, borderTopColor: colors.border, paddingTop: spacing.md, gap: spacing.xs },
   name: { ...typography.label, color: colors.text }, body: { ...typography.supporting, color: colors.textMuted },
   actions: { flexDirection: 'row', flexWrap: 'wrap', gap: spacing.sm, marginTop: spacing.xs }, action: { flexGrow: 1, flexBasis: 100 },

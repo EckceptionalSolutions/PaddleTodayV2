@@ -3,13 +3,15 @@ import { SafeAreaProvider, SafeAreaView } from 'react-native-safe-area-context';
 import { useReducedMotion } from '../hooks/use-reduced-motion';
 import type { StoredLocation } from '../lib/location';
 import { routeComparisonFacts, type ComparableRoute, type ComparisonFactGroup } from '../lib/route-comparison';
-import { colors, radius, spacing } from '../theme/tokens';
+import { radius, spacing, type AppColors } from '../theme/tokens';
+import { useThemedStyles } from '../theme/theme-provider';
 import { AppButton } from './app-button';
 
 export function RouteComparisonSheet<T extends ComparableRoute>({ visible, routes, location, isStale, onClose, onRemove, onOpen }: {
   visible: boolean; routes: T[]; location: StoredLocation | null; isStale: boolean;
   onClose: () => void; onRemove: (slug: string) => void; onOpen: (route: T) => void;
 }) {
+  const styles = useThemedStyles(createStyles);
   const { width, fontScale } = useWindowDimensions();
   const mobileCards = Platform.OS !== 'web' || width / fontScale < 720;
   const routeFacts = routes.map(route => routeComparisonFacts(route, location, isStale));
@@ -83,7 +85,7 @@ export function RouteComparisonSheet<T extends ComparableRoute>({ visible, route
     </SafeAreaView></SafeAreaProvider>
   </Modal>;
 }
-const styles = StyleSheet.create({
+const createStyles = (colors: AppColors) => StyleSheet.create({
   mobileComparison: { gap: spacing.sm },
   mobileRouteHeader: { padding: spacing.md, gap: spacing.xs, backgroundColor: colors.surfaceStrong, borderWidth: 1, borderColor: colors.border, borderRadius: radius.md },
   mobileFact: { padding: spacing.md, gap: spacing.sm, backgroundColor: colors.surfaceStrong, borderWidth: 1, borderColor: colors.border, borderRadius: radius.md },

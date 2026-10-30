@@ -1,4 +1,4 @@
-import { colors } from '../theme/tokens';
+import { type AppColors, lightColors } from '../theme/tokens';
 
 export interface RouteSpanCoordinate {
   latitude: number;
@@ -128,14 +128,14 @@ export function shouldShowProjectedScoreMarkers(bounds: MapBounds, pointCount: n
   return shouldShowScoreMarkers(Math.max(bounds.maxLat - bounds.minLat, 0.12), pointCount);
 }
 
-export function toneForRating(rating: string | null | undefined) {
+export function toneForRating(rating: string | null | undefined, colors: AppColors = lightColors) {
   if (rating === 'stale' || rating === 'unavailable') return { backgroundColor: colors.textMuted };
   if (rating === 'Strong' || rating === 'Good') return { backgroundColor: colors.strong };
   if (rating === 'Fair') return { backgroundColor: colors.fair };
   return { backgroundColor: colors.noGo };
 }
 
-export function legendItemsForPoints(points: RoutePlotPoint[]) {
+export function legendItemsForPoints(points: RoutePlotPoint[], colors: AppColors = lightColors) {
   const ratings = new Set(points.map((point) => point.rating));
   return [
     ratings.has('Strong') || ratings.has('Good')

@@ -1,8 +1,10 @@
 import { Link, Stack } from 'expo-router';
 import { StyleSheet, Text, View } from 'react-native';
-import { colors, spacing } from '../src/theme/tokens';
+import { spacing, type AppColors } from '../src/theme/tokens';
+import { useThemedStyles } from '../src/theme/theme-provider';
 
 export default function NotFoundScreen() {
+  const styles = useThemedStyles(createStyles);
   return (
     <>
       <Stack.Screen options={{ title: 'Not found' }} />
@@ -24,7 +26,7 @@ export default function NotFoundScreen() {
   );
 }
 
-const styles = StyleSheet.create({
+const createStyles = (colors: AppColors) => StyleSheet.create({
   container: {
     flex: 1,
     alignItems: 'center',

@@ -25,7 +25,8 @@ import { clearAccountLocalOwner, clearGuestImportConsent, grantGuestImportConsen
 import { PENDING_EMAIL, PENDING_EMAIL_ACTION } from '../lib/auth-secure-store-keys';
 import { emailLinkDomainOption } from '../lib/email-link-domain';
 import { hasPendingTrips, syncTrips } from '../lib/trip-session';
-import { colors, spacing } from '../theme/tokens';
+import { spacing, type AppColors } from '../theme/tokens';
+import { useAppTheme, useThemedStyles } from '../theme/theme-provider';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import { useEffect, useRef, useState } from 'react';
 import { ActivityIndicator, Alert, Platform, ScrollView, StyleSheet, Text, TextInput, View } from 'react-native';
@@ -41,6 +42,8 @@ export default function AccountScreen() {
 }
 
 function AccountContent() {
+  const { colors } = useAppTheme();
+  const styles = useThemedStyles(createStyles);
   const pathname = usePathname();
   const router = useRouter();
   const [user, setUser] = useState<ReturnType<typeof auth>['currentUser']>(null);
@@ -496,7 +499,7 @@ function AccountContent() {
   </ScrollView>;
 }
 
-const styles = StyleSheet.create({
+const createStyles = (colors: AppColors) => StyleSheet.create({
   page: { padding: spacing.md, gap: spacing.md, paddingBottom: 48 },
   body: { color: colors.textMuted, fontSize: 15, lineHeight: 22 },
   privacy: { color: colors.textMuted, fontSize: 12, lineHeight: 18 },

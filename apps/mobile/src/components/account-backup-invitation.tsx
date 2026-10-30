@@ -6,13 +6,16 @@ import { Platform, Pressable, StyleSheet, Text, View } from 'react-native';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import { ACCOUNT_BACKUP_INVITATION_DISMISSED_KEY, WELCOME_CHOICE_STORAGE_KEY, WELCOME_COMPLETED_STORAGE_KEY } from '../lib/onboarding';
 import { subscribeAccountBackupInvitation } from '../lib/account-invitation';
-import { colors, radius, spacing } from '../theme/tokens';
+import { radius, spacing, type AppColors } from '../theme/tokens';
+import { useAppTheme, useThemedStyles } from '../theme/theme-provider';
 
 const INVITATION_SHOWN_KEY = 'paddletoday:account-backup-invitation-shown:v1';
 const SAVED_ROUTES_KEY = 'paddletoday:saved-rivers';
 const TRIP_DRAFT_PREFIX = 'paddletoday:trip-draft:v1:';
 
 export function AccountBackupInvitation() {
+  const { colors } = useAppTheme();
+  const styles = useThemedStyles(createStyles);
   const pathname = usePathname();
   const router = useRouter();
   const insets = useSafeAreaInsets();
@@ -113,7 +116,7 @@ function hasSavedRoutes(raw: string | null) {
   catch { return Boolean(raw); }
 }
 
-const styles = StyleSheet.create({
+const createStyles = (colors: AppColors) => StyleSheet.create({
   anchor: { position: 'absolute', left: spacing.md, right: spacing.md, zIndex: 50, alignItems: 'center' },
   card: { width: '100%', maxWidth: 520, flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between', gap: spacing.sm, padding: spacing.md, borderRadius: radius.lg, borderWidth: 1, borderColor: colors.border, backgroundColor: colors.surfaceStrong, elevation: 8, shadowColor: '#000', shadowOpacity: 0.16, shadowRadius: 14, shadowOffset: { width: 0, height: 5 } },
   copy: { flex: 1, minWidth: 0, flexDirection: 'row', alignItems: 'center', gap: spacing.sm },
@@ -123,6 +126,6 @@ const styles = StyleSheet.create({
   body: { color: colors.textMuted, fontSize: 12, lineHeight: 16 },
   actions: { flexDirection: 'row', alignItems: 'center', gap: spacing.xs },
   primaryAction: { minHeight: 44, alignItems: 'center', justifyContent: 'center', borderRadius: radius.pill, backgroundColor: colors.accent, paddingHorizontal: spacing.md },
-  primaryLabel: { color: colors.surfaceStrong, fontSize: 13, fontWeight: '800' },
+  primaryLabel: { color: colors.onAccent, fontSize: 13, fontWeight: '800' },
   dismiss: { width: 40, height: 44, alignItems: 'center', justifyContent: 'center' },
 });

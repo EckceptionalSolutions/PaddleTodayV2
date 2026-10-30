@@ -1,7 +1,8 @@
 import { StyleSheet, Text, View } from 'react-native';
 import { useEffect, useRef, useState } from 'react';
 import { openExternalUrl } from '../lib/external-links';
-import { colors, radius, spacing } from '../theme/tokens';
+import { radius, spacing, type AppColors } from '../theme/tokens';
+import { useThemedStyles } from '../theme/theme-provider';
 import { AppButton } from './app-button';
 
 export interface RouteDirectionPoint {
@@ -17,6 +18,7 @@ export function RouteDirectionActions({
   putIn?: RouteDirectionPoint;
   takeOut?: RouteDirectionPoint;
 }) {
+  const styles = useThemedStyles(createStyles);
   const [status, setStatus] = useState('');
   const [pending, setPending] = useState<string | null>(null);
   const [reversed, setReversed] = useState(false);
@@ -101,7 +103,7 @@ function hasCoordinates(point: RouteDirectionPoint | undefined): point is RouteD
   );
 }
 
-const styles = StyleSheet.create({
+const createStyles = (colors: AppColors) => StyleSheet.create({
   directionsPanel: {
     borderRadius: radius.md,
     backgroundColor: colors.surface,

@@ -5,7 +5,8 @@ import type { RiverAccessPoint, TripRoute } from '@paddletoday/api-contract';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import { apiClient } from '../api/client';
 import { AppButton } from './app-button';
-import { colors, radius, spacing } from '../theme/tokens';
+import { radius, spacing, type AppColors } from '../theme/tokens';
+import { useAppTheme, useThemedStyles } from '../theme/theme-provider';
 import { useReducedMotion } from '../hooks/use-reduced-motion';
 
 /** Route choice is part of the editor; access lists never expand the whole trip form. */
@@ -13,6 +14,8 @@ export function TripRoutePicker({ route, onChange, onSearch, disabled, initialCu
   route: TripRoute; onChange: (route: TripRoute) => void; onSearch: () => void; disabled: boolean;
   initialCustom?: boolean; recentRoutes?: TripRoute[];
 }) {
+  const { colors } = useAppTheme();
+  const styles = useThemedStyles(createStyles);
   const insets = useSafeAreaInsets();
   const reducedMotion = useReducedMotion();
   const [custom, setCustom] = useState(initialCustom || (!route.slug && !!route.name));
@@ -86,7 +89,7 @@ export function TripRoutePicker({ route, onChange, onSearch, disabled, initialCu
     </Modal>
   </View>;
 }
-const styles = StyleSheet.create({
+const createStyles = (colors: AppColors) => StyleSheet.create({
   card: { gap: spacing.sm, padding: spacing.md, borderRadius: radius.lg, backgroundColor: colors.canvas, borderWidth: 1, borderColor: colors.border },
   title: { fontSize: 18, fontWeight: '800', color: colors.text, flexShrink: 1 },
   tag: { fontSize: 10, letterSpacing: 1, fontWeight: '800', color: colors.accentDeep },

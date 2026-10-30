@@ -10,13 +10,16 @@ import { ManualLocationModal } from '../components/manual-location-modal';
 import { useStoredLocation } from '../hooks/use-stored-location';
 import { androidBottomInset } from '../lib/safe-area';
 import { openNotificationSettings } from '../lib/external-links';
-import { colors, radius, spacing } from '../theme/tokens';
+import { radius, spacing, type AppColors } from '../theme/tokens';
+import { useAppTheme, useThemedStyles } from '../theme/theme-provider';
 
 export default function NotificationSettingsScreen() {
   return <WebReady title="Loading notification settings"><NotificationSettingsContent /></WebReady>;
 }
 
 function NotificationSettingsContent() {
+  const { colors } = useAppTheme();
+  const styles = useThemedStyles(createStyles);
   const router = useRouter();
   const insets = useSafeAreaInsets();
   const bottomContentInset = androidBottomInset(insets.bottom);
@@ -63,7 +66,7 @@ function NotificationSettingsContent() {
               accessibilityState={{ disabled: requestingLocation, busy: requestingLocation }}
               aria-busy={requestingLocation}
             >
-              <MaterialCommunityIcons name="crosshairs-gps" color={colors.surfaceStrong} size={18} />
+              <MaterialCommunityIcons name="crosshairs-gps" color={colors.onAccent} size={18} />
               <Text style={styles.primaryButtonText}>{requestingLocation ? 'Finding you…' : 'Use my location'}</Text>
             </Pressable>
             {status === 'denied' || status === 'error' ? (
@@ -132,7 +135,7 @@ function NotificationSettingsContent() {
   );
 }
 
-const styles = StyleSheet.create({
+const createStyles = (colors: AppColors) => StyleSheet.create({
   screen: { flex: 1, backgroundColor: colors.canvas },
   content: { padding: spacing.md, gap: spacing.md },
   hero: {
@@ -183,7 +186,7 @@ const styles = StyleSheet.create({
     gap: 7,
   },
   buttonDisabled: { opacity: 0.6 },
-  primaryButtonText: { color: colors.surfaceStrong, fontSize: 12, fontWeight: '900' },
+  primaryButtonText: { color: colors.onAccent, fontSize: 12, fontWeight: '900' },
   systemSettingsRow: {
     minHeight: 72,
     padding: spacing.md,

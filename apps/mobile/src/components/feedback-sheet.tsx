@@ -26,7 +26,8 @@ import {
 } from '../lib/store-review';
 import { AppButton } from './app-button';
 import { useReducedMotion } from '../hooks/use-reduced-motion';
-import { colors, radius, spacing } from '../theme/tokens';
+import { radius, spacing, type AppColors } from '../theme/tokens';
+import { useAppTheme, useThemedStyles } from '../theme/theme-provider';
 
 type FeedbackView = 'choice' | 'form' | 'success';
 
@@ -41,6 +42,8 @@ export function FeedbackSheet({
   automatic: boolean;
   onClose: () => void;
 }) {
+  const { colors } = useAppTheme();
+  const styles = useThemedStyles(createStyles);
   const insets = useSafeAreaInsets();
   const reducedMotion = useReducedMotion();
   const mutation = useCreateAppFeedbackMutation();
@@ -228,7 +231,7 @@ export function FeedbackSheet({
           </View> : view === 'success' ? (
             <View style={styles.successPanel}>
               <View style={styles.successIcon}>
-                <MaterialCommunityIcons name="check" color={colors.surfaceStrong} size={26} />
+                <MaterialCommunityIcons name="check" color={colors.onAccent} size={26} />
               </View>
               <Text style={styles.successTitle}>Feedback received</Text>
               <Text style={styles.successText}>
@@ -422,7 +425,7 @@ function headerSubtitle(view: FeedbackView, automatic: boolean) {
     : 'Share a private note with the developer or leave a public store rating.';
 }
 
-const styles = StyleSheet.create({
+const createStyles = (colors: AppColors) => StyleSheet.create({
   modal: {
     flex: 1,
     justifyContent: 'flex-end',
@@ -502,12 +505,12 @@ const styles = StyleSheet.create({
     gap: spacing.md,
   },
   feedbackChoiceCard: {
-    borderColor: '#BED5C9',
+    borderColor: colors.accentBorder,
     backgroundColor: colors.accentSoft,
   },
   reviewChoiceCard: {
-    borderColor: '#E1D1A8',
-    backgroundColor: '#FBF4E3',
+    borderColor: colors.warningBorder,
+    backgroundColor: colors.fairSoft,
   },
   choiceIcon: {
     width: 46,
@@ -520,7 +523,7 @@ const styles = StyleSheet.create({
     backgroundColor: colors.surfaceStrong,
   },
   reviewChoiceIcon: {
-    backgroundColor: '#F3E3B8',
+    backgroundColor: colors.fairSoft,
   },
   choiceCopy: {
     flex: 1,
@@ -642,7 +645,7 @@ const styles = StyleSheet.create({
     paddingHorizontal: spacing.lg,
   },
   primaryButtonText: {
-    color: colors.surfaceStrong,
+    color: colors.onAccent,
     fontSize: 15,
     fontWeight: '900',
   },

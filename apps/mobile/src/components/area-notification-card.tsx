@@ -9,11 +9,14 @@ import { selectionKeyboardProps } from '../lib/selection-keyboard';
 import { registerForAreaNotificationPushNotifications } from '../lib/native-notifications';
 import { captureAppException, trackAppEvent } from '../lib/observability';
 import { useAreaNotificationPreferences, areaNotificationPreferencesFromResponse } from '../providers/area-notification-preferences-provider';
-import { colors, radius, spacing } from '../theme/tokens';
+import { radius, spacing, type AppColors } from '../theme/tokens';
+import { useAppTheme, useThemedStyles } from '../theme/theme-provider';
 
 const DEFAULT_TRAVEL_MINUTES = 120;
 
 export function AreaNotificationCard({ location }: { location: StoredLocation | null }) {
+  const { colors } = useAppTheme();
+  const styles = useThemedStyles(createStyles);
   const createMutation = useCreateAreaNotificationSubscriptionMutation();
   const updateMutation = useUpdateAreaNotificationSubscriptionMutation();
   const { preferences, isHydrated, storageError, loadError, loadingPreferences, retryLoad, savePreferences, locationSync, retryLocationSync } = useAreaNotificationPreferences();
@@ -209,6 +212,7 @@ export function AreaNotificationCard({ location }: { location: StoredLocation | 
 }
 
 function Toggle({ label, value, disabled, onPress }: { label: string; value: boolean; disabled: boolean; onPress: () => void }) {
+  const styles = useThemedStyles(createStyles);
   return (
     <Pressable style={[styles.toggle, value ? styles.toggleOn : null]} disabled={disabled} onPress={onPress} accessibilityRole="switch" accessibilityLabel={`${label} alerts`} aria-checked={value} aria-busy={disabled} accessibilityState={{ checked: value, disabled, busy: disabled }} {...selectionKeyboardProps(onPress, disabled)}>
       <Text style={[styles.toggleText, value ? styles.toggleTextOn : null]}>{label} · {value ? 'On' : 'Off'}</Text>
@@ -216,21 +220,21 @@ function Toggle({ label, value, disabled, onPress }: { label: string; value: boo
   );
 }
 
-const styles = StyleSheet.create({
-  card: { flexDirection: 'row', gap: spacing.sm, padding: spacing.md, borderRadius: radius.md, borderWidth: 1, borderColor: '#BFD6CC', backgroundColor: colors.accentSoft },
+const createStyles = (colors: AppColors) => StyleSheet.create({
+  card: { flexDirection: 'row', gap: spacing.sm, padding: spacing.md, borderRadius: radius.md, borderWidth: 1, borderColor: colors.accentBorder, backgroundColor: colors.accentSoft },
   icon: { width: 36, height: 36, borderRadius: 18, alignItems: 'center', justifyContent: 'center', backgroundColor: colors.surfaceStrong },
   copy: { flex: 1, gap: 5 },
   title: { color: colors.accentDeep, fontSize: 15, lineHeight: 19, fontWeight: '900' },
   body: { color: colors.text, fontSize: 12, lineHeight: 17 },
   button: { alignSelf: 'flex-start', minHeight: 44, justifyContent: 'center', marginTop: 4, paddingHorizontal: 14, paddingVertical: 9, borderRadius: radius.pill, backgroundColor: colors.accent },
   buttonDisabled: { opacity: 0.6 },
-  buttonText: { color: colors.surfaceStrong, fontSize: 12, fontWeight: '900' },
+  buttonText: { color: colors.onAccent, fontSize: 12, fontWeight: '900' },
   controls: { flexDirection: 'row', alignItems: 'center', gap: spacing.xs, flexWrap: 'wrap', marginTop: 3 },
   toggle: { minHeight: 44, justifyContent: 'center', paddingHorizontal: 10, paddingVertical: 7, borderRadius: radius.pill, backgroundColor: colors.surfaceStrong, borderWidth: 1, borderColor: colors.border },
   disableButton: { minHeight: 44, justifyContent: 'center' },
   toggleOn: { backgroundColor: colors.accent, borderColor: colors.accent },
   toggleText: { color: colors.textMuted, fontSize: 12, fontWeight: '800' },
-  toggleTextOn: { color: colors.surfaceStrong },
+  toggleTextOn: { color: colors.onAccent },
   disableText: { color: colors.textMuted, fontSize: 12, fontWeight: '800', padding: 7 },
   message: { color: colors.textMuted, fontSize: 11, lineHeight: 15 },
   syncNotice: { gap: spacing.sm, paddingVertical: spacing.sm },

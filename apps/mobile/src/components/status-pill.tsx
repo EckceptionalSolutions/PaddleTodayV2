@@ -1,9 +1,12 @@
 import type { LiveDataOverall } from '@paddletoday/api-contract';
 import { StyleSheet, Text, View } from 'react-native';
-import { colors, radius } from '../theme/tokens';
+import { radius, type AppColors } from '../theme/tokens';
+import { useAppTheme, useThemedStyles } from '../theme/theme-provider';
 
 export function StatusPill({ status }: { status: LiveDataOverall }) {
-  const tone = toneForStatus(status);
+  const { colors } = useAppTheme();
+  const styles = useThemedStyles(createStyles);
+  const tone = toneForStatus(status, colors);
 
   return (
     <View style={[styles.pill, tone.pill]}>
@@ -12,28 +15,28 @@ export function StatusPill({ status }: { status: LiveDataOverall }) {
   );
 }
 
-function toneForStatus(status: LiveDataOverall) {
+function toneForStatus(status: LiveDataOverall, colors: AppColors) {
   if (status === 'live') {
     return {
-      pill: { backgroundColor: '#E0EFE9' },
+      pill: { backgroundColor: colors.strongSoft },
       label: { color: colors.live },
     };
   }
 
   if (status === 'degraded') {
     return {
-      pill: { backgroundColor: '#F3E8CC' },
+      pill: { backgroundColor: colors.fairSoft },
       label: { color: colors.degraded },
     };
   }
 
   return {
-    pill: { backgroundColor: '#F2DDD6' },
+    pill: { backgroundColor: colors.noGoSoft },
     label: { color: colors.offline },
   };
 }
 
-const styles = StyleSheet.create({
+const createStyles = (_colors: AppColors) => StyleSheet.create({
   pill: {
     borderRadius: radius.pill,
     paddingHorizontal: 9,

@@ -25,7 +25,8 @@ import { normalizeApiText } from '../lib/format';
 import { androidBottomInset } from '../lib/safe-area';
 import { radioKeyboardProps, tabKeyboardProps } from '../lib/selection-keyboard';
 import { useSavedRivers } from '../providers/saved-rivers-provider';
-import { colors, radius, spacing } from '../theme/tokens';
+import { radius, spacing, type AppColors } from '../theme/tokens';
+import { useAppTheme, useThemedStyles } from '../theme/theme-provider';
 import { MotionReveal } from '../components/motion-reveal';
 import { useReducedMotion } from '../hooks/use-reduced-motion';
 
@@ -77,6 +78,8 @@ const WeekendContent = memo(function WeekendContent({ weekendQuery, distanceLimi
   distanceHydrated: boolean;
   setDistanceHydrated: (value: boolean) => void;
 }) {
+  const { colors } = useAppTheme();
+  const styles = useThemedStyles(createStyles);
   const reducedMotion = useReducedMotion();
   const { width: windowWidth } = useWindowDimensions();
   const compactHeader = windowWidth < 360;
@@ -493,6 +496,7 @@ function WeekendLocationStrip({
   onClear: () => void;
   onChooseCity: () => void;
 }) {
+  const styles = useThemedStyles(createStyles);
   const requesting = status === 'requesting';
 
   return (
@@ -548,6 +552,7 @@ function WeekendFilters({
   selectedRouteType: WeekendFilter;
   onSelectRouteType: (filter: WeekendFilter) => void;
 }) {
+  const styles = useThemedStyles(createStyles);
   const selectedIndex = weekendDistanceOptions.findIndex((option) => option.value === distance);
 
   return (
@@ -610,6 +615,8 @@ function WeekendFilters({
 }
 
 function RouteTypeChip({ label, value, active, onPress, index, onSelectIndex }: { label: string; value: number; active: boolean; onPress: () => void; index: number; onSelectIndex: (index: number) => void }) {
+  const { colors } = useAppTheme();
+  const styles = useThemedStyles(createStyles);
   return (
     <Pressable
       style={[styles.routeTypeChip, active ? styles.routeTypeChipActive : null]}
@@ -636,6 +643,7 @@ function SnapshotStat({
   value: number;
   tone: object;
 }) {
+  const styles = useThemedStyles(createStyles);
   return (
     <View style={[styles.snapshotCard, tone]}>
       <Text style={styles.snapshotValue}>{value}</Text>
@@ -659,6 +667,7 @@ function WeekendPlanLanes({
   selected: WeekendFilter;
   onSelect: (filter: WeekendFilter) => void;
 }) {
+  const styles = useThemedStyles(createStyles);
   return (
     <View style={styles.planLanes}>
       <Text style={styles.planLanesTitle}>Shortlisted weekend routes</Text>
@@ -674,6 +683,8 @@ function WeekendPlanLanes({
 }
 
 function PlanLane({ label, value, active, onPress, index, onSelectIndex }: { label: string; value: number; active: boolean; onPress: () => void; index: number; onSelectIndex: (index: number) => void }) {
+  const { colors } = useAppTheme();
+  const styles = useThemedStyles(createStyles);
   return (
     <Pressable
       style={[styles.planLane, active ? styles.planLaneActive : null]}
@@ -901,7 +912,7 @@ function capitalize(value: string) {
 }
 
 
-const styles = StyleSheet.create({
+const createStyles = (colors: AppColors) => StyleSheet.create({
   screen: {
     flex: 1,
     backgroundColor: colors.canvas,
@@ -962,7 +973,7 @@ const styles = StyleSheet.create({
     opacity: 0.64,
   },
   locationButtonText: {
-    color: colors.surfaceStrong,
+    color: colors.onAccent,
     fontSize: 12,
     fontWeight: '900',
   },
@@ -1107,7 +1118,7 @@ const styles = StyleSheet.create({
     fontWeight: '800',
   },
   routeTypeTextActive: {
-    color: colors.surfaceStrong,
+    color: colors.onAccent,
   },
   heroPanel: {
     backgroundColor: colors.surfaceStrong,
@@ -1155,13 +1166,13 @@ const styles = StyleSheet.create({
     gap: 4,
   },
   snapshotStrong: {
-    backgroundColor: '#E0EFE9',
+    backgroundColor: colors.strongSoft,
   },
   snapshotWatch: {
-    backgroundColor: '#F3E8CC',
+    backgroundColor: colors.fairSoft,
   },
   snapshotNoGo: {
-    backgroundColor: '#F2DDD6',
+    backgroundColor: colors.noGoSoft,
   },
   snapshotValue: {
     color: colors.text,
@@ -1280,7 +1291,7 @@ const styles = StyleSheet.create({
     textAlign: 'center',
   },
   planLaneValueActive: {
-    color: colors.surfaceStrong,
+    color: colors.onAccent,
   },
   planLaneLabel: {
     color: colors.textMuted,
@@ -1292,6 +1303,6 @@ const styles = StyleSheet.create({
     textAlign: 'center',
   },
   planLaneLabelActive: {
-    color: colors.surfaceStrong,
+    color: colors.onAccent,
   },
 });

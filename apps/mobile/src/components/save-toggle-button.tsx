@@ -4,7 +4,8 @@ import type { GestureResponderEvent } from 'react-native';
 import { ActivityIndicator, Animated, Platform, Pressable, StyleSheet, Text, View } from 'react-native';
 import { usePressMotion } from '../hooks/use-press-motion';
 import { useSavedRivers } from '../providers/saved-rivers-provider';
-import { colors, radius, spacing } from '../theme/tokens';
+import { radius, spacing, type AppColors } from '../theme/tokens';
+import { useAppTheme, useThemedStyles } from '../theme/theme-provider';
 
 const AnimatedPressable = Animated.createAnimatedComponent(Pressable);
 
@@ -23,6 +24,8 @@ export function SaveToggleButton({
   compact?: boolean;
   primary?: boolean;
 }) {
+  const { colors } = useAppTheme();
+  const styles = useThemedStyles(createStyles);
   const { isUpdatingSavedRiver } = useSavedRivers();
   const busy = isUpdatingSavedRiver(routeSlug);
   const motion = usePressMotion(busy);
@@ -67,10 +70,10 @@ export function SaveToggleButton({
         android_ripple={{ color: colors.canvasMuted, borderless: true }}
       >
         <Animated.View style={{ transform: [{ scale: iconScale }] }} pointerEvents="none">
-        {busy ? <ActivityIndicator size="small" color={saved ? colors.surfaceStrong : colors.accent} /> : <MaterialCommunityIcons
+        {busy ? <ActivityIndicator size="small" color={saved ? colors.onAccent : colors.accent} /> : <MaterialCommunityIcons
           name={saved ? 'bookmark' : 'bookmark-outline'}
           size={20}
-          color={saved ? colors.surfaceStrong : primary ? colors.accent : colors.textMuted}
+          color={saved ? colors.onAccent : primary ? colors.accent : colors.textMuted}
         />}
         </Animated.View>
       </AnimatedPressable>
@@ -93,10 +96,10 @@ export function SaveToggleButton({
     >
       <View style={styles.row}>
         <Animated.View style={{ transform: [{ scale: iconScale }] }} pointerEvents="none">
-        {busy ? <ActivityIndicator size="small" color={saved ? colors.surfaceStrong : colors.accent} /> : <MaterialCommunityIcons
+        {busy ? <ActivityIndicator size="small" color={saved ? colors.onAccent : colors.accent} /> : <MaterialCommunityIcons
           name={saved ? 'bookmark' : 'bookmark-outline'}
           size={18}
-          color={saved ? colors.surfaceStrong : colors.accent}
+          color={saved ? colors.onAccent : colors.accent}
         />}
         </Animated.View>
         <Text style={[styles.label, saved ? styles.labelSaved : null]}>
@@ -107,7 +110,7 @@ export function SaveToggleButton({
   );
 }
 
-const styles = StyleSheet.create({
+const createStyles = (colors: AppColors) => StyleSheet.create({
   button: {
     minHeight: 44,
     justifyContent: 'center',
@@ -149,6 +152,6 @@ const styles = StyleSheet.create({
     fontWeight: '700',
   },
   labelSaved: {
-    color: colors.surfaceStrong,
+    color: colors.onAccent,
   },
 });

@@ -8,7 +8,8 @@ import { apiClient } from '../api/client';
 import { downloadOfflineTrip, listOfflineTrips, loadOfflineTrip, mappedAccess, offlineTripBytes, offlineTripId, removeOfflineTrip, retryOfflineGeometry, updateOfflineTripDraft, type OfflineTrip } from '../lib/offline-trips';
 import { listTripDrafts, type TripDraft, type TripDraftRecord, type TripDraftTarget } from '../lib/trip-drafts';
 import { compareOfflineTripDraft, compareOfflineTripDraftValues, offlineTripDraftFreshnessLabel, type OfflineTripDraftFreshness } from '../lib/offline-trip-freshness';
-import { colors, spacing, typography } from '../theme/tokens';
+import { spacing, typography, type AppColors } from '../theme/tokens';
+import { useThemedStyles } from '../theme/theme-provider';
 import { AppButton } from './app-button';
 import { SectionCard } from './section-card';
 import { OfflineTripView, offlineStatus } from './offline-trip-view';
@@ -20,6 +21,7 @@ export function PrepareOfflineTrip({ detail, putIn, takeOut, draft, ready, saveD
   detail: RiverDetailApiResult; putIn?: RiverAccessPoint; takeOut?: RiverAccessPoint; draft: TripDraft; ready: boolean;
   saveDraft: () => Promise<boolean>; registerCancellation: (cancel: (() => void) | null) => void;
 }) {
+  const styles = useThemedStyles(createStyles);
   const [packet, setPacket] = useState<OfflineTrip | null>(null);
   const [loading, setLoading] = useState(true), [busy, setBusy] = useState(false), [message, setMessage] = useState('');
   const request = useRef<AbortController | null>(null), epoch = useRef(0);
@@ -79,6 +81,7 @@ export function PrepareOfflineTrip({ detail, putIn, takeOut, draft, ready, saveD
 function OfflinePacketCard({ packet, freshness, draft, disabled = false, onRemoved, onUpdated }: {
   packet: OfflineTrip; freshness?: OfflineTripDraftFreshness; draft?: TripDraft; disabled?: boolean; onRemoved: () => void; onUpdated: (packet: OfflineTrip) => void;
 }) {
+  const styles = useThemedStyles(createStyles);
   const [open, setOpen] = useState(false), [confirm, setConfirm] = useState(false), [busy, setBusy] = useState(false), [message, setMessage] = useState('');
   const request = useRef<AbortController | null>(null), mounted = useRef(true), removing = useRef(false);
   useEffect(() => { mounted.current = true; return () => { mounted.current = false; request.current?.abort(); }; }, []);
@@ -128,6 +131,7 @@ function OfflinePacketCard({ packet, freshness, draft, disabled = false, onRemov
 }
 
 export function SavedOfflineTrips() {
+  const styles = useThemedStyles(createStyles);
   const [records, setRecords] = useState<OfflineTrip[]>([]), [drafts, setDrafts] = useState<TripDraftRecord[]>([]), [error, setError] = useState(''), [draftsReadable, setDraftsReadable] = useState(true), [loading, setLoading] = useState(true);
   const epoch = useRef(0);
   const draftsByTarget = useMemo(() => new Map(drafts.map(record => [offlineTripId(record.target), record])), [drafts]);
@@ -154,7 +158,7 @@ export function SavedOfflineTrips() {
     })}
   </SectionCard>;
 }
-const styles = StyleSheet.create({
+const createStyles = (colors: AppColors) => StyleSheet.create({
   card: { gap: spacing.sm, paddingVertical: spacing.sm, borderTopWidth: 1, borderTopColor: colors.border },
   body: { ...typography.supporting, color: colors.textMuted }, label: { ...typography.label, color: colors.text },
 });

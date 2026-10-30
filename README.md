@@ -134,6 +134,20 @@ For deployment-style startup after a build, run `npm run start`. The Node server
 
 The repo now includes an Expo / React Native MVP app in `apps/mobile`.
 
+Under **More → Appearance**, choose **System**, **Light**, or **Dark**. System is
+the default and follows device changes while the app is open. The choice is saved
+on this device; if storage fails, the app keeps the current session usable and
+shows a retry message. Theme palettes and cached styles live in
+`apps/mobile/src/theme`. Screens and sheets use `useAppTheme` and
+`useThemedStyles` so changing appearance preserves their current state.
+
+Native builds include `expo-system-ui` and automatic interface style support.
+Rebuild the native app to include these changes; verify system changes, keyboards,
+date pickers, map colors, and status/navigation bars on iOS and Android. Run
+`npm run test:mobile:web:export -- tests/mobile-web/appearance.spec.ts` for the
+browser checks, alongside `npm run mobile:typecheck` and
+`npm run test --workspace @paddletoday/mobile`.
+
 Shared mobile-safe code is intentionally small:
 
 - `packages/api-contract`: portable API response types

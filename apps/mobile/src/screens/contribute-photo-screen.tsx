@@ -33,13 +33,16 @@ import {
   ROUTE_REPORT_MAX_PHOTOS,
 } from '../lib/report-photos';
 import { useAlertPreferences } from '../providers/alert-preferences-provider';
-import { colors, radius, spacing } from '../theme/tokens';
+import { radius, spacing, type AppColors } from '../theme/tokens';
+import { useAppTheme, useThemedStyles } from '../theme/theme-provider';
 import { selectionKeyboardProps } from '../lib/selection-keyboard';
 
 type PhotoValidationField = 'photos' | 'name' | 'email' | 'rights' | 'contact';
 const PHOTO_FORM_GUIDANCE = 'Photos are reviewed before they appear publicly.';
 
 export default function ContributePhotoScreen() {
+  const { colors } = useAppTheme();
+  const styles = useThemedStyles(createStyles);
   const reducedMotion = useReducedMotion();
   const focusScrollTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
   useEffect(() => () => {
@@ -303,7 +306,7 @@ export default function ContributePhotoScreen() {
                 accessibilityLabel="Take photo"
                 onPress={() => void pickPhotos('camera')}
               >
-                <MaterialCommunityIcons name="camera" color={colors.surfaceStrong} size={18} />
+                <MaterialCommunityIcons name="camera" color={colors.onAccent} size={18} />
                 <Text style={styles.sourceButtonText}>Take photo</Text>
               </Pressable>
               <Pressable
@@ -475,6 +478,8 @@ function ConsentRow({
   label: string;
   onPress: () => void;
 }) {
+  const { colors } = useAppTheme();
+  const styles = useThemedStyles(createStyles);
   return (
     <Pressable
       style={styles.consentRow}
@@ -487,14 +492,14 @@ function ConsentRow({
       {...selectionKeyboardProps(onPress, disabled)}
     >
       <View style={[styles.checkbox, checked ? styles.checkboxChecked : null]}>
-        {checked ? <MaterialCommunityIcons name="check" color={colors.surfaceStrong} size={15} /> : null}
+        {checked ? <MaterialCommunityIcons name="check" color={colors.onAccent} size={15} /> : null}
       </View>
       <Text style={styles.consentText}>{label}</Text>
     </Pressable>
   );
 }
 
-const styles = StyleSheet.create({
+const createStyles = (colors: AppColors) => StyleSheet.create({
   keyboardWrap: {
     flex: 1,
     backgroundColor: colors.canvas,
@@ -544,7 +549,7 @@ const styles = StyleSheet.create({
     gap: 7,
   },
   sourceButtonText: {
-    color: colors.surfaceStrong,
+    color: colors.onAccent,
     fontSize: 13,
     fontWeight: '900',
   },
@@ -677,7 +682,7 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
   },
   submitButtonText: {
-    color: colors.surfaceStrong,
+    color: colors.onAccent,
     fontSize: 14,
     fontWeight: '900',
   },

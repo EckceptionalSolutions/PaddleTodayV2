@@ -4,11 +4,13 @@ import type { PendingTripWork } from '@paddletoday/api-client';
 import { tripSyncRecovery } from '../lib/trip-sync-recovery';
 import { AppButton } from './app-button';
 import { SectionCard } from './section-card';
-import { colors, spacing, typography } from '../theme/tokens';
+import { spacing, typography, type AppColors } from '../theme/tokens';
+import { useThemedStyles } from '../theme/theme-provider';
 
 export function TripSyncRecoveryCard({ work, busy, onRetry, onDiscard, onShare, onClose }: {
   work: PendingTripWork; busy: boolean; onRetry: () => void; onDiscard: () => void; onShare: (text: string) => void; onClose: () => void;
 }) {
+  const styles = useThemedStyles(createStyles);
   const summary = tripSyncRecovery(work);
   const [more, setMore] = useState(false);
   return <SectionCard title="Saved on this device" subtitle={summary.title}>
@@ -26,7 +28,7 @@ export function TripSyncRecoveryCard({ work, busy, onRetry, onDiscard, onShare, 
     </> : null}
   </SectionCard>;
 }
-const styles = StyleSheet.create({
+const createStyles = (colors: AppColors) => StyleSheet.create({
   copy: { ...typography.supporting, color: colors.textMuted },
   fact: { gap: 4, paddingVertical: spacing.xs },
   label: { ...typography.label, color: colors.textMuted },

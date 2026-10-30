@@ -1,12 +1,15 @@
 import { StyleSheet, Text, View, useWindowDimensions } from 'react-native';
 import MaterialCommunityIcons from '@expo/vector-icons/MaterialCommunityIcons';
 import type { Trip } from '@paddletoday/api-contract';
-import { colors, radius, spacing } from '../theme/tokens';
+import { radius, spacing, type AppColors } from '../theme/tokens';
+import { useAppTheme, useThemedStyles } from '../theme/theme-provider';
 import { tripCoordinationSummary } from '../lib/trip-dashboard';
 import { readableTripDate } from './trip-overview';
 import { AppButton } from './app-button';
 
 export function NextPaddleCard({ trip, onOpen, disabled, unread = false }: { trip: Trip; onOpen: () => void; disabled: boolean; unread?: boolean }) {
+  const { colors } = useAppTheme();
+  const styles = useThemedStyles(createStyles);
   const { fontScale } = useWindowDimensions();
   const accessLabelStyle = [styles.accessLabel, { width: 56 * Math.max(1, fontScale) }];
   const coordination = tripCoordinationSummary(trip);
@@ -29,11 +32,11 @@ export function NextPaddleCard({ trip, onOpen, disabled, unread = false }: { tri
     <View style={styles.actions}><AppButton label="Open trip" icon="arrow-right" onPress={onOpen} disabled={disabled} style={styles.action} /></View>
   </View>;
 }
-const styles = StyleSheet.create({
+const createStyles = (colors: AppColors) => StyleSheet.create({
   card: { gap: spacing.md, padding: spacing.md, borderRadius: radius.lg, borderWidth: 1, borderColor: colors.border, borderTopWidth: 3, borderTopColor: colors.accent, backgroundColor: colors.surfaceStrong },
   heading: { flexDirection: 'row', alignItems: 'flex-start', gap: spacing.md }, headingCopy: { flex: 1, gap: 6 },
   topline: { flexDirection: 'row', flexWrap: 'wrap', justifyContent: 'space-between', alignItems: 'center', gap: spacing.sm },
-  updated: { color: '#695321', backgroundColor: '#F3E8C9', paddingHorizontal: 9, paddingVertical: 5, borderRadius: radius.pill, fontSize: 11, fontWeight: '700' },
+  updated: { color: colors.fair, backgroundColor: colors.fairSoft, paddingHorizontal: 9, paddingVertical: 5, borderRadius: radius.pill, fontSize: 11, fontWeight: '700' },
   dateTile: { width: 60, paddingVertical: 8, alignItems: 'center', gap: 2, borderRadius: radius.md, backgroundColor: colors.accentSoft },
   month: { color: colors.accentDeep, fontSize: 11, fontWeight: '800', letterSpacing: 1 }, day: { color: colors.accentDeep, fontSize: 28, lineHeight: 32, fontWeight: '800' }, weekday: { color: colors.accentDeep, fontSize: 11, lineHeight: 16 },
   kicker: { flexDirection: 'row', alignItems: 'center', gap: 7 }, kickerText: { color: colors.accentDeep, fontSize: 10, fontWeight: '800', letterSpacing: 1 },

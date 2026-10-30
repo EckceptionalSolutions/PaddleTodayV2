@@ -5,7 +5,8 @@ import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import { useReducedMotion } from '../hooks/use-reduced-motion';
 import type { StoredLocation } from '../lib/location';
 import { AppButton } from './app-button';
-import { colors, radius, spacing } from '../theme/tokens';
+import { radius, spacing, type AppColors } from '../theme/tokens';
+import { useAppTheme, useThemedStyles } from '../theme/theme-provider';
 
 export function ManualLocationModal({
   visible,
@@ -20,6 +21,8 @@ export function ManualLocationModal({
   onSearch: (query: string) => Promise<StoredLocation[]>;
   onSelect: (location: StoredLocation) => Promise<boolean>;
 }) {
+  const { colors } = useAppTheme();
+  const styles = useThemedStyles(createStyles);
   const [query, setQuery] = useState('');
   const [message, setMessage] = useState('');
   const [submitting, setSubmitting] = useState(false);
@@ -141,7 +144,7 @@ export function ManualLocationModal({
   );
 }
 
-const styles = StyleSheet.create({
+const createStyles = (colors: AppColors) => StyleSheet.create({
   locationChoices: { gap: spacing.sm },
   locationModalScrim: {
     flex: 1,
@@ -220,7 +223,7 @@ const styles = StyleSheet.create({
     paddingHorizontal: spacing.md,
   },
   locationModalSubmitText: {
-    color: colors.surfaceStrong,
+    color: colors.onAccent,
     fontSize: 14,
     fontWeight: '900',
   },

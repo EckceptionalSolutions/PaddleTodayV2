@@ -5,7 +5,8 @@ import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import { useReducedMotion } from '../hooks/use-reduced-motion';
 import { normalizeSearchText } from '@paddletoday/api-contract';
 import { stateAbbreviation } from '../lib/state-labels';
-import { colors, radius, spacing, typography } from '../theme/tokens';
+import { radius, spacing, typography, type AppColors } from '../theme/tokens';
+import { useAppTheme, useThemedStyles } from '../theme/theme-provider';
 import { AppButton } from './app-button';
 
 type StateOption = { value: string; label: string; count: number };
@@ -13,6 +14,8 @@ type StateOption = { value: string; label: string; count: number };
 export function SupportedStatePicker({ options, value, onChange }: {
   options: StateOption[]; value: string; onChange: (value: string) => void;
 }) {
+  const { colors } = useAppTheme();
+  const styles = useThemedStyles(createStyles);
   const [visible, setVisible] = useState(false);
   const [query, setQuery] = useState('');
   const trigger = useRef<View>(null);
@@ -65,7 +68,7 @@ export function SupportedStatePicker({ options, value, onChange }: {
   </>;
 }
 
-const styles = StyleSheet.create({
+const createStyles = (colors: AppColors) => StyleSheet.create({
   trigger: { minHeight: 56, flexDirection: 'row', alignItems: 'center', gap: spacing.sm, padding: spacing.sm, borderRadius: radius.md, borderWidth: 1, borderColor: colors.border, backgroundColor: colors.surface },
   triggerCopy: { flex: 1, gap: 2 },
   state: { ...typography.label, color: colors.text },

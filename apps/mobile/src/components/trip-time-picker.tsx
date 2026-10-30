@@ -3,9 +3,12 @@ import { Platform, Pressable, StyleSheet, Text, View } from 'react-native';
 import DateTimePicker, { DateTimePickerAndroid } from '@react-native-community/datetimepicker';
 import { localTripTime, mergeTripTime, parseTripTime } from '../lib/trip-time';
 import type { TripTimePickerProps } from './trip-time-picker.types';
-import { colors, radius, spacing } from '../theme/tokens';
+import { radius, spacing, type AppColors } from '../theme/tokens';
+import { useAppTheme, useThemedStyles } from '../theme/theme-provider';
 
 export function TripTimePicker({ label, value, onChange, disabled, dateOnly = false }: TripTimePickerProps) {
+  const { colorScheme } = useAppTheme();
+  const styles = useThemedStyles(createStyles);
   const [mode, setMode] = useState<'date' | 'time' | null>(null);
   const [error, setError] = useState(false);
   const request = useRef<object | null>(null);
@@ -48,7 +51,7 @@ export function TripTimePicker({ label, value, onChange, disabled, dateOnly = fa
       </Pressable> : null}
     </View>
     {mode && Platform.OS === 'ios' ? <View>
-      <DateTimePicker value={date ?? new Date()} mode={mode} display="spinner" themeVariant="light" onChange={(event, selected) => {
+      <DateTimePicker value={date ?? new Date()} mode={mode} display="spinner" themeVariant={colorScheme} onChange={(event, selected) => {
         if (!disabled && event.type === 'set' && selected) commit(date ? mergeTripTime(date, selected, mode) : localTripTime(selected));
       }} />
       <Pressable accessibilityRole="button" accessibilityLabel={`Done choosing ${label.toLowerCase()}`} style={styles.done} onPress={() => setMode(null)}><Text style={styles.value}>Done</Text></Pressable>
@@ -56,7 +59,7 @@ export function TripTimePicker({ label, value, onChange, disabled, dateOnly = fa
     {error ? <Text accessibilityLiveRegion="polite" style={styles.caption}>The picker could not open. Use manual entry below.</Text> : null}
   </View>;
 }
-const styles = StyleSheet.create({
+const createStyles = (colors: AppColors) => StyleSheet.create({
   container: { gap: spacing.xs }, row: { flexDirection: 'row', gap: spacing.sm },
   button: { flex: 1, minHeight: 56, gap: 4, padding: spacing.sm, backgroundColor: colors.surfaceStrong, borderWidth: 1, borderColor: colors.border, borderRadius: radius.md },
   caption: { color: colors.textMuted, fontSize: 12 }, value: { color: colors.accentDeep, fontSize: 15, fontWeight: '700' },

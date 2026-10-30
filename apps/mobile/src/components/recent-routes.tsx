@@ -4,11 +4,14 @@ import { useFocusEffect } from '@react-navigation/native';
 import { useCallback, useRef, useState } from 'react';
 import { Pressable, StyleSheet, Text, View } from 'react-native';
 import { clearRecentRoutes, readRecentRoutes, type RecentRoute } from '../lib/recent-routes';
-import { colors, spacing, typography } from '../theme/tokens';
+import { spacing, typography, type AppColors } from '../theme/tokens';
+import { useAppTheme, useThemedStyles } from '../theme/theme-provider';
 import { AppButton } from './app-button';
 import { SectionCard } from './section-card';
 
 export function RecentRoutes({ onOpen }: { onOpen: (slug: string) => void }) {
+  const { colors } = useAppTheme();
+  const styles = useThemedStyles(createStyles);
   const [routes, setRoutes] = useState<RecentRoute[]>([]);
   const [loadError, setLoadError] = useState(false);
   const [loading, setLoading] = useState(false);
@@ -77,7 +80,7 @@ export function RecentRoutes({ onOpen }: { onOpen: (slug: string) => void }) {
     </View> : null}
   </SectionCard>;
 }
-const styles = StyleSheet.create({
+const createStyles = (colors: AppColors) => StyleSheet.create({
   route: { minHeight: 60, flexDirection: 'row', alignItems: 'center', gap: spacing.sm, paddingVertical: spacing.sm, borderTopWidth: 1, borderTopColor: colors.border },
   copy: { flex: 1, minWidth: 0, gap: 3 }, name: { ...typography.label, color: colors.text },
   body: { ...typography.supporting, color: colors.textMuted }, actions: { gap: spacing.sm }, pressed: { opacity: 0.65 },

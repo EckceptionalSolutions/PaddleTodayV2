@@ -2,9 +2,12 @@ import MaterialCommunityIcons from '@expo/vector-icons/MaterialCommunityIcons';
 import { Platform, StyleSheet, Text, View } from 'react-native';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import { useOnlineStatus } from '../hooks/use-online-status';
-import { colors, spacing } from '../theme/tokens';
+import { spacing, type AppColors } from '../theme/tokens';
+import { useAppTheme, useThemedStyles } from '../theme/theme-provider';
 
 export function ConnectivityNotice() {
+  const { colors } = useAppTheme();
+  const styles = useThemedStyles(createStyles);
   const online = useOnlineStatus();
   const insets = useSafeAreaInsets();
   if (online) return null;
@@ -15,7 +18,7 @@ export function ConnectivityNotice() {
   </View>;
 }
 
-const styles = StyleSheet.create({
+const createStyles = (colors: AppColors) => StyleSheet.create({
   notice: { flexDirection: 'row', alignItems: 'center', gap: spacing.sm, paddingHorizontal: spacing.md,
     paddingBottom: spacing.sm, backgroundColor: colors.canvasMuted, borderBottomWidth: 1, borderBottomColor: colors.border },
   copy: { flex: 1, color: colors.text, fontSize: 12, lineHeight: 17, fontWeight: '600' },

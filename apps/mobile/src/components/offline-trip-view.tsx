@@ -4,11 +4,13 @@ import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import { type OfflineTrip, offlineTripBytes } from '../lib/offline-trips';
 import { offlineTripDraftFreshnessLabel, type OfflineTripDraftFreshness } from '../lib/offline-trip-freshness';
 import { openExternalUrl } from '../lib/external-links';
-import { colors, radius, spacing, typography } from '../theme/tokens';
+import { radius, spacing, typography, type AppColors } from '../theme/tokens';
+import { useAppTheme, useThemedStyles } from '../theme/theme-provider';
 import { AppButton } from './app-button';
 import { SectionCard } from './section-card';
 
 export function OfflineTripView({ packet, freshness, onClose }: { packet: OfflineTrip; freshness?: OfflineTripDraftFreshness; onClose: () => void }) {
+  const styles = useThemedStyles(createStyles);
   const insets = useSafeAreaInsets();
   const [shareText, setShareText] = useState('');
   const [showFullRoute, setShowFullRoute] = useState(!packet.segment?.geometry);
@@ -94,6 +96,8 @@ function formatMinutes(minutes: number) { return minutes >= 60 ? `${Math.floor(m
 // Platform-independent coordinate drawing: no map SDK, tiles, fonts or network
 // requests are needed to display the saved route after an offline cold start.
 function OfflineRouteOutline({ packet, segmentOnly = false }: { packet: OfflineTrip; segmentOnly?: boolean }) {
+  const { colors } = useAppTheme();
+  const styles = useThemedStyles(createStyles);
   const [width, setWidth] = useState(300);
   const height = 280, padding = 26;
   const markers = [packet.putIn, packet.takeOut];
@@ -124,12 +128,12 @@ function OfflineRouteOutline({ packet, segmentOnly = false }: { packet: OfflineT
     })}
   </View>;
 }
-const styles = StyleSheet.create({
+const createStyles = (colors: AppColors) => StyleSheet.create({
   screen: { flex: 1, backgroundColor: colors.canvas }, content: { padding: spacing.md, gap: spacing.md },
   title: { ...typography.title, color: colors.text }, body: { ...typography.supporting, color: colors.textMuted },
   label: { ...typography.label, color: colors.text }, group: { gap: spacing.xs, marginBottom: spacing.sm },
     outline: { width: '100%', backgroundColor: colors.surfaceStrong, borderRadius: radius.md, overflow: 'hidden', borderWidth: 1, borderColor: colors.border },
   north: { position: 'absolute', top: 6, right: 10, color: colors.text },
   marker: { position: 'absolute', width: 24, height: 24, borderRadius: 12, backgroundColor: colors.accentDeep, alignItems: 'center', justifyContent: 'center' },
-  markerText: { color: colors.surfaceStrong, fontWeight: '700' },
+  markerText: { color: colors.onAccent, fontWeight: '700' },
 });

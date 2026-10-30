@@ -1,7 +1,8 @@
 import MaterialCommunityIcons from '@expo/vector-icons/MaterialCommunityIcons';
 import { Pressable, StyleSheet, Text, View } from 'react-native';
 import type { PaddleTrackingSession } from '../lib/paddle-tracking';
-import { colors, radius, spacing, typography } from '../theme/tokens';
+import { radius, spacing, typography, type AppColors } from '../theme/tokens';
+import { useAppTheme, useThemedStyles } from '../theme/theme-provider';
 import { AppButton } from './app-button';
 import { PaddleStats } from './paddle-stats';
 
@@ -9,12 +10,14 @@ export function PaddleRecordingCard({ session, elapsedSeconds, busy, onPause, on
   session: PaddleTrackingSession; elapsedSeconds: number; busy: boolean;
   onPause: () => void; onResume: () => void; onFinish: () => void; onDiscard: () => void; onOpen?: () => void;
 }) {
+  const { colors } = useAppTheme();
+  const styles = useThemedStyles(createStyles);
   const recording = session.status === 'recording', finished = session.status === 'finished';
   const status = recording ? 'Recording' : finished ? 'Ready to save' : 'Paused';
   return <View style={styles.card}>
     <View style={styles.topline}>
       <View style={[styles.status, !recording && styles.statusQuiet]}>
-        <MaterialCommunityIcons name={recording ? 'record-circle' : finished ? 'check-circle-outline' : 'pause-circle-outline'} size={18} color={recording ? '#B44734' : colors.accentDeep} />
+        <MaterialCommunityIcons name={recording ? 'record-circle' : finished ? 'check-circle-outline' : 'pause-circle-outline'} size={18} color={recording ? colors.noGo : colors.accentDeep} />
         <Text style={styles.statusText}>{status}</Text>
       </View>
       <View style={styles.privacy}><MaterialCommunityIcons name="lock-outline" size={14} color={colors.textMuted} /><Text style={styles.privacyText}>Only you</Text></View>
@@ -31,10 +34,10 @@ export function PaddleRecordingCard({ session, elapsedSeconds, busy, onPause, on
     <Pressable accessibilityRole="button" accessibilityLabel="Discard unsaved recording" disabled={busy} onPress={onDiscard} style={styles.discard}><Text style={styles.discardText}>Discard recording</Text></Pressable>
   </View>;
 }
-const styles = StyleSheet.create({
+const createStyles = (colors: AppColors) => StyleSheet.create({
   card: { gap: spacing.md, padding: spacing.md, borderRadius: radius.lg, borderWidth: 1.5, borderColor: colors.accent, backgroundColor: colors.surfaceStrong },
   topline: { flexDirection: 'row', flexWrap: 'wrap', alignItems: 'center', justifyContent: 'space-between', gap: spacing.sm },
-  status: { flexDirection: 'row', alignItems: 'center', gap: 6, paddingHorizontal: 10, paddingVertical: 6, borderRadius: radius.pill, backgroundColor: '#FBE7E0' },
+  status: { flexDirection: 'row', alignItems: 'center', gap: 6, paddingHorizontal: 10, paddingVertical: 6, borderRadius: radius.pill, backgroundColor: colors.noGoSoft },
   statusQuiet: { backgroundColor: colors.accentSoft },
   statusText: { ...typography.label, color: colors.text },
   privacy: { flexDirection: 'row', alignItems: 'center', gap: 4 },

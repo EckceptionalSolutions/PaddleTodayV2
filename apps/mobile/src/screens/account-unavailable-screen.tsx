@@ -1,9 +1,11 @@
 import { WebReady } from '../components/web-ready';
 import { SectionCard } from '../components/section-card';
-import { colors, spacing } from '../theme/tokens';
+import { spacing, type AppColors } from '../theme/tokens';
+import { useThemedStyles } from '../theme/theme-provider';
 import { ScrollView, StyleSheet, Text } from 'react-native';
 
 export default function AccountUnavailableScreen() {
+  const styles = useThemedStyles(createStyles);
   return <WebReady title="Account & backup">
     <ScrollView contentContainerStyle={styles.page}>
       <SectionCard title="Account & backup" subtitle="Sign in to back up saved routes and trip plans.">
@@ -13,7 +15,7 @@ export default function AccountUnavailableScreen() {
   </WebReady>;
 }
 
-const styles = StyleSheet.create({
+const createStyles = (colors: AppColors) => StyleSheet.create({
   page: { padding: spacing.md },
   body: { color: colors.textMuted, fontSize: 15, lineHeight: 22 },
 });

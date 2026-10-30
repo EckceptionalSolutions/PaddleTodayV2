@@ -48,7 +48,8 @@ import { androidBottomInset } from '../lib/safe-area';
 import { radioKeyboardProps } from '../lib/selection-keyboard';
 import { useSavedRivers } from '../providers/saved-rivers-provider';
 import { trackAppEvent } from '../lib/observability';
-import { colors, radius, shadow, spacing } from '../theme/tokens';
+import { radius, shadowForColors, spacing, type AppColors } from '../theme/tokens';
+import { useAppTheme, useThemedStyles } from '../theme/theme-provider';
 
 const SORT_MODES = ['Best', 'Shortest', 'Easiest', 'Confidence'] as const;
 const DISTANCE_FILTERS: Array<{ value: HubDistanceFilter; label: string }> = [
@@ -74,6 +75,8 @@ export default function RiverHubScreen() {
 }
 
 function RiverHubContent({ riverId }: { riverId: string }) {
+  const { colors } = useAppTheme();
+  const styles = useThemedStyles(createStyles);
   const reducedMotion = useReducedMotion();
   const { location } = useStoredLocation();
   const [session] = useState(() => readRiverHubSession(riverId));
@@ -479,7 +482,7 @@ function RiverHubContent({ riverId }: { riverId: string }) {
                     accessibilityState={{ checked: sortMode === mode }}
                     aria-checked={sortMode === mode}
                   >
-                    <MaterialCommunityIcons name={sortIcon(mode) as never} color={sortMode === mode ? colors.surfaceStrong : colors.accent} size={15} />
+                    <MaterialCommunityIcons name={sortIcon(mode) as never} color={sortMode === mode ? colors.onAccent : colors.accent} size={15} />
                     <Text style={[styles.sortTabText, sortMode === mode ? styles.sortTabTextSelected : null]}>{mode}</Text>
                   </Pressable>
                 ))}
@@ -561,8 +564,10 @@ function RouteChoiceCard({
   onToggleSaved: () => void;
   onOpen: () => void;
 }) {
+  const { colors } = useAppTheme();
+  const styles = useThemedStyles(createStyles);
   const decision = mapDecision(route);
-  const tone = decisionColors(route.rating, route.river.scoreEligibility === 'planning' ? 'withheld' : route.readiness.status);
+  const tone = decisionColors(route.rating, route.river.scoreEligibility === 'planning' ? 'withheld' : route.readiness.status, colors);
   return (
     <View style={[styles.routeCard, recommended ? styles.routeCardRecommended : null, selected ? styles.routeCardSelected : null]}>
       <View style={styles.routeBadgeRow}>
@@ -628,6 +633,8 @@ function RouteChoiceCard({
 }
 
 function ScoreBreakdownPanel({ route, isStale }: { route: RiverDetailApiResult; isStale: boolean }) {
+  const { colors } = useAppTheme();
+  const styles = useThemedStyles(createStyles);
   const breakdown = route.scoreBreakdown;
   const rows = scoreBreakdownRows(breakdown);
   const capReasons = breakdown.capReasons
@@ -645,7 +652,7 @@ function ScoreBreakdownPanel({ route, isStale }: { route: RiverDetailApiResult; 
         {rows.map((row) => (
           <View key={row.label} style={styles.scoreBreakdownRow}>
             <Text style={styles.scoreBreakdownLabel}>{row.label}</Text>
-            <Text style={[styles.scoreBreakdownValue, scoreBreakdownValueTone(row.value)]}>
+            <Text style={[styles.scoreBreakdownValue, scoreBreakdownValueTone(row.value, colors)]}>
               {signedPoints(row.value)}
             </Text>
           </View>
@@ -664,6 +671,7 @@ function ScoreBreakdownPanel({ route, isStale }: { route: RiverDetailApiResult; 
 }
 
 function ReasonChip({ label }: { label: string }) {
+  const styles = useThemedStyles(createStyles);
   return (
     <View style={styles.reasonChip}>
       <Text style={styles.reasonChipText}>{label}</Text>
@@ -678,6 +686,7 @@ function PaddleLengthOptions({
   value: HubDistanceFilter;
   onChange: (value: HubDistanceFilter) => void;
 }) {
+  const styles = useThemedStyles(createStyles);
   return (
     <View>
       <Text style={styles.filterLabel}>Paddle length</Text>
@@ -704,6 +713,7 @@ function FilterChip({
   selected: boolean;
   onPress: () => void;
 }) {
+  const styles = useThemedStyles(createStyles);
   return (
     <Pressable
       style={[styles.filterChip, selected ? styles.filterChipSelected : null]}
@@ -972,7 +982,7 @@ function scoreBreakdownRows(breakdown: ScoreBreakdown) {
   return rows;
 }
 
-function scoreBreakdownValueTone(value: number) {
+function scoreBreakdownValueTone(value: number, colors: AppColors) {
   if (value > 0) {
     return { color: colors.accentDeep };
   }
@@ -984,7 +994,7 @@ function scoreBreakdownValueTone(value: number) {
   return { color: colors.textMuted };
 }
 
-const styles = StyleSheet.create({
+const createStyles = (colors: AppColors) => StyleSheet.create({
   comparisonBar: { position: 'absolute', bottom: 0, left: 0, right: 0, padding: spacing.md, gap: spacing.sm, backgroundColor: colors.surfaceStrong, borderTopWidth: 1, borderColor: colors.border },
   comparisonCount: { color: colors.text, fontSize: 13, lineHeight: 19, fontWeight: '700' },
   comparisonActions: { flexDirection: 'row', flexWrap: 'wrap', gap: spacing.sm },
@@ -1006,7 +1016,7 @@ const styles = StyleSheet.create({
     borderWidth: 1,
     borderColor: colors.border,
     overflow: 'hidden',
-    ...shadow,
+    ...shadowForColors(colors),
   },
   heroPhoto: {
     height: 190,
@@ -1027,7 +1037,7 @@ const styles = StyleSheet.create({
     gap: 1,
   },
   heroPhotoCaptionText: {
-    color: colors.surfaceStrong,
+    color: colors.onImage,
     fontSize: 12,
     lineHeight: 16,
     fontWeight: '900',
@@ -1068,7 +1078,7 @@ const styles = StyleSheet.create({
     marginTop: -2,
   },
   mapSection: {
-    ...shadow,
+    ...shadowForColors(colors),
   },
   mapFrame: {
     overflow: 'hidden',
@@ -1084,7 +1094,7 @@ const styles = StyleSheet.create({
     borderColor: colors.border,
     padding: spacing.md,
     gap: 3,
-    ...shadow,
+    ...shadowForColors(colors),
   },
   listIntroTitle: {
     color: colors.text,
@@ -1131,7 +1141,7 @@ const styles = StyleSheet.create({
     fontWeight: '900',
   },
   filterChipTextSelected: {
-    color: colors.surfaceStrong,
+    color: colors.onAccent,
   },
   filterActions: {
     flexDirection: 'row',
@@ -1205,7 +1215,7 @@ const styles = StyleSheet.create({
     fontWeight: '900',
   },
   sortTabTextSelected: {
-    color: colors.surfaceStrong,
+    color: colors.onAccent,
   },
   emptyResults: {
     alignItems: 'center',
@@ -1234,7 +1244,7 @@ const styles = StyleSheet.create({
   },
   routeCardRecommended: {
     backgroundColor: colors.accentSoft,
-    borderColor: '#BFD6CC',
+    borderColor: colors.accentBorder,
   },
   routeCardSelected: {
     borderColor: colors.accent,

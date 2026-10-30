@@ -65,7 +65,8 @@ import {
 } from '../lib/route-groups';
 import { isRecord, parseJson } from '../lib/storage';
 import { useSavedRivers } from '../providers/saved-rivers-provider';
-import { colors, radius, spacing } from '../theme/tokens';
+import { radius, spacing, type AppColors } from '../theme/tokens';
+import { useAppTheme, useThemedStyles } from '../theme/theme-provider';
 
 interface ExplorePreferences {
   filters: ExploreFilters;
@@ -520,6 +521,8 @@ function FullScreenExploreMap({
   onUseLocation: () => void;
   isSaved: (slug: string) => boolean;
 }) {
+  const { colors } = useAppTheme();
+  const styles = useThemedStyles(createStyles);
   const [sheetSnap, setSheetSnap] = useState<MapSheetSnap>('half');
   const [controlsHeight, setControlsHeight] = useState(topInset + 200);
   const [mapFrameHeight, setMapFrameHeight] = useState(mapHeight);
@@ -690,7 +693,7 @@ function FullScreenExploreMap({
           >
             <MaterialCommunityIcons
               name="tune-variant"
-              color={activeFilterCount > 0 ? colors.surfaceStrong : colors.accent}
+              color={activeFilterCount > 0 ? colors.onAccent : colors.accent}
               size={19}
             />
             <Text style={[styles.mapFilterButtonText, activeFilterCount > 0 ? styles.mapFilterButtonTextActive : null]}>
@@ -838,6 +841,8 @@ function ExploreListView({
   onViewModeChange: (mode: 'map' | 'list') => void;
   isSaved: (slug: string) => boolean;
 }) {
+  const { colors } = useAppTheme();
+  const styles = useThemedStyles(createStyles);
   const groupedResults = useMemo(() => dedupeExploreRoutes(results), [results]);
 
   function openRoute(route: ExploreRiver) {
@@ -890,7 +895,7 @@ function ExploreListView({
               accessibilityRole="button"
               accessibilityLabel={activeFilterCount > 0 ? `${activeFilterCount} active filters` : 'Filters'}
             >
-              <MaterialCommunityIcons name="tune-variant" color={activeFilterCount > 0 ? colors.surfaceStrong : colors.accent} size={18} />
+              <MaterialCommunityIcons name="tune-variant" color={activeFilterCount > 0 ? colors.onAccent : colors.accent} size={18} />
               <Text style={[styles.listFilterButtonText, activeFilterCount > 0 ? styles.listFilterButtonTextActive : null]}>
                 {activeFilterCount > 0 ? `Filters ${activeFilterCount}` : 'Filters'}
               </Text>
@@ -929,6 +934,8 @@ function ExploreEmptyResults({ map = false, query, callRecovery, onClear, onFilt
   onClear: () => void;
   onFilterPress: () => void;
 }) {
+  const { colors } = useAppTheme();
+  const styles = useThemedStyles(createStyles);
   const hasQuery = Boolean(query.trim());
   return (
     <View style={styles.emptyResultsCopy}>
@@ -956,6 +963,8 @@ function ExploreViewToggle({
   mode: 'map' | 'list';
   onChange: (mode: 'map' | 'list') => void;
 }) {
+  const { colors } = useAppTheme();
+  const styles = useThemedStyles(createStyles);
   return (
     <View style={styles.viewModeToggle} accessibilityRole="tablist" accessibilityLabel="Explore view">
       {(['map', 'list'] as const).map((option, index) => {
@@ -973,7 +982,7 @@ function ExploreViewToggle({
           >
             <MaterialCommunityIcons
               name={option === 'map' ? 'map-outline' : 'format-list-bulleted'}
-              color={selected ? colors.surfaceStrong : colors.accent}
+              color={selected ? colors.onAccent : colors.accent}
               size={16}
             />
             <Text style={[styles.viewModeButtonText, selected ? styles.viewModeButtonTextSelected : null]}>
@@ -1129,7 +1138,7 @@ function isExplorePreferences(value: unknown): value is ExplorePreferences {
   );
 }
 
-const styles = StyleSheet.create({
+const createStyles = (colors: AppColors) => StyleSheet.create({
   fullMapScreen: {
     flex: 1,
     backgroundColor: colors.canvas,
@@ -1159,7 +1168,7 @@ const styles = StyleSheet.create({
   mapFilterButton: {
     minHeight: 42,
     borderRadius: radius.pill,
-    backgroundColor: 'rgba(255, 255, 255, 0.97)',
+    backgroundColor: colors.surfaceOverlay,
     borderWidth: 1,
     borderColor: colors.border,
     paddingHorizontal: 14,
@@ -1181,7 +1190,7 @@ const styles = StyleSheet.create({
     fontWeight: '900',
   },
   mapFilterButtonTextActive: {
-    color: colors.surfaceStrong,
+    color: colors.onAccent,
   },
   mapFilterCount: {
     minWidth: 20,
@@ -1195,7 +1204,7 @@ const styles = StyleSheet.create({
     borderColor: colors.surfaceStrong,
   },
   mapFilterCountText: {
-    color: colors.surfaceStrong,
+    color: colors.onAccent,
     fontSize: 11,
     fontWeight: '900',
   },
@@ -1203,7 +1212,7 @@ const styles = StyleSheet.create({
     minHeight: 34,
     maxWidth: '58%',
     borderRadius: radius.pill,
-    backgroundColor: 'rgba(255, 255, 255, 0.94)',
+    backgroundColor: colors.surfaceOverlay,
     borderWidth: 1,
     borderColor: colors.border,
     paddingHorizontal: 12,
@@ -1226,7 +1235,7 @@ const styles = StyleSheet.create({
     alignSelf: 'flex-start',
     flexDirection: 'row',
     borderRadius: radius.pill,
-    backgroundColor: 'rgba(255, 255, 255, 0.96)',
+    backgroundColor: colors.surfaceOverlay,
     borderWidth: 1,
     borderColor: colors.border,
     padding: 3,
@@ -1253,7 +1262,7 @@ const styles = StyleSheet.create({
     fontWeight: '900',
   },
   viewModeButtonTextSelected: {
-    color: colors.surfaceStrong,
+    color: colors.onAccent,
   },
   exploreListScreen: {
     flex: 1,
@@ -1307,7 +1316,7 @@ const styles = StyleSheet.create({
     fontWeight: '900',
   },
   listFilterButtonTextActive: {
-    color: colors.surfaceStrong,
+    color: colors.onAccent,
   },
   exploreListSeparator: {
     height: spacing.md,
@@ -1332,7 +1341,7 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
   },
   emptyResultsActionText: {
-    color: colors.surfaceStrong,
+    color: colors.onAccent,
     fontSize: 14,
     fontWeight: '800',
     textAlign: 'center',
@@ -1342,7 +1351,7 @@ const styles = StyleSheet.create({
     right: spacing.md,
     minHeight: 44,
     borderRadius: radius.pill,
-    backgroundColor: 'rgba(255, 255, 255, 0.96)',
+    backgroundColor: colors.surfaceOverlay,
     borderWidth: 1,
     borderColor: colors.border,
     paddingHorizontal: 12,
@@ -1369,7 +1378,7 @@ const styles = StyleSheet.create({
     width: 44,
     height: 44,
     borderRadius: 22,
-    backgroundColor: 'rgba(255, 255, 255, 0.96)',
+    backgroundColor: colors.surfaceOverlay,
     borderWidth: 1,
     borderColor: colors.border,
     alignItems: 'center',
@@ -1387,7 +1396,7 @@ const styles = StyleSheet.create({
     borderRadius: radius.md,
     borderWidth: 1,
     borderColor: colors.border,
-    backgroundColor: 'rgba(255, 255, 255, 0.96)',
+    backgroundColor: colors.surfaceOverlay,
     paddingHorizontal: spacing.md,
     flexDirection: 'row',
     alignItems: 'center',

@@ -39,7 +39,8 @@ import { androidBottomInset } from '../lib/safe-area';
 import { tabKeyboardProps } from '../lib/selection-keyboard';
 import { useAlertPreferences, type SavedRouteAlertRecord } from '../providers/alert-preferences-provider';
 import { useSavedRivers } from '../providers/saved-rivers-provider';
-import { colors, radius, spacing } from '../theme/tokens';
+import { radius, spacing, type AppColors } from '../theme/tokens';
+import { useAppTheme, useThemedStyles } from '../theme/theme-provider';
 
 type SavedTab = 'routes' | 'trips' | 'alerts';
 interface SavedComparisonSelection { slugs: string[]; toggle: (slug: string) => void }
@@ -61,6 +62,8 @@ function writeComparisonSession(mode: boolean, slugs: string[]) {
 }
 
 export default function SavedScreen() {
+  const { colors } = useAppTheme();
+  const styles = useThemedStyles(createStyles);
   const reducedMotion = useReducedMotion();
   const router = useRouter();
   const { location } = useStoredLocation();
@@ -366,6 +369,8 @@ export default function SavedScreen() {
 }
 
 function OverviewTile({ icon, label, value }: { icon: string; label: string; value: string }) {
+  const { colors } = useAppTheme();
+  const styles = useThemedStyles(createStyles);
   return (
     <View style={styles.overviewTile} accessible accessibilityLabel={`${label}: ${value}`}>
       <MaterialCommunityIcons name={icon as never} color={colors.accent} size={18} />
@@ -384,6 +389,7 @@ function SavedTabs({
   activeTab: SavedTab;
   onChange: (tab: SavedTab) => void;
 }) {
+  const styles = useThemedStyles(createStyles);
   return (
     <View accessibilityRole="tablist" accessibilityLabel="Saved route sections" style={styles.tabs}>
       <SavedTabButton
@@ -424,6 +430,8 @@ function SavedTabButton({
   active: boolean;
   onPress: () => void;
 }) {
+  const { colors } = useAppTheme();
+  const styles = useThemedStyles(createStyles);
   return (
     <Pressable
       {...keyboardProps}
@@ -434,13 +442,14 @@ function SavedTabButton({
       aria-selected={active}
       accessibilityState={{ selected: active }}
     >
-      <MaterialCommunityIcons name={icon as never} color={active ? colors.surfaceStrong : colors.accent} size={18} />
+      <MaterialCommunityIcons name={icon as never} color={active ? colors.onAccent : colors.accent} size={18} />
       <Text style={[styles.tabButtonText, active ? styles.tabButtonTextActive : null]}>{label}</Text>
     </Pressable>
   );
 }
 
 function StatusTile({ label, value, tone }: { label: string; value: number; tone: object }) {
+  const styles = useThemedStyles(createStyles);
   return (
     <View style={[styles.statusTile, tone]}>
       <Text style={styles.statusValue}>{value}</Text>
@@ -472,6 +481,7 @@ function SavedAlertRow({
   onOpen: () => void;
   onSubmitAlert: (threshold: RiverAlertThreshold) => void;
 }) {
+  const styles = useThemedStyles(createStyles);
   const summary = recordedAlertSummary(alerts);
   return (
     <View style={styles.savedAlertRow}>
@@ -528,6 +538,7 @@ function SavedRouteListItem({
   onToggleSaved: (river: { slug: string; riverId?: string; name: string; reach: string }) => void | Promise<void>;
   onOpen: (slug: string) => void;
 }) {
+  const styles = useThemedStyles(createStyles);
   const savedRiver = savedRivers.find((item) => item.slug === river.river.slug);
   return (
     <View style={styles.virtualRouteItem}>
@@ -547,6 +558,8 @@ function SavedRouteListItem({
 }
 
 function SavedCompareChoice({ river, comparison }: { river: RiverSummaryApiItem; comparison: SavedComparisonSelection }) {
+  const { colors } = useAppTheme();
+  const styles = useThemedStyles(createStyles);
   const selected = comparison.slugs.includes(river.river.slug);
   const disabled = !selected && comparison.slugs.length >= ROUTE_COMPARISON_LIMIT;
   const toggle = () => comparison.toggle(river.river.slug);
@@ -575,7 +588,7 @@ function groupSavedRoutes(rivers: RiverSummaryApiItem[]) {
   );
 }
 
-const styles = StyleSheet.create({
+const createStyles = (colors: AppColors) => StyleSheet.create({
   searchBox: { flexDirection: 'row', alignItems: 'center', minHeight: 48, paddingLeft: spacing.sm, borderRadius: radius.md, borderWidth: 1, borderColor: colors.border, backgroundColor: colors.surfaceStrong, gap: spacing.xs },
   searchInput: { flex: 1, minWidth: 0, minHeight: 48, color: colors.text, fontSize: 15, paddingVertical: spacing.sm, paddingRight: spacing.sm },
   searchClear: { width: 44, minHeight: 44, alignItems: 'center', justifyContent: 'center' },
@@ -675,7 +688,7 @@ const styles = StyleSheet.create({
     fontWeight: '900',
   },
   tabButtonTextActive: {
-    color: colors.surfaceStrong,
+    color: colors.onAccent,
   },
   list: {
     gap: spacing.sm,
@@ -696,16 +709,16 @@ const styles = StyleSheet.create({
     gap: 2,
   },
   statusPaddle: {
-    backgroundColor: '#E0EFE9',
+    backgroundColor: colors.strongSoft,
   },
   statusWatch: {
-    backgroundColor: '#F3E8CC',
+    backgroundColor: colors.fairSoft,
   },
   statusUnavailable: {
-    backgroundColor: '#E7E5E0',
+    backgroundColor: colors.canvasMuted,
   },
   statusSkip: {
-    backgroundColor: '#F2DDD6',
+    backgroundColor: colors.noGoSoft,
   },
   statusValue: {
     color: colors.text,
@@ -781,7 +794,7 @@ const styles = StyleSheet.create({
     fontWeight: '900',
   },
   alertMiniButtonTextSelected: {
-    color: colors.surfaceStrong,
+    color: colors.onAccent,
   },
   alertStatus: {
     color: colors.textMuted,
@@ -858,7 +871,7 @@ const styles = StyleSheet.create({
     paddingVertical: 11,
   },
   primaryButtonText: {
-    color: colors.surfaceStrong,
+    color: colors.onAccent,
     fontSize: 13,
     fontWeight: '900',
   },

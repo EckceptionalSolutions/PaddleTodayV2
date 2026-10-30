@@ -1,13 +1,15 @@
 import { useImperativeHandle, useRef, useState, type RefObject } from 'react';
 import { Pressable, StyleSheet, Text, TextInput, View } from 'react-native';
 import { TripTimePicker } from './trip-time-picker';
-import { colors, radius, spacing } from '../theme/tokens';
+import { radius, spacing, type AppColors } from '../theme/tokens';
+import { useThemedStyles } from '../theme/theme-provider';
 
 export interface TripTimeFieldHandle { focus: () => void }
 export function TripTimeField({ label, manualLabel, value, onChange, editable, inputRef, optional = false, dateOnly = false, error }: {
   label: string; manualLabel: string; value: string; onChange: (value: string) => void; editable: boolean;
   inputRef: RefObject<TripTimeFieldHandle | null>; optional?: boolean; dateOnly?: boolean; error?: string;
 }) {
+  const styles = useThemedStyles(createStyles);
   const [manual, setManual] = useState(false);
   const input = useRef<TextInput>(null);
   useImperativeHandle(inputRef, () => ({ focus: () => { setManual(true); requestAnimationFrame(() => input.current?.focus()); } }), []);
@@ -26,7 +28,7 @@ export function TripTimeField({ label, manualLabel, value, onChange, editable, i
     </View>
   </View>;
 }
-const styles = StyleSheet.create({
+const createStyles = (colors: AppColors) => StyleSheet.create({
   error: { color: colors.noGo, fontSize: 13, lineHeight: 18 },
   field: { gap: spacing.xs }, label: { color: colors.textMuted, fontSize: 12, fontWeight: '800' },
   input: { minHeight: 48, padding: spacing.sm, borderWidth: 1, borderColor: colors.border, borderRadius: radius.md, backgroundColor: colors.surfaceStrong, color: colors.text, fontSize: 16 },

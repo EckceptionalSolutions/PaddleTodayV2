@@ -7,6 +7,7 @@ import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import type { RiverCatalogItem } from '@paddletoday/api-contract';
 import { useRiverCatalogQuery } from '../api/queries';
 import { SectionCard } from '../components/section-card';
+import { AppearanceSettings } from '../components/appearance-settings';
 import { AppRefreshNotice } from '../components/app-state';
 import { SupportedStatePicker } from '../components/supported-state-picker';
 import { appDiagnosticRows } from '../lib/app-diagnostics';
@@ -16,7 +17,8 @@ import { openFeedbackForm } from '../lib/feedback-controller';
 import { openExternalUrl } from '../lib/external-links';
 import { buildRouteGroupMeta, routeGroupMetaForRoute, uniqueRoutesByRiver } from '../lib/route-groups';
 import { androidBottomInset } from '../lib/safe-area';
-import { colors, radius, spacing } from '../theme/tokens';
+import { radius, spacing, type AppColors } from '../theme/tokens';
+import { useAppTheme, useThemedStyles } from '../theme/theme-provider';
 import { useAccountStatus } from '../hooks/use-account-status';
 import { accountSupportSubtitle } from '../lib/account-status';
 
@@ -35,6 +37,8 @@ export default function SupportScreen() {
 }
 
 function SupportContent() {
+  const { colors } = useAppTheme();
+  const styles = useThemedStyles(createStyles);
   const router = useRouter();
   const account = useAccountStatus();
   const insets = useSafeAreaInsets();
@@ -152,6 +156,8 @@ function SupportContent() {
         </Text>
       </View>
 
+      <AppearanceSettings />
+
       <SectionCard title="Before you launch" subtitle="Use PaddleToday to plan. Check conditions at the launch.">
         <View style={styles.list}>
           <SafetyRow icon="waves" title="Check official sources" body="Confirm gauges, weather, closures, and access status before launching." />
@@ -266,8 +272,8 @@ function SupportContent() {
 
       <SectionCard title="Connection check" subtitle="Use this when routes do not load.">
         <View style={styles.diagnosticCard}>
-          <View style={[styles.diagnosticIcon, diagnosticTone(diagnosticState)]}>
-            <MaterialCommunityIcons name={diagnosticIcon(diagnosticState)} color={colors.surfaceStrong} size={20} />
+          <View style={[styles.diagnosticIcon, diagnosticTone(diagnosticState, styles)]}>
+            <MaterialCommunityIcons name={diagnosticIcon(diagnosticState)} color={colors.onAccent} size={20} />
           </View>
           <View style={styles.diagnosticCopy}>
             <Text style={styles.diagnosticTitle}>{diagnosticTitle(diagnosticState)}</Text>
@@ -283,7 +289,7 @@ function SupportContent() {
           aria-busy={diagnosticState === 'checking'}
           onPress={() => void runDiagnostic()}
         >
-          <MaterialCommunityIcons name="refresh" color={colors.surfaceStrong} size={18} />
+          <MaterialCommunityIcons name="refresh" color={colors.onAccent} size={18} />
           <Text style={styles.primaryButtonText}>{diagnosticState === 'checking' ? 'Checking...' : 'Check connection'}</Text>
         </Pressable>
       </SectionCard>
@@ -329,6 +335,8 @@ function SafetyRow({
   title: string;
   body: string;
 }) {
+  const { colors } = useAppTheme();
+  const styles = useThemedStyles(createStyles);
   return (
     <View style={styles.safetyRow}>
       <View style={styles.rowIcon}>
@@ -353,6 +361,8 @@ function ActionRow({
   body: string;
   onPress: () => void;
 }) {
+  const { colors } = useAppTheme();
+  const styles = useThemedStyles(createStyles);
   return (
     <Pressable style={styles.actionRow} onPress={onPress} accessibilityRole="button" accessibilityLabel={title}>
       <View style={styles.rowIcon}>
@@ -381,7 +391,7 @@ function diagnosticIcon(state: DiagnosticState): keyof typeof MaterialCommunityI
   return 'server-network';
 }
 
-function diagnosticTone(state: DiagnosticState) {
+function diagnosticTone(state: DiagnosticState, styles: ReturnType<typeof createStyles>) {
   if (state === 'ok') return styles.diagnosticOk;
   if (state === 'error') return styles.diagnosticError;
   return styles.diagnosticIdle;
@@ -455,7 +465,7 @@ function stateLabel(state: string) {
     .join(' ');
 }
 
-const styles = StyleSheet.create({
+const createStyles = (colors: AppColors) => StyleSheet.create({
   screen: {
     flex: 1,
     backgroundColor: colors.canvas,
@@ -697,7 +707,7 @@ const styles = StyleSheet.create({
     opacity: 0.64,
   },
   primaryButtonText: {
-    color: colors.surfaceStrong,
+    color: colors.onAccent,
     fontSize: 14,
     fontWeight: '900',
   },

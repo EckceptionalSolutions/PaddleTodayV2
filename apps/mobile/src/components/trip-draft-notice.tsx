@@ -1,13 +1,15 @@
 import { useEffect, useState } from 'react';
 import { StyleSheet, Text, View } from 'react-native';
 import type { createTripDraftSession, TripDraft, TripDraftState } from '../lib/trip-drafts';
-import { colors, radius, spacing, typography } from '../theme/tokens';
+import { radius, spacing, typography, type AppColors } from '../theme/tokens';
+import { useThemedStyles } from '../theme/theme-provider';
 import { AppButton } from './app-button';
 
 export function TripDraftNotice({ state, session, defaults, locked, onClose, onReset }: {
   state: TripDraftState; session: ReturnType<typeof createTripDraftSession>; defaults: TripDraft;
   locked: boolean; onClose: () => void; onReset: () => void;
 }) {
+  const styles = useThemedStyles(createStyles);
   const [confirmReset, setConfirmReset] = useState(false);
   useEffect(() => setConfirmReset(false), [session]);
   function replace() {
@@ -40,7 +42,7 @@ export function TripDraftNotice({ state, session, defaults, locked, onClose, onR
     </View> : <AppButton label="Start a new draft" variant="secondary" onPress={() => setConfirmReset(true)} disabled={locked || state.saving} /> : null}
   </View>;
 }
-const styles = StyleSheet.create({
+const createStyles = (colors: AppColors) => StyleSheet.create({
   notice: { padding: spacing.md, gap: spacing.sm, borderRadius: radius.md, backgroundColor: colors.surfaceStrong, borderWidth: 1, borderColor: colors.border },
   actions: { gap: spacing.sm }, help: { ...typography.caption, color: colors.textMuted },
 });

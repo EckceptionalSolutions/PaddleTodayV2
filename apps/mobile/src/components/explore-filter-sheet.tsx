@@ -8,7 +8,8 @@ import { useReducedMotion } from '../hooks/use-reduced-motion';
 import { ChoiceChip, isExploreSort, type ExploreSort } from './explore-controls';
 import { androidBottomInset } from '../lib/safe-area';
 import { isRecord } from '../lib/storage';
-import { colors, radius, spacing } from '../theme/tokens';
+import { radius, spacing, type AppColors } from '../theme/tokens';
+import { useAppTheme, useThemedStyles } from '../theme/theme-provider';
 
 export type DifficultyFilter = 'any' | 'easy' | 'easy-moderate' | 'moderate' | 'hard';
 export type RouteTypeFilter = 'non-whitewater' | 'whitewater' | 'all';
@@ -218,6 +219,7 @@ export function ExploreFilterSheet({
   onReset: () => void;
   onApplyPreset: (apply: (filters: ExploreFilters) => ExploreFilters) => void;
 }) {
+  const styles = useThemedStyles(createStyles);
   const insets = useSafeAreaInsets();
   const bottomInset = androidBottomInset(insets.bottom, ANDROID_NAV_CONTROL_MIN_INSET);
   const translateY = useRef(new Animated.Value(0)).current;
@@ -317,6 +319,8 @@ function FilterPanel({
   onChange: (filters: ExploreFilters) => void;
   onApplyPreset: (apply: (filters: ExploreFilters) => ExploreFilters) => void;
 }) {
+  const { colors } = useAppTheme();
+  const styles = useThemedStyles(createStyles);
   const [statePickerOpen, setStatePickerOpen] = useState(false);
 
   return (
@@ -449,6 +453,7 @@ function FilterPanel({
 }
 
 function DistanceSelector({ value, onChange }: { value: DistanceFilter; onChange: (value: DistanceFilter) => void }) {
+  const styles = useThemedStyles(createStyles);
   return (
     <View style={styles.distanceRail}>
       {distanceOptions.map((option) => {
@@ -486,6 +491,8 @@ function StatePickerModal({
   onSelect: (state: string) => void;
   onDismiss: () => void;
 }) {
+  const { colors } = useAppTheme();
+  const styles = useThemedStyles(createStyles);
   const [query, setQuery] = useState('');
   const reducedMotion = useReducedMotion();
   useEffect(() => {
@@ -542,6 +549,8 @@ function StatePickerModal({
 }
 
 function StatePickerOption({ label, selected, onPress }: { label: string; selected: boolean; onPress: () => void }) {
+  const { colors } = useAppTheme();
+  const styles = useThemedStyles(createStyles);
   return (
     <Pressable style={styles.stateOption} onPress={onPress} accessibilityRole="button" accessibilityLabel={label} aria-pressed={selected} accessibilityState={{ selected }}>
       <Text style={[styles.stateOptionText, selected ? styles.stateOptionTextSelected : null]}>{label}</Text>
@@ -555,6 +564,7 @@ function FilterGroup({
   children,
   wrap = true,
 }: PropsWithChildren<{ title: string; wrap?: boolean }>) {
+  const styles = useThemedStyles(createStyles);
   return (
     <View style={styles.filterGroup}>
       <Text style={styles.filterGroupTitle}>{title}</Text>
@@ -564,6 +574,8 @@ function FilterGroup({
 }
 
 function PresetChip({ label, selected, onPress }: { label: string; selected: boolean; onPress: () => void }) {
+  const { colors } = useAppTheme();
+  const styles = useThemedStyles(createStyles);
   return (
     <Pressable
       style={({ pressed }) => [
@@ -591,6 +603,7 @@ function PresetChip({ label, selected, onPress }: { label: string; selected: boo
 }
 
 export function ActiveFilterStrip({ filters, locationReady }: { filters: ExploreFilters; locationReady: boolean }) {
+  const styles = useThemedStyles(createStyles);
   const active = activeFilterLabels(filters, locationReady);
   if (active.length === 0) {
     return <Text style={styles.filterHint}>Default view shows Good and Strong routes. Routes are sorted by score.</Text>;
@@ -810,7 +823,7 @@ function presetIsActive(id: string, filters: ExploreFilters, locationReady: bool
   return false;
 }
 
-const styles = StyleSheet.create({
+const createStyles = (colors: AppColors) => StyleSheet.create({
   sheetScrim: {
     flex: 1,
     justifyContent: 'flex-end',
@@ -905,7 +918,7 @@ const styles = StyleSheet.create({
     paddingHorizontal: spacing.lg,
   },
   sheetShowText: {
-    color: colors.surfaceStrong,
+    color: colors.onAccent,
     fontSize: 14,
     fontWeight: '900',
   },
@@ -1016,7 +1029,7 @@ const styles = StyleSheet.create({
     fontWeight: '900',
   },
   distanceStopTextSelected: {
-    color: colors.surfaceStrong,
+    color: colors.onAccent,
   },
   pickerScrim: {
     flex: 1,
@@ -1091,7 +1104,7 @@ const styles = StyleSheet.create({
     minHeight: 44,
     borderRadius: radius.md,
     borderWidth: 1,
-    borderColor: '#BFD6CC',
+    borderColor: colors.accentBorder,
     backgroundColor: colors.accentSoft,
     paddingHorizontal: spacing.md,
     paddingVertical: spacing.sm,
@@ -1123,7 +1136,7 @@ const styles = StyleSheet.create({
     fontWeight: '900',
   },
   presetChipTextSelected: {
-    color: colors.surfaceStrong,
+    color: colors.onAccent,
   },
   activeFilters: {
     gap: spacing.sm,

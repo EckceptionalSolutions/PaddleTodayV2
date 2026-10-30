@@ -1,10 +1,13 @@
 import type { DecisionReadinessStatus, ScoreRating } from '@paddletoday/api-contract';
 import { StyleSheet, Text, View } from 'react-native';
 import { callStateForDecision, qualityForDecision, qualityForRating } from '../lib/format';
-import { colors, radius } from '../theme/tokens';
+import { radius, type AppColors, lightColors } from '../theme/tokens';
+import { useAppTheme, useThemedStyles } from '../theme/theme-provider';
 
 export function RatingPill({ rating }: { rating: ScoreRating }) {
-  const tone = ratingColors(rating);
+  const { colors } = useAppTheme();
+  const styles = useThemedStyles(createStyles);
+  const tone = ratingColors(rating, colors);
 
   return (
     <View style={[styles.pill, { backgroundColor: tone.backgroundColor }]}>
@@ -15,7 +18,9 @@ export function RatingPill({ rating }: { rating: ScoreRating }) {
 
 /** Tier label when evidence is ready; otherwise repeats the gated public call. */
 export function QualityPill({ rating, readiness = 'ready' }: { rating: ScoreRating; readiness?: DecisionReadinessStatus }) {
-  const tone = decisionColors(rating, readiness);
+  const { colors } = useAppTheme();
+  const styles = useThemedStyles(createStyles);
+  const tone = decisionColors(rating, readiness, colors);
 
   return (
     <View style={[styles.pill, styles.qualityPill, { backgroundColor: tone.backgroundColor }]}>
@@ -24,41 +29,41 @@ export function QualityPill({ rating, readiness = 'ready' }: { rating: ScoreRati
   );
 }
 
-export function decisionColors(rating: ScoreRating, readiness: DecisionReadinessStatus) {
+export function decisionColors(rating: ScoreRating, readiness: DecisionReadinessStatus, colors: AppColors = lightColors) {
   const call = callStateForDecision(rating, readiness);
   if (call === 'unavailable') return { backgroundColor: colors.canvasMuted, textColor: colors.textMuted };
-  return ratingColors(call === 'skip' ? 'No-go' : call === 'watch' ? 'Fair' : rating);
+  return ratingColors(call === 'skip' ? 'No-go' : call === 'watch' ? 'Fair' : rating, colors);
 }
 
-export function ratingColors(rating: string | null | undefined) {
+export function ratingColors(rating: string | null | undefined, colors: AppColors = lightColors) {
   if (rating === 'Strong') {
     return {
-      backgroundColor: '#E0EFE9',
+      backgroundColor: colors.strongSoft,
       textColor: colors.strong,
     };
   }
 
   if (rating === 'Good') {
     return {
-      backgroundColor: '#E8EFD9',
+      backgroundColor: colors.goodSoft,
       textColor: colors.good,
     };
   }
 
   if (rating === 'Fair') {
     return {
-      backgroundColor: '#F3E8CC',
+      backgroundColor: colors.fairSoft,
       textColor: colors.fair,
     };
   }
 
   return {
-    backgroundColor: '#F2DDD6',
+    backgroundColor: colors.noGoSoft,
     textColor: colors.noGo,
   };
 }
 
-const styles = StyleSheet.create({
+const createStyles = (_colors: AppColors) => StyleSheet.create({
   pill: {
     borderRadius: radius.pill,
     paddingHorizontal: 9,

@@ -10,9 +10,11 @@ import { AppButton } from '../components/app-button';
 import { SectionCard } from '../components/section-card';
 import { isValidEmailAddress } from '../lib/alerts';
 import { androidBottomInset } from '../lib/safe-area';
-import { colors, radius, spacing } from '../theme/tokens';
+import { radius, spacing, type AppColors } from '../theme/tokens';
+import { useAppTheme, useThemedStyles } from '../theme/theme-provider';
 
 export default function RequestRouteScreen() {
+  const styles = useThemedStyles(createStyles);
   const params = useLocalSearchParams<{ name?: string | string[] }>();
   const requestedName = (Array.isArray(params.name) ? params.name[0] : params.name)?.trim().slice(0, 240) ?? '';
   const prefillApplied = useRef(false);
@@ -204,6 +206,8 @@ function Field({
   error?: string;
   maxLength: number;
 }) {
+  const { colors } = useAppTheme();
+  const styles = useThemedStyles(createStyles);
   return (
     <View style={styles.field}>
       <Text style={styles.fieldLabel}>{label}</Text>
@@ -232,7 +236,7 @@ function Field({
   );
 }
 
-const styles = StyleSheet.create({
+const createStyles = (colors: AppColors) => StyleSheet.create({
   keyboardWrap: {
     flex: 1,
     backgroundColor: colors.canvas,

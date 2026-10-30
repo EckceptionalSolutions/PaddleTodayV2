@@ -3,11 +3,13 @@ import { StyleSheet, Text, View } from 'react-native';
 import type { TripRoute } from '@paddletoday/api-contract';
 import { useRiverDetailQuery, useRiverGeometryQuery } from '../api/queries';
 import { tripDurationLabel, tripRoutePreview } from '../lib/trip-route-preview';
-import { colors, radius, spacing } from '../theme/tokens';
+import { radius, spacing, type AppColors } from '../theme/tokens';
+import { useThemedStyles } from '../theme/theme-provider';
 import { AppButton } from './app-button';
 import { RoutePlotMap, type RoutePlotPoint } from './route-plot-map';
 
 export function TripRoutePreview({ route, onOpenRoute, disabled }: { route: TripRoute; onOpenRoute: () => void; disabled: boolean }) {
+  const styles = useThemedStyles(createStyles);
   const detail = useRiverDetailQuery(route.slug);
   const geometry = useRiverGeometryQuery(route.slug);
   const preview = useMemo(() => tripRoutePreview(route, detail.data?.result, geometry.data), [route, detail.data, geometry.data]);
@@ -33,7 +35,7 @@ export function TripRoutePreview({ route, onOpenRoute, disabled }: { route: Trip
     <Text style={styles.hint}>Review current conditions and access before launching.</Text>
   </View>;
 }
-const styles = StyleSheet.create({
+const createStyles = (colors: AppColors) => StyleSheet.create({
   card: { gap: spacing.sm, borderRadius: radius.lg, backgroundColor: colors.surfaceStrong },
   legend: { flexDirection: 'row', flexWrap: 'wrap', gap: spacing.md, paddingTop: 6 }, legendText: { fontSize: 11, fontWeight: '700', color: colors.textMuted },
   metrics: { flexDirection: 'row', flexWrap: 'wrap', gap: spacing.lg }, time: { flexShrink: 1 }, metric: { color: colors.text, fontWeight: '800', fontSize: 17, lineHeight: 24 },

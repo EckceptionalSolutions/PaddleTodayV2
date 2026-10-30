@@ -1,7 +1,9 @@
 import { StyleSheet, Text, View } from 'react-native';
-import { colors, radius, spacing, typography } from '../theme/tokens';
+import { radius, spacing, typography, type AppColors } from '../theme/tokens';
+import { useThemedStyles } from '../theme/theme-provider';
 
 export function PaddleStats({ distanceMeters, elapsedSeconds, live = false }: { distanceMeters: number; elapsedSeconds: number; live?: boolean }) {
+  const styles = useThemedStyles(createStyles);
   const seconds = Math.max(0, Math.floor(elapsedSeconds));
   const hours = Math.floor(seconds / 3600), minutes = Math.floor(seconds / 60) % 60;
   const duration = live ? `${String(hours).padStart(2, '0')}:${String(minutes).padStart(2, '0')}:${String(seconds % 60).padStart(2, '0')}`
@@ -18,7 +20,7 @@ export function PaddleStats({ distanceMeters, elapsedSeconds, live = false }: { 
     </View>
   </View>;
 }
-const styles = StyleSheet.create({
+const createStyles = (colors: AppColors) => StyleSheet.create({
   row: { flexDirection: 'row', flexWrap: 'wrap', gap: spacing.sm },
   stat: { flex: 1, minWidth: 110, padding: spacing.sm, gap: 4, borderRadius: radius.md, backgroundColor: colors.canvas },
   value: { color: colors.accentDeep, fontSize: 26, lineHeight: 34, fontWeight: '800', fontVariant: ['tabular-nums'] },

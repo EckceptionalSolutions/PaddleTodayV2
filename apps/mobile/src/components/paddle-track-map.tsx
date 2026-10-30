@@ -1,11 +1,15 @@
+import { darkMapStyle } from '../theme/native-map-style';
 import type { PaddleTrack } from '@paddletoday/api-contract';
 import MapView, { Marker, Polyline } from 'react-native-maps';
 import { useMemo } from 'react';
 import { StyleSheet, View } from 'react-native';
 import { decodePaddleTrackPolylines } from '../lib/paddle-tracking';
-import { colors, radius } from '../theme/tokens';
+import { radius, type AppColors } from '../theme/tokens';
+import { useAppTheme, useThemedStyles } from '../theme/theme-provider';
 
 export function PaddleTrackMap({ track, height = 220 }: { track: PaddleTrack; height?: number }) {
+  const { colors, colorScheme } = useAppTheme();
+  const styles = useThemedStyles(createStyles);
   const segments = useMemo(() => decodePaddleTrackPolylines(track), [track]);
   const points = segments.flat();
   if (!points.length) return null;
@@ -16,6 +20,8 @@ export function PaddleTrackMap({ track, height = 220 }: { track: PaddleTrack; he
   const longitudeDelta = Math.max(0.008, (maxLongitude - minLongitude) * 1.5);
   return <View style={[styles.frame, { height }]}>
     <MapView
+      userInterfaceStyle={colorScheme}
+      customMapStyle={colorScheme === 'dark' ? darkMapStyle : []}
       style={StyleSheet.absoluteFill}
       initialRegion={{ latitude, longitude, latitudeDelta, longitudeDelta }}
       scrollEnabled={false}
@@ -32,6 +38,6 @@ export function PaddleTrackMap({ track, height = 220 }: { track: PaddleTrack; he
   </View>;
 }
 
-const styles = StyleSheet.create({
+const createStyles = (colors: AppColors) => StyleSheet.create({
   frame: { height: 220, overflow: 'hidden', borderRadius: radius.md, backgroundColor: colors.canvasMuted },
 });

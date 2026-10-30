@@ -1,7 +1,8 @@
 import { forwardRef, useEffect, useImperativeHandle, useState } from 'react';
 import { Pressable, StyleSheet, Text, View, useWindowDimensions } from 'react-native';
 import { mapScoreLayout, type MapViewport } from '../lib/map-viewport';
-import { colors, radius, spacing } from '../theme/tokens';
+import { radius, spacing, type AppColors } from '../theme/tokens';
+import { useAppTheme, useThemedStyles } from '../theme/theme-provider';
 import {
   finiteSpanCoordinates,
   getBounds,
@@ -78,6 +79,8 @@ export const RoutePlotMap = forwardRef<RoutePlotMapHandle, {
   fitToSelectedOnReady: _fitToSelectedOnReady = false,
   selectedFocusBottomInset: _selectedFocusBottomInset = 0,
 }, ref) {
+  const { colors } = useAppTheme();
+  const styles = useThemedStyles(createStyles);
   const backgroundSpan = finiteSpanCoordinates(backgroundSpanCoordinates);
   const backgroundSpans = [
     ...(backgroundSpan.length >= 2 ? [backgroundSpan] : []),
@@ -162,7 +165,7 @@ export const RoutePlotMap = forwardRef<RoutePlotMapHandle, {
                 style={[
                   showScore ? styles.marker : styles.dotMarker,
                   dimmed ? styles.markerDimmed : null,
-                  toneForRating(point.rating),
+                  toneForRating(point.rating, colors),
                   selected ? styles.markerSelectedTone : null,
                 ]}
               >
@@ -191,6 +194,7 @@ export const RoutePlotMap = forwardRef<RoutePlotMapHandle, {
 });
 
 function MapLabel({ label, style }: { label: string; style: object }) {
+  const styles = useThemedStyles(createStyles);
   return (
     <Text style={[styles.mapLabel, style]} numberOfLines={1}>
       {label}
@@ -199,6 +203,7 @@ function MapLabel({ label, style }: { label: string; style: object }) {
 }
 
 function ShowAllButton({ onPress }: { onPress: () => void }) {
+  const styles = useThemedStyles(createStyles);
   return (
     <Pressable
       style={styles.showAllButton}
@@ -220,7 +225,9 @@ function MapFooter({
   selectedPoint: RoutePlotPoint | null;
   onViewSelected?: (point: RoutePlotPoint) => void;
 }) {
-  const legendItems = legendItemsForPoints(points);
+  const { colors } = useAppTheme();
+  const styles = useThemedStyles(createStyles);
+  const legendItems = legendItemsForPoints(points, colors);
 
   return (
     <View style={styles.footer}>
@@ -259,6 +266,7 @@ function MapFooter({
 
 
 function LegendDot({ color, label }: { color: string; label: string }) {
+  const styles = useThemedStyles(createStyles);
   return (
     <View style={styles.legendItem}>
       <View style={[styles.legendDot, { backgroundColor: color }]} />
@@ -276,6 +284,7 @@ function ProjectedRouteSpan({
   bounds: { minLat: number; maxLat: number; minLon: number; maxLon: number };
   tone: 'background' | 'selected';
 }) {
+  const styles = useThemedStyles(createStyles);
   const projected = coordinates.map((point) => projectPointNumber(point.latitude, point.longitude, bounds));
   const left = Math.min(...projected.map((point) => point.left));
   const right = Math.max(...projected.map((point) => point.left));
@@ -298,7 +307,7 @@ function ProjectedRouteSpan({
   );
 }
 
-const styles = StyleSheet.create({
+const createStyles = (colors: AppColors) => StyleSheet.create({
   shell: {
     backgroundColor: colors.surfaceStrong,
     borderRadius: radius.lg,
@@ -311,7 +320,7 @@ const styles = StyleSheet.create({
     borderWidth: 0,
   },
   mapCanvas: {
-    backgroundColor: '#E6ECDF',
+    backgroundColor: colors.mapLand,
     position: 'relative',
     overflow: 'hidden',
   },
@@ -322,7 +331,7 @@ const styles = StyleSheet.create({
     top: '-8%',
     height: '34%',
     borderRadius: 999,
-    backgroundColor: 'rgba(205, 221, 193, 0.62)',
+    backgroundColor: colors.mapLandTint,
     transform: [{ rotate: '-7deg' }],
   },
   mapLandPatchSouth: {
@@ -332,7 +341,7 @@ const styles = StyleSheet.create({
     bottom: '-7%',
     height: '29%',
     borderRadius: 999,
-    backgroundColor: 'rgba(205, 221, 193, 0.48)',
+    backgroundColor: colors.mapLandTint,
     transform: [{ rotate: '9deg' }],
   },
   mapLakeWest: {
@@ -342,7 +351,7 @@ const styles = StyleSheet.create({
     width: '42%',
     height: '19%',
     borderRadius: 999,
-    backgroundColor: 'rgba(129, 178, 197, 0.28)',
+    backgroundColor: colors.mapWater,
     transform: [{ rotate: '-16deg' }],
   },
   mapLakeEast: {
@@ -352,7 +361,7 @@ const styles = StyleSheet.create({
     width: '36%',
     height: '17%',
     borderRadius: 999,
-    backgroundColor: 'rgba(129, 178, 197, 0.22)',
+    backgroundColor: colors.mapWater,
     transform: [{ rotate: '13deg' }],
   },
   riverRibbonOne: {
@@ -362,7 +371,7 @@ const styles = StyleSheet.create({
     top: '28%',
     height: 24,
     borderRadius: 999,
-    backgroundColor: 'rgba(55, 133, 168, 0.35)',
+    backgroundColor: colors.mapWater,
     transform: [{ rotate: '-18deg' }],
   },
   riverRibbonTwo: {
@@ -372,7 +381,7 @@ const styles = StyleSheet.create({
     top: '55%',
     height: 20,
     borderRadius: 999,
-    backgroundColor: 'rgba(55, 133, 168, 0.28)',
+    backgroundColor: colors.mapWater,
     transform: [{ rotate: '15deg' }],
   },
   riverRibbonThree: {
@@ -382,7 +391,7 @@ const styles = StyleSheet.create({
     width: 22,
     height: '120%',
     borderRadius: 999,
-    backgroundColor: 'rgba(55, 133, 168, 0.22)',
+    backgroundColor: colors.mapWater,
     transform: [{ rotate: '3deg' }],
   },
   primaryRoadNorth: {
@@ -392,7 +401,7 @@ const styles = StyleSheet.create({
     top: '22%',
     height: 10,
     borderRadius: 999,
-    backgroundColor: 'rgba(250, 250, 244, 0.92)',
+    backgroundColor: colors.mapLabelSurface,
     borderWidth: 1,
     borderColor: 'rgba(200, 184, 141, 0.65)',
     transform: [{ rotate: '8deg' }],
@@ -404,7 +413,7 @@ const styles = StyleSheet.create({
     top: '47%',
     height: 12,
     borderRadius: 999,
-    backgroundColor: 'rgba(250, 250, 244, 0.92)',
+    backgroundColor: colors.mapLabelSurface,
     borderWidth: 1,
     borderColor: 'rgba(200, 184, 141, 0.7)',
     transform: [{ rotate: '-9deg' }],
@@ -416,7 +425,7 @@ const styles = StyleSheet.create({
     top: '72%',
     height: 9,
     borderRadius: 999,
-    backgroundColor: 'rgba(250, 250, 244, 0.86)',
+    backgroundColor: colors.mapLabelSurface,
     borderWidth: 1,
     borderColor: 'rgba(200, 184, 141, 0.55)',
     transform: [{ rotate: '16deg' }],
@@ -428,7 +437,7 @@ const styles = StyleSheet.create({
     left: '23%',
     width: 4,
     borderRadius: 999,
-    backgroundColor: 'rgba(255, 255, 251, 0.7)',
+    backgroundColor: colors.mapLabelSurface,
     transform: [{ rotate: '-11deg' }],
   },
   secondaryRoadTwo: {
@@ -438,7 +447,7 @@ const styles = StyleSheet.create({
     left: '61%',
     width: 5,
     borderRadius: 999,
-    backgroundColor: 'rgba(255, 255, 251, 0.68)',
+    backgroundColor: colors.mapLabelSurface,
     transform: [{ rotate: '10deg' }],
   },
   secondaryRoadThree: {
@@ -448,7 +457,7 @@ const styles = StyleSheet.create({
     top: '36%',
     height: 5,
     borderRadius: 999,
-    backgroundColor: 'rgba(255, 255, 251, 0.62)',
+    backgroundColor: colors.mapLabelSurface,
     transform: [{ rotate: '-2deg' }],
   },
   secondaryRoadFour: {
@@ -458,15 +467,15 @@ const styles = StyleSheet.create({
     top: '63%',
     height: 5,
     borderRadius: 999,
-    backgroundColor: 'rgba(255, 255, 251, 0.62)',
+    backgroundColor: colors.mapLabelSurface,
     transform: [{ rotate: '-13deg' }],
   },
   mapLabel: {
     position: 'absolute',
-    color: 'rgba(70, 86, 77, 0.58)',
+    color: colors.mapLabel,
     fontSize: 11,
     fontWeight: '800',
-    textShadowColor: 'rgba(255, 255, 255, 0.85)',
+    textShadowColor: colors.surface,
     textShadowOffset: { width: 0, height: 1 },
     textShadowRadius: 3,
   },
@@ -547,11 +556,12 @@ const styles = StyleSheet.create({
     borderColor: colors.surfaceStrong,
   },
   markerText: {
-    color: colors.surfaceStrong,
+    color: colors.onAccent,
     fontSize: 11,
     fontWeight: '900',
   },
   markerTextSelected: {
+    color: colors.onImage,
     fontSize: 13,
   },
   markerDimmed: {
@@ -634,7 +644,7 @@ const styles = StyleSheet.create({
     borderRadius: radius.pill,
     borderWidth: 1,
     borderColor: colors.border,
-    backgroundColor: 'rgba(255, 255, 255, 0.94)',
+    backgroundColor: colors.surfaceOverlay,
   },
   showAllButtonText: {
     color: colors.accent,
@@ -648,7 +658,7 @@ const styles = StyleSheet.create({
     backgroundColor: colors.accent,
   },
   viewCardButtonText: {
-    color: colors.surfaceStrong,
+    color: colors.onAccent,
     fontSize: 12,
     fontWeight: '900',
   },

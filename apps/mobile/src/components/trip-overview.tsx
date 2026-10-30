@@ -4,7 +4,8 @@ import MaterialCommunityIcons from '@expo/vector-icons/MaterialCommunityIcons';
 import type { PaddleLog, Trip } from '@paddletoday/api-contract';
 import { AppButton } from './app-button';
 import { SectionCard } from './section-card';
-import { colors, radius, spacing, typography } from '../theme/tokens';
+import { radius, spacing, typography, type AppColors } from '../theme/tokens';
+import { useAppTheme, useThemedStyles } from '../theme/theme-provider';
 import { TripRoutePreview } from './trip-route-preview';
 import { tripNotes } from '@paddletoday/api-contract';
 
@@ -13,6 +14,8 @@ type Icon = ComponentProps<typeof MaterialCommunityIcons>['name'];
 export function TripScreenHeader({ title, context, backLabel, onBack, disabled }: {
   title: string; context?: string; backLabel: string; onBack: () => void; disabled: boolean;
 }) {
+  const { colors } = useAppTheme();
+  const styles = useThemedStyles(createStyles);
   return <View style={styles.screenHeader}>
     <Pressable accessibilityRole="button" accessibilityLabel={backLabel} disabled={disabled} onPress={onBack} style={styles.back}>
       <MaterialCommunityIcons name="arrow-left" size={22} color={colors.accentDeep} /><Text style={styles.backText}>{backLabel}</Text>
@@ -24,6 +27,8 @@ export function TripScreenHeader({ title, context, backLabel, onBack, disabled }
 export function TripActionRow({ icon, title, detail, onPress, disabled, compact = false }: {
   icon: Icon; title: string; detail?: string; onPress: () => void; disabled?: boolean; compact?: boolean;
 }) {
+  const { colors } = useAppTheme();
+  const styles = useThemedStyles(createStyles);
   return <Pressable accessibilityRole="button" disabled={disabled} accessibilityLabel={detail ? `${title}. ${detail}` : title} accessibilityState={{ disabled: !!disabled }} onPress={onPress} style={({ pressed }) => [styles.actionRow, compact && styles.compactRow, pressed && !disabled && styles.pressed]}>
     <View style={[styles.actionIcon, compact && styles.compactIcon]}><MaterialCommunityIcons name={icon} size={compact ? 20 : 22} color={colors.accentDeep} /></View>
     <View style={styles.actionCopy}><Text style={styles.actionTitle}>{title}</Text>{detail ? <Text style={styles.supporting}>{detail}</Text> : null}</View>
@@ -31,6 +36,7 @@ export function TripActionRow({ icon, title, detail, onPress, disabled, compact 
   </Pressable>;
 }
 export function TripFact({ label, value }: { label: string; value: string }) {
+  const styles = useThemedStyles(createStyles);
   return <View style={styles.fact}><Text style={styles.factLabel}>{label}</Text><Text style={styles.factValue}>{value}</Text></View>;
 }
 export function TripOverview({ trip, uid, recap, disabled, onEdit, onRecap, onRecord, onOpenRecap, onPanel, onRoute, onPlanAgain }: {
@@ -38,6 +44,8 @@ export function TripOverview({ trip, uid, recap, disabled, onEdit, onRecap, onRe
   onEdit: () => void; onRecap: () => void; onRecord: () => void; onOpenRecap: () => void;
   onPanel: (panel: TripPanel) => void; onRoute: () => void; onPlanAgain: () => void;
 }) {
+  const { colors } = useAppTheme();
+  const styles = useThemedStyles(createStyles);
   const going = trip.members.filter(m => m.rsvp === 'going');
   const me = trip.members.find(m => m.uid === uid);
   const preparation = trip.preparation;
@@ -92,7 +100,7 @@ export function readableTripDate(date: string) {
   const value = new Date(`${date}T12:00:00`);
   return Number.isNaN(value.getTime()) ? date : value.toLocaleDateString(undefined, { month: 'short', day: 'numeric', year: 'numeric' });
 }
-const styles = StyleSheet.create({
+const createStyles = (colors: AppColors) => StyleSheet.create({
   screenHeader: { gap: 4 }, back: { minHeight: 44, flexDirection: 'row', alignItems: 'center', gap: 8, alignSelf: 'flex-start' }, backText: { color: colors.accentDeep, fontSize: 14, fontWeight: '700' },
   context: { color: colors.textMuted, fontSize: 13, lineHeight: 19 }, screenTitle: { ...typography.title, color: colors.text },
   summary: { padding: spacing.md, gap: spacing.md, borderRadius: radius.lg, backgroundColor: colors.surfaceStrong, borderWidth: 1, borderColor: colors.border, borderTopWidth: 3, borderTopColor: colors.accent },

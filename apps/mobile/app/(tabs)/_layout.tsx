@@ -2,10 +2,11 @@ import MaterialCommunityIcons from '@expo/vector-icons/MaterialCommunityIcons';
 import { Tabs } from 'expo-router';
 import { useWindowDimensions } from 'react-native';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
-import { colors } from '../../src/theme/tokens';
+import { useAppTheme } from '../../src/theme/theme-provider';
 import { useReducedMotion } from '../../src/hooks/use-reduced-motion';
 
 export default function TabLayout() {
+  const { colors } = useAppTheme();
   const reducedMotion = useReducedMotion();
   const insets = useSafeAreaInsets();
   const bottomInset = insets.bottom;
