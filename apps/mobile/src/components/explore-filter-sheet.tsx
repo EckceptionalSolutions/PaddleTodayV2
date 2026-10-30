@@ -10,6 +10,9 @@ import { androidBottomInset } from '../lib/safe-area';
 import { isRecord } from '../lib/storage';
 import { radius, spacing, type AppColors } from '../theme/tokens';
 import { useAppTheme, useThemedStyles } from '../theme/theme-provider';
+import { AppButton } from './app-button';
+import { paddlingFilterValues, paddlingPreferenceSummary } from '../lib/paddling-preferences';
+import { usePaddlingPreferences } from '../providers/paddling-preferences-provider';
 
 export type DifficultyFilter = 'any' | 'easy' | 'easy-moderate' | 'moderate' | 'hard';
 export type RouteTypeFilter = 'non-whitewater' | 'whitewater' | 'all';
@@ -322,9 +325,15 @@ function FilterPanel({
   const { colors } = useAppTheme();
   const styles = useThemedStyles(createStyles);
   const [statePickerOpen, setStatePickerOpen] = useState(false);
+  const { preferences, ready, loadError } = usePaddlingPreferences();
 
   return (
     <View style={styles.filterPanel}>
+      {ready && !loadError && preferences ? <View style={{ gap: spacing.sm }}>
+        <Text style={styles.filterGroupTitle}>Your paddling</Text>
+        <Text style={styles.sheetSubtitle}>{paddlingPreferenceSummary(preferences)}. Applies difficulty and water type to this search.</Text>
+        <AppButton label="Use my paddling preferences" variant="secondary" onPress={() => onChange({ ...filters, ...paddlingFilterValues(preferences) })} />
+      </View> : null}
       <View style={styles.filterPanelHeader}>
         <Text style={styles.filterPanelTitle}>Quick filters</Text>
       </View>

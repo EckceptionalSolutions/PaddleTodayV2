@@ -1,6 +1,9 @@
 import { stateAbbreviation } from '../lib/state-labels';
 import { RouteSearchModal } from '../components/route-search-modal';
 import { LocationStorageNotice } from '../components/location-storage-notice';
+import { PaddlingPreferenceControl } from '../components/paddling-preference-control';
+import { usePaddlingPreferences } from '../providers/paddling-preferences-provider';
+import { matchesPaddlingPreferences, paddlingMatchReason } from '../lib/paddling-preferences';
 import {
   formatRouteSegmentLabel,
   normalizeSearchText,
@@ -98,6 +101,10 @@ const HomeContent = memo(function HomeContent({ summaryQuery, searchCatalog, sea
   const { location, status, requestLocation, searchLocations, selectPlanningLocation, cancelLocationRequest } = useStoredLocation();
   const { isSaved, toggleSavedRiver } = useSavedRivers();
   const [mode, setMode] = useState<BoardMode>('best');
+  const { preferences: paddlingPreferences, ready: paddlingReady } = usePaddlingPreferences();
+  const [showAllPaddling, setShowAllPaddling] = useState(false);
+  useEffect(() => { setShowAllPaddling(false); }, [paddlingPreferences]);
+  const activePaddling = showAllPaddling ? null : paddlingPreferences;
   const [routeQuery, setRouteQuery] = useState('');
   const [locationSearchOpen, setLocationSearchOpen] = useState(false);
   const [modeSaveError, setModeSaveError] = useState(false);
@@ -121,8 +128,8 @@ const HomeContent = memo(function HomeContent({ summaryQuery, searchCatalog, sea
     ? `Within ${HOME_NEARBY_DISTANCE_MILES} mi of ${location.label}`
     : 'Across available routes';
   const bestPicks = useMemo(
-    () => selectBestNowPicks(scopedRoutes, undefined, 24),
-    [scopedRoutes]
+    () => selectBestNowPicks(scopedRoutes.filter(route => matchesPaddlingPreferences(route, activePaddling)), undefined, 24),
+    [scopedRoutes, activePaddling]
   );
   const scorePicks = useMemo(
     () => [...scopedRoutes].sort(compareHomeScore).slice(0, 24),
@@ -141,7 +148,9 @@ const HomeContent = memo(function HomeContent({ summaryQuery, searchCatalog, sea
     () => uniqueRoutesByRiver(mode === 'closest' ? closestPicks : mode === 'score' ? scorePicks : mode === 'certain' ? certainPicks : bestPicks),
     [bestPicks, certainPicks, closestPicks, mode, scorePicks]
   );
-  const headline = data[0] ?? uniqueRoutesByRiver(bestPicks)[0] ?? null;
+  const headline = data[0] ?? (mode === 'best' ? null : uniqueRoutesByRiver(bestPicks)[0]) ?? null;
+  const paddlingEmpty = mode === 'best' && Boolean(activePaddling) && scopedRoutes.length > 0 && bestPicks.length === 0;
+  const matchReason = mode === 'best' && headline ? paddlingMatchReason(headline, activePaddling) : null;
   const headlineMode = data[0] ? mode : 'best';
   const knownRouteMatches = useMemo(
     () => uniqueRoutesByRiver(findKnownRouteMatches(searchableRivers, routeQuery)).slice(0, 10),
@@ -174,7 +183,7 @@ const HomeContent = memo(function HomeContent({ summaryQuery, searchCatalog, sea
     });
   }
 
-  if (status === 'loading') {
+  if (status === 'loading' || !paddlingReady) {
     return <AppLoadingState title="Checking your starting point" body="Looking for a saved location for Today." />;
   }
 
@@ -234,6 +243,12 @@ const HomeContent = memo(function HomeContent({ summaryQuery, searchCatalog, sea
           />
         ) : null}
         {location ? <>
+          {mode === 'best' ? <PaddlingPreferenceControl showingAll={showAllPaddling} onToggleAll={() => setShowAllPaddling(value => !value)} /> : null}
+          {paddlingEmpty ? <View style={styles.todayCallsSection}>
+            <Text accessibilityRole="header" style={styles.sectionTitle}>No nearby routes match your paddling preferences</Text>
+            <Text style={styles.sectionSubtitle}>Try changing your preferences or browse all nearby routes.</Text>
+            <AppButton label="Browse all nearby routes" variant="secondary" onPress={() => setShowAllPaddling(true)} />
+          </View> : null}
           <MotionReveal key={headline?.river.slug ?? 'no-headline'} reducedMotion={reducedMotion}>
           <BoardHero
             mode={headlineMode}
@@ -256,6 +271,7 @@ const HomeContent = memo(function HomeContent({ summaryQuery, searchCatalog, sea
             onSetLocation={() => setLocationSearchOpen(true)}
           />
           </MotionReveal>
+          {matchReason ? <Text style={styles.sectionSubtitle}>{matchReason}</Text> : null}
           {locationOutOfRange ? (
             <OutOfRangeState
               locationLabel={location.label}
@@ -271,7 +287,7 @@ const HomeContent = memo(function HomeContent({ summaryQuery, searchCatalog, sea
               isSaved={isSaved}
               onToggleSaved={(river) => void toggleSavedRiver(toSavedRiver(river))}
               onOpen={openBoardRoute}
-              emptyState={<EmptyMode mode={mode} hasLocation locationStatus={status} />}
+              emptyState={paddlingEmpty ? null : <EmptyMode mode={mode} hasLocation locationStatus={status} />}
             >
               {modeTabs}
             </RiverCarousel>

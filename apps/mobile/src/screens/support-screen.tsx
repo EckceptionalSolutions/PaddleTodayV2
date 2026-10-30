@@ -8,6 +8,7 @@ import type { RiverCatalogItem } from '@paddletoday/api-contract';
 import { useRiverCatalogQuery } from '../api/queries';
 import { SectionCard } from '../components/section-card';
 import { AppearanceSettings } from '../components/appearance-settings';
+import { PaddlingPreferenceControl } from '../components/paddling-preference-control';
 import { AppRefreshNotice } from '../components/app-state';
 import { SupportedStatePicker } from '../components/supported-state-picker';
 import { appDiagnosticRows } from '../lib/app-diagnostics';
@@ -156,6 +157,7 @@ function SupportContent() {
         </Text>
       </View>
 
+      <PaddlingPreferenceControl variant="more" />
       <AppearanceSettings />
 
       <SectionCard title="Before you launch" subtitle="Use PaddleToday to plan. Check conditions at the launch.">

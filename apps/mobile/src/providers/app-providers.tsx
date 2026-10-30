@@ -11,6 +11,7 @@ import { captureAppException, trackAppEvent } from '../lib/observability';
 import { AlertPreferencesProvider } from './alert-preferences-provider';
 import { AreaNotificationPreferencesProvider } from './area-notification-preferences-provider';
 import { SavedRiversProvider } from './saved-rivers-provider';
+import { PaddlingPreferencesProvider } from './paddling-preferences-provider';
 import { StoredLocationProvider } from '../hooks/use-stored-location';
 import { queryCacheBuster } from '../lib/query-cache';
 import { createRouteQueryPersister, shouldPersistRouteQuery } from '../lib/query-persister';
@@ -136,7 +137,7 @@ export function AppProviders({ children }: PropsWithChildren) {
       <AlertPreferencesProvider>
         <AreaNotificationPreferencesProvider>
           <StoredLocationProvider>
-            <SavedRiversProvider>{children}<AccountBackupInvitation /></SavedRiversProvider>
+            <PaddlingPreferencesProvider><SavedRiversProvider>{children}<AccountBackupInvitation /></SavedRiversProvider></PaddlingPreferencesProvider>
           </StoredLocationProvider>
         </AreaNotificationPreferencesProvider>
       </AlertPreferencesProvider>

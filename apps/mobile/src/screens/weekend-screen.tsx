@@ -1,4 +1,7 @@
 import { LocationStorageNotice } from '../components/location-storage-notice';
+import { PaddlingPreferenceControl } from '../components/paddling-preference-control';
+import { usePaddlingPreferences } from '../providers/paddling-preferences-provider';
+import { matchesPaddlingPreferences, paddlingMatchReason } from '../lib/paddling-preferences';
 import { AppButton } from '../components/app-button';
 import { ManualLocationModal } from '../components/manual-location-modal';
 import {
@@ -96,10 +99,18 @@ const WeekendContent = memo(function WeekendContent({ weekendQuery, distanceLimi
   const distanceWriteQueue = useRef(Promise.resolve());
   const distanceWriteVersion = useRef(0);
   const [weekendFilter, setWeekendFilter] = useState<WeekendFilter>('all');
+  const { preferences: paddlingPreferences, ready: paddlingReady } = usePaddlingPreferences();
+  const [showAllPaddling, setShowAllPaddling] = useState(false);
+  useEffect(() => { setShowAllPaddling(false); }, [paddlingPreferences]);
+  const activePaddling = showAllPaddling ? null : paddlingPreferences;
 
-  const rivers = useMemo(
+  const allRankedRivers = useMemo(
     () => rankWeekendRoutes(weekendQuery.data?.rivers ?? [], location),
     [weekendQuery.data?.rivers, location]
+  );
+  const rivers = useMemo(
+    () => allRankedRivers.filter(route => matchesPaddlingPreferences(route, activePaddling)),
+    [allRankedRivers, activePaddling]
   );
   const {
     inRangeRivers, topPicks, expandedPicks, nearbyWatch, featured, hasWeekendPlan,
@@ -186,7 +197,7 @@ const WeekendContent = memo(function WeekendContent({ weekendQuery, distanceLimi
     });
   }
 
-  if (status === 'loading' || (distanceHydrated && weekendQuery.isPending && !weekendQuery.data)) {
+  if (!paddlingReady || status === 'loading' || (distanceHydrated && weekendQuery.isPending && !weekendQuery.data)) {
     return (
       <AppLoadingState title="Loading weekend routes" body="Checking the weekend outlook." />
     );
@@ -244,6 +255,13 @@ const WeekendContent = memo(function WeekendContent({ weekendQuery, distanceLimi
           onClear={() => void clearLocation()}
           onChooseCity={() => { cancelLocationRequest(); setLocationSearchOpen(true); }}
         />
+        <PaddlingPreferenceControl variant="weekend" showingAll={showAllPaddling} onToggleAll={() => setShowAllPaddling(value => !value)} />
+        {activePaddling && allRankedRivers.length > 0 && rivers.length === 0 ? <View style={{ gap: spacing.sm }}>
+          <Text accessibilityRole="header" style={styles.featuredLabel}>No weekend routes match your paddling preferences</Text>
+          <Text style={styles.emptyText}>Change your preferences or browse the full weekend outlook.</Text>
+          <AppButton label="Browse all weekend routes" variant="secondary" onPress={() => setShowAllPaddling(true)} />
+        </View> : null}
+        {featured && paddlingMatchReason(featured, activePaddling) ? <Text style={styles.subtitle}>{paddlingMatchReason(featured, activePaddling)}</Text> : null}
 
         {location ? (
           <WeekendFilters
@@ -271,7 +289,7 @@ const WeekendContent = memo(function WeekendContent({ weekendQuery, distanceLimi
             <Text style={styles.heroFreshness}>{isStale ? 'Previous forecast counts' : location ? rangeFreshnessLabel(distanceLimit) : hasWeekendPlan ? 'Forecast included' : 'No Paddle plan'}</Text>
           </View>
 
-          <Text style={styles.heroFreshness}>Forecast totals · {inRangeRivers.length} routes {location && distanceLimit !== null ? 'within your selected range' : 'nationwide'}. The shortlist below contains selected options.</Text>
+          <Text style={styles.heroFreshness}>{activePaddling ? 'Forecast matching your preferences' : 'Forecast totals'} · {inRangeRivers.length} routes {location && distanceLimit !== null ? 'within your selected range' : 'nationwide'}. The shortlist below contains selected options.</Text>
           <View style={styles.snapshotRow}>
             <SnapshotStat label="Paddle" value={paddleCount} tone={styles.snapshotStrong} />
             <SnapshotStat label="Watch" value={watchCount} tone={styles.snapshotWatch} />
