@@ -4,7 +4,10 @@ import fixture from './fixtures/route-detail.json' with { type: 'json' };
 
 const key = 'paddletoday:board-preferences';
 test.beforeEach(async ({ page }) => {
-  await page.addInitScript(() => localStorage.setItem('paddletoday:welcome-completed:v1', '1'));
+  await page.addInitScript(river => {
+    localStorage.setItem('paddletoday:welcome-completed:v1', '1');
+    localStorage.setItem('paddletoday:user-location', JSON.stringify({ latitude: river.latitude, longitude: river.longitude, label: 'QA location', source: 'search' }));
+  }, fixture.result.river);
   await page.route('**/api/**', route => route.fulfill({ status: 503, json: { error: 'offline' } }));
   const fulfillMobile = await installMobileBoardFixtures(page);
   await page.route('**/api/mobile/{summary,explore}.json**', route => fulfillMobile(route, { json: { rivers: [{
