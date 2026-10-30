@@ -1,0 +1,238 @@
+{
+  "reviewedOn": "2026-10-25",
+  "state": "Iowa",
+  "river": "Yellow River",
+  "outcome": "Added two reviewed planning routes; no new scored routes",
+  "routeSlugs": [
+    "yellow-river-stonebrook-volney",
+    "yellow-river-smithfield-volney"
+  ],
+  "publicationReason": "Only a single observed Smithfield trip level (260 cfs) and no calibrated Stonebrook range were found. No lower-reach thresholds were copied; both profiles intentionally contain no numeric thresholds.",
+  "alternateItineraryDecision": "User explicitly requested both on 2026-10-25. Stonebrook is a named Wilderness Canoe Trail itinerary; Smithfield is a shorter upstream launch option sharing its final reach. Review expected access_chain_contains finding as intentional.",
+  "guide": {
+    "url": "https://northeastiowarcd.org/wp-content/uploads/yellowRiverWaterTrail.pdf",
+    "sha256": "313c026fa337137f0d9cfd6bf177e72a7e8597767817f28e84e8eecedf558f40",
+    "mapPage": 2,
+    "coordinateProvider": {
+      "id": "ia-yellow-river-water-trail-guide",
+      "name": "Northeast Iowa RC&D / Iowa DNR Yellow River Water Trail guide",
+      "state": "Iowa",
+      "sourceUrl": "https://northeastiowarcd.org/wp-content/uploads/yellowRiverWaterTrail.pdf",
+      "sourceType": "official-geospatial-map",
+      "sourceDocumentDate": "2006",
+      "sourceSha256": "313c026fa337137f0d9cfd6bf177e72a7e8597767817f28e84e8eecedf558f40",
+      "coordinateRole": "authoritative-water-entry",
+      "method": "Guide page 2 named-access coordinate table, UTM zone 15N interpreted as NAD83 (EPSG:26915) and transformed to WGS84; independently checked against the named water-entry areas in 2025 ISU/USDA NAIP imagery and Iowa DNR paddling centerline. Do not substitute a park center or the other Smithfield Drive bridge.",
+      "controls": [
+        {
+          "featureId": "yellow-river-drive-access",
+          "name": "Stonebrook Park / Yellow River Drive Access",
+          "aliases": [
+            "Yellow River Drive Access",
+            "Stonebrook Park"
+          ],
+          "waterbody": "Yellow River",
+          "latitude": 43.15441413,
+          "longitude": -91.51048667,
+          "uncertaintyFeet": 40,
+          "routeIds": [
+            "yellow-river-stonebrook-volney"
+          ],
+          "utmX": 621104.8,
+          "utmY": 4779038.4
+        },
+        {
+          "featureId": "smithfield-drive-access",
+          "name": "Smithfield Drive Access",
+          "aliases": [
+            "Smithfield Drive"
+          ],
+          "waterbody": "Yellow River",
+          "latitude": 43.15059709,
+          "longitude": -91.44194283,
+          "uncertaintyFeet": 40,
+          "routeIds": [
+            "yellow-river-stonebrook-volney",
+            "yellow-river-smithfield-volney"
+          ],
+          "utmX": 626685.7,
+          "utmY": 4778715.9
+        }
+      ]
+    },
+    "distanceSegments": {
+      "yellowRiverDriveToWilliamsCreek": 0.98,
+      "williamsCreekToForestMills": 2.95,
+      "forestMillsToSmithfield": 1.49,
+      "smithfieldToVolneyBridge": 5.63,
+      "volneyBridgeToVolneyPark": 0.92
+    },
+    "distanceResolution": "The guide measures Stonebrook / Yellow River Drive to Volney at 11.97 mi, not the byway interpretive plan summary of 14 mi. Smithfield to Volney is 6.55 mi. Current DNR traces are about 11.77 and 6.35 mi to the existing OSM-backed Volney launch; use approximate public labels."
+  },
+  "accessEvidence": [
+    {
+      "url": "https://www.mycountyparks.com/county/allamakee/Park/Stonebrook",
+      "confirms": "County-managed Stonebrook canoe access and normal day-use facilities"
+    },
+    {
+      "url": "https://www.mycountyparks.com/county/allamakee/Park/Volney-Park",
+      "confirms": "Public Volney Park canoe access"
+    },
+    {
+      "url": "https://milespaddled.com/yellow-river-i/",
+      "date": "2026-05-08",
+      "tripDate": "2026-05-05",
+      "observationCfs": 260,
+      "confirms": "Report author explicitly used improved Smithfield landing; original guide unmaintained labels are historical, not silently treated as current maintenance guarantees."
+    },
+    {
+      "url": "https://iowadot.gov/media/3654/download?inline=",
+      "confirms": "Officially described Stonebrook-to-Volney Wilderness Canoe Trail; broad 14-mile text rejected as exact mileage."
+    }
+  ],
+  "geometry": {
+    "sourceUrl": "https://services2.arcgis.com/r6iFVcMJeA4kB4GC/arcgis/rest/services/PaddlingRoutes/FeatureServer/5",
+    "featureIds": [
+      211,
+      803
+    ],
+    "method": "Reverse the upstream feature and connecting Volney bridge-to-park feature, trim to named guide accesses and existing Volney launch, preserve river bends, and compact with the repository geometry helper.",
+    "checks": [
+      {
+        "route": "stonebrook",
+        "distance": 11.773246157546044,
+        "snapFeet": [
+          13.301796690284299,
+          19.814412581958184
+        ],
+        "vertices": 1844
+      },
+      {
+        "route": "smithfield",
+        "distance": 6.350822794773005,
+        "snapFeet": [
+          14.330512331294425,
+          19.814412581958184
+        ],
+        "vertices": 1007
+      }
+    ]
+  },
+  "imagery": {
+    "sourceUrl": "https://ortho.gis.iastate.edu/arcgis/rest/services/ortho/naip_2025_nc/ImageServer",
+    "purpose": "Independent landing/carry verification; not used as a gallery image",
+    "smithfieldExtent": {
+      "xmin": -91.44331,
+      "ymin": 43.1497,
+      "xmax": -91.44078999999999,
+      "ymax": 43.1518,
+      "spatialReference": {
+        "wkid": 4326,
+        "latestWkid": 4326
+      }
+    },
+    "stonebrookExtent": {
+      "xmin": -91.51101999999999,
+      "ymin": 43.1537,
+      "xmax": -91.50898,
+      "ymax": 43.1554,
+      "spatialReference": {
+        "wkid": 4326,
+        "latestWkid": 4326
+      }
+    }
+  },
+  "currentGaugeCheck": {
+    "sourceUrl": "https://waterservices.usgs.gov/nwis/iv/?format=json&sites=05389000&parameterCd=00060,00065&siteStatus=all",
+    "sampleTime": "2026-10-25T11:45:00-05:00",
+    "dischargeCfs": 166,
+    "gageHeightFt": 6.06,
+    "use": "Freshness verification only, not an on-water recommendation"
+  },
+  "hazardReview": {
+    "checkedOn": "2026-10-25",
+    "otherHazardLayer": "https://services2.arcgis.com/r6iFVcMJeA4kB4GC/arcgis/rest/services/Other_Hazards_AGOL/FeatureServer/0",
+    "damLayer": "https://services2.arcgis.com/r6iFVcMJeA4kB4GC/arcgis/rest/services/All_Dams_view_(Public)/FeatureServer/0",
+    "returnedFeatures": 0,
+    "limitation": "No mapped features is not obstruction clearance. Guide-backed low fence wires, wood, shallow bars, private banks, and rapid rises remain explicit; do not proceed when passage or a lawful carry is unavailable.",
+    "otherHazardQueryBounds": [
+      -91.6,
+      43.1,
+      -91.36,
+      43.23
+    ],
+    "damQueryBounds": [
+      -91.535,
+      43.11,
+      -91.36,
+      43.18
+    ]
+  },
+  "camping": "none; no established on-route overnight sites verified",
+  "imageRightsDecision": {
+    "url": "https://commons.wikimedia.org/wiki/File:Gfp-iowa-effigy-mounds-looking-upstream-from-yellow-river.jpg",
+    "file": "/gallery/yellow-river-volney-sixteen-bridge/yellow-river-effigy-mounds.jpg",
+    "rights": "Existing approved public-domain dedication by Yinan Chen / GoodFreePhotos",
+    "scope": "Downstream same-river context, explicitly captioned; not an exact upper-reach photo"
+  },
+  "verification": {
+    "routeTypecheck": "passed",
+    "targetedTests": {
+      "files": 6,
+      "tests": 35,
+      "status": "passed"
+    },
+    "build": {
+      "command": "npx astro build",
+      "status": "passed",
+      "pages": 5544
+    },
+    "coordinateAudits": {
+      "stonebrook": {
+        "ok": 3,
+        "review": 0,
+        "failure": 0
+      },
+      "smithfield": {
+        "ok": 2,
+        "review": 0,
+        "failure": 0
+      }
+    },
+    "canonicalGeometryAudit": "passed: 2508 of 2543 public routes have geometry; both additions included",
+    "routeDataAudit": {
+      "scoredBlockingIssues": 0,
+      "addedIssues": [
+        "Two expected missing-minimum notices for explicit uncalibrated planning routes"
+      ],
+      "newAccessOrDistanceIssues": 0
+    },
+    "overlapAudit": {
+      "newFindings": [
+        "Smithfield-to-Volney shares Volney with the existing downstream card",
+        "Stonebrook-to-Volney shares Volney with the existing downstream card"
+      ],
+      "newContainmentOrCrossingFindings": 0,
+      "intentionalAlternativeReview": "Both options have mutual alternative metadata; their common downstream reach is deliberate."
+    },
+    "browserPreview": {
+      "status": "passed",
+      "viewports": [
+        1280,
+        390
+      ],
+      "routes": 2,
+      "hubRouteCount": 4,
+      "planningScoreNotice": "visible",
+      "accessMap": "opened for both routes on both viewports",
+      "horizontalOverflow": false,
+      "pageErrors": [],
+      "api": "planning hydration fixtures; external weather unavailable in preview"
+    }
+  },
+  "latestThresholdReview": {
+    "date": "2026-10-26",
+    "file": "docs/audits/yellow-river-threshold-research-2026-10-26.json",
+    "decision": "260 and 315 cfs known-good Smithfield readings; no low/high cutoff found; both additions remain planning-only."
+  }
+}

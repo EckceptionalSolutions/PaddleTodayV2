@@ -4,6 +4,52 @@
   "notes": "North Carolina bounded window 29 recorded five durable no-add gauge dispositions; Reddies, Yadkin, and Ararat remain blocked route-capable leads and Little Yadkin is screened out.",
   "candidates": [
     {
+      "candidateId": "ia-yellow-river-stonebrook-volney",
+      "river": "Yellow River",
+      "route": "Stonebrook Park to Volney Canoe Access",
+      "state": "IA",
+      "status": "added",
+      "publicationStatus": "planning",
+      "lastReviewed": "2026-10-26",
+      "reviewCount": 2,
+      "blocker": null,
+      "retryCondition": "Already implemented as a reviewed planning route. Promote only after upper-reach numeric levels are defensible for the Ion gauge; re-review access and hazards when new evidence appears.",
+      "v2Slug": "yellow-river-stonebrook-volney",
+      "evidenceFile": "docs/audits/yellow-river-iowa-additions-2026-10-25.json",
+      "sourcesChecked": [
+        "https://northeastiowarcd.org/wp-content/uploads/yellowRiverWaterTrail.pdf",
+        "https://milespaddled.com/yellow-river-i/",
+        "https://www.mycountyparks.com/county/allamakee/Park/Stonebrook",
+        "https://www.mycountyparks.com/county/allamakee/Park/Volney-Park",
+        "https://services2.arcgis.com/r6iFVcMJeA4kB4GC/arcgis/rest/services/PaddlingRoutes/FeatureServer/5"
+      ],
+      "notes": "No numeric Ion-gauge range has been verified for the Stonebrook-to-Volney reach. The water-trail guide warns of shallow bars and low fence wires upstream of Volney; the lower-river 80 cfs floor and Volney-to-Sixteen bands are not transferred here. Named endpoints are supported by the water-trail guide coordinate table and current access evidence. Route distance follows the guide access chain, checked against Iowa DNR paddling geometry.",
+      "thresholdResearchFile": "docs/audits/yellow-river-threshold-research-2026-10-26.json"
+    },
+    {
+      "candidateId": "ia-yellow-river-smithfield-volney",
+      "river": "Yellow River",
+      "route": "Smithfield Drive to Volney Canoe Access",
+      "state": "IA",
+      "status": "added",
+      "publicationStatus": "planning",
+      "lastReviewed": "2026-10-26",
+      "reviewCount": 2,
+      "blocker": null,
+      "retryCondition": "Already implemented as a reviewed planning route. Promote only after upper-reach numeric levels are defensible for the Ion gauge; re-review access and hazards when new evidence appears.",
+      "v2Slug": "yellow-river-smithfield-volney",
+      "evidenceFile": "docs/audits/yellow-river-iowa-additions-2026-10-25.json",
+      "sourcesChecked": [
+        "https://northeastiowarcd.org/wp-content/uploads/yellowRiverWaterTrail.pdf",
+        "https://milespaddled.com/yellow-river-i/",
+        "https://www.mycountyparks.com/county/allamakee/Park/Stonebrook",
+        "https://www.mycountyparks.com/county/allamakee/Park/Volney-Park",
+        "https://services2.arcgis.com/r6iFVcMJeA4kB4GC/arcgis/rest/services/PaddlingRoutes/FeatureServer/5"
+      ],
+      "notes": "Miles Paddled reports good trips covering this reach at 315 cfs on May 5, 2014 (Forest Mills Road to Sixteen Bridge) and 260 cfs on May 5, 2026 (Smithfield to Sixteen Bridge), both tied to the Ion gauge. These two observations by the same author strengthen the known-good evidence but do not establish a low-water floor, continuous ideal band, or high-water cutoff. Named endpoints are supported by the water-trail guide coordinate table and current access evidence. Route distance follows the guide access chain, checked against Iowa DNR paddling geometry.",
+      "thresholdResearchFile": "docs/audits/yellow-river-threshold-research-2026-10-26.json"
+    },
+    {
       "id": "ia-discovery-boone-goldfield-20260815-0305",
       "candidateId": "ia-discovery-boone-goldfield-20260815-0305",
       "river": "Boone River",

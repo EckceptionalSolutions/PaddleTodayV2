@@ -10374,6 +10374,300 @@ export const iowaRoutes: River[] = [
     ]
   },
   {
+    "id": "yellow-river-stonebrook-volney",
+    "slug": "yellow-river-stonebrook-volney",
+    "name": "Yellow River",
+    "state": "Iowa",
+    "region": "Northeast Iowa",
+    "reach": "Stonebrook Park to Volney Canoe Access",
+    "routeType": "recreational",
+    "scoreEligibility": "planning",
+    "summary": "Long upper Yellow River Wilderness Canoe Trail through a remote Driftless valley, with cold water, limestone outcrops, shallow bars, farm fences, and limited public exits. A full-day planning option for paddlers comfortable scouting moving water.",
+    "statusText": "Planning route with no live paddle score. Use Yellow River near Ion as downstream context, scout the local water and accesses, and check current hazards. Upper-reach numeric level guidance has not been verified.",
+    "latitude": 43.15441413,
+    "longitude": -91.51048667,
+    "safetyProfile": {
+      "riskLevel": "caution",
+      "reviewStatus": "reviewed",
+      "hazards": [
+        "low_water",
+        "strainers",
+        "fast_rise",
+        "private_banks",
+        "cold_water"
+      ],
+      "safetyNotes": [
+        "Fast riffles, shallow rock and gravel bars, cold water, and bends with strainers or downed trees; leave room to stop and scout.",
+        "The water-trail guide reports low fence wires across the upper river. Stop well upstream, inspect a safe passage, and turn back if passage or a lawful portage is unavailable.",
+        "Storm runoff and rapid rises can hide rocks, fences, and wood. Avoid high, rapidly rising, or muddy post-storm water."
+      ]
+    },
+    "gaugeSource": {
+      "id": "usgs-05389000",
+      "provider": "usgs",
+      "siteId": "05389000",
+      "metric": "discharge_cfs",
+      "unit": "cfs",
+      "kind": "direct",
+      "siteName": "Yellow River near Ion, IA",
+      "detailUrl": "https://waterdata.usgs.gov/monitoring-location/USGS-05389000/"
+    },
+    "profile": {
+      "thresholdModel": "minimum-only",
+      "thresholdSource": {
+        "label": "Yellow River Water Trail upper-river guidance (uncalibrated)",
+        "url": "https://northeastiowarcd.org/wp-content/uploads/yellowRiverWaterTrail.pdf",
+        "provider": "local"
+      },
+      "thresholdSourceStrength": "official",
+      "rainfallSensitivity": "high",
+      "seasonMonths": [
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10
+      ],
+      "seasonNotes": "Spring often has more water; summer and dry periods can expose shallow bars. Check local water and recent rainfall rather than relying on a calendar window.",
+      "difficulty": "moderate",
+      "difficultyNotes": "Moving-water boat control and scouting skills are needed for riffles, tight bends, wood, and possible low farm fences. Shallow bars may require carries; high water increases consequences.",
+      "confidenceNotes": "No numeric Ion-gauge range has been verified for the Stonebrook-to-Volney reach. The water-trail guide warns of shallow bars and low fence wires upstream of Volney; the lower-river 80 cfs floor and Volney-to-Sixteen bands are not transferred here. Named endpoints are supported by the water-trail guide coordinate table and current access evidence. Route distance follows the guide access chain, checked against Iowa DNR paddling geometry."
+    },
+    "consolidation": {
+      "group": "ia-yellow-river-upper-volney-alternatives",
+      "role": "alternative",
+      "relatedRouteIds": [
+        "yellow-river-smithfield-volney"
+      ],
+      "note": "Both itineraries were explicitly requested on 2026-10-25: retain the named longer Wilderness Canoe Trail and the shorter Smithfield launch option. They share the final reach; neither is a concatenation of the existing downstream cards."
+    },
+    "evidenceNotes": [
+      {
+        "label": "Route distance",
+        "value": "11.97 miles in the guide; about 12 mi",
+        "note": "Yellow River Drive Access to Volney: 0.98 + 2.95 + 1.49 + 5.63 + 0.92 miles. The byway plan’s 14-mile summary is not used as exact Stonebrook mileage.",
+        "sourceUrl": "https://northeastiowarcd.org/wp-content/uploads/yellowRiverWaterTrail.pdf"
+      },
+      {
+        "label": "Launch coordinates",
+        "value": "Stonebrook Park / Yellow River Drive Access",
+        "note": "Guide UTM 15N 621104.8 E / 4779038.4 N, converted to latitude/longitude and checked against the named county access and aerial imagery.",
+        "sourceUrl": "https://northeastiowarcd.org/wp-content/uploads/yellowRiverWaterTrail.pdf"
+      },
+      {
+        "label": "Current access support",
+        "value": "Stonebrook canoe and fishing access",
+        "note": "Allamakee County lists canoe access, shelter, and pit toilet at 589 Yellow River Drive; Volney Park is the public take-out.",
+        "sourceUrl": "https://www.mycountyparks.com/county/allamakee/Park/Stonebrook"
+      },
+      {
+        "label": "Level evidence",
+        "value": "Planning only; no calibrated range",
+        "note": "No numeric Ion-gauge range has been verified for the Stonebrook-to-Volney reach. The water-trail guide warns of shallow bars and low fence wires upstream of Volney; the lower-river 80 cfs floor and Volney-to-Sixteen bands are not transferred here.",
+        "sourceUrl": "https://northeastiowarcd.org/wp-content/uploads/yellowRiverWaterTrail.pdf"
+      },
+      {
+        "label": "Gauge context",
+        "value": "USGS 05389000, Yellow River near Ion",
+        "note": "Live same-river station downstream of this itinerary. No numeric threshold is assigned to the upper reach.",
+        "sourceUrl": "https://waterdata.usgs.gov/monitoring-location/USGS-05389000/"
+      },
+      {
+        "label": "Upper-river hazards",
+        "value": "Shallow bars, fence wires, wood, and private banks",
+        "note": "The water-trail guide describes the upper river as a wilderness trip with low wires and potential carries. Stop and scout; do not attempt a blocked crossing or an unauthorized portage.",
+        "sourceUrl": "https://northeastiowarcd.org/wp-content/uploads/yellowRiverWaterTrail.pdf"
+      },
+      {
+        "label": "Mapped river path",
+        "value": "Iowa DNR PaddlingRoutes features 211 and 803",
+        "note": "Endpoint-trimmed continuous Yellow River trace; guide coordinates and existing Volney public launch are within 20 ft of this mapped line.",
+        "sourceUrl": "https://services2.arcgis.com/r6iFVcMJeA4kB4GC/arcgis/rest/services/PaddlingRoutes/FeatureServer/5"
+      }
+    ],
+    "sourceLinks": [
+      {
+        "label": "Yellow River Water Trail map and access-coordinate table",
+        "url": "https://northeastiowarcd.org/wp-content/uploads/yellowRiverWaterTrail.pdf",
+        "provider": "local"
+      },
+      {
+        "label": "Miles Paddled Yellow River I, including May 2026 update",
+        "url": "https://milespaddled.com/yellow-river-i/",
+        "provider": "miles_paddled"
+      },
+      {
+        "label": "Allamakee County Stonebrook Park",
+        "url": "https://www.mycountyparks.com/county/allamakee/Park/Stonebrook",
+        "provider": "local"
+      },
+      {
+        "label": "Allamakee County Volney Park",
+        "url": "https://www.mycountyparks.com/county/allamakee/Park/Volney-Park",
+        "provider": "local"
+      },
+      {
+        "label": "Iowa DNR interactive paddling map and hazards",
+        "url": "https://www.iowadnr.gov/things-do/paddling-river-recreation/where-paddle",
+        "provider": "local"
+      },
+      {
+        "label": "USGS Yellow River near Ion",
+        "url": "https://waterdata.usgs.gov/monitoring-location/USGS-05389000/",
+        "provider": "usgs"
+      }
+    ]
+  },
+  {
+    "id": "yellow-river-smithfield-volney",
+    "slug": "yellow-river-smithfield-volney",
+    "name": "Yellow River",
+    "state": "Iowa",
+    "region": "Northeast Iowa",
+    "reach": "Smithfield Drive to Volney Canoe Access",
+    "routeType": "recreational",
+    "scoreEligibility": "planning",
+    "summary": "Shorter upper Yellow River trip from the named Smithfield Drive landing to Volney Park, with farm-country bends, riffles, wooded bluffs, and limestone outcrops. Plan for shallow bars, fence wires, and wood rather than an effortless beginner float.",
+    "statusText": "Planning route with no live paddle score. Use Yellow River near Ion as downstream context, scout the local water and accesses, and check current hazards. Trips covering this reach were reported good at 260 and 315 cfs; minimum and high-water cutoffs remain unverified.",
+    "latitude": 43.15059709,
+    "longitude": -91.44194283,
+    "safetyProfile": {
+      "riskLevel": "caution",
+      "reviewStatus": "reviewed",
+      "hazards": [
+        "low_water",
+        "strainers",
+        "fast_rise",
+        "private_banks",
+        "cold_water"
+      ],
+      "safetyNotes": [
+        "Fast riffles, shallow rock and gravel bars, cold water, and bends with strainers or downed trees; leave room to stop and scout.",
+        "The water-trail guide reports low fence wires across the upper river. Stop well upstream, inspect a safe passage, and turn back if passage or a lawful portage is unavailable.",
+        "Storm runoff and rapid rises can hide rocks, fences, and wood. Avoid high, rapidly rising, or muddy post-storm water."
+      ]
+    },
+    "gaugeSource": {
+      "id": "usgs-05389000",
+      "provider": "usgs",
+      "siteId": "05389000",
+      "metric": "discharge_cfs",
+      "unit": "cfs",
+      "kind": "direct",
+      "siteName": "Yellow River near Ion, IA",
+      "detailUrl": "https://waterdata.usgs.gov/monitoring-location/USGS-05389000/"
+    },
+    "profile": {
+      "thresholdModel": "minimum-only",
+      "thresholdSource": {
+        "label": "Miles Paddled 2014 and 2026 upper Yellow trip observations (uncalibrated)",
+        "url": "https://milespaddled.com/yellow-river-i/",
+        "provider": "miles_paddled"
+      },
+      "thresholdSourceStrength": "community",
+      "rainfallSensitivity": "high",
+      "seasonMonths": [
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10
+      ],
+      "seasonNotes": "Spring often has more water; summer and dry periods can expose shallow bars. Check local water and recent rainfall rather than relying on a calendar window.",
+      "difficulty": "moderate",
+      "difficultyNotes": "Moving-water boat control and scouting skills are needed for riffles, tight bends, wood, and possible low farm fences. Shallow bars may require carries; high water increases consequences.",
+      "confidenceNotes": "Miles Paddled reports good trips covering this reach at 315 cfs on May 5, 2014 (Forest Mills Road to Sixteen Bridge) and 260 cfs on May 5, 2026 (Smithfield to Sixteen Bridge), both tied to the Ion gauge. These two observations by the same author strengthen the known-good evidence but do not establish a low-water floor, continuous ideal band, or high-water cutoff. Named endpoints are supported by the water-trail guide coordinate table and current access evidence. Route distance follows the guide access chain, checked against Iowa DNR paddling geometry."
+    },
+    "consolidation": {
+      "group": "ia-yellow-river-upper-volney-alternatives",
+      "role": "alternative",
+      "relatedRouteIds": [
+        "yellow-river-stonebrook-volney"
+      ],
+      "note": "Both itineraries were explicitly requested on 2026-10-25: retain the named longer Wilderness Canoe Trail and the shorter Smithfield launch option. They share the final reach; neither is a concatenation of the existing downstream cards."
+    },
+    "evidenceNotes": [
+      {
+        "label": "Route distance",
+        "value": "6.55 miles in the guide; about 6.6 mi",
+        "note": "Smithfield Drive Access to Volney Road Bridge: 5.63 miles; then 0.92 miles to Volney Access. The shorter trip ends before the existing Volney-to-Sixteen card.",
+        "sourceUrl": "https://northeastiowarcd.org/wp-content/uploads/yellowRiverWaterTrail.pdf"
+      },
+      {
+        "label": "Launch coordinates",
+        "value": "Smithfield Drive Access",
+        "note": "Guide UTM 15N 626685.7 E / 4778715.9 N, converted to latitude/longitude and checked against the improved carry beside the upstream Smithfield bridge.",
+        "sourceUrl": "https://northeastiowarcd.org/wp-content/uploads/yellowRiverWaterTrail.pdf"
+      },
+      {
+        "label": "Current access support",
+        "value": "Improved Smithfield landing, May 2026",
+        "note": "The report author revisited on May 5, 2026 and described the Smithfield landing as improved; the old guide’s unmaintained designation is retained as historical context rather than assumed current closure.",
+        "sourceUrl": "https://milespaddled.com/yellow-river-i/"
+      },
+      {
+        "label": "Level evidence",
+        "value": "260 and 315 cfs reported good; cutoffs unverified",
+        "note": "The May 5, 2014 Forest Mills-to-Sixteen trip was reported good at 315 cfs, and the May 5, 2026 Smithfield-to-Sixteen trip at 260 cfs, using the Ion gauge. Both include Smithfield-to-Volney. They are separate observations from the same author, not a published minimum, a calibrated interval between them, or an upper limit. This route remains planning-only.",
+        "sourceUrl": "https://milespaddled.com/yellow-river-i/"
+      },
+      {
+        "label": "Gauge context",
+        "value": "USGS 05389000, Yellow River near Ion",
+        "note": "Live same-river station downstream of this itinerary. No numeric threshold is assigned to the upper reach.",
+        "sourceUrl": "https://waterdata.usgs.gov/monitoring-location/USGS-05389000/"
+      },
+      {
+        "label": "Upper-river hazards",
+        "value": "Shallow bars, fence wires, wood, and private banks",
+        "note": "The water-trail guide describes the upper river as a wilderness trip with low wires and potential carries. Stop and scout; do not attempt a blocked crossing or an unauthorized portage.",
+        "sourceUrl": "https://northeastiowarcd.org/wp-content/uploads/yellowRiverWaterTrail.pdf"
+      },
+      {
+        "label": "Mapped river path",
+        "value": "Iowa DNR PaddlingRoutes features 211 and 803",
+        "note": "Endpoint-trimmed continuous Yellow River trace; guide coordinates and existing Volney public launch are within 20 ft of this mapped line.",
+        "sourceUrl": "https://services2.arcgis.com/r6iFVcMJeA4kB4GC/arcgis/rest/services/PaddlingRoutes/FeatureServer/5"
+      }
+    ],
+    "sourceLinks": [
+      {
+        "label": "Yellow River Water Trail map and access-coordinate table",
+        "url": "https://northeastiowarcd.org/wp-content/uploads/yellowRiverWaterTrail.pdf",
+        "provider": "local"
+      },
+      {
+        "label": "Miles Paddled Yellow River I, including May 2026 update",
+        "url": "https://milespaddled.com/yellow-river-i/",
+        "provider": "miles_paddled"
+      },
+      {
+        "label": "Allamakee County Stonebrook Park",
+        "url": "https://www.mycountyparks.com/county/allamakee/Park/Stonebrook",
+        "provider": "local"
+      },
+      {
+        "label": "Allamakee County Volney Park",
+        "url": "https://www.mycountyparks.com/county/allamakee/Park/Volney-Park",
+        "provider": "local"
+      },
+      {
+        "label": "Iowa DNR interactive paddling map and hazards",
+        "url": "https://www.iowadnr.gov/things-do/paddling-river-recreation/where-paddle",
+        "provider": "local"
+      },
+      {
+        "label": "USGS Yellow River near Ion",
+        "url": "https://waterdata.usgs.gov/monitoring-location/USGS-05389000/",
+        "provider": "usgs"
+      }
+    ]
+  },
+  {
     "id": "yellow-river-volney-sixteen-bridge",
     "slug": "yellow-river-volney-sixteen-bridge",
     "name": "Yellow River",

@@ -686,6 +686,8 @@ const routeOrder = [
   "cedar-river-cedar-bend-three-rivers",
   "cedar-river-three-rivers-kohlmann",
   "cedar-river-kohlmann-brookwood",
+  "yellow-river-stonebrook-volney",
+  "yellow-river-smithfield-volney",
   "yellow-river-volney-sixteen-bridge",
   "yellow-river-sixteen-bridge-highway-76",
   "turtle-creek-east-creek-road-highway-140",

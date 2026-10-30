@@ -29687,6 +29687,53 @@
           }
         }
       ]
+    },
+    {
+      "id": "ia-yellow-river-water-trail-guide",
+      "name": "Northeast Iowa RC&D / Iowa DNR Yellow River Water Trail guide",
+      "state": "Iowa",
+      "sourceUrl": "https://northeastiowarcd.org/wp-content/uploads/yellowRiverWaterTrail.pdf",
+      "sourceType": "official-geospatial-map",
+      "sourceDocumentDate": "2006",
+      "sourceSha256": "313c026fa337137f0d9cfd6bf177e72a7e8597767817f28e84e8eecedf558f40",
+      "coordinateRole": "authoritative-water-entry",
+      "method": "Guide page 2 named-access coordinate table, UTM zone 15N interpreted as NAD83 (EPSG:26915) and transformed to WGS84; independently checked against the named water-entry areas in 2025 ISU/USDA NAIP imagery and Iowa DNR paddling centerline. Do not substitute a park center or the other Smithfield Drive bridge.",
+      "controls": [
+        {
+          "featureId": "yellow-river-drive-access",
+          "name": "Stonebrook Park / Yellow River Drive Access",
+          "aliases": [
+            "Yellow River Drive Access",
+            "Stonebrook Park"
+          ],
+          "waterbody": "Yellow River",
+          "latitude": 43.15441413,
+          "longitude": -91.51048667,
+          "uncertaintyFeet": 40,
+          "routeIds": [
+            "yellow-river-stonebrook-volney"
+          ],
+          "utmX": 621104.8,
+          "utmY": 4779038.4
+        },
+        {
+          "featureId": "smithfield-drive-access",
+          "name": "Smithfield Drive Access",
+          "aliases": [
+            "Smithfield Drive"
+          ],
+          "waterbody": "Yellow River",
+          "latitude": 43.15059709,
+          "longitude": -91.44194283,
+          "uncertaintyFeet": 40,
+          "routeIds": [
+            "yellow-river-stonebrook-volney",
+            "yellow-river-smithfield-volney"
+          ],
+          "utmX": 626685.7,
+          "utmY": 4778715.9
+        }
+      ]
     }
   ]
 }

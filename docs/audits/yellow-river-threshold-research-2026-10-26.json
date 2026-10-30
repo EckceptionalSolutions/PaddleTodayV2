@@ -1,0 +1,152 @@
+{
+  "reviewedOn": "2026-10-26",
+  "river": "Yellow River, Iowa",
+  "gauge": "USGS 05389000 Yellow River near Ion, IA",
+  "routeSlugs": [
+    "yellow-river-stonebrook-volney",
+    "yellow-river-smithfield-volney"
+  ],
+  "decision": "Keep both reviewed planning routes. Strengthen Smithfield observation evidence; no numeric scoring thresholds added.",
+  "firsthandEvidence": [
+    {
+      "url": "https://milespaddled.com/yellow-river-i/",
+      "tripDate": "2014-05-05",
+      "reach": "Forest Mills Road / Highway X16 to Old Sixteen Road",
+      "dischargeCfs": 315,
+      "sourceAssessment": "Recommendable level",
+      "coversAllOfSmithfieldVolney": true,
+      "coversAllOfStonebrookVolney": false,
+      "limitation": "Successful trip observation, not an identified minimum or maximum. Excludes the first approximately four miles below Stonebrook."
+    },
+    {
+      "url": "https://milespaddled.com/yellow-river-i/",
+      "commentDate": "2026-05-08",
+      "tripDate": "2026-05-05",
+      "reach": "Smithfield Drive to Sixteen Bridge",
+      "dischargeCfs": 260,
+      "sourceAssessment": "Excellent level",
+      "coversAllOfSmithfieldVolney": true,
+      "coversAllOfStonebrookVolney": false,
+      "limitation": "Separate trip by the same author as the 2014 report, not independent-author confirmation. The author suggests Old Stage-to-Smithfield should also have enough water at this reading but does not report having paddled it. The upstream suggestion cannot establish a full Stonebrook threshold."
+    }
+  ],
+  "candidateRangesNotAdopted": [
+    {
+      "sourceUrl": "https://www.wisconsinrivertrips.com/segments/yellow-river-iowa/volney",
+      "guidance": "Below 50 cfs likely too low; 51–100 very shallow; 101–200 shallow; 201–300 target; 401–600 high; 601+ expert-oriented",
+      "reason": "The firsthand reviewed reach starts at Volney Road and ends at Sixteen Bridge. Its upstream route overview supplies distances and scenery but no upper-reach level calibration. Do not transfer this lower-reach ladder to either addition."
+    },
+    {
+      "sourceUrl": "https://milespaddled.com/yellow-river-ii/",
+      "guidance": "80 cfs minimum; below 100 cfs tricky",
+      "reason": "Published on the Old Sixteen Road-to-Highway-76 lower-river report, not either upper route."
+    },
+    {
+      "sourceUrl": "https://northeastiowarcd.org/wp-content/uploads/yellowRiverWaterTrail.pdf",
+      "guidance": "Above 80 cfs for Volney-to-Sixteen; upper section warns of shallow rock bars and low wires",
+      "reason": "The numeric guidance is placed in the separate Volney-to-Sixteen description. The upstream wilderness section does not provide numeric cutoffs. The guide was rendered and visually reviewed during the 2026-10-25 addition; it is not being treated as an upper-route threshold."
+    },
+    {
+      "sourceUrl": "https://www.paddleways.com/us/iowa/water/yellow-river-w7",
+      "guidance": "200–400 cfs optimum; below 100 cfs shallow",
+      "reason": "Broad river-level text with no explicit Stonebrook/Smithfield reach calibration or underlying threshold attribution. Not adopted over firsthand route-specific evidence."
+    },
+    {
+      "sourceUrl": "https://canwepaddle.com/rivers/iowa/",
+      "guidance": "Estimated Volney-to-Ion operating range",
+      "reason": "Explicitly estimated guidance for a downstream reach."
+    },
+    {
+      "sourceUrl": "https://www.wisconsinrivertrips.com/latest-comments.html",
+      "guidance": "Search surfaced a report of dragging at 100 cfs",
+      "reason": "Reading the surrounding comment shows it concerns Hemlock Creek in Wisconsin using a different Yellow River gauge. Rejected as a different river/state."
+    }
+  ],
+  "additionalPrimarySourcesChecked": [
+    {
+      "url": "https://www.iowadnr.gov/things-do/paddling-river-recreation/safety-regulations",
+      "finding": "General water-level safety and gauge links; no cutoff for either upper itinerary."
+    },
+    {
+      "url": "https://www.iowawhitewater.org/paddlingresources.html",
+      "finding": "Recommends pairing Paddling Iowa guidebook level guidance with USGS gauges; does not publish the Yellow River recommendations on this page."
+    },
+    {
+      "url": "https://www.iowawhitewater.org/PaddlingIowa.html",
+      "finding": "Confirms guidebook includes water-level recommendations; no relevant chapter text or numeric thresholds on the page."
+    },
+    {
+      "url": "https://scenicviewcampiowa.com/",
+      "finding": "No published upper Yellow River numeric operating limits found on the public campground/rental pages."
+    }
+  ],
+  "unverifiedBookLead": {
+    "title": "Paddling Iowa, Nate Hoogeveen",
+    "url": "https://books.google.com/books?id=89N8a2bcZ40C&pg=PA168",
+    "publisherInformationUrl": "https://www.iowawhitewater.org/PaddlingIowa.html",
+    "finding": "The older edition's publicly returned Google Books contents metadata identifies Volney-to-Sixteen on page 168 and Sixteen-to-Mississippi on page 170. Page 166 is Mason City-to-Claybanks on a different river, not an upstream Yellow River chapter. No upper Yellow chapter was confirmed and no chapter text was read. The book API returned a quota error and the accessible text request was blocked by Google's automated-query protection. No numeric book values are claimed or adopted.",
+    "nextEvidenceNeeded": "Check a complete current guidebook for any upper Yellow River coverage, or obtain a route-specific minimum and high-water guideline from the trail manager or an outfitter. Do not assume the book covers either new upper itinerary."
+  },
+  "missingEvidence": {
+    "smithfieldVolney": "Good readings of 260 and 315 cfs are documented. Neither a failure/dragging level nor a stated low/high operating boundary was found.",
+    "stonebrookVolney": "No firsthand gauge-linked trip covering the full upper itinerary and no numeric operating boundary were found."
+  },
+  "outreach": "User approved the revised message and explicitly requested sending with the signature Jeffrey Eckerson. Sent via Gmail to Allamakee County Conservation; provider returned SENT.",
+  "verification": {
+    "numericThresholdFieldsAdded": false,
+    "publicationChanged": false,
+    "checks": {
+      "routeTypecheck": "passed",
+      "targetedTests": {
+        "files": 2,
+        "tests": 8,
+        "status": "passed"
+      },
+      "diffWhitespaceCheck": "passed",
+      "build": "passed: 5544 pages"
+    }
+  },
+  "extendedSearch": {
+    "requestedBy": "User: Keep trying",
+    "reviewedOn": "2026-10-26",
+    "decision": "No additional defensible numeric threshold found. Both upper routes remain reviewed planning routes.",
+    "newEvidence": [
+      {
+        "url": "https://paddling.com/paddle/trips/yellow-river-in-iowa",
+        "author": "yakaddict",
+        "reach": "Forest Mills to Bigfoot on Saturday; Bigfoot to Ion on Sunday",
+        "finding": "Independent firsthand itinerary includes the entire Smithfield-to-Volney corridor, but the report supplies no trip date, gauge reading, numeric operating boundary, or full Stonebrook traversal. Historical ford and outfitter details are not current advice."
+      },
+      {
+        "url": "https://www.nationalriversproject.com/ia/yellow-river-yellow-river",
+        "finding": "Highway 51-to-Mississippi overview links the same Paddling.com report. It is not independent numeric calibration."
+      },
+      {
+        "url": "https://openlibrary.org/isbn/9780615579474.json",
+        "finding": "Public catalog confirms the 2012 third edition, 184 pages, ISBN 9780615579474. The work editions endpoint lists 2004, 2006 and 2012 editions but no table of contents, readable chapter or Internet Archive item identifier. Upper-route coverage and book thresholds remain unverified."
+      },
+      {
+        "url": "https://content.govdelivery.com/accounts/IACIO/bulletins/2456986",
+        "finding": "Iowa DNR May 23, 2019 fishing bulletin says the Yellow is up about a foot with high current and muddy, and paddling is not recommended. It gives neither a gauge datum nor a cfs boundary nor a specific upper itinerary; it cannot define a numeric ceiling."
+      }
+    ],
+    "otherSearches": "Expanded exact-access, Old Stage, Forest Mills, trip-report, paddling-club/newsletter and outfitter searches did not expose a route-specific numeric boundary. The old Bigfoot website fails DNS resolution; the former Iowa Water Trails domain returns a parking-page redirect. No unrelated parked site was used as evidence.",
+    "minimumOnlyReview": "The repository allows concrete runnable-level evidence, but the current minimum-only scorer calls all readings below its threshold too low and awards increasing gauge points above it. Successful readings of 260 and 315 cfs alone do not establish either claim over unobserved flows. Do not encode these observations as tooLow or invent a high cutoff.",
+    "nextEvidenceNeeded": "Ask a local manager for separate Ion-gauge minimum, preferred and avoid/high limits for Stonebrook-to-Volney and Smithfield-to-Volney; establish whether each number is directly observed or estimated, what boat/load it assumes, and any storm-rise or access caveats."
+  },
+  "managerInquiry": {
+    "status": "Sent after explicit user authorization",
+    "to": "accb.offmanager@gmail.com",
+    "recipient": "Allamakee County Conservation",
+    "contactSourceUrl": "https://www.mycountyparks.com/county/allamakee",
+    "phone": "563-538-0400",
+    "subject": "Upper Yellow River paddling levels — Stonebrook and Smithfield to Volney",
+    "body": "Hello Allamakee County Conservation,\n\nI operate Paddle Today (https://paddletoday.com), a site that uses river levels, weather, and local guidance to help people decide when rivers are safely paddleable.\n\nI’m adding two Yellow River trip options due to user demand:\n\n- Stonebrook Park / Yellow River Drive Access to Volney Park — about 12 miles\n- Smithfield Drive Access to Volney Park — about 6.6 miles\n\nDo you have recommended minimum, preferred, and high-water limits for either trip, using the USGS Yellow River near Ion gauge (05389000)? Any current access or hazard concerns would also be helpful.\n\nIf someone else would be better suited to advise, I’d appreciate a referral. May I attribute any guidance you provide to Allamakee County Conservation on the site?\n\nThank you,\nJeffrey Eckerson\nPaddle Today",
+    "from": "yerffej140@gmail.com",
+    "gmailMessageId": "1a1782dd1c13f46b",
+    "gmailThreadId": "1a1782dd1c13f46b",
+    "providerLabels": [
+      "SENT"
+    ]
+  }
+}

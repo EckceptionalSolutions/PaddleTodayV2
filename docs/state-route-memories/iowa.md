@@ -1,5 +1,25 @@
 # Iowa Route Memory
 
+## 2026-10-26 Yellow River threshold follow-up
+
+- Checked route reports, official water-trail guidance, Iowa DNR and Iowa Whitewater resources, outfitter pages, and the Paddling Iowa preview lead. Found a second successful Smithfield-covering trip: Forest Mills-to-Sixteen at 315 cfs on 2014-05-05, alongside Smithfield-to-Sixteen at 260 cfs on 2026-05-05. Both use Ion and are by the same author.
+- Recorded both observations in the Smithfield source evidence, without claiming the interval or either endpoint as an operating threshold. The 2026 author suggests enough water farther upstream but does not report paddling the full Stonebrook reach.
+- Found no low/high cutoff for either upper itinerary. The 80 cfs guide minimum and WRT level ladder apply downstream of Volney. A search hit about dragging at 100 cfs concerns Wisconsin Hemlock Creek and is irrelevant here. Both additions remain planning-only; no thresholds or new scored coverage.
+- The older Paddling Iowa preview contents confirm the two downstream Yellow trips, not an upper Yellow chapter. Page 166 is a different river; chapter text access was blocked and the API returned a quota error. No book numbers or upstream coverage were inferred. Next useful evidence is verified current-guidebook coverage or route-specific manager/outfitter guidance. No outreach sent.
+- Extended follow-up found an independent Paddling.com Forest Mills-to-Bigfoot itinerary, but no date or gauge number. National Rivers Project links that same report, so it is not separate calibration. Open Library confirms the 2012 edition metadata but supplies no readable upper chapter. DNR high-water warnings do not specify cfs thresholds. No additional numeric threshold was found.
+- User reviewed and revised the county inquiry, then explicitly authorized sending with the signature Jeffrey Eckerson. Sent the approved message from yerffej140@gmail.com to accb.offmanager@gmail.com via Gmail; SENT message/thread ID `1a1782dd1c13f46b`. Await evidence from a reply before changing thresholds. No recurring reply monitor was requested.
+- Evidence: `docs/audits/yellow-river-threshold-research-2026-10-26.json`.
+
+## 2026-10-25 Yellow River requested additions
+
+- Added `yellow-river-stonebrook-volney` (about 12 mi) and `yellow-river-smithfield-volney` (about 6.6 mi) as reviewed public planning routes. No new scored coverage or numeric thresholds.
+- The guide page 2 provides named access coordinates and the exact 11.97 / 6.55 mi access chains. Stonebrook is Yellow River Drive Access, not Old Stage; the older byway 14-mile summary is not exact route mileage. Smithfield is the upstream crossing at 43.15059709, -91.44194283, not the other crossing or historic Red Bridge.
+- County Stonebrook/Volney access pages and the Miles Paddled author’s May 2026 Smithfield update support normal endpoint use; original upper-access unmaintained labels remain historical context. Guide, named landings, 2025 imagery and DNR river traces were reviewed together.
+- A successful 260 cfs Smithfield-to-Sixteen trip is a single observation, not a safe band. Keep both upper routes planning-only until route-specific calibration is available; never transfer the lower Volney/Sixteen 80 cfs floor or 201–300 cfs target.
+- Both alternatives were explicitly requested by the user. Stonebrook preserves the named Wilderness Canoe Trail purpose; Smithfield is its shorter launch option. Review their expected containment as intentional, not an extra duplicate of downstream routes.
+- Include low fence wires, wood, shallow carries, private-bank limits, no verified on-route camping, and conservative storm-rise guidance. Reused the approved public-domain Effigy Mounds photo with an explicit downstream-context caption.
+- Evidence: `docs/audits/yellow-river-iowa-additions-2026-10-25.json`.
+
 ## 2026-08-20 America/Chicago Vinton / USGS 05464315 bounded review
 
 - Refreshed the controller-led review for `usgs:05464315` and added no route.

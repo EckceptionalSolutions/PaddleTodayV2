@@ -2993,6 +2993,26 @@ const approvedRoutePhotosBySlug: Record<string, RouteGalleryPhoto[]> = {
       takenLabel: 'Library of Congress: no known restrictions',
     },
   ],
+  'yellow-river-stonebrook-volney': [
+    {
+      "id": "yellow-river-effigy-mounds-goodfreephotos",
+      "src": "/gallery/yellow-river-volney-sixteen-bridge/yellow-river-effigy-mounds.jpg",
+      "alt": "The Yellow River curves through a wooded valley near Effigy Mounds in northeast Iowa.",
+      "caption": "Yellow River near Effigy Mounds, downstream of this route",
+      "credit": "Yinan Chen / GoodFreePhotos via Wikimedia Commons",
+      "takenLabel": "Public domain dedication; same-river context"
+    },
+  ],
+  'yellow-river-smithfield-volney': [
+    {
+      "id": "yellow-river-effigy-mounds-goodfreephotos",
+      "src": "/gallery/yellow-river-volney-sixteen-bridge/yellow-river-effigy-mounds.jpg",
+      "alt": "The Yellow River curves through a wooded valley near Effigy Mounds in northeast Iowa.",
+      "caption": "Yellow River near Effigy Mounds, downstream of this route",
+      "credit": "Yinan Chen / GoodFreePhotos via Wikimedia Commons",
+      "takenLabel": "Public domain dedication; same-river context"
+    },
+  ],
   'yellow-river-volney-sixteen-bridge': [
     {
       id: 'yellow-river-effigy-mounds-goodfreephotos',

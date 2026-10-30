@@ -3212,6 +3212,126 @@ export const iowaRiverTripDetails: Record<string, RiverTripDetails> = {
       }
     ]
   },
+  "yellow-river-stonebrook-volney": {
+    "putIn": {
+      "id": "yellow-river-stonebrook-access",
+      "name": "Stonebrook Park / Yellow River Drive Access",
+      "latitude": 43.15441413,
+      "longitude": -91.51048667
+    },
+    "takeOut": {
+      "name": "Volney Canoe Access",
+      "latitude": 43.13022,
+      "longitude": -91.37586,
+      "id": "volney-canoe-access"
+    },
+    "logistics": {
+      "distanceLabel": "About 12 mi",
+      "estimatedPaddleTime": "About 5 hr to 7 hr; allow extra time for scouting and carries",
+      "shuttle": "Stage the take-out vehicle at Volney Park, 1262 James Road, then drive to Stonebrook Park, 589 Yellow River Drive. Use a two-car shuttle or arrange a local shuttle in advance; the rural roads are hilly and partly gravel.",
+      "permits": "Check current Iowa DNR boating and fishing requirements and posted county access rules. A public launch does not grant access to neighboring private banks.",
+      "camping": "No on-route camping is established for this itinerary. Treat it as a day trip; private banks, gravel bars, and public picnic areas are not verified overnight sites.",
+      "campingClassification": "none",
+      "summary": "Long upper Yellow River Wilderness Canoe Trail through a remote Driftless valley, with cold water, limestone outcrops, shallow bars, farm fences, and limited public exits. A full-day planning option for paddlers comfortable scouting moving water.",
+      "accessCaveats": [
+        "Use the named water-trail landing and its established carry. Scout parking and water entry before unloading; these are carry-down accesses, not paved boat ramps.",
+        "The original guide marks upstream accesses as unmaintained. Current county confirmation at Stonebrook and the May 2026 Smithfield landing report support these endpoints; they do not establish maintenance at every intermediate bridge.",
+        "Most banks and riverbed are private. Use established public accesses and obtain permission before stopping, fishing from shore, or crossing private land.",
+        "The Ion gauge is downstream. Its reading does not measure local depth, inspect obstructions, or establish safe levels on the upper river.",
+        "Stonebrook has county-listed canoe access, a picnic shelter, and a pit toilet. Use its riverside carry by Yellow River Drive, not the picnic-shelter coordinate."
+      ],
+      "watchFor": [
+        "Fast riffles, shallow rock and gravel bars, cold water, and bends with strainers or downed trees; leave room to stop and scout.",
+        "The water-trail guide reports low fence wires across the upper river. Stop well upstream, inspect a safe passage, and turn back if passage or a lawful portage is unavailable.",
+        "Storm runoff and rapid rises can hide rocks, fences, and wood. Avoid high, rapidly rising, or muddy post-storm water.",
+        "This longer wilderness option has limited verified exits and may require carrying over shallow bars. Start early and carry an offline map."
+      ]
+    },
+    "accessPoints": [
+      {
+        "id": "yellow-river-stonebrook-access",
+        "name": "Stonebrook Park / Yellow River Drive Access",
+        "latitude": 43.15441413,
+        "longitude": -91.51048667,
+        "mileFromStart": 0,
+        "segmentKind": "creek",
+        "note": "County-confirmed canoe access; water-trail guide calls it Yellow River Drive Access."
+      },
+      {
+        "id": "yellow-river-smithfield-drive-access",
+        "name": "Smithfield Drive Access",
+        "latitude": 43.15059709,
+        "longitude": -91.44194283,
+        "mileFromStart": 5.42,
+        "segmentKind": "creek",
+        "note": "Shorter alternate launch or planned bailout. Confirm parking and carry before starting; guide-listed access at the upstream Smithfield crossing."
+      },
+      {
+        "name": "Volney Canoe Access",
+        "latitude": 43.13022,
+        "longitude": -91.37586,
+        "id": "volney-canoe-access",
+        "mileFromStart": 11.97,
+        "segmentKind": "creek",
+        "note": "Public Volney Park take-out. Stop here; the separate Volney-to-Sixteen route continues downstream."
+      }
+    ]
+  },
+  "yellow-river-smithfield-volney": {
+    "putIn": {
+      "id": "yellow-river-smithfield-drive-access",
+      "name": "Smithfield Drive Access",
+      "latitude": 43.15059709,
+      "longitude": -91.44194283
+    },
+    "takeOut": {
+      "name": "Volney Canoe Access",
+      "latitude": 43.13022,
+      "longitude": -91.37586,
+      "id": "volney-canoe-access"
+    },
+    "logistics": {
+      "distanceLabel": "About 6.6 mi",
+      "estimatedPaddleTime": "About 3 hr to 4 hr; allow extra time for scouting and carries",
+      "shuttle": "Stage the take-out vehicle at Volney Park, 1262 James Road, then drive to the named Smithfield Drive Access. Use a two-car shuttle or arrange a local shuttle in advance; the rural roads are hilly and partly gravel.",
+      "permits": "Check current Iowa DNR boating and fishing requirements and posted county access rules. A public launch does not grant access to neighboring private banks.",
+      "camping": "No on-route camping is established for this itinerary. Treat it as a day trip; private banks, gravel bars, and public picnic areas are not verified overnight sites.",
+      "campingClassification": "none",
+      "summary": "Shorter upper Yellow River trip from the named Smithfield Drive landing to Volney Park, with farm-country bends, riffles, wooded bluffs, and limestone outcrops. Plan for shallow bars, fence wires, and wood rather than an effortless beginner float.",
+      "accessCaveats": [
+        "Use the named water-trail landing and its established carry. Scout parking and water entry before unloading; these are carry-down accesses, not paved boat ramps.",
+        "The original guide marks upstream accesses as unmaintained. Current county confirmation at Stonebrook and the May 2026 Smithfield landing report support these endpoints; they do not establish maintenance at every intermediate bridge.",
+        "Most banks and riverbed are private. Use established public accesses and obtain permission before stopping, fishing from shore, or crossing private land.",
+        "The Ion gauge is downstream. Its reading does not measure local depth, inspect obstructions, or establish safe levels on the upper river.",
+        "Use the guide-listed Smithfield landing at the upstream Yellow River crossing. Smithfield Drive crosses the river again downstream; that second crossing is not this launch."
+      ],
+      "watchFor": [
+        "Fast riffles, shallow rock and gravel bars, cold water, and bends with strainers or downed trees; leave room to stop and scout.",
+        "The water-trail guide reports low fence wires across the upper river. Stop well upstream, inspect a safe passage, and turn back if passage or a lawful portage is unavailable.",
+        "Storm runoff and rapid rises can hide rocks, fences, and wood. Avoid high, rapidly rising, or muddy post-storm water."
+      ]
+    },
+    "accessPoints": [
+      {
+        "id": "yellow-river-smithfield-drive-access",
+        "name": "Smithfield Drive Access",
+        "latitude": 43.15059709,
+        "longitude": -91.44194283,
+        "mileFromStart": 0,
+        "segmentKind": "creek",
+        "note": "Named water-trail access; May 2026 paddler report confirms an improved landing."
+      },
+      {
+        "name": "Volney Canoe Access",
+        "latitude": 43.13022,
+        "longitude": -91.37586,
+        "id": "volney-canoe-access",
+        "mileFromStart": 6.55,
+        "segmentKind": "creek",
+        "note": "Public Volney Park take-out. Stop here; the separate Volney-to-Sixteen route continues downstream."
+      }
+    ]
+  },
   "yellow-river-volney-sixteen-bridge": {
     "putIn": {
       "name": "Volney Canoe Access",
