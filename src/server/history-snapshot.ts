@@ -1,5 +1,6 @@
 import { captureHistorySnapshotForResults } from '../lib/history';
 import { getAllRiverScores } from '../lib/rivers';
+import { flushWeatherFailureLogs } from '../lib/weather-error-logging';
 
 async function main() {
   const results = await getAllRiverScores();
@@ -9,7 +10,7 @@ async function main() {
   );
 }
 
-main().catch((error) => {
+main().finally(flushWeatherFailureLogs).catch((error) => {
   console.error('[history] snapshot failed', error);
   process.exitCode = 1;
 });

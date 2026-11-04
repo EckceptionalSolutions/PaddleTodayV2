@@ -4,6 +4,7 @@ import { captureRiverSnapshots, getStoredRiverDetailSnapshot } from '../lib/rive
 import { getAllRiverScores, listScoredRivers } from '../lib/rivers';
 import { assertScoredCatalogCoverage } from '../lib/catalog-coverage';
 import { assertSnapshotQuality } from '../lib/snapshot-quality';
+import { flushWeatherFailureLogs } from '../lib/weather-error-logging';
 import {
   assessUpstreamHealth,
   DEFAULT_UPSTREAM_HEALTH_THRESHOLDS,
@@ -106,7 +107,7 @@ function percent(value: number) {
   return `${Math.round(value * 1000) / 10}%`;
 }
 
-main().catch((error) => {
+main().finally(flushWeatherFailureLogs).catch((error) => {
   console.error('[snapshots] refresh failed', error);
   process.exitCode = 1;
 });
