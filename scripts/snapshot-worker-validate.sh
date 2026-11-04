@@ -9,6 +9,7 @@ import { writeFileSync } from 'node:fs';
 const env = process.env;
 const values = {
   containerRegistryName: env.AZURE_CONTAINER_REGISTRY,
+  containerRegistryResourceGroup: env.AZURE_CONTAINER_REGISTRY_RESOURCE_GROUP,
   containerAppsEnvironmentName: env.AZURE_CONTAINER_APPS_ENVIRONMENT,
   jobName: env.AZURE_CONTAINER_APPS_JOB,
   snapshotAlertEmail: env.SNAPSHOT_ALERT_EMAIL,

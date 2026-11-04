@@ -4,20 +4,17 @@ targetScope = 'resourceGroup'
 param location string = resourceGroup().location
 
 @description('Globally unique Azure Container Registry name.')
-param containerRegistryName string = 'paddletodayjobs'
+param containerRegistryName string = 'ahmqiry64didw24'
+
+@description('Resource group of the existing shared registry. This template never creates a registry.')
+param containerRegistryResourceGroup string = 'assumable-homes'
 
 @description('Container Apps environment that hosts the scheduled worker job.')
 param containerAppsEnvironmentName string = 'paddletoday-jobs'
 
-resource containerRegistry 'Microsoft.ContainerRegistry/registries@2023-07-01' = {
+resource containerRegistry 'Microsoft.ContainerRegistry/registries@2023-07-01' existing = {
   name: containerRegistryName
-  location: location
-  sku: {
-    name: 'Basic'
-  }
-  properties: {
-    adminUserEnabled: false
-  }
+  scope: resourceGroup(containerRegistryResourceGroup)
 }
 
 resource logAnalytics 'Microsoft.OperationalInsights/workspaces@2022-10-01' = {
