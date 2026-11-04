@@ -1,4 +1,5 @@
 import { fetchJson } from './http';
+import { reportWeatherFailure } from './weather-error-logging';
 import { WEATHER_STALE_MINUTES } from './weather-freshness';
 import {
   addDaysToDateKey,
@@ -109,7 +110,7 @@ export async function fetchNwsWeatherSnapshot(
       retries: 2,
       headers: NWS_HEADERS,
     }).catch((error): NwsGridDataResponse => {
-      console.warn(`[weather] NWS supplemental grid unavailable for ${latitude},${longitude}`, error);
+      reportWeatherFailure('nws-grid', `${latitude},${longitude}`, error);
       return {};
     }) : Promise.resolve<NwsGridDataResponse>({}),
     fetchLatestObservation(observationStationsUrl),

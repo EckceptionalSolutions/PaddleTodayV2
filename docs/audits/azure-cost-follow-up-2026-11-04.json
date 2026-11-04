@@ -1,0 +1,1335 @@
+{
+  "asOf": "2026-11-04",
+  "currency": "USD",
+  "scope": "PaddleToday resource group plus separately disclosed entire shared Central US default workspace",
+  "windows": {
+    "september": {
+      "start": "20260901",
+      "end": "20260930",
+      "days": 30,
+      "paddleCost": 62.36513567535614,
+      "sharedWorkspaceCost": 0,
+      "totalIncludingSharedWorkspace": 62.36513567535614,
+      "dailyAverage": 2.078837855845205,
+      "storageCost": 40.67147925299999,
+      "storageDailyAverage": 1.3557159750999996,
+      "logCostIncludingShared": 0,
+      "dailyExcludingLogs": 2.078837855845205,
+      "storageMeters": {
+        "All Other Operations": 0.0709384,
+        "Cool Data Retrieval": 0.2648472900000001,
+        "Cool GRS Write Operations": 31.577600000000007,
+        "Cool RA-GRS Data Stored": 0.199610375,
+        "Cool Read Operations": 0.3911898800000001,
+        "GRS List and Create Container Operations": 0.021580000000000002,
+        "Geo-Replication v2 Data Transfer": 0.9754595999999999,
+        "Hot GRS Write Operations": 7.01562,
+        "Hot RA-GRS Data Stored": 0.089615176,
+        "Hot Read Operations": 0.0211816,
+        "Inter Continent Data Transfer In - NAM or EU To Any": 0,
+        "Inter Continent Data Transfer Out - NAM or EU To Any": 0,
+        "Intra Continent Data Transfer In": 0,
+        "Intra Continent Data Transfer Out": 0.04383356,
+        "Read Operations": 0.000003372,
+        "Standard Data Transfer In": 0,
+        "Standard Data Transfer Out": 0
+      },
+      "resources": {
+        "microsoft.containerregistry/registries/paddletodayjobs": 4.998039984,
+        "microsoft.operationalinsights/workspaces/paddletoday-jobs-logs": 0,
+        "microsoft.storage/storageaccounts/paddletoday": 40.67147925299999,
+        "microsoft.web/serverfarms/asp-paddletoday-9013": 12.960000000000008,
+        "microsoft.web/sites/paddletodayapi": 0,
+        "microsoft.web/staticsites/paddletoday": 3.735616438356164
+      }
+    },
+    "october": {
+      "start": "20261001",
+      "end": "20261031",
+      "days": 31,
+      "paddleCost": 77.53097268512305,
+      "sharedWorkspaceCost": 0.19478171460000002,
+      "totalIncludingSharedWorkspace": 77.72575439972304,
+      "dailyAverage": 2.507282399991066,
+      "storageCost": 47.29410174199999,
+      "storageDailyAverage": 1.525616185225806,
+      "logCostIncludingShared": 4.384686058440001,
+      "dailyExcludingLogs": 2.365840914234937,
+      "storageMeters": {
+        "All Other Operations": 0.33581,
+        "Cool Data Retrieval": 0.03163185000000001,
+        "Cool GRS Write Operations": 16.942020000000003,
+        "Cool RA-GRS Data Stored": 0.3999245,
+        "Cool Read Operations": 0.19255800000000006,
+        "GRS List and Create Container Operations": 0.79905,
+        "Geo-Replication v2 Data Transfer": 2.03885356,
+        "Hot GRS Write Operations": 25.79853,
+        "Hot RA-GRS Data Stored": 0.501500924,
+        "Hot Read Operations": 0.20863800000000002,
+        "Inter Continent Data Transfer In - NAM or EU To Any": 0,
+        "Inter Continent Data Transfer Out - NAM or EU To Any": 0,
+        "Intra Continent Data Transfer In": 0,
+        "Intra Continent Data Transfer Out": 0.0455839,
+        "Read Operations": 0.000001008,
+        "Standard Data Transfer In": 0,
+        "Standard Data Transfer Out": 0
+      },
+      "resources": {
+        "microsoft.communication/communicationservices/route-alerts": 0.0032540496063232427,
+        "microsoft.containerregistry/registries/paddletodayjobs": 5.4640413168,
+        "microsoft.operationalinsights/workspaces/paddletoday-jobs-logs": 4.18990434384,
+        "microsoft.storage/storageaccounts/paddletoday": 47.29410174199999,
+        "microsoft.web/serverfarms/asp-paddletoday-9013": 13.392000000000008,
+        "microsoft.web/sites/paddletodayapi": 0,
+        "microsoft.web/staticsites/paddletoday": 7.187671232876713
+      }
+    },
+    "preChangeWeek": {
+      "start": "20260914",
+      "end": "20260920",
+      "days": 7,
+      "paddleCost": 17.552559274599997,
+      "sharedWorkspaceCost": 0,
+      "totalIncludingSharedWorkspace": 17.552559274599997,
+      "dailyAverage": 2.5075084677999997,
+      "storageCost": 13.362349945000002,
+      "storageDailyAverage": 1.9089071350000002,
+      "logCostIncludingShared": 0,
+      "dailyExcludingLogs": 2.5075084677999997,
+      "storageMeters": {
+        "All Other Operations": 0.026065199999999997,
+        "Cool Data Retrieval": 0.11299981,
+        "Cool GRS Write Operations": 12.73422,
+        "Cool RA-GRS Data Stored": 0.05371797500000001,
+        "Cool Read Operations": 0.15585100000000002,
+        "GRS List and Create Container Operations": 0.00007000000000000001,
+        "Geo-Replication v2 Data Transfer": 0.26608134,
+        "Inter Continent Data Transfer In - NAM or EU To Any": 0,
+        "Inter Continent Data Transfer Out - NAM or EU To Any": 0,
+        "Intra Continent Data Transfer In": 0,
+        "Intra Continent Data Transfer Out": 0.01334462,
+        "Standard Data Transfer In": 0,
+        "Standard Data Transfer Out": 0
+      },
+      "resources": {
+        "microsoft.containerregistry/registries/paddletodayjobs": 1.1662093296,
+        "microsoft.operationalinsights/workspaces/paddletoday-jobs-logs": 0,
+        "microsoft.storage/storageaccounts/paddletoday": 13.362349945000002,
+        "microsoft.web/serverfarms/asp-paddletoday-9013": 3.024,
+        "microsoft.web/sites/paddletodayapi": 0,
+        "microsoft.web/staticsites/paddletoday": 0
+      }
+    },
+    "initialPostChangeWeek": {
+      "start": "20260922",
+      "end": "20260928",
+      "days": 7,
+      "paddleCost": 10.620053775600002,
+      "sharedWorkspaceCost": 0,
+      "totalIncludingSharedWorkspace": 10.620053775600002,
+      "dailyAverage": 1.5171505393714289,
+      "storageCost": 6.429844445999999,
+      "storageDailyAverage": 0.9185492065714284,
+      "logCostIncludingShared": 0,
+      "dailyExcludingLogs": 1.5171505393714289,
+      "storageMeters": {
+        "All Other Operations": 0.0179576,
+        "Cool Data Retrieval": 0.00367615,
+        "Cool GRS Write Operations": 0.91216,
+        "Cool RA-GRS Data Stored": 0.05727775000000001,
+        "Cool Read Operations": 0.010601,
+        "GRS List and Create Container Operations": 0.0032099999999999997,
+        "Geo-Replication v2 Data Transfer": 0.25783792,
+        "Hot GRS Write Operations": 5.08148,
+        "Hot RA-GRS Data Stored": 0.059529566,
+        "Hot Read Operations": 0.019004399999999998,
+        "Intra Continent Data Transfer In": 0,
+        "Intra Continent Data Transfer Out": 0.007109160000000001,
+        "Read Operations": 9e-7,
+        "Standard Data Transfer In": 0,
+        "Standard Data Transfer Out": 0
+      },
+      "resources": {
+        "microsoft.containerregistry/registries/paddletodayjobs": 1.1662093296,
+        "microsoft.operationalinsights/workspaces/paddletoday-jobs-logs": 0,
+        "microsoft.storage/storageaccounts/paddletoday": 6.429844445999999,
+        "microsoft.web/serverfarms/asp-paddletoday-9013": 3.024,
+        "microsoft.web/sites/paddletodayapi": 0,
+        "microsoft.web/staticsites/paddletoday": 0
+      }
+    },
+    "latestOctoberWeek": {
+      "start": "20261025",
+      "end": "20261031",
+      "days": 7,
+      "paddleCost": 16.4705911631776,
+      "sharedWorkspaceCost": 0.19478171460000002,
+      "totalIncludingSharedWorkspace": 16.6653728777776,
+      "dailyAverage": 2.3807675539682287,
+      "storageCost": 6.009892909000001,
+      "storageDailyAverage": 0.858556129857143,
+      "logCostIncludingShared": 4.384686058440001,
+      "dailyExcludingLogs": 1.7543838313339428,
+      "storageMeters": {
+        "All Other Operations": 0.0051628,
+        "Cool Data Retrieval": 0.00622042,
+        "Cool GRS Write Operations": 0.2986,
+        "Cool RA-GRS Data Stored": 0.06908952499999998,
+        "Cool Read Operations": 0.019756,
+        "GRS List and Create Container Operations": 0.20228999999999997,
+        "Geo-Replication v2 Data Transfer": 0.17925094,
+        "Hot GRS Write Operations": 5.0546,
+        "Hot RA-GRS Data Stored": 0.099110496,
+        "Hot Read Operations": 0.0661236,
+        "Inter Continent Data Transfer In - NAM or EU To Any": 0,
+        "Inter Continent Data Transfer Out - NAM or EU To Any": 0,
+        "Intra Continent Data Transfer In": 0,
+        "Intra Continent Data Transfer Out": 0.00968842,
+        "Read Operations": 7.08e-7,
+        "Standard Data Transfer In": 0,
+        "Standard Data Transfer Out": 0
+      },
+      "resources": {
+        "microsoft.communication/communicationservices/route-alerts": 0.0017517040252685559,
+        "microsoft.containerregistry/registries/paddletodayjobs": 1.1738093296,
+        "microsoft.operationalinsights/workspaces/paddletoday-jobs-logs": 4.18990434384,
+        "microsoft.storage/storageaccounts/paddletoday": 6.009892909000001,
+        "microsoft.web/serverfarms/asp-paddletoday-9013": 3.024,
+        "microsoft.web/sites/paddletodayapi": 0,
+        "microsoft.web/staticsites/paddletoday": 2.071232876712328
+      }
+    },
+    "postChange31Days": {
+      "start": "20260922",
+      "end": "20261022",
+      "days": 31,
+      "paddleCost": 71.10301022591035,
+      "sharedWorkspaceCost": 0,
+      "totalIncludingSharedWorkspace": 71.10301022591035,
+      "dailyAverage": 2.2936454911583986,
+      "storageCost": 47.744160127,
+      "storageDailyAverage": 1.5401341976451612,
+      "logCostIncludingShared": 0,
+      "dailyExcludingLogs": 2.2936454911583986,
+      "storageMeters": {
+        "All Other Operations": 0.35629520000000003,
+        "Cool Data Retrieval": 0.029291320000000006,
+        "Cool GRS Write Operations": 17.92266,
+        "Cool RA-GRS Data Stored": 0.36650797499999993,
+        "Cool Read Operations": 0.18234300000000003,
+        "GRS List and Create Container Operations": 0.55962,
+        "Geo-Replication v2 Data Transfer": 2.1476367200000004,
+        "Hot GRS Write Operations": 25.535679999999996,
+        "Hot RA-GRS Data Stored": 0.461026352,
+        "Hot Read Operations": 0.14259560000000002,
+        "Inter Continent Data Transfer In - NAM or EU To Any": 0,
+        "Inter Continent Data Transfer Out - NAM or EU To Any": 0,
+        "Intra Continent Data Transfer In": 0,
+        "Intra Continent Data Transfer Out": 0.04050156,
+        "Read Operations": 0.0000024,
+        "Standard Data Transfer In": 0,
+        "Standard Data Transfer Out": 0
+      },
+      "resources": {
+        "microsoft.communication/communicationservices/route-alerts": 0.000751247863769531,
+        "microsoft.containerregistry/registries/paddletodayjobs": 5.441441316800001,
+        "microsoft.operationalinsights/workspaces/paddletoday-jobs-logs": 0,
+        "microsoft.storage/storageaccounts/paddletoday": 47.744160127,
+        "microsoft.web/serverfarms/asp-paddletoday-9013": 13.392000000000008,
+        "microsoft.web/sites/paddletodayapi": 0,
+        "microsoft.web/staticsites/paddletoday": 4.524657534246575
+      }
+    },
+    "novemberProvisional": {
+      "start": "20261101",
+      "end": "20261103",
+      "days": 3,
+      "paddleCost": 5.421963557276712,
+      "sharedWorkspaceCost": 0,
+      "totalIncludingSharedWorkspace": 5.421963557276712,
+      "dailyAverage": 1.807321185758904,
+      "storageCost": 2.7384883259999997,
+      "storageDailyAverage": 0.9128294419999999,
+      "logCostIncludingShared": 0,
+      "dailyExcludingLogs": 1.807321185758904,
+      "storageMeters": {
+        "All Other Operations": 0.0000388,
+        "Cool Data Retrieval": 0.00356043,
+        "Cool GRS Write Operations": 0.01342,
+        "Cool RA-GRS Data Stored": 0.018000600000000002,
+        "Cool Read Operations": 0.008116,
+        "GRS List and Create Container Operations": 0.08676,
+        "Geo-Replication v2 Data Transfer": 0.0863743,
+        "Hot GRS Write Operations": 2.4546,
+        "Hot RA-GRS Data Stored": 0.036680675999999995,
+        "Hot Read Operations": 0.025919200000000003,
+        "Intra Continent Data Transfer In": 0,
+        "Intra Continent Data Transfer Out": 0.00501772,
+        "Read Operations": 6e-7,
+        "Standard Data Transfer In": 0,
+        "Standard Data Transfer Out": 0
+      },
+      "resources": {
+        "microsoft.containerregistry/registries/paddletodayjobs": 0.4998039984,
+        "microsoft.operationalinsights/workspaces/paddletoday-jobs-logs": 0,
+        "microsoft.storage/storageaccounts/paddletoday": 2.7384883259999997,
+        "microsoft.web/serverfarms/asp-paddletoday-9013": 1.296,
+        "microsoft.web/sites/paddletodayapi": 0,
+        "microsoft.web/staticsites/paddletoday": 0.887671232876712
+      }
+    }
+  },
+  "writeUnits": {
+    "september": {
+      "Cool GRS Write Operations": {
+        "cost": 31.577600000000007,
+        "quantity": 157.888,
+        "costPerMeterUnit": 0.20000000000000004,
+        "estimatedOperations": 1578880
+      },
+      "Hot GRS Write Operations": {
+        "cost": 7.01562,
+        "quantity": 70.1562,
+        "costPerMeterUnit": 0.1,
+        "estimatedOperations": 701562
+      }
+    },
+    "october": {
+      "Cool GRS Write Operations": {
+        "cost": 16.942020000000003,
+        "quantity": 84.71009999999998,
+        "costPerMeterUnit": 0.20000000000000007,
+        "estimatedOperations": 847100.9999999999
+      },
+      "Hot GRS Write Operations": {
+        "cost": 25.79853,
+        "quantity": 257.9853,
+        "costPerMeterUnit": 0.1,
+        "estimatedOperations": 2579853
+      }
+    },
+    "preChangeWeek": {
+      "Cool GRS Write Operations": {
+        "cost": 12.73422,
+        "quantity": 63.6711,
+        "costPerMeterUnit": 0.2,
+        "estimatedOperations": 636711
+      },
+      "Hot GRS Write Operations": {
+        "cost": 0,
+        "quantity": 0,
+        "costPerMeterUnit": null,
+        "estimatedOperations": 0
+      }
+    },
+    "latestOctoberWeek": {
+      "Cool GRS Write Operations": {
+        "cost": 0.2986,
+        "quantity": 1.4929999999999997,
+        "costPerMeterUnit": 0.20000000000000004,
+        "estimatedOperations": 14929.999999999996
+      },
+      "Hot GRS Write Operations": {
+        "cost": 5.0546,
+        "quantity": 50.546,
+        "costPerMeterUnit": 0.09999999999999999,
+        "estimatedOperations": 505460
+      }
+    }
+  },
+  "monthlyPercentChange": 24.63013758893611,
+  "dailyPercentChange": 20.60981056993818,
+  "storageLatestWeekPercentChange": -55.023682707480525,
+  "latestWeekTotalPercentChange": -5.054456065026535,
+  "planMetrics": [
+    {
+      "name": "CpuPercentage",
+      "points": 168,
+      "populatedAveragePoints": 168,
+      "meanOfAverages": 13.772211959496447,
+      "maximum": 98,
+      "total": 0
+    },
+    {
+      "name": "MemoryPercentage",
+      "points": 168,
+      "populatedAveragePoints": 168,
+      "meanOfAverages": 72.43140133171912,
+      "maximum": 93,
+      "total": 0
+    }
+  ],
+  "workerMetrics": [
+    {
+      "name": "UsageNanoCores",
+      "points": 168,
+      "populatedAveragePoints": 168,
+      "meanOfAverages": 563237629.326074,
+      "maximum": 1172687568,
+      "total": 0
+    },
+    {
+      "name": "UsageBytes",
+      "points": 168,
+      "populatedAveragePoints": 168,
+      "meanOfAverages": 288935590.51556003,
+      "maximum": 525647872,
+      "total": 0
+    }
+  ],
+  "capacityMetrics": [
+    {
+      "name": "BlobCapacity",
+      "points": 7,
+      "populatedAveragePoints": 7,
+      "meanOfAverages": 23386553193.05357,
+      "maximum": 29802543045,
+      "total": 0
+    }
+  ],
+  "transactions": [
+    {
+      "dimensions": [
+        {
+          "name": {
+            "localizedValue": "apiname",
+            "value": "apiname"
+          },
+          "value": "PutBlob"
+        }
+      ],
+      "total": 520255
+    },
+    {
+      "dimensions": [
+        {
+          "name": {
+            "localizedValue": "apiname",
+            "value": "apiname"
+          },
+          "value": "GetBlob"
+        }
+      ],
+      "total": 185244
+    },
+    {
+      "dimensions": [
+        {
+          "name": {
+            "localizedValue": "apiname",
+            "value": "apiname"
+          },
+          "value": "ListBlobs"
+        }
+      ],
+      "total": 20242
+    },
+    {
+      "dimensions": [
+        {
+          "name": {
+            "localizedValue": "apiname",
+            "value": "apiname"
+          },
+          "value": "GetBlobProperties"
+        }
+      ],
+      "total": 12835
+    },
+    {
+      "dimensions": [
+        {
+          "name": {
+            "localizedValue": "apiname",
+            "value": "apiname"
+          },
+          "value": "DeleteBlob"
+        }
+      ],
+      "total": 4036
+    },
+    {
+      "dimensions": [
+        {
+          "name": {
+            "localizedValue": "apiname",
+            "value": "apiname"
+          },
+          "value": "GetContainerProperties"
+        }
+      ],
+      "total": 123
+    },
+    {
+      "dimensions": [
+        {
+          "name": {
+            "localizedValue": "apiname",
+            "value": "apiname"
+          },
+          "value": "BlobPreflightRequest"
+        }
+      ],
+      "total": 28
+    },
+    {
+      "dimensions": [
+        {
+          "name": {
+            "localizedValue": "apiname",
+            "value": "apiname"
+          },
+          "value": "Unknown"
+        }
+      ],
+      "total": 17
+    },
+    {
+      "dimensions": [
+        {
+          "name": {
+            "localizedValue": "apiname",
+            "value": "apiname"
+          },
+          "value": "GetBlobServiceProperties"
+        }
+      ],
+      "total": 16
+    },
+    {
+      "dimensions": [
+        {
+          "name": {
+            "localizedValue": "apiname",
+            "value": "apiname"
+          },
+          "value": "GetContainerServiceMetadata"
+        }
+      ],
+      "total": 12
+    }
+  ],
+  "executions": {
+    "count": 201,
+    "statusCounts": {
+      "Failed": 100,
+      "Stopped": 1,
+      "Succeeded": 100
+    },
+    "completedCount": 100,
+    "meanSeconds": 82.63,
+    "medianSeconds": 81,
+    "p95Seconds": 96,
+    "maxSeconds": 226
+  },
+  "daily": {
+    "20260901": 2.073182023758904,
+    "20260902": 2.051596428758904,
+    "20260903": 2.097184308758904,
+    "20260904": 2.120119623758904,
+    "20260905": 2.174624378758904,
+    "20260906": 2.1590380607589035,
+    "20260907": 2.0685894187589042,
+    "20260908": 2.1101320987589043,
+    "20260909": 2.110507883758904,
+    "20260910": 2.108219008758904,
+    "20260911": 2.128845103758904,
+    "20260912": 2.204888443758904,
+    "20260913": 2.076727324649315,
+    "20260914": 1.7963079228,
+    "20260915": 1.9352731677999997,
+    "20260916": 1.9553213978000001,
+    "20260917": 2.9397778278,
+    "20260918": 2.9266645328,
+    "20260919": 2.9275458278000004,
+    "20260920": 3.0716685977999996,
+    "20260921": 2.9892540617999996,
+    "20260922": 1.8742112467999998,
+    "20260923": 1.6886013977999996,
+    "20260924": 1.2098842868,
+    "20260925": 0.6171733228,
+    "20260926": 1.4011928318,
+    "20260927": 1.4933760258,
+    "20260928": 2.3356146638,
+    "20260929": 1.6743405008000003,
+    "20260930": 2.0452739558,
+    "20261001": 1.7428384328,
+    "20261002": 1.6982306827999998,
+    "20261003": 1.4901944188,
+    "20261004": 1.5245054748,
+    "20261005": 1.7070405098,
+    "20261006": 3.1548010637999995,
+    "20261007": 4.283989516265753,
+    "20261008": 11.081817778772601,
+    "20261009": 1.6872915741424659,
+    "20261010": 1.7358022377589042,
+    "20261011": 1.748501393758904,
+    "20261012": 1.7321614547589042,
+    "20261013": 1.702171508758904,
+    "20261014": 1.8834231407589042,
+    "20261015": 1.761724924758904,
+    "20261016": 2.251166959758904,
+    "20261017": 1.888290051758904,
+    "20261018": 1.9198238317589038,
+    "20261019": 1.8834020287570727,
+    "20261020": 4.134350644758904,
+    "20261021": 3.5854078316245053,
+    "20261022": 2.166406532758904,
+    "20261023": 2.379177729450677,
+    "20261024": 1.9178617987844166,
+    "20261025": 1.9159952681071706,
+    "20261026": 1.8579349517589039,
+    "20261027": 2.016296376677483,
+    "20261028": 1.6659782483288381,
+    "20261029": 3.5749693924789034,
+    "20261030": 3.468007860438903,
+    "20261031": 2.1661907799873927,
+    "20261101": 1.7585842117589041,
+    "20261102": 1.8168590277589038,
+    "20261103": 1.8465203177589038
+  },
+  "historyWorkflow": {
+    "october": {
+      "days": 31,
+      "runs": 147,
+      "conclusions": {
+        "failure": 72,
+        "success": 75
+      }
+    },
+    "latestOctoberWeek": {
+      "days": 7,
+      "runs": 32,
+      "conclusions": {
+        "success": 32
+      }
+    }
+  },
+  "subscriptionMonthly": {
+    "202609": 64.27823792549991,
+    "202610": 82.94112259054266
+  },
+  "subscriptionMonthlyByResourceGroup": {
+    "202609 assumable-homes": 1.8817125901438845,
+    "202609 bodytransformai-dev": 0.0003294720000000002,
+    "202609 defaultresourcegroup-cus": 0,
+    "202609 fluzautomation": 0.031060188000000023,
+    "202609 paddletoday": 62.36513567535614,
+    "202610 assumable-homes": 5.183053251619592,
+    "202610 bodytransformai-dev": 0.0003249792,
+    "202610 defaultresourcegroup-cus": 0.19478171460000002,
+    "202610 fluzautomation": 0.03198996000000002,
+    "202610 paddletoday": 77.53097268512305
+  },
+  "routeCountEvidence": {
+    "columns": [
+      {
+        "name": "SuccessfulCaptures",
+        "type": "long"
+      },
+      {
+        "name": "MinRoutes",
+        "type": "int"
+      },
+      {
+        "name": "MaxRoutes",
+        "type": "int"
+      }
+    ],
+    "name": "PrimaryResult",
+    "rows": [
+      [
+        96,
+        1392,
+        1392
+      ]
+    ]
+  },
+  "savings": {
+    "octoberHotWriteRepricing": 25.79853,
+    "octoberRemainingCoolWriteRepricingMaximum": 8.471010000000001,
+    "latestWeekCoolWriteRepricingMonthlyEquivalent": 0.6398571428571428,
+    "historyDailySummaryBatchingMonthlyModel": 1.4914285714285713,
+    "notes": [
+      "Write savings use actual billed cost/quantity rate ratio; no capacity or migration effects included.",
+      "Cool-tier and upload-deduplication savings overlap.",
+      "History model assumes all 32 successful recent UTC-window runs captured 1392 routes, and seven daily finalizations replace 32 daily-summary writes per route.",
+      "Execution list retains different statuses separately; never interpret 100 failed plus 100 succeeded as a 50% failure rate.",
+      "November data is provisional and may lag up to 72 hours."
+    ]
+  },
+  "logEvidence": {
+    "workerUsage": {
+      "columns": [
+        {
+          "name": "DataType",
+          "type": "string"
+        },
+        {
+          "name": "IsBillable",
+          "type": "bool"
+        },
+        {
+          "name": "Day",
+          "type": "datetime"
+        },
+        {
+          "name": "MB",
+          "type": "real"
+        }
+      ],
+      "name": "PrimaryResult",
+      "rows": [
+        [
+          "ContainerAppConsoleLogs_CL",
+          true,
+          "2026-10-19T00:00:00Z",
+          0.007105
+        ],
+        [
+          "ContainerAppSystemLogs_CL",
+          true,
+          "2026-10-19T00:00:00Z",
+          0.010738
+        ],
+        [
+          "ContainerAppSystemLogs_CL",
+          true,
+          "2026-10-20T00:00:00Z",
+          0.28807
+        ],
+        [
+          "ContainerAppConsoleLogs_CL",
+          true,
+          "2026-10-20T00:00:00Z",
+          33.23970999999999
+        ],
+        [
+          "ContainerAppConsoleLogs_CL",
+          true,
+          "2026-10-21T00:00:00Z",
+          48.2594
+        ],
+        [
+          "ContainerAppSystemLogs_CL",
+          true,
+          "2026-10-21T00:00:00Z",
+          0.322801
+        ],
+        [
+          "ContainerAppConsoleLogs_CL",
+          true,
+          "2026-10-22T00:00:00Z",
+          54.55477200000001
+        ],
+        [
+          "ContainerAppSystemLogs_CL",
+          true,
+          "2026-10-22T00:00:00Z",
+          0.30024500000000004
+        ],
+        [
+          "ContainerAppConsoleLogs_CL",
+          true,
+          "2026-10-23T00:00:00Z",
+          17.509527000000002
+        ],
+        [
+          "ContainerAppSystemLogs_CL",
+          true,
+          "2026-10-23T00:00:00Z",
+          0.286566
+        ],
+        [
+          "ContainerAppConsoleLogs_CL",
+          true,
+          "2026-10-24T00:00:00Z",
+          0.7815690000000001
+        ],
+        [
+          "ContainerAppSystemLogs_CL",
+          true,
+          "2026-10-24T00:00:00Z",
+          0.265306
+        ],
+        [
+          "ContainerAppSystemLogs_CL",
+          true,
+          "2026-10-25T00:00:00Z",
+          0.269202
+        ],
+        [
+          "ContainerAppConsoleLogs_CL",
+          true,
+          "2026-10-25T00:00:00Z",
+          1.367975
+        ],
+        [
+          "ContainerAppConsoleLogs_CL",
+          true,
+          "2026-10-26T00:00:00Z",
+          0.645276
+        ],
+        [
+          "ContainerAppSystemLogs_CL",
+          true,
+          "2026-10-26T00:00:00Z",
+          0.262418
+        ],
+        [
+          "ContainerAppConsoleLogs_CL",
+          true,
+          "2026-10-27T00:00:00Z",
+          420.43566
+        ],
+        [
+          "ContainerAppSystemLogs_CL",
+          true,
+          "2026-10-27T00:00:00Z",
+          0.41118
+        ],
+        [
+          "ContainerAppConsoleLogs_CL",
+          true,
+          "2026-10-28T00:00:00Z",
+          553.894991
+        ],
+        [
+          "ContainerAppSystemLogs_CL",
+          true,
+          "2026-10-28T00:00:00Z",
+          0.4442209999999999
+        ],
+        [
+          "ContainerAppSystemLogs_CL",
+          true,
+          "2026-10-29T00:00:00Z",
+          0.49472799999999995
+        ],
+        [
+          "ContainerAppConsoleLogs_CL",
+          true,
+          "2026-10-29T00:00:00Z",
+          713.0798480000001
+        ],
+        [
+          "ContainerAppConsoleLogs_CL",
+          true,
+          "2026-10-30T00:00:00Z",
+          675.3010590000001
+        ],
+        [
+          "ContainerAppSystemLogs_CL",
+          true,
+          "2026-10-30T00:00:00Z",
+          0.48930999999999997
+        ],
+        [
+          "ContainerAppConsoleLogs_CL",
+          true,
+          "2026-10-31T00:00:00Z",
+          104.019215
+        ],
+        [
+          "ContainerAppSystemLogs_CL",
+          true,
+          "2026-10-31T00:00:00Z",
+          0.30210800000000004
+        ],
+        [
+          "ContainerAppSystemLogs_CL",
+          true,
+          "2026-11-01T00:00:00Z",
+          0.332926
+        ],
+        [
+          "ContainerAppConsoleLogs_CL",
+          true,
+          "2026-11-01T00:00:00Z",
+          190.808272
+        ],
+        [
+          "ContainerAppSystemLogs_CL",
+          true,
+          "2026-11-02T00:00:00Z",
+          0.26232300000000003
+        ],
+        [
+          "ContainerAppConsoleLogs_CL",
+          true,
+          "2026-11-02T00:00:00Z",
+          0.559647
+        ],
+        [
+          "ContainerAppSystemLogs_CL",
+          true,
+          "2026-11-03T00:00:00Z",
+          0.251956
+        ],
+        [
+          "ContainerAppConsoleLogs_CL",
+          true,
+          "2026-11-03T00:00:00Z",
+          0.7213769999999999
+        ]
+      ]
+    },
+    "workerByJob": {
+      "columns": [
+        {
+          "name": "Day",
+          "type": "datetime"
+        },
+        {
+          "name": "ContainerJobName_s",
+          "type": "string"
+        },
+        {
+          "name": "Rows",
+          "type": "long"
+        },
+        {
+          "name": "MB",
+          "type": "real"
+        }
+      ],
+      "name": "PrimaryResult",
+      "rows": [
+        [
+          "2026-10-25T00:00:00Z",
+          "assumable-homes-digest",
+          2,
+          0.00091
+        ],
+        [
+          "2026-10-25T00:00:00Z",
+          "",
+          1,
+          0.000401
+        ],
+        [
+          "2026-10-25T00:00:00Z",
+          "paddletoday-river-snapshots",
+          2929,
+          1.366664
+        ],
+        [
+          "2026-10-26T00:00:00Z",
+          "paddletoday-river-snapshots",
+          1362,
+          0.644367
+        ],
+        [
+          "2026-10-26T00:00:00Z",
+          "assumable-homes-digest",
+          2,
+          0.000909
+        ],
+        [
+          "2026-10-27T00:00:00Z",
+          "paddletoday-river-snapshots",
+          917713,
+          420.43475
+        ],
+        [
+          "2026-10-27T00:00:00Z",
+          "assumable-homes-digest",
+          2,
+          0.00091
+        ],
+        [
+          "2026-10-28T00:00:00Z",
+          "assumable-homes-digest",
+          2,
+          0.000909
+        ],
+        [
+          "2026-10-28T00:00:00Z",
+          "paddletoday-river-snapshots",
+          1210142,
+          554.378233
+        ],
+        [
+          "2026-10-29T00:00:00Z",
+          "paddletoday-river-snapshots",
+          1556462,
+          713.078938
+        ],
+        [
+          "2026-10-29T00:00:00Z",
+          "assumable-homes-digest",
+          2,
+          0.00091
+        ],
+        [
+          "2026-10-30T00:00:00Z",
+          "assumable-homes-digest",
+          2,
+          0.00091
+        ],
+        [
+          "2026-10-30T00:00:00Z",
+          "paddletoday-river-snapshots",
+          1478133,
+          677.153885
+        ],
+        [
+          "2026-10-31T00:00:00Z",
+          "paddletoday-river-snapshots",
+          227016,
+          104.018305
+        ],
+        [
+          "2026-10-31T00:00:00Z",
+          "assumable-homes-digest",
+          2,
+          0.00091
+        ],
+        [
+          "2026-11-01T00:00:00Z",
+          "paddletoday-river-snapshots",
+          416454,
+          190.807368
+        ],
+        [
+          "2026-11-01T00:00:00Z",
+          "assumable-homes-digest",
+          2,
+          0.000904
+        ],
+        [
+          "2026-11-02T00:00:00Z",
+          "assumable-homes-digest",
+          2,
+          0.000905
+        ],
+        [
+          "2026-11-02T00:00:00Z",
+          "paddletoday-river-snapshots",
+          1179,
+          0.558742
+        ],
+        [
+          "2026-11-03T00:00:00Z",
+          "paddletoday-river-snapshots",
+          1544,
+          0.72758
+        ],
+        [
+          "2026-11-03T00:00:00Z",
+          "assumable-homes-digest",
+          2,
+          0.000905
+        ]
+      ]
+    },
+    "workerErrorDays": {
+      "columns": [
+        {
+          "name": "Day",
+          "type": "datetime"
+        },
+        {
+          "name": "Category",
+          "type": "string"
+        },
+        {
+          "name": "Rows",
+          "type": "long"
+        },
+        {
+          "name": "MB",
+          "type": "real"
+        }
+      ],
+      "name": "PrimaryResult",
+      "rows": [
+        [
+          "2026-10-27T00:00:00Z",
+          "stack frame",
+          785871,
+          358.972154
+        ],
+        [
+          "2026-10-27T00:00:00Z",
+          "HTTP 403",
+          84304,
+          39.507221
+        ],
+        [
+          "2026-10-27T00:00:00Z",
+          "other",
+          47480,
+          21.923901
+        ],
+        [
+          "2026-10-27T00:00:00Z",
+          "terminal refresh error",
+          54,
+          0.029582
+        ],
+        [
+          "2026-10-27T00:00:00Z",
+          "HTTP 5xx",
+          4,
+          0.001892
+        ],
+        [
+          "2026-10-28T00:00:00Z",
+          "stack frame",
+          1033799,
+          472.237348
+        ],
+        [
+          "2026-10-28T00:00:00Z",
+          "HTTP 403",
+          111398,
+          52.180914
+        ],
+        [
+          "2026-10-28T00:00:00Z",
+          "other",
+          64871,
+          29.919929
+        ],
+        [
+          "2026-10-28T00:00:00Z",
+          "terminal refresh error",
+          68,
+          0.037246
+        ],
+        [
+          "2026-10-28T00:00:00Z",
+          "HTTP 5xx",
+          6,
+          0.002796
+        ],
+        [
+          "2026-10-29T00:00:00Z",
+          "stack frame",
+          1333449,
+          609.115183
+        ],
+        [
+          "2026-10-29T00:00:00Z",
+          "HTTP 403",
+          143270,
+          67.144721
+        ],
+        [
+          "2026-10-29T00:00:00Z",
+          "other",
+          79641,
+          36.764215
+        ],
+        [
+          "2026-10-29T00:00:00Z",
+          "terminal refresh error",
+          88,
+          0.048193
+        ],
+        [
+          "2026-10-29T00:00:00Z",
+          "HTTP 5xx",
+          14,
+          0.006626
+        ],
+        [
+          "2026-10-30T00:00:00Z",
+          "stack frame",
+          1266341,
+          578.451285
+        ],
+        [
+          "2026-10-30T00:00:00Z",
+          "HTTP 403",
+          136420,
+          63.934406
+        ],
+        [
+          "2026-10-30T00:00:00Z",
+          "other",
+          75286,
+          34.721172
+        ],
+        [
+          "2026-10-30T00:00:00Z",
+          "terminal refresh error",
+          85,
+          0.046549
+        ],
+        [
+          "2026-10-30T00:00:00Z",
+          "HTTP 5xx",
+          1,
+          0.000473
+        ],
+        [
+          "2026-10-31T00:00:00Z",
+          "stack frame",
+          195330,
+          89.21894
+        ],
+        [
+          "2026-10-31T00:00:00Z",
+          "HTTP 403",
+          20904,
+          9.806701
+        ],
+        [
+          "2026-10-31T00:00:00Z",
+          "other",
+          10737,
+          4.970331
+        ],
+        [
+          "2026-10-31T00:00:00Z",
+          "HTTP 5xx",
+          31,
+          0.014659
+        ],
+        [
+          "2026-10-31T00:00:00Z",
+          "terminal refresh error",
+          14,
+          0.007674
+        ],
+        [
+          "2026-11-01T00:00:00Z",
+          "stack frame",
+          356161,
+          162.693883
+        ],
+        [
+          "2026-11-01T00:00:00Z",
+          "HTTP 403",
+          38173,
+          17.885729
+        ],
+        [
+          "2026-11-01T00:00:00Z",
+          "other",
+          22072,
+          10.203258
+        ],
+        [
+          "2026-11-01T00:00:00Z",
+          "terminal refresh error",
+          24,
+          0.013143
+        ],
+        [
+          "2026-11-01T00:00:00Z",
+          "HTTP 5xx",
+          24,
+          0.011355
+        ],
+        [
+          "2026-11-02T00:00:00Z",
+          "stack frame",
+          765,
+          0.34898
+        ],
+        [
+          "2026-11-02T00:00:00Z",
+          "other",
+          393,
+          0.199821
+        ],
+        [
+          "2026-11-02T00:00:00Z",
+          "HTTP 5xx",
+          21,
+          0.009941
+        ],
+        [
+          "2026-11-03T00:00:00Z",
+          "stack frame",
+          1095,
+          0.499182
+        ],
+        [
+          "2026-11-03T00:00:00Z",
+          "other",
+          445,
+          0.226502
+        ],
+        [
+          "2026-11-03T00:00:00Z",
+          "HTTP 5xx",
+          4,
+          0.001896
+        ]
+      ]
+    }
+  },
+  "apiLatency": {
+    "columns": [
+      {
+        "name": "Name",
+        "type": "string"
+      },
+      {
+        "name": "RecordedRows",
+        "type": "long"
+      },
+      {
+        "name": "Requests",
+        "type": "long"
+      },
+      {
+        "name": "MeanMs",
+        "type": "real"
+      },
+      {
+        "name": "P95Ms",
+        "type": "real"
+      }
+    ],
+    "name": "PrimaryResult",
+    "rows": [
+      [
+        "GET /api/rivers/summary.json",
+        250,
+        250,
+        1767.388,
+        3318
+      ],
+      [
+        "GET /api/mobile/summary.json",
+        97,
+        97,
+        1294.9175257731958,
+        2953
+      ],
+      [
+        "GET /api/mobile/catalog.json",
+        52,
+        52,
+        477.6730769230769,
+        2319
+      ],
+      [
+        "GET /api/rivers/catalog.json",
+        35,
+        35,
+        51.97142857142857,
+        357
+      ],
+      [
+        "GET /api/mobile/weekend.json",
+        24,
+        24,
+        433.0833333333333,
+        1374
+      ],
+      [
+        "GET /api/weekend/summary.json",
+        8,
+        8,
+        4253.375,
+        23360
+      ]
+    ]
+  }
+}

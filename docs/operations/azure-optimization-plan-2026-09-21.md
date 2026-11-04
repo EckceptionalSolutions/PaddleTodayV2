@@ -2,6 +2,19 @@
 
 Created: 2026-09-21. Status: implementation in progress; code changes are ready for review, and production rollout remains pending deployment.
 
+## Cost follow-up implementation — 2026-11-04
+
+The [November cost review](../audits/azure-cost-follow-up-2026-11-04.md) identified repeated asset publishing and weather-error stack traces as the next cost reductions. The following changes are implemented in the working tree; production rollout is pending the normal frontend, API, and snapshot-worker deployments.
+
+- Asset publishing inventories the exact release and legacy prefixes, including all continuation pages, and compares stored MD5, byte length, MIME type, and cache headers. Matching assets require no uploads. Missing/changed legacy assets and missing release assets are uploaded in MIME-grouped batches with explicit Hot tier. Conflicting immutable release contents fail publishing. Missing checksums cause a conservative re-upload, after which Azure's stored MD5 enables reuse. Inventory failures stop publishing before writes.
+- Staged files are checked against the original SHA-256 manifest before publishing. Existing content-derived release URLs and old legacy paths remain intact; no remote deletion or account-default-tier change is involved. The workflow's full public asset/CORS/checksum verification still runs after publishing.
+- Weather logging emits at most one bounded sample per failure category per minute, plus a count/status summary. Coordinates do not become aggregation keys. NWS fetch samples retain error severity, other samples retain warning severity, and representative stacks are limited to eight frames / 1,600 characters. Snapshot/history jobs flush pending summaries on success or failure; persistent API processes flush on a timer that does not keep short-lived jobs alive.
+- Weather fallbacks, upstream telemetry, snapshot quality gates, terminal job errors, and refresh schedules retain their existing behavior. These changes reduce redundant writes/logs; they do not repair the upstream HTTP 403 condition itself.
+
+After deployment, inspect the publisher's uploaded/reused/byte counts on an unchanged-content deployment and the worker's weather summaries during provider errors. Compare complete posted billing days against successful captures and route counts. Do not run asset publishing from the developer identity when Blob listing is denied, or bypass the existing Entra authentication to obtain an account key.
+
+Validation: runtime TypeScript check and 55 focused tests passed, covering unchanged/partial/edited uploads, immutable conflicts, missing checksums, inventory denial, upload failure cleanup, weather fallbacks, bounded logs, upstream health/quality gates, and snapshot authentication. Cloud publishing was not exercised with the developer identity because its Blob data access is denied.
+
 ## Implementation status — 2026-09-21
 
 - Completed in the repository: bounded snapshot read caching with concurrent-load coalescing and invalidation, catalog metadata reuse for scored Explore routes, Hot access-tier headers for future snapshot/history writes, production workflow path filters/concurrency groups, route/source typecheck cleanup, and a guarded Blob tier inventory/apply/verify helper ([runbook](azure-storage-tier-rollout.md)).
