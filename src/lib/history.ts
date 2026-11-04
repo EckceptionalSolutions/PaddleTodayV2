@@ -1,14 +1,36 @@
 import {
   cleanBlobPath as cleanPathSegment,
   createJsonStorage,
+  mutateJson,
+  withJsonStorageLock,
   type JsonStorage,
 } from './blob-storage';
 import { mapWithConcurrency } from './async-concurrency';
 import { isArrayOf, isNullableNumber, isNullableString, isNumber, isOneOf, isRecord, isString } from './json-guards';
 import type { RiverScoreResult, ScoreRating } from './types';
+import { forgetCache, remember } from './server-cache';
+import { historyDatesThrough, isHistoryDate, previousHistoryDate } from './history-calendar';
+import { isHistoryCaptureLease, withHistoryCaptureLease } from './history-capture-lease';
 
 const DEFAULT_HISTORY_DIR = '.local';
 const HISTORY_TIME_ZONE = process.env.HISTORY_TIME_ZONE || 'America/Chicago';
+export const DAILY_HISTORY_SUMMARY_MODE = 'daily-finalize-v1';
+type HistorySummaryMode = 'legacy' | typeof DAILY_HISTORY_SUMMARY_MODE;
+type FinalizationCheckpoint = {
+  format: 'history-daily-finalization-v1';
+  latestCaptureDate: string;
+  knownRoutes: string[];
+  pending: Record<string, string[]>;
+};
+
+function isFinalizationCheckpoint(value: unknown): value is FinalizationCheckpoint {
+  if (!isRecord(value) || value.format !== 'history-daily-finalization-v1' || !isHistoryDate(value.latestCaptureDate)
+    || !isArrayOf(value.knownRoutes, isString) || !isRecord(value.pending)) return false;
+  const known = new Set(value.knownRoutes);
+  return known.size === value.knownRoutes.length && Object.entries(value.pending).every(([date, slugs]) =>
+    isHistoryDate(date) && isArrayOf(slugs, isString) && new Set(slugs).size === slugs.length && slugs.every(slug => known.has(slug)))
+    && Buffer.byteLength(JSON.stringify(value)) <= 4 * 1024 * 1024;
+}
 
 export interface RiverHistorySnapshot {
   slug: string;
@@ -102,31 +124,106 @@ function isRiverHistoryDaySummaryArray(value: unknown): value is RiverHistoryDay
 export async function captureHistorySnapshotForResults(args: {
   results: RiverScoreResult[];
   now?: Date;
-}): Promise<{ routeCount: number; date: string; hour: string; storage: 'local' | 'blob' }> {
+  dailySummaryMode?: HistorySummaryMode;
+}): Promise<{ routeCount: number; date: string; hour: string; storage: 'local' | 'blob'; dailySummaryMode: HistorySummaryMode; dailySummaryWrites: number; finalizedDays: number }> {
   const now = args.now ?? new Date();
   const storage = historyStorage();
   const date = localDateKey(now);
   const hour = localHourKey(now);
   const writeConcurrency = positiveInteger(process.env.RIVER_HISTORY_WRITE_CONCURRENCY, 8);
+  const mode = args.dailySummaryMode ?? process.env.RIVER_HISTORY_DAILY_SUMMARY_MODE ?? 'legacy';
+  if (mode !== 'legacy' && mode !== DAILY_HISTORY_SUMMARY_MODE) throw new Error('Invalid RIVER_HISTORY_DAILY_SUMMARY_MODE.');
+  const slugs = args.results.map(result => result.river.slug).sort();
+  if (new Set(slugs).size !== slugs.length) throw new Error('Duplicate history route.');
+  let dailySummaryWrites = 0, finalizedDays = 0;
+  if (!args.results.length) return { routeCount: 0, date, hour, storage: storage.kind, dailySummaryMode: mode, dailySummaryWrites, finalizedDays };
 
-  await mapWithConcurrency(args.results, writeConcurrency, async (result) => {
-    const snapshot = buildSnapshot(result, now);
-    const hourlyPath = hourlyBlobName(result.river.slug, date);
-    const dailyPath = dailyBlobName(result.river.slug);
-    const existingHourly = (await storage.readJson<RiverHistorySnapshot[]>(hourlyPath)) ?? [];
-    const nextHourly = upsertSnapshot(existingHourly, snapshot);
-    await storage.writeJson(hourlyPath, nextHourly);
-
-    const existingDaily = (await storage.readJson<RiverHistoryDaySummary[]>(dailyPath)) ?? [];
-    const nextDaily = upsertDailySummary(existingDaily, summarizeSnapshots(nextHourly, date));
-    await storage.writeJson(dailyPath, nextDaily);
-  });
+  await withJsonStorageLock(`history-capture:${historyPrefix()}`, () => withHistoryCaptureLease(storage,
+    `${historyPrefix()}/_capture-lease.json`, async assertOwned => {
+      const original = await storage.readJsonWithEtag<FinalizationCheckpoint>(checkpointBlobName());
+      const known = new Set(original.value?.knownRoutes ?? []);
+      const pending = new Map(Object.entries(original.value?.pending ?? {}).map(([day, routes]) => [day, new Set(routes)]));
+      const addPending = (day: string, slug: string) => {
+        const routes = pending.get(day) ?? new Set<string>();
+        routes.add(slug); pending.set(day, routes);
+      };
+      // Bootstrap each route once, preserving legacy summaries and repairing the
+      // last known partial/missed-day boundary from retained hourly files.
+      await drainHistoryWork(slugs.filter(slug => !known.has(slug)), writeConcurrency, async slug => {
+        assertOwned();
+        const daily = await storage.readJson<RiverHistoryDaySummary[]>(dailyBlobName(slug));
+        const latest = daily?.map(day => day.date).filter(day => day < date).sort().at(-1) ?? previousHistoryDate(date);
+        for (const day of historyDatesThrough(latest, previousHistoryDate(date))) addPending(day, slug);
+        known.add(slug);
+      });
+      for (const slug of slugs) addPending(date, slug);
+      const checkpoint: FinalizationCheckpoint = {
+        format: 'history-daily-finalization-v1',
+        latestCaptureDate: original.value && original.value.latestCaptureDate > date ? original.value.latestCaptureDate : date,
+        knownRoutes: [...known].sort(),
+        pending: Object.fromEntries([...pending].sort(([a], [b]) => a.localeCompare(b)).map(([day, routes]) => [day, [...routes].sort()])),
+      };
+      if (!isFinalizationCheckpoint(checkpoint)) throw new Error('History finalization journal is invalid or exceeds 4 MiB.');
+      // Announce possible writes before issuing them. Failed/partial captures
+      // remain discoverable to readers and retries, including removed routes.
+      assertOwned();
+      if (JSON.stringify(checkpoint) !== JSON.stringify(original.value)) {
+        await storage.writeJson(checkpointBlobName(), checkpoint, original.etag ? { ifMatch: original.etag } : { ifNoneMatch: '*' });
+      }
+      await drainHistoryWork(args.results, writeConcurrency, async result => {
+        assertOwned();
+        const snapshot = buildSnapshot(result, now, date, hour);
+        await mutateJson<RiverHistorySnapshot[]>({ storage, blobName: hourlyBlobName(result.river.slug, date), initial: [],
+          mutate: existing => { assertOwned(); return upsertSnapshot(existing, snapshot); } });
+      });
+      const work = new Map<string, Set<string>>();
+      const addWork = (slug: string, day: string) => {
+        const dates = work.get(slug) ?? new Set<string>(); dates.add(day); work.set(slug, dates);
+      };
+      for (const [day, routes] of pending) {
+        if (day < checkpoint.latestCaptureDate) for (const slug of routes) addWork(slug, day);
+      }
+      if (mode === 'legacy') for (const slug of slugs) addWork(slug, date);
+      await drainHistoryWork([...work], writeConcurrency, async ([slug, dates]) => {
+        assertOwned();
+        const dailyPath = dailyBlobName(slug);
+        const existing = (await storage.readJson<RiverHistoryDaySummary[]>(dailyPath)) ?? [];
+        const summaries: RiverHistoryDaySummary[] = [];
+        for (const day of [...dates].sort()) {
+          assertOwned();
+          const samples = await storage.readJson<RiverHistorySnapshot[]>(hourlyBlobName(slug, day));
+          if (samples?.length) {
+            summaries.push(summarizeSnapshots(samples, day));
+            if (day < checkpoint.latestCaptureDate) finalizedDays++;
+          }
+        }
+        const next = summaries.reduce((days, day) => upsertDailySummary(days, day), existing);
+        if (JSON.stringify(next) !== JSON.stringify(existing)) {
+          await mutateJson<RiverHistoryDaySummary[]>({ storage, blobName: dailyPath, initial: [],
+            mutate: current => { assertOwned(); return summaries.reduce((days, day) => upsertDailySummary(days, day), current); } });
+          dailySummaryWrites++;
+        }
+      });
+      // Publish completion only after all daily arrays are durable. Empty dates
+      // remove an announced-but-never-written attempt without inventing samples.
+      for (const [slug, dates] of work) for (const day of dates) pending.get(day)?.delete(slug);
+      const completed = { ...checkpoint, pending: Object.fromEntries([...pending].filter(([, routes]) => routes.size)
+        .sort(([a], [b]) => a.localeCompare(b)).map(([day, routes]) => [day, [...routes].sort()])) };
+      if (JSON.stringify(completed) !== JSON.stringify(checkpoint)) {
+        await mutateJson<FinalizationCheckpoint>({ storage, blobName: checkpointBlobName(), initial: checkpoint,
+          mutate: () => { assertOwned(); return completed; } });
+      }
+  }));
+  forgetCache('history:', { prefix: true });
 
   return {
     routeCount: args.results.length,
     date,
     hour,
     storage: storage.kind,
+    dailySummaryMode: mode,
+    dailySummaryWrites,
+    finalizedDays,
   };
 }
 
@@ -138,11 +235,22 @@ export async function getRiverHistory(args: {
   const now = args.now ?? new Date();
   const storage = historyStorage();
   const date = localDateKey(now);
+  // Read the publication checkpoint before daily arrays. A newer checkpoint
+  // therefore cannot hide daily writes that were still pending when read began.
+  const checkpoint = await remember<FinalizationCheckpoint | null>({ key: `history:checkpoint:${historyPrefix()}`,
+    namespace: 'history-control', ttlMs: 45_000, staleWhileErrorMs: 0, maxEntries: 4,
+    load: () => storage.readJson<FinalizationCheckpoint>(checkpointBlobName()) });
   const daily = ((await storage.readJson<RiverHistoryDaySummary[]>(dailyBlobName(args.slug))) ?? [])
     .sort((left, right) => left.date.localeCompare(right.date));
-  const limitedDays = daily.slice(-Math.max(1, args.days ?? 7));
-  const todayHourly = (((await storage.readJson<RiverHistorySnapshot[]>(hourlyBlobName(args.slug, date))) ?? [])
-    .sort((left, right) => left.capturedAt.localeCompare(right.capturedAt)));
+  const pendingDates = [...new Set([date, ...(checkpoint ? Object.entries(checkpoint.pending)
+    .filter(([day, routes]) => day <= date && routes.includes(args.slug)).map(([day]) => day)
+    : daily.at(-1)?.date && daily.at(-1)!.date < date ? [daily.at(-1)!.date] : [])])].sort();
+  const pending = await mapWithConcurrency(pendingDates, 6, async day => ({ day,
+    samples: (await storage.readJson<RiverHistorySnapshot[]>(hourlyBlobName(args.slug, day))) ?? [] }));
+  const derivedDaily = pending.filter(item => item.samples.length)
+    .reduce((days, item) => upsertDailySummary(days, summarizeSnapshots(item.samples, item.day)), daily);
+  const limitedDays = derivedDaily.slice(-Math.max(1, args.days ?? 7));
+  const todayHourly = (pending.find(item => item.day === date)?.samples ?? []).sort((left, right) => left.capturedAt.localeCompare(right.capturedAt));
 
   return {
     slug: args.slug,
@@ -178,12 +286,12 @@ export function summarizeSnapshots(
   };
 }
 
-function buildSnapshot(result: RiverScoreResult, now: Date): RiverHistorySnapshot {
+function buildSnapshot(result: RiverScoreResult, now: Date, date: string, hour: string): RiverHistorySnapshot {
   return {
     slug: result.river.slug,
     capturedAt: now.toISOString(),
-    localDate: localDateKey(now),
-    localHour: localHourKey(now),
+    localDate: date,
+    localHour: hour,
     score: result.score,
     rating: result.rating,
     riverQuality: result.riverQuality,
@@ -202,7 +310,8 @@ function buildSnapshot(result: RiverScoreResult, now: Date): RiverHistorySnapsho
 }
 
 function upsertSnapshot(existing: RiverHistorySnapshot[], next: RiverHistorySnapshot): RiverHistorySnapshot[] {
-  const filtered = existing.filter((snapshot) => snapshot.localHour !== next.localHour);
+  const nextUtcHour = Math.floor(Date.parse(next.capturedAt) / 3_600_000);
+  const filtered = existing.filter(snapshot => Math.floor(Date.parse(snapshot.capturedAt) / 3_600_000) !== nextUtcHour);
   filtered.push(next);
   return filtered.sort((left, right) => left.capturedAt.localeCompare(right.capturedAt));
 }
@@ -224,6 +333,18 @@ function dailyBlobName(slug: string) {
   return `${historyPrefix()}/daily/${slug}.json`;
 }
 
+function checkpointBlobName() { return `${historyPrefix()}/_daily-finalization.json`; }
+
+async function drainHistoryWork<T>(items: T[], concurrency: number, action: (item: T) => Promise<void>) {
+  let failed = false;
+  let failure: unknown;
+  await mapWithConcurrency(items, concurrency, async item => {
+    if (failed) return;
+    try { await action(item); } catch (error) { if (!failed) failure = error; failed = true; }
+  });
+  if (failed) throw failure;
+}
+
 function historyPrefix() {
   return cleanPathSegment(process.env.RIVER_HISTORY_BLOB_PREFIX || 'river-history');
 }
@@ -232,7 +353,8 @@ function historyStorage(): JsonStorage {
   return createJsonStorage({
     containerSasUrl: process.env.RIVER_HISTORY_CONTAINER_SAS_URL,
     localDirectory: process.env.RIVER_HISTORY_DIR || DEFAULT_HISTORY_DIR,
-    validate: (value) => isRiverHistorySnapshotArray(value) || isRiverHistoryDaySummaryArray(value),
+    validate: (value) => isRiverHistorySnapshotArray(value) || isRiverHistoryDaySummaryArray(value)
+      || isFinalizationCheckpoint(value) || isHistoryCaptureLease(value),
     label: 'history',
     accessTier: 'Hot',
   });

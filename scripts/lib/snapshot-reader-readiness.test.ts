@@ -9,6 +9,13 @@ function clock() {
 }
 
 describe('batch writer rollout guard', () => {
+  it('requires the history capability for daily-finalization writers', async () => {
+    let calls = 0;
+    const result = await waitForSnapshotReader({ baseUrl: 'https://api.test', capability: 'historySummaryModes', requiredFormat: 'daily-finalize-v1',
+      timeoutMs: 30, intervalMs: 10, ...clock(), fetchImpl: async () => response(++calls === 1 ? compatible
+        : { ok: true, historySummaryModes: ['legacy', 'daily-finalize-v1'] }) });
+    expect(calls).toBe(2);expect(result.compatible).toBe(true);
+  });
   it('waits for an explicitly compatible running API, regardless of its release SHA', async () => {
     let count = 0;
     const result = await waitForSnapshotReader({ baseUrl: 'https://api.test', timeoutMs: 30, intervalMs: 10, ...clock(),

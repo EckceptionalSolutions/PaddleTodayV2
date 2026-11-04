@@ -10,7 +10,7 @@ import {
   serializeSummaryResult,
   serializeWeekendSummaryResult,
 } from '../../lib/api-contract';
-import { getRiverHistory } from '../../lib/history';
+import { DAILY_HISTORY_SUMMARY_MODE, getRiverHistory } from '../../lib/history';
 import {
   getStoredRiverDetailSnapshot,
   getStoredRiverGroupSnapshot,
@@ -47,6 +47,7 @@ export function handleHealth(
     ok: true,
     buildRevision: apiBuildRevision,
     snapshotDetailFormats: ['legacy', DETAIL_BATCH_FORMAT],
+    historySummaryModes: ['legacy', DAILY_HISTORY_SUMMARY_MODE],
     mode: args.staticDir ? 'one-origin' : 'api-only',
     uptimeSeconds: Math.round((Date.now() - args.startedAt) / 1000),
     startedAt: new Date(args.startedAt).toISOString(),
