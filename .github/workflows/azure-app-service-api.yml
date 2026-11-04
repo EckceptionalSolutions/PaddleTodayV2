@@ -103,6 +103,28 @@ jobs:
           package: deploy-package
           restart: true
 
+      - name: Azure login for API history configuration
+        uses: azure/login@v2
+        with:
+          creds: ${{ secrets.AZURE_CREDENTIALS }}
+
+      - name: Configure the API history reader
+        env:
+          AZURE_WEBAPP_NAME: ${{ secrets.AZURE_WEBAPP_NAME }}
+          RIVER_HISTORY_CONTAINER_SAS_URL: ${{ secrets.RIVER_HISTORY_CONTAINER_SAS_URL }}
+          RIVER_HISTORY_BLOB_PREFIX: ${{ vars.RIVER_HISTORY_BLOB_PREFIX || 'river-history' }}
+          HISTORY_TIME_ZONE: ${{ vars.HISTORY_TIME_ZONE || 'America/Chicago' }}
+          RIVER_HISTORY_DAILY_SUMMARY_MODE: ${{ vars.HISTORY_DAILY_SUMMARY_MODE || 'legacy' }}
+        run: |
+          set -euo pipefail
+          test -n "$RIVER_HISTORY_CONTAINER_SAS_URL"
+          # Use the same existing secret and prefix as the capture workflow.
+          # Suppress the settings response because it includes credentials.
+          az webapp config appsettings set --resource-group paddletoday --name "$AZURE_WEBAPP_NAME" \
+            --settings "RIVER_HISTORY_CONTAINER_SAS_URL=$RIVER_HISTORY_CONTAINER_SAS_URL" \
+              "RIVER_HISTORY_BLOB_PREFIX=$RIVER_HISTORY_BLOB_PREFIX" "HISTORY_TIME_ZONE=$HISTORY_TIME_ZONE" \
+              "RIVER_HISTORY_DAILY_SUMMARY_MODE=$RIVER_HISTORY_DAILY_SUMMARY_MODE" --output none
+
       - name: Wait for deployed API revision
         env:
           DEPLOYMENT_BASE_URL: ${{ secrets.AZURE_WEBAPP_URL || vars.API_ORIGIN || 'https://paddletodayapi-h7efgxcfg9h7gne9.centralus-01.azurewebsites.net' }}

@@ -6,7 +6,9 @@ A small journal announces pending route-days before hourly writes and clears the
 
 The writer defaults to `legacy`. The history workflow supports explicit `legacy` and `daily-finalize-v1` overrides; `auto` follows repository variable `HISTORY_DAILY_SUMMARY_MODE`. Before batched writes, the workflow requires `/api/health` to advertise `historySummaryModes: ["legacy", "daily-finalize-v1"]`. This prevents enabling the writer before compatible readers serve traffic.
 
-Rollout: deploy the compatible API first, run one explicit batched capture, validate live history, then set the repository variable to `daily-finalize-v1`. Rollback: set the variable to `legacy`, run an explicit legacy capture and verify daily summaries before reverting API code. The new legacy writer also finalizes journaled closed days.
+Rollout: deploy the compatible API first, run one explicit batched capture, validate live history, then set the repository variable and API setting to `daily-finalize-v1`. Rollback: set both to `legacy`, run an explicit legacy capture and verify daily summaries before reverting API code. The new legacy writer also finalizes journaled closed days.
+
+The rollout check found no history storage settings on the API: successful captures were invisible to public history readers. API deployment now binds the existing history SAS secret, prefix, and time zone used by capture, with settings output suppressed. The existing deployment identity receives Website Contributor scoped only to this API resource to maintain that configuration; it does not receive subscription-wide website access.
 
 At 1,392 routes and the recently observed 32 captures/week, daily summary writes fall from approximately 6,363/day to 1,392/day. Using the earlier observed Hot GRS write price of $0.10/10,000 operations, this is approximately $1.49/month before the small lease/journal overhead. At a full 24 captures/day the estimate is $9.60/month. These are modeled transaction savings, not measured invoice reductions, and exclude reads and bootstrap catch-up work.
 
