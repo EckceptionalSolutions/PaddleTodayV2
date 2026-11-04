@@ -14,6 +14,7 @@ const values = {
   snapshotAlertEmail: env.SNAPSHOT_ALERT_EMAIL,
   snapshotContainerSasUrl: env.SNAPSHOT_SAS_URL,
   provisionMonitoring: env.PROVISION_SNAPSHOT_MONITORING === 'true',
+  snapshotDetailLayout: env.SNAPSHOT_DETAIL_LAYOUT || 'legacy',
   image: `${env.AZURE_CONTAINER_REGISTRY}.azurecr.io/${env.IMAGE_NAME}:${env.GITHUB_SHA}`,
 };
 for (const [key, value] of Object.entries(values)) if (value === undefined || value === '') throw new Error(`Missing parameter ${key}`);

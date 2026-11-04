@@ -32,7 +32,7 @@ async function main() {
   }
 
   console.log(
-    `[snapshots] captured ${captured.routeCount} routes and ${captured.groupCount} groups at ${captured.generatedAt} using ${captured.storage} storage; readback verified`
+    `[snapshots] captured ${captured.routeCount} routes and ${captured.groupCount} groups at ${captured.generatedAt} using ${captured.storage} storage; readback verified; detailBlobs=${captured.detailBlobCount} detailLayout=${captured.detailLayout}`
   );
 
   if (process.env.GITHUB_OUTPUT) {

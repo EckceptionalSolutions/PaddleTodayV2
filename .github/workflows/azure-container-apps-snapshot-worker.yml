@@ -17,6 +17,8 @@ on:
       - 'scripts/snapshot-worker-validate.sh'
       - 'scripts/wait-for-snapshot-execution.mjs'
       - 'scripts/lib/snapshot-execution.mjs'
+      - 'scripts/wait-for-snapshot-reader.mjs'
+      - 'scripts/lib/snapshot-reader-readiness.mjs'
       - 'infra/azure/container-apps-platform.bicep'
       - 'infra/azure/container-apps-job.bicep'
       - 'infra/azure/snapshot-worker/**'
@@ -31,6 +33,13 @@ on:
         description: 'Also provision monitoring (requires an identity with monitoring write permissions)'
         type: boolean
         default: false
+      detail_layout:
+        description: 'Use legacy to roll back per-route writes before rolling back the API reader'
+        type: choice
+        options:
+          - detail-buckets-v1
+          - legacy
+        default: detail-buckets-v1
 
 permissions:
   contents: read
@@ -47,6 +56,8 @@ env:
   AZURE_CONTAINER_APPS_JOB: paddletoday-river-snapshots
   IMAGE_NAME: paddletoday/snapshot-worker
   PROVISION_SNAPSHOT_MONITORING: ${{ inputs.provision_monitoring && 'true' || 'false' }}
+  SNAPSHOT_DETAIL_LAYOUT: ${{ inputs.detail_layout || 'detail-buckets-v1' }}
+  SNAPSHOT_API_ORIGIN: ${{ vars.API_ORIGIN || 'https://paddletodayapi-h7efgxcfg9h7gne9.centralus-01.azurewebsites.net' }}
 
 jobs:
   deploy:
@@ -93,6 +104,9 @@ jobs:
           SNAPSHOT_ALERT_EMAIL: ${{ vars.SNAPSHOT_ALERT_EMAIL || 'hello@paddletoday.com' }}
         run: bash scripts/snapshot-worker-validate.sh
 
+      - name: Wait for a compatible API reader before enabling batched writes
+        run: node scripts/wait-for-snapshot-reader.mjs
+
       - name: Build worker image in Azure Container Registry
         run: |
           az acr build \
@@ -117,6 +131,7 @@ jobs:
               jobName="$AZURE_CONTAINER_APPS_JOB" \
               snapshotAlertEmail="$SNAPSHOT_ALERT_EMAIL" \
               provisionMonitoring="$PROVISION_SNAPSHOT_MONITORING" \
+              snapshotDetailLayout="$SNAPSHOT_DETAIL_LAYOUT" \
               snapshotContainerSasUrl="$SNAPSHOT_SAS_URL" \
               image="$AZURE_CONTAINER_REGISTRY.azurecr.io/$IMAGE_NAME:$SOURCE_REVISION" \
             --output none

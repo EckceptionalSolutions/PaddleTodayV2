@@ -25,6 +25,10 @@ param snapshotContainerSasUrl string
 @description('Blob prefix used by the snapshot worker and API.')
 param snapshotBlobPrefix string = 'river-snapshots'
 
+@description('Detail layout. Enable buckets only after a compatible API reader is deployed.')
+@allowed(['legacy', 'detail-buckets-v1'])
+param snapshotDetailLayout string = 'legacy'
+
 @description('Operations mailbox that receives repeated snapshot failure alerts.')
 param snapshotAlertEmail string = 'hello@paddletoday.com'
 
@@ -102,6 +106,10 @@ resource job 'Microsoft.App/jobs@2025-01-01' = {
             {
               name: 'RIVER_SNAPSHOT_BLOB_PREFIX'
               value: snapshotBlobPrefix
+            }
+            {
+              name: 'RIVER_SNAPSHOT_DETAIL_LAYOUT'
+              value: snapshotDetailLayout
             }
             {
               name: 'RIVER_SCORE_CONCURRENCY'
