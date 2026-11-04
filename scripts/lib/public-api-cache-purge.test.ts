@@ -26,12 +26,13 @@ describe('targeted public API cache invalidation', () => {
     expect(JSON.parse(options.body)).toEqual({files:[`https://paddletoday.com${path}`]});
     expect(result).toMatchObject({status:'purge-accepted',requestId:'purge-id'});
   });
-  it.each([403,200])('reports rejected purges without leaking reflected credentials (HTTP %s)', async status => {
+  it.each([401,403,200])('reports rejected purges without leaking reflected credentials (HTTP %s)', async status => {
     const fetchImpl = vi.fn().mockResolvedValue(new Response(JSON.stringify({success:false,errors:[{code:10000,message:config.token}]}),{status}));
     const error = await purgePublicApiCache({...config,fetchImpl}).catch(error => error);
     expect(error).toBeInstanceOf(Error);
     expect(error.message).toContain(`HTTP ${status}; codes: 10000`);
     expect(error.message).not.toContain(config.token);
+    if (status === 401 || status === 403) expect(error.message).toContain('CLOUDFLARE_CACHE_PURGE_TOKEN');
     expect(fetchImpl).toHaveBeenCalledTimes(1);
   });
   it('does not send a request without configuration', async () => {

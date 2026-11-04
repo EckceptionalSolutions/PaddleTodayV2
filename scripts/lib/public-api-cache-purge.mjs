@@ -12,7 +12,7 @@ export function publicApiCacheUrls(input) {
 
 export async function purgePublicApiCache({ paths, token, zoneId, fetchImpl = fetch }) {
   const files = publicApiCacheUrls(paths);
-  if (!token?.trim() || !/^[a-zA-Z0-9_-]{1,32}$/.test(zoneId?.trim() ?? '')) throw new Error('Cloudflare API token and zone ID must be configured.');
+  if (!token?.trim() || !/^[a-zA-Z0-9_-]{1,32}$/.test(zoneId?.trim() ?? '')) throw new Error('Cloudflare API token and zone ID must be configured. For GitHub Actions, set CLOUDFLARE_CACHE_PURGE_TOKEN with Zone > Cache Purge > Purge for paddletoday.com, plus CLOUDFLARE_ZONE_ID.');
   const response = await fetchImpl(`https://api.cloudflare.com/client/v4/zones/${encodeURIComponent(zoneId.trim())}/purge_cache`, {
     method: 'POST', headers: { authorization: `Bearer ${token.trim()}`, 'content-type': 'application/json' },
     body: JSON.stringify({ files }), signal: AbortSignal.timeout(30000),
@@ -21,7 +21,8 @@ export async function purgePublicApiCache({ paths, token, zoneId, fetchImpl = fe
   if (!response.ok || payload?.success !== true) {
     const codes = (payload?.errors ?? []).map(error => error.code).filter(code => typeof code === 'number');
     // Do not print credentials, response bodies or reflected error messages.
-    throw new Error(`Cloudflare cache purge was not accepted (HTTP ${response.status}; codes: ${codes.join(',') || 'unavailable'}).`);
+    const guidance = [401, 403].includes(response.status) ? ' Verify CLOUDFLARE_CACHE_PURGE_TOKEN has Zone > Cache Purge > Purge for the configured PaddleToday zone; the analytics credential is separate.' : '';
+    throw new Error(`Cloudflare cache purge was not accepted (HTTP ${response.status}; codes: ${codes.join(',') || 'unavailable'}).${guidance}`);
   }
   // Acceptance is not proof of delivery. Verify the ordinary public URLs next.
   return { status: 'purge-accepted', files, requestId: payload.result?.id ?? null };

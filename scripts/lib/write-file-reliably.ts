@@ -1,4 +1,5 @@
-import { rename, rm, writeFile, type WriteFileOptions } from 'node:fs/promises';
+import { rename, rm, writeFile } from 'node:fs/promises';
+import type { WriteFileOptions } from 'node:fs';
 
 const transientWindowsFileCodes = new Set([
   'EACCES',
