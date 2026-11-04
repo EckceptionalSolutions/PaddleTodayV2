@@ -14,4 +14,15 @@ Migration procedure:
 4. Deploy through the normal worker workflow, verify its destination image and successful execution, and confirm fresh public snapshots. Inventory active subscription container references and confirm that source registry tasks are absent.
 5. Only after those checks, retire the source registry. Keep the image inventory and copy verification as evidence. Rollback uses the copied commit-tagged images in the shared registry; changing back to the old registry URI requires recreating that registry and copying images back first.
 
-Validation before rollout: registry-copy conflict/resume/preservation tests passed, both worker/platform Bicep templates compiled, and the workflow YAML parsed. Copy and production rollout results remain to be recorded after verification.
+Validation before rollout: registry-copy conflict/resume/preservation tests passed, both worker/platform Bicep templates compiled, and the workflow YAML parsed.
+
+Production verification on November 4:
+
+- PR #131 merged as `c6b13ad90936008bd8bf5e6b53aefd773d910fba`; worker deployment run `41895402543` passed.
+- Worker image is `ahmqiry64didw24.azurecr.io/paddletoday/snapshot-worker:c6b13ad90936008bd8bf5e6b53aefd773d910fba`. Execution `paddletoday-river-snapshots-51eslem` succeeded at 19:20:50 UTC using the existing system identity.
+- At 19:26 UTC the public API served 1,392 fresh routes generated at 19:20:37 UTC; three geographically distributed detail samples retained weather and outlooks.
+- Re-inventory and digest/tag verification at 19:26:36 UTC confirmed all 155 source manifests and 155 tags in the destination, with no additional imports required. Source registry tasks were empty.
+- Subscription inventory found only the Paddle Today job and two Assumable Homes workloads; all use the shared registry. The API uses the Node 22 App Service runtime. Assumable Homes image references remain unchanged.
+- Shared registry storage was 2,355,094,189 bytes, below the 10 GiB included allowance. The source registry was retired after these checks; the resource-group registry inventory is now empty. Historical images remain in the destination for rollback.
+
+Local migration evidence is retained in `.local/registry-consolidation/` and public-reader verification in `.local/cost-rollout-verification.json`. No invoice reduction is claimed before Azure cost data posts.
