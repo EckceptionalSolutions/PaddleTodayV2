@@ -1,4 +1,4 @@
-export async function waitForSnapshotReader({ baseUrl, timeoutMs = 20 * 60_000, intervalMs = 10_000,
+export async function waitForSnapshotReader({ baseUrl, requiredFormat = 'detail-buckets-v1', capability = 'snapshotDetailFormats', timeoutMs = 20 * 60_000, intervalMs = 10_000,
   requestTimeoutMs = 10_000, now = Date.now, sleep = ms => new Promise(resolve => setTimeout(resolve, ms)),
   fetchImpl = globalThis.fetch, onAttempt = () => {} }) {
   const endpoint = new URL('/api/health', baseUrl);
@@ -17,8 +17,8 @@ export async function waitForSnapshotReader({ baseUrl, timeoutMs = 20 * 60_000, 
       result.status = response.status;
       if (response.status === 200) {
         const body = await response.json();
-        result.compatible = body?.ok === true && Array.isArray(body.snapshotDetailFormats)
-          && body.snapshotDetailFormats.includes('detail-buckets-v1');
+        result.compatible = body?.ok === true && Array.isArray(body[capability])
+          && body[capability].includes(requiredFormat);
       } else await response.body?.cancel();
     } catch {
       result.status = 'unavailable';
