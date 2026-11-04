@@ -51,7 +51,8 @@ concurrency:
 env:
   SOURCE_REVISION: ${{ inputs.source_revision || github.sha }}
   AZURE_RESOURCE_GROUP: paddletoday
-  AZURE_CONTAINER_REGISTRY: paddletodayjobs
+  AZURE_CONTAINER_REGISTRY: ${{ vars.AZURE_CONTAINER_REGISTRY || 'ahmqiry64didw24' }}
+  AZURE_CONTAINER_REGISTRY_RESOURCE_GROUP: ${{ vars.AZURE_CONTAINER_REGISTRY_RESOURCE_GROUP || 'assumable-homes' }}
   AZURE_CONTAINER_APPS_ENVIRONMENT: paddletoday-jobs
   AZURE_CONTAINER_APPS_JOB: paddletoday-river-snapshots
   IMAGE_NAME: paddletoday/snapshot-worker
@@ -95,6 +96,7 @@ jobs:
             --template-file infra/azure/container-apps-platform.bicep \
             --parameters \
               containerRegistryName="$AZURE_CONTAINER_REGISTRY" \
+              containerRegistryResourceGroup="$AZURE_CONTAINER_REGISTRY_RESOURCE_GROUP" \
               containerAppsEnvironmentName="$AZURE_CONTAINER_APPS_ENVIRONMENT" \
             --output none
 
@@ -127,6 +129,7 @@ jobs:
             --template-file infra/azure/container-apps-job.bicep \
             --parameters \
               containerRegistryName="$AZURE_CONTAINER_REGISTRY" \
+              containerRegistryResourceGroup="$AZURE_CONTAINER_REGISTRY_RESOURCE_GROUP" \
               containerAppsEnvironmentName="$AZURE_CONTAINER_APPS_ENVIRONMENT" \
               jobName="$AZURE_CONTAINER_APPS_JOB" \
               snapshotAlertEmail="$SNAPSHOT_ALERT_EMAIL" \

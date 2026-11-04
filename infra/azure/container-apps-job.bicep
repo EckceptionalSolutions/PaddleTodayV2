@@ -4,7 +4,10 @@ targetScope = 'resourceGroup'
 param location string = resourceGroup().location
 
 @description('Globally unique Azure Container Registry name.')
-param containerRegistryName string = 'paddletodayjobs'
+param containerRegistryName string = 'ahmqiry64didw24'
+
+@description('Resource group of the shared registry. AcrPull is provisioned on that registry before deployment.')
+param containerRegistryResourceGroup string = 'assumable-homes'
 
 @description('Container Apps environment that hosts the scheduled worker job.')
 param containerAppsEnvironmentName string = 'paddletoday-jobs'
@@ -44,11 +47,9 @@ param cpu int = 1
 @description('Memory allocated to the worker replica.')
 param memory string = '2Gi'
 
-@description('Stable name for the job identity ACR pull role assignment.')
-param acrPullRoleAssignmentName string = 'cdea3635-c341-4003-a192-8744f24cdf67'
-
 resource containerRegistry 'Microsoft.ContainerRegistry/registries@2023-07-01' existing = {
   name: containerRegistryName
+  scope: resourceGroup(containerRegistryResourceGroup)
 }
 
 resource containerAppsEnvironment 'Microsoft.App/managedEnvironments@2025-01-01' existing = {
@@ -127,19 +128,6 @@ resource job 'Microsoft.App/jobs@2025-01-01' = {
         }
       ]
     }
-  }
-}
-
-resource acrPullRoleAssignment 'Microsoft.Authorization/roleAssignments@2022-04-01' = {
-  name: acrPullRoleAssignmentName
-  scope: containerRegistry
-  properties: {
-    principalId: job.identity.principalId
-    principalType: 'ServicePrincipal'
-    roleDefinitionId: subscriptionResourceId(
-      'Microsoft.Authorization/roleDefinitions',
-      '7f951dda-4ed3-4680-a7ca-43fe172d538d'
-    )
   }
 }
 
