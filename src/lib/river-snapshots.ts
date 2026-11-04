@@ -35,6 +35,8 @@ import { corridorForSlug } from '../data/route-corridors';
 import { mapWithConcurrency } from './async-concurrency';
 import { forgetCache, remember } from './server-cache';
 import type { GaugeBand, RiverGaugeSource, RiverScoreResult } from './types';
+import { buildDetailBatches, detailBucketForSlug, isRiverDetailBatch, DETAIL_BATCH_FORMAT,
+  type RiverDetailBatch } from './snapshot-detail-batches';
 
 const DEFAULT_SNAPSHOT_DIR = '.local';
 // Full score-eligible catalog snapshots now exceed the former 4 MiB limit.
@@ -106,6 +108,7 @@ function isRiverGroupSnapshot(value: unknown): value is RiverGroupSnapshot {
 }
 
 export interface RiverSummarySnapshot {
+  detailLayout?: typeof DETAIL_BATCH_FORMAT;
   catalog?: { revision: string; sourceRevision: string | null; publicRoutes: number; scoredRoutes: number };
   generatedAt: string;
   riverCount: number;
@@ -149,11 +152,14 @@ export async function captureRiverSnapshots(args: {
   results: RiverScoreResult[];
   generatedAt?: string;
   writeConcurrency?: number;
+  detailLayout?: 'legacy' | typeof DETAIL_BATCH_FORMAT;
 }): Promise<{
   generatedAt: string;
   routeCount: number;
   groupCount: number;
   storage: 'local' | 'blob';
+  detailBlobCount: number;
+  detailLayout: 'legacy' | typeof DETAIL_BATCH_FORMAT;
 }> {
   const generatedAt = args.generatedAt ?? new Date().toISOString();
   const storage = snapshotStorage();
@@ -162,7 +168,13 @@ export async function captureRiverSnapshots(args: {
   const detailSnapshots = buildDetailSnapshots(args.results, generatedAt);
   const groupCount = listRiverGroups().length;
 
-  const routeBlobs = detailSnapshots.map(({ slug, payload }) => ({ name: detailBlobName(slug), payload }));
+  const layout = args.detailLayout ?? process.env.RIVER_SNAPSHOT_DETAIL_LAYOUT ?? 'legacy';
+  if (layout !== 'legacy' && layout !== DETAIL_BATCH_FORMAT) throw new Error('Invalid RIVER_SNAPSHOT_DETAIL_LAYOUT.');
+  const routeBlobs: Array<{ name: string; payload: RiverDetailSnapshot | RiverDetailBatch }> = layout === DETAIL_BATCH_FORMAT
+    ? buildDetailBatches(detailSnapshots.map(detail => detail.payload.result), generatedAt)
+      .map(payload => ({ name: detailBatchBlobName(payload.bucket), payload }))
+    : detailSnapshots.map(({ slug, payload }) => ({ name: detailBlobName(slug), payload }));
+  if (layout === DETAIL_BATCH_FORMAT) summary.detailLayout = DETAIL_BATCH_FORMAT;
   assertSnapshotSize(summaryBlobName(), summary, MAX_SUMMARY_SNAPSHOT_BYTES);
 
   // Keep upstream/storage fan-out bounded so a refresh cannot starve normal API
@@ -180,6 +192,8 @@ export async function captureRiverSnapshots(args: {
     routeCount: args.results.length,
     groupCount,
     storage: storage.kind,
+    detailBlobCount: routeBlobs.length,
+    detailLayout: layout,
   };
 }
 
@@ -234,10 +248,23 @@ export async function getStoredRiverDetailSnapshot(
     return null;
   }
 
-  const snapshot = await readCachedSnapshot(`detail:${slug}`, async () => (
-    (await snapshotStorage().readJson<RiverDetailSnapshot>(detailBlobName(slug))) ??
-    (await readSummaryDetailFallback(slug))
-  ));
+  const snapshot = await readCachedSnapshot(`detail:${slug}`, async () => {
+    const summary = await readStoredOrLocalSummary();
+    if (summary?.detailLayout === DETAIL_BATCH_FORMAT) {
+      const bucket = detailBucketForSlug(slug);
+      const batch = await readCachedSnapshot<RiverDetailBatch>(`detail-bucket:${bucket}:${summary.generatedAt}`,
+        () => snapshotStorage().readJson<RiverDetailBatch>(detailBatchBlobName(bucket)), true).catch(() => null);
+      // A fixed bucket is atomic, just as the former per-route blob was. Accept a
+      // newer in-progress refresh; never regress behind the published summary.
+      const result = batch?.bucket === bucket && storedSnapshotMetadata(batch)
+        && Date.parse(batch.generatedAt) >= Date.parse(summary.generatedAt)
+        ? batch.results.find(item => item.river.slug === slug) : null;
+      if (batch && result) return { generatedAt: batch.generatedAt, result };
+      return readSummaryDetailFallback(slug);
+    }
+    return (await snapshotStorage().readJson<RiverDetailSnapshot>(detailBlobName(slug)))
+      ?? readSummaryDetailFallback(slug);
+  });
   const metadata = snapshot ? storedSnapshotMetadata(snapshot) : null;
   if (!snapshot || !metadata || !isCurrentScoreSnapshot(snapshot.result.river) || (metadata.snapshotStatus === 'stale' && !options.allowStale)) {
     return null;
@@ -806,6 +833,10 @@ function detailBlobName(slug: string) {
   return `${snapshotPrefix()}/details/${slug}.json`;
 }
 
+function detailBatchBlobName(bucket: number) {
+  return `${snapshotPrefix()}/detail-buckets-v1/${String(bucket).padStart(2, '0')}.json`;
+}
+
 function snapshotPrefix() {
   return cleanPathSegment(process.env.RIVER_SNAPSHOT_BLOB_PREFIX || 'river-snapshots');
 }
@@ -824,6 +855,7 @@ function snapshotStorage(): JsonStorage {
       || isRiverDetailSnapshot(value)
       || isWeekendSummarySnapshot(value)
       || isRiverGroupSnapshot(value)
+      || isRiverDetailBatch(value)
     ),
     label: 'snapshot',
     space: 0,
@@ -831,14 +863,14 @@ function snapshotStorage(): JsonStorage {
   });
 }
 
-async function readCachedSnapshot<T>(key: string, load: () => Promise<T | null>): Promise<T | null> {
+async function readCachedSnapshot<T>(key: string, load: () => Promise<T | null>, batch = false): Promise<T | null> {
   const ttlMs = positiveInteger(process.env.RIVER_SNAPSHOT_READ_CACHE_TTL_MS, DEFAULT_SNAPSHOT_READ_CACHE_TTL_MS);
   return remember({
     key: `snapshot:${key}`,
-    namespace: 'snapshot',
+    namespace: batch ? 'snapshot-detail-buckets' : 'snapshot',
     ttlMs,
     staleWhileErrorMs: ttlMs * 3,
-    maxEntries: SNAPSHOT_READ_CACHE_MAX_ENTRIES,
+    maxEntries: batch ? 8 : SNAPSHOT_READ_CACHE_MAX_ENTRIES,
     maxEntriesPrefix: 'snapshot:',
     load,
   });

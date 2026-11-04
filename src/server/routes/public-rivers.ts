@@ -26,6 +26,7 @@ import { createExploreCatalogBuilder } from '../../lib/explore-catalog';
 import { getJsonResponseStats } from '../json-response';
 import { getGeometryCacheStats } from './river-geometry';
 import { apiBuildRevision } from '../build-revision';
+import { DETAIL_BATCH_FORMAT } from '../../lib/snapshot-detail-batches';
 
 const LIVE_SCORE_TIMEOUT_MS = 12_000;
 const LIVE_SUMMARY_CACHE_CONTROL = 'public, max-age=60, s-maxage=180, stale-while-revalidate=600';
@@ -45,6 +46,7 @@ export function handleHealth(
     requestId,
     ok: true,
     buildRevision: apiBuildRevision,
+    snapshotDetailFormats: ['legacy', DETAIL_BATCH_FORMAT],
     mode: args.staticDir ? 'one-origin' : 'api-only',
     uptimeSeconds: Math.round((Date.now() - args.startedAt) / 1000),
     startedAt: new Date(args.startedAt).toISOString(),
