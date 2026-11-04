@@ -34,6 +34,8 @@ const WEB_CONVERSIONS = [
   "Submit route photos",
   "river_hub_viewed",
   "corridor_trip_selected",
+  "Open route directions",
+  "river_hub_no_results",
 ];
 
 type SourceResult<T> =

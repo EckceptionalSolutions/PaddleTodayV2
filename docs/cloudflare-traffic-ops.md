@@ -29,6 +29,33 @@ CLOUDFLARE_API_TOKEN=...
 CLOUDFLARE_ZONE_ID=...
 ```
 
+### Exact-URL cache purges
+
+Keep the traffic credential read-only. The `Purge selected public API cache`
+workflow uses a separate repository Actions secret, `CLOUDFLARE_CACHE_PURGE_TOKEN`.
+Create a Cloudflare API token named `PaddleToday cache purge` with only
+**Zone → Cache Purge → Purge**, scoped to **Include → Specific zone → paddletoday.com**.
+Save it at GitHub → EckceptionalSolutions/PaddleTodayV2 → Settings → Secrets and
+variables → Actions. Keep the existing `CLOUDFLARE_ZONE_ID`. Do not add the purge
+permission to the traffic token or paste credentials into reports or chat.
+
+After configuring the secret and publishing the workflow change to main, dispatch
+`public-api-cache-purge.yml` on main with the exact intended public API paths.
+The existing default is `/api/rivers/allagash-river-churchill-dam-umsaskis/trip.gpx`.
+The script accepts at most ten public route API paths and cannot purge the whole
+zone or private account/trip endpoints. Require `purge-accepted` from Cloudflare;
+then fetch the ordinary intended URL and verify its response/content separately.
+An accepted purge alone does not prove correct content delivery.
+
+November 4, 2026 diagnosis: the local credential successfully reads the active
+PaddleToday zone and verifies as an active **account-owned** token using
+`/accounts/{account_id}/tokens/verify`. The user-token verification endpoint is
+not the correct validity test for this credential. The exact-URL purge still
+returns HTTP 401/code 10000. Reading token details/permission groups returns
+403/code 9109, so this identity cannot inspect or repair its permissions.
+The dedicated purge secret must be provisioned before a successful purge can
+be established; token expiry was not the cause shown by these checks.
+
 Optional:
 
 ```sh

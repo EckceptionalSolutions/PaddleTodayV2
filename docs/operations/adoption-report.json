@@ -1,10 +1,80 @@
 {
-  "generatedAt": "2026-10-17T12:20:35.794Z",
-  "source": "no-export-available",
-  "eventCount": 0,
-  "eventCounts": {},
-  "routeViews": 0,
-  "noResultSearches": 0,
+  "schemaVersion": 2,
+  "generatedAt": "2026-11-04T13:23:09.783Z",
+  "source": "weekly-product-report",
+  "sourceGeneratedAt": "2026-11-04T13:21:47.462Z",
+  "period": {
+    "startDate": "2026-10-25",
+    "endDate": "2026-10-31",
+    "timezone": "America/Chicago"
+  },
+  "observationAgeDays": 3,
+  "sources": {
+    "mobile": {
+      "status": "ready",
+      "eventCounts": {
+        "app_opened": 58,
+        "river_hub_viewed": 3,
+        "corridor_trip_selected": 0,
+        "route_opened": 15,
+        "saved_river_toggled": 2,
+        "native_alert_create_succeeded": 0,
+        "directions_opened": 0,
+        "route_report_submitted": 0,
+        "route_photo_contribution_submitted": 0
+      }
+    },
+    "web": {
+      "status": "manual",
+      "eventCounts": {}
+    }
+  },
+  "eventCount": 78,
+  "eventCounts": {
+    "app_opened": 58,
+    "river_hub_viewed": 3,
+    "corridor_trip_selected": 0,
+    "route_opened": 15,
+    "saved_river_toggled": 2,
+    "native_alert_create_succeeded": 0,
+    "directions_opened": 0,
+    "route_report_submitted": 0,
+    "route_photo_contribution_submitted": 0
+  },
+  "routeViews": 15,
+  "noResultSearches": null,
   "noResultTargets": {},
-  "nextAction": "Export privacy-safe aggregate events from the configured analytics provider to docs/operations/adoption-events.json; do not copy raw identifiers."
+  "actions": {
+    "routeOpens": {
+      "mobile": 15,
+      "web": null
+    },
+    "hubViews": {
+      "mobile": 3,
+      "web": null
+    },
+    "saveToggles": {
+      "mobile": 2,
+      "web": null
+    },
+    "directionsOpens": {
+      "mobile": 0,
+      "web": null
+    },
+    "noResultSearches": {
+      "mobile": null,
+      "web": null
+    }
+  },
+  "warnings": [
+    "Web analytics require a dashboard aggregate export on the current Umami plan; web counts are unknown."
+  ],
+  "definitions": [
+    "Counts describe observed events, not unique paddlers or completed trips.",
+    "Missing providers and unqueried events are unknown, not zero.",
+    "Save toggles include saves and removals; they are not a count of new saves.",
+    "No-result coverage is limited to filtered river hubs; route-level demand is unavailable in this aggregate."
+  ],
+  "nextAction": "Review route opens, save toggles and directions by platform for the stated week; review Umami in its dashboard until an aggregate export is available.",
+  "sourceRun": "https://github.com/EckceptionalSolutions/PaddleTodayV2/actions/runs/41837161121"
 }

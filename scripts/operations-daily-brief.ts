@@ -30,6 +30,7 @@ for (const name of ['route-freshness-report', 'adoption-report', 'saturation-dos
   const report = await readJson(`docs/operations/${name}.json`);
   if (report) artifacts.push({ name, generatedAt: report.generatedAt });
   if (name === 'adoption-report' && report?.source === 'no-export-available') problems.push({ name, error: 'analytics export unavailable; zero recorded events does not mean zero usage' });
+  if (name === 'adoption-report' && Array.isArray(report?.warnings)) for (const warning of report.warnings) problems.push({ name, error: warning });
   if (name === 'route-freshness-report' && report?.totals) sourceSummaries.push(`Metadata review: ${report.totals.routesReviewed} routes, ${report.totals.findings} findings, ${report.totals.high} high-priority metadata reviews. These are not live safety findings.`);
   if (name === 'blocker-resolution-queue' && Array.isArray(report?.groups)) sourceSummaries.push(`Largest blocker groups: ${[...report.groups].sort((a, b) => (b.taskIds?.length ?? 0) - (a.taskIds?.length ?? 0)).slice(0, 3).map(group => `${group.category} (${group.taskIds?.length ?? 0} tasks)`).join(', ')}.`);
   if (name === 'overlap-review-queue' && Array.isArray(report?.items)) {
@@ -37,7 +38,7 @@ for (const name of ['route-freshness-report', 'adoption-report', 'saturation-dos
     for (const item of report.items) counts[item.status ?? 'unknown'] = (counts[item.status ?? 'unknown'] ?? 0) + 1;
     sourceSummaries.push(`Overlap review queue: ${Object.entries(counts).map(([status, count]) => `${status} ${count}`).join(', ')}.`);
   }
-  if (name === 'adoption-report' && report?.source !== 'no-export-available' && report) sourceSummaries.push(`Analytics source ${report.source}: ${report.eventCount} recorded events, ${report.noResultSearches} no-result searches; export coverage determines the observation period.`);
+  if (name === 'adoption-report' && report?.source !== 'no-export-available' && report) sourceSummaries.push(`Analytics source ${report.source}: ${report.eventCount} tracked events, ${report.routeViews ?? 'unknown'} route opens, ${report.noResultSearches ?? 'unknown'} no-result searches${report.period ? `; observation period ${report.period.startDate}–${report.period.endDate}` : '; export coverage determines the observation period'}.`);
 }
 const gh = spawnSync('gh', ['run', 'list', '--limit', '100', '--json', 'workflowName,headBranch,status,conclusion,createdAt,url'], { encoding: 'utf8', timeout: 30_000, windowsHide: true });
 let workflows: WorkflowRun[] = [];
