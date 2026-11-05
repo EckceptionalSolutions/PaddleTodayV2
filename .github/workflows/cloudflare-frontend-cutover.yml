@@ -56,6 +56,22 @@ jobs:
       - uses: actions/checkout@v4
         with:
           ref: ${{ env.SOURCE_REVISION }}
+      - name: Checkout trusted deployment controls independently of frontend source
+        if: inputs.operation != 'inspect'
+        uses: actions/checkout@v4
+        with:
+          ref: ${{ github.sha }}
+          path: .deployment-control
+          persist-credentials: false
+          sparse-checkout-cone-mode: false
+          sparse-checkout: |
+            scripts/cloudflare-hosting-control.mjs
+            infra/cloudflare/hosting-control.mjs
+            infra/cloudflare/hosting-control.test.ts
+            scripts/verify-authenticated-frontend.mjs
+            infra/verification/authenticated-frontend.mjs
+            infra/verification/authenticated-frontend.test.ts
+            vitest.config.ts
       - uses: actions/setup-node@v4
         with:
           node-version-file: .nvmrc
@@ -100,7 +116,20 @@ jobs:
                 codes: body.errors?.map(error => Number(error.code) || null) };
             } catch { return { capability, status: 'unavailable', success: false }; }
           }));
-          const report = { checkedAt: new Date().toISOString(), checks, readOnly: true };
+          const publicEndpoints = await Promise.all([
+            ['public-root', 'https://paddletoday.com/'],
+            ['public-api', 'https://paddletoday.com/api/health'],
+            ['azure-origin', 'https://jolly-river-0d74c2110.1.azurestaticapps.net/'],
+          ].map(async ([label, url]) => {
+            try {
+              const response = await fetch(url, { redirect: 'manual', signal: AbortSignal.timeout(15000) });
+              const hasBrand = response.status === 200 && (await response.text()).includes('Paddle Today');
+              if (!response.bodyUsed) await response.body?.cancel();
+              return { label, status: response.status, hasBrand, challenged: response.headers.get('cf-mitigated') === 'challenge',
+                redirectsToApex: response.headers.get('location') === 'https://paddletoday.com/' };
+            } catch { return { label, status: 'unavailable' }; }
+          }));
+          const report = { checkedAt: new Date().toISOString(), checks, publicEndpoints, readOnly: true };
           await fs.mkdir('.local/frontend-hosting', { recursive: true });
           await fs.writeFile('.local/frontend-hosting/publishing-access.json', JSON.stringify(report, null, 2));
           console.log(JSON.stringify(report));
@@ -110,7 +139,9 @@ jobs:
         if: inputs.operation != 'inspect'
       - name: Test hosting and rollback safeguards
         if: inputs.operation != 'inspect'
-        run: npx vitest run infra/cloudflare scripts/lib/api-proxy.test.ts scripts/lib/cloudflare-frontend.test.ts scripts/lib/frontend-capacity.test.ts
+        run: |
+          npx vitest run infra/cloudflare scripts/lib/api-proxy.test.ts scripts/lib/cloudflare-frontend.test.ts scripts/lib/frontend-capacity.test.ts
+          npx vitest run --root .deployment-control --config "$GITHUB_WORKSPACE/.deployment-control/vitest.config.ts" infra
       - name: Verify the same source on the deployed canary
         if: inputs.operation == 'cutover'
         env:
@@ -118,6 +149,15 @@ jobs:
           FRONTEND_CANARY_ORIGIN: ${{ inputs.canary_origin }}
           EXPECTED_FRONTEND_REVISION: ${{ env.SOURCE_REVISION }}
         run: node scripts/verify-frontend-canary.mjs
+      - uses: azure/login@v2
+        if: inputs.operation == 'cutover'
+        with:
+          creds: ${{ secrets.AZURE_CREDENTIALS }}
+      - name: Verify real authenticated requests on the exact-source canary
+        if: inputs.operation == 'cutover'
+        env:
+          FRONTEND_AUTH_ORIGIN: ${{ inputs.canary_origin }}
+        run: node .deployment-control/scripts/verify-authenticated-frontend.mjs
       - name: Prepare the production gallery and map asset release
         if: inputs.operation == 'cutover'
         run: |
@@ -139,54 +179,77 @@ jobs:
         id: snapshot
         if: inputs.operation == 'cutover'
         run: |
-          node scripts/cloudflare-hosting-control.mjs snapshot
+          node .deployment-control/scripts/cloudflare-hosting-control.mjs snapshot
           node --input-type=module - <<'NODE'
           import fs from 'node:fs';
+          import { azureOriginAvailable } from './.deployment-control/infra/cloudflare/hosting-control.mjs';
           const snapshot = JSON.parse(fs.readFileSync('.local/frontend-hosting/production-before.json'));
           if (snapshot.state !== 'azure') throw new Error('Initial cutover requires the verified Azure DNS baseline.');
+          if (!await azureOriginAvailable()) throw new Error('Azure rollback origin is unavailable.');
           NODE
+      - name: Save the DNS recovery backup before changing routing
+        if: inputs.operation == 'cutover'
+        uses: actions/upload-artifact@v4
+        with:
+          name: frontend-dns-backup
+          path: .local/frontend-hosting/production-before.json
+          overwrite: true
+      - name: Prepare both Workers and verify route-write permission before DNS release
+        if: inputs.operation == 'cutover'
+        run: |
+          set -euo pipefail
+          node --input-type=module - <<'NODE'
+          import fs from 'node:fs';
+          for (const [name, file] of [['paddletoday-frontend', 'production'], ['paddletoday-www-redirect', 'www']]) {
+            const config = JSON.parse(fs.readFileSync(`infra/cloudflare/wrangler.${file}.json`));
+            if (config.name !== name) throw new Error('Unexpected production Worker name.');
+            config.routes = []; config.workers_dev = false; config.preview_urls = false;
+            fs.writeFileSync(`infra/cloudflare/.bootstrap-${file}.json`, JSON.stringify(config));
+          }
+          NODE
+          npx --yes wrangler@4.158.0 deploy --config infra/cloudflare/.bootstrap-production.json --tag "$SOURCE_REVISION" | tee .local/frontend-hosting/app-bootstrap.log
+          npx --yes wrangler@4.158.0 deploy --config infra/cloudflare/.bootstrap-www.json --tag "$SOURCE_REVISION" | tee .local/frontend-hosting/www-bootstrap.log
+          node .deployment-control/scripts/cloudflare-hosting-control.mjs verify-versions
+          node .deployment-control/scripts/cloudflare-hosting-control.mjs probe-route-write
       - name: Deploy production assets and bind only apex and www
         id: publish
         if: inputs.operation == 'cutover'
         run: |
           set -euo pipefail
-          npx --yes wrangler@4.158.0 deploy --config infra/cloudflare/wrangler.production.json | tee .local/frontend-hosting/app-deploy.log
-          npx --yes wrangler@4.158.0 deploy --config infra/cloudflare/wrangler.www.json | tee .local/frontend-hosting/www-deploy.log
-      - name: Verify DNS preservation, TLS, exact revision, and production behavior
+          node .deployment-control/scripts/cloudflare-hosting-control.mjs release-dns paddletoday.com
+          npx --yes wrangler@4.158.0 deploy --config infra/cloudflare/wrangler.production.json --tag "$SOURCE_REVISION" | tee .local/frontend-hosting/app-deploy.log
+          node .deployment-control/scripts/cloudflare-hosting-control.mjs release-dns www.paddletoday.com
+          npx --yes wrangler@4.158.0 deploy --config infra/cloudflare/wrangler.www.json --tag "$SOURCE_REVISION" | tee .local/frontend-hosting/www-deploy.log
+      - name: Verify DNS preservation, domain ownership, and exact active Worker versions
         id: verify
         if: inputs.operation == 'cutover'
         env:
           FRONTEND_DEPLOYMENT_STAGE: production
           EXPECTED_FRONTEND_REVISION: ${{ env.SOURCE_REVISION }}
         run: |
-          node scripts/cloudflare-hosting-control.mjs verify
-          node scripts/wait-for-frontend-release.mjs
-          FRONTEND_CANARY_ORIGIN=https://paddletoday.com FRONTEND_CANARY_REPORT=.local/frontend-hosting/production-paddletoday.com.json node scripts/verify-frontend-canary.mjs
-          EXPECTED_CANONICAL_ORIGIN=https://paddletoday.com node scripts/search-serving-smoke.mjs
-          node scripts/verify-www-redirect.mjs
+          node .deployment-control/scripts/cloudflare-hosting-control.mjs verify
+          node .deployment-control/scripts/cloudflare-hosting-control.mjs verify-versions
+          echo 'Cloudflare deployment verified through its authenticated API; public CDN checks run separately from an allowed client.'
       - name: Restore Azure after a failed initial cutover
         if: failure() && inputs.operation == 'cutover' && steps.snapshot.outcome == 'success' && (steps.publish.outcome == 'failure' || steps.verify.outcome == 'failure')
-        run: node scripts/cloudflare-hosting-control.mjs rollback
+        run: node .deployment-control/scripts/cloudflare-hosting-control.mjs rollback
       - name: Roll back the production Worker to a verified version
         if: inputs.operation == 'rollback-worker'
         env:
           WORKER_VERSION_ID: ${{ inputs.worker_version_id }}
           WWW_WORKER_VERSION_ID: ${{ inputs.www_worker_version_id }}
         run: |
-          node scripts/cloudflare-hosting-control.mjs guard-production
+          node .deployment-control/scripts/cloudflare-hosting-control.mjs guard-production
           npx --yes wrangler@4.158.0 rollback "$WORKER_VERSION_ID" --config infra/cloudflare/wrangler.production.json --yes --message 'Verified frontend recovery operation'
           npx --yes wrangler@4.158.0 rollback "$WWW_WORKER_VERSION_ID" --config infra/cloudflare/wrangler.www.json --yes --message 'Verified www recovery operation'
-      - name: Verify the rolled-back frontend revision and production behavior
+      - name: Verify rolled-back domain ownership and active version tags
         if: inputs.operation == 'rollback-worker'
         env:
           FRONTEND_DEPLOYMENT_STAGE: production
           EXPECTED_FRONTEND_REVISION: ${{ env.SOURCE_REVISION }}
         run: |
-          node scripts/cloudflare-hosting-control.mjs guard-production
-          node scripts/wait-for-frontend-release.mjs
-          FRONTEND_CANARY_ORIGIN=https://paddletoday.com FRONTEND_CANARY_REPORT=.local/frontend-hosting/production-paddletoday.com.json node scripts/verify-frontend-canary.mjs
-          EXPECTED_CANONICAL_ORIGIN=https://paddletoday.com node scripts/search-serving-smoke.mjs
-          node scripts/verify-www-redirect.mjs
+          node .deployment-control/scripts/cloudflare-hosting-control.mjs guard-production
+          node .deployment-control/scripts/cloudflare-hosting-control.mjs verify-versions
       - name: Validate the rollback backup's workflow identity
         if: inputs.operation == 'rollback-azure'
         env:
@@ -202,13 +265,13 @@ jobs:
       - uses: actions/download-artifact@v4
         if: inputs.operation == 'rollback-azure'
         with:
-          name: frontend-production-evidence
+          name: frontend-dns-backup
           path: .local/frontend-hosting
           github-token: ${{ github.token }}
           run-id: ${{ inputs.backup_run_id }}
       - name: Restore and verify the original Azure DNS configuration
         if: inputs.operation == 'rollback-azure'
-        run: node scripts/cloudflare-hosting-control.mjs rollback
+        run: node .deployment-control/scripts/cloudflare-hosting-control.mjs rollback
       - uses: actions/upload-artifact@v4
         if: always()
         with:

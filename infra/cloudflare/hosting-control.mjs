@@ -1,5 +1,5 @@
 import assert from 'node:assert/strict';
-import { createHash } from 'node:crypto';
+import { createHash, randomUUID } from 'node:crypto';
 
 export const HOSTS = ['paddletoday.com', 'www.paddletoday.com'];
 export const WORKER = 'paddletoday-frontend';
@@ -73,6 +73,53 @@ export async function snapshotHosting(api, zoneId) {
   return { recordedAt: new Date().toISOString(), accountId: ACCOUNT, zoneId, worker: WORKER, hostWorkers: HOST_WORKERS,
     state: bindings.length ? 'workers' : 'azure', dns, domains: bindings, unrelatedDnsFingerprint: unrelatedDnsFingerprint(dns) };
 }
+export async function azureOriginAvailable(fetchImpl = fetch) {
+  const response = await fetchImpl(`https://${AZURE_HOST}/`, { redirect: 'manual', signal: AbortSignal.timeout(20000) });
+  if (response.status === 200) return (await response.text()).includes('Paddle Today');
+  const canonicalRedirect = response.status === 301 && response.headers.get('location') === 'https://paddletoday.com/';
+  await response.body?.cancel();
+  return canonicalRedirect;
+}
+export async function releaseAzureWebDns(api, zoneId, before, hostname) {
+  assert.equal(before.accountId, ACCOUNT); assert.equal(before.zoneId, zoneId); assert.equal(before.state, 'azure');
+  assert.ok(HOSTS.includes(hostname), 'Only the two backed-up web hostnames may change.');
+  const dns = await records(api, zoneId), bindings = await domains(api); validateDomains(bindings, zoneId);
+  assert.ok(!bindings.some(domain => domain.hostname === hostname), 'Target hostname already has a Worker binding.');
+  assert.equal(unrelatedDnsFingerprint(dns), before.unrelatedDnsFingerprint, 'Non-web DNS changed before release.');
+  const expected = before.dns.find(record => addressRecord(record) && record.name === hostname);
+  assert.ok(expected?.id); assert.equal(expected.type, 'CNAME'); assert.equal(expected.content, AZURE_HOST);
+  const current = dns.filter(record => addressRecord(record) && record.name === hostname);
+  assert.equal(current.length, 1, 'Expected one unchanged Azure web record before release.');
+  assert.equal(current[0].id, expected.id, 'Azure DNS record identity changed.');
+  assert.deepEqual(dnsPayload(current[0]), dnsPayload(expected), 'Azure DNS record changed before release.');
+  await api(`/zones/${zoneId}/dns_records/${expected.id}`, 'DELETE');
+  const after = await records(api, zoneId);
+  assert.ok(!after.some(record => addressRecord(record) && record.name === hostname), 'Web DNS release readback failed.');
+  assert.equal(unrelatedDnsFingerprint(after), before.unrelatedDnsFingerprint, 'Non-web DNS changed during release.');
+  return { checkedAt: new Date().toISOString(), hostname, releasedRecordId: expected.id, original: dnsPayload(expected), nonWebDnsPreserved: true };
+}
+export async function probeWorkerRouteWrite(api, zoneId, nonce = randomUUID()) {
+  assert.match(nonce, /^[a-f0-9-]{36}$/);
+  const endpoint = `/zones/${zoneId}/workers/routes`;
+  const pattern = `paddletoday.com/__hosting-write-check-${nonce}/*`;
+  const original = (await api(endpoint)).result; assert.ok(Array.isArray(original));
+  assert.ok(!original.some(route => route.pattern === pattern));
+  const normalize = routes => routes.map(({ id, pattern, script }) => ({ id, pattern, script })).sort((a, b) => a.id.localeCompare(b.id));
+  try {
+    const created = (await api(endpoint, 'POST', { pattern, script: WWW_WORKER })).result;
+    assert.equal(created.pattern, pattern); assert.equal(created.script, WWW_WORKER);
+  } finally {
+    // Resolve an uncertain POST acknowledgement before removing only this
+    // run's unique route. Existing routes and ordinary URLs remain untouched.
+    const current = (await api(endpoint)).result; assert.ok(Array.isArray(current));
+    for (const route of current.filter(route => route.pattern === pattern && route.script === WWW_WORKER)) {
+      await api(`${endpoint}/${route.id}`, 'DELETE');
+    }
+    const after = (await api(endpoint)).result; assert.ok(Array.isArray(after));
+    assert.deepEqual(normalize(after), normalize(original), 'Worker route cleanup/preservation failed.');
+  }
+  return { checkedAt: new Date().toISOString(), pattern, temporaryRouteRemoved: true, existingRoutesPreserved: true };
+}
 export async function verifyHosting(api, zoneId, before) {
   const bindings = await domains(api); validateDomains(bindings, zoneId);
   assert.deepEqual(bindings.map(domain => domain.hostname).sort(), [...HOSTS].sort(), 'Both production custom domains must be bound.');
@@ -82,6 +129,23 @@ export async function verifyHosting(api, zoneId, before) {
     assert.equal(unrelatedDnsFingerprint(dns), before.unrelatedDnsFingerprint, 'Non-web DNS records changed during cutover.');
   }
   return { checkedAt: new Date().toISOString(), domains: bindings, unrelatedDnsFingerprint: unrelatedDnsFingerprint(dns) };
+}
+export async function verifyReleaseVersions(api, sourceRevision) {
+  assert.match(sourceRevision || '', /^[a-f0-9]{40}$/);
+  const workers = [];
+  for (const worker of Object.values(HOST_WORKERS)) {
+    const endpoint = `/accounts/${ACCOUNT}/workers/scripts/${worker}`;
+    const deployment = (await api(`${endpoint}/deployments`)).result?.deployments?.[0];
+    assert.ok(deployment?.id, 'Missing active Worker deployment.');
+    assert.equal(deployment.versions?.length, 1, 'Expected one fully active Worker version.');
+    const active = deployment.versions[0]; assert.equal(active.percentage, 100);
+    assert.match(active.version_id || '', /^[a-f0-9-]{36}$/);
+    const version = (await api(`${endpoint}/versions/${active.version_id}`)).result;
+    assert.equal(version?.id, active.version_id);
+    assert.equal(version?.annotations?.['workers/tag'], sourceRevision, 'Active Worker source tag differs from the verified release.');
+    workers.push({ worker, deploymentId: deployment.id, versionId: active.version_id, percentage: active.percentage, sourceRevision });
+  }
+  return { checkedAt: new Date().toISOString(), sourceRevision, workers, verification: 'authenticated-cloudflare-control-plane' };
 }
 export async function rollbackAzureHosting(api, zoneId, before) {
   assert.equal(before.accountId, ACCOUNT); assert.equal(before.zoneId, zoneId);
