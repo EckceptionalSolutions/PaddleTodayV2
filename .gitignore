@@ -27,6 +27,7 @@ Thumbs.db
 .DS_Store
 .firebase/
 .local
+.deployment-control/
 /deploy-package/
 docs/route-coordinate-review-geometries/
 automations/route-control-plane/.lock

@@ -72,6 +72,20 @@ jobs:
         with:
           ref: ${{ env.SOURCE_REVISION }}
 
+      - name: Checkout trusted deployment controls
+        if: env.FRONTEND_HOSTING_PROVIDER == 'cloudflare'
+        uses: actions/checkout@v4
+        with:
+          ref: ${{ github.sha }}
+          path: .deployment-control
+          persist-credentials: false
+          sparse-checkout-cone-mode: false
+          sparse-checkout: |
+            scripts/cloudflare-hosting-control.mjs
+            infra/cloudflare/hosting-control.mjs
+            scripts/verify-authenticated-frontend.mjs
+            infra/verification/authenticated-frontend.mjs
+
       - name: Setup Node
         uses: actions/setup-node@v4
         with:
@@ -90,7 +104,7 @@ jobs:
             azure) node scripts/deployment-config.mjs frontend ;;
             cloudflare)
               test -n "$AZURE_CREDENTIALS"
-              node scripts/cloudflare-hosting-control.mjs guard-production
+              node .deployment-control/scripts/cloudflare-hosting-control.mjs guard-production
               ;;
             *) echo 'Unknown frontend hosting provider.'; exit 1 ;;
           esac
@@ -203,6 +217,40 @@ jobs:
           done
           exit 1
 
+      - name: Verify the release on the canary before production
+        if: env.FRONTEND_HOSTING_PROVIDER == 'cloudflare' && (github.event_name != 'workflow_dispatch' || (inputs.deploy_frontend && !inputs.verify_existing_assets))
+        env:
+          CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_WORKERS_API_TOKEN }}
+          CLOUDFLARE_ACCOUNT_ID: ${{ vars.CLOUDFLARE_ACCOUNT_ID }}
+          EXPECTED_FRONTEND_REVISION: ${{ env.SOURCE_REVISION }}
+          FRONTEND_DEPLOYMENT_STAGE: canary
+        run: |
+          set -euo pipefail
+          node scripts/prepare-cloudflare-frontend.mjs tmp/frontend
+          mkdir -p .local/frontend-hosting
+          npx --yes wrangler@4.158.0 deploy --config infra/cloudflare/wrangler.canary.json --tag "$SOURCE_REVISION" | tee .local/frontend-hosting/canary-deploy.log
+          export FRONTEND_CANARY_ORIGIN="$(node --input-type=module - <<'NODE'
+          import fs from 'node:fs';
+          const output = fs.readFileSync('.local/frontend-hosting/canary-deploy.log', 'utf8');
+          const origin = output.match(/https:\/\/paddletoday-frontend-canary\.[a-z0-9-]+\.workers\.dev\b/)?.[0];
+          if (!origin) throw new Error('No exact canary origin reported.');
+          console.log(origin);
+          NODE
+          )"
+          node --input-type=module - <<'NODE'
+          let ready = false;
+          for (let attempt = 0; attempt < 18; attempt++) {
+            try {
+              const response = await fetch(`${process.env.FRONTEND_CANARY_ORIGIN}/.well-known/paddletoday-frontend-release.json`, { cache: 'no-store', signal: AbortSignal.timeout(10000) });
+              if (response.ok && (await response.json()).sourceRevision === process.env.EXPECTED_FRONTEND_REVISION) { ready = true; break; }
+            } catch {}
+            await new Promise(resolve => setTimeout(resolve, 10000));
+          }
+          if (!ready) throw new Error('Expected canary revision unavailable.');
+          NODE
+          node scripts/verify-frontend-canary.mjs
+          FRONTEND_AUTH_ORIGIN="$FRONTEND_CANARY_ORIGIN" node .deployment-control/scripts/verify-authenticated-frontend.mjs
+
       - name: Deploy production frontend to Cloudflare
         if: env.FRONTEND_HOSTING_PROVIDER == 'cloudflare' && (github.event_name != 'workflow_dispatch' || (inputs.deploy_frontend && !inputs.verify_existing_assets))
         env:
@@ -211,20 +259,23 @@ jobs:
           CLOUDFLARE_ZONE_ID: ${{ vars.CLOUDFLARE_ZONE_ID || secrets.CLOUDFLARE_ZONE_ID }}
         run: |
           set -euo pipefail
-          node scripts/cloudflare-hosting-control.mjs guard-production
-          npx --yes wrangler@4.158.0 deploy --config infra/cloudflare/wrangler.production.json | tee .local/frontend-hosting/app-deploy.log
-          npx --yes wrangler@4.158.0 deploy --config infra/cloudflare/wrangler.www.json | tee .local/frontend-hosting/www-deploy.log
+          FRONTEND_DEPLOYMENT_STAGE=production node scripts/prepare-cloudflare-frontend.mjs tmp/frontend
+          node .deployment-control/scripts/cloudflare-hosting-control.mjs guard-production
+          npx --yes wrangler@4.158.0 deploy --config infra/cloudflare/wrangler.production.json --tag "$SOURCE_REVISION" | tee .local/frontend-hosting/app-deploy.log
+          npx --yes wrangler@4.158.0 deploy --config infra/cloudflare/wrangler.www.json --tag "$SOURCE_REVISION" | tee .local/frontend-hosting/www-deploy.log
 
-      - name: Verify both Cloudflare production hosts
+      - name: Verify production domain ownership and exact active versions
         if: env.FRONTEND_HOSTING_PROVIDER == 'cloudflare' && (github.event_name != 'workflow_dispatch' || (inputs.deploy_frontend && !inputs.verify_existing_assets))
         env:
           FRONTEND_DEPLOYMENT_STAGE: production
           EXPECTED_FRONTEND_REVISION: ${{ env.SOURCE_REVISION }}
+          CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_WORKERS_API_TOKEN }}
+          CLOUDFLARE_ACCOUNT_ID: ${{ vars.CLOUDFLARE_ACCOUNT_ID }}
+          CLOUDFLARE_ZONE_ID: ${{ vars.CLOUDFLARE_ZONE_ID || secrets.CLOUDFLARE_ZONE_ID }}
         run: |
-          node scripts/wait-for-frontend-release.mjs
-          FRONTEND_CANARY_ORIGIN=https://paddletoday.com FRONTEND_CANARY_REPORT=.local/frontend-hosting/production-paddletoday.com.json node scripts/verify-frontend-canary.mjs
-          EXPECTED_CANONICAL_ORIGIN=https://paddletoday.com node scripts/search-serving-smoke.mjs
-          node scripts/verify-www-redirect.mjs
+          node .deployment-control/scripts/cloudflare-hosting-control.mjs guard-production
+          node .deployment-control/scripts/cloudflare-hosting-control.mjs verify-versions
+          echo 'Exact release verified through the Cloudflare API. Public CDN checks run separately from an allowed client; GitHub runners receive an existing bot challenge.'
 
       - uses: actions/upload-artifact@v4
         if: always() && env.FRONTEND_HOSTING_PROVIDER == 'cloudflare'
