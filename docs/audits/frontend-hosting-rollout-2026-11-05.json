@@ -1,0 +1,568 @@
+{
+  "recordedAt": "2026-11-05T18:50:03.065Z",
+  "status": "completed",
+  "sourceRevision": "670cade090cc25b154b5cb3f87c8fb2484d24fee",
+  "apiRevision": "3c979ce865e9c216215b2c8df552bace759166dc",
+  "runs": {
+    "requiredGates": 42083330615,
+    "initialCutover": 42084109737,
+    "routineCloudflarePublishing": 42084808162,
+    "rollbackWorker": 42085874073,
+    "restoreWorker": 42086216277,
+    "publicationReconciliation": 42085966905
+  },
+  "workerVersions": {
+    "initial": {
+      "checkedAt": "2026-11-05T18:29:22.264Z",
+      "sourceRevision": "e8a0edbf71234f256b74a74ca23930c7ea3e3cf7",
+      "workers": [
+        {
+          "worker": "paddletoday-frontend",
+          "deploymentId": "70b73c52-babc-48ed-98c1-f9b7ffab0c9c",
+          "versionId": "008abb38-7991-4db1-93ea-d5b84ba38462",
+          "percentage": 100,
+          "sourceRevision": "e8a0edbf71234f256b74a74ca23930c7ea3e3cf7"
+        },
+        {
+          "worker": "paddletoday-www-redirect",
+          "deploymentId": "78b9bacd-8eb6-4577-8d99-5a8bcee95cd6",
+          "versionId": "7bc881da-ba29-43dd-b69a-40294e6cf474",
+          "percentage": 100,
+          "sourceRevision": "e8a0edbf71234f256b74a74ca23930c7ea3e3cf7"
+        }
+      ],
+      "verification": "authenticated-cloudflare-control-plane"
+    },
+    "routine": {
+      "checkedAt": "2026-11-05T18:36:17.236Z",
+      "sourceRevision": "670cade090cc25b154b5cb3f87c8fb2484d24fee",
+      "workers": [
+        {
+          "worker": "paddletoday-frontend",
+          "deploymentId": "8b0f2542-ae6e-41ab-a192-59bf142f6365",
+          "versionId": "ef820455-7a51-445d-8bb3-ab20791cbf97",
+          "percentage": 100,
+          "sourceRevision": "670cade090cc25b154b5cb3f87c8fb2484d24fee"
+        },
+        {
+          "worker": "paddletoday-www-redirect",
+          "deploymentId": "3a9cae49-cb20-4ced-9d32-f6e01ceb9b90",
+          "versionId": "371fa2a6-c351-4d3f-bdfb-48908cd41d67",
+          "percentage": 100,
+          "sourceRevision": "670cade090cc25b154b5cb3f87c8fb2484d24fee"
+        }
+      ],
+      "verification": "authenticated-cloudflare-control-plane"
+    },
+    "rollback": {
+      "checkedAt": "2026-11-05T18:38:24.974Z",
+      "sourceRevision": "e8a0edbf71234f256b74a74ca23930c7ea3e3cf7",
+      "workers": [
+        {
+          "worker": "paddletoday-frontend",
+          "deploymentId": "b89578ac-3a72-421f-9112-d8796fee750d",
+          "versionId": "008abb38-7991-4db1-93ea-d5b84ba38462",
+          "percentage": 100,
+          "sourceRevision": "e8a0edbf71234f256b74a74ca23930c7ea3e3cf7"
+        },
+        {
+          "worker": "paddletoday-www-redirect",
+          "deploymentId": "9c6e6e84-b241-4f6f-ad82-5816d43fc222",
+          "versionId": "7bc881da-ba29-43dd-b69a-40294e6cf474",
+          "percentage": 100,
+          "sourceRevision": "e8a0edbf71234f256b74a74ca23930c7ea3e3cf7"
+        }
+      ],
+      "verification": "authenticated-cloudflare-control-plane"
+    },
+    "restored": {
+      "checkedAt": "2026-11-05T18:40:22.243Z",
+      "sourceRevision": "670cade090cc25b154b5cb3f87c8fb2484d24fee",
+      "workers": [
+        {
+          "worker": "paddletoday-frontend",
+          "deploymentId": "fe1bbfef-a5c4-424c-8ae9-710c3f1fc017",
+          "versionId": "ef820455-7a51-445d-8bb3-ab20791cbf97",
+          "percentage": 100,
+          "sourceRevision": "670cade090cc25b154b5cb3f87c8fb2484d24fee"
+        },
+        {
+          "worker": "paddletoday-www-redirect",
+          "deploymentId": "5ad0d34c-2877-47d6-9d64-009294399b1b",
+          "versionId": "371fa2a6-c351-4d3f-bdfb-48908cd41d67",
+          "percentage": 100,
+          "sourceRevision": "670cade090cc25b154b5cb3f87c8fb2484d24fee"
+        }
+      ],
+      "verification": "authenticated-cloudflare-control-plane"
+    }
+  },
+  "publicVerification": [
+    {
+      "stage": "initial-cutover",
+      "checkedAt": "2026-11-05T18:29:30.713Z",
+      "sourceRevision": "e8a0edbf71234f256b74a74ca23930c7ea3e3cf7",
+      "origin": "https://paddletoday.com",
+      "client": "existing-allowed-workspace-client",
+      "checks": [
+        {
+          "name": "release-marker",
+          "status": "passed"
+        },
+        {
+          "name": "http",
+          "status": "passed"
+        },
+        {
+          "name": "search",
+          "status": "passed"
+        },
+        {
+          "name": "www",
+          "status": "passed"
+        },
+        {
+          "name": "mobile-associations",
+          "status": "passed"
+        },
+        {
+          "name": "history",
+          "status": "passed"
+        }
+      ],
+      "status": "passed",
+      "httpCheckCount": 19,
+      "apiRevision": "3c979ce865e9c216215b2c8df552bace759166dc",
+      "routeCount": 1392
+    },
+    {
+      "stage": "routine-release",
+      "checkedAt": "2026-11-05T18:36:22.664Z",
+      "sourceRevision": "670cade090cc25b154b5cb3f87c8fb2484d24fee",
+      "origin": "https://paddletoday.com",
+      "client": "existing-allowed-workspace-client",
+      "checks": [
+        {
+          "name": "release-marker",
+          "status": "passed"
+        },
+        {
+          "name": "http",
+          "status": "passed"
+        },
+        {
+          "name": "search",
+          "status": "passed"
+        },
+        {
+          "name": "www",
+          "status": "passed"
+        },
+        {
+          "name": "mobile-associations",
+          "status": "passed"
+        },
+        {
+          "name": "history",
+          "status": "passed"
+        }
+      ],
+      "status": "passed",
+      "httpCheckCount": 19,
+      "apiRevision": "3c979ce865e9c216215b2c8df552bace759166dc",
+      "routeCount": 1392
+    },
+    {
+      "stage": "worker-rollback",
+      "checkedAt": "2026-11-05T18:38:40.323Z",
+      "sourceRevision": "e8a0edbf71234f256b74a74ca23930c7ea3e3cf7",
+      "origin": "https://paddletoday.com",
+      "client": "existing-allowed-workspace-client",
+      "checks": [
+        {
+          "name": "release-marker",
+          "status": "passed"
+        },
+        {
+          "name": "http",
+          "status": "passed"
+        },
+        {
+          "name": "search",
+          "status": "passed"
+        },
+        {
+          "name": "www",
+          "status": "passed"
+        },
+        {
+          "name": "mobile-associations",
+          "status": "passed"
+        },
+        {
+          "name": "history",
+          "status": "passed"
+        }
+      ],
+      "status": "passed",
+      "httpCheckCount": 19,
+      "apiRevision": "3c979ce865e9c216215b2c8df552bace759166dc",
+      "routeCount": 1392
+    },
+    {
+      "stage": "worker-restored",
+      "checkedAt": "2026-11-05T18:41:25.820Z",
+      "sourceRevision": "670cade090cc25b154b5cb3f87c8fb2484d24fee",
+      "origin": "https://paddletoday.com",
+      "client": "existing-allowed-workspace-client",
+      "checks": [
+        {
+          "name": "release-marker",
+          "status": "passed"
+        },
+        {
+          "name": "http",
+          "status": "passed"
+        },
+        {
+          "name": "search",
+          "status": "passed"
+        },
+        {
+          "name": "www",
+          "status": "passed"
+        },
+        {
+          "name": "mobile-associations",
+          "status": "passed"
+        },
+        {
+          "name": "history",
+          "status": "passed"
+        }
+      ],
+      "status": "passed",
+      "httpCheckCount": 19,
+      "apiRevision": "3c979ce865e9c216215b2c8df552bace759166dc",
+      "routeCount": 1392
+    },
+    {
+      "stage": "post-restart",
+      "checkedAt": "2026-11-05T18:46:46.453Z",
+      "sourceRevision": "670cade090cc25b154b5cb3f87c8fb2484d24fee",
+      "origin": "https://paddletoday.com",
+      "client": "existing-allowed-workspace-client",
+      "checks": [
+        {
+          "name": "release-marker",
+          "status": "passed"
+        },
+        {
+          "name": "http",
+          "status": "passed"
+        },
+        {
+          "name": "search",
+          "status": "passed"
+        },
+        {
+          "name": "www",
+          "status": "passed"
+        },
+        {
+          "name": "mobile-associations",
+          "status": "passed"
+        },
+        {
+          "name": "history",
+          "status": "passed"
+        }
+      ],
+      "status": "passed",
+      "httpCheckCount": 19,
+      "apiRevision": "3c979ce865e9c216215b2c8df552bace759166dc",
+      "routeCount": 1392
+    },
+    {
+      "stage": "retired",
+      "checkedAt": "2026-11-05T18:48:46.700Z",
+      "sourceRevision": "670cade090cc25b154b5cb3f87c8fb2484d24fee",
+      "origin": "https://paddletoday.com",
+      "client": "existing-allowed-workspace-client",
+      "checks": [
+        {
+          "name": "release-marker",
+          "status": "passed"
+        },
+        {
+          "name": "http",
+          "status": "passed"
+        },
+        {
+          "name": "search",
+          "status": "passed"
+        },
+        {
+          "name": "www",
+          "status": "passed"
+        },
+        {
+          "name": "mobile-associations",
+          "status": "passed"
+        },
+        {
+          "name": "history",
+          "status": "passed"
+        }
+      ],
+      "status": "passed",
+      "httpCheckCount": 19,
+      "apiRevision": "3c979ce865e9c216215b2c8df552bace759166dc",
+      "routeCount": 1392
+    }
+  ],
+  "authentication": {
+    "checkedAt": "2026-11-05T18:49:06.393Z",
+    "origin": "https://paddletoday.com",
+    "status": "passed",
+    "stage": "verified",
+    "checks": [
+      {
+        "path": "/api/account",
+        "status": 200,
+        "privateNoStore": true,
+        "proxyVerified": true
+      },
+      {
+        "path": "/api/trips",
+        "status": 200,
+        "privateNoStore": true,
+        "proxyVerified": true
+      }
+    ],
+    "cleanup": "deleted",
+    "deletedIdentityStatus": 401
+  },
+  "authenticationPhases": {
+    "initialProduction": {
+      "checkedAt": "2026-11-05T18:29:50.083Z",
+      "origin": "https://paddletoday.com",
+      "status": "passed",
+      "stage": "verified",
+      "checks": [
+        {
+          "path": "/api/account",
+          "status": 200,
+          "privateNoStore": true,
+          "proxyVerified": true
+        },
+        {
+          "path": "/api/trips",
+          "status": 200,
+          "privateNoStore": true,
+          "proxyVerified": true
+        }
+      ],
+      "cleanup": "deleted",
+      "deletedIdentityStatus": 401
+    },
+    "postRestart": {
+      "checkedAt": "2026-11-05T18:46:05.910Z",
+      "origin": "https://paddletoday.com",
+      "status": "passed",
+      "stage": "verified",
+      "checks": [
+        {
+          "path": "/api/account",
+          "status": 200,
+          "privateNoStore": true,
+          "proxyVerified": true
+        },
+        {
+          "path": "/api/trips",
+          "status": 200,
+          "privateNoStore": true,
+          "proxyVerified": true
+        }
+      ],
+      "cleanup": "deleted",
+      "deletedIdentityStatus": 401
+    },
+    "postRetirement": {
+      "checkedAt": "2026-11-05T18:49:06.393Z",
+      "origin": "https://paddletoday.com",
+      "status": "passed",
+      "stage": "verified",
+      "checks": [
+        {
+          "path": "/api/account",
+          "status": 200,
+          "privateNoStore": true,
+          "proxyVerified": true
+        },
+        {
+          "path": "/api/trips",
+          "status": 200,
+          "privateNoStore": true,
+          "proxyVerified": true
+        }
+      ],
+      "cleanup": "deleted",
+      "deletedIdentityStatus": 401
+    }
+  },
+  "userVerification": {
+    "recordedAt": "2026-11-05T18:50:03.066Z",
+    "result": "Sign-in and saved data work",
+    "scope": "existing mobile app and existing account",
+    "source": "direct user reply in this chat"
+  },
+  "dns": {
+    "checkedAt": "2026-11-05T18:48:47.081Z",
+    "unrelatedDnsFingerprint": "900829150559d5eab454fd7aee1b34b9ccae1e87b6d058a89a0470989111920b",
+    "nonWebDnsPreserved": true,
+    "webRecords": [
+      {
+        "id": "0aaa8bc10421391520e75f17e330aefe",
+        "name": "paddletoday.com",
+        "type": "AAAA",
+        "content": "100::",
+        "proxied": true
+      },
+      {
+        "id": "13a85bf1fe7073b480155d805c45b129",
+        "name": "www.paddletoday.com",
+        "type": "AAAA",
+        "content": "100::",
+        "proxied": true
+      }
+    ],
+    "dnsRecordCount": 23
+  },
+  "availability": {
+    "startedAt": "2026-11-05T18:41:42.621Z",
+    "observationResumedAt": "2026-11-05T18:44:22.066Z",
+    "completedAt": "2026-11-05T18:46:01.398Z",
+    "frontendRevision": "670cade090cc25b154b5cb3f87c8fb2484d24fee",
+    "operation": {
+      "status": "succeeded",
+      "startedAt": "2026-11-05T18:41:42.621Z",
+      "completedAt": "2026-11-05T18:45:30.055Z",
+      "acceptedAt": "2026-11-05T18:42:01.458Z",
+      "previousStartedAt": "2026-11-05T16:33:19.776Z",
+      "confirmedProcessStartedAt": "2026-11-05T18:44:47.149Z",
+      "confirmedUptimeSeconds": 42
+    },
+    "sampleCount": 86,
+    "staticFailures": 0,
+    "apiUnavailableSamples": 2,
+    "outageObserved": true,
+    "apiRecovered": true,
+    "maxSampleGapSeconds": 50.506
+  },
+  "productionLoad": {
+    "checkedAt": "2026-11-05T18:36:43.873Z",
+    "origin": "https://paddletoday.com",
+    "sourceRevision": "670cade090cc25b154b5cb3f87c8fb2484d24fee",
+    "count": 100,
+    "concurrency": 10,
+    "failures": 0,
+    "medianMs": 82,
+    "p95Ms": 205,
+    "limitation": "One client and one short request burst; does not prove global capacity or future traffic cost.",
+    "cacheCounts": {
+      "HIT": 100
+    }
+  },
+  "assetPublishing": {
+    "runId": 42084808162,
+    "uploaded": 0,
+    "reused": 6408,
+    "publicAssetsVerified": 3204,
+    "bytesUploaded": 0
+  },
+  "retirement": {
+    "startedAt": "2026-11-05T18:47:32.3441062+00:00",
+    "deletionCompletedAt": "2026-11-05T18:48:03.3286251+00:00",
+    "verifiedAt": "2026-11-05T18:49:08.698Z",
+    "deletedResource": {
+      "allowConfigFileUpdates": true,
+      "branch": "main",
+      "customDomains": [
+        "paddletoday.com",
+        "www.paddletoday.com"
+      ],
+      "defaultHostname": "jolly-river-0d74c2110.1.azurestaticapps.net",
+      "id": "/subscriptions/a2cc52c3-7f4e-4de7-bf59-9cc6f99bc8e2/resourceGroups/paddletoday/providers/Microsoft.Web/staticSites/PaddleToday",
+      "location": "Central US",
+      "name": "PaddleToday",
+      "publicNetworkAccess": null,
+      "repositoryUrl": "https://github.com/EckceptionalSolutions/PaddleTodayV2",
+      "sku": {
+        "capabilities": null,
+        "capacity": null,
+        "family": null,
+        "locations": null,
+        "name": "Standard",
+        "size": null,
+        "skuCapacity": null,
+        "tier": "Standard"
+      }
+    },
+    "resourceRemoved": true,
+    "onlyPreexistingResourceRemoved": "/subscriptions/a2cc52c3-7f4e-4de7-bf59-9cc6f99bc8e2/resourceGroups/paddletoday/providers/Microsoft.Web/staticSites/PaddleToday",
+    "preservedResourceIds": [
+      "/subscriptions/a2cc52c3-7f4e-4de7-bf59-9cc6f99bc8e2/resourceGroups/paddletoday/providers/Microsoft.Storage/storageAccounts/paddletoday",
+      "/subscriptions/a2cc52c3-7f4e-4de7-bf59-9cc6f99bc8e2/resourceGroups/paddletoday/providers/Microsoft.Insights/components/PaddleToday",
+      "/subscriptions/a2cc52c3-7f4e-4de7-bf59-9cc6f99bc8e2/resourceGroups/paddletoday/providers/microsoft.insights/components/paddletodayapi",
+      "/subscriptions/a2cc52c3-7f4e-4de7-bf59-9cc6f99bc8e2/resourceGroups/paddletoday/providers/Microsoft.Web/serverFarms/ASP-paddletoday-9013",
+      "/subscriptions/a2cc52c3-7f4e-4de7-bf59-9cc6f99bc8e2/resourceGroups/paddletoday/providers/Microsoft.Web/sites/paddletodayapi",
+      "/subscriptions/a2cc52c3-7f4e-4de7-bf59-9cc6f99bc8e2/resourceGroups/paddletoday/providers/Microsoft.Communication/EmailServices/route-alerts",
+      "/subscriptions/a2cc52c3-7f4e-4de7-bf59-9cc6f99bc8e2/resourceGroups/paddletoday/providers/Microsoft.Communication/EmailServices/route-alerts/Domains/paddletoday.com",
+      "/subscriptions/a2cc52c3-7f4e-4de7-bf59-9cc6f99bc8e2/resourceGroups/paddletoday/providers/Microsoft.Communication/CommunicationServices/route-alerts",
+      "/subscriptions/a2cc52c3-7f4e-4de7-bf59-9cc6f99bc8e2/resourceGroups/paddletoday/providers/Microsoft.OperationalInsights/workspaces/paddletoday-jobs-logs",
+      "/subscriptions/a2cc52c3-7f4e-4de7-bf59-9cc6f99bc8e2/resourceGroups/paddletoday/providers/Microsoft.App/managedEnvironments/paddletoday-jobs",
+      "/subscriptions/a2cc52c3-7f4e-4de7-bf59-9cc6f99bc8e2/resourceGroups/paddletoday/providers/Microsoft.App/jobs/paddletoday-river-snapshots"
+    ],
+    "api": {
+      "host": "paddletodayapi-h7efgxcfg9h7gne9.centralus-01.azurewebsites.net",
+      "id": "/subscriptions/a2cc52c3-7f4e-4de7-bf59-9cc6f99bc8e2/resourceGroups/paddletoday/providers/Microsoft.Web/sites/paddletodayapi",
+      "plan": "/subscriptions/a2cc52c3-7f4e-4de7-bf59-9cc6f99bc8e2/resourceGroups/paddletoday/providers/Microsoft.Web/serverfarms/ASP-paddletoday-9013",
+      "state": "Running"
+    },
+    "plan": {
+      "id": "/subscriptions/a2cc52c3-7f4e-4de7-bf59-9cc6f99bc8e2/resourceGroups/paddletoday/providers/Microsoft.Web/serverfarms/ASP-paddletoday-9013",
+      "sku": {
+        "capacity": 1,
+        "family": "B",
+        "name": "B1",
+        "size": "B1",
+        "tier": "Basic"
+      }
+    },
+    "platformAuth": {
+      "defaultProvider": null,
+      "enabled": true,
+      "unauthenticatedClientAction": "AllowAnonymous"
+    }
+  },
+  "provider": "cloudflare",
+  "historyStorageEvidence": "history-storage-rollout-2026-11-05.json",
+  "apiAssessment": "api-hosting-assessment-2026-11-05.md",
+  "economics": {
+    "currency": "USD",
+    "periodDays": 30,
+    "azureFrontendFeeRemoved": 8.88,
+    "incrementalHistoryWriteOnlyEstimate": 2.273142857,
+    "totalIncrementalModeledSaving": 11.153142857,
+    "observedInvoiceReduction": null,
+    "paidCloudflarePlanEnabled": false,
+    "b1Retained": true,
+    "limits": [
+      "Azure fee model uses the latest posted steady daily charge; a new invoice comparison is pending.",
+      "Cloudflare requests must remain within the shared account Free allowance; the short load sample is not a future traffic or global capacity guarantee.",
+      "History estimate excludes read, coordination and replication effects.",
+      "API process restart was observed with sampled HTTP checks; this is not a zero-downtime or continuous-monitoring guarantee."
+    ]
+  }
+}
