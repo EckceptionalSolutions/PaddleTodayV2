@@ -3,7 +3,7 @@
 ## Runtime shape
 
 - Build the static app with `npm run build`.
-- Azure Static Web Apps serves the public frontend and proxies `/api/*` to the linked App Service.
+- Cloudflare Workers Static Assets serves the public frontend; a fixed-origin Worker proxies `/api/*` to the existing B1 App Service. A separate www Worker preserves permanent redirects to the apex. The duplicate Azure Static Web App was retired on November 5, 2026; see the [verified rollout and recovery instructions](audits/frontend-production-rollout-2026-11-05.md).
 - The App Service package also contains `dist/` and serves the built app plus `/api` from one Node process with `npm run start`. This makes the backend origin independently smoke-testable and provides a one-origin fallback without changing browser API paths.
 - `npm run package:api` compiles the reachable server code to `deploy-package/server.mjs`, copies the eight declared operations/control-plane JSON resources, and retains the complete static fallback. HTML pages are stored as lossless gzip files with an inventory; the server streams gzip directly or decompresses for clients requesting identity. Gallery and geometry files remain available.
 - The API workflow installs the packaged production dependencies once, verifies the isolated runtime and every static resource, and deploys that prepared directory. Its packaged `npm start` runs `server.mjs`; the root development startup continues to run the TypeScript source. `api-package-manifest.json` records inputs, dependency versions, resource hashes, and byte counts.
@@ -19,11 +19,11 @@
 - Public frontend origin: `/api/health` and `/api/health/ready`
 - Direct App Service origin: `/health` and `/health/ready` are aliases; the `/api/...` forms work there too
 
-The public Paddle Today origin is an Azure Static Web App linked to App Service, and that integration proxies `/api/*`. Use `/api/health/ready` for public deploy-time checks. It verifies the static index is present when the App Service is running in one-origin mode.
+The public Paddle Today origin uses the Cloudflare API proxy. Use `/api/health/ready` for public deploy-time checks. It verifies the static index is present when the App Service is running in one-origin mode. GitHub-hosted runners receive the existing public CDN bot challenge: frontend CI checks the staged release over HTTP and verifies production versions/domain ownership through the authenticated Cloudflare API. Public HTTP/search/mobile checks run separately from an allowed client; a challenge is not treated as a passing public response.
 
 The API deployment action explicitly requests an App Service restart using the existing publish profile. Before capability checks, the workflow runs `scripts/wait-for-api-revision.mjs` against the configured App Service origin with `DEPLOYMENT_EXPECTED_REVISION` set to the workflow commit. It waits up to four minutes for a healthy process reporting that exact revision. An older healthy worker, a missing revision, redirects and startup failures do not satisfy the gate. The subsequent deployment smoke check independently requires the same revision from both health endpoints. These checks establish which API code is running; public cache withdrawal, route/source behavior and Google processing still need their own verification.
 
-The restart option is provided by the existing [Azure deployment action](https://github.com/Azure/webapps-deploy/blob/v3/action.yml); this workflow adds no new credential or permission.
+The restart option is provided by the existing [Azure deployment action](https://github.com/Azure/webapps-deploy/blob/v3/action.yml). The workflow also explicitly restarts App Service after upload and configuration succeed. Azure accepting a restart does not prove process replacement: when exercising a restart without changing source revision, compare health `startedAt` and continue observing until the new process is serving. These checks add no new credential or permission.
 
 Both endpoints expose:
 

@@ -1,13 +1,15 @@
 # Azure Deployment Plan
 
-## Recommended production shape
+Hosting update, November 5, 2026: Cloudflare Workers Static Assets now serves production and proxies the unchanged B1 API. The Azure Static Web App was retired after verification. Use the [current README](../README.md#production-deployment), [deployment readiness](deployment-readiness.md), and [completed rollout/recovery instructions](audits/frontend-production-rollout-2026-11-05.md). The Azure frontend plan below is historical; recreating Azure hosting would require a new deployment and reviewed DNS configuration.
 
-Use two Azure resources:
+## Original production shape
+
+The original deployment used two Azure resources:
 
 - Azure Static Web App for the Astro frontend
 - Azure App Service for the Node `/api` backend
 
-This is the best fit for the current codebase because the frontend is static, but the live data layer is a custom Node server in `src/server/api-server.ts`, not an Azure Functions `api/` app.
+This design accommodated a static frontend and a custom Node server in `src/server/api-server.ts`, rather than an Azure Functions `api/` app. The backend remains on App Service after the frontend hosting change.
 
 ## Why not reuse the old Static Web Apps flow exactly
 
