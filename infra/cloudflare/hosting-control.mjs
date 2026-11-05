@@ -3,6 +3,8 @@ import { createHash } from 'node:crypto';
 
 export const HOSTS = ['paddletoday.com', 'www.paddletoday.com'];
 export const WORKER = 'paddletoday-frontend';
+export const WWW_WORKER = 'paddletoday-www-redirect';
+export const HOST_WORKERS = { 'paddletoday.com': WORKER, 'www.paddletoday.com': WWW_WORKER };
 export const AZURE_HOST = 'jolly-river-0d74c2110.1.azurestaticapps.net';
 export const ACCOUNT = 'c8681e05144a6862baf7fbd582f6dbcc';
 const addressRecord = record => HOSTS.includes(record.name) && ['A', 'AAAA', 'CNAME'].includes(record.type);
@@ -45,13 +47,13 @@ async function domains(api) {
   const body = await api(`/accounts/${ACCOUNT}/workers/domains?per_page=100`);
   assert.ok(Array.isArray(body.result));
   assert.ok((body.result_info?.total_pages ?? 1) <= 1, 'Worker domain pagination needs review.');
-  assert.ok(!body.result.some(domain => domain.service === WORKER && !HOSTS.includes(domain.hostname)),
+  assert.ok(!body.result.some(domain => Object.values(HOST_WORKERS).includes(domain.service) && !HOSTS.includes(domain.hostname)),
     'Production Worker has additional custom domains; inspect before replacing its routing.');
   return body.result.filter(domain => HOSTS.includes(domain.hostname));
 }
 function validateDomains(found, zoneId) {
   for (const domain of found) {
-    assert.equal(domain.service, WORKER, `Hostname ${domain.hostname} belongs to another Worker.`);
+    assert.equal(domain.service, HOST_WORKERS[domain.hostname], `Hostname ${domain.hostname} belongs to another Worker.`);
     assert.equal(domain.zone_id, zoneId); assert.notEqual(domain.enabled, false);
   }
 }
@@ -68,7 +70,7 @@ export async function snapshotHosting(api, zoneId) {
   validateDomains(bindings, zoneId);
   if (!bindings.length) assertAzureDns(dns);
   else assert.deepEqual(bindings.map(domain => domain.hostname).sort(), [...HOSTS].sort(), 'Partial cutover requires inspection.');
-  return { recordedAt: new Date().toISOString(), accountId: ACCOUNT, zoneId, worker: WORKER,
+  return { recordedAt: new Date().toISOString(), accountId: ACCOUNT, zoneId, worker: WORKER, hostWorkers: HOST_WORKERS,
     state: bindings.length ? 'workers' : 'azure', dns, domains: bindings, unrelatedDnsFingerprint: unrelatedDnsFingerprint(dns) };
 }
 export async function verifyHosting(api, zoneId, before) {

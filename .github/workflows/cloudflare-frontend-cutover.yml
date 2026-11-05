@@ -22,6 +22,10 @@ on:
         description: 'For rollback-worker: exact verified Worker version UUID'
         type: string
         default: ''
+      www_worker_version_id:
+        description: 'For rollback-worker: matching www redirect Worker version UUID'
+        type: string
+        default: ''
 concurrency:
   group: frontend-production
   cancel-in-progress: false
@@ -62,6 +66,7 @@ jobs:
           CANARY_ORIGIN: ${{ inputs.canary_origin }}
           BACKUP_RUN_ID: ${{ inputs.backup_run_id }}
           WORKER_VERSION_ID: ${{ inputs.worker_version_id }}
+          WWW_WORKER_VERSION_ID: ${{ inputs.www_worker_version_id }}
         run: |
           [[ "$SOURCE_REVISION" =~ ^[a-f0-9]{40}$ ]] || exit 1
           test -n "$CLOUDFLARE_API_TOKEN"
@@ -71,6 +76,7 @@ jobs:
             [[ "$BACKUP_RUN_ID" =~ ^[0-9]+$ ]] || exit 1
           else
             [[ "$WORKER_VERSION_ID" =~ ^[a-f0-9]{8}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{12}$ ]] || exit 1
+            [[ "$WWW_WORKER_VERSION_ID" =~ ^[a-f0-9]{8}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{12}$ ]] || exit 1
           fi
       - run: npm ci
       - name: Test hosting and rollback safeguards
@@ -109,7 +115,10 @@ jobs:
       - name: Deploy production assets and bind only apex and www
         id: publish
         if: inputs.operation == 'cutover'
-        run: npx --yes wrangler@4.158.0 deploy --config infra/cloudflare/wrangler.production.json
+        run: |
+          set -euo pipefail
+          npx --yes wrangler@4.158.0 deploy --config infra/cloudflare/wrangler.production.json | tee .local/frontend-hosting/app-deploy.log
+          npx --yes wrangler@4.158.0 deploy --config infra/cloudflare/wrangler.www.json | tee .local/frontend-hosting/www-deploy.log
       - name: Verify DNS preservation, TLS, exact revision, and production behavior
         id: verify
         if: inputs.operation == 'cutover'
@@ -119,10 +128,9 @@ jobs:
         run: |
           node scripts/cloudflare-hosting-control.mjs verify
           node scripts/wait-for-frontend-release.mjs
-          for origin in https://paddletoday.com https://www.paddletoday.com; do
-            FRONTEND_CANARY_ORIGIN="$origin" FRONTEND_CANARY_REPORT=".local/frontend-hosting/production-$(echo "$origin" | cut -d/ -f3).json" node scripts/verify-frontend-canary.mjs
-            DEPLOYMENT_BASE_URL="$origin" EXPECTED_CANONICAL_ORIGIN=https://paddletoday.com node scripts/search-serving-smoke.mjs
-          done
+          FRONTEND_CANARY_ORIGIN=https://paddletoday.com FRONTEND_CANARY_REPORT=.local/frontend-hosting/production-paddletoday.com.json node scripts/verify-frontend-canary.mjs
+          EXPECTED_CANONICAL_ORIGIN=https://paddletoday.com node scripts/search-serving-smoke.mjs
+          node scripts/verify-www-redirect.mjs
       - name: Restore Azure after a failed initial cutover
         if: failure() && inputs.operation == 'cutover' && steps.snapshot.outcome == 'success' && (steps.publish.outcome == 'failure' || steps.verify.outcome == 'failure')
         run: node scripts/cloudflare-hosting-control.mjs rollback
@@ -130,9 +138,11 @@ jobs:
         if: inputs.operation == 'rollback-worker'
         env:
           WORKER_VERSION_ID: ${{ inputs.worker_version_id }}
+          WWW_WORKER_VERSION_ID: ${{ inputs.www_worker_version_id }}
         run: |
           node scripts/cloudflare-hosting-control.mjs guard-production
           npx --yes wrangler@4.158.0 rollback "$WORKER_VERSION_ID" --config infra/cloudflare/wrangler.production.json --yes --message 'Verified frontend recovery operation'
+          npx --yes wrangler@4.158.0 rollback "$WWW_WORKER_VERSION_ID" --config infra/cloudflare/wrangler.www.json --yes --message 'Verified www recovery operation'
       - name: Verify the rolled-back frontend revision and production behavior
         if: inputs.operation == 'rollback-worker'
         env:
@@ -141,10 +151,9 @@ jobs:
         run: |
           node scripts/cloudflare-hosting-control.mjs guard-production
           node scripts/wait-for-frontend-release.mjs
-          for origin in https://paddletoday.com https://www.paddletoday.com; do
-            FRONTEND_CANARY_ORIGIN="$origin" FRONTEND_CANARY_REPORT=".local/frontend-hosting/production-$(echo "$origin" | cut -d/ -f3).json" node scripts/verify-frontend-canary.mjs
-            DEPLOYMENT_BASE_URL="$origin" EXPECTED_CANONICAL_ORIGIN=https://paddletoday.com node scripts/search-serving-smoke.mjs
-          done
+          FRONTEND_CANARY_ORIGIN=https://paddletoday.com FRONTEND_CANARY_REPORT=.local/frontend-hosting/production-paddletoday.com.json node scripts/verify-frontend-canary.mjs
+          EXPECTED_CANONICAL_ORIGIN=https://paddletoday.com node scripts/search-serving-smoke.mjs
+          node scripts/verify-www-redirect.mjs
       - name: Validate the rollback backup's workflow identity
         if: inputs.operation == 'rollback-azure'
         env:
