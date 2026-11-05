@@ -8,9 +8,11 @@ import {
 import { mapWithConcurrency } from './async-concurrency';
 import { isArrayOf, isNullableNumber, isNullableString, isNumber, isOneOf, isRecord, isString } from './json-guards';
 import type { RiverScoreResult, ScoreRating } from './types';
-import { forgetCache, remember } from './server-cache';
+import { forgetCache } from './server-cache';
 import { historyDatesThrough, isHistoryDate, previousHistoryDate } from './history-calendar';
 import { isHistoryCaptureLease, withHistoryCaptureLease } from './history-capture-lease';
+import { HISTORY_BUCKET_LAYOUT, isHistoryBucket, isHistoryStorageControl, mergeHistoryDays, type HistoryStorageSelection } from './history-buckets';
+import { drainHistoryWork, openHistoryRepository } from './history-storage';
 
 const DEFAULT_HISTORY_DIR = '.local';
 const HISTORY_TIME_ZONE = process.env.HISTORY_TIME_ZONE || 'America/Chicago';
@@ -125,7 +127,10 @@ export async function captureHistorySnapshotForResults(args: {
   results: RiverScoreResult[];
   now?: Date;
   dailySummaryMode?: HistorySummaryMode;
-}): Promise<{ routeCount: number; date: string; hour: string; storage: 'local' | 'blob'; dailySummaryMode: HistorySummaryMode; dailySummaryWrites: number; finalizedDays: number }> {
+  storageLayout?: HistoryStorageSelection;
+}): Promise<{ routeCount: number; date: string; hour: string; storage: 'local' | 'blob'; dailySummaryMode: HistorySummaryMode;
+  dailySummaryWrites: number; finalizedDays: number; storageLayout: HistoryStorageSelection;
+  hourlyBlobWrites: number; dailyBlobWrites: number; layoutControlBlobWrites: number; bucketReadbacks: number }> {
   const now = args.now ?? new Date();
   const storage = historyStorage();
   const date = localDateKey(now);
@@ -133,14 +138,24 @@ export async function captureHistorySnapshotForResults(args: {
   const writeConcurrency = positiveInteger(process.env.RIVER_HISTORY_WRITE_CONCURRENCY, 8);
   const mode = args.dailySummaryMode ?? process.env.RIVER_HISTORY_DAILY_SUMMARY_MODE ?? 'legacy';
   if (mode !== 'legacy' && mode !== DAILY_HISTORY_SUMMARY_MODE) throw new Error('Invalid RIVER_HISTORY_DAILY_SUMMARY_MODE.');
+  const selection = args.storageLayout ?? process.env.RIVER_HISTORY_STORAGE_LAYOUT ?? 'auto';
+  if (selection !== 'auto' && selection !== 'legacy' && selection !== HISTORY_BUCKET_LAYOUT) throw new Error('Invalid RIVER_HISTORY_STORAGE_LAYOUT.');
   const slugs = args.results.map(result => result.river.slug).sort();
   if (new Set(slugs).size !== slugs.length) throw new Error('Duplicate history route.');
   let dailySummaryWrites = 0, finalizedDays = 0;
-  if (!args.results.length) return { routeCount: 0, date, hour, storage: storage.kind, dailySummaryMode: mode, dailySummaryWrites, finalizedDays };
+  let storageLayout: HistoryStorageSelection = selection;
+  let writes = { hourlyBlobWrites: 0, dailyBlobWrites: 0, layoutControlBlobWrites: 0, bucketReadbacks: 0 };
+  if (!args.results.length) return { routeCount: 0, date, hour, storage: storage.kind, dailySummaryMode: mode,
+    dailySummaryWrites, finalizedDays, storageLayout, ...writes };
 
   await withJsonStorageLock(`history-capture:${historyPrefix()}`, () => withHistoryCaptureLease(storage,
     `${historyPrefix()}/_capture-lease.json`, async assertOwned => {
       const original = await storage.readJsonWithEtag<FinalizationCheckpoint>(checkpointBlobName());
+      const repository = await openHistoryRepository({ storage, prefix: historyPrefix(), validateBucket: validHistoryBucket,
+        concurrency: writeConcurrency, writer: { selection, assertOwned, now } });
+      storageLayout = repository.layout;
+      // Register possible hourly objects before announcing the capture journal.
+      await repository.prepareHourlyDate(date);
       const known = new Set(original.value?.knownRoutes ?? []);
       const pending = new Map(Object.entries(original.value?.pending ?? {}).map(([day, routes]) => [day, new Set(routes)]));
       const addPending = (day: string, slug: string) => {
@@ -151,7 +166,7 @@ export async function captureHistorySnapshotForResults(args: {
       // last known partial/missed-day boundary from retained hourly files.
       await drainHistoryWork(slugs.filter(slug => !known.has(slug)), writeConcurrency, async slug => {
         assertOwned();
-        const daily = await storage.readJson<RiverHistoryDaySummary[]>(dailyBlobName(slug));
+        const daily = await repository.readDaily(slug, { days: 1, beforeDate: date });
         const latest = daily?.map(day => day.date).filter(day => day < date).sort().at(-1) ?? previousHistoryDate(date);
         for (const day of historyDatesThrough(latest, previousHistoryDate(date))) addPending(day, slug);
         known.add(slug);
@@ -173,9 +188,9 @@ export async function captureHistorySnapshotForResults(args: {
       await drainHistoryWork(args.results, writeConcurrency, async result => {
         assertOwned();
         const snapshot = buildSnapshot(result, now, date, hour);
-        await mutateJson<RiverHistorySnapshot[]>({ storage, blobName: hourlyBlobName(result.river.slug, date), initial: [],
-          mutate: existing => { assertOwned(); return upsertSnapshot(existing, snapshot); } });
+        await repository.appendHourly(snapshot);
       });
+      await repository.flush('hourly');
       const work = new Map<string, Set<string>>();
       const addWork = (slug: string, day: string) => {
         const dates = work.get(slug) ?? new Set<string>(); dates.add(day); work.set(slug, dates);
@@ -186,24 +201,18 @@ export async function captureHistorySnapshotForResults(args: {
       if (mode === 'legacy') for (const slug of slugs) addWork(slug, date);
       await drainHistoryWork([...work], writeConcurrency, async ([slug, dates]) => {
         assertOwned();
-        const dailyPath = dailyBlobName(slug);
-        const existing = (await storage.readJson<RiverHistoryDaySummary[]>(dailyPath)) ?? [];
         const summaries: RiverHistoryDaySummary[] = [];
         for (const day of [...dates].sort()) {
           assertOwned();
-          const samples = await storage.readJson<RiverHistorySnapshot[]>(hourlyBlobName(slug, day));
+          const samples = await repository.readHourly(slug, day);
           if (samples?.length) {
             summaries.push(summarizeSnapshots(samples, day));
             if (day < checkpoint.latestCaptureDate) finalizedDays++;
           }
         }
-        const next = summaries.reduce((days, day) => upsertDailySummary(days, day), existing);
-        if (JSON.stringify(next) !== JSON.stringify(existing)) {
-          await mutateJson<RiverHistoryDaySummary[]>({ storage, blobName: dailyPath, initial: [],
-            mutate: current => { assertOwned(); return summaries.reduce((days, day) => upsertDailySummary(days, day), current); } });
-          dailySummaryWrites++;
-        }
+        if (await repository.upsertDaily(slug, summaries)) dailySummaryWrites++;
       });
+      await repository.flush('daily');
       // Publish completion only after all daily arrays are durable. Empty dates
       // remove an announced-but-never-written attempt without inventing samples.
       for (const [slug, dates] of work) for (const day of dates) pending.get(day)?.delete(slug);
@@ -213,6 +222,7 @@ export async function captureHistorySnapshotForResults(args: {
         await mutateJson<FinalizationCheckpoint>({ storage, blobName: checkpointBlobName(), initial: checkpoint,
           mutate: () => { assertOwned(); return completed; } });
       }
+      writes = { ...repository.stats };
   }));
   forgetCache('history:', { prefix: true });
 
@@ -224,6 +234,8 @@ export async function captureHistorySnapshotForResults(args: {
     dailySummaryMode: mode,
     dailySummaryWrites,
     finalizedDays,
+    storageLayout,
+    ...writes,
   };
 }
 
@@ -237,16 +249,16 @@ export async function getRiverHistory(args: {
   const date = localDateKey(now);
   // Read the publication checkpoint before daily arrays. A newer checkpoint
   // therefore cannot hide daily writes that were still pending when read began.
-  const checkpoint = await remember<FinalizationCheckpoint | null>({ key: `history:checkpoint:${historyPrefix()}`,
-    namespace: 'history-control', ttlMs: 45_000, staleWhileErrorMs: 0, maxEntries: 4,
-    load: () => storage.readJson<FinalizationCheckpoint>(checkpointBlobName()) });
-  const daily = ((await storage.readJson<RiverHistoryDaySummary[]>(dailyBlobName(args.slug))) ?? [])
-    .sort((left, right) => left.date.localeCompare(right.date));
+  const checkpoint = await storage.readJson<FinalizationCheckpoint>(checkpointBlobName());
+  // Load the storage manifest after the finalization journal and without a
+  // control cache: completed daily writes must never be hidden by old month metadata.
+  const repository = await openHistoryRepository({ storage, prefix: historyPrefix(), validateBucket: validHistoryBucket });
+  const daily = await repository.readDaily(args.slug, { days: args.days ?? 7 });
   const pendingDates = [...new Set([date, ...(checkpoint ? Object.entries(checkpoint.pending)
     .filter(([day, routes]) => day <= date && routes.includes(args.slug)).map(([day]) => day)
     : daily.at(-1)?.date && daily.at(-1)!.date < date ? [daily.at(-1)!.date] : [])])].sort();
   const pending = await mapWithConcurrency(pendingDates, 6, async day => ({ day,
-    samples: (await storage.readJson<RiverHistorySnapshot[]>(hourlyBlobName(args.slug, day))) ?? [] }));
+    samples: await repository.readHourly(args.slug, day) }));
   const derivedDaily = pending.filter(item => item.samples.length)
     .reduce((days, item) => upsertDailySummary(days, summarizeSnapshots(item.samples, item.day)), daily);
   const limitedDays = derivedDaily.slice(-Math.max(1, args.days ?? 7));
@@ -309,41 +321,29 @@ function buildSnapshot(result: RiverScoreResult, now: Date, date: string, hour: 
   };
 }
 
-function upsertSnapshot(existing: RiverHistorySnapshot[], next: RiverHistorySnapshot): RiverHistorySnapshot[] {
-  const nextUtcHour = Math.floor(Date.parse(next.capturedAt) / 3_600_000);
-  const filtered = existing.filter(snapshot => Math.floor(Date.parse(snapshot.capturedAt) / 3_600_000) !== nextUtcHour);
-  filtered.push(next);
-  return filtered.sort((left, right) => left.capturedAt.localeCompare(right.capturedAt));
-}
-
 function upsertDailySummary(
   existing: RiverHistoryDaySummary[],
   next: RiverHistoryDaySummary
 ): RiverHistoryDaySummary[] {
-  const filtered = existing.filter((summary) => summary.date !== next.date);
-  filtered.push(next);
-  return filtered.sort((left, right) => left.date.localeCompare(right.date));
-}
-
-function hourlyBlobName(slug: string, date: string) {
-  return `${historyPrefix()}/hourly/${slug}/${date}.json`;
-}
-
-function dailyBlobName(slug: string) {
-  return `${historyPrefix()}/daily/${slug}.json`;
+  return mergeHistoryDays(existing, [next]);
 }
 
 function checkpointBlobName() { return `${historyPrefix()}/_daily-finalization.json`; }
 
-async function drainHistoryWork<T>(items: T[], concurrency: number, action: (item: T) => Promise<void>) {
-  let failed = false;
-  let failure: unknown;
-  await mapWithConcurrency(items, concurrency, async item => {
-    if (failed) return;
-    try { await action(item); } catch (error) { if (!failed) failure = error; failed = true; }
-  });
-  if (failed) throw failure;
+export async function exportHistoryBucketsToLegacy() {
+  const storage = historyStorage();
+  const result = await withJsonStorageLock(`history-capture:${historyPrefix()}`, () => withHistoryCaptureLease(storage,
+    `${historyPrefix()}/_capture-lease.json`, async assertOwned => {
+      const repository = await openHistoryRepository({ storage, prefix: historyPrefix(), validateBucket: validHistoryBucket,
+        concurrency: positiveInteger(process.env.RIVER_HISTORY_WRITE_CONCURRENCY, 8),
+        writer: { selection: 'auto', assertOwned, now: new Date() } });
+      return repository.exportLegacy();
+    }));
+  forgetCache('history:', { prefix: true });
+  return result;
 }
+
+function validHistoryBucket(value: unknown) { return isHistoryBucket(value, isRiverHistorySnapshotArray, isRiverHistoryDaySummaryArray); }
 
 function historyPrefix() {
   return cleanPathSegment(process.env.RIVER_HISTORY_BLOB_PREFIX || 'river-history');
@@ -354,7 +354,7 @@ function historyStorage(): JsonStorage {
     containerSasUrl: process.env.RIVER_HISTORY_CONTAINER_SAS_URL,
     localDirectory: process.env.RIVER_HISTORY_DIR || DEFAULT_HISTORY_DIR,
     validate: (value) => isRiverHistorySnapshotArray(value) || isRiverHistoryDaySummaryArray(value)
-      || isFinalizationCheckpoint(value) || isHistoryCaptureLease(value),
+      || isFinalizationCheckpoint(value) || isHistoryCaptureLease(value) || isHistoryStorageControl(value) || validHistoryBucket(value),
     label: 'history',
     accessTier: 'Hot',
   });
