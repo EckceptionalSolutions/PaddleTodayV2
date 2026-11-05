@@ -1,0 +1,9 @@
+{
+  "name": "paddletoday-www-redirect",
+  "main": "www-redirect-worker.mjs",
+  "compatibility_date": "2026-11-05",
+  "workers_dev": false,
+  "preview_urls": false,
+  "observability": { "enabled": false },
+  "routes": [ { "pattern": "www.paddletoday.com", "custom_domain": true, "zone_name": "paddletoday.com" } ]
+}

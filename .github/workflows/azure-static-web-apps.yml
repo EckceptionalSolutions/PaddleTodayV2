@@ -24,6 +24,7 @@ on:
       - 'scripts/cloudflare-hosting-control.mjs'
       - 'scripts/wait-for-frontend-release.mjs'
       - 'scripts/verify-frontend-canary.mjs'
+      - 'scripts/verify-www-redirect.mjs'
       - 'infra/cloudflare/**'
       - 'scripts/lib/**'
       - 'staticwebapp.config.json'
@@ -209,8 +210,10 @@ jobs:
           CLOUDFLARE_ACCOUNT_ID: ${{ vars.CLOUDFLARE_ACCOUNT_ID }}
           CLOUDFLARE_ZONE_ID: ${{ secrets.CLOUDFLARE_ZONE_ID }}
         run: |
+          set -euo pipefail
           node scripts/cloudflare-hosting-control.mjs guard-production
-          npx --yes wrangler@4.158.0 deploy --config infra/cloudflare/wrangler.production.json
+          npx --yes wrangler@4.158.0 deploy --config infra/cloudflare/wrangler.production.json | tee .local/frontend-hosting/app-deploy.log
+          npx --yes wrangler@4.158.0 deploy --config infra/cloudflare/wrangler.www.json | tee .local/frontend-hosting/www-deploy.log
 
       - name: Verify both Cloudflare production hosts
         if: env.FRONTEND_HOSTING_PROVIDER == 'cloudflare' && (github.event_name != 'workflow_dispatch' || (inputs.deploy_frontend && !inputs.verify_existing_assets))
@@ -219,10 +222,9 @@ jobs:
           EXPECTED_FRONTEND_REVISION: ${{ env.SOURCE_REVISION }}
         run: |
           node scripts/wait-for-frontend-release.mjs
-          for origin in https://paddletoday.com https://www.paddletoday.com; do
-            FRONTEND_CANARY_ORIGIN="$origin" FRONTEND_CANARY_REPORT=".local/frontend-hosting/production-$(echo "$origin" | cut -d/ -f3).json" node scripts/verify-frontend-canary.mjs
-            DEPLOYMENT_BASE_URL="$origin" EXPECTED_CANONICAL_ORIGIN=https://paddletoday.com node scripts/search-serving-smoke.mjs
-          done
+          FRONTEND_CANARY_ORIGIN=https://paddletoday.com FRONTEND_CANARY_REPORT=.local/frontend-hosting/production-paddletoday.com.json node scripts/verify-frontend-canary.mjs
+          EXPECTED_CANONICAL_ORIGIN=https://paddletoday.com node scripts/search-serving-smoke.mjs
+          node scripts/verify-www-redirect.mjs
 
       - uses: actions/upload-artifact@v4
         if: always() && env.FRONTEND_HOSTING_PROVIDER == 'cloudflare'

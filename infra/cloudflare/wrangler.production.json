@@ -7,8 +7,7 @@
   "observability": { "enabled": false },
   "vars": { "FRONTEND_CANARY": "0" },
   "routes": [
-    { "pattern": "paddletoday.com", "custom_domain": true, "zone_name": "paddletoday.com" },
-    { "pattern": "www.paddletoday.com", "custom_domain": true, "zone_name": "paddletoday.com" }
+    { "pattern": "paddletoday.com", "custom_domain": true, "zone_name": "paddletoday.com" }
   ],
   "assets": {
     "directory": "../../tmp/frontend",

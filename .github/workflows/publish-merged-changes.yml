@@ -51,6 +51,7 @@ jobs:
         if: always()
         with:
           name: publication-handoff
+          overwrite: true
           path: publication-handoff.json
           if-no-files-found: warn
 
@@ -77,5 +78,6 @@ jobs:
         if: always()
         with:
           name: publication-result
+          overwrite: true
           path: publication-result.json
           if-no-files-found: warn

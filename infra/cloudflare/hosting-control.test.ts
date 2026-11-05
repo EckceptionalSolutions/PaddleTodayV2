@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest';
-import { ACCOUNT, AZURE_HOST, HOSTS, WORKER, azureDnsRecords, snapshotHosting, verifyHosting,
+import { ACCOUNT, AZURE_HOST, HOSTS, HOST_WORKERS, azureDnsRecords, snapshotHosting, verifyHosting,
   rollbackAzureHosting, unrelatedDnsFingerprint } from './hosting-control.mjs';
 const zone = 'a'.repeat(32);
 function fixture() {
@@ -24,7 +24,7 @@ function fixture() {
     if (path.includes('/workers/domains')) return { result: state.domains };
     throw new Error('Unexpected fixture path');
   };
-  const cutover = () => { state.domains = HOSTS.map((hostname, index) => ({ id: `binding-${index}`, hostname, service: WORKER, zone_id: zone, enabled: true }));
+  const cutover = () => { state.domains = HOSTS.map((hostname, index) => ({ id: `binding-${index}`, hostname, service: HOST_WORKERS[hostname], zone_id: zone, enabled: true }));
     state.dns = state.dns.map(record => ['A', 'AAAA', 'CNAME'].includes(record.type) ? { ...record, type: 'AAAA', content: '100::', proxied: true } : record); };
   return { state, writes, api, cutover };
 }
