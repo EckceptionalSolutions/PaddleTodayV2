@@ -19,6 +19,7 @@ on:
       - 'scripts/audit-search-indexability.ts'
       - 'scripts/emit-route-consolidation-redirects.mjs'
       - 'scripts/search-serving-smoke.mjs'
+      - 'scripts/check-frontend-capacity.mjs'
       - 'scripts/lib/**'
       - 'staticwebapp.config.json'
       - '.github/workflows/azure-static-web-apps.yml'
@@ -109,6 +110,12 @@ jobs:
       - name: Audit final frontend search indexability
         if: github.event_name != 'workflow_dispatch' || !inputs.verify_existing_assets
         run: node --import tsx scripts/audit-search-indexability.ts tmp/frontend
+
+      - name: Verify the frontend fits the configured hosting tier
+        if: github.event_name != 'workflow_dispatch' || !inputs.verify_existing_assets
+        env:
+          AZURE_STATIC_WEB_APPS_TIER: ${{ vars.AZURE_STATIC_WEB_APPS_TIER || 'Standard' }}
+        run: node scripts/check-frontend-capacity.mjs tmp/frontend
 
       - name: Sign in to Azure for asset publishing
         if: github.event_name != 'workflow_dispatch' || !inputs.verify_existing_assets
