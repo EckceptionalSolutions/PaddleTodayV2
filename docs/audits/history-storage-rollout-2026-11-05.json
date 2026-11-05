@@ -1,0 +1,183 @@
+{
+  "recordedAt": "2026-11-05T16:39:52.040Z",
+  "sourceRevision": "3c979ce865e9c216215b2c8df552bace759166dc",
+  "pullRequest": "https://github.com/EckceptionalSolutions/PaddleTodayV2/pull/134",
+  "deployments": [
+    {
+      "conclusion": "success",
+      "databaseId": 42063126892,
+      "headSha": "3c979ce865e9c216215b2c8df552bace759166dc",
+      "status": "completed",
+      "url": "https://github.com/EckceptionalSolutions/PaddleTodayV2/actions/runs/42063126892",
+      "workflowName": "Paddle Today API"
+    },
+    {
+      "conclusion": "success",
+      "databaseId": 42063122477,
+      "headSha": "3c979ce865e9c216215b2c8df552bace759166dc",
+      "status": "completed",
+      "url": "https://github.com/EckceptionalSolutions/PaddleTodayV2/actions/runs/42063122477",
+      "workflowName": "Paddle Today Frontend"
+    },
+    {
+      "conclusion": "success",
+      "databaseId": 42063131361,
+      "headSha": "3c979ce865e9c216215b2c8df552bace759166dc",
+      "status": "completed",
+      "url": "https://github.com/EckceptionalSolutions/PaddleTodayV2/actions/runs/42063131361",
+      "workflowName": "Paddle Today Snapshot Worker"
+    }
+  ],
+  "captures": [
+    {
+      "conclusion": "success",
+      "databaseId": 42063414624,
+      "headSha": "3c979ce865e9c216215b2c8df552bace759166dc",
+      "status": "completed",
+      "url": "https://github.com/EckceptionalSolutions/PaddleTodayV2/actions/runs/42063414624",
+      "workflowName": "Paddle Today History Snapshots",
+      "capture": "[history] captured 1392 routes for 2026-11-05 10:00 using blob storage; dailyMode=daily-finalize-v1 dailySummaryWrites=0 finalizedDays=0; storageLayout=history-buckets-v1 hourlyBlobs=32 dailyBlobs=0 layoutControlWrites=2 bucketReadbacks=32",
+      "storageLayout": "history-buckets-v1",
+      "hourlyBlobs": 32,
+      "dailyBlobs": 0,
+      "layoutControlWrites": 2,
+      "bucketReadbacks": 32
+    },
+    {
+      "conclusion": "success",
+      "databaseId": 42066243741,
+      "headSha": "99d008dc38de163dcab12d5833ce69b9416de9fc",
+      "status": "completed",
+      "url": "https://github.com/EckceptionalSolutions/PaddleTodayV2/actions/runs/42066243741",
+      "workflowName": "Paddle Today History Snapshots",
+      "capture": "[history] captured 1392 routes for 2026-11-05 10:00 using blob storage; dailyMode=daily-finalize-v1 dailySummaryWrites=0 finalizedDays=0; storageLayout=history-buckets-v1 hourlyBlobs=32 dailyBlobs=0 layoutControlWrites=0 bucketReadbacks=32",
+      "storageLayout": "history-buckets-v1",
+      "hourlyBlobs": 32,
+      "dailyBlobs": 0,
+      "layoutControlWrites": 0,
+      "bucketReadbacks": 32
+    }
+  ],
+  "verification": {
+    "checkedAt": "2026-11-05T16:36:50.255Z",
+    "baselineAt": "2026-11-05T16:08:39.700Z",
+    "buildRevision": "3c979ce865e9c216215b2c8df552bace759166dc",
+    "historyStorageLayouts": [
+      "legacy",
+      "history-buckets-v1"
+    ],
+    "samples": [
+      {
+        "slug": "lynches-river-indigo-wicklow",
+        "oldDaysPreserved": 19,
+        "oldHoursPreserved": 2,
+        "days": 20,
+        "hours": 3,
+        "latestSnapshotAt": "2026-11-05T16:36:03.216Z"
+      },
+      {
+        "slug": "jacks-fork-river-buck-hollow-rymers",
+        "oldDaysPreserved": 29,
+        "oldHoursPreserved": 2,
+        "days": 30,
+        "hours": 3,
+        "latestSnapshotAt": "2026-11-05T16:36:03.216Z"
+      },
+      {
+        "slug": "moyie-river-copper-twin-bridges",
+        "oldDaysPreserved": 19,
+        "oldHoursPreserved": 2,
+        "days": 20,
+        "hours": 3,
+        "latestSnapshotAt": "2026-11-05T16:36:03.216Z"
+      }
+    ],
+    "status": "passed"
+  },
+  "automaticVerification": {
+    "checkedAt": "2026-11-05T16:39:44.319Z",
+    "baselineAt": "2026-11-05T16:08:39.700Z",
+    "buildRevision": "3c979ce865e9c216215b2c8df552bace759166dc",
+    "historyStorageLayouts": [
+      "legacy",
+      "history-buckets-v1"
+    ],
+    "samples": [
+      {
+        "slug": "lynches-river-indigo-wicklow",
+        "oldDaysPreserved": 19,
+        "oldHoursPreserved": 2,
+        "days": 20,
+        "hours": 3,
+        "latestSnapshotAt": "2026-11-05T16:39:11.222Z"
+      },
+      {
+        "slug": "jacks-fork-river-buck-hollow-rymers",
+        "oldDaysPreserved": 29,
+        "oldHoursPreserved": 2,
+        "days": 30,
+        "hours": 3,
+        "latestSnapshotAt": "2026-11-05T16:39:11.222Z"
+      },
+      {
+        "slug": "moyie-river-copper-twin-bridges",
+        "oldDaysPreserved": 19,
+        "oldHoursPreserved": 2,
+        "days": 20,
+        "hours": 3,
+        "latestSnapshotAt": "2026-11-05T16:39:11.222Z"
+      }
+    ],
+    "status": "passed"
+  },
+  "worker": {
+    "endTime": "2026-11-05T16:23:25+00:00",
+    "images": [
+      "ahmqiry64didw24.azurecr.io/paddletoday/snapshot-worker:3c979ce865e9c216215b2c8df552bace759166dc"
+    ],
+    "name": "paddletoday-river-snapshots-1gaf6s9",
+    "startTime": "2026-11-05T16:21:59+00:00",
+    "status": "Succeeded"
+  },
+  "validation": {
+    "apiTests": 1316,
+    "bucketIntegrationCases": 15,
+    "readinessTests": 8
+  },
+  "economics": {
+    "legacyHourlyDataWritesPerCapture": 1392,
+    "bucketHourlyDataWritesPerCapture": 32,
+    "reductionPercent": 97.70114942528735,
+    "estimatedWriteSavingsPer30DaysAt32CapturesPerWeek": 2.273142857142857,
+    "observedInvoiceReduction": null,
+    "limitation": "Write-only estimate at the previously billed Hot GRS unit price; excludes read/coordination effects and workload changes. Posted billing is still needed."
+  },
+  "configuration": {
+    "historyStorageLayout": "auto follows the durable marker",
+    "historyDailySummaryMode": "daily-finalize-v1",
+    "apiPlan": "B1 retained",
+    "frontend": "Azure SWA retained pending Cloudflare publishing access and canary validation"
+  },
+  "reconciliation": {
+    "conclusion": "success",
+    "databaseId": 42066063430,
+    "headSha": "99d008dc38de163dcab12d5833ce69b9416de9fc",
+    "status": "completed",
+    "url": "https://github.com/EckceptionalSolutions/PaddleTodayV2/actions/runs/42066063430",
+    "workflowName": "Publish merged changes"
+  },
+  "frontendCanaryPreparation": {
+    "pullRequest": "https://github.com/EckceptionalSolutions/PaddleTodayV2/pull/135",
+    "productionFrontend": {
+      "conclusion": "success",
+      "databaseId": 42064750968,
+      "headSha": "99d008dc38de163dcab12d5833ce69b9416de9fc",
+      "status": "completed",
+      "url": "https://github.com/EckceptionalSolutions/PaddleTodayV2/actions/runs/42064750968",
+      "workflowName": "Paddle Today Frontend"
+    },
+    "canaryPublished": false,
+    "publishingSecretPresent": false
+  },
+  "operationalNote": "Canary-only PR #135 queued redundant API run 42064754987 during the original deployment. Its changed paths were inspected and contained no API deployment paths; the pending duplicate was deliberately canceled. Its original publication observer therefore reports failure. Fresh reconciliation run 42066063430 succeeded after the original production deployment and frontend release were verified; no replacement API deployment was required."
+}
