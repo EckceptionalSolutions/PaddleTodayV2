@@ -100,7 +100,20 @@ jobs:
                 codes: body.errors?.map(error => Number(error.code) || null) };
             } catch { return { capability, status: 'unavailable', success: false }; }
           }));
-          const report = { checkedAt: new Date().toISOString(), checks, readOnly: true };
+          const publicEndpoints = await Promise.all([
+            ['public-root', 'https://paddletoday.com/'],
+            ['public-api', 'https://paddletoday.com/api/health'],
+            ['azure-origin', 'https://jolly-river-0d74c2110.1.azurestaticapps.net/'],
+          ].map(async ([label, url]) => {
+            try {
+              const response = await fetch(url, { redirect: 'manual', signal: AbortSignal.timeout(15000) });
+              const hasBrand = response.status === 200 && (await response.text()).includes('Paddle Today');
+              await response.body?.cancel();
+              return { label, status: response.status, hasBrand, challenged: response.headers.get('cf-mitigated') === 'challenge',
+                redirectsToApex: response.headers.get('location') === 'https://paddletoday.com/' };
+            } catch { return { label, status: 'unavailable' }; }
+          }));
+          const report = { checkedAt: new Date().toISOString(), checks, publicEndpoints, readOnly: true };
           await fs.mkdir('.local/frontend-hosting', { recursive: true });
           await fs.writeFile('.local/frontend-hosting/publishing-access.json', JSON.stringify(report, null, 2));
           console.log(JSON.stringify(report));
