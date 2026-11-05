@@ -1,0 +1,44 @@
+name: Paddle Today Frontend Authentication Check
+on:
+  workflow_dispatch:
+    inputs:
+      origin:
+        description: 'Production or the configured canary origin'
+        type: choice
+        options:
+          - https://paddletoday.com
+          - https://paddletoday-frontend-canary.paddletoday-c8681e05.workers.dev
+        default: https://paddletoday.com
+concurrency:
+  group: frontend-authentication-check
+  cancel-in-progress: false
+permissions:
+  contents: read
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version-file: .nvmrc
+          cache: npm
+      - run: npm ci
+      - name: Test identity ownership, cleanup, and output redaction
+        run: npx vitest run infra/verification/authenticated-frontend.test.ts
+      - uses: azure/login@v2
+        with:
+          creds: ${{ secrets.AZURE_CREDENTIALS }}
+      - name: Verify authenticated requests using one temporary backend-managed identity
+        env:
+          FRONTEND_AUTH_ORIGIN: ${{ inputs.origin }}
+          PUBLIC_FIREBASE_API_KEY: ${{ vars.PUBLIC_FIREBASE_API_KEY }}
+          PUBLIC_FIREBASE_PROJECT_ID: ${{ vars.PUBLIC_FIREBASE_PROJECT_ID }}
+        run: node scripts/verify-authenticated-frontend.mjs
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: frontend-authentication-evidence
+          path: .local/frontend-hosting/authenticated-verification.json
+          if-no-files-found: warn
