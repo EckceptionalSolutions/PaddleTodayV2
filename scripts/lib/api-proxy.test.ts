@@ -3,6 +3,16 @@ import { API_ORIGIN, PROXY_VERSION, proxyApi } from '../../infra/cloudflare/api-
 import worker from '../../infra/cloudflare/frontend-worker.mjs';
 
 describe('same-origin API proxy', () => {
+  it('excludes API responses from indexing only on the canary', async () => {
+    const upstream = vi.spyOn(globalThis, 'fetch').mockImplementation(async () => new Response('{}'));
+    try {
+      for (const [env, expected] of [[{ FRONTEND_CANARY: '1' }, 'noindex, nofollow'], [{}, null]] as const) {
+        const response = await worker.fetch(new Request('https://example.test/api/health'), env);
+        expect(response.headers.get('x-robots-tag')).toBe(expected);
+        expect(await response.text()).toBe('{}');
+      }
+    } finally { upstream.mockRestore(); }
+  });
   it('serves a missed static request through the asset binding without an API dependency', async () => {
     const assets = { fetch: vi.fn(async () => new Response('static page')) };
     const response = await worker.fetch(new Request('https://paddletoday.com/explore/'), { ASSETS: assets });
