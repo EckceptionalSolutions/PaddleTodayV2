@@ -3,7 +3,7 @@ import { mkdir, readFile, writeFile } from 'node:fs/promises';
 import { join } from 'node:path';
 
 /** Convert only understood SWA controls; unsupported routing must fail closed. */
-export function translateStaticConfig(config) {
+export function translateStaticConfig(config, { noIndex = false } = {}) {
   assert.ok(config && !config.navigationFallback, 'SPA fallback is not supported for this static site.');
   assert.ok(Object.keys(config).every(key => ['routes', 'globalHeaders', 'responseOverrides'].includes(key)), 'Unknown SWA setting.');
   assert.ok(!config.responseOverrides || Object.keys(config.responseOverrides).every(key => key === '404'), 'Unknown response override.');
@@ -21,7 +21,7 @@ export function translateStaticConfig(config) {
     }
     headers.push(lines.join('\n'));
   };
-  headerBlock('/*', config.globalHeaders || {});
+  headerBlock('/*', { ...config.globalHeaders, ...(noIndex ? { 'X-Robots-Tag': 'noindex, nofollow' } : {}) });
   const sources = new Set();
   const explicit = new Set((config.routes || []).map(route => route.route));
   for (const route of config.routes || []) {
@@ -48,10 +48,10 @@ export function translateStaticConfig(config) {
     headers: headers.join('\n\n') + '\n', redirectCount: redirects.length };
 }
 
-export async function prepareCloudflareFrontend(directory, configPath, revision = null) {
+export async function prepareCloudflareFrontend(directory, configPath, revision = null, { noIndex = false } = {}) {
   assert.ok(revision === null || /^[a-f0-9]{40}$/.test(revision), 'Expected a full frontend source revision.');
   const config = JSON.parse(await readFile(configPath, 'utf8'));
-  const translated = translateStaticConfig(config);
+  const translated = translateStaticConfig(config, { noIndex });
   await readFile(join(directory, '404.html')); // Require an actual 404 page; never substitute index.html.
   const legacy = '/gallery/* https://paddletoday.blob.core.windows.net/web-assets/legacy/gallery/:splat 302\n'
     + '/data/* https://paddletoday.blob.core.windows.net/web-assets/legacy/data/:splat 302\n';
@@ -62,5 +62,5 @@ export async function prepareCloudflareFrontend(directory, configPath, revision 
   await mkdir(join(directory, '.well-known'), { recursive: true });
   await writeFile(join(directory, '.well-known/paddletoday-frontend-release.json'),
     JSON.stringify({ format: 'PaddleTodayFrontendRelease', sourceRevision: revision }) + '\n');
-  return { redirectCount: translated.redirectCount + 2, apiPaths: ['/api', '/api/*'], spaFallback: false };
+  return { redirectCount: translated.redirectCount + 2, apiPaths: ['/api', '/api/*'], spaFallback: false, noIndex };
 }

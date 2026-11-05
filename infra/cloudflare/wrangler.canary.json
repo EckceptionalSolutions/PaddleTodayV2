@@ -5,6 +5,7 @@
   "workers_dev": true,
   "preview_urls": false,
   "observability": { "enabled": false },
+  "vars": { "FRONTEND_CANARY": "1" },
   "assets": {
     "directory": "../../tmp/frontend",
     "binding": "ASSETS",

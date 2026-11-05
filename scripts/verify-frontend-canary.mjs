@@ -10,6 +10,9 @@ const report = { checkedAt: new Date().toISOString(), origin: origin.origin, che
 async function get(path, status, options = {}) {
   const response = await fetch(origin.origin + path, { ...options, redirect: 'manual', signal: AbortSignal.timeout(30000) });
   assert.equal(response.status, status, `${options.method || 'GET'} ${path}`);
+  if (process.env.FRONTEND_DEPLOYMENT_STAGE === 'canary' && (status === 200 || path.startsWith('/api/'))) {
+    assert.match(response.headers.get('x-robots-tag') || '', /noindex/);
+  }
   report.checks.push({ method: options.method || 'GET', path, status });
   return response;
 }
