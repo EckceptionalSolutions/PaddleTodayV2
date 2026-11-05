@@ -88,13 +88,16 @@ jobs:
           FRONTEND_CANARY_ORIGIN: ${{ inputs.canary_origin }}
           EXPECTED_FRONTEND_REVISION: ${{ env.SOURCE_REVISION }}
         run: node scripts/verify-frontend-canary.mjs
+      - name: Prepare the production gallery and map asset release
+        if: inputs.operation == 'cutover'
+        run: |
+          npm run prebuild:app
+          node scripts/static-assets.mjs prepare
       - name: Build the complete production frontend
         if: inputs.operation == 'cutover'
         env:
           FRONTEND_DEPLOYMENT_STAGE: production
         run: |
-          npm run prebuild:app
-          node scripts/static-assets.mjs prepare
           node scripts/assert-firebase-web-config.mjs
           npm run build:app
           cp staticwebapp.config.json dist/staticwebapp.config.json
