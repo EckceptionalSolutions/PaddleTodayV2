@@ -29,6 +29,15 @@ describe('batch writer rollout guard', () => {
     expect(result.compatible).toBe(true);
   });
 
+  it('requires bucket storage support independently of daily-summary finalization support', async () => {
+    let calls = 0;
+    await waitForSnapshotReader({ baseUrl: 'https://api.test', capability: 'historyStorageLayouts', requiredFormat: 'history-buckets-v1',
+      timeoutMs: 30, intervalMs: 10, ...clock(), fetchImpl: async () => response(++calls === 1
+        ? { ok: true, historySummaryModes: ['legacy', 'daily-finalize-v1'], historyStorageLayouts: ['legacy'] }
+        : { ok: true, historyStorageLayouts: ['legacy', 'history-buckets-v1'] }) });
+    expect(calls).toBe(2);
+  });
+
   it.each([
     [compatible, 302], [compatible, 503], [{ ...compatible, ok: false }, 200],
     [{ ok: true, snapshotDetailFormats: ['legacy'] }, 200],

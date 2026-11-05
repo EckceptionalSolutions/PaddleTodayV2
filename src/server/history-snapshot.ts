@@ -6,7 +6,7 @@ async function main() {
   const results = await getAllRiverScores();
   const captured = await captureHistorySnapshotForResults({ results });
   console.log(
-    `[history] captured ${captured.routeCount} routes for ${captured.date} ${captured.hour} using ${captured.storage} storage; dailyMode=${captured.dailySummaryMode} dailySummaryWrites=${captured.dailySummaryWrites} finalizedDays=${captured.finalizedDays}`
+    `[history] captured ${captured.routeCount} routes for ${captured.date} ${captured.hour} using ${captured.storage} storage; dailyMode=${captured.dailySummaryMode} dailySummaryWrites=${captured.dailySummaryWrites} finalizedDays=${captured.finalizedDays}; storageLayout=${captured.storageLayout} hourlyBlobs=${captured.hourlyBlobWrites} dailyBlobs=${captured.dailyBlobWrites} layoutControlWrites=${captured.layoutControlBlobWrites} bucketReadbacks=${captured.bucketReadbacks}`
   );
 }
 

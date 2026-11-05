@@ -5,6 +5,16 @@ on:
     - cron: '12 * * * *'
   workflow_dispatch:
     inputs:
+      operation:
+        description: 'Capture normally, or export and verify all bucket data before legacy rollback'
+        type: choice
+        options: [capture, export-legacy]
+        default: capture
+      storage_layout:
+        description: 'Auto follows the durable storage marker; bucket activation requires compatible API readers'
+        type: choice
+        options: [auto, history-buckets-v1, legacy]
+        default: auto
       daily_summary_mode:
         description: 'Auto uses the repository setting; legacy restores per-capture daily writes'
         type: choice
@@ -18,8 +28,10 @@ concurrency:
 jobs:
   capture_history:
     runs-on: ubuntu-latest
-    timeout-minutes: 20
+    timeout-minutes: ${{ inputs.operation == 'export-legacy' && 60 || 20 }}
     env:
+      HISTORY_OPERATION: ${{ inputs.operation || 'capture' }}
+      RIVER_HISTORY_STORAGE_LAYOUT: ${{ inputs.storage_layout && inputs.storage_layout != 'auto' && inputs.storage_layout || vars.HISTORY_STORAGE_LAYOUT || 'auto' }}
       RIVER_HISTORY_DAILY_SUMMARY_MODE: ${{ inputs.daily_summary_mode && inputs.daily_summary_mode != 'auto' && inputs.daily_summary_mode || vars.HISTORY_DAILY_SUMMARY_MODE || 'legacy' }}
       API_ORIGIN: ${{ vars.API_ORIGIN || 'https://paddletodayapi-h7efgxcfg9h7gne9.centralus-01.azurewebsites.net' }}
 
@@ -34,12 +46,13 @@ jobs:
           cache: npm
 
       - name: Verify a compatible history reader before batching daily summaries
+        if: inputs.operation != 'export-legacy'
         run: node scripts/wait-for-history-reader.mjs
 
       - name: Install dependencies
         run: npm ci
 
-      - name: Capture route history snapshots
+      - name: Capture history or export verified legacy files
         env:
           RIVER_HISTORY_CONTAINER_SAS_URL: ${{ secrets.RIVER_HISTORY_CONTAINER_SAS_URL }}
           RIVER_HISTORY_BLOB_PREFIX: ${{ vars.RIVER_HISTORY_BLOB_PREFIX || 'river-history' }}
@@ -51,4 +64,8 @@ jobs:
             exit 1
           fi
 
-          npm run history:snapshot
+          case "$HISTORY_OPERATION" in
+            capture) npm run history:snapshot ;;
+            export-legacy) npx tsx src/server/history-export-legacy.ts ;;
+            *) echo 'Unknown history operation.'; exit 1 ;;
+          esac

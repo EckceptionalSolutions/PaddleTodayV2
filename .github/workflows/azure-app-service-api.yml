@@ -124,6 +124,9 @@ jobs:
             --settings "RIVER_HISTORY_CONTAINER_SAS_URL=$RIVER_HISTORY_CONTAINER_SAS_URL" \
               "RIVER_HISTORY_BLOB_PREFIX=$RIVER_HISTORY_BLOB_PREFIX" "HISTORY_TIME_ZONE=$HISTORY_TIME_ZONE" \
               "RIVER_HISTORY_DAILY_SUMMARY_MODE=$RIVER_HISTORY_DAILY_SUMMARY_MODE" --output none
+          # Identical settings do not reliably replace an existing Node process.
+          # Restart only after package upload and configuration have succeeded.
+          az webapp restart --resource-group paddletoday --name "$AZURE_WEBAPP_NAME" --output none
 
       - name: Wait for deployed API revision
         env:
