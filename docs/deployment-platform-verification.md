@@ -2,6 +2,8 @@
 
 Status: required platform-side release evidence
 
+Hosting update, November 5, 2026: Cloudflare now serves the frontend and proxies the unchanged App Service API; the Azure Static Web App was retired. Public HTTPS, www redirects, authenticated requests and mobile associations passed verification. See the [current hosting evidence](audits/frontend-production-rollout-2026-11-05.md). Older Azure/SWA observations below are historical; this cost-saving rollout did not change App Service or SCM network restrictions.
+
 The application and deployment package are ready for verification, but these controls depend on the Azure subscription and are not provable from the repository alone. The platform owner should run the checks below against the production resource group and attach the redacted output to the deployment run record.
 
 ## App Service origin and TLS

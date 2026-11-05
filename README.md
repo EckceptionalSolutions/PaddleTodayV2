@@ -152,27 +152,27 @@ Set `EXPO_PUBLIC_API_BASE_URL` in `apps/mobile/.env.local` when you want the app
 
 For the mobile web download prompt, set `PUBLIC_APPLE_APP_ID` or `PUBLIC_APP_STORE_URL` for iOS, and optionally set `PUBLIC_PLAY_STORE_URL` for Android. Android defaults to the `com.paddletoday.mobile` Play Store package URL.
 
-## Azure deployment
+## Production deployment
 
-Recommended first production shape:
+Current production shape:
 
-- Azure Static Web App for the frontend
-- Azure App Service for the Node `/api` backend
+- Cloudflare Workers Static Assets for the frontend, with a fixed-origin `/api` proxy and a separate www redirect Worker
+- Azure App Service B1 for the Node `/api` backend
 
-This is intentionally not the exact old PaddleToday deployment shape. The frontend is still static, but the live API is a custom Node server, not an Azure Functions `api/` folder.
+The Azure Static Web App was retired on November 5, 2026 after production, authentication, publishing and rollback verification. The frontend remains static; the live API remains a custom Node server. See the [completed hosting rollout and recovery instructions](./docs/audits/frontend-production-rollout-2026-11-05.md).
 
-Deployment files are included for when this repo is moved into its own GitHub repository:
+Deployment files:
 
-- [staticwebapp.config.json](./staticwebapp.config.json)
+- [routing and security-header source](./staticwebapp.config.json), translated for Cloudflare during packaging
 - [frontend workflow](./.github/workflows/azure-static-web-apps.yml)
 - [backend workflow](./.github/workflows/azure-app-service-api.yml)
-- [deployment plan](./docs/azure-deployment-plan.md)
+- [deployment readiness](./docs/deployment-readiness.md)
 
-Use the frontend workflow to deploy `dist/` to Azure Static Web Apps, then link an Azure App Service backend so `/api/*` is proxied to the Node server.
+The frontend workflow retains its original filename and uses repository variable `FRONTEND_HOSTING_PROVIDER=cloudflare`. It publishes deduplicated Blob assets, packages `tmp/frontend`, verifies the same release and authentication on the canary, then publishes the two production Workers. The API workflow deploys App Service independently. Native apps retain `https://paddletoday.com` as their API origin.
 
 Health and runtime notes:
 
-- `/api/health` returns uptime, river count, cache stats, and upstream telemetry through the public Static Web App origin
+- `/api/health` returns uptime, river count, cache stats, and upstream telemetry through the public Cloudflare origin
 - `/api/health/ready` is the public deploy-time readiness check
 - the App Service also accepts `/health` and `/health/ready` directly
 - `/api` responses carry a request ID in both the JSON body and the `x-request-id` response header

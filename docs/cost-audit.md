@@ -2,12 +2,15 @@
 
 Last reviewed: 2026-09-04
 
+Deployment update, November 5, 2026: the Azure Static Web App is retired and Cloudflare hosts production. See the [posted Azure cost analysis](audits/azure-cost-follow-up-2026-11-04.md) and [verified frontend/history rollout](audits/frontend-production-rollout-2026-11-05.md) for newer Azure evidence. Other provider estimates below retain their September review date.
+
 The figures below are planning estimates. They are not a bill or a forecast. The repository can verify deployment shape and snapshot capacity, but it does not have access to the Azure, GitHub, Expo, Maps, or email invoices needed to establish actual monthly spend.
 
 | Name | Function | Cost estimate | Link |
 | --- | --- | --- | --- |
 | Domain name | Owns `paddletoday.com` and any related DNS records. | Usually about $10-$25/year, depending on registrar and TLD. | Registrar account |
-| Azure Static Web Apps | Hosts the static Astro frontend. | Free tier may work only if backend-linking needs are removed; Standard is commonly about $9/month. | [Azure Static Web Apps pricing](https://azure.microsoft.com/en-us/pricing/details/app-service/static/) |
+| Cloudflare Workers Static Assets | Hosts the static Astro frontend and proxies `/api/*`. | No paid Workers plan enabled; shared account allowance and future usage still need monitoring. | [Verified rollout](audits/frontend-production-rollout-2026-11-05.md) |
+| Azure Static Web Apps (retired) | Former frontend hosting, removed November 5. | Former steady fee approximately $8.88 per 30 days; new invoice comparison pending. | [Retirement evidence](audits/frontend-hosting-rollout-2026-11-05.json) |
 | Azure App Service | Runs the Node API backend for `/api/*`. | Depends on SKU; a small Linux production plan is commonly about $13-$75/month. | [Azure App Service pricing](https://azure.microsoft.com/en-us/pricing/details/app-service/linux/) |
 | Azure Blob Storage | Stores route requests, photos, snapshots, history, alerts, and audits. | Usage-based; likely low at MVP scale, but photo uploads can increase storage/bandwidth. | [Azure Blob Storage pricing](https://azure.microsoft.com/en-us/pricing/details/storage/blobs/) |
 | Azure Communication Services Email | Sends river alert emails. | Usage-based per email; likely low unless alert volume grows. | [Azure Communication Services pricing](https://azure.microsoft.com/en-us/pricing/details/communication-services/) |
