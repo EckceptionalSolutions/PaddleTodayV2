@@ -197,6 +197,17 @@ describe('bucketed history storage', () => {
   });
 
   it.each([
+    [historyStorageControlName(prefix), 'Invalid history storage control'],
+    [`${prefix}/_daily-finalization.json`, 'Invalid history finalization journal'],
+  ])('does not treat a legacy array in a control-file path as missing metadata: %s', async (name, message) => {
+    await capture('2026-11-04T16:00:00Z', [result(60)], HISTORY_BUCKET_LAYOUT);
+    await seed(name, []);
+    await expect(getRiverHistory({ slug: distinct[0].slug })).rejects.toThrow(message);
+    await expect(capture('2026-11-04T17:00:00Z')).rejects.toThrow(message);
+    expect(await read(name)).toEqual([]);
+  });
+
+  it.each([
     { first: '2026-11-01T06:15:00Z', second: '2026-11-01T07:15:00Z', next: '2026-11-02T16:00:00Z', hours: ['01:00', '01:00'] },
     { first: '2026-03-08T07:15:00Z', second: '2026-03-08T08:15:00Z', next: '2026-03-09T16:00:00Z', hours: ['01:00', '03:00'] },
   ])('preserves actual samples across DST: $first', async ({ first, second, next, hours }) => {

@@ -199,6 +199,7 @@ class HistoryRepository {
 
 export async function openHistoryRepository(options: RepositoryOptions) {
   const current = await options.storage.readJsonWithEtag<HistoryStorageControl>(historyStorageControlName(options.prefix));
+  if (current.value !== null && !isHistoryStorageControl(current.value)) throw new Error('Invalid history storage control.');
   const repository = new HistoryRepository(options, current.value, current.etag);
   await repository.selectWriterLayout(); return repository;
 }

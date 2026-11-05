@@ -151,6 +151,7 @@ export async function captureHistorySnapshotForResults(args: {
   await withJsonStorageLock(`history-capture:${historyPrefix()}`, () => withHistoryCaptureLease(storage,
     `${historyPrefix()}/_capture-lease.json`, async assertOwned => {
       const original = await storage.readJsonWithEtag<FinalizationCheckpoint>(checkpointBlobName());
+      if (original.value !== null && !isFinalizationCheckpoint(original.value)) throw new Error('Invalid history finalization journal.');
       const repository = await openHistoryRepository({ storage, prefix: historyPrefix(), validateBucket: validHistoryBucket,
         concurrency: writeConcurrency, writer: { selection, assertOwned, now } });
       storageLayout = repository.layout;
@@ -250,6 +251,7 @@ export async function getRiverHistory(args: {
   // Read the publication checkpoint before daily arrays. A newer checkpoint
   // therefore cannot hide daily writes that were still pending when read began.
   const checkpoint = await storage.readJson<FinalizationCheckpoint>(checkpointBlobName());
+  if (checkpoint !== null && !isFinalizationCheckpoint(checkpoint)) throw new Error('Invalid history finalization journal.');
   // Load the storage manifest after the finalization journal and without a
   // control cache: completed daily writes must never be hidden by old month metadata.
   const repository = await openHistoryRepository({ storage, prefix: historyPrefix(), validateBucket: validHistoryBucket });
