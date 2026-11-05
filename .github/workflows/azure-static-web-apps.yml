@@ -20,6 +20,11 @@ on:
       - 'scripts/emit-route-consolidation-redirects.mjs'
       - 'scripts/search-serving-smoke.mjs'
       - 'scripts/check-frontend-capacity.mjs'
+      - 'scripts/prepare-cloudflare-frontend.mjs'
+      - 'scripts/cloudflare-hosting-control.mjs'
+      - 'scripts/wait-for-frontend-release.mjs'
+      - 'scripts/verify-frontend-canary.mjs'
+      - 'infra/cloudflare/**'
       - 'scripts/lib/**'
       - 'staticwebapp.config.json'
       - '.github/workflows/azure-static-web-apps.yml'
@@ -47,6 +52,7 @@ jobs:
     runs-on: ubuntu-latest
     env:
       SOURCE_REVISION: ${{ inputs.source_revision || github.sha }}
+      FRONTEND_HOSTING_PROVIDER: ${{ vars.FRONTEND_HOSTING_PROVIDER || 'azure' }}
       SITE_URL: https://paddletoday.com
       AZURE_STORAGE_ACCOUNT: paddletoday
       AZURE_ASSET_CONTAINER: web-assets
@@ -75,7 +81,18 @@ jobs:
         env:
           AZURE_STATIC_WEB_APPS_API_TOKEN: ${{ secrets.AZURE_STATIC_WEB_APPS_API_TOKEN }}
           AZURE_CREDENTIALS: ${{ secrets.AZURE_CREDENTIALS }}
-        run: node scripts/deployment-config.mjs frontend
+          CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_WORKERS_API_TOKEN }}
+          CLOUDFLARE_ACCOUNT_ID: ${{ vars.CLOUDFLARE_ACCOUNT_ID }}
+          CLOUDFLARE_ZONE_ID: ${{ secrets.CLOUDFLARE_ZONE_ID }}
+        run: |
+          case "$FRONTEND_HOSTING_PROVIDER" in
+            azure) node scripts/deployment-config.mjs frontend ;;
+            cloudflare)
+              test -n "$AZURE_CREDENTIALS"
+              node scripts/cloudflare-hosting-control.mjs guard-production
+              ;;
+            *) echo 'Unknown frontend hosting provider.'; exit 1 ;;
+          esac
 
       - name: Install dependencies
         run: npm ci
@@ -112,10 +129,16 @@ jobs:
         run: node --import tsx scripts/audit-search-indexability.ts tmp/frontend
 
       - name: Verify the frontend fits the configured hosting tier
-        if: github.event_name != 'workflow_dispatch' || !inputs.verify_existing_assets
+        if: env.FRONTEND_HOSTING_PROVIDER == 'azure' && (github.event_name != 'workflow_dispatch' || !inputs.verify_existing_assets)
         env:
           AZURE_STATIC_WEB_APPS_TIER: ${{ vars.AZURE_STATIC_WEB_APPS_TIER || 'Standard' }}
         run: node scripts/check-frontend-capacity.mjs tmp/frontend
+
+      - name: Prepare Cloudflare production routing and capacity checks
+        if: env.FRONTEND_HOSTING_PROVIDER == 'cloudflare' && (github.event_name != 'workflow_dispatch' || !inputs.verify_existing_assets)
+        env:
+          FRONTEND_DEPLOYMENT_STAGE: production
+        run: node scripts/prepare-cloudflare-frontend.mjs tmp/frontend
 
       - name: Sign in to Azure for asset publishing
         if: github.event_name != 'workflow_dispatch' || !inputs.verify_existing_assets
@@ -155,7 +178,7 @@ jobs:
           exit 1
 
       - name: Deploy frontend to Azure Static Web Apps
-        if: github.event_name != 'workflow_dispatch' || (inputs.deploy_frontend && !inputs.verify_existing_assets)
+        if: env.FRONTEND_HOSTING_PROVIDER == 'azure' && (github.event_name != 'workflow_dispatch' || (inputs.deploy_frontend && !inputs.verify_existing_assets))
         uses: Azure/static-web-apps-deploy@v1
         with:
           azure_static_web_apps_api_token: ${{ secrets.AZURE_STATIC_WEB_APPS_API_TOKEN }}
@@ -165,7 +188,7 @@ jobs:
           skip_app_build: true
 
       - name: Verify deployed origin search page responses
-        if: github.event_name != 'workflow_dispatch' || (inputs.deploy_frontend && !inputs.verify_existing_assets)
+        if: env.FRONTEND_HOSTING_PROVIDER == 'azure' && (github.event_name != 'workflow_dispatch' || (inputs.deploy_frontend && !inputs.verify_existing_assets))
         env:
           DEPLOYMENT_ORIGIN_HOST: jolly-river-0d74c2110.1.azurestaticapps.net
         run: |
@@ -178,3 +201,32 @@ jobs:
             fi
           done
           exit 1
+
+      - name: Deploy production frontend to Cloudflare
+        if: env.FRONTEND_HOSTING_PROVIDER == 'cloudflare' && (github.event_name != 'workflow_dispatch' || (inputs.deploy_frontend && !inputs.verify_existing_assets))
+        env:
+          CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_WORKERS_API_TOKEN }}
+          CLOUDFLARE_ACCOUNT_ID: ${{ vars.CLOUDFLARE_ACCOUNT_ID }}
+          CLOUDFLARE_ZONE_ID: ${{ secrets.CLOUDFLARE_ZONE_ID }}
+        run: |
+          node scripts/cloudflare-hosting-control.mjs guard-production
+          npx --yes wrangler@4.158.0 deploy --config infra/cloudflare/wrangler.production.json
+
+      - name: Verify both Cloudflare production hosts
+        if: env.FRONTEND_HOSTING_PROVIDER == 'cloudflare' && (github.event_name != 'workflow_dispatch' || (inputs.deploy_frontend && !inputs.verify_existing_assets))
+        env:
+          FRONTEND_DEPLOYMENT_STAGE: production
+          EXPECTED_FRONTEND_REVISION: ${{ env.SOURCE_REVISION }}
+        run: |
+          node scripts/wait-for-frontend-release.mjs
+          for origin in https://paddletoday.com https://www.paddletoday.com; do
+            FRONTEND_CANARY_ORIGIN="$origin" FRONTEND_CANARY_REPORT=".local/frontend-hosting/production-$(echo "$origin" | cut -d/ -f3).json" node scripts/verify-frontend-canary.mjs
+            DEPLOYMENT_BASE_URL="$origin" EXPECTED_CANONICAL_ORIGIN=https://paddletoday.com node scripts/search-serving-smoke.mjs
+          done
+
+      - uses: actions/upload-artifact@v4
+        if: always() && env.FRONTEND_HOSTING_PROVIDER == 'cloudflare'
+        with:
+          name: frontend-production-evidence
+          path: .local/frontend-hosting/*
+          if-no-files-found: warn

@@ -13,6 +13,10 @@ async function get(path, status, options = {}) {
   if (process.env.FRONTEND_DEPLOYMENT_STAGE === 'canary' && (status === 200 || path.startsWith('/api/'))) {
     assert.match(response.headers.get('x-robots-tag') || '', /noindex/);
   }
+  if (process.env.FRONTEND_DEPLOYMENT_STAGE === 'production' && status === 200
+    && response.headers.get('content-type')?.includes('text/html')) {
+    assert.doesNotMatch(response.headers.get('x-robots-tag') || '', /noindex/i);
+  }
   report.checks.push({ method: options.method || 'GET', path, status });
   return response;
 }
