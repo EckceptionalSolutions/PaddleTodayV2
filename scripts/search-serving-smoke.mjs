@@ -3,6 +3,7 @@ import { lookup } from 'node:dns';
 
 // Verify the deployed HTTP behavior; inspecting build configuration alone is insufficient.
 const origin = new URL(process.env.DEPLOYMENT_BASE_URL || 'https://paddletoday.com').origin;
+const canonicalOrigin = new URL(process.env.EXPECTED_CANONICAL_ORIGIN || origin).origin;
 const originHost = process.env.DEPLOYMENT_ORIGIN_HOST;
 const nonce = Date.now().toString(36);
 const cases = [
@@ -29,6 +30,10 @@ for (const [path, expected, redirect, canonicalPath, metaRefreshPath, expectedRo
     const response = await readPage(`${origin}${path}?search-serving-check=${nonce}`);
     const html = response.html;
     const location = response.location ? new URL(response.location, origin).pathname : undefined;
+    const redirectTarget = response.location ? new URL(response.location, origin) : null;
+    // Workers retains query strings on static redirects; SWA may discard this
+    // cache-busting probe parameter. Compare every other destination component.
+    redirectTarget?.searchParams.delete('search-serving-check');
     const canonical = [...html.matchAll(/<link\b[^>]*>/gi)]
       .find(([tag]) => /\brel=["']canonical["']/i.test(tag))?.[0]
       .match(/\bhref=["']([^"']*)["']/i)?.[1];
@@ -46,11 +51,11 @@ for (const [path, expected, redirect, canonicalPath, metaRefreshPath, expectedRo
       })()
       : undefined;
     const ok = response.status === expected
-      && (!redirect || new URL(response.location || '/', origin).href === `${origin}${redirect}`)
-      && (expected !== 200 || canonical === `${origin}${canonicalPath || path}`)
+      && (!redirect || redirectTarget?.href === `${origin}${redirect}`)
+      && (expected !== 200 || canonical === `${canonicalOrigin}${canonicalPath || path}`)
       && (!metaRefreshPath || normalizedRefreshPath === metaRefreshPath)
       && (!expectedRobots || (robots === expectedRobots && !refreshTag))
-      && (expected !== 404 || !canonical || canonical !== `${origin}/`);
+      && (expected !== 404 || !canonical || canonical !== `${canonicalOrigin}/`);
     console.log(`${ok ? 'ok' : 'FAIL'} ${path}: HTTP ${response.status}, canonical ${canonical || '(none)'}${redirect ? `, redirect ${response.location || '(none)'}` : ''}`);
     if (!ok) failures++;
   } catch (error) { console.error(`FAIL ${path}: ${error.message}`); failures++; }

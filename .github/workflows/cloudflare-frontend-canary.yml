@@ -48,7 +48,7 @@ jobs:
         run: node scripts/ensure-cloudflare-subdomain.mjs
       - run: npm ci
       - name: Test proxy and hosting safeguards
-        run: npx vitest run infra/cloudflare/account-subdomain.test.ts scripts/lib/api-proxy.test.ts scripts/lib/cloudflare-frontend.test.ts scripts/lib/frontend-capacity.test.ts
+        run: npx vitest run infra/cloudflare scripts/lib/api-proxy.test.ts scripts/lib/cloudflare-frontend.test.ts scripts/lib/frontend-capacity.test.ts
       - name: Prepare the same assets and frontend as the Azure release
         run: |
           npm run prebuild:app
