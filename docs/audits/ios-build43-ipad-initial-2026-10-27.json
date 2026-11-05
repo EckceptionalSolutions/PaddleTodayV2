@@ -1,0 +1,36 @@
+{
+  "observedAt": "2026-10-27T15:42:06.876507+00:00",
+  "sourceCommit": "c4e803d043805a3644a5263f14b10b47a758066e",
+  "build": "43",
+  "version": "1.1.6",
+  "workflowRun": 40527331722,
+  "device": "iPad Pro 13-inch (M4) Simulator",
+  "runtime": "iOS 26.2",
+  "xcode": "26.3",
+  "nativeBuild": "passed",
+  "physicalDevice": false,
+  "testFlightBinary": false,
+  "publicDemoPreferencesOnly": true,
+  "cloudAccountUsed": false,
+  "ownerAccountDataUsed": false,
+  "renderedScreensVisuallyReviewed": [
+    "Today",
+    "Explore map",
+    "Weekend",
+    "Saved empty state"
+  ],
+  "screenshotPixels": [
+    2064,
+    2752
+  ],
+  "suitePassed": false,
+  "failure": "Automation selector expected Trips; actual native accessibility label is Trips, tab, 5 of 6. No app defect established by this selector failure.",
+  "correctedHarnessRun": 40533223918,
+  "correctedHarnessAdds": [
+    "Exact native Trips accessibility selector",
+    "Two local public demo saved routes",
+    "Native iPhone captures as well as iPad",
+    "Exact-source compiled simulator cache for UI-only retries"
+  ],
+  "appSourceChanged": false
+}

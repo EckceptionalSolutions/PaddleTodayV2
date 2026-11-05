@@ -1,20 +1,20 @@
 import { test, expect } from '@playwright/test';
 
-test('welcome keeps short-screen content reachable and exposes only the active slide', async ({ page }) => {
+test('app tour keeps short-screen content reachable and exposes only the active slide', async ({ page }) => {
   await page.setViewportSize({ width: page.viewportSize()!.width, height: 480 });
   const errors: string[] = [];
   page.on('pageerror', error => errors.push(error.message));
   await page.route('**/api/**', route => route.fulfill({ status: 503, json: { error: 'offline' } }));
-  await page.goto('/welcome');
-  const finish = page.getByRole('button', { name: "Skip to today's best routes", exact: true });
+  await page.goto('/tour');
+  const finish = page.getByRole('button', { name: 'Open PaddleToday', exact: true });
   await expect(finish).toBeInViewport();
-  await expect(page.getByRole('heading', { name: 'Welcome to Paddle Today', exact: true })).toBeVisible();
+  await expect(page.getByRole('heading', { name: 'See how PaddleToday works', exact: true })).toBeVisible();
   const previewEnd = page.getByText('Access details on route page', { exact: true });
   await previewEnd.scrollIntoViewIfNeeded();
   await expect(previewEnd).toBeInViewport();
   await expect(finish).toBeInViewport();
   await page.getByRole('button', { name: 'Next welcome page', exact: true }).press('Enter');
-  await expect(page.getByRole('heading', { name: 'Welcome to Paddle Today', exact: true })).toHaveCount(0);
+  await expect(page.getByRole('heading', { name: 'See how PaddleToday works', exact: true })).toHaveCount(0);
   const secondSlide = page.getByTestId('welcome-slide-2');
   await expect(secondSlide).not.toHaveAttribute('aria-hidden', 'true');
   await secondSlide.getByText('WHY THIS SCORE?', { exact: true }).scrollIntoViewIfNeeded();
@@ -25,9 +25,9 @@ test('welcome keeps short-screen content reachable and exposes only the active s
   await expect(secondSlide).toHaveAttribute('aria-hidden', 'true');
   await thirdSlide.getByText('See why each route scored that way', { exact: true }).scrollIntoViewIfNeeded();
   await expect(thirdSlide.getByText('See why each route scored that way', { exact: true })).toBeInViewport({ ratio: 1 });
-  await expect(page.getByRole('button', { name: "See today's best routes", exact: true })).toBeInViewport();
+  await expect(finish).toBeInViewport();
   await page.screenshot({ path: `tmp/welcome-short-${page.viewportSize()!.width}.png` });
   await page.getByRole('button', { name: 'Go to welcome page 1', exact: true }).press('Enter');
-  await expect(page.getByRole('heading', { name: 'Welcome to Paddle Today', exact: true })).toHaveCount(1);
+  await expect(page.getByRole('heading', { name: 'See how PaddleToday works', exact: true })).toHaveCount(1);
   expect(errors).toEqual([]);
 });

@@ -1,0 +1,20 @@
+appId: com.paddletoday.mobile
+name: Native iPhone populated Explore list screenshot
+---
+- launchApp:
+    clearState: false
+- extendedWaitUntil:
+    visible: Today's Calls
+    timeout: 60000
+- tapOn:
+    text: Explore
+    index: 0
+- extendedWaitUntil:
+    visible: Filters
+    timeout: 30000
+- tapOn: list view
+- extendedWaitUntil:
+    visible: Explore routes
+    timeout: 30000
+- assertVisible: '(Open route|Compare routes): .*'
+- takeScreenshot: 03-explore

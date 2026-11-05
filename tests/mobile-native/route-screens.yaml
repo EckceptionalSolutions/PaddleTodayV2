@@ -1,0 +1,32 @@
+appId: com.paddletoday.mobile
+name: Native saved-route conditions and access screens
+---
+- launchApp:
+    clearState: false
+- extendedWaitUntil:
+    visible: Today's Calls
+    timeout: 60000
+- tapOn:
+    text: Saved routes
+    waitToSettleTimeoutMs: 1000
+- scrollUntilVisible:
+    element:
+      text: 'Open route: Minnesota River, Le Sueur to Henderson'
+    direction: DOWN
+    timeout: 20000
+- tapOn:
+    text: 'Open route: Minnesota River, Le Sueur to Henderson'
+    waitToSettleTimeoutMs: 1000
+- extendedWaitUntil:
+    visible: '(?i).*why this call.*'
+    timeout: 30000
+- takeScreenshot: 02-conditions
+- scrollUntilVisible:
+    element: Show Access section
+    direction: DOWN
+    timeout: 20000
+- tapOn:
+    text: Show Access section
+    waitToSettleTimeoutMs: 1000
+- assertVisible: Route logistics
+- takeScreenshot: 04-access

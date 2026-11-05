@@ -1,18 +1,20 @@
 import MaterialCommunityIcons from '@expo/vector-icons/MaterialCommunityIcons';
 import AsyncStorage from '@react-native-async-storage/async-storage';
-import auth, { EmailAuthProvider, GoogleAuthProvider, isSignInWithEmailLink, onAuthStateChanged, sendSignInLinkToEmail, signInWithCredential, signInWithEmailLink } from '@react-native-firebase/auth';
+import auth, { EmailAuthProvider, isSignInWithEmailLink, onAuthStateChanged, sendSignInLinkToEmail, signInWithCredential, signInWithEmailLink } from '@react-native-firebase/auth';
 import { useLocalSearchParams, useRouter } from 'expo-router';
-import * as Linking from 'expo-linking';
 import * as SecureStore from 'expo-secure-store';
 import { useEffect, useRef, useState } from 'react';
 import { ActivityIndicator, Image, ImageBackground, KeyboardAvoidingView, Platform, Pressable, ScrollView, StyleSheet, Text, TextInput, useWindowDimensions, View } from 'react-native';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import { AppButton } from '../components/app-button';
+import { AppleSignInButton } from '../components/apple-sign-in-button';
 import { WebReady } from '../components/web-ready';
 import { prepareAccountLocalData, requestAccountBackup } from '../lib/account-backup';
 import { clearGuestImportConsent, grantGuestImportConsent } from '../lib/account-local-state';
 import { PENDING_EMAIL, PENDING_EMAIL_ACTION, PENDING_EMAIL_RETURN_TO } from '../lib/auth-secure-store-keys';
 import { emailLinkDomainOption } from '../lib/email-link-domain';
+import { incomingEmailLink } from '../lib/incoming-email-link';
+import { appleSignInCredential, googleSignInCredential, nativeSignInMethods } from '../lib/native-sign-in';
 import { completeWelcome, consumePendingLaunchTarget } from '../lib/onboarding';
 import { colors, radius, spacing, typography } from '../theme/tokens';
 
@@ -28,7 +30,8 @@ export default function AccountEntryScreen({ isWelcome = false, defaultReturnTo 
 
 function AccountEntryContent({ isWelcome, defaultReturnTo }: { isWelcome: boolean; defaultReturnTo: string }) {
   const router = useRouter();
-  const params = useLocalSearchParams<{ returnTo?: string | string[] }>();
+  const params = useLocalSearchParams<{ returnTo?: string | string[]; emailLink?: string | string[] }>();
+  const callbackEmailLink = Array.isArray(params.emailLink) ? params.emailLink[0] : params.emailLink;
   const insets = useSafeAreaInsets();
   const { height } = useWindowDimensions();
   const returnTo = safeReturnTo(Array.isArray(params.returnTo) ? params.returnTo[0] : params.returnTo, defaultReturnTo);
@@ -43,13 +46,17 @@ function AccountEntryContent({ isWelcome, defaultReturnTo }: { isWelcome: boolea
   const [signedInUid, setSignedInUid] = useState<string | null>(null);
   const [localSetupFailed, setLocalSetupFailed] = useState(false);
   const [emailVerified, setEmailVerified] = useState(false);
+  const [emailBlockedBySignedInAccount, setEmailBlockedBySignedInAccount] = useState(false);
   const completionReturnTo = useRef<string | null>(null);
   const [resendAt, setResendAt] = useState(0);
   const [now, setNow] = useState(Date.now());
   const finalizedUid = useRef<string | null>(null);
   const emailLinkInProgress = useRef(false);
   const authEnabled = process.env.EXPO_PUBLIC_ACCOUNT_AUTH_ENABLED === '1';
-  const googleEnabled = authEnabled && Platform.OS !== 'web' && Boolean(GOOGLE_WEB_CLIENT_ID);
+  const methods = nativeSignInMethods(Platform.OS, GOOGLE_WEB_CLIENT_ID,
+    process.env.EXPO_PUBLIC_GOOGLE_IOS_SIGN_IN_ENABLED === '1', process.env.EXPO_PUBLIC_APPLE_SIGN_IN_ENABLED === '1');
+  const googleEnabled = authEnabled && methods.google;
+  const appleEnabled = authEnabled && methods.apple;
   const emailEnabled = authEnabled && Platform.OS !== 'web' && Boolean(LINK_DOMAIN);
   const resendSeconds = Math.max(0, Math.ceil((resendAt - now) / 1000));
 
@@ -71,7 +78,7 @@ function AccountEntryContent({ isWelcome, defaultReturnTo }: { isWelcome: boolea
       setSignedInUid(user?.uid ?? null);
       if (user && finalizedUid.current !== user.uid) {
         void SecureStore.getItemAsync(PENDING_EMAIL_ACTION).then(action => {
-          if (active && action !== 'reauthenticate') return finishSuccessfulSignIn(user);
+          if (active && action !== 'reauthenticate' && action !== 'link' && !callbackEmailLink) return finishSuccessfulSignIn(user);
         });
       }
     });
@@ -81,11 +88,9 @@ function AccountEntryContent({ isWelcome, defaultReturnTo }: { isWelcome: boolea
   useEffect(() => {
     if (Platform.OS === 'web' || !authEnabled) return;
     let active = true;
-    const handle = (url: string | null) => { if (url) void consumeEmailLink(url, () => active); };
-    void Linking.getInitialURL().then(handle);
-    const subscription = Linking.addEventListener('url', ({ url }) => handle(url));
-    return () => { active = false; subscription.remove(); };
-  }, []);
+    if (callbackEmailLink) void consumeEmailLink(callbackEmailLink, () => active);
+    return () => { active = false; };
+  }, [callbackEmailLink]);
 
   async function finishSuccessfulSignIn(user: NonNullable<ReturnType<typeof auth>['currentUser']>) {
     if (finalizedUid.current === user.uid) return;
@@ -135,17 +140,11 @@ function AccountEntryContent({ isWelcome, defaultReturnTo }: { isWelcome: boolea
     setBusy(true);
     setMessage('');
     try {
-      const { GoogleSignin, isCancelledResponse } = await import('@react-native-google-signin/google-signin');
-      GoogleSignin.configure({ webClientId: GOOGLE_WEB_CLIENT_ID });
-      await GoogleSignin.hasPlayServices();
-      const result = await GoogleSignin.signIn();
-      if (isCancelledResponse(result)) {
+      const credential = await googleSignInCredential(GOOGLE_WEB_CLIENT_ID);
+      if (!credential) {
         setMessage('Sign-in was canceled. You can try again or continue without an account.');
         return;
       }
-      const tokens = await GoogleSignin.getTokens();
-      if (!tokens.idToken) throw new Error('Google did not return an ID token.');
-      const credential = GoogleAuthProvider.credential(tokens.idToken);
       const current = auth().currentUser;
       if (current) await current.linkWithCredential(credential);
       else await signInWithCredential(auth(), credential);
@@ -156,6 +155,27 @@ function AccountEntryContent({ isWelcome, defaultReturnTo }: { isWelcome: boolea
       setMessage(code.includes('cancel')
         ? 'Sign-in was canceled. You can try again or continue without an account.'
         : 'Google sign-in could not be completed. Check your connection and try again.');
+    } finally { if (!auth().currentUser) await clearGuestImportConsent().catch(() => {}); setBusy(false); }
+  }
+
+  async function runAppleSignIn() {
+    if (busy || !appleEnabled) return;
+    try { await prepareGuestDataImport(); }
+    catch { setMessage('This phone’s saved data could not be checked. Sign-in was paused to protect it.'); return; }
+    setBusy(true);
+    setMessage('');
+    try {
+      const credential = await appleSignInCredential();
+      const current = auth().currentUser;
+      if (current) await current.linkWithCredential(credential);
+      else await signInWithCredential(auth(), credential);
+      const user = auth().currentUser;
+      if (user) await finishSuccessfulSignIn(user);
+    } catch (error) {
+      const code = error && typeof error === 'object' && 'code' in error ? String(error.code).toLowerCase() : '';
+      setMessage(code.includes('cancel')
+        ? 'Sign-in was canceled. You can try again or continue without an account.'
+        : 'Apple sign-in could not be completed. Check your connection and try again.');
     } finally { if (!auth().currentUser) await clearGuestImportConsent().catch(() => {}); setBusy(false); }
   }
 
@@ -192,12 +212,17 @@ function AccountEntryContent({ isWelcome, defaultReturnTo }: { isWelcome: boolea
     } finally { setBusy(false); }
   }
 
-  async function consumeEmailLink(explicitUrl?: string, isCurrent = () => true) {
+  async function consumeEmailLink(receivedUrl: string, isCurrent = () => true) {
     if (Platform.OS === 'web' || !authEnabled) return;
-    const url = explicitUrl ?? await Linking.getInitialURL();
+    const url = receivedUrl ? incomingEmailLink(receivedUrl) ?? receivedUrl : null;
     if (!url || !isSignInWithEmailLink(auth(), url)) return;
     const pendingEmail = await SecureStore.getItemAsync(PENDING_EMAIL);
     if (!pendingEmail) {
+      if (auth().currentUser) {
+        setEmailBlockedBySignedInAccount(true);
+        setMessage('Open this link where you requested it, or sign out before signing in to another account.');
+        return;
+      }
       setEmailLinkUrl(url);
       setEmailStep(true);
       setMessage('Enter the same email address used to request this link.');
@@ -219,6 +244,7 @@ function AccountEntryContent({ isWelcome, defaultReturnTo }: { isWelcome: boolea
       } else if (pendingAction === 'link' && activeUser) {
         await activeUser.linkWithCredential(EmailAuthProvider.credentialWithLink(pendingEmail, url));
       } else if (activeUser) {
+        setEmailBlockedBySignedInAccount(true);
         setMessage('Another account is signed in on this device. Open the link where it was requested, or sign out first.');
         return;
       } else {
@@ -239,6 +265,11 @@ function AccountEntryContent({ isWelcome, defaultReturnTo }: { isWelcome: boolea
   }
 
   async function finishCrossDeviceEmailLink() {
+    if (auth().currentUser) {
+      setEmailBlockedBySignedInAccount(true);
+      setMessage('Sign out before using an email link for another account.');
+      return;
+    }
     const normalized = email.trim().toLowerCase();
     if (!emailLinkUrl || !isSignInWithEmailLink(auth(), emailLinkUrl)) return;
     if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(normalized)) { setMessage('Enter the email address used to request this link.'); return; }
@@ -264,7 +295,7 @@ function AccountEntryContent({ isWelcome, defaultReturnTo }: { isWelcome: boolea
 
   const continueAfterSignIn = async () => {
     await SecureStore.deleteItemAsync(PENDING_EMAIL_RETURN_TO).catch(() => {});
-    router.replace((safeReturnTo(completionReturnTo.current ?? (await consumePendingLaunchTarget()) ?? undefined, returnTo)) as never);
+    router.dismissTo((safeReturnTo(completionReturnTo.current ?? (await consumePendingLaunchTarget()) ?? undefined, returnTo)) as never);
   };
 
   return (
@@ -299,6 +330,12 @@ function AccountEntryContent({ isWelcome, defaultReturnTo }: { isWelcome: boolea
               <Text style={styles.resultBody}>{message}</Text>
               <AppButton label="Retry saved data setup" busy={busy} onPress={() => { const user = auth().currentUser; if (user) void finishSuccessfulSignIn(user); }} style={styles.actionButton} />
             </View>
+          ) : emailBlockedBySignedInAccount ? (
+            <View style={styles.resultCard} accessibilityLiveRegion="polite">
+              <Text accessibilityRole="header" style={styles.resultTitle}>An account is already signed in</Text>
+              <Text style={styles.resultBody}>{message}</Text>
+              <AppButton label="Open Account & Backup" onPress={() => router.dismissTo('/account' as never)} style={styles.actionButton} />
+            </View>
           ) : emailVerified ? (
             <View style={styles.resultCard} accessibilityLiveRegion="polite">
               <Text accessibilityRole="header" style={styles.resultTitle}>Email verified</Text>
@@ -323,8 +360,9 @@ function AccountEntryContent({ isWelcome, defaultReturnTo }: { isWelcome: boolea
             <>
               <Text style={styles.sectionTitle}>{isWelcome ? 'Choose how to start' : 'Choose a sign-in method'}</Text>
               {googleEnabled ? <AppButton label="Continue with Google" icon="google" busy={busy} onPress={() => void runGoogleSignIn()} style={styles.actionButton} /> : null}
+              {appleEnabled ? <AppleSignInButton busy={busy} onPress={() => void runAppleSignIn()} style={styles.actionButton} /> : null}
               {emailEnabled ? <AppButton label="Continue with email" icon="email-outline" variant="secondary" busy={busy} onPress={() => { setEmailStep(true); setMessage(''); }} style={styles.actionButton} /> : null}
-              {!googleEnabled && !emailEnabled ? <Text style={styles.unavailable}>Account sign-in is unavailable in this build. You can still explore PaddleToday.</Text> : null}
+              {!googleEnabled && !appleEnabled && !emailEnabled ? <Text style={styles.unavailable}>Account sign-in is unavailable in this build. You can still explore PaddleToday.</Text> : null}
               {!isAccountContext ? <AppButton label={isWelcome ? 'Explore PaddleToday' : 'Back to PaddleToday without signing in'} icon="arrow-right" variant="secondary" busy={busy} onPress={() => void continueWithoutAccount()} style={styles.actionButton} /> : null}
             </>
           )}
