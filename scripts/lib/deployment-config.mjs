@@ -1,7 +1,7 @@
 const required = {
   api: ['AZURE_WEBAPP_NAME', 'AZUREAPPSERVICE_PUBLISHPROFILE'],
   frontend: ['AZURE_STATIC_WEB_APPS_API_TOKEN', 'AZURE_CREDENTIALS'],
-  snapshot: ['AZURE_CREDENTIALS', 'SNAPSHOT_SAS_URL'],
+  snapshot: ['AZURE_CREDENTIALS', 'SNAPSHOT_SAS_URL', 'GHCR_PULL_TOKEN'],
 };
 
 export function checkDeploymentConfig(target, env, now = Date.now()) {
