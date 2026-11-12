@@ -47,7 +47,6 @@ on:
 
 permissions:
   contents: read
-  packages: write
 
 concurrency:
   group: paddletoday-snapshot-worker-production
@@ -58,7 +57,7 @@ env:
   AZURE_RESOURCE_GROUP: paddletoday
   AZURE_CONTAINER_APPS_ENVIRONMENT: paddletoday-jobs
   AZURE_CONTAINER_APPS_JOB: paddletoday-river-snapshots
-  SNAPSHOT_IMAGE_REPOSITORY: ghcr.io/eckceptionalsolutions/paddletoday-snapshot-worker
+  SNAPSHOT_IMAGE_REPOSITORY: ghcr.io/eckceptionalsolutions/paddletoday-worker
   GHCR_PULL_USERNAME: ${{ github.repository_owner }}
   REQUIRE_EXISTING_IMAGE: ${{ inputs.reuse_image && 'true' || 'false' }}
   PROVISION_SNAPSHOT_MONITORING: ${{ inputs.provision_monitoring && 'true' || 'false' }}
@@ -103,7 +102,13 @@ jobs:
           AZURE_CREDENTIALS: ${{ secrets.AZURE_CREDENTIALS }}
           SNAPSHOT_SAS_URL: ${{ secrets.RIVER_SNAPSHOT_CONTAINER_SAS_URL }}
           GHCR_PULL_TOKEN: ${{ secrets.GHCR_PULL_TOKEN }}
-        run: node scripts/deployment-config.mjs snapshot
+          GHCR_PUSH_TOKEN: ${{ secrets.GHCR_PUSH_TOKEN }}
+        run: |
+          node scripts/deployment-config.mjs snapshot
+          if [ "$REQUIRE_EXISTING_IMAGE" != true ] && [ -z "$GHCR_PUSH_TOKEN" ]; then
+            echo 'Missing GHCR_PUSH_TOKEN for publishing worker images.'
+            exit 1
+          fi
 
       - name: Azure login
         uses: azure/login@v2
@@ -123,11 +128,14 @@ jobs:
 
       - name: Publish or resolve a pinned worker image in GHCR
         env:
-          GHCR_WRITE_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GHCR_REGISTRY_TOKEN: ${{ inputs.reuse_image && secrets.GHCR_PULL_TOKEN || secrets.GHCR_PUSH_TOKEN }}
         run: |
           set -euo pipefail
-          printf '%s' "$GHCR_WRITE_TOKEN" | docker login ghcr.io --username "$GITHUB_ACTOR" --password-stdin
-          trap 'docker logout ghcr.io >/dev/null' EXIT
+          export DOCKER_CONFIG
+          DOCKER_CONFIG="$(mktemp -d)"
+          trap 'rm -rf -- "$DOCKER_CONFIG"' EXIT
+          printf '%s' "$GHCR_REGISTRY_TOKEN" | docker login ghcr.io --username "$GHCR_PULL_USERNAME" --password-stdin
+          unset GHCR_REGISTRY_TOKEN
           tag="$SNAPSHOT_IMAGE_REPOSITORY:$SOURCE_REVISION"
           manifest="$RUNNER_TEMP/snapshot-image-manifest.txt"
           if ! docker buildx imagetools inspect "$tag" > "$manifest"; then
@@ -138,7 +146,7 @@ jobs:
             docker buildx build --push --platform linux/amd64 --provenance=false \
               --file snapshot-source/infra/azure/snapshot-worker/Dockerfile \
               --build-arg SOURCE_REVISION="$SOURCE_REVISION" \
-              --label "org.opencontainers.image.source=$GITHUB_SERVER_URL/$GITHUB_REPOSITORY" \
+              --label "org.opencontainers.image.revision=$SOURCE_REVISION" \
               --tag "$tag" snapshot-source
             docker buildx imagetools inspect "$tag" > "$manifest"
           fi

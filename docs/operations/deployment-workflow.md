@@ -28,11 +28,14 @@ matching environment variables through your normal secret mechanism.
   a signature, and not have an invalid or expired explicit expiry. Stored-policy
   SAS without an explicit expiry is allowed.
 
-The snapshot workflow publishes to `ghcr.io/eckceptionalsolutions/paddletoday-snapshot-worker`
-using the repository's GitHub Actions token. Azure pulls the private image
-using `GHCR_PULL_TOKEN`, a classic GitHub token with `read:packages` access.
-Keep the repository secret and the deployed job credential current when rotating
-the token. Deployment resolves the source commit tag to an image digest, then
+The snapshot workflow publishes to the private package
+`ghcr.io/eckceptionalsolutions/paddletoday-worker`. It uses the
+`GHCR_PUSH_TOKEN` repository secret with `write:packages` access for builds.
+Azure pulls the image using the separate `GHCR_PULL_TOKEN` classic token with
+`read:packages` access. The package is linked to the private
+`azure-workload-images` repository. Keep both repository secrets and the
+deployed job's pull credential current when rotating the tokens.
+Deployment resolves the source commit tag to an image digest, then
 uses `scripts/snapshot-worker-deployment.sh` to validate and deploy the same
 job parameters. Azure CLI 2.76+ supports explicit `--validation-level Provider`.
 

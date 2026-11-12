@@ -25,7 +25,7 @@ const values = {
   image: env.SNAPSHOT_IMAGE,
 };
 for (const [key, value] of Object.entries(values)) if (value === undefined || value === '') throw new Error(`Missing parameter ${key}`);
-if (!/^ghcr\.io\/eckceptionalsolutions\/paddletoday-snapshot-worker@sha256:[a-f0-9]{64}$/.test(values.image)) {
+if (!/^ghcr\.io\/eckceptionalsolutions\/paddletoday-worker@sha256:[a-f0-9]{64}$/.test(values.image)) {
   throw new Error('Expected a digest-pinned Paddle Today GHCR image');
 }
 writeFileSync(process.argv[2], JSON.stringify({ parameters: Object.fromEntries(Object.entries(values).map(([key, value]) => [key, { value }])) }));
