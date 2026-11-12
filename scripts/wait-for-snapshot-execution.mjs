@@ -8,7 +8,7 @@ const job = process.env.AZURE_CONTAINER_APPS_JOB, group = process.env.AZURE_RESO
 for (const value of [job, group]) assert.match(value, /^[a-z0-9-]+$/);
 const execution = await waitForSnapshotExecution({
   executionName: process.env.SNAPSHOT_EXECUTION_NAME,
-  expectedImage: `${process.env.AZURE_CONTAINER_REGISTRY}.azurecr.io/${process.env.IMAGE_NAME}:${process.env.SOURCE_REVISION}`,
+  expectedImage: process.env.SNAPSHOT_IMAGE,
   async readExecution(name) {
     const result = await promisify(execFile)(process.platform === 'win32' ? 'az.cmd' : 'az', [
       'containerapp', 'job', 'execution', 'show', '--name', job, '--resource-group', group, '--job-execution-name', name,

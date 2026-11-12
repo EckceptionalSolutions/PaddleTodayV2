@@ -92,7 +92,12 @@ describe('merged publication handoff', () => {
       const source = fs.readFileSync(`.github/workflows/${file}`, 'utf8'), config = parse(source);
       expect(config.on.workflow_dispatch.inputs.source_revision.type).toBe('string');
       const steps = Object.values(config.jobs).flatMap((job: any) => job.steps);
-      expect(steps.find((s: any) => s.uses?.startsWith('actions/checkout@')).with.ref).toBe('${{ env.SOURCE_REVISION }}');
+      const sourceCheckout = steps.find((s: any) => s.uses?.startsWith('actions/checkout@') && s.with?.ref === '${{ env.SOURCE_REVISION }}');
+      expect(sourceCheckout).toBeDefined();
+      if (file === 'azure-container-apps-snapshot-worker.yml') {
+        expect(sourceCheckout.with.path).toBe('snapshot-source');
+        expect(source).toContain('--tag "$tag" snapshot-source');
+      }
       expect(source).not.toContain('$GITHUB_SHA');
       expect(source).not.toContain('DEPLOYMENT_EXPECTED_REVISION: ${{ github.sha }}');
     }
