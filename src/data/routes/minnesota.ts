@@ -3256,7 +3256,7 @@ export const minnesotaRoutes: River[] = [
     ],
     "state": "Minnesota",
     "region": "Lower St. Croix",
-    "summary": "Paddle 6.6 miles from Minnesota Interstate State Park in Taylors Falls to Osceola Landing. This easy gorge-to-bluff day has no rapids, but low flow can expose sandbars and side-channel dead ends; watch for strainers, motorboats, and wakes.",
+    "summary": "Paddle 6.6 miles from Minnesota Interstate State Park to Osceola Landing. Bridge construction affects the take-out. Check the Highway 243 project notice before launching and follow posted signs on the river.",
     "statusText": "Treat about 3,000 cfs at St. Croix Falls as the conservative floor. Below that, stay in the main channel and expect more sandbars and side-slough dead ends.",
     "latitude": 45.401,
     "longitude": -92.651,
@@ -3268,7 +3268,7 @@ export const minnesotaRoutes: River[] = [
       "safetyNotes": [
         "NPS says this reach has no existing rapids, but strainers, submerged logs, wingdams, sandbars, and rocks occur throughout it. Give downed wood and fixed obstacles extra room instead of treating the easy rating as obstacle-free.",
         "When flow at St. Croix Falls is below 3,000 cfs, stay in the main channel and avoid side sloughs where shallow sandbars and dead ends become more likely.",
-        "Expect fishing boats, pontoons, and paddleboat traffic. Stay right approaching the Highway 243 bridge; Osceola Landing is just beyond it on the Minnesota side."
+        "Watch for motorboat wakes. Near the Highway 243 bridge, follow the posted route to Osceola Landing on the Minnesota side. If crews close the navigation channel, use the signed portage around the work zone."
       ],
       "reviewStatus": "reviewed"
     },
@@ -3326,14 +3326,14 @@ export const minnesotaRoutes: River[] = [
       {
         "label": "Access support",
         "value": "Official launch details on both ends",
-        "note": "Minnesota DNR says the Interstate landing has a small concrete boat launch plus toilets, picnic tables, drinking water, and a required state-park vehicle permit, while NPS says Osceola has two launches, paved parking, restrooms, and drinking water.",
+        "note": "Minnesota DNR lists a concrete launch, toilets, picnic tables and drinking water at the Interstate landing. A state park vehicle permit is required. At Osceola, use the posted public access during bridge construction.",
         "sourceUrl": "https://www.dnr.state.mn.us/state_water_trail/virtual_tour/st_croix_river/snapshot.html"
       },
       {
         "label": "Osceola operations",
-        "value": "Separated motorized and nonmotorized launch flow",
-        "note": "NPS says the 2023 Osceola rehab added a new motorized launch so motorized and nonmotorized traffic could be separated, along with better wayfinding, parking, restrooms, and utilities.",
-        "sourceUrl": "https://www.nps.gov/sacn/planyourvisit/osceola-landing.htm"
+        "value": "South launch and parking available during construction",
+        "note": "As of November 17, 2026, the north launch and lot are closed. MnDOT expects that closure to last until late summer 2028. Check the project notice for changes before leaving a vehicle.",
+        "sourceUrl": "https://www.dot.state.mn.us/metro/projects/hwy243osceola/"
       }
     ],
     "sourceLinks": [
@@ -3344,6 +3344,18 @@ export const minnesotaRoutes: River[] = [
       {
         "label": "NPS Highway 8 to Osceola trip page",
         "url": "https://www.nps.gov/sacn/planyourvisit/8toosceola.htm"
+      },
+      {
+        "label": "MnDOT Highway 243 bridge, landing access and detours",
+        "url": "https://www.dot.state.mn.us/metro/projects/hwy243osceola/"
+      },
+      {
+        "label": "MnDOT river channel closures and signed portage",
+        "url": "https://www.dot.state.mn.us/news/2026/10/30-metro-hwy243.html"
+      },
+      {
+        "label": "NPS Osceola Landing parking and ramp closure",
+        "url": "https://www.nps.gov/sacn/learn/news/north-parking-lot-at-osceola-landing-to-close-for-bridge-construction.htm"
       },
       {
         "label": "NPS St. Croix map 8 PDF",

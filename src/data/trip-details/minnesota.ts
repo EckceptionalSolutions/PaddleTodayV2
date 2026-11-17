@@ -1067,13 +1067,13 @@ export const minnesotaRiverTripDetails: Record<string, RiverTripDetails> = {
     "logistics": {
       "distanceLabel": "6.6 mi",
       "estimatedPaddleTime": "About 3 hr to 4 hr",
-      "shuttle": "Straightforward two-car shuttle between Taylors Falls and Osceola. Stage the take-out first if you want the easiest finish, especially on summer weekends when Osceola can be busier.",
+      "shuttle": "Both landings are on the Minnesota side. Stage a vehicle at the south lot at Osceola Landing. If driving from Wisconsin, check MnDOT's detour via the Highway 8 crossing at Taylors Falls. The Highway 243 bridge closed to vehicles November 16, 2026, with reopening expected in fall 2027. Confirm rental pickup with your outfitter.",
       "permits": "No route-specific paddling permit is known, but a Minnesota state park vehicle permit is required for the Interstate landing and Riverway rules still govern camping and shoreline use.",
       "camping": "Designated riverside campsites are possible only under St. Croix National Scenic Riverway rules, and a camping permit is required below Highway 8. Do not assume the landings themselves are overnight staging sites.",
-      "summary": "Launch from the Minnesota Interstate landing in Taylors Falls and finish at Osceola Landing for the cleanest lower St. Croix day-trip add. This is the classic easy gorge-to-bluff run, but lower water pushes you toward the main channel and away from side slough exploring.",
+      "summary": "Launch at Minnesota Interstate State Park and finish at Osceola Landing. At low water, stay in the main channel to avoid shallow side sloughs. At the bridge work zone, follow the navigation signs and use the signed portage during channel closures.",
       "accessCaveats": [
         "Minnesota Interstate State Park is open 8 a.m. to 10 p.m. daily and requires a vehicle permit; same-day ranger-station, kiosk, or traffic conditions still win over any saved note.",
-        "Osceola is a high-use Riverway landing with separate motorized and nonmotorized launch flow, paved parking, restrooms, and drinking water, but it can still feel busy on hot weekends."
+        "Osceola's north launch and parking lot are closed for bridge construction, expected through late summer 2028. The south launch and lot remain available. Check the MnDOT project update and posted signs for the day's access."
       ],
       "watchFor": [
         "Sandbars and side-slough dead ends when flow at St. Croix Falls falls below about 3,000 cfs.",
