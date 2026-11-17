@@ -31,12 +31,12 @@ describe('deployment configuration', () => {
     expect(checkDeploymentConfig('frontend', { AZURE_STATIC_WEB_APPS_API_TOKEN: '   ' })).toHaveLength(2);
   });
   it('rejects expired SAS and malformed credentials without echoing values', () => {
-    const errors = checkDeploymentConfig('snapshot', { AZURE_CREDENTIALS: 'private-secret', SNAPSHOT_SAS_URL: 'https://blob.test/container?sig=private-token&se=2020-01-01' });
+    const errors = checkDeploymentConfig('snapshot', { AZURE_CREDENTIALS: 'private-secret', GHCR_PULL_TOKEN: 'private-pull-token', SNAPSHOT_SAS_URL: 'https://blob.test/container?sig=private-token&se=2020-01-01' });
     expect(errors).toHaveLength(2);
     expect(JSON.stringify(errors)).not.toContain('private-');
   });
   it('accepts a valid configuration including SAS governed by a stored policy', () => {
-    expect(checkDeploymentConfig('snapshot', { AZURE_CREDENTIALS: credentials, SNAPSHOT_SAS_URL: 'https://blob.test/container?sig=token&si=policy' })).toEqual([]);
+    expect(checkDeploymentConfig('snapshot', { AZURE_CREDENTIALS: credentials, GHCR_PULL_TOKEN: 'token', SNAPSHOT_SAS_URL: 'https://blob.test/container?sig=token&si=policy' })).toEqual([]);
     expect(checkDeploymentConfig('frontend', { AZURE_CREDENTIALS: credentials, AZURE_STATIC_WEB_APPS_API_TOKEN: 'token' })).toEqual([]);
     expect(checkDeploymentConfig('frontend', { AZURE_CREDENTIALS: 'bad-json', AZURE_STATIC_WEB_APPS_API_TOKEN: 'token' })).toHaveLength(1);
   });
