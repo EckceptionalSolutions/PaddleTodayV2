@@ -1,6 +1,66 @@
 import { test, expect, type Route } from '@playwright/test';
 import fixture from './fixtures/route-detail.json' with { type: 'json' };
 
+test('Save focuses invalid take-out timing and preserves the corrected overnight return', async ({ page }) => {
+  await page.addInitScript(() => localStorage.setItem('paddletoday:welcome-completed:v1', '1'));
+  const slug = fixture.result.river.slug;
+  await page.route('**/api/**', route => route.fulfill({ status: 503, json: {} }));
+  await page.route(`**/api/rivers/${slug}.json`, route => route.fulfill({ json: fixture }));
+  await page.goto(`/river/${slug}`);
+  await page.getByRole('button', { name: 'Offline trip', exact: true }).press('Enter');
+  const dialog = page.getByRole('dialog');
+  await dialog.getByLabel('Launch date and time', { exact: true }).fill('2030-06-15T15:00');
+  await dialog.getByLabel('Expected take-out date and time', { exact: true }).fill('2030-06-15T14:00');
+  await dialog.getByRole('button', { name: 'Clear check-in time' }).press('Enter');
+  const save = dialog.getByRole('button', { name: 'Save to My trips' });
+  await save.press('Enter');
+  const field = dialog.getByRole('textbox', { name: 'Expected take-out (YYYY-MM-DD HH:MM)', exact: true });
+  await expect(field).toBeFocused();
+  await expect(field).toBeInViewport();
+  await expect(field).toHaveAccessibleDescription('Expected take-out must be after launch.');
+  await field.fill('2030-06-17 09:00');
+  await save.press('Enter');
+  await expect.poll(() => page.evaluate(() => Object.keys(localStorage).filter(key => key.startsWith('paddletoday:trip-guest-plan:v1:')).map(key => JSON.parse(localStorage.getItem(key)!).plan)[0])).toMatchObject({
+    date: '2030-06-15', launch: '15:00', expectedDate: '2030-06-17', expected: '09:00',
+  });
+  await page.goto('/trips');
+  await expect(page.getByRole('heading', { name: 'Plans saved on this device' })).toBeVisible();
+  await expect(page.getByText(/Rice Creek.*2030-06-15.*15:00/)).toBeVisible();
+});
+
+test('a failed guest account handoff can be retried without replacing another plan', async ({ page }) => {
+  await page.addInitScript(() => {
+    localStorage.setItem('paddletoday:welcome-completed:v1', '1');
+    const setItem = Storage.prototype.setItem;
+    Storage.prototype.setItem = function (key, value) {
+      if (key === 'paddletoday:trip-return' && !sessionStorage.getItem('qa:handoff-ready')) throw new Error('Account handoff interrupted');
+      setItem.call(this, key, value);
+    };
+  });
+  const slug = fixture.result.river.slug;
+  await page.route('**/api/**', route => route.fulfill({ status: 503, json: {} }));
+  await page.route('**/api/rivers/' + slug + '.json', route => route.fulfill({ json: fixture }));
+  await page.goto('/river/' + slug);
+  const open = page.getByRole('button', { name: 'Offline trip', exact: true });
+  const dialog = page.getByRole('dialog');
+  const save = dialog.getByRole('button', { name: 'Save to My trips' });
+  const note = dialog.getByRole('textbox', { name: 'Note for your group (optional)', exact: true });
+  const notes = () => page.evaluate(() => Object.keys(localStorage).filter(key => key.startsWith('paddletoday:trip-guest-plan:v1:'))
+    .map(key => JSON.parse(localStorage.getItem(key)!).plan.preparation.note).sort());
+  await open.click();
+  await note.fill('Morning crew');
+  await save.click();
+  await expect(dialog.getByText('Account handoff interrupted')).toBeVisible();
+  await save.click();
+  await expect.poll(notes).toEqual(['Morning crew']);
+  await dialog.getByRole('button', { name: 'Close prepare trip', exact: true }).click();
+  await open.click();
+  await note.fill('Evening crew');
+  await page.evaluate(() => sessionStorage.setItem('qa:handoff-ready', '1'));
+  await save.click();
+  await expect.poll(notes).toEqual(['Evening crew', 'Morning crew']);
+});
+
 for (const outcome of ['cancel', 'close']) {
   test(`pending float-plan sharing handles ${outcome} without duplicate actions or stale feedback`, async ({ page }) => {
     await page.addInitScript((outcome) => {

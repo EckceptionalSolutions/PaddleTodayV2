@@ -13,6 +13,7 @@ import { QualityPill, decisionColors } from './rating-pill';
 
 export function RouteSearchModal({
   visible,
+  browseByState = false,
   query,
   results,
   routeCounts,
@@ -31,6 +32,7 @@ export function RouteSearchModal({
   onCreateCustom,
 }: {
   visible: boolean;
+  browseByState?: boolean;
   query: string;
   results: RiverSummaryApiItem[];
   routeCounts: ReadonlyMap<string, number>;
@@ -53,7 +55,7 @@ export function RouteSearchModal({
   const styles = useThemedStyles(createStyles);
   const reducedMotion = useReducedMotion();
   const inputRef = useRef<TextInput>(null);
-  const active = query.trim().length > 0;
+  const active = !browseByState && query.trim().length > 0;
 
   return (
     <Modal visible={visible} animationType={reducedMotion ? 'none' : 'slide'} presentationStyle="fullScreen" onRequestClose={onClose}>
@@ -64,15 +66,15 @@ export function RouteSearchModal({
         <View style={[styles.searchModalContent, { paddingTop: spacing.md + topInset, paddingBottom: spacing.md + bottomInset }]}>
           <View style={styles.searchModalHeader}>
             <View style={styles.searchModalHeaderCopy}>
-              <Text accessibilityRole="header" style={styles.searchModalTitle}>Find a route</Text>
-              <Text style={styles.searchModalSubtitle}>Search rivers, routes, states, and access points.</Text>
+              <Text accessibilityRole="header" style={styles.searchModalTitle}>{browseByState ? 'Browse by state' : 'Find a route'}</Text>
+              {!browseByState && <Text style={styles.searchModalSubtitle}>Search rivers, routes, states, and access points.</Text>}
             </View>
             <Pressable style={styles.searchModalClose} onPress={onClose} accessibilityRole="button" accessibilityLabel="Close route search">
               <MaterialCommunityIcons name="close" color={colors.accent} size={20} />
             </Pressable>
           </View>
 
-          <View style={styles.searchModalInputRow}>
+          {!browseByState && <View style={styles.searchModalInputRow}>
             <MaterialCommunityIcons name="magnify" color={colors.accent} size={19} />
             <TextInput
               ref={inputRef}
@@ -100,7 +102,7 @@ export function RouteSearchModal({
                 <MaterialCommunityIcons name="close-circle" color={colors.textMuted} size={19} />
               </Pressable>
             ) : null}
-          </View>
+          </View>}
 
           <ScrollView
             style={styles.searchModalResults}
@@ -120,12 +122,13 @@ export function RouteSearchModal({
               </View>
             ) : error && results.length === 0 ? null : !active ? (
               <>
-                <View style={styles.searchModalEmpty}>
+                {!browseByState && <View style={styles.searchModalEmpty}>
                   <Text style={styles.searchModalEmptyTitle}>Start typing to search routes</Text>
                   <Text style={styles.searchModalEmptyText}>Try a river name, nearby city, state, put-in, or take-out.</Text>
-                </View>
+                </View>}
                 <View style={styles.searchStateSection}>
-                  <Text accessibilityRole="header" style={styles.searchStateTitle}>Browse by state</Text>
+                  {!browseByState && <Text accessibilityRole="header" style={styles.searchStateTitle}>Browse by state</Text>}
+                  {browseByState && states.length === 0 && <Text style={styles.searchModalEmptyText}>No states are listed in the route catalog yet.</Text>}
                   <View style={styles.searchStateGrid}>
                     {states.map((state) => (
                       <Pressable

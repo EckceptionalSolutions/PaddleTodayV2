@@ -16,7 +16,9 @@ import { router } from 'expo-router';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import * as Crypto from 'expo-crypto';
 import { newTripPlan } from '@paddletoday/api-contract';
-import { tripSession, TRIP_RETURN_KEY } from '../lib/trip-session';
+import { tripSession } from '../lib/trip-session';
+import { saveGuestPlan } from '../lib/guest-trip-plans';
+import { TRIP_RETURN_KEY } from '../lib/onboarding';
 import { PrepareOfflineTrip } from './offline-trip-actions';
 import { radius, spacing, type AppColors } from '../theme/tokens';
 import { useAppTheme, useThemedStyles } from '../theme/theme-provider';
@@ -51,6 +53,7 @@ export function PrepareTripSheet({ visible, offlineFirst = false, detail, putIn,
   const draftReady = draftState.phase === 'ready';
   const [closing, setClosing] = useState(false);
   const closingRequest = useRef(false);
+  const guestSaveId = useRef<string | null>(null);
   const [status, setStatus] = useState('');
   const [validationAttempted, setValidationAttempted] = useState(false);
   const [calendarPending, setCalendarPending] = useState(false);
@@ -95,6 +98,7 @@ export function PrepareTripSheet({ visible, offlineFirst = false, detail, putIn,
   }
 
   useEffect(() => {
+    guestSaveId.current = null;
     setStatus('');
     setValidationAttempted(false);
     setShareFallback(null);
@@ -113,7 +117,7 @@ export function PrepareTripSheet({ visible, offlineFirst = false, detail, putIn,
   const validationError = validationAttempted && !validation.ok ? validation : null;
   const errorFor = (field: string) => validationError && 'field' in validationError && validationError.field === field ? validationError.message : undefined;
 
-  function validateForExport() {
+  function validateTrip() {
     if (!draftReady) return false;
     setValidationAttempted(true);
     setStatus('');
@@ -126,7 +130,7 @@ export function PrepareTripSheet({ visible, offlineFirst = false, detail, putIn,
   }
 
   async function exportCalendar() {
-    if (calendarRequest.current || !validateForExport()) return;
+    if (calendarRequest.current || !validateTrip()) return;
     const request = new AbortController();
     calendarRequest.current = request;
     setCalendarPending(true);
@@ -202,7 +206,7 @@ export function PrepareTripSheet({ visible, offlineFirst = false, detail, putIn,
   }
 
   async function shareFloatPlan() {
-    if (shareRequest.current || !validateForExport()) return;
+    if (shareRequest.current || !validateTrip()) return;
     const request = {};
     shareRequest.current = request;
     setSharePending(true);
@@ -328,7 +332,7 @@ export function PrepareTripSheet({ visible, offlineFirst = false, detail, putIn,
                 <ActionButton disabled={!draftReady || closing} pending={calendarPending} pendingLabel="Checking calendar…" label="Add to calendar" detail="Save launch and take-out times" onPress={() => void exportCalendar()} />
                 <ActionButton disabled={!draftReady || closing} pending={gpxPending} label="Download GPX" detail="Track your selected route in a map app" onPress={() => void exportGpx()} />
                 <ActionButton disabled={!draftReady || closing || sharePending} pending={sharePending} pendingLabel="Saving trip…" label="Save to My trips" detail="Open across devices, invite friends, and log your paddle" primary onPress={() => {
-                  if (!validation.ok) { setValidationAttempted(true); return; }
+                  if (!validateTrip()) return;
                   setSharePending(true);
                   void (async () => {
                     const routeName = detail.river.reach && detail.river.reach.toLocaleLowerCase() !== detail.river.name.toLocaleLowerCase()
@@ -345,13 +349,19 @@ export function PrepareTripSheet({ visible, offlineFirst = false, detail, putIn,
 
                     const date = parseLocal(launch);
                     if (date) { const local = localInput(date); plan.date = local.slice(0, 10); plan.launch = local.slice(11, 16); }
-                    const end = parseLocal(expected); if (end) plan.expected = localInput(end).slice(11, 16);
+                    const end = parseLocal(expected);
+                    if (end) {
+                      const local = localInput(end);
+                      plan.expected = local.slice(11, 16);
+                      plan.expectedDate = local.slice(0, 10) === plan.date ? '' : local.slice(0, 10);
+                    }
                     const repo = tripSession();
                     if (repo) {
                       const id = await repo.savePlan(plan); onClose(); router.push({ pathname: '/trips', params: { id } }); void repo.sync().catch(() => {});
                     } else {
-                      await AsyncStorage.setItem('paddletoday:trip-guest-draft', JSON.stringify({ id: Crypto.randomUUID(), plan }));
-                      await AsyncStorage.setItem(TRIP_RETURN_KEY, '/trips?'); onClose(); router.push('/account');
+                      guestSaveId.current ??= Crypto.randomUUID();
+                      await saveGuestPlan(guestSaveId.current, plan);
+                      await AsyncStorage.setItem(TRIP_RETURN_KEY, '/trips?'); onClose(); router.push('/account'); guestSaveId.current = null;
                     }
                   })().catch(e => setStatus(e instanceof Error ? e.message : 'Could not save this trip.')).finally(() => setSharePending(false));
                 }} />

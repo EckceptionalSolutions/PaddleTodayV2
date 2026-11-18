@@ -35,6 +35,7 @@ export function tripSyncRecovery(work: PendingTripWork) {
       if (changed('date')) add('Date', plan.date || 'Date removed');
       if (changed('launch')) add('Launch', plan.launch || 'Launch time removed');
       if (changed('expected')) add('Expected return', plan.expected || 'Return time removed');
+      if (changed('expectedDate') && (plan.expectedDate || command.type === 'plan' && command.baseline.expectedDate)) add('Return date', plan.expectedDate || 'Same day as launch');
       if (changed('timeZone')) add('Time zone', plan.timeZone);
       if (changed('itinerary')) add('Meeting stops', plan.itinerary.map(s => [s.location, s.time, s.note].filter(Boolean).join(' · ')).join('\n') || 'Meeting stops removed');
       if (changed('preparation')) {

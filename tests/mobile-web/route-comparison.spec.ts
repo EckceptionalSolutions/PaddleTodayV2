@@ -35,26 +35,34 @@ for (const stale of [false, true]) {
     await expect(sheet).toBeInViewport({ ratio: 1 });
     await expect(page.getByRole('heading', { name: 'Your route comparison', exact: true })).toBeVisible();
     await expect(page.getByRole('heading', { name: 'Reach 2 with a descriptive access name', exact: true })).toBeAttached();
-    const table = await sheet.getByTestId('route-comparison-table').boundingBox();
-    expect(table!.width).toBeLessThanOrEqual(685);
-    const cells = await Promise.all([0, 1, 2].map(index => sheet.getByTestId(`comparison-put-in-${index}`).boundingBox()));
-    for (const [index, cell] of cells.entries()) {
-      const header = await sheet.getByTestId(`comparison-header-${index}`).boundingBox();
-      expect(cell!.width).toBeCloseTo(190, 0);
-      expect(cell!.x).toBeCloseTo(header!.x, 0);
-      expect(cell!.y).toBeCloseTo(cells[0]!.y, 0);
-      expect(cell!.height).toBeCloseTo(cells[0]!.height, 0);
+    const mobileCards = page.viewportSize()!.width < 720;
+    if (mobileCards) {
+      await expect(sheet.getByRole('heading', { name: 'Route differences', exact: true })).toBeInViewport();
+      await expect(sheet.getByTestId('comparison-distance-0')).toBeInViewport();
+      await expect(sheet.getByTestId('comparison-distance-2')).toHaveText(/9 mi/);
+      await expect(sheet.getByRole('heading', { name: 'Shared details', exact: true })).toBeAttached();
+    } else {
+      const table = await sheet.getByTestId('route-comparison-table').boundingBox();
+      expect(table!.width).toBeLessThanOrEqual(685);
+      const cells = await Promise.all([0, 1, 2].map(index => sheet.getByTestId(`comparison-put-in-${index}`).boundingBox()));
+      for (const [index, cell] of cells.entries()) {
+        const header = await sheet.getByTestId(`comparison-header-${index}`).boundingBox();
+        expect(cell!.width).toBeCloseTo(190, 0);
+        expect(cell!.x).toBeCloseTo(header!.x, 0);
+        expect(cell!.y).toBeCloseTo(cells[0]!.y, 0);
+        expect(cell!.height).toBeCloseTo(cells[0]!.height, 0);
+      }
+      expect(cells[0]!.height).toBeGreaterThan(100);
     }
-    expect(cells[0]!.height).toBeGreaterThan(100);
     if (stale) await expect(page.getByText('Set a planning location on Today to include approximate drive estimates.', { exact: true })).toBeVisible();
     else {
       await expect(sheet.getByText(/^Drive estimates from Duluth/)).toBeVisible();
       await expect(sheet.getByText('No drive estimate', { exact: true })).toHaveCount(0);
     }
     if (stale) {
-      await expect(page.getByText('Current score unavailable', { exact: true })).toHaveCount(3);
+      await expect(sheet.getByText(mobileCards ? 'Score · Current score unavailable' : 'Current score unavailable', { exact: true })).toHaveCount(mobileCards ? 1 : 3);
       await expect(page.getByText('Saved conditions need an update. These stored calls are not a current recommendation.', { exact: true })).toBeVisible();
-    } else await expect(sheet.getByText('95', { exact: true })).toHaveCount(3);
+    } else await expect(sheet.getByText(mobileCards ? 'Score · 95' : '95', { exact: true })).toHaveCount(mobileCards ? 1 : 3);
     await page.screenshot({ path: `tmp/route-comparison-${stale ? 'stored' : 'current'}-${page.viewportSize()!.width}.png` });
     await page.getByRole('button', { name: 'Remove from comparison: Rice Creek: Reach 3 with a descriptive access name', exact: true }).click();
     await expect(page.getByRole('heading', { name: 'Reach 3 with a descriptive access name', exact: true })).toHaveCount(0);

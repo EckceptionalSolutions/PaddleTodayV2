@@ -21,6 +21,28 @@ function fixture() {
   return { make, values, storage, api, remote };
 }
 describe('trip offline persistence', () => {
+  it('retains an overnight return across reload and retry when an older service drops its date', async () => {
+    const f = fixture(), repo = f.make();
+    await repo.load();
+    const mutate = f.api.mutate;
+    vi.mocked(f.api.mutate).mockImplementationOnce(async (id, input, age) => {
+      const result = await mutate(id, input, age);
+      delete result.trip!.expectedDate;
+      return result;
+    });
+    const schedule = { date: '2030-06-15', launch: '15:00', expectedDate: '2030-06-17', expected: '09:00' };
+    const id = await repo.savePlan({ ...newTripPlan({ name: 'River' }), ...schedule });
+    await repo.sync();
+    const restored = f.make();
+    await restored.load();
+    expect(restored.getSnapshot().trips[id]).toMatchObject(schedule);
+    const pending = restored.getSnapshot().pending[0]!;
+    expect(pending.error).toContain('return date did not sync');
+    await restored.retry(pending.key);
+    await restored.sync();
+    expect(f.remote[id]).toMatchObject(schedule);
+    expect(restored.getSnapshot().pending).toHaveLength(0);
+  });
   it('shows and persists vehicle additions, edits, and removal while sync is unavailable', async () => {
     const f = fixture(), repo = f.make(); await repo.load();
     const id = 'trip-id-1234567890';

@@ -11,19 +11,46 @@ test('downloads a trip packet, reopens it after the live cache is removed, and p
   await page.addInitScript(() => localStorage.setItem('paddletoday:welcome-completed:v1', '1'));
   await page.route('**/api/**', route => route.fulfill({ status: 503, json: { error: 'offline' } }));
   await page.route(`**/api/rivers/${slug}.json`, route => route.fulfill({ json: fixture }));
-  await page.route(`**/api/rivers/${slug}/geometry.json`, route => route.fulfill({ json: geometry }));
+  let geometryAvailable = false;
+  let requests = 0;
+  await page.route(`**/api/rivers/${slug}/geometry.json`, route => {
+    requests++;
+    return route.fulfill(geometryAvailable ? { json: geometry } : { status: 503, json: {} });
+  });
   await page.goto(`/river/${slug}`);
+  await page.evaluate(() => {
+    const read = Storage.prototype.getItem;
+    Storage.prototype.getItem = function (key) {
+      if (key.startsWith('paddletoday:offline-trip:v1:')) {
+        Storage.prototype.getItem = read;
+        throw new Error('Temporary storage read failure');
+      }
+      return read.call(this, key);
+    };
+  });
   await page.getByRole('button', { name: 'Offline trip', exact: true }).click();
   const dialog = page.getByRole('dialog');
+  await expect(dialog.getByText('Saved offline trip could not be read.')).toBeVisible();
+  await expect(dialog.getByRole('button', { name: 'Download offline trip', exact: true })).toHaveCount(0);
+  await dialog.getByRole('button', { name: 'Retry reading saved trip' }).press('Enter');
   await expect(dialog.getByRole('button', { name: 'Download offline trip', exact: true })).toBeInViewport();
   const note = dialog.getByRole('textbox', { name: 'Note for your group (optional)', exact: true });
   await note.fill('Offline meeting note');
   await dialog.getByRole('button', { name: 'Download offline trip', exact: true }).click();
-  await expect(dialog.getByText('Trip downloaded. Open it from Saved, even without a connection.', { exact: true })).toBeVisible();
+  await expect(dialog.getByText(/Incomplete offline trip/)).toBeVisible();
+  await expect(dialog.getByRole('button', { name: /Retry offline trip|Refresh offline download/ })).toHaveCount(0);
+  const retry = dialog.getByRole('button', { name: 'Retry geometry download' });
+  await retry.press('Enter');
+  await expect(dialog.getByText(/Geometry download could not finish/)).toBeVisible();
+  const failedRequests = requests;
+  geometryAvailable = true;
+  await retry.press('Enter');
   await expect(dialog.getByText(/Ready for offline reference/)).toBeVisible();
+  expect(requests).toBe(failedRequests + 1);
+  await expect(retry).toHaveCount(0);
   await dialog.getByRole('button', { name: 'Close prepare trip', exact: true }).click();
   await page.goto('/saved');
-  await page.getByRole('tab', { name: 'Trips', exact: true }).click();
+  await page.getByRole('tab', { name: 'Offline', exact: true }).click();
   await expect(page.getByText('Offline trips', { exact: true })).toBeVisible();
   await page.evaluate(() => {
     const key = 'paddletoday:trip-draft:v1:["rice-creek-peltier-to-long-lake","peltier-lake","long-lake"]';
@@ -34,7 +61,7 @@ test('downloads a trip packet, reopens it after the live cache is removed, and p
   });
   await page.evaluate(() => localStorage.removeItem('paddletoday-mobile-query-cache'));
   await page.reload();
-  await page.getByRole('tab', { name: 'Trips', exact: true }).click();
+  await page.getByRole('tab', { name: 'Offline', exact: true }).click();
   await expect(page.getByRole('button', { name: /Open offline trip for Rice Creek:/ })).toBeVisible();
   await expect(page.getByText('Offline copy differs from your saved draft: notes.', { exact: true })).toBeVisible();
   await page.getByRole('button', { name: 'Update offline copy', exact: true }).click();

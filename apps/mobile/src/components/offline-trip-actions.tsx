@@ -24,15 +24,16 @@ export function PrepareOfflineTrip({ detail, putIn, takeOut, draft, ready, saveD
   const styles = useThemedStyles(createStyles);
   const [packet, setPacket] = useState<OfflineTrip | null>(null);
   const [loading, setLoading] = useState(true), [busy, setBusy] = useState(false), [message, setMessage] = useState('');
+  const [readFailed, setReadFailed] = useState(false);
   const request = useRef<AbortController | null>(null), epoch = useRef(0);
   const target = { routeSlug: detail.river.slug, putInId: putIn?.id ?? null, takeOutId: takeOut?.id ?? null };
   const id = offlineTripId(target);
   const reload = useCallback(async () => {
     const generation = ++epoch.current;
-    setLoading(true); setMessage('');
+    setLoading(true); setReadFailed(false); setMessage('');
     try { const found = await loadOfflineTrip(AsyncStorage, target as TripDraftTarget);
       if (epoch.current === generation) setPacket(found); }
-    catch { if (epoch.current === generation) setMessage('Saved offline trip could not be read. Retry before replacing it.'); }
+    catch { if (epoch.current === generation) setReadFailed(true); }
     finally { if (epoch.current === generation) setLoading(false); }
   }, [id]);
   useEffect(() => {
@@ -49,7 +50,7 @@ export function PrepareOfflineTrip({ detail, putIn, takeOut, draft, ready, saveD
     try {
       if (!await saveDraft()) throw new Error('Your draft could not be saved. Retry saving the draft before downloading.');
       const saved = await downloadOfflineTrip(AsyncStorage, { detail, putIn, takeOut, draft }, fetchGeometry, controller.signal);
-      if (request.current === controller) { setPacket(saved); setMessage(saved.missing.length ? 'Available details saved. Download is incomplete; retry when connected.' : 'Trip downloaded. Open it from Saved, even without a connection.'); }
+      if (request.current === controller) { setPacket(saved); setMessage(saved.missing.length ? 'Available details saved on this device.' : 'Trip downloaded. Open it from Saved, even without a connection.'); }
     } catch (error) { if (request.current === controller) setMessage(controller.signal.aborted ? 'Download stopped or timed out. Your previous offline trip is unchanged. Retry when ready.' : errorMessage(error)); }
     finally { clearTimeout(timeout); if (request.current === controller) { request.current = null; setBusy(false); } }
   }
@@ -66,15 +67,17 @@ export function PrepareOfflineTrip({ detail, putIn, takeOut, draft, ready, saveD
   }
   const draftFreshness = packet ? compareOfflineTripDraftValues(packet, draft) : null;
   return <SectionCard title="Prepare for offline use" subtitle="Save your selected landings, route outline, timing, notes, and a dated conditions snapshot. Background maps and live updates are not included. Reopen it from Saved → Offline.">
-    {packet ? <OfflinePacketCard packet={packet} freshness={draftFreshness ?? undefined} disabled={busy || loading} onRemoved={() => setPacket(null)} onUpdated={setPacket} /> : null}
+    {packet ? <OfflinePacketCard packet={packet} freshness={draftFreshness ?? undefined} disabled={busy || loading || readFailed} onRemoved={() => { setPacket(null); setMessage(''); }} onUpdated={updated => { setPacket(updated); setMessage(''); }} /> : null}
     {message ? <Text accessibilityLiveRegion="polite" style={styles.body}>{message}</Text> : null}
     {packet && draftFreshness?.state === 'differs' ? <AppButton label="Update offline copy" variant="secondary" busy={busy} busyLabel="Updating offline copy…"
       disabled={!ready} onPress={() => void updateDraftCopy()} /> : null}
-    {loading ? <Text style={styles.body}>Checking offline trip…</Text> : <AppButton label={packet ? 'Refresh offline download' : 'Download offline trip'} busy={busy} busyLabel="Downloading offline trip…"
-      disabled={!ready || !mappedAccess(putIn) || !mappedAccess(takeOut) || putIn.id === takeOut.id} onPress={() => void download()} />}
+    {loading ? <Text style={styles.body}>Checking offline trip…</Text> : readFailed ? <>
+      <Text accessibilityLiveRegion="polite" style={styles.body}>Saved offline trip could not be read.</Text>
+      <AppButton label="Retry reading saved trip" variant="secondary" onPress={() => void reload()} />
+    </> : !packet?.missing.includes('Route geometry') ? <AppButton label={packet ? 'Refresh offline download' : 'Download offline trip'} busy={busy} busyLabel="Downloading offline trip…"
+      disabled={!ready || !mappedAccess(putIn) || !mappedAccess(takeOut) || putIn.id === takeOut.id} onPress={() => void download()} /> : null}
     {!mappedAccess(putIn) || !mappedAccess(takeOut) ? <Text style={styles.body}>Choose mapped put-in and take-out points to download a trip.</Text> : null}
     {busy ? <AppButton label="Cancel offline operation" variant="secondary" onPress={() => request.current?.abort()} /> : null}
-    {message && !busy ? <AppButton label="Retry offline trip" variant="secondary" onPress={() => void reload()} /> : null}
   </SectionCard>;
 }
 
@@ -113,10 +116,10 @@ function OfflinePacketCard({ packet, freshness, draft, disabled = false, onRemov
   return <View style={styles.card}>
     <Text accessibilityRole="header" style={styles.label}>{packet.name}</Text>
     <Text style={styles.body}>{packet.putIn.name} to {packet.takeOut.name}</Text>
-    <Text style={styles.body}>{offlineStatus(packet)} · {Math.ceil(offlineTripBytes(packet) / 1024)} KB</Text>
+    <Text accessibilityLiveRegion="polite" style={styles.body}>{offlineStatus(packet)} · {Math.ceil(offlineTripBytes(packet) / 1024)} KB</Text>
     <Text style={styles.body}>Saved {new Date(packet.savedAt).toLocaleString()}</Text>
     {freshness ? <Text accessibilityLiveRegion="polite" style={styles.body}>{offlineTripDraftFreshnessLabel(freshness)}</Text> : null}
-    {packet.missing.length ? <Text style={styles.body}>Missing: {packet.missing.join(', ')}. Update from Prepare trip for missing logistics.</Text> : null}
+    {packet.missing.length ? <Text style={styles.body}>Missing: {packet.missing.join(', ')}.{packet.missing.includes('Shuttle logistics') ? ' Refresh the download when shuttle details become available.' : ''}</Text> : null}
     <AppButton label="Open offline trip" accessibilityLabel={`Open offline trip for ${label}`} disabled={disabled || busy} onPress={() => setOpen(true)} />
     {freshness?.state === 'differs' && draft ? <AppButton label="Update offline copy" variant="secondary" busy={busy} busyLabel="Updating offline copy…" disabled={disabled || busy} onPress={() => void updateDraftCopy()} /> : null}
     {packet.missing.includes('Route geometry') ? <AppButton label="Retry geometry download" variant="secondary" disabled={disabled} busy={busy} onPress={() => void retry()} /> : null}

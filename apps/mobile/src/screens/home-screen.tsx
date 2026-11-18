@@ -62,6 +62,7 @@ const ANDROID_NAV_CONTROL_MIN_INSET = 40;
 const TAB_BAR_SAFE_SPACE = 72;
 
 type BoardMode = 'best' | 'closest' | 'score' | 'certain';
+type RouteSearchMode = 'search' | 'states' | null;
 type BoardItem = RiverSummaryApiItem | NearbyRiverPick;
 
 interface BoardPreferences {
@@ -79,19 +80,19 @@ const modeLabels: Record<BoardMode, string> = {
 
 export default function HomeScreen() {
   const isFocused = useIsFocused();
-  const [searchOpen, setSearchOpen] = useState(false);
+  const [searchMode, setSearchMode] = useState<RouteSearchMode>(null);
   const summaryQuery = useRiverSummaryQuery(isFocused);
-  const searchCatalog = useExploreCatalogQuery(isFocused && searchOpen);
+  const searchCatalog = useExploreCatalogQuery(isFocused && searchMode !== null);
   const board = useBoardQueryState(summaryQuery);
   const catalog = useBoardQueryState(searchCatalog);
-  return <HomeContent summaryQuery={board} searchCatalog={catalog} searchOpen={searchOpen} setSearchOpen={setSearchOpen} />;
+  return <HomeContent summaryQuery={board} searchCatalog={catalog} searchMode={searchMode} setSearchMode={setSearchMode} />;
 }
 
-const HomeContent = memo(function HomeContent({ summaryQuery, searchCatalog, searchOpen, setSearchOpen }: {
+const HomeContent = memo(function HomeContent({ summaryQuery, searchCatalog, searchMode, setSearchMode }: {
   summaryQuery: ReturnType<typeof useBoardQueryState<ReturnType<typeof useRiverSummaryQuery>>>;
   searchCatalog: ReturnType<typeof useBoardQueryState<ReturnType<typeof useExploreCatalogQuery>>>;
-  searchOpen: boolean;
-  setSearchOpen: (open: boolean) => void;
+  searchMode: RouteSearchMode;
+  setSearchMode: (mode: RouteSearchMode) => void;
 }) {
   const { colors } = useAppTheme();
   const styles = useThemedStyles(createStyles);
@@ -123,35 +124,28 @@ const HomeContent = memo(function HomeContent({ summaryQuery, searchCatalog, sea
     [rivers, location]
   );
   const scopedRoutes = location ? nearbyPicks : rivers;
-  const snapshotRoutes = scopedRoutes;
-  const snapshot = useMemo(() => buildBoardSnapshot(snapshotRoutes), [snapshotRoutes]);
-  const snapshotContext = location
-    ? `Within ${HOME_NEARBY_DISTANCE_MILES} mi of ${location.label}`
-    : 'Across available routes';
-  const bestPicks = useMemo(
-    () => selectBestNowPicks(scopedRoutes.filter(route => matchesPaddlingPreferences(route, activePaddling)), undefined, 24),
+  const matchingRoutes = useMemo(
+    () => activePaddling ? scopedRoutes.filter(route => matchesPaddlingPreferences(route, activePaddling)) : scopedRoutes,
     [scopedRoutes, activePaddling]
   );
-  const scorePicks = useMemo(
-    () => [...scopedRoutes].sort(compareHomeScore).slice(0, 24),
-    [scopedRoutes]
-  );
-  const certainPicks = useMemo(
-    () => [...scopedRoutes].sort(compareHomeCertainty).slice(0, 24),
-    [scopedRoutes]
-  );
-  const closestPicks = useMemo(
-    () => nearbyPicks.slice().sort((left, right) => left.travelMinutes - right.travelMinutes).slice(0, 24),
-    [nearbyPicks]
+  const snapshot = useMemo(() => buildBoardSnapshot(scopedRoutes), [scopedRoutes]);
+  const snapshotContext = location
+    ? `${activePaddling ? 'All routes within' : 'Within'} ${HOME_NEARBY_DISTANCE_MILES} mi of ${location.label}`
+    : 'Across available routes';
+  const bestPicks = useMemo(
+    () => selectBestNowPicks(matchingRoutes, undefined, 24), [matchingRoutes]
   );
 
-  const data = useMemo(
-    () => uniqueRoutesByRiver(mode === 'closest' ? closestPicks : mode === 'score' ? scorePicks : mode === 'certain' ? certainPicks : bestPicks),
-    [bestPicks, certainPicks, closestPicks, mode, scorePicks]
-  );
+  const data = useMemo(() => {
+    if (mode === 'best') return uniqueRoutesByRiver(bestPicks);
+    const sorted = mode === 'closest'
+      ? matchingRoutes.filter(isNearbyPick).sort((left, right) => left.travelMinutes - right.travelMinutes)
+      : [...matchingRoutes].sort(mode === 'score' ? compareHomeScore : compareHomeCertainty);
+    return uniqueRoutesByRiver(sorted.slice(0, 24));
+  }, [mode, matchingRoutes, bestPicks]);
   const headline = data[0] ?? (mode === 'best' ? null : uniqueRoutesByRiver(bestPicks)[0]) ?? null;
-  const paddlingEmpty = mode === 'best' && Boolean(activePaddling) && scopedRoutes.length > 0 && bestPicks.length === 0;
-  const matchReason = mode === 'best' && headline ? paddlingMatchReason(headline, activePaddling) : null;
+  const paddlingEmpty = Boolean(activePaddling) && scopedRoutes.length > 0 && matchingRoutes.length === 0;
+  const matchReason = headline ? paddlingMatchReason(headline, activePaddling) : null;
   const headlineMode = data[0] ? mode : 'best';
   const knownRouteMatches = useMemo(
     () => uniqueRoutesByRiver(findKnownRouteMatches(searchableRivers, routeQuery)).slice(0, 10),
@@ -161,8 +155,8 @@ const HomeContent = memo(function HomeContent({ summaryQuery, searchCatalog, sea
     () => [...new Set(searchableRivers.map((river) => river.river.state))].sort((left, right) => left.localeCompare(right)),
     [searchableRivers]
   );
-  const locationOutOfRange = Boolean(location && rivers.length > 0 && nearbyPicks.length === 0);
-  const zeroReady = !locationOutOfRange && scopedRoutes.length > 0 && snapshot.paddleable === 0;
+  const locationOutOfRange = Boolean(location && summaryQuery.data && nearbyPicks.length === 0);
+  const zeroReady = matchingRoutes.length > 0 && snapshot.paddleable === 0;
 
   useEffect(() => {
     let active = true;
@@ -244,55 +238,56 @@ const HomeContent = memo(function HomeContent({ summaryQuery, searchCatalog, sea
           />
         ) : null}
         {location ? <>
-          {mode === 'best' ? <PaddlingPreferenceControl showingAll={showAllPaddling} onToggleAll={() => setShowAllPaddling(value => !value)} /> : null}
-          {paddlingEmpty ? <View style={styles.todayCallsSection}>
-            <Text accessibilityRole="header" style={styles.sectionTitle}>No nearby routes match your paddling preferences</Text>
-            <Text style={styles.sectionSubtitle}>Try changing your preferences or browse all nearby routes.</Text>
-            <AppButton label="Browse all nearby routes" variant="secondary" onPress={() => setShowAllPaddling(true)} />
-          </View> : null}
-          <MotionReveal key={headline?.river.slug ?? 'no-headline'} reducedMotion={reducedMotion}>
-          <BoardHero
-            mode={headlineMode}
-            headline={headline}
-            routeCount={headline ? routeGroupMetaForRoute(headline, routeCounts).routeCount : 1}
-            snapshot={snapshot}
-            snapshotContext={snapshotContext}
-            saved={headline ? isSaved(headline.river.slug) : false}
-            onToggleSaved={
-              headline
-                ? () => void toggleSavedRiver(toSavedRiver(headline))
-                : undefined
-            }
-            onOpen={
-              headline
-                ? () => openBoardRoute(headline)
-                : undefined
-            }
-            onOpenStatus={(statusIntent) => openExploreIntent(statusIntent)}
-            onSetLocation={() => setLocationSearchOpen(true)}
-          />
-          </MotionReveal>
-          {matchReason ? <Text style={styles.sectionSubtitle}>{matchReason}</Text> : null}
           {locationOutOfRange ? (
             <OutOfRangeState
               locationLabel={location.label}
+              onChangeLocation={() => setLocationSearchOpen(true)}
+              onBrowseStates={() => setSearchMode('states')}
               onRequestRoute={() => router.push('/request-route')}
-              onBrowseRoutes={() => router.push('/explore')}
             />
-          ) : (
-            <RiverCarousel
-              reducedMotion={reducedMotion}
-              mode={mode}
-              rivers={data.slice(0, 10)}
-              routeCounts={routeCounts}
-              isSaved={isSaved}
-              onToggleSaved={(river) => void toggleSavedRiver(toSavedRiver(river))}
-              onOpen={openBoardRoute}
-              emptyState={paddlingEmpty ? null : <EmptyMode mode={mode} hasLocation locationStatus={status} />}
-            >
-              {modeTabs}
-            </RiverCarousel>
-          )}
+          ) : <>
+            <PaddlingPreferenceControl showingAll={showAllPaddling} onToggleAll={() => setShowAllPaddling(value => !value)} />
+            {paddlingEmpty ? <View style={styles.todayCallsSection}>
+              <Text accessibilityRole="header" style={styles.sectionTitle}>No nearby routes match your paddling preferences</Text>
+              <Text style={styles.sectionSubtitle}>Try changing your preferences or browse all nearby routes.</Text>
+              <AppButton label="Browse all nearby routes" variant="secondary" onPress={() => setShowAllPaddling(true)} />
+            </View> : <>
+              <MotionReveal key={headline?.river.slug ?? 'no-headline'} reducedMotion={reducedMotion}>
+                <BoardHero
+                  mode={headlineMode}
+                  headline={headline}
+                  routeCount={headline ? routeGroupMetaForRoute(headline, routeCounts).routeCount : 1}
+                  snapshot={snapshot}
+                  snapshotContext={snapshotContext}
+                  saved={headline ? isSaved(headline.river.slug) : false}
+                  onToggleSaved={
+                    headline
+                      ? () => void toggleSavedRiver(toSavedRiver(headline))
+                      : undefined
+                  }
+                  onOpen={
+                    headline
+                      ? () => openBoardRoute(headline)
+                      : undefined
+                  }
+                  onOpenStatus={(statusIntent) => openExploreIntent(statusIntent)}
+                  onSetLocation={() => setLocationSearchOpen(true)}
+                />
+              </MotionReveal>
+              {matchReason ? <Text style={styles.sectionSubtitle}>{matchReason}</Text> : null}
+              <RiverCarousel
+                reducedMotion={reducedMotion}
+                mode={mode}
+                rivers={data.slice(0, 10)}
+                routeCounts={routeCounts}
+                isSaved={isSaved}
+                onToggleSaved={(river) => void toggleSavedRiver(toSavedRiver(river))}
+                onOpen={openBoardRoute}
+              >
+                {modeTabs}
+              </RiverCarousel>
+            </>}
+          </>}
           {zeroReady ? (
             <ZeroReadyActions
               watchCount={snapshot.watch}
@@ -308,7 +303,7 @@ const HomeContent = memo(function HomeContent({ summaryQuery, searchCatalog, sea
             onOpenExplore={() => router.push({ pathname: '/explore', params: { reset: '1', intentKey: Date.now().toString() } })}
             onOpenIntent={openExploreIntent}
           />
-          <KnownRouteSearch onOpen={() => setSearchOpen(true)} />
+          <KnownRouteSearch onOpen={() => setSearchMode('search')} />
         </> : <>
           <FirstLocationSetup
             status={status}
@@ -349,7 +344,8 @@ const HomeContent = memo(function HomeContent({ summaryQuery, searchCatalog, sea
         </>}
       </View>
       <RouteSearchModal
-        visible={searchOpen}
+        visible={searchMode !== null}
+        browseByState={searchMode === 'states'}
         query={routeQuery}
         results={knownRouteMatches}
         routeCounts={searchRouteCounts}
@@ -361,25 +357,25 @@ const HomeContent = memo(function HomeContent({ summaryQuery, searchCatalog, sea
         bottomInset={bottomContentInset}
         onChange={setRouteQuery}
         onClose={() => {
-          setSearchOpen(false);
+          setSearchMode(null);
           setRouteQuery('');
         }}
         onOpenRiver={(river) => {
-          setSearchOpen(false);
+          setSearchMode(null);
           setRouteQuery('');
           openRiverGroup(river);
         }}
         onExplore={() => {
-          setSearchOpen(false);
+          setSearchMode(null);
           setRouteQuery('');
           router.push('/explore');
         }}
         onRequestRoute={() => {
-          setSearchOpen(false);
+          setSearchMode(null);
           router.push({ pathname: '/request-route', params: { name: routeQuery.trim() } });
         }}
         onExploreState={(state) => {
-          setSearchOpen(false);
+          setSearchMode(null);
           setRouteQuery('');
           router.push({ pathname: '/explore', params: { state, intentKey: Date.now().toString() } });
         }}
@@ -391,7 +387,11 @@ const HomeContent = memo(function HomeContent({ summaryQuery, searchCatalog, sea
           setLocationSearchOpen(false);
         }}
         onSearch={searchLocations}
-        onSelect={selectPlanningLocation}
+        onSelect={async candidate => {
+          const selected = await selectPlanningLocation(candidate);
+          if (selected) setLocationSearchOpen(false);
+          return selected;
+        }}
       />
     </ScrollView>
   );
@@ -559,7 +559,6 @@ function RiverCarousel({
   onToggleSaved,
   onOpen,
   children,
-  emptyState,
 }: {
   reducedMotion: boolean;
   mode: BoardMode;
@@ -569,7 +568,6 @@ function RiverCarousel({
   onToggleSaved: (river: BoardItem) => void;
   onOpen: (river: BoardItem) => void;
   children: ReactNode;
-  emptyState: ReactNode;
 }) {
   const styles = useThemedStyles(createStyles);
   return (
@@ -579,7 +577,7 @@ function RiverCarousel({
         subtitle={sectionSubtitleForMode(mode)}
       />
       {children}
-      {rivers.length > 0 ? <ScrollView
+      <ScrollView
         key={mode}
         horizontal
         showsHorizontalScrollIndicator={false}
@@ -599,7 +597,7 @@ function RiverCarousel({
           />
           </MotionReveal>
         ))}
-      </ScrollView> : emptyState}
+      </ScrollView>
     </View>
   );
 }
@@ -871,56 +869,25 @@ function ModeTabs({
   );
 }
 
-function EmptyMode({
-  mode,
-  hasLocation,
-  locationStatus,
-}: {
-  mode: BoardMode;
-  hasLocation: boolean;
-  locationStatus: string;
-}) {
-  const styles = useThemedStyles(createStyles);
-  const message =
-    mode === 'closest' && !hasLocation
-        ? locationStatus === 'requesting'
-          ? 'Finding nearby routes.'
-          : locationStatus === 'denied'
-            ? 'Location is off. Choose another sort above or set a city to find nearby routes.'
-            : 'Choose another sort above or set a city to find nearby routes.'
-        : 'No routes match this view.';
-
-  return (
-    <View style={styles.emptyCard}>
-      <Text style={styles.emptyTitle}>{emptyTitleForMode(mode, hasLocation, locationStatus)}</Text>
-      <Text style={styles.emptyText}>{message}</Text>
-    </View>
-  );
-}
-
 function OutOfRangeState({
   locationLabel,
   onRequestRoute,
-  onBrowseRoutes,
+  onBrowseStates,
+  onChangeLocation,
 }: {
   locationLabel: string;
   onRequestRoute: () => void;
-  onBrowseRoutes: () => void;
+  onBrowseStates: () => void;
+  onChangeLocation: () => void;
 }) {
   const styles = useThemedStyles(createStyles);
   return (
     <View style={styles.outOfRangeCard}>
-      <Text style={styles.emptyTitle}>No routes near {locationLabel}</Text>
-      <Text style={styles.emptyText}>
-        Browse supported rivers or request a route near you.
-      </Text>
+      <Text accessibilityRole="header" style={styles.emptyTitle}>No routes within {HOME_NEARBY_DISTANCE_MILES} miles of {locationLabel}</Text>
       <View style={styles.emptyActions}>
-        <Pressable accessibilityRole="button" style={styles.emptyPrimaryButton} onPress={onRequestRoute}>
-          <Text style={styles.emptyPrimaryButtonText}>Request a Route</Text>
-        </Pressable>
-        <Pressable accessibilityRole="button" style={styles.emptySecondaryButton} onPress={onBrowseRoutes}>
-          <Text style={styles.emptySecondaryButtonText}>Browse all rivers</Text>
-        </Pressable>
+        <AppButton label="Change location" onPress={onChangeLocation} />
+        <AppButton label="Browse by state" variant="secondary" onPress={onBrowseStates} />
+        <AppButton label="Request a Route" variant="secondary" onPress={onRequestRoute} />
       </View>
     </View>
   );
@@ -1043,14 +1010,6 @@ function boardIntroTitleForMode(mode: BoardMode) {
   if (mode === 'score') return 'Rivers ordered by score';
   if (mode === 'certain') return 'Routes by evidence strength';
   return 'Today\'s Calls';
-}
-
-function emptyTitleForMode(mode: BoardMode, hasLocation: boolean, locationStatus: string) {
-  if (mode === 'closest' && !hasLocation) {
-    return locationStatus === 'requesting' ? 'Finding nearby routes' : 'Location needed';
-  }
-
-  return 'Nothing here yet';
 }
 
 function homeFactItems(river: BoardItem) {
@@ -1601,14 +1560,6 @@ const createStyles = (colors: AppColors) => StyleSheet.create({
     paddingHorizontal: 9,
     paddingVertical: 5,
   },
-  emptyCard: {
-    backgroundColor: colors.surfaceStrong,
-    borderRadius: radius.lg,
-    borderWidth: 1,
-    borderColor: colors.border,
-    padding: spacing.lg,
-    gap: spacing.xs,
-  },
   outOfRangeCard: {
     backgroundColor: colors.surfaceStrong,
     borderRadius: radius.lg,
@@ -1631,33 +1582,5 @@ const createStyles = (colors: AppColors) => StyleSheet.create({
     flexDirection: 'row',
     flexWrap: 'wrap',
     gap: spacing.sm,
-  },
-  emptyPrimaryButton: {
-    minHeight: 42,
-    borderRadius: radius.pill,
-    backgroundColor: colors.accent,
-    paddingHorizontal: 15,
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-  emptyPrimaryButtonText: {
-    color: colors.onAccent,
-    fontSize: 13,
-    fontWeight: '900',
-  },
-  emptySecondaryButton: {
-    minHeight: 42,
-    borderRadius: radius.pill,
-    borderWidth: 1,
-    borderColor: colors.border,
-    backgroundColor: colors.surface,
-    paddingHorizontal: 15,
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-  emptySecondaryButtonText: {
-    color: colors.text,
-    fontSize: 13,
-    fontWeight: '900',
   },
 });

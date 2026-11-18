@@ -38,6 +38,16 @@ export async function consumePendingLaunchTarget() {
   return target && target.startsWith('/') && !target.startsWith('//') ? target : null;
 }
 
+export const TRIP_RETURN_KEY = 'paddletoday:trip-return';
+
+export async function consumeAccountDestination(returnTo: string) {
+  const pending = await consumePendingLaunchTarget();
+  const trip = await AsyncStorage.getItem(TRIP_RETURN_KEY);
+  if (trip) await AsyncStorage.removeItem(TRIP_RETURN_KEY);
+  if (pending) return pending;
+  return returnTo === '/account' && trip?.startsWith('/trips?') ? trip : returnTo;
+}
+
 export async function migrateOnboardingStorage() {
   try {
     if ((await AsyncStorage.getItem(ONBOARDING_STORAGE_MIGRATED_KEY)) === '1') {

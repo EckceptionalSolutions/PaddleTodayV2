@@ -33,3 +33,23 @@ test('short access selector keeps long names and dismissal reachable', async ({ 
   await expect(dialog).toBeHidden();
   await expect(trigger).toBeFocused();
 });
+
+test('a take-out access note follows the selected landing from the picker to directions', async ({ page }) => {
+  await page.setViewportSize({ width: 320, height: 700 });
+  await page.addInitScript(() => localStorage.setItem('paddletoday:welcome-completed:v1', '1'));
+  const river = fixture.result.river;
+  const takeOut = river.accessPoints.find(point => point.name.includes('Wargo'))!;
+  await page.route('**/api/**', route => route.fulfill({ status: 503, json: {} }));
+  await page.route(`**/api/rivers/${river.slug}.json`, route => route.fulfill({ json: fixture }));
+  await page.goto(`/river/${river.slug}`);
+  await page.getByRole('button', { name: 'Show Access section' }).first().press('Enter');
+  await page.getByRole('button', { name: /^Select Take-out,/ }).press('Enter');
+  const option = page.getByRole('dialog').getByRole('button', { name: `Take-out: ${takeOut.name}`, exact: true });
+  await expect(option).toHaveAccessibleDescription(takeOut.note);
+  await expect(option.getByText(takeOut.note, { exact: true })).toBeVisible();
+  await option.press('Enter');
+  for (const point of [river.accessPoints[0]!, takeOut]) {
+    const directions = page.getByRole('button', { name: `Open ${point.name} in maps`, exact: true });
+    await expect(directions.locator('..').getByText(point.note, { exact: true })).toBeVisible();
+  }
+});

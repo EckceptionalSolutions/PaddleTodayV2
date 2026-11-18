@@ -57,7 +57,7 @@ export class TripRepository {
     this.writes = work.catch(() => {}); return work;
   }
   async savePlan(plan: TripPlan, id = this.uuid(), baseline?: TripPlan) {
-    const issue = tripTimeIssue(plan.date, plan.launch, plan.timeZone) || tripTimeIssue(plan.date, plan.expected, plan.timeZone);
+    const issue = tripTimeIssue(plan.date, plan.launch, plan.timeZone) || tripTimeIssue(plan.expectedDate || plan.date, plan.expected, plan.timeZone);
     if (issue) throw new Error(issue);
     if (!isTripPlan(plan)) throw new Error('Enter a title and location, and check the date, time, and time zone.');
     const existing = this.state.trips[id];
@@ -252,18 +252,23 @@ export class TripRepository {
         // Older services may acknowledge a plan while silently dropping newer fields.
         // Retain the local details and prepare a fresh, rebased operation for Retry.
         if (pending.kind === 'trip' && trip && (pending.input.command.type === 'create' || pending.input.command.type === 'plan')) {
-          const preparation = pending.input.command.plan.preparation;
-          if (preparation && Object.values(preparation).some(value => value !== '' && value !== null && value !== undefined)
-            && JSON.stringify(preparation) !== JSON.stringify(trip.preparation)) {
+          const { preparation, expectedDate } = pending.input.command.plan;
+          const missingReturnDate = Boolean(expectedDate && trip.expectedDate === undefined);
+          const missingPreparation = preparation && Object.values(preparation).some(value => value !== '' && value !== null && value !== undefined)
+            && JSON.stringify(preparation) !== JSON.stringify(trip.preparation);
+          if (missingReturnDate || missingPreparation) {
             const latest = trip;
             await this.change(v => {
               const p = v.pending.find(p => p.key === pending.key);
               if (!p || p.kind !== 'trip') return;
-              const operationId = this.uuid(), plan = { ...tripPlan(latest), preparation };
+              const operationId = this.uuid(), plan = tripPlan(latest);
+              if (missingPreparation) plan.preparation = preparation;
+              if (missingReturnDate) plan.expectedDate = expectedDate;
               p.key = operationId; p.queuedAt = Date.now();
               p.input = { operationId, baseRevision: latest.revision, command: { type: 'plan', baseline: tripPlan(latest), plan } };
               p.latest = latest;
-              p.error = 'Group details did not sync. They are saved on this device. Retry after the trip service is updated.';
+              p.error = missingReturnDate ? 'The return date did not sync. Your trip is saved on this device. Retry after the trip service is updated.'
+                : 'Group details did not sync. They are saved on this device. Retry after the trip service is updated.';
               if (!v.pending.some(other => other.id === p.id && other.key !== p.key)) v.trips[p.id] = { ...latest, ...plan, revision: latest.revision + 1 };
             });
             continue;

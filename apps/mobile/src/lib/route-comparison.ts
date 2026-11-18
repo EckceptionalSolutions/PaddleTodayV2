@@ -1,4 +1,4 @@
-import type { RiverDetailApiResult, RiverSummaryApiItem } from '@paddletoday/api-contract';
+import { routeGaugePresentation, type RiverDetailApiResult, type RiverSummaryApiItem } from '@paddletoday/api-contract';
 import { distanceMiles, estimateTravelMinutes, formatTravelTime, hasValidLocationCoordinates, type StoredLocation } from './location';
 import { routeDecisionPresentation } from './map-decision';
 
@@ -23,12 +23,15 @@ export function toggleRouteComparison(selected: string[], slug: string, availabl
   return [...valid, slug];
 }
 
-export function routeComparisonFacts(route: ComparableRoute, location: StoredLocation | null, isStale: boolean) {
+export function routeComparisonFacts(route: ComparableRoute, location: StoredLocation | null, isStale: boolean, now = Date.now()) {
   const decision = routeDecisionPresentation(route);
   const difficulty = 'difficulty' in route.river ? route.river.difficulty : route.river.profile?.difficulty;
   const drive = location && hasValidLocationCoordinates(location) && hasValidLocationCoordinates(route.river)
     ? formatTravelTime(estimateTravelMinutes(distanceMiles(location.latitude, location.longitude, route.river.latitude, route.river.longitude)))
     : 'No drive estimate';
+  const gauge = routeGaugePresentation(route, now);
+  const observed = gauge.observedLabel ? Date.parse(route.gauge!.observedAt) : null;
+  const observation = gauge.value === 'No reading' ? 'No observation available' : gauge.context;
   const captured = new Date(route.generatedAt);
   const fact = (id: string, group: ComparisonFactGroup, label: string, value: string, comparableValue = value): RouteComparisonFact => ({
     id, group, label, value, comparableValue: normalizeComparisonValue(comparableValue),
@@ -37,7 +40,9 @@ export function routeComparisonFacts(route: ComparableRoute, location: StoredLoc
     fact('call', 'Conditions', isStale ? 'Stored call' : 'Current call', decision.label),
     fact('score', 'Conditions', 'Score', isStale || decision.score === null ? 'Current score unavailable' : String(decision.score)),
     fact('confidence', 'Conditions', 'Confidence', isStale || decision.call === 'unavailable' ? 'Current confidence unavailable' : route.confidence.label),
-    fact('captured', 'Conditions', 'Conditions captured', Number.isFinite(captured.getTime()) ? captured.toLocaleString(undefined, { dateStyle: 'medium', timeStyle: 'short' }) : 'Time unavailable', Number.isFinite(captured.getTime()) ? route.generatedAt : 'time-unavailable'),
+    fact('reading', 'Conditions', 'Gauge reading', gauge.value),
+    fact('observed', 'Conditions', 'Gauge observation', observation, [gauge.state, observed, observation].join('|')),
+    fact('captured', 'Conditions', 'Snapshot generated', Number.isFinite(captured.getTime()) ? captured.toLocaleString(undefined, { dateStyle: 'medium', timeStyle: 'short' }) : 'Time unavailable', Number.isFinite(captured.getTime()) ? route.generatedAt : 'time-unavailable'),
     fact('paddle-time', 'Trip effort', 'Paddle time', route.river.estimatedPaddleTime || 'Not listed'),
     fact('distance', 'Trip effort', 'Distance', route.river.distanceLabel || 'Not listed'),
     fact('difficulty', 'Trip effort', 'Difficulty', difficulty ? difficulty[0].toUpperCase() + difficulty.slice(1) : 'Not listed'),

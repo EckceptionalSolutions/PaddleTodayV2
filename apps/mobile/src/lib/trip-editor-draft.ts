@@ -9,6 +9,7 @@ function routeShape(value: unknown) {
 }
 function planShape(value: unknown): value is TripPlan {
   if (!record(value) || !routeShape(value.route) || !strings(value, ['title', 'date', 'launch', 'expected', 'timeZone'])
+    || (value.expectedDate !== undefined && typeof value.expectedDate !== 'string')
     || !Array.isArray(value.itinerary) || value.itinerary.length > 30
     || !value.itinerary.every(stop => record(stop) && strings(stop, ['id', 'time', 'location', 'note']))) return false;
   const preparation = value.preparation;

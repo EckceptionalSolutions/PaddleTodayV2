@@ -4,7 +4,9 @@ import { DarkTheme, DefaultTheme, ThemeProvider } from '@react-navigation/native
 import { StatusBar } from 'expo-status-bar';
 import { Stack, router } from 'expo-router';
 import AsyncStorage from '@react-native-async-storage/async-storage';
-import { usePathname } from 'expo-router';
+import { usePathname, useUnstableGlobalHref } from 'expo-router';
+import { incomingRouteLink } from '../src/lib/incoming-route-link';
+import { LaunchReadyContext } from '../src/lib/launch-ready-context';
 import { useEffect, useRef, useState } from 'react';
 import { ActivityIndicator, Platform, StyleSheet, View } from 'react-native';
 import 'react-native-reanimated';
@@ -62,6 +64,8 @@ function ThemedRootLayout() {
   };
   const reducedMotion = useReducedMotion();
   const pathname = usePathname();
+  const href = useUnstableGlobalHref();
+  const launchTarget = pathname === '/trips' ? incomingRouteLink(href) : pathname;
   const entryRoute = pathname === '/welcome' || pathname === '/sign-in' || pathname === '/tour' || pathname.startsWith('/auth/callback');
   const authEnabled = process.env.EXPO_PUBLIC_ACCOUNT_AUTH_ENABLED === '1' && Platform.OS !== 'web';
   const [authSessionReady, setAuthSessionReady] = useState(!authEnabled);
@@ -105,17 +109,12 @@ function ThemedRootLayout() {
         return;
       }
       if (!entryRoute) {
-        const returnTo = pathname.startsWith('/') && !pathname.startsWith('//') ? pathname : '/';
+        const returnTo = launchTarget.startsWith('/') && !launchTarget.startsWith('//') ? launchTarget : '/';
         if (returnTo !== '/') await savePendingLaunchTarget(returnTo).catch(() => {});
-        router.replace({ pathname: '/welcome', params: { returnTo } } as never);
+        if (active) router.replace({ pathname: '/welcome', params: { returnTo } } as never);
         return;
       }
       setOnboardingChecked(true);
-      if (completed === '1' && pathname === '/') {
-        void AsyncStorage.getItem('paddletoday:trip-return').then(async target => {
-          if (active && target?.startsWith('/trips?')) { await AsyncStorage.removeItem('paddletoday:trip-return'); router.replace(target as '/trips'); }
-        });
-      }
     }).catch(() => {
       if (active) {
         setOnboardingChecked(true);
@@ -125,7 +124,7 @@ function ThemedRootLayout() {
     return () => {
       active = false;
     };
-  }, [authSessionReady, entryRoute, hasSignedInUser, pathname]);
+  }, [authSessionReady, entryRoute, hasSignedInUser, launchTarget]);
 
   useEffect(() => {
     const isRiverDetail = pathname.startsWith('/river/');
@@ -162,6 +161,7 @@ function ThemedRootLayout() {
         <StatusBar style={colorScheme === 'dark' ? 'light' : 'dark'} />
         <View style={{ flex: 1 }}>
         <ConnectivityNotice />
+        <LaunchReadyContext.Provider value={onboardingChecked && !entryRoute}>
         <Stack
           screenOptions={{
             animation: reducedMotion ? 'none' : 'default',
@@ -191,6 +191,7 @@ function ThemedRootLayout() {
           <Stack.Screen name="privacy" options={{ title: 'Privacy' }} />
           <Stack.Screen name="terms" options={{ title: 'Terms' }} />
         </Stack>
+        </LaunchReadyContext.Provider>
         </View>
         <FeedbackExperience pathname={pathname} />
         {!ready || (!onboardingChecked && !entryRoute) ? (

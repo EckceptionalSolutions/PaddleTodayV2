@@ -1,4 +1,5 @@
-import { useEffect, useState, useCallback, useRef, useMemo, type ComponentProps } from 'react';
+import { useContext, useEffect, useState, useCallback, useRef, useMemo, type ComponentProps } from 'react';
+import { LaunchReadyContext } from '../lib/launch-ready-context';
 import { Alert, AppState, BackHandler, KeyboardAvoidingView, Platform, Pressable, ScrollView, Share, StyleSheet, Text, TextInput, View } from 'react-native';
 import { useHeaderHeight } from '@react-navigation/elements';
 import MaterialCommunityIcons from '@expo/vector-icons/MaterialCommunityIcons';
@@ -10,9 +11,12 @@ import * as ImagePicker from 'expo-image-picker';
 import { manipulateAsync, SaveFormat } from 'expo-image-manipulator';
 import { createTripsClient, type PendingTripWork } from '@paddletoday/api-client';
 import { newTripPlan, isTripPlan, tripPlan, historicalWaterSuggestion, normalizeSearchText, type Trip, type TripPlan, type PaddleLogInput, type TripCommand, type RiverSummaryApiItem, type ShuttleVehicle, type TripRoute } from '@paddletoday/api-contract';
-import { tripSession, subscribeTripSession, TRIP_RETURN_KEY } from '../lib/trip-session';
+import { tripSession, subscribeTripSession, syncTrips } from '../lib/trip-session';
+import { pendingGuestPlans, saveGuestPlan } from '../lib/guest-trip-plans';
+import { TRIP_RETURN_KEY } from '../lib/onboarding';
 import { resolveApiBaseUrl, resolveWebUrl } from '../lib/api-base-url';
 import { AppButton } from '../components/app-button';
+import { SharedTripPlan } from '../components/shared-trip-plan';
 import { SectionCard } from '../components/section-card';
 import { radius, shadowForColors, spacing, typography, type AppColors } from '../theme/tokens';
 import { useAppTheme, useThemedStyles } from '../theme/theme-provider';
@@ -41,6 +45,7 @@ import { tripNotes, withTripNotes } from '@paddletoday/api-contract';
 
 const emptyWater = () => ({ gaugeId: '', gaugeName: '', value: '', unit: '', measuredAt: '', source: '', note: '' });
 export default function TripsScreen() {
+  const launchReady = useContext(LaunchReadyContext);
   const { colors } = useAppTheme();
   const styles = useThemedStyles(createStyles);
   const params = useLocalSearchParams<{ id?: string; invite?: string; view?: string; route?: string; name?: string }>();
@@ -50,6 +55,8 @@ export default function TripsScreen() {
   const stackScreen = navigation.getState()?.type === 'stack';
   const bottomContentInset = androidBottomInset(insets.bottom, 40);
   const [repo, setRepo] = useState(tripSession());
+  const [guestPlans, setGuestPlans] = useState<Awaited<ReturnType<typeof pendingGuestPlans>>>([]);
+  const guestSaveId = useRef<string | null>(null);
   const [, refresh] = useState(0);
   const [selected, setSelected] = useState(params.id || '');
   const [invitation, setInvitation] = useState(params.invite || '');
@@ -81,7 +88,6 @@ export default function TripsScreen() {
   const [vehicleEdit, setVehicleEdit] = useState<{ vehicle: ShuttleVehicle; revision: number } | null>(null);
   const [vehicleFormOpen, setVehicleFormOpen] = useState(false);
   const [memberName, setMemberName] = useState('');
-  const [publicTrip, setPublicTrip] = useState<TripPlan | null>(null);
   const [invitePreview, setInvitePreview] = useState<{ title: string; date: string; route: TripRoute } | null>(null);
   const [inviteError, setInviteError] = useState('');
   const [editorReadyUid, setEditorReadyUid] = useState<string | null>(null);
@@ -151,23 +157,25 @@ export default function TripsScreen() {
   }, [repo, editorStorageKey, editorReadyUid, editing, editId, log, logId, logMode, planStep]);
   useEffect(() => { if (params.id) setSelected(params.id); if (params.invite) setInvitation(params.invite); }, [params.id, params.invite]);
   useEffect(() => {
-    if (!params.view || !params.id) return;
-    const client = createTripsClient(resolveApiBaseUrl(), async () => '');
-    void client.view(params.id, params.view).then(v => setPublicTrip(v.trip)).catch(e => setMessage(e.message));
-  }, [params.view, params.id]);
-  useEffect(() => {
-    if (!invitation || !params.id) { setInvitePreview(null); setInviteError(''); return; }
+    if (!launchReady || !invitation || !params.id) { setInvitePreview(null); setInviteError(''); return; }
     let active = true;
     setInvitePreview(null); setInviteError('');
     const client = createTripsClient(resolveApiBaseUrl(), async () => '');
     void client.invitation(params.id, invitation).then(result => { if (active) setInvitePreview(result.invitation); })
       .catch(e => { if (active) { const text = e instanceof Error ? e.message : 'This invitation is unavailable.'; setInvitePreview(null); setInviteError(text); setMessage(text); } });
     return () => { active = false; };
-  }, [invitation, params.id]);
+  }, [launchReady, invitation, params.id]);
+  useFocusEffect(useCallback(() => {
+    if (repo || params.view || params.invite) return;
+    let active = true;
+    void pendingGuestPlans().then(plans => { if (active) setGuestPlans(plans); })
+      .catch(error => { if (active) setMessage(error.message); });
+    return () => { active = false; };
+  }, [repo, params.view, params.invite]));
   const sync = useCallback(async () => {
     if (!repo || AppState.currentState !== 'active') return;
     try {
-      await repo.sync();
+      await syncTrips();
       setMessage(repo.getSnapshot().pending.length ? 'Some changes are waiting to sync or need review.'
         : editing || log || vehicleEdit ? 'Your open editor has not been saved to your trips yet.' : 'All changes saved.');
     }
@@ -261,7 +269,10 @@ export default function TripsScreen() {
   }
   function startPlanning(route?: TripPlan['route']) {
     if (tracking) { setMessage('Finish your current recording before planning another trip.'); return; }
-    withDraftGuard(() => { editingBaseline.current = undefined; setEditing({ ...newTripPlan(route), title: tripTitleForRoute(route?.name || '') }); setEditId(''); setPlanStep('route'); setLog(null); setPanel(null); setPlanSection(null); setRoutePickerCustom(false); setRoutePickerKey(n => n + 1); });
+    withDraftGuard(() => {
+      guestSaveId.current = null;
+      editingBaseline.current = undefined; setEditing({ ...newTripPlan(route), title: tripTitleForRoute(route?.name || '') }); setEditId(''); setPlanStep('route'); setLog(null); setPanel(null); setPlanSection(null); setRoutePickerCustom(false); setRoutePickerKey(n => n + 1);
+    });
   }
   function chooseRoute(item: RiverSummaryApiItem) {
     clearRouteValidation();
@@ -427,8 +438,8 @@ export default function TripsScreen() {
       <AppButton label="Record paddle" icon="record-rec" variant="secondary" disabled={busy} onPress={() => startLog(featuredTrip, 'record')} style={styles.primaryAction} />
     </View> : null}
     {overview && repo && !tracking ? <Pressable accessibilityRole="button" disabled={busy} onPress={() => startLog()} style={styles.pastEntry}><MaterialCommunityIcons name="notebook-plus-outline" size={18} color={colors.accentDeep} /><Text style={styles.offlineLinkText}>Log a past paddle</Text></Pressable> : null}
-    {message ? <View style={styles.notice} accessibilityLiveRegion="polite"><MaterialCommunityIcons name="information-outline" size={18} color={colors.accentDeep} /><Text style={styles.noticeText}>{message}</Text></View> : null}
-    {publicTrip ? <SectionCard title={publicTrip.title} subtitle="Shared trip plan"><Text>{publicTrip.route.name}</Text><Text>{publicTrip.route.putInName} → {publicTrip.route.takeOutName}</Text><Text>{publicTrip.date} {publicTrip.launch} ({publicTrip.timeZone})</Text>{publicTrip.itinerary.map(s => <Text key={s.id}>{s.time} {s.location}: {s.note}</Text>)}</SectionCard> : null}
+    {message && !params.view ? <View style={styles.notice} accessibilityLiveRegion="polite"><MaterialCommunityIcons name="information-outline" size={18} color={colors.accentDeep} /><Text style={styles.noticeText}>{message}</Text></View> : null}
+    {launchReady && params.view && params.id ? <SharedTripPlan key={params.id + ':' + params.view} id={params.id} token={params.view} /> : null}
     {!repo && overview ? <View style={styles.welcomeCard}>
       <View style={styles.welcomeIcon}><MaterialCommunityIcons name="account-group-outline" size={26} color={colors.accentDeep} /></View>
       <Text style={styles.welcomeTitle}>Bring your paddling crew together</Text>
@@ -438,6 +449,9 @@ export default function TripsScreen() {
         <AppButton label="Choose a route" variant="secondary" onPress={() => startPlanning()} style={styles.welcomeAction} />
       </View>
     </View> : null}
+    {!repo && overview && guestPlans.length > 0 ? <SectionCard title="Plans saved on this device" subtitle="These plans will move to My trips when you sign in.">
+      {guestPlans.map(({ id, plan }) => <Text key={id} style={styles.body}>{[plan.title, plan.date, plan.launch].filter(Boolean).join(' · ')}</Text>)}
+    </SectionCard> : null}
     {invitation && params.id ? <SectionCard title={invitePreview?.title || 'Trip invitation'} subtitle={invitePreview ? 'Joining lets you view and edit the shared itinerary.' : undefined}><Text style={styles.body}>{invitePreview ? `${invitePreview.route.name} · ${invitePreview.date || 'Date to be decided'}` : inviteError || 'Checking this invitation…'}</Text>{invitePreview && state?.trips[selected] ? <Text style={styles.hint}>You already have access to this trip.</Text> : repo && invitePreview ? <B label="Join trip" onPress={() => run(async () => { await command({ type: 'join', token: invitation }); if (repo.getSnapshot().trips[selected]) setInvitation(''); })} /> : !repo && invitePreview ? <Text style={styles.hint}>Sign in to join this trip.</Text> : null}</SectionCard> : null}
     {state?.pending.length ? <SectionCard title={`${state.pending.length} saved change${state.pending.length === 1 ? '' : 's'} waiting to sync`}><B label="Sync now" secondary onPress={() => run(sync)} />{state.pending.filter(p => p.error).map(p => <B key={p.key} label={`Review ${tripSyncRecovery(p).title.toLowerCase()}`} onPress={() => { setRecover(p); scrollRef.current?.scrollTo({ y: 0, animated: true }); }} secondary />)}</SectionCard> : null}
     {recover ? <TripSyncRecoveryCard key={recover.key} work={state?.pending.find(p => p.key === recover.key) || recover} busy={busy}
@@ -462,6 +476,7 @@ export default function TripsScreen() {
       <Field disabled={busy} label="Launch time (HH:MM, optional)" value={editing.launch} onChange={launch => setEditing({ ...editing, launch })} placeholder="09:00" />
       <Text style={styles.hint}>Times in {editing.timeZone}</Text>
       <Field disabled={busy} label="Expected return (HH:MM, optional)" value={editing.expected} onChange={expected => setEditing({ ...editing, expected })} />
+      <ScheduleField label="Return date if different from launch" value={editing.expectedDate || ''} dateOnly optional disabled={busy} onChange={expectedDate => setEditing({ ...editing, expectedDate })} />
       <ScheduleField label="Group check-in" optional value={preparationValues(editing.preparation).checkInLocal} disabled={busy} onChange={checkInLocal => setEditing({ ...editing, preparation: { ...preparationValues(editing.preparation), checkInLocal } })} />
       <Field disabled={busy} label="Trip time zone" value={editing.timeZone} onChange={timeZone => setEditing({ ...editing, timeZone })} />
       <Field disabled={busy} label="Group size" value={editing.preparation?.groupSize == null ? '' : String(editing.preparation.groupSize)} onChange={value => {
@@ -486,7 +501,15 @@ export default function TripsScreen() {
         if (editing.launch && !editing.date) throw new Error('Choose a planned date for your launch time.');
         if ((editing.preparation?.note.length ?? 0) > 2000) throw new Error('Keep trip notes to 2,000 characters or fewer. Your existing details are kept until you save.');
         if (!isTripPlan(editing)) throw new Error('Check the dates, times, time zone, and optional group details before saving.');
-        if (!repo) { await AsyncStorage.setItem('paddletoday:trip-guest-draft', JSON.stringify({ id: Crypto.randomUUID(), plan: editing })); await clearEditorDraft(); await signIn(); return; }
+        if (!repo) {
+          guestSaveId.current ??= Crypto.randomUUID();
+          await saveGuestPlan(guestSaveId.current, editing);
+          await clearEditorDraft();
+          setEditing(null);
+          await signIn();
+          guestSaveId.current = null;
+          return;
+        }
         const id = await repo.savePlan(editing, editId || undefined, editId ? editingBaseline.current : undefined); setSelected(id); setEditing(null); setViewLogId(''); setPanel(null); await clearEditorDraft(); await sync(); setMessage(repo.getSnapshot().pending.length ? 'Trip saved on this device. Changes are waiting to sync.' : 'Trip saved.');
       })} /><B label="Save draft & close" secondary onPress={() => run(closeEditor)} />
     </SectionCard> : log && logMode === 'record' && !tracking ? <SectionCard title="Choose your route" subtitle="Start a private GPS recording when you’re ready to launch.">

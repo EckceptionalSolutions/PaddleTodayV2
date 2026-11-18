@@ -1,4 +1,3 @@
-import AsyncStorage from '@react-native-async-storage/async-storage';
 import { SNAPSHOT_MAX_AGE_MS } from '@paddletoday/api-contract';
 import Constants from 'expo-constants';
 import { focusManager, MutationCache, onlineManager, QueryCache, QueryClient } from '@tanstack/react-query';
@@ -19,10 +18,7 @@ import { refreshFreshnessClock } from '../hooks/use-freshness-clock';
 import { createConnectivityMonitor } from '../lib/connectivity';
 import { deactivateAccountLocalData, flushAccountBackup, registerAccountBackupAuthProvider } from '../lib/account-backup';
 import { restoreGuestLocalState } from '../lib/account-local-state';
-import { AccountBackupInvitation } from '../components/account-backup-invitation';
-import { activateTripSession, syncTrips, TRIP_RETURN_KEY } from '../lib/trip-session';
-import { router } from 'expo-router';
-import { WELCOME_COMPLETED_STORAGE_KEY } from '../lib/onboarding';
+import { activateTripSession, syncTrips } from '../lib/trip-session';
 import { setAccountUnavailable, setAccountUser } from '../lib/account-status';
 
 const queryPersister = createRouteQueryPersister();
@@ -84,8 +80,6 @@ export function AppProviders({ children }: PropsWithChildren) {
           void activateTripSession(user).then(async () => {
             if (!user) return;
             void flushAccountBackup().then(() => syncTrips()).catch(() => {});
-            const target = await AsyncStorage.getItem(TRIP_RETURN_KEY);
-            if (target?.startsWith('/trips?') && await AsyncStorage.getItem(WELCOME_COMPLETED_STORAGE_KEY) === '1') { await AsyncStorage.removeItem(TRIP_RETURN_KEY); router.replace(target as '/trips'); }
           }).catch(() => {});
           if (!user) void deactivateAccountLocalData().then(() => restoreGuestLocalState()).catch(() => {});
         });
@@ -137,7 +131,7 @@ export function AppProviders({ children }: PropsWithChildren) {
       <AlertPreferencesProvider>
         <AreaNotificationPreferencesProvider>
           <StoredLocationProvider>
-            <PaddlingPreferencesProvider><SavedRiversProvider>{children}<AccountBackupInvitation /></SavedRiversProvider></PaddlingPreferencesProvider>
+            <PaddlingPreferencesProvider><SavedRiversProvider>{children}</SavedRiversProvider></PaddlingPreferencesProvider>
           </StoredLocationProvider>
         </AreaNotificationPreferencesProvider>
       </AlertPreferencesProvider>

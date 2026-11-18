@@ -117,11 +117,6 @@ export const RoutePlotMap = forwardRef<RoutePlotMapHandle, {
         <View style={styles.secondaryRoadTwo} />
         <View style={styles.secondaryRoadThree} />
         <View style={styles.secondaryRoadFour} />
-        <MapLabel label="Mississippi River" style={styles.labelMississippi} />
-        <MapLabel label="Minnesota River" style={styles.labelMinnesota} />
-        <MapLabel label="St. Croix River" style={styles.labelStCroix} />
-        <MapLabel label="Minneapolis" style={styles.labelMinneapolis} />
-        <MapLabel label="St. Paul" style={styles.labelSaintPaul} />
 
         {userLocation && Number.isFinite(userLocation.latitude) && Number.isFinite(userLocation.longitude) ? (
           <View
@@ -192,15 +187,6 @@ export const RoutePlotMap = forwardRef<RoutePlotMapHandle, {
     </View>
   );
 });
-
-function MapLabel({ label, style }: { label: string; style: object }) {
-  const styles = useThemedStyles(createStyles);
-  return (
-    <Text style={[styles.mapLabel, style]} numberOfLines={1}>
-      {label}
-    </Text>
-  );
-}
 
 function ShowAllButton({ onPress }: { onPress: () => void }) {
   const styles = useThemedStyles(createStyles);
@@ -469,38 +455,6 @@ const createStyles = (colors: AppColors) => StyleSheet.create({
     borderRadius: 999,
     backgroundColor: colors.mapLabelSurface,
     transform: [{ rotate: '-13deg' }],
-  },
-  mapLabel: {
-    position: 'absolute',
-    color: colors.mapLabel,
-    fontSize: 11,
-    fontWeight: '800',
-    textShadowColor: colors.surface,
-    textShadowOffset: { width: 0, height: 1 },
-    textShadowRadius: 3,
-  },
-  labelMississippi: {
-    left: '42%',
-    top: '25%',
-    transform: [{ rotate: '83deg' }],
-  },
-  labelMinnesota: {
-    left: '12%',
-    top: '50%',
-    transform: [{ rotate: '-9deg' }],
-  },
-  labelStCroix: {
-    right: '4%',
-    top: '37%',
-    transform: [{ rotate: '68deg' }],
-  },
-  labelMinneapolis: {
-    left: '26%',
-    top: '39%',
-  },
-  labelSaintPaul: {
-    left: '52%',
-    top: '41%',
   },
   markerTarget: {
     position: 'absolute',

@@ -1,5 +1,6 @@
 import { stateAbbreviation } from '../lib/state-labels';
 import { LocationStorageNotice } from '../components/location-storage-notice';
+import { ManualLocationModal } from '../components/manual-location-modal';
 import {
   buildRoutePlannerParams,
   createRouteSearch,
@@ -91,7 +92,10 @@ export default function ExploreScreen() {
   const params = useLocalSearchParams<{ intent?: string; intentKey?: string; reset?: string; state?: string; transientIntent?: string }>();
   const insets = useSafeAreaInsets();
   const { height: windowHeight } = useWindowDimensions();
-  const { location, status, requestLocation } = useStoredLocation();
+  const { location, status, requestLocation, searchLocations, selectPlanningLocation, cancelLocationRequest } = useStoredLocation();
+  const [locationSearchOpen, setLocationSearchOpen] = useState(false);
+  const [gpsError, setGpsError] = useState('');
+  const [locationFocusRevision, setLocationFocusRevision] = useState(0);
   const { isSaved, toggleSavedRiver } = useSavedRivers();
   const [filtersOpen, setFiltersOpen] = useState(false);
   const preferencesChanged = useRef(false);
@@ -277,6 +281,24 @@ export default function ExploreScreen() {
     });
   }
 
+  function showRoutesNearLocation() {
+    setNationwide(false);
+    setSelectedSlug(null);
+    setLocationFocusRevision(revision => revision + 1);
+    setFilters(current => ({ ...current, state: '', query: '', sort: 'nearest' }));
+    if (requestedState || requestedIntent || requestedReset) {
+      router.setParams({ state: undefined, intent: undefined, reset: undefined, intentKey: undefined, transientIntent: undefined });
+    }
+  }
+
+  async function useCurrentLocation() {
+    if (status === 'requesting') return;
+    setGpsError('');
+    const result = await requestLocation();
+    if (result.location) showRoutesNearLocation();
+    else setGpsError(result.permission === 'denied' ? 'Location off · Retry' : 'Location unavailable · Retry');
+  }
+
   useEffect(() => {
     if (results.length === 0) {
       setSelectedSlug(null);
@@ -288,21 +310,41 @@ export default function ExploreScreen() {
     }
   }, [results, selectedSlug]);
 
-  if (status === 'loading' || (preferencesHydrated && navigationFiltersApplied && summaryQuery.isPending && !summaryQuery.data)) {
-    return (
-      <AppLoadingState title="Loading explore map" body="Loading routes and filters." />
-    );
-  }
+  const locating = status === 'requesting' && !locationSearchOpen;
+  const gpsLabel = gpsError || 'Use current location';
+  const locationControls = (
+    <View style={{ flexDirection: 'row', gap: spacing.sm }}>
+      <AppButton label={gpsLabel} busy={locating} busyLabel="Finding location"
+        accessibilityLabel={locating ? 'Finding location' : gpsLabel} icon="crosshairs-gps"
+        variant="secondary" style={{ flex: 1 }} onPress={() => void useCurrentLocation()} />
+      <AppButton label={location ? `Change city · ${location.label}` : 'Choose a city'}
+        icon="map-marker-outline" variant="secondary" style={{ flex: 1 }} disabled={locating}
+        onPress={() => { setGpsError(''); setLocationSearchOpen(true); }} />
+    </View>
+  );
+  const locationModal = (
+    <ManualLocationModal key="location" visible={locationSearchOpen} onSearch={searchLocations}
+      onDismiss={() => { cancelLocationRequest(); setLocationSearchOpen(false); }}
+      onSelect={async candidate => {
+        const selected = await selectPlanningLocation(candidate);
+        if (selected) {
+          setLocationSearchOpen(false);
+          showRoutesNearLocation();
+        }
+        return selected;
+      }} />
+  );
 
-  if (summaryQuery.isError && !summaryQuery.data) {
-    return (
-      <AppErrorState
-        title="Explore did not load"
-        body={requestFailureMessage(summaryQuery.error)}
-        retrying={summaryQuery.isFetching}
-        onRetry={() => summaryQuery.refetch()}
-      />
-    );
+  if (status === 'loading' || !preferencesHydrated) return <AppLoadingState title="Loading explore map" body="Loading routes and filters." />;
+
+  if (!summaryQuery.data && (summaryQuery.isError || summaryQuery.isPending)) {
+    return <>
+      <View style={{ paddingTop: insets.top + spacing.md, paddingHorizontal: spacing.md }}>{locationControls}</View>
+      {summaryQuery.isError ? <AppErrorState title="Explore did not load" body={requestFailureMessage(summaryQuery.error)}
+        retrying={summaryQuery.isFetching} onRetry={() => summaryQuery.refetch()} />
+        : <AppLoadingState title="Loading explore map" body="Loading routes and filters." />}
+      {locationModal}
+    </>;
   }
 
   const filterModal = (
@@ -332,6 +374,7 @@ export default function ExploreScreen() {
     <>
       <FullScreenExploreMap
         preferenceNotice={<>
+          {locationControls}
           {summaryQuery.data?.scope?.kind === 'nearby' ? <AppButton label="Within 300 mi · Search nationwide" variant="secondary"
             onPress={() => { setNationwide(true); setFilters(current => ({ ...current, state: '' })); }} /> : nationwide && location ? <AppButton label="Show nearby routes" variant="secondary"
               onPress={() => { setNationwide(false); setFilters(current => ({ ...current, state: '', query: '' })); }} /> : null}
@@ -353,6 +396,7 @@ export default function ExploreScreen() {
         bottomInset={bottomContentInset}
         topInset={insets.top}
         userLocation={location}
+        locationFocusRevision={locationFocusRevision}
         routeCounts={routeCounts}
         isRefetchError={summaryQuery.isRefetchError}
         isStale={summaryQuery.data?.snapshotStatus === 'stale'}
@@ -369,11 +413,10 @@ export default function ExploreScreen() {
         onPrepareRoute={prepareExploreRoute}
         onSearchChange={setSearchQuery}
         onSelectSlug={setSelectedSlug}
-        onUseLocation={() => void requestLocation()}
         isSaved={isSaved}
         onFocusNearest={() => {
-          setFilters((current) => ({ ...current, sort: 'nearest' }));
-          if (!location && status !== 'requesting') void requestLocation();
+          if (location) setFilters((current) => ({ ...current, sort: 'nearest' }));
+          else void useCurrentLocation();
         }}
         onToggleSaved={(river) =>
           void toggleSavedRiver({
@@ -386,6 +429,7 @@ export default function ExploreScreen() {
       />
 
       {filterModal}
+      {locationModal}
     </>
   );
 
@@ -469,6 +513,7 @@ function FullScreenExploreMap({
   bottomInset,
   topInset,
   userLocation,
+  locationFocusRevision,
   routeCounts,
   isRefetchError,
   isStale,
@@ -484,7 +529,6 @@ function FullScreenExploreMap({
   onSearchChange,
   onSelectSlug,
   onToggleSaved,
-  onUseLocation,
   isSaved,
 }: {
   preferenceNotice: ReactNode;
@@ -503,6 +547,7 @@ function FullScreenExploreMap({
   bottomInset: number;
   topInset: number;
   userLocation: { latitude: number; longitude: number; label: string } | null;
+  locationFocusRevision: number;
   routeCounts: ReadonlyMap<string, number>;
   isRefetchError: boolean;
   isStale: boolean;
@@ -518,7 +563,6 @@ function FullScreenExploreMap({
   onSearchChange: (query: string) => void;
   onSelectSlug: (slug: string | null) => void;
   onToggleSaved: (river: RiverSummaryApiItem) => void;
-  onUseLocation: () => void;
   isSaved: (slug: string) => boolean;
 }) {
   const { colors } = useAppTheme();
@@ -553,7 +597,6 @@ function FullScreenExploreMap({
   );
   const requesting = status === 'requesting';
   const collapsedHeight = drawerCollapsedHeight(mapFrameHeight, selectedRouteCount > 1 && !selectedRiver?.selectedSegment);
-  const floatingControlBottom = (selectedRiver ? sheetHeightValue(sheetSnap, mapFrameHeight, collapsedHeight) : 0) + spacing.md;
   const userOutOfRange = Boolean(userLocation && results.length === 0 && activeFilterCount === 0 && !callRecovery);
   const filterFocusSignature = [
     filters.query,
@@ -570,7 +613,7 @@ function FullScreenExploreMap({
   ].join('|');
   const overlayTop = controlsHeight + spacing.md;
 
-  const cameraContext = `${filterFocusSignature}|${userLocation?.latitude ?? ''}|${userLocation?.longitude ?? ''}`;
+  const cameraContext = `${filterFocusSignature}|${userLocation?.latitude ?? ''}|${userLocation?.longitude ?? ''}|${locationFocusRevision}`;
 
   function handleGpsFocus() {
     if (userLocation) {
@@ -610,36 +653,6 @@ function FullScreenExploreMap({
     );
   }
 
-  const locationControl = (!userLocation ? (
-        <Pressable
-          style={[styles.fullMapLocationPrompt, results.length > 0 ? { bottom: floatingControlBottom } : { position: 'relative', right: undefined, alignSelf: 'center' }]}
-          disabled={requesting}
-          onPress={onUseLocation}
-          accessibilityRole="button"
-          accessibilityLabel={requesting ? 'Finding location' : status === 'denied' ? 'Location off' : 'Use location'}
-          accessibilityState={{ disabled: requesting, busy: requesting }}
-          aria-busy={requesting}
-        >
-          <MaterialCommunityIcons name="map-marker-radius-outline" color={colors.accent} size={18} />
-          <Text style={styles.fullMapLocationText}>
-            {requesting ? 'Finding location' : status === 'denied' ? 'Location off · Retry' : status === 'error' ? 'Location unavailable · Retry' : 'Use location'}
-          </Text>
-        </Pressable>
-      ) : (
-        <Pressable
-          style={[styles.fullMapLocationPrompt, results.length > 0 ? { bottom: floatingControlBottom } : { position: 'relative', right: undefined, alignSelf: 'center' }]}
-          onPress={handleGpsFocus}
-          disabled={requesting}
-          accessibilityRole="button"
-          accessibilityLabel="Focus nearest rivers"
-          accessibilityState={{ disabled: requesting, busy: requesting }}
-          aria-busy={requesting}
-        >
-          <MaterialCommunityIcons name="crosshairs-gps" color={colors.accent} size={18} />
-          <Text style={styles.fullMapLocationText}>Near you</Text>
-        </Pressable>
-      ));
-
   return (
     <View style={styles.fullMapScreen} onLayout={event => setMapFrameHeight(Math.round(event.nativeEvent.layout.height))}>
       {results.length > 0 ? (
@@ -669,7 +682,6 @@ function FullScreenExploreMap({
         <ScrollView style={{ position: 'absolute', top: controlsHeight + spacing.md, bottom: 0, left: 0, right: 0, backgroundColor: colors.canvasMuted }}
           contentContainerStyle={[styles.fullMapEmptyCanvas, { flexGrow: 1, paddingBottom: bottomInset + spacing.xl }]}>
           <ExploreEmptyResults map callRecovery={callRecovery} query={filters.query} onClear={() => onSearchChange('')} onFilterPress={onFilterPress} />
-          {locationControl}
         </ScrollView>
       )}
 
@@ -755,11 +767,9 @@ function FullScreenExploreMap({
           accessibilityState={{ disabled: requesting, busy: requesting }}
           aria-busy={requesting}
         >
-          <MaterialCommunityIcons name="crosshairs-gps" color={colors.accent} size={20} />
+          <MaterialCommunityIcons name="map-marker-radius-outline" color={colors.accent} size={20} />
         </Pressable>
       </View> : null}
-
-      {results.length > 0 ? locationControl : null}
 
       {selectedRiver ? (
         <ExploreRouteDrawer
@@ -1340,28 +1350,6 @@ const createStyles = (colors: AppColors) => StyleSheet.create({
     fontSize: 14,
     fontWeight: '800',
     textAlign: 'center',
-  },
-  fullMapLocationPrompt: {
-    position: 'absolute',
-    right: spacing.md,
-    minHeight: 44,
-    borderRadius: radius.pill,
-    backgroundColor: colors.surfaceOverlay,
-    borderWidth: 1,
-    borderColor: colors.border,
-    paddingHorizontal: 12,
-    flexDirection: 'row',
-    alignItems: 'center',
-    gap: 6,
-    shadowColor: '#000',
-    shadowOpacity: 0.14,
-    shadowRadius: 10,
-    elevation: 4,
-  },
-  fullMapLocationText: {
-    color: colors.text,
-    fontSize: 12,
-    fontWeight: '900',
   },
   mapOverlayActions: {
     position: 'absolute',

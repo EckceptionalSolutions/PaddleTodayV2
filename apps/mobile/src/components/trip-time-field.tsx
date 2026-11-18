@@ -1,4 +1,4 @@
-import { useImperativeHandle, useRef, useState, type RefObject } from 'react';
+import { useId, useImperativeHandle, useRef, useState, type RefObject } from 'react';
 import { Pressable, StyleSheet, Text, TextInput, View } from 'react-native';
 import { TripTimePicker } from './trip-time-picker';
 import { radius, spacing, type AppColors } from '../theme/tokens';
@@ -11,14 +11,15 @@ export function TripTimeField({ label, manualLabel, value, onChange, editable, i
 }) {
   const styles = useThemedStyles(createStyles);
   const [manual, setManual] = useState(false);
+  const errorId = useId();
   const input = useRef<TextInput>(null);
   useImperativeHandle(inputRef, () => ({ focus: () => { setManual(true); requestAnimationFrame(() => input.current?.focus()); } }), []);
   return <View style={styles.field}>
     <Text style={styles.label}>{label}{optional ? ' (optional)' : ''}</Text>
-    {manual ? <TextInput ref={input} accessibilityLabel={manualLabel} accessibilityHint={error} aria-invalid={Boolean(error)} value={value} onChangeText={onChange} editable={editable}
+    {manual ? <TextInput ref={input} accessibilityLabel={manualLabel} accessibilityHint={error} aria-describedby={error ? errorId : undefined} aria-invalid={Boolean(error)} value={value} onChangeText={onChange} editable={editable}
       autoFocus autoCorrect={false} autoCapitalize="none" placeholder={dateOnly ? "YYYY-MM-DD" : "YYYY-MM-DD HH:MM"} style={styles.input} />
       : <TripTimePicker dateOnly={dateOnly} label={label} value={value} onChange={onChange} disabled={!editable} />}
-    {error ? <Text accessibilityLiveRegion="polite" style={styles.error}>{error}</Text> : null}
+    {error ? <Text nativeID={errorId} accessibilityLiveRegion="polite" style={styles.error}>{error}</Text> : null}
     <View style={styles.actions}>
       <Pressable accessibilityRole="button" accessibilityLabel={`${manual ? 'Use picker for' : 'Enter manually:'} ${label.toLowerCase()}`} disabled={!editable}
         accessibilityState={{ disabled: !editable }} style={styles.action} onPress={() => setManual(current => !current)}>

@@ -1,8 +1,9 @@
 import { beforeEach, describe, expect, it, vi } from 'vitest';
+import { incomingRouteLink } from './incoming-route-link';
 
 const storage = vi.hoisted(() => ({ getItem: vi.fn(), setItem: vi.fn(), removeItem: vi.fn(), multiRemove: vi.fn() }));
 vi.mock('@react-native-async-storage/async-storage', () => ({ default: storage }));
-import { completeWelcome, consumeFirstRouteOpenPending, consumePendingLaunchTarget, migrateOnboardingStorage, savePendingLaunchTarget, WELCOME_CHOICE_STORAGE_KEY, WELCOME_COMPLETED_STORAGE_KEY } from './onboarding';
+import { completeWelcome, consumeAccountDestination, TRIP_RETURN_KEY, consumeFirstRouteOpenPending, consumePendingLaunchTarget, migrateOnboardingStorage, savePendingLaunchTarget, WELCOME_CHOICE_STORAGE_KEY, WELCOME_COMPLETED_STORAGE_KEY } from './onboarding';
 
 beforeEach(() => {
   vi.resetAllMocks();
@@ -13,6 +14,20 @@ beforeEach(() => {
 });
 
 describe('onboarding storage recovery', () => {
+  it.each(['view', 'invite'])('preserves a %s link through successful account welcome and consumes it once', async kind => {
+    const records = new Map<string, string>();
+    storage.setItem.mockImplementation(async (key, value) => { records.set(key, value); });
+    storage.getItem.mockImplementation(async key => records.get(key) ?? null);
+    storage.removeItem.mockImplementation(async key => { records.delete(key); });
+    const target = '/trips?id=AuditTestTrip0001&' + kind + '=AuditFixtureToken0001';
+    await savePendingLaunchTarget(incomingRouteLink(target));
+    await completeWelcome({ choice: 'account' });
+    await expect(consumeAccountDestination('/account')).resolves.toBe(target);
+    await expect(consumeAccountDestination('/account')).resolves.toBe('/account');
+    await storage.setItem(TRIP_RETURN_KEY, target);
+    await expect(consumeAccountDestination('/account')).resolves.toBe(target);
+    await expect(consumeAccountDestination('/account')).resolves.toBe('/account');
+  });
   it('allows completion when only optional analytics storage fails', async () => {
     storage.setItem.mockImplementation((key) => key === WELCOME_COMPLETED_STORAGE_KEY
       ? Promise.resolve() : Promise.reject(new Error('Storage unavailable')));

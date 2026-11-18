@@ -13,12 +13,12 @@ const route = (name: string, difficulty: 'easy' | 'moderate' | 'hard', routeType
 });
 const routes = [route('Hard River', 'hard', 'recreational', 99), route('Whitewater River', 'easy', 'whitewater', 90), route('Easy River', 'easy', 'recreational', 75)];
 
-async function setup(page: Page, choices = routes) {
-  await page.addInitScript(river => {
+async function setup(page: Page, choices = routes, location = { latitude: fixture.result.river.latitude, longitude: fixture.result.river.longitude, label: 'QA location' }) {
+  await page.addInitScript(location => {
     localStorage.setItem('paddletoday:welcome-completed:v1', '1');
-    localStorage.setItem('paddletoday:user-location', JSON.stringify({ latitude: river.latitude, longitude: river.longitude, label: 'QA location', source: 'search' }));
+    localStorage.setItem('paddletoday:user-location', JSON.stringify({ ...location, source: 'search' }));
     localStorage.setItem('paddletoday:area-notification-onboarding:v1', 'dismissed');
-  }, fixture.result.river);
+  }, location);
   await page.emulateMedia({ reducedMotion: 'reduce' });
   await page.route('**/api/**', request => request.fulfill({ status: 503, json: {} }));
   const fulfill = await installMobileBoardFixtures(page);
@@ -35,6 +35,37 @@ async function configureBeginner(page: Page) {
   await page.getByRole('button', { name: 'Show my picks', exact: true }).click();
   await expect(page.getByRole('heading', { name: 'Your paddling', exact: true })).toBeHidden();
 }
+
+test('every Today sort respects preferences until all routes are requested', async ({ page }) => {
+  await setup(page);
+  await page.addInitScript(({ key, beginner }) => localStorage.setItem(key, JSON.stringify(beginner)), { key, beginner });
+  await page.goto('/');
+  for (const sort of ['Closest', 'Evidence first', 'Score ranking']) {
+    await page.getByRole('button', { name: sort, exact: true }).press('Enter');
+    await expect(page.getByRole('button', { name: /^View Easy River:/ }).first()).toBeVisible();
+    await expect(page.getByRole('button', { name: /^View (Hard|Whitewater) River:/ })).toHaveCount(0);
+  }
+  await page.reload();
+  await expect(page.getByRole('button', { name: 'Score ranking', exact: true })).toHaveAttribute('aria-pressed', 'true');
+  await page.getByRole('button', { name: 'Show all routes', exact: true }).press('Enter');
+  await expect(page.getByRole('button', { name: /^View Hard River:/ }).first()).toBeVisible();
+  await page.getByRole('button', { name: 'Use my paddling preferences', exact: true }).press('Enter');
+  await expect(page.getByRole('button', { name: /^View Hard River:/ })).toHaveCount(0);
+});
+
+test('an empty nearby search offers a new location and the state directory', async ({ page }) => {
+  await setup(page, routes, { latitude: 19.72, longitude: -155.08, label: 'Hilo' });
+  await page.goto('/');
+  await expect(page.getByRole('heading', { name: 'No routes within 100 miles of Hilo' })).toBeInViewport();
+  await expect(page.getByText('Nothing here yet', { exact: true })).toHaveCount(0);
+  await page.getByRole('button', { name: 'Change location' }).press('Enter');
+  const dialog = page.getByRole('dialog');
+  await expect(dialog.getByRole('textbox', { name: 'City, state, or ZIP code' })).toBeVisible();
+  await dialog.getByRole('button', { name: 'Close location search' }).press('Enter');
+  await page.getByRole('button', { name: 'Browse by state' }).press('Enter');
+  await dialog.getByRole('button', { name: 'Browse Minnesota routes' }).press('Enter');
+  await expect(page).toHaveURL(/\/explore\?.*state=Minnesota/);
+});
 
 test('guest setup immediately personalizes Today, persists, and carries across tabs', async ({ page }) => {
   await setup(page);

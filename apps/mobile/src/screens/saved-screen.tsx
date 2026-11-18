@@ -1,3 +1,4 @@
+import { useSavedBackupInvitation } from '../components/account-backup-invitation';
 import { stateAbbreviation } from '../lib/state-labels';
 import { MotionReveal } from '../components/motion-reveal';
 import { useReducedMotion } from '../hooks/use-reduced-motion';
@@ -85,6 +86,7 @@ export default function SavedScreen() {
   const insets = useSafeAreaInsets();
   const bottomContentInset = androidBottomInset(insets.bottom);
   const isFocused = useIsFocused();
+  const backupInvitation = useSavedBackupInvitation(isFocused);
   const createAlertMutation = useCreateRiverAlertMutation();
   const { savedRivers, isHydrated, hasLoadError, isSaved, toggleSavedRiver } = useSavedRivers();
   const { routeAlerts, recordRouteAlert, alertForRiver, isHydrated: alertsHydrated, loadError: alertsLoadError } = useAlertPreferences();
@@ -258,6 +260,7 @@ export default function SavedScreen() {
           <Text style={styles.savedFallbackNote}>{summaryQuery.isPending ? 'Loading current call…' : 'Current call unavailable.'}</Text>
           <SavedRouteNotes river={river} onEdit={setNotesRiver} /><SaveToggleButton routeSlug={river.slug} routeLabel={`${river.name}: ${river.reach}`} saved onPress={() => void toggleSavedRiver(river)} />
         </View></View>)}</View></SectionCard> : null}
+      {backupInvitation}
       {notesRiver ? <SavedRouteNotesEditor key={notesRiver.slug} river={notesRiver} onClose={() => setNotesRiver(null)} /> : null}
     </View>}
   />;
@@ -350,6 +353,7 @@ export default function SavedScreen() {
         <AppButton label="Browse routes for alerts" variant="secondary" onPress={() => router.push('/explore')} />
       </SectionCard> : null}
 
+      {backupInvitation}
       {notesRiver ? <SavedRouteNotesEditor key={notesRiver.slug} river={notesRiver} onClose={() => setNotesRiver(null)} /> : null}
     </ScrollView>}
     {showComparisonBar ? <View style={styles.comparisonBar} onLayout={event => setComparisonBarHeight(event.nativeEvent.layout.height)}>

@@ -57,7 +57,7 @@ export function TripOverview({ trip, uid, recap, disabled, onEdit, onRecap, onRe
       <View style={styles.facts}>
         <TripFact label="DATE" value={readableTripDate(trip.date)} />
         <TripFact label="LAUNCH" value={trip.launch || 'To be decided'} />
-        {trip.expected ? <TripFact label="RETURN" value={trip.expected} /> : null}
+        {trip.expected ? <TripFact label="RETURN" value={trip.expectedDate && trip.expectedDate !== trip.date ? `${readableTripDate(trip.expectedDate)} · ${trip.expected}` : trip.expected} /> : null}
       </View>
       <Text style={styles.supporting}>Times in {trip.timeZone}</Text>
       <View style={styles.buttons}>

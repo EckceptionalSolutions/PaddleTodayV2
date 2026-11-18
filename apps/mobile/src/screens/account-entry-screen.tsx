@@ -13,7 +13,7 @@ import { prepareAccountLocalData, requestAccountBackup } from '../lib/account-ba
 import { clearGuestImportConsent, grantGuestImportConsent } from '../lib/account-local-state';
 import { PENDING_EMAIL, PENDING_EMAIL_ACTION, PENDING_EMAIL_RETURN_TO } from '../lib/auth-secure-store-keys';
 import { emailLinkDomainOption } from '../lib/email-link-domain';
-import { completeWelcome, consumePendingLaunchTarget } from '../lib/onboarding';
+import { completeWelcome, consumeAccountDestination, consumePendingLaunchTarget } from '../lib/onboarding';
 import { radius, spacing, typography, type AppColors } from '../theme/tokens';
 import { useAppTheme, useThemedStyles } from '../theme/theme-provider';
 
@@ -267,7 +267,8 @@ function AccountEntryContent({ isWelcome, defaultReturnTo }: { isWelcome: boolea
 
   const continueAfterSignIn = async () => {
     await SecureStore.deleteItemAsync(PENDING_EMAIL_RETURN_TO).catch(() => {});
-    router.replace((safeReturnTo(completionReturnTo.current ?? (await consumePendingLaunchTarget()) ?? undefined, returnTo)) as never);
+    const destination = await consumeAccountDestination(safeReturnTo(completionReturnTo.current ?? undefined, returnTo));
+    router.replace(destination as never);
   };
 
   return (

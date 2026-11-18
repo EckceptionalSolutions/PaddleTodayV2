@@ -48,8 +48,10 @@ for (const stale of [false, true]) {
     const sheet = page.getByRole('dialog');
     await expect(sheet.getByText('River 1', { exact: true })).toBeVisible();
     await expect(sheet.getByText('River 2', { exact: true })).toBeAttached();
-    await expect(sheet.getByText('Moderate', { exact: true })).toHaveCount(3);
-    await expect(sheet.getByText(stale ? 'Current score unavailable' : '95', { exact: true })).toHaveCount(3);
+    const mobileCards = page.viewportSize()!.width < 720;
+    await expect(sheet.getByText(mobileCards ? 'Difficulty · Moderate' : 'Moderate', { exact: true })).toHaveCount(mobileCards ? 1 : 3);
+    const score = stale ? 'Current score unavailable' : '95';
+    await expect(sheet.getByText(mobileCards ? `Score · ${score}` : score, { exact: true })).toHaveCount(mobileCards ? 1 : 3);
     expect(detailRequests).toBe(0);
     await page.screenshot({ path: `tmp/saved-comparison-${stale}-${page.viewportSize()!.width}.png` });
     await sheet.getByRole('button', { name: 'Remove from comparison: River 3: Park to bridge', exact: true }).click();

@@ -11,6 +11,15 @@ describe('trip validation', () => {
     expect(isTripPlan({ ...plan, date: '2026-10-10' })).toBe(true);
     expect(isTripPlan({ ...plan, launch: '09:00' })).toBe(false);
   });
+  it('preserves overnight returns and checks daylight saving time on the return date', () => {
+    const plan = { ...newTripPlan({ name: 'River' }), date: '2026-03-07', launch: '15:00', expected: '02:30', timeZone: 'America/Chicago' };
+    expect(isTripPlan({ ...plan, expectedDate: undefined })).toBe(true);
+    expect(isTripPlan({ ...plan, expectedDate: '2026-03-08' })).toBe(false);
+    expect(isTripPlan({ ...plan, expectedDate: '2026-03-06' })).toBe(false);
+    const overnight = { ...plan, expectedDate: '2026-03-09' };
+    expect(isTripPlan(overnight)).toBe(true);
+    expect(tripPlan(overnight)).toMatchObject({ expectedDate: '2026-03-09', expected: '02:30' });
+  });
   it('rejects impossible dates, invalid zones and traversal identifiers', () => {
     expect(validTripDate('2026-02-30')).toBe(false);
     expect(isTripPlan({ ...newTripPlan({ name: 'River' }), timeZone: 'Invalid/Zone' })).toBe(false);

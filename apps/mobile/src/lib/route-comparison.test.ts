@@ -34,9 +34,24 @@ describe('route shortlist', () => {
     const planning = { ...route, river: { ...route.river, scoreEligibility: 'planning' as const } };
     expect(Object.fromEntries(routeComparisonFacts(planning, null, false).map(fact => [fact.label, fact.value])).Score).toBe('Current score unavailable');
   });
+  it('distinguishes independent changes to units or observation time on an identical snapshot', () => {
+    const now = Date.parse('2030-06-12T12:00:00Z');
+    const compare = (unit: 'ft' | 'cfs', observedAt: string) => {
+      const route = { ...fixture.result, gauge: { ...fixture.result.gauge, current: 6, unit, observedAt } } as unknown as RiverDetailApiResult;
+      return Object.fromEntries(routeComparisonFacts(route, null, false, now).map(fact => [fact.id, fact.comparableValue]));
+    };
+    const initial = compare('ft', '2030-06-12T11:00:00Z');
+    const changedUnit = compare('cfs', '2030-06-12T11:00:00Z');
+    const changedTime = compare('ft', '2030-06-12T11:30:00Z');
+    expect(changedUnit.reading).not.toBe(initial.reading);
+    expect(changedUnit.observed).toBe(initial.observed);
+    expect(changedTime.reading).toBe(initial.reading);
+    expect(changedTime.observed).not.toBe(initial.observed);
+    expect(changedTime.captured).toBe(initial.captured);
+  });
   it('does not fabricate missing access, capture time or invalid drive estimates', () => {
     const route = { ...fixture.result, generatedAt: 'invalid', river: { ...fixture.result.river, putIn: undefined, takeOut: undefined, latitude: NaN } } as unknown as RiverDetailApiResult;
     const facts = Object.fromEntries(routeComparisonFacts(route, { latitude: 45, longitude: -93, label: 'QA', source: 'search' }, false).map(fact => [fact.label, fact.value]));
-    expect(facts).toMatchObject({ 'Put-in': 'Not listed', 'Take-out': 'Not listed', 'Conditions captured': 'Time unavailable', 'Approx. drive': 'No drive estimate' });
+    expect(facts).toMatchObject({ 'Put-in': 'Not listed', 'Take-out': 'Not listed', 'Snapshot generated': 'Time unavailable', 'Approx. drive': 'No drive estimate' });
   });
 });

@@ -30,3 +30,28 @@ for (const saved of [false, true]) {
     expect(errors).toEqual([]);
   });
 }
+
+for (const width of [320, 390]) {
+  test('guest completes the alert round trip with backup offered at ' + width + ' px', async ({ page }) => {
+    await page.setViewportSize({ width, height: width === 320 ? 568 : 844 });
+    await page.addInitScript(() => {
+      localStorage.setItem('paddletoday:welcome-completed:v1', '1');
+      localStorage.setItem('paddletoday:saved-rivers', JSON.stringify([{ slug: 'rice-creek', name: 'Rice Creek', reach: 'QA reach', savedAt: new Date().toISOString() }]));
+    });
+    await page.route('**/api/**', route => route.fulfill({ status: 503, json: {} }));
+    await page.goto('/notifications');
+    const manage = page.getByRole('button', { name: 'Manage route alerts', exact: true });
+    await manage.click();
+    await expect(page).toHaveURL('/saved?tab=alerts');
+    const dismiss = page.getByRole('button', { name: 'Dismiss account backup invitation' });
+    await expect(dismiss).toBeVisible();
+    const title = page.getByRole('heading', { name: 'Keep your paddling plans safe' });
+    expect((await title.boundingBox())!.width).toBeGreaterThan(160);
+    expect((await dismiss.boundingBox())!.width).toBeGreaterThanOrEqual(44);
+    await page.getByRole('button', { name: 'Open notification settings', exact: true }).click();
+    await expect(page).toHaveURL('/notifications');
+    await manage.click();
+    await expect(page.getByRole('tab', { name: 'Alerts', exact: true })).toHaveAttribute('aria-selected', 'true');
+    expect(await page.evaluate(() => localStorage.getItem('paddletoday:account-backup-invitation-dismissed:v1'))).toBeNull();
+  });
+}

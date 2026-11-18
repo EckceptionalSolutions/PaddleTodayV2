@@ -1,13 +1,15 @@
 import { hasValidLocationCoordinates, type StoredLocation } from './location';
 import { isRecord } from './storage';
+import { stateAbbreviation } from './state-labels';
 
-export function locationCandidates(payload: unknown): StoredLocation[] {
+export function locationCandidates(payload: unknown, state?: string): StoredLocation[] {
   if (!isRecord(payload) || !Array.isArray(payload.results)) return [];
   const candidates = payload.results.flatMap(value => {
     if (!isRecord(value) || typeof value.name !== 'string' || !value.name.trim()) return [];
     const coordinates = { latitude: value.latitude, longitude: value.longitude };
     if (!hasValidLocationCoordinates(coordinates)) return [];
     const region = typeof value.admin1 === 'string' ? value.admin1 : typeof value.country === 'string' ? value.country : '';
+    if (state && stateAbbreviation(region) !== state) return [];
     return [{ ...coordinates,
       label: region ? `${value.name}, ${region}` : value.name,
       county: typeof value.admin2 === 'string' ? value.admin2 : '',

@@ -1,5 +1,6 @@
 import { Modal, Platform, ScrollView, StyleSheet, Text, useWindowDimensions, View } from 'react-native';
 import { SafeAreaProvider, SafeAreaView } from 'react-native-safe-area-context';
+import { useFreshnessClock } from '../hooks/use-freshness-clock';
 import { useReducedMotion } from '../hooks/use-reduced-motion';
 import type { StoredLocation } from '../lib/location';
 import { routeComparisonFacts, type ComparableRoute, type ComparisonFactGroup } from '../lib/route-comparison';
@@ -14,7 +15,14 @@ export function RouteComparisonSheet<T extends ComparableRoute>({ visible, route
   const styles = useThemedStyles(createStyles);
   const { width, fontScale } = useWindowDimensions();
   const mobileCards = Platform.OS !== 'web' || width / fontScale < 720;
-  const routeFacts = routes.map(route => routeComparisonFacts(route, location, isStale));
+  const now = useFreshnessClock(visible);
+  const routeFacts = routes.map(route => routeComparisonFacts(route, location, isStale, now));
+  const rows = (routeFacts[0] ?? []).map((fact, index) => {
+    const values = routeFacts.map(facts => facts[index]);
+    return { ...fact, values, differs: values.some(value => value.comparableValue !== fact.comparableValue) };
+  });
+  const differences = rows.filter(row => row.differs);
+  const shared = rows.filter(row => !row.differs);
   const reducedMotion = useReducedMotion();
   return <Modal visible={visible} animationType={reducedMotion ? 'none' : 'slide'} onRequestClose={onClose} presentationStyle="pageSheet" statusBarTranslucent navigationBarTranslucent>
     <SafeAreaProvider style={styles.screen}><SafeAreaView style={styles.screen}>
@@ -23,11 +31,24 @@ export function RouteComparisonSheet<T extends ComparableRoute>({ visible, route
         <AppButton label="Close comparison" variant="secondary" onPress={onClose} />
       </View>
       <ScrollView contentContainerStyle={styles.content}>
-        <Text style={styles.body}>Compare the same facts for each route. Open a route to review its access and prepare your trip.</Text>
         <Text style={styles.body}>{location ? `Drive estimates from ${location.label} use approximate route distance, without traffic or road routing.` : 'Set a planning location on Today to include approximate drive estimates.'}</Text>
         {isStale ? <Text accessibilityLiveRegion="polite" style={styles.warning}>Saved conditions need an update. These stored calls are not a current recommendation.</Text> : null}
         {routes.length < 2 ? <Text accessibilityLiveRegion="polite" style={styles.body}>Close this comparison to choose {routes.length ? 'another route' : 'two or three routes'}.</Text> : null}
         {routes.length > 0 && mobileCards ? <View style={styles.mobileComparison} testID="route-comparison-cards">
+          {differences.length > 0 && <>
+            <Text accessibilityRole="header" style={styles.groupTitle}>Route differences</Text>
+            {differences.map(row => <View key={row.id} style={[styles.mobileFact, styles.factRowDifferent]}>
+              <Text accessibilityRole="header" style={styles.label}>{row.label}</Text>
+              {row.values.map((fact, index) => <View key={routes[index].river.slug} testID={`comparison-${row.id}-${index}`} style={styles.mobileValue}>
+                <Text style={styles.riverName}>{routes[index].river.name} · {routes[index].river.reach}</Text>
+                <Text style={styles.value}>{fact.value}</Text>
+              </View>)}
+            </View>)}
+          </>}
+          {shared.length > 0 && <View style={styles.mobileFact}>
+            <Text accessibilityRole="header" style={styles.label}>{routes.length > 1 ? 'Shared details' : 'Route details'}</Text>
+            {shared.map(row => <Text key={row.id} style={styles.value}>{row.label} · {row.value}</Text>)}
+          </View>}
           {routes.map((route, index) => <View key={route.river.slug} testID={`comparison-header-${index}`} style={styles.mobileRouteHeader}>
             <Text style={styles.eyebrow}>ROUTE {index + 1}</Text>
             <Text style={styles.riverName}>{route.river.name}</Text>
@@ -36,19 +57,6 @@ export function RouteComparisonSheet<T extends ComparableRoute>({ visible, route
               <AppButton label="Open" accessibilityLabel={`Open compared route: ${route.river.name}: ${route.river.reach}`} onPress={() => onOpen(route)} />
               <AppButton label="Remove" accessibilityLabel={`Remove from comparison: ${route.river.name}: ${route.river.reach}`} variant="secondary" onPress={() => onRemove(route.river.slug)} />
             </View>
-          </View>)}
-          {(['Conditions', 'Trip effort', 'Access'] as ComparisonFactGroup[]).map(group => <View key={group} style={styles.mobileComparison}>
-            <Text accessibilityRole="header" style={styles.groupTitle}>{group}</Text>
-            {routeFacts[0].filter(fact => fact.group === group).map(fact => {
-              const differs = new Set(routeFacts.map(facts => facts.find(item => item.id === fact.id)?.comparableValue ?? 'not-listed')).size > 1;
-              return <View key={fact.id} style={[styles.mobileFact, differs && styles.factRowDifferent]}>
-                <Text accessibilityRole="header" style={styles.label}>{fact.label}{differs ? ' · Differs' : ''}</Text>
-                {routes.map((route, index) => <View key={route.river.slug} testID={`comparison-${fact.id}-${index}`} style={styles.mobileValue}>
-                  <Text style={styles.riverName}>{route.river.name} · {route.river.reach}</Text>
-                  <Text style={styles.value}>{fact.label}: {routeFacts[index].find(item => item.id === fact.id)?.value ?? 'Not listed'}</Text>
-                </View>)}
-              </View>;
-            })}
           </View>)}
         </View> : routes.length > 0 ? <ScrollView horizontal contentContainerStyle={styles.tableScroll} showsHorizontalScrollIndicator accessibilityLabel="Horizontally scrollable route comparison">
           <View testID="route-comparison-table" style={[styles.table, { width: routes.length * 190 + 114 }]}>
@@ -65,18 +73,13 @@ export function RouteComparisonSheet<T extends ComparableRoute>({ visible, route
               </View>)}
             </View>
             {(['Conditions', 'Trip effort', 'Access'] as ComparisonFactGroup[]).map(group => {
-              const facts = routeComparisonFacts(routes[0], location, isStale).filter(fact => fact.group === group);
+              const facts = rows.filter(fact => fact.group === group);
               return <View key={group} style={styles.group}>
                 <Text accessibilityRole="header" style={styles.groupTitle}>{group}</Text>
-                {facts.map(fact => {
-                  const values = routeFacts.map(routeFact => routeFact.find(item => item.id === fact.id)?.value ?? 'Not listed');
-                  const comparableValues = routeFacts.map(routeFact => routeFact.find(item => item.id === fact.id)?.comparableValue ?? 'not-listed');
-                  const differs = new Set(comparableValues).size > 1;
-                  return <View key={fact.id} style={[styles.factRow, differs ? styles.factRowDifferent : null]}>
-                    <View style={styles.labelColumn}><Text style={styles.label}>{fact.label}</Text>{differs ? <Text style={styles.differs}>Differs</Text> : null}</View>
-                    {values.map((value, index) => <View key={`${routes[index].river.slug}-${fact.id}`} testID={`comparison-${fact.id}-${index}`} style={styles.valueCell}><Text style={styles.value}>{value}</Text></View>)}
-                  </View>;
-                })}
+                {facts.map(({ id, label, differs, values }) => <View key={id} style={[styles.factRow, differs ? styles.factRowDifferent : null]}>
+                    <View style={styles.labelColumn}><Text style={styles.label}>{label}</Text>{differs ? <Text style={styles.differs}>Differs</Text> : null}</View>
+                    {values.map((value, index) => <View key={`${routes[index].river.slug}-${id}`} testID={`comparison-${id}-${index}`} style={styles.valueCell}><Text style={styles.value}>{value.value}</Text></View>)}
+                </View>)}
               </View>;
             })}
           </View>

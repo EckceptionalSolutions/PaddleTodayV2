@@ -2304,6 +2304,7 @@ function AccessCard({
     <View style={styles.accessCard}>
       <Text style={styles.accessLabel}>{label}</Text>
       <Text style={styles.accessName}>{point?.name ?? emptyLabel}</Text>
+      {point?.note ? <Text style={styles.accessPlannerText}>{point.note}</Text> : null}
       <Text style={styles.accessCoords}>
         {point?.latitude && point?.longitude
           ? `${point.latitude.toFixed(4)}, ${point.longitude.toFixed(4)}`
@@ -2380,7 +2381,6 @@ function AccessPlanner({
       <AccessMetrics detail={detail} distanceLabel={distanceLabel} paddleTime={paddleTime} />
       <Text style={styles.accessPlannerSummary}>
         {selectedPutIn.name} to {selectedTakeOut.name}
-        {selectedPutIn.note || selectedTakeOut.note ? ` - ${selectedPutIn.note ?? selectedTakeOut.note}` : ''}
       </Text>
       <Text style={styles.accessPlannerRoute}>Full route: {detail.river.distanceLabel || 'distance not tracked'}.</Text>
       {detail.river.estimatedPaddleTime ? <Text style={styles.accessPlannerRoute}>Full-route paddle time: {normalizeApiText(detail.river.estimatedPaddleTime)}</Text> : null}

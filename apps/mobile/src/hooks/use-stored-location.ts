@@ -4,6 +4,7 @@ import { createContext, createElement, useCallback, useContext, useEffect, useMe
 import { hasValidLocationCoordinates, type StoredLocation } from '../lib/location';
 import { createLocationRequest } from '../lib/location-request';
 import { locationCandidates } from '../lib/location-candidates';
+import { stateAbbreviation } from '../lib/state-labels';
 import { createLocationPersistence } from '../lib/location-persistence';
 import { isRecord, parseJson } from '../lib/storage';
 
@@ -199,12 +200,16 @@ export function StoredLocationProvider({ children }: PropsWithChildren) {
 }
 
 async function geocodeWithOpenMeteo(query: string, signal: AbortSignal): Promise<StoredLocation[]> {
+  // The provider searches place names. Match a supplied state against its results.
+  const [city, region] = query.split(/,\s*/, 2);
+  const state = region ? stateAbbreviation(region) : '';
+  const hasState = Boolean(city.trim() && /^[A-Z]{2}$/.test(state));
   const response = await fetch(
-    `https://geocoding-api.open-meteo.com/v1/search?name=${encodeURIComponent(query)}&count=10&language=en&format=json&countryCode=US`,
+    `https://geocoding-api.open-meteo.com/v1/search?name=${encodeURIComponent(hasState ? city.trim() : query)}&count=10&language=en&format=json&countryCode=US`,
     { headers: { accept: 'application/json' }, signal }
   );
   if (!response.ok) return [];
-  return locationCandidates(await response.json());
+  return locationCandidates(await response.json(), hasState ? state : undefined);
 }
 
 export function useStoredLocation() {

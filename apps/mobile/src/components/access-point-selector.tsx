@@ -65,6 +65,8 @@ export function AccessPointSelector({
                     style={[styles.accessDropdownItem, selected ? styles.accessDropdownItemSelected : null]}
                     accessibilityRole="button"
                     accessibilityLabel={`${label}: ${point.name}`}
+                    accessibilityHint={point.note}
+                    aria-describedby={point.note ? `${label}-note-${point.id}` : undefined}
                     accessibilityState={{ selected }}
                     aria-pressed={selected}
                     onPress={() => {
@@ -81,6 +83,7 @@ export function AccessPointSelector({
                       <Text style={[styles.accessDropdownItemMeta, selected ? styles.accessDropdownItemMetaSelected : null]}>
                         {formatSegmentMile(point.mileFromStart)}
                       </Text>
+                      {point.note ? <Text nativeID={`${label}-note-${point.id}`} style={[styles.accessNote, selected && styles.accessDropdownItemMetaSelected]}>{point.note}</Text> : null}
                     </View>
                     {selected ? <MaterialCommunityIcons name="check" color={colors.onAccent} size={19} /> : null}
                   </Pressable>
@@ -221,5 +224,10 @@ const createStyles = (colors: AppColors) => StyleSheet.create({
   },
   accessDropdownItemMetaSelected: {
     color: colors.onAccent,
+  },
+  accessNote: {
+    color: colors.text,
+    fontSize: 14,
+    lineHeight: 20,
   },
 });

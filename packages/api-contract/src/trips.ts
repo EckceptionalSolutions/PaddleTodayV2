@@ -23,6 +23,8 @@ export interface TripPlan {
   date: string;
   launch: string;
   expected: string;
+  /** Local return date when it differs from the launch date. Older plans use date. */
+  expectedDate?: string;
   timeZone: string;
   itinerary: ItineraryStop[];
   preparation?: TripPreparation;
@@ -117,7 +119,8 @@ export function isTripRoute(v: unknown): v is TripRoute {
 export function isTripPlan(v: unknown): v is TripPlan {
   return rec(v) && text(v.title, 160) && !!v.title.trim() && isTripRoute(v.route)
     && validTripDate(v.date) && validTripTime(v.launch) && validTripTime(v.expected) && validTimeZone(v.timeZone)
-    && (!v.launch || !!v.date) && !tripTimeIssue(v.date, v.launch, v.timeZone) && !tripTimeIssue(v.date, v.expected, v.timeZone) && Array.isArray(v.itinerary) && v.itinerary.length <= 30
+    && (v.expectedDate === undefined || (validTripDate(v.expectedDate) && (!v.expectedDate || (!!v.date && !!v.expected && v.expectedDate >= v.date))))
+    && (!v.launch || !!v.date) && !tripTimeIssue(v.date, v.launch, v.timeZone) && !tripTimeIssue(v.expectedDate || v.date, v.expected, v.timeZone) && Array.isArray(v.itinerary) && v.itinerary.length <= 30
     && new Set(v.itinerary.map(s => s?.id)).size === v.itinerary.length
     && v.itinerary.every(s => rec(s) && isTripId(s.id) && validTripTime(s.time) && text(s.location, 300) && text(s.note, 2000))
     && (v.preparation === undefined || (rec(v.preparation)
@@ -177,13 +180,13 @@ export function isLogMutation(v: unknown): v is LogMutation {
 export function tripPlan(v: TripPlan): TripPlan {
   return { title: v.title, route: { slug: v.route.slug, name: v.route.name, putInId: v.route.putInId, putInName: v.route.putInName,
     takeOutId: v.route.takeOutId, takeOutName: v.route.takeOutName }, date: v.date, launch: v.launch, expected: v.expected,
-    timeZone: v.timeZone, itinerary: v.itinerary.map(s => ({ id: s.id, time: s.time, location: s.location, note: s.note })),
+    expectedDate: v.expectedDate || '', timeZone: v.timeZone, itinerary: v.itinerary.map(s => ({ id: s.id, time: s.time, location: s.location, note: s.note })),
     ...(v.preparation ? { preparation: { checkInLocal: v.preparation.checkInLocal || '', groupSize: v.preparation.groupSize, boatDescription: v.preparation.boatDescription,
       vehicleDescription: v.preparation.vehicleDescription, note: v.preparation.note } } : {}) };
 }
 export function newTripPlan(route?: Partial<TripRoute>): TripPlan {
   return { title: route?.name || 'New paddle', route: { slug: '', name: '', putInId: '', putInName: '', takeOutId: '', takeOutName: '', ...route },
-    date: '', launch: '', expected: '', timeZone: Intl.DateTimeFormat().resolvedOptions().timeZone || 'UTC', itinerary: [],
+    date: '', launch: '', expected: '', expectedDate: '', timeZone: Intl.DateTimeFormat().resolvedOptions().timeZone || 'UTC', itinerary: [],
     preparation: { checkInLocal: '', groupSize: null, boatDescription: '', vehicleDescription: '', note: '' } };
 }
 /** Project only the route and schedule fields shown on a public view-only link. */
