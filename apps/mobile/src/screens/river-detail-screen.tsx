@@ -16,6 +16,8 @@ import {
   buildHourlyWeatherTimingViewModel,
   buildRiverDetailLogisticsViewModel,
   buildRiverReadinessViewModel,
+  gaugeMetricLabel,
+  routeGaugePresentation,
   buildRouteSafetyViewModel,
   buildScoreBreakdownViewModel,
   campingClassificationLabel,
@@ -415,6 +417,7 @@ export default function RiverDetailScreen() {
   const decisionPresentation = routeDecisionPresentation({ ...detail, readiness: { ...detail.readiness, status: decisionReadiness } });
   const currentScoreUnavailable = isStaleSnapshot || decisionPresentation.score === null;
   const effectiveLiveData = readiness.effectiveLiveData;
+  const gaugeRead = routeGaugePresentation(detail);
   const weatherView = currentWeatherView(detail.weather, isStaleSnapshot || effectiveLiveData.weather.state !== 'live');
   const riverSlug = detail.river.slug;
   const riverId = detail.river.riverId;
@@ -891,10 +894,10 @@ export default function RiverDetailScreen() {
                 <View style={styles.conditionList}>
                   <ConditionRow
                     icon="waves"
-                    label={detail.river.gaugeSource.display.primaryMetricLabel || 'Gauge'}
-                    value={detail.gauge ? formatGaugeValue(detail.gauge.current, detail.gauge.unit) : detail.gaugeBandLabel}
+                    label={gaugeMetricLabel(detail)}
+                    value={gaugeRead.value}
                     subvalue={detail.gauge ? detail.gaugeBandLabel : 'No current reading'}
-                    detail={normalizeApiText(effectiveLiveData.gauge.detail)}
+                    detail={gaugeRead.context || normalizeApiText(effectiveLiveData.gauge.detail)}
                     tone={conditionToneForStatus(checklistStatusForLabel(checklist, 'Gauge window'), styles)}
                   />
                   <GaugeBandCard detail={detail} />
@@ -2156,11 +2159,11 @@ function GaugeTrendChart({ detail }: { detail: RiverDetailApiResult }) {
     <View style={styles.gaugeChartWrap}>
       <View style={styles.gaugeSummaryRow}>
         <GaugeSummaryPill
-          label={detail.river.gaugeSource.display.primaryMetricLabel || 'Current gauge'}
+          label={gaugeMetricLabel(detail)}
           value={detail.gauge ? formatGaugeValue(detail.gauge.current, detail.gauge.unit) : 'No reading'}
         />
         <GaugeSummaryPill
-          label={detail.river.gaugeSource.unit === 'cfs' ? '24h flow change' : '24h gauge change'}
+          label={unit === 'cfs' ? '24h flow change' : '24h gauge change'}
           value={
             detail.gauge?.delta24h !== null && detail.gauge
               ? formatGaugeValue(detail.gauge.delta24h, detail.gauge.unit, '0')
@@ -2687,7 +2690,7 @@ function gaugeBandVisualModel(detail: RiverDetailApiResult, styles: ReturnType<t
   const { idealMin, idealMax, tooLow, tooHigh, thresholdModel } = detail.river.profile;
 
   if (
-    !gauge ||
+    !gauge || gauge.unit !== unit || !Number.isFinite(gauge.current) ||
     thresholdModel !== 'two-sided' ||
     typeof idealMin !== 'number' ||
     typeof idealMax !== 'number' ||

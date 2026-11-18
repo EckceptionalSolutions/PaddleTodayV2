@@ -53,6 +53,7 @@ import {
   distanceMiles,
   distancePenalty,
   estimateTravelMinutes,
+  routeGaugePresentation,
 } from '@paddletoday/api-contract';
 import {
   createBoardDisplayItemBuilder,
@@ -1493,6 +1494,7 @@ function updateFeaturedHero(nearbyItems, overallItems, unavailableState = null) 
   const nearbyReady = locationReady && preferredNearbyItems.length > 0;
   const item = nearbyReady ? preferredNearbyItems[0] : locationReady ? null : overallItems[0] ?? null;
   const activePreferenceText = homePreferenceSummaryTextClean();
+  setText(document, 'withheld-gauge', unavailableState && item ? `Gauge: ${routeGaugePresentation(item.cardRoute).label}` : '');
   updateFeaturedHeroAnimation(item?.key || (locationReady ? 'empty' : 'locked'));
   if (!item) {
     renderFeaturedMap(null, { visible: false, status: '' });

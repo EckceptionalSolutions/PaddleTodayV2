@@ -43,8 +43,9 @@ export function scoreRiverCondition(args: {
     now,
   });
 
-  if (!args.gauge) {
-    return scoreWithoutGauge({
+  if (!args.gauge || args.gauge.unit !== args.river.gaugeSource.unit) {
+    return scoreWithoutComparableGauge({
+      gauge: args.gauge,
       river: args.river,
       weather: args.weather,
       liveData,
@@ -249,14 +250,18 @@ export function scoreRiverCondition(args: {
   };
 }
 
-function scoreWithoutGauge(args: {
+function scoreWithoutComparableGauge(args: {
+  gauge: GaugeReading | null;
   river: River;
   weather: WeatherSnapshot | null;
   liveData: LiveDataStatus;
   now: Date;
 }): RiverScoreResult {
+  const unitMismatch = args.gauge
+    ? `The gauge reports ${args.gauge.unit}, while this route’s thresholds use ${args.river.gaugeSource.unit}.`
+    : null;
   const weatherAssessment = assessWeatherAdjustment(args.river, args.weather);
-  const temperatureAssessment = assessTemperatureAdjustment(args.river, null, args.weather, args.now);
+  const temperatureAssessment = assessTemperatureAdjustment(args.river, args.gauge, args.weather, args.now);
   const comfortAssessment = assessComfortAdjustment(args.river, args.weather, args.now);
   const riverQuality = 30;
   const rawTripScore =
@@ -268,7 +273,7 @@ function scoreWithoutGauge(args: {
     river: args.river,
     weather: args.weather,
     riverQuality,
-    riverQualityExplanation: 'River quality is held down because the direct gauge is unavailable.',
+    riverQualityExplanation: unitMismatch ?? 'River quality is held down because the direct gauge is unavailable.',
     windAdjustment: weatherAssessment.windPoints,
     temperatureAdjustment: temperatureAssessment.points,
     rainAdjustment: weatherAssessment.rainPoints,
@@ -296,11 +301,11 @@ function scoreWithoutGauge(args: {
     readiness: {
       status: 'withheld',
       label: 'Withheld',
-      reason: 'A current gauge reading is required before Paddle Today issues launch readiness.',
+      reason: unitMismatch ?? 'A current gauge reading is required before Paddle Today issues launch readiness.',
     },
     gaugeBand: 'unavailable',
     gaugeBandLabel: 'Unavailable',
-    explanation: `${args.river.name} cannot be scored confidently right now. ${args.liveData.summary}`,
+    explanation: `${args.river.name} cannot be scored confidently right now. ${unitMismatch ?? args.liveData.summary}`,
     scoreBreakdown,
     confidence,
     liveData: args.liveData,
@@ -308,8 +313,8 @@ function scoreWithoutGauge(args: {
       {
         id: 'gauge',
         label: 'Gauge now',
-        value: 'Unavailable',
-        detail: 'The direct gauge could not be read, so the product cannot make a strong river-quality decision.',
+        value: args.gauge ? `${formatGauge(args.gauge.current, args.gauge.unit)} ${args.gauge.unit}` : 'Unavailable',
+        detail: unitMismatch ?? 'The direct gauge could not be read, so the product cannot make a strong river-quality decision.',
         impact: 'warning',
       },
       {
@@ -352,7 +357,7 @@ function scoreWithoutGauge(args: {
       {
         status: 'skip',
         label: 'Gauge check',
-        detail: 'The direct gauge is unavailable right now, so double-check this river before you drive.',
+        detail: unitMismatch ?? 'The direct gauge is unavailable right now, so double-check this river before you drive.',
       },
       {
         status: 'watch',
@@ -365,8 +370,8 @@ function scoreWithoutGauge(args: {
         detail: 'Confirm put-in, take-out, and any local launch rules directly from the source links before you drive.',
       },
     ],
-    outlooks: buildOfflineOutlooks(),
-    gauge: null,
+    outlooks: buildOfflineOutlooks(unitMismatch),
+    gauge: args.gauge,
     weather: args.weather,
     generatedAt: args.now.toISOString(),
   };
@@ -1643,7 +1648,7 @@ function buildOutlooks(args: {
   ];
 }
 
-function buildOfflineOutlooks(): RiverOutlook[] {
+function buildOfflineOutlooks(unitMismatch: string | null): RiverOutlook[] {
   return [
     {
       id: 'tomorrow',
@@ -1654,7 +1659,7 @@ function buildOfflineOutlooks(): RiverOutlook[] {
       confidence: null,
       direction: 'uncertain',
       scoreRange: null,
-      explanation: 'Tomorrow is hidden because the direct gauge is unavailable right now.',
+      explanation: unitMismatch ?? 'Tomorrow is hidden because the direct gauge is unavailable right now.',
     },
     {
       id: 'weekend',
@@ -1665,7 +1670,7 @@ function buildOfflineOutlooks(): RiverOutlook[] {
       confidence: null,
       direction: 'uncertain',
       scoreRange: null,
-      explanation: 'Weekend needs a current gauge read and enough confidence before the app extends the call.',
+      explanation: unitMismatch ?? 'Weekend needs a current gauge read and enough confidence before the app extends the call.',
     },
   ];
 }
@@ -2205,7 +2210,8 @@ function buildLiveDataStatus(args: {
   now: Date;
 }): LiveDataStatus {
   const gaugeStaleMinutes = staleMinutesForGauge(args.river, args.gauge);
-  const gauge = freshnessFromObservedAt(args.gauge?.observedAt ?? null, args.now, gaugeStaleMinutes, 'gauge');
+  const gauge = { ...freshnessFromObservedAt(args.gauge?.observedAt ?? null, args.now, gaugeStaleMinutes, 'gauge'),
+    staleAfterMinutes: gaugeStaleMinutes };
   const weather = freshnessFromObservedAt(
     args.weather?.observedAt ?? null,
     args.now,

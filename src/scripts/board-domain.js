@@ -7,7 +7,7 @@ import {
   distancePenalty,
   estimateTravelMinutes,
   parsePaddleTimeHours,
-  normalizeSearchText,
+  createRouteSearch,
 } from '@paddletoday/api-contract';
 import {
   buildRoutePlannerHref,
@@ -133,6 +133,19 @@ export function matchesBoardRatingFilter(
   return true;
 }
 
+// Filtering, group selection and list ordering share scores for the active query.
+let lastSearch;
+export function boardRouteSearchRank(result, query, includeAliases = true) {
+  if (!lastSearch || lastSearch.query !== query || lastSearch.includeAliases !== includeAliases) {
+    lastSearch = { query, includeAliases, match: createRouteSearch(query), scores: new WeakMap() };
+  }
+  if (!lastSearch.scores.has(result)) {
+    const river = result.river ?? {};
+    lastSearch.scores.set(result, lastSearch.match(river, includeAliases ? river.aliases : []));
+  }
+  return lastSearch.scores.get(result);
+}
+
 export function matchesBoardRouteFilters(
   result,
   filters,
@@ -217,15 +230,7 @@ export function matchesBoardRouteFilters(
     return false;
   }
 
-  if (filters.search) {
-    const aliases =
-      includeAliases && Array.isArray(river.aliases) ? river.aliases.join(' ') : '';
-    const haystack =
-      normalizeSearchText(`${river.name ?? ''} ${river.reach ?? ''} ${aliases} ${river.state ?? ''} ${river.region ?? ''}`);
-    if (!haystack.includes(normalizeSearchText(String(filters.search)))) {
-      return false;
-    }
-  }
+  if (filters.search && !boardRouteSearchRank(result, filters.search, includeAliases)) return false;
 
   return true;
 }

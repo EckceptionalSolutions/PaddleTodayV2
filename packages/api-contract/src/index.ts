@@ -499,6 +499,7 @@ export interface RiverReadinessResult {
 }
 
 export interface DataFreshness {
+  staleAfterMinutes?: number;
   state: LiveDataState;
   ageMinutes: number | null;
   detail: string;
@@ -531,6 +532,8 @@ export interface ExploreCatalogResponse {
 }
 
 export interface RiverSummaryApiItem {
+  /** Older stored summaries only carry the formatted gaugeNow string. */
+  gauge?: Pick<GaugeReading, 'current' | 'unit' | 'observedAt'> | null;
   river: {
     scoreEligibility?: 'scored' | 'planning';
     scoreEligibilityReason?: 'proxy_gauge';
@@ -574,6 +577,7 @@ export interface RiverSummaryApiItem {
     overall: LiveDataOverall;
     summary: string;
     gaugeState: LiveDataState;
+    gaugeStaleAfterMinutes?: number;
     gaugeDetail: string;
     weatherState: LiveDataState;
     weatherDetail: string;
@@ -1047,7 +1051,8 @@ export interface CreateRouteContributionResponse {
 export * from './saved-route-changes';
 
 export { parsePaddleTimeHours, formatPaddleTimeLabel } from './paddle-duration';
-export { normalizeSearchText } from './search-text';
+export { formatGaugeValue, gaugeMetricLabel, routeGaugePresentation } from './gauge-presentation';
+export { createRouteSearch, normalizeSearchText } from './search-text';
 
 /** Public route metadata, independent of live scoring and snapshot coverage. */
 export interface RiverCatalogItem {

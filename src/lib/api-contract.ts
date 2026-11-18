@@ -12,7 +12,7 @@ import type {
   RiverSummaryApiItem,
   WeekendSummaryApiItem,
 } from '@paddletoday/api-contract';
-import { buildSourceStrengthViewModel, gaugeBandDisplayLabel, isColdWeatherDrivenCall } from '@paddletoday/api-contract';
+import { formatGaugeValue, buildSourceStrengthViewModel, gaugeBandDisplayLabel, isColdWeatherDrivenCall } from '@paddletoday/api-contract';
 import { classifyCamping } from './camping-classification';
 import { gaugeDisplayForSource, thresholdAdapterForSource } from './source-adapters';
 import { conditionZoneIdForRiver } from './condition-zones';
@@ -57,6 +57,7 @@ export function serializeSummaryResult(result: RiverScoreResult): RiverSummaryAp
       segmentEdges: result.river.segmentEdges,
       logistics: serializeSummaryLogistics(result.river.logistics),
     },
+    gauge: result.gauge ? { current: result.gauge.current, unit: result.gauge.unit, observedAt: result.gauge.observedAt } : null,
     sources: summarySourceBadges(result),
     score: result.score,
     rating: result.rating,
@@ -71,6 +72,7 @@ export function serializeSummaryResult(result: RiverScoreResult): RiverSummaryAp
       overall: result.liveData.overall,
       summary: result.liveData.summary,
       gaugeState: result.liveData.gauge.state,
+      gaugeStaleAfterMinutes: result.liveData.gauge.staleAfterMinutes,
       gaugeDetail: result.liveData.gauge.detail,
       weatherState: result.liveData.weather.state,
       weatherDetail: result.liveData.weather.detail,
@@ -518,32 +520,11 @@ function weatherExplanation(result: RiverScoreResult): string {
 }
 
 function gaugeValueText(result: RiverScoreResult): string {
-  if (!result.gauge) {
-    return 'Unavailable';
-  }
-
-  const value =
-    result.gauge.unit === 'ft'
-      ? result.gauge.current.toFixed(2).replace(/\.00$/, '')
-      : Math.round(result.gauge.current).toLocaleString('en-US');
-
-  return `${value} ${result.gauge.unit}`;
+  return result.gauge ? formatGaugeValue(result.gauge.current, result.gauge.unit) : 'No reading';
 }
 
 function gaugeSignal(result: RiverScoreResult): string {
-  if (result.gauge) {
-    return `Gauge: ${gaugeValueText(result)}`;
-  }
-
-  if (result.gaugeBand === 'too-low' || result.gaugeBand === 'low-shoulder' || result.gaugeBand === 'minimum-met') {
-    return 'Gauge: Low';
-  }
-
-  if (result.gaugeBand === 'too-high' || result.gaugeBand === 'high-shoulder') {
-    return 'Gauge: High';
-  }
-
-  return 'Gauge: Unavailable';
+  return `Gauge: ${gaugeValueText(result)}`;
 }
 
 function windSignal(result: RiverScoreResult): string {

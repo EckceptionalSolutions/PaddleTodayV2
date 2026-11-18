@@ -2,7 +2,7 @@ import { stateAbbreviation } from '../lib/state-labels';
 import { LocationStorageNotice } from '../components/location-storage-notice';
 import {
   buildRoutePlannerParams,
-  normalizeSearchText,
+  createRouteSearch,
   callStateForDecision,
   formatRouteSegmentLabel,
   routeMatchesPaddleFilters,
@@ -140,8 +140,6 @@ export default function ExploreScreen() {
   const draftMatchesLoadedScope = JSON.stringify(scopeForFilters(draftFilters)) === JSON.stringify(discoveryScope);
 
   const rivers = summaryQuery.data?.rivers ?? [];
-  const routeCounts = useMemo(() => summaryQuery.data?.groupCounts
-    ? new Map(Object.entries(summaryQuery.data.groupCounts)) : buildRouteGroupMeta(rivers), [rivers, summaryQuery.data?.groupCounts]);
   const states = useMemo(
     () => summaryQuery.data?.states ?? [...new Set(rivers.map((river) => river.river.state))].sort(),
     [rivers, summaryQuery.data?.states]
@@ -150,6 +148,8 @@ export default function ExploreScreen() {
     () => applyExploreFilters(rivers, filters, location),
     [rivers, filters, location]
   );
+  const routeCounts = useMemo(() => filters.query.trim() ? buildRouteGroupMeta(results) : summaryQuery.data?.groupCounts
+    ? new Map(Object.entries(summaryQuery.data.groupCounts)) : buildRouteGroupMeta(rivers), [filters.query, results, rivers, summaryQuery.data?.groupCounts]);
   const otherCallCount = useMemo(() => results.length || filters.status === 'any' ? 0
     : applyExploreFilters(rivers, { ...filters, status: 'any' }, location).length,
   [rivers, filters, location, results.length]);
@@ -1000,7 +1000,8 @@ function applyExploreFilters(
   filters: ExploreFilters,
   location: { latitude: number; longitude: number } | null
 ): ExploreRiver[] {
-  const query = normalizeSearchText(filters.query);
+  const match = filters.query.trim() ? createRouteSearch(filters.query) : null;
+  const ranks = new Map<string, number>();
   const distanceLimit = filters.distance === 'any' ? null : Number(filters.distance);
   const segmentFilters = {
     paddleLength: filters.paddleLength === 'any' ? '' : filters.paddleLength,
@@ -1012,7 +1013,12 @@ function applyExploreFilters(
     // their access-point combinations. Most catalog routes are out of scope
     // for a local map, and segment summaries can be quadratic in access points.
     .filter((river) => {
-      if (query && !searchBlob(river).includes(query)) return false;
+      if (match) {
+        const rank = match(river.river, [stateAbbreviation(river.river.state), river.rating,
+          river.gaugeBandLabel, river.summary.primaryFactor, river.summary.secondaryFactor]);
+        if (!rank) return false;
+        ranks.set(river.river.slug, rank);
+      }
       if (filters.state && river.river.state !== filters.state) return false;
       if (!difficultyMatches(river.river.difficulty, filters.difficulty)) return false;
       if (!routeTypeMatches(river.river.routeType, filters.routeType)) return false;
@@ -1043,7 +1049,11 @@ function applyExploreFilters(
       selectedSegment: selectRouteSegment(river, segmentFilters),
       segmentSummary: routeSegmentSummary(river.river),
     }))
-    .sort((left, right) => compareExploreRivers(left, right, filters.sort));
+    .sort((left, right) => {
+      const relevance = match && filters.sort === 'best'
+        ? ranks.get(right.river.slug)! - ranks.get(left.river.slug)! : 0;
+      return relevance || compareExploreRivers(left, right, filters.sort);
+    });
 
   return sortedResults;
 }
@@ -1096,21 +1106,6 @@ function recommendationRank(river: ExploreRiver) {
   const travelPenalty = river.distanceMiles === null ? 0 : distancePenalty(estimateDriveMinutes(river.distanceMiles));
   const statusPenalty = river.liveData.overall === 'offline' ? 12 : river.liveData.overall === 'degraded' ? 4 : 0;
   return callBonus + river.score + confidenceBonus - travelPenalty - statusPenalty;
-}
-
-function searchBlob(river: RiverSummaryApiItem) {
-  return normalizeSearchText([
-    river.river.name,
-    river.river.reach,
-    river.river.state,
-    stateAbbreviation(river.river.state),
-    river.river.region,
-    river.rating,
-    river.gaugeBandLabel,
-    river.summary.primaryFactor,
-    river.summary.secondaryFactor,
-  ]
-    .join(' '));
 }
 
 function estimateDriveMinutes(miles: number) {

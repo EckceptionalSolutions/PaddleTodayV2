@@ -3,6 +3,7 @@ import type {
   RiverDetailApiResult,
   WeatherSnapshot,
 } from './index';
+import { gaugeObservationIsDelayed } from './gauge-presentation';
 import { callLabelForDecision, type DecisionCallLabel } from './today-board';
 
 export type RiverWeatherRiskState = 'calm' | 'wind' | 'rain' | 'cold' | 'storm';
@@ -113,7 +114,8 @@ export function effectiveRiverLiveData(
 ): LiveDataStatus {
   const observedAgeHours = ageHours(result.gauge?.observedAt, now);
   const generatedAgeHours = ageHours(result.generatedAt, now);
-  const isGaugeStale = typeof observedAgeHours === 'number' && observedAgeHours > staleAfterHours;
+  const isGaugeStale = typeof observedAgeHours === 'number' && gaugeObservationIsDelayed(
+    result.gauge?.observedAt, result.liveData.gauge.staleAfterMinutes ?? staleAfterHours * 60, now);
   const isGeneratedStale = typeof generatedAgeHours === 'number' && generatedAgeHours > staleAfterHours;
 
   if (!isGaugeStale && !isGeneratedStale) {

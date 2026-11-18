@@ -547,7 +547,7 @@ const routeStructuredData = {
                 <>
                   <article class="route-condition-card route-condition-card--gauge">
                     <div class="route-condition-card__label-row">
-                      <span class="route-condition-card__label">Current gauge</span>
+                      <span class="route-condition-card__label" data-field="primary-gauge-label">Gauge</span>
                       <span class="route-condition-card__source" data-field="top-gauge-source">Checking source</span>
                     </div>
                     <div class="route-condition-card__value-row">
@@ -561,8 +561,8 @@ const routeStructuredData = {
                         <dd><span data-field="trend">Checking</span> · <span data-field="flow-change-24h">Checking 24h</span></dd>
                       </div>
                       <div>
-                        <dt>Observed</dt>
-                        <dd data-field="observed-at">Checking</dd>
+                        <dt>Observation</dt>
+                        <dd data-field="gauge-freshness">Checking</dd>
                       </div>
                     </dl>
                     <GaugeBand compact />

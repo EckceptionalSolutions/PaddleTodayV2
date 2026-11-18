@@ -1,4 +1,4 @@
-import type { RiverSummaryApiItem } from '@paddletoday/api-contract';
+import { routeGaugePresentation, type RiverSummaryApiItem } from '@paddletoday/api-contract';
 import { Pressable, StyleSheet, Text, View } from 'react-native';
 import { MotionPhotoBackground } from './motion-photo-background';
 import { normalizeApiText } from '../lib/format';
@@ -39,6 +39,7 @@ export function RiverCard({
   const { colors } = useAppTheme();
   const styles = useThemedStyles(createStyles);
   const decision = routeDecisionPresentation(river);
+  const gauge = routeGaugePresentation(river);
   const facts = routePreviewFactItems(river.river, {
     includeNoCamping: true,
   }).filter((fact) => fact !== river.summary.gaugeNow);
@@ -94,7 +95,8 @@ export function RiverCard({
       <View style={styles.metaRow}>
         <View style={styles.metaPill}>
           <Text style={styles.metaPillLabel}>Gauge</Text>
-          <Text style={styles.metaPillValue} numberOfLines={1}>{river.summary.gaugeNow || river.gaugeBandLabel}</Text>
+          <Text style={styles.metaPillValue} numberOfLines={1}>{gauge.value}</Text>
+          {gauge.context ? <Text style={styles.metaPillLabel}>{gauge.context}</Text> : null}
         </View>
         <View style={styles.metaPill}>
           <Text style={styles.metaPillLabel}>Evidence</Text>

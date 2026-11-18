@@ -6,7 +6,8 @@ import { usePaddlingPreferences } from '../providers/paddling-preferences-provid
 import { matchesPaddlingPreferences, paddlingMatchReason } from '../lib/paddling-preferences';
 import {
   formatRouteSegmentLabel,
-  normalizeSearchText,
+  createRouteSearch,
+  routeGaugePresentation,
   routeSegmentSummary,
   type RiverSummaryApiItem,
 } from '@paddletoday/api-contract';
@@ -473,6 +474,7 @@ function BoardHero({
                     ? `${routeChoiceLabelForMode(mode)}: ${routeReachWithState(headline)}`
                     : routeReachWithState(headline)}
                 </Text>
+                <Text style={styles.headlineText}>Gauge: {routeGaugePresentation(headline).label}</Text>
                 <Text style={styles.headlineText} numberOfLines={2}>
                   {routeDecisionPresentation(headline).call === 'unavailable' ? 'A current call is unavailable. Open the route to review its evidence and access details.' : normalizeApiText(headline.summary.shortExplanation)}
                 </Text>
@@ -649,6 +651,7 @@ function RiverImageCard({
         <Text style={styles.imageCardReason} numberOfLines={2}>
           {routeDecisionPresentation(river).call === 'unavailable' ? 'A current call is unavailable. Review the route evidence before choosing it.' : normalizeApiText(river.summary.shortExplanation)}
         </Text>
+        <Text style={styles.imageCardReason}>Gauge: {routeGaugePresentation(river).label}</Text>
         <View style={styles.imageCardFooter}>
           {homeFactItems(river).slice(0, 3).map((fact) => (
             <Text key={fact} style={styles.homeFactChip} numberOfLines={1}>{fact}</Text>
@@ -998,53 +1001,17 @@ function compareHomeCertainty(left: BoardItem, right: BoardItem) {
 }
 
 function findKnownRouteMatches(rivers: RiverSummaryApiItem[], query: string) {
-  const normalized = normalizeSearchText(query);
-  if (!normalized) {
-    return [];
-  }
-
-  return rivers
-    .filter((river) => searchableRouteText(river).includes(normalized))
-    .sort((left, right) => {
-      return searchRank(left, normalized) - searchRank(right, normalized) || compareHomeScore(left, right);
-    });
+  if (!query.trim()) return [];
+  const match = createRouteSearch(query);
+  return rivers.map(river => ({
+    river,
+    rank: match(river.river, [stateAbbreviation(river.river.state), river.river.difficulty,
+      river.river.routeType, river.river.distanceLabel, river.river.estimatedPaddleTime, river.rating, river.gaugeBandLabel]),
+  })).filter(item => item.rank > 0)
+    .sort((left, right) => right.rank - left.rank || compareHomeScore(left.river, right.river))
+    .map(item => item.river);
 }
 
-function searchableRouteText(river: RiverSummaryApiItem) {
-  return normalizeSearchText([
-    river.river.name,
-    river.river.reach,
-    river.river.region,
-    river.river.state,
-    stateAbbreviation(river.river.state),
-    river.river.difficulty,
-    river.river.routeType,
-    river.river.distanceLabel,
-    river.river.estimatedPaddleTime,
-    river.river.putIn?.name,
-    river.river.takeOut?.name,
-    river.rating,
-    river.gaugeBandLabel,
-  ]
-    .filter(Boolean)
-    .join(' '));
-}
-
-function searchRank(river: RiverSummaryApiItem, query: string) {
-  const name = normalizeSearchText(river.river.name);
-  const reach = normalizeSearchText(river.river.reach);
-  const region = normalizeSearchText(river.river.region);
-  const state = normalizeSearchText(river.river.state);
-  const stateAbbr = normalizeSearchText(stateAbbreviation(river.river.state));
-  const access = normalizeSearchText([river.river.putIn?.name, river.river.takeOut?.name].filter(Boolean).join(' '));
-
-  if (name === query) return 0;
-  if (name.startsWith(query)) return 1;
-  if (reach.startsWith(query)) return 2;
-  if (region.startsWith(query) || state === query || stateAbbr === query) return 3;
-  if (access.includes(query)) return 4;
-  return 5;
-}
 function sectionSubtitleForMode(mode: BoardMode) {
   if (mode === 'closest') return 'Shortest drives first.';
   if (mode === 'score') return 'Rivers ordered by score.';

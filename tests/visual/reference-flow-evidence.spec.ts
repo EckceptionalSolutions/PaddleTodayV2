@@ -25,6 +25,7 @@ for (const current of [1000, 3750]) {
     await page.goto(`/rivers/${river.slug}/`);
     await expect(page.locator('[data-field="flow-band"]').first()).toContainText(result.gaugeBandLabel);
     await expect(page.locator('[data-field="gauge-now"]').first()).toContainText(current === 1000 ? '1,000' : '3,750');
+    await page.getByText('More trip guidance', { exact: true }).click();
     await expect(page.locator('#trip-decisions')).toContainText('This rating follows recreational floating');
     await expect(page.getByRole('heading', { name: 'Match the rating to recreational floating', exact: true })).toBeVisible();
     await expect(page.locator('#trip-decisions')).toContainText('does not verify how long generation will continue');

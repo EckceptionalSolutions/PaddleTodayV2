@@ -1,4 +1,5 @@
 import { describe, expect, it } from 'vitest';
+import { effectiveRiverLiveData, gaugeMetricLabel, routeGaugePresentation } from '@paddletoday/api-contract';
 import { scoreRiverCondition } from './scoring';
 import { serializeDetailResult, serializePlanningRoute, serializeSummaryResult, serializeRiverGroupResult, serializeWeekendSummaryResult } from './api-contract';
 import type { GaugeReading, River, WeatherSnapshot } from './types';
@@ -187,6 +188,34 @@ const gauge: GaugeReading = {
 };
 
 describe('api-contract serializers', () => {
+  it('ages the same gauge at the provider boundary on summaries and detail', () => {
+    const now = new Date('2026-05-10T12:00:00Z');
+    const scored = scoreRiverCondition({ river: baseRiver, gauge, weather, now });
+    const summary = serializeSummaryResult(scored);
+    const detail = serializeDetailResult(scored);
+    for (const [clock, expected] of [['14:00', 'live'], ['14:01', 'stale']] as const) {
+      const instant = Date.parse(`2026-05-10T${clock}:00Z`);
+      const presentation = routeGaugePresentation(summary, instant);
+      expect(presentation).toEqual(routeGaugePresentation(detail, instant));
+      expect(presentation.state).toBe(expected);
+      expect(effectiveRiverLiveData(detail, { now: instant }).gauge.state).toBe(expected);
+    }
+    const { gauge: _gauge, ...legacy } = summary;
+    expect(routeGaugePresentation(legacy, now.getTime())).toMatchObject({
+      value: '520 cfs', observedLabel: null, context: 'observation time unavailable',
+    });
+  });
+
+  it('retains an alternate-unit observation while withholding incompatible threshold calls', () => {
+    const alternate = { ...gauge, current: 4.22, unit: 'ft' as const };
+    const result = scoreRiverCondition({ river: baseRiver, gauge: alternate, weather, now: new Date(gauge.observedAt) });
+    expect(result.readiness).toMatchObject({ status: 'withheld', reason: expect.stringContaining('thresholds use cfs') });
+    expect(result.outlooks.every(outlook => outlook.availability === 'withheld')).toBe(true);
+    const detail = serializeDetailResult(result);
+    expect(gaugeMetricLabel(detail)).toBe('Gauge height');
+    expect(serializeSummaryResult(result).summary.gaugeNow).toBe('4.22 ft');
+  });
+
   it('keeps summary payload homepage-focused while including score breakdown', () => {
     const scored = scoreRiverCondition({
       river: baseRiver,

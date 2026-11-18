@@ -30,6 +30,9 @@ import {
 import { createRequestGuard, isAbortError } from './request-guard.js';
 import {
   gaugeBandDisplayLabel,
+  gaugeMetricLabel,
+  routeGaugePresentation,
+  formatGaugeValue,
   buildRiverReadinessViewModel,
   buildRiverWeatherViewModel,
   buildScoreBreakdownViewModel,
@@ -1793,18 +1796,6 @@ function clamp(value, min, max) {
   return Math.min(max, Math.max(min, value));
 }
 
-function formatGaugeValue(value, unit) {
-  if (typeof value !== 'number' || !Number.isFinite(value)) {
-    return '--';
-  }
-
-  if (unit === 'ft') {
-    return `${value.toFixed(2).replace(/\.00$/, '')} ${unit}`;
-  }
-
-  return `${Math.round(value).toLocaleString('en-US')} ${unit}`;
-}
-
 function decorateDecision(element, result) {
   if (!(element instanceof HTMLElement)) return;
   element.classList.remove('decision-pill--paddle', 'decision-pill--maybe', 'decision-pill--skip');
@@ -2605,18 +2596,6 @@ function formatRainTotal(value, fallback = 'Unavailable') {
   return typeof value === 'number' ? `${value < 0.1 ? value.toFixed(2) : value.toFixed(1)} in` : fallback;
 }
 
-function formatGaugeMetric(value, unit, fallback = 'Unavailable') {
-  if (typeof value !== 'number') {
-    return fallback;
-  }
-
-  if (unit === 'ft') {
-    return `${value.toFixed(2).replace(/\.00$/, '')} ft`;
-  }
-
-  return `${Math.round(value).toLocaleString('en-US')} ${unit}`;
-}
-
 function renderGaugeBandVisuals(result) {
   const model = gaugeBandVisualModel(result);
 
@@ -2697,37 +2676,14 @@ function gaugeSourceDisplay(result) {
 }
 
 function gaugePrimaryValue(result) {
-  if (!result?.gauge) {
-    return 'No reading';
-  }
-
-  const source = result.river?.gaugeSource;
-  if (source?.unit === 'ft' || source?.metric === 'gage_height_ft') {
-    return result.gauge.gaugeHeightNow != null
-      ? formatGaugeMetric(result.gauge.gaugeHeightNow, 'ft')
-      : formatGaugeMetric(result.gauge.current, result.gauge.unit);
-  }
-
-  if (source?.unit === 'cfs' || source?.metric === 'discharge_cfs') {
-    return result.gauge.dischargeNow != null
-      ? formatGaugeMetric(result.gauge.dischargeNow, 'cfs')
-      : formatGaugeMetric(result.gauge.current, result.gauge.unit);
-  }
-
-  return formatGaugeMetric(result.gauge.current, result.gauge.unit);
+  return result?.gauge ? formatGaugeValue(result.gauge.current, result.gauge.unit) : 'No reading';
 }
 
 function gaugeSecondaryValue(result) {
-  if (!result?.gauge) {
-    return 'No reading';
-  }
-
-  const source = result.river?.gaugeSource;
-  if (source?.unit === 'ft' || source?.metric === 'gage_height_ft') {
-    return formatGaugeMetric(result.gauge.dischargeNow, 'cfs', 'No reading');
-  }
-
-  return formatGaugeMetric(result.gauge.gaugeHeightNow, 'ft', 'No reading');
+  if (!result?.gauge) return 'No reading';
+  return result.gauge.unit === 'ft'
+    ? formatGaugeValue(result.gauge.dischargeNow, 'cfs')
+    : formatGaugeValue(result.gauge.gaugeHeightNow, 'ft');
 }
 
 function formatRainChance(value) {
@@ -2752,7 +2708,7 @@ function trendSummaryValue(gauge) {
     return trend;
   }
 
-  return `${trend} • ${gauge.delta24h >= 0 ? '+' : ''}${formatGaugeMetric(gauge.delta24h, gauge.unit)} last 24h`;
+  return `${trend} • ${gauge.delta24h >= 0 ? '+' : ''}${formatGaugeValue(gauge.delta24h, gauge.unit)} last 24h`;
 }
 
 function temperatureSummary(weather) {
@@ -4295,7 +4251,8 @@ function renderGaugeChart(result) {
   lineEl.setAttribute('visibility', 'visible');
   dotEl.setAttribute('visibility', 'visible');
 
-  const thresholdValues = [
+  const comparableUnits = result.gauge.unit === result.river.gaugeSource.unit;
+  const thresholdValues = !comparableUnits ? [] : [
     result.river.profile.idealMin,
     result.river.profile.idealMax,
     result.river.profile.tooLow,
@@ -4362,6 +4319,7 @@ function renderGaugeChart(result) {
   );
 
   if (
+    comparableUnits &&
     result.river.profile.thresholdModel === 'two-sided' &&
     typeof result.river.profile.idealMin === 'number' &&
     typeof result.river.profile.idealMax === 'number'
@@ -4384,7 +4342,7 @@ function renderGaugeChart(result) {
     return;
   }
 
-  if (typeof result.river.profile.tooLow === 'number') {
+  if (comparableUnits && typeof result.river.profile.tooLow === 'number') {
     const thresholdY = Math.max(yTop, Math.min(yBottom, y(result.river.profile.tooLow)));
     thresholdEl.setAttribute('x1', String(xLeft));
     thresholdEl.setAttribute('x2', String(xRight));
@@ -4656,8 +4614,11 @@ function renderDetailResult(result) {
   }
 
   setText('flow-band', result.gaugeBandLabel);
-  setText('primary-gauge-label', sourceDisplay.primaryMetricLabel || 'Current gauge');
-  setText('secondary-gauge-label', sourceDisplay.secondaryMetricLabel || 'Secondary gauge metric');
+  const gaugeRead = routeGaugePresentation(result);
+  setText('primary-gauge-label', gaugeMetricLabel(result));
+  const secondaryMetric = result.gauge?.unit === 'ft' ? 'Discharge' : 'Gauge height';
+  setText('secondary-gauge-label', result.gauge && result.gauge.unit !== result.river.gaugeSource.unit
+    ? secondaryMetric : sourceDisplay.secondaryMetricLabel || 'Secondary gauge metric');
   setText('top-gauge-source', sourceDisplay.shortLabel || sourceDisplay.label || 'Gauge source');
   const gaugeInterpretation = result.gauge?.gaugeInterpretation?.trim();
   const topGaugeInterpretation = setText(
@@ -4673,13 +4634,13 @@ function renderDetailResult(result) {
   setText('discharge-now', gaugeSecondaryValue(result));
   setText(
     'observed-at',
-    result.gauge?.observedAt ? new Date(result.gauge.observedAt).toLocaleString() : 'No reading'
+    gaugeRead.observedLabel ?? 'No reading'
   );
   setText(
     'generated-at',
     result.generatedAt ? new Date(result.generatedAt).toLocaleString() : 'No reading'
   );
-  setText('gauge-freshness', effectiveLiveData.gauge.detail);
+  setText('gauge-freshness', gaugeRead.context || effectiveLiveData.gauge.detail);
   setText(
     'trend',
     result.gauge?.trend
@@ -4690,7 +4651,7 @@ function renderDetailResult(result) {
   setText(
     'flow-change-24h',
     result.gauge?.delta24h !== null && result.gauge
-      ? `${result.gauge.delta24h >= 0 ? '+' : ''}${formatGaugeMetric(result.gauge.delta24h, result.gauge.unit)}`
+      ? `${result.gauge.delta24h >= 0 ? '+' : ''}${formatGaugeValue(result.gauge.delta24h, result.gauge.unit)}`
       : 'No reading'
   );
   setText('recent-rain-24h', formatRainTotal(result.weather?.recentRain24hIn, 'No reading'));

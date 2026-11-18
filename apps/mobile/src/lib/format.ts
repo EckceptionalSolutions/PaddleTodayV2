@@ -8,7 +8,6 @@ import {
   ratingVerdictLabel,
   type CallContext,
   type DecisionReadinessStatus,
-  type GaugeUnit,
   type ScoreRating,
 } from '@paddletoday/api-contract';
 
@@ -48,11 +47,7 @@ export function formatRelativeTime(value: string | null | undefined) {
   return elapsedDays === 1 ? 'Updated yesterday' : `Updated ${elapsedDays}d ago`;
 }
 
-export function formatGaugeValue(value: number | null | undefined, unit: GaugeUnit, empty = 'No reading') {
-  if (typeof value !== 'number' || !Number.isFinite(value)) return empty;
-  if (unit === 'ft') return `${value.toFixed(2).replace(/\.00$/, '')} ${unit}`;
-  return `${Math.round(value).toLocaleString('en-US')} ${unit}`;
-}
+export { formatGaugeValue } from '@paddletoday/api-contract';
 
 export function formatPercent(value: number | null | undefined, empty = 'No reading') {
   if (typeof value !== 'number' || !Number.isFinite(value)) return empty;

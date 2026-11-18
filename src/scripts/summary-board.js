@@ -68,6 +68,7 @@ import {
   estimateTravelMinutes,
 } from '@paddletoday/api-contract';
 import {
+  boardRouteSearchRank,
   buildBoardRecommendationItems,
   createBoardDisplayItemBuilder,
   createBoardResultFilter,
@@ -1181,7 +1182,9 @@ function buildRouteMapItems(allResults, filteredResults, options = {}) {
   const filteredByRiver = groupResultsByRiverId(filteredResults);
 
   return [...filteredByRiver.entries()].flatMap(([groupKey, routes]) => {
-      const representativeRoute = pickRepresentativeRoute(routes, 'best-now').route;
+      const bestRank = options.search ? Math.max(...routes.map(route => boardRouteSearchRank(route, options.search))) : 0;
+      const bestMatches = bestRank ? routes.filter(route => boardRouteSearchRank(route, options.search) === bestRank) : routes;
+      const representativeRoute = pickRepresentativeRoute(bestMatches, 'best-now').route;
       // A filter can include legacy routes without river coordinates. Keep the
       // group visible by falling back to its first mappable route instead of
       // dropping the entire river from the Explore list/map.
@@ -1190,6 +1193,7 @@ function buildRouteMapItems(allResults, filteredResults, options = {}) {
       );
       if (!cardRoute) return [];
       const totalRouteCount = allByRiver.get(groupKey)?.length ?? routes.length;
+      const showGroup = totalRouteCount > 1 && !(options.search && routes.length === 1);
       const distanceMilesValue = distanceForResult(cardRoute);
       const travelMinutes = estimateTravelMinutes(distanceMilesValue);
       const segmentFilters = options.segmentFilters ?? null;
@@ -1197,7 +1201,7 @@ function buildRouteMapItems(allResults, filteredResults, options = {}) {
 
       return {
         key: groupKey,
-        kind: totalRouteCount > 1 ? 'group' : 'route',
+        kind: showGroup ? 'group' : 'route',
         cardRoute,
         matchingRoutes: routes,
         allRiverRoutes: allByRiver.get(groupKey) ?? routes,
@@ -1213,7 +1217,7 @@ function buildRouteMapItems(allResults, filteredResults, options = {}) {
         selectedSegment,
         link: selectedSegment
           ? buildRoutePlannerHref(cardRoute.river.slug, selectedSegment)
-          : totalRouteCount > 1
+          : showGroup
             ? buildGroupedRiverLink({ cardRoute })
             : `/rivers/${cardRoute.river.slug}/`,
       };
@@ -4045,6 +4049,7 @@ function renderHomepage(results, { preserveMapViewport = false, renderReason = '
   );
   const exploreItems = sortBoardItems(
     buildRouteMapItems(results, filteredRoutes, {
+      search: activeFilters.search,
       segmentFilters: {
         paddleLength: activeFilters.paddleLength,
         paddleTime: activeFilters.paddleTime,
@@ -4053,6 +4058,10 @@ function renderHomepage(results, { preserveMapViewport = false, renderReason = '
     normalizedSortMode,
     { hasUserLocation: Boolean(userLocation) },
   );
+  if (activeFilters.search && normalizedSortMode === 'best-now') {
+    exploreItems.sort((left, right) => boardRouteSearchRank(right.cardRoute, activeFilters.search)
+      - boardRouteSearchRank(left.cardRoute, activeFilters.search));
+  }
   lastExploreItems = exploreItems;
   const summaryMapItems = isNearbySummaryMapMode()
     ? (locationReady ? nearbyItems : [])

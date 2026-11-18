@@ -1,3 +1,4 @@
+import { routeGaugePresentation } from '@paddletoday/api-contract';
 import { escapeHtml } from './map-runtime.js';
 import { ratingDisplayLabel } from './ui-taxonomy.js';
 import { joinWithBullet } from './board-domain.js';
@@ -540,7 +541,11 @@ export function signalIconMarkup(kind) {
 }
 
 export function signalRowMarkup(item) {
-  const items = parseRawSignalLine(rawSignalLine(item));
+  const route = item?.cardRoute;
+  let items = parseRawSignalLine(rawSignalLine(item));
+  if (route && (route.gauge !== undefined || route.summary?.gaugeNow)) {
+    items = [{ kind: 'gauge', value: routeGaugePresentation(route).label }, ...items.filter(signal => signal.kind !== 'gauge')];
+  }
 
   if (items.length === 0) {
     return '<span class="river-card__signal-empty">Conditions loading</span>';
@@ -553,7 +558,7 @@ export function signalRowMarkup(item) {
           <span class="river-card__signal-icon river-card__signal-icon--${signal.kind}">
             ${signalIconMarkup(signal.kind)}
           </span>
-          <span>${signal.value}</span>
+          <span>${escapeHtml(signal.value)}</span>
         </span>
       `
     )
