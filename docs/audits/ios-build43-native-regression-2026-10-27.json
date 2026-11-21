@@ -1,0 +1,118 @@
+{
+  "observedAt": "2026-10-27T15:35:02.335559+00:00",
+  "version": "1.1.6",
+  "build": "43",
+  "sourceCommit": "c4e803d043805a3644a5263f14b10b47a758066e",
+  "installedIdentity": {
+    "CFBundleIdentifier": "com.paddletoday.mobile",
+    "CFBundleShortVersionString": "1.1.6",
+    "CFBundleVersion": "43",
+    "SignerIdentity": "TestFlight Beta Distribution",
+    "ApplicationType": "User"
+  },
+  "distribution": "Official TestFlight",
+  "device": "iPhone 13",
+  "os": "iOS 26.5.2",
+  "reduceMotion": false,
+  "navigationChecks": [
+    {
+      "case": "initial",
+      "moreContentVisible": true
+    },
+    {
+      "case": "account-back",
+      "moreContentVisible": true
+    },
+    {
+      "case": "from-Today",
+      "moreContentVisible": true
+    },
+    {
+      "case": "from-Explore",
+      "moreContentVisible": true
+    },
+    {
+      "case": "from-Weekend",
+      "moreContentVisible": true
+    },
+    {
+      "case": "from-Saved-routes",
+      "moreContentVisible": true
+    },
+    {
+      "case": "from-Trips",
+      "moreContentVisible": true
+    },
+    {
+      "case": "background-return",
+      "moreContentVisible": true
+    },
+    {
+      "case": "cold-launch",
+      "moreContentVisible": true
+    }
+  ],
+  "resumeSequence": "Saved \u2192 Home \u2192 wait \u2192 activate PaddleToday \u2192 immediately More",
+  "resumeCases": [
+    {
+      "attempt": 1,
+      "backgroundSeconds": 1,
+      "backgroundStateVerified": 3,
+      "moreContentPresent": true
+    },
+    {
+      "attempt": 2,
+      "backgroundSeconds": 3,
+      "backgroundStateVerified": 2,
+      "moreContentPresent": true
+    },
+    {
+      "attempt": 3,
+      "backgroundSeconds": 8,
+      "backgroundStateVerified": 2,
+      "moreContentPresent": true
+    },
+    {
+      "attempt": 4,
+      "backgroundSeconds": 3,
+      "backgroundStateVerified": 2,
+      "moreContentPresent": true
+    },
+    {
+      "attempt": 5,
+      "backgroundSeconds": 8,
+      "backgroundStateVerified": 2,
+      "moreContentPresent": true
+    },
+    {
+      "attempt": 6,
+      "backgroundSeconds": 1,
+      "backgroundStateVerified": 2,
+      "moreContentPresent": true
+    },
+    {
+      "attempt": 7,
+      "backgroundSeconds": 3,
+      "backgroundStateVerified": 2,
+      "moreContentPresent": true
+    },
+    {
+      "attempt": 8,
+      "backgroundSeconds": 8,
+      "backgroundStateVerified": 2,
+      "moreContentPresent": true
+    }
+  ],
+  "coldTerminationVerified": true,
+  "blankMoreReproduced": false,
+  "mainIdentityAndBackupVerified": true,
+  "savedRoutes": 2,
+  "tripPlans": 0,
+  "bothExactOriginalSavedRoutesUnchanged": true,
+  "mainAccountDeletedOrRevoked": false,
+  "appLeftOnSaved": true,
+  "physicalTabFixVerified": true,
+  "previousResultsAreNotBuild43Retests": true,
+  "appReviewSubmitted": false,
+  "automationStoppedVerified": true
+}

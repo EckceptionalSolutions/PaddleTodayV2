@@ -1,0 +1,133 @@
+{
+  "observedAt": "2026-10-27T14:23:14.524Z",
+  "appId": "6769542734",
+  "candidateBuild": "42",
+  "published": true,
+  "dataTypeCount": 16,
+  "allQuestionnairesComplete": true,
+  "rows": {
+    "OtherDiagnosticData": {
+      "linked": false,
+      "purposes": [
+        "Analytics",
+        "AppFunctionality"
+      ],
+      "tracking": false
+    },
+    "UserID": {
+      "linked": true,
+      "purposes": [
+        "Analytics",
+        "AppFunctionality"
+      ],
+      "tracking": false
+    },
+    "Name": {
+      "linked": true,
+      "purposes": [
+        "AppFunctionality"
+      ],
+      "tracking": false
+    },
+    "EmailAddress": {
+      "linked": true,
+      "purposes": [
+        "AppFunctionality"
+      ],
+      "tracking": false
+    },
+    "PhoneNumber": {
+      "linked": true,
+      "purposes": [
+        "AppFunctionality"
+      ],
+      "tracking": false
+    },
+    "OtherDataTypes": {
+      "linked": true,
+      "purposes": [
+        "Analytics",
+        "AppFunctionality"
+      ],
+      "tracking": false
+    },
+    "CoarseLocation": {
+      "linked": true,
+      "purposes": [
+        "AppFunctionality",
+        "ProductPersonalization"
+      ],
+      "tracking": false
+    },
+    "DeviceID": {
+      "linked": true,
+      "purposes": [
+        "Analytics",
+        "AppFunctionality"
+      ],
+      "tracking": false
+    },
+    "OtherUsageData": {
+      "linked": true,
+      "purposes": [
+        "Analytics"
+      ],
+      "tracking": false
+    },
+    "PreciseLocation": {
+      "linked": true,
+      "purposes": [
+        "AppFunctionality",
+        "ProductPersonalization"
+      ],
+      "tracking": false
+    },
+    "CrashData": {
+      "linked": false,
+      "purposes": [
+        "Analytics",
+        "AppFunctionality"
+      ],
+      "tracking": false
+    },
+    "PhotosorVideos": {
+      "linked": true,
+      "purposes": [
+        "AppFunctionality"
+      ],
+      "tracking": false
+    },
+    "OtherUserContent": {
+      "linked": true,
+      "purposes": [
+        "AppFunctionality"
+      ],
+      "tracking": false
+    },
+    "CustomerSupport": {
+      "linked": true,
+      "purposes": [
+        "AppFunctionality"
+      ],
+      "tracking": false
+    },
+    "ProductInteraction": {
+      "linked": false,
+      "purposes": [
+        "Analytics"
+      ],
+      "tracking": false
+    },
+    "Fitness": {
+      "linked": true,
+      "purposes": [
+        "AppFunctionality"
+      ],
+      "tracking": false
+    }
+  },
+  "trackingGroupShown": false,
+  "verifiedAgainstPackagedSdkAndAppDataAudit": true,
+  "appReviewSubmitted": false,
+  "unchangedPackagedManifestsVerifiedThroughBuild": "43"
+}

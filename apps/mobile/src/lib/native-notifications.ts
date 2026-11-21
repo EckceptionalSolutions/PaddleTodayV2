@@ -95,6 +95,12 @@ export async function getLastNotificationResponse() {
   return Notifications.getLastNotificationResponse();
 }
 
+export function clearNotificationResponse(identifier: string) {
+  if (Platform.OS !== 'web' && Notifications.getLastNotificationResponse()?.notification.request.identifier === identifier) {
+    Notifications.clearLastNotificationResponse();
+  }
+}
+
 export function addNotificationResponseListener(listener: (response: Notifications.NotificationResponse) => void) {
   if (Platform.OS === 'web') {
     return { remove: () => undefined };

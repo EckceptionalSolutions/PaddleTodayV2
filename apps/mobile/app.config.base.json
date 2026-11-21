@@ -21,7 +21,7 @@
         "applinks:paddletoday-9933a.firebaseapp.com"
       ],
       "appStoreUrl": "https://apps.apple.com/app/id6769542734",
-      "buildNumber": "37",
+      "buildNumber": "43",
       "infoPlist": {
         "NSUserNotificationsUsageDescription": "PaddleToday can send route alerts and nearby paddling opportunities when conditions match your choices.",
         "NSPhotoLibraryUsageDescription": "PaddleToday lets you attach route photos when you choose to submit paddling reports.",

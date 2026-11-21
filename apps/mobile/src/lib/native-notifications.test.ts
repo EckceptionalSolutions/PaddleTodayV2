@@ -6,6 +6,8 @@ const mocks = vi.hoisted(() => ({
   requestPermissionsAsync: vi.fn(),
   getExpoPushTokenAsync: vi.fn(),
   captureAppException: vi.fn(),
+  getLastNotificationResponse: vi.fn(),
+  clearLastNotificationResponse: vi.fn(),
 }));
 vi.mock('expo-constants', () => ({ default: mocks.constants }));
 vi.mock('react-native', () => ({ Platform: { OS: 'ios' } }));
@@ -13,9 +15,11 @@ vi.mock('expo-notifications', () => ({
   getPermissionsAsync: mocks.getPermissionsAsync,
   requestPermissionsAsync: mocks.requestPermissionsAsync,
   getExpoPushTokenAsync: mocks.getExpoPushTokenAsync,
+  getLastNotificationResponse: mocks.getLastNotificationResponse,
+  clearLastNotificationResponse: mocks.clearLastNotificationResponse,
 }));
 vi.mock('./observability', () => ({ captureAppException: mocks.captureAppException }));
-import { registerForRiverAlertPushNotifications } from './native-notifications';
+import { clearNotificationResponse, registerForRiverAlertPushNotifications } from './native-notifications';
 
 beforeEach(() => {
   vi.resetAllMocks();
@@ -24,6 +28,17 @@ beforeEach(() => {
 });
 
 describe('phone alert recovery messages', () => {
+  it('clears a consumed native response so a normal relaunch cannot replay it', () => {
+    mocks.getLastNotificationResponse.mockReturnValue({ notification: { request: { identifier: 'consumed' } } });
+    clearNotificationResponse('consumed');
+    expect(mocks.clearLastNotificationResponse).toHaveBeenCalledOnce();
+  });
+
+  it('does not clear a newer native response while finishing an older handoff', () => {
+    mocks.getLastNotificationResponse.mockReturnValue({ notification: { request: { identifier: 'newer' } } });
+    clearNotificationResponse('older');
+    expect(mocks.clearLastNotificationResponse).not.toHaveBeenCalled();
+  });
   it('gives app-update guidance when the build cannot register phone alerts', async () => {
     const result = await registerForRiverAlertPushNotifications();
     expect(result.ok).toBe(false);

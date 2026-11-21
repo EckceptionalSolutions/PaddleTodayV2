@@ -63,6 +63,7 @@ module.exports = ({ config }) => {
       ...baseConfig,
       plugins: [
         ...(baseConfig.plugins ?? []),
+        ...(appleSignInEnabled ? ['expo-apple-authentication'] : []),
         '@react-native-community/datetimepicker',
         ...(firebaseAuthEnabled
           ? [

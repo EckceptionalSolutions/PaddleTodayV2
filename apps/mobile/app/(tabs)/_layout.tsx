@@ -1,6 +1,6 @@
 import MaterialCommunityIcons from '@expo/vector-icons/MaterialCommunityIcons';
 import { Tabs } from 'expo-router';
-import { useWindowDimensions } from 'react-native';
+import { Platform, useWindowDimensions } from 'react-native';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import { colors } from '../../src/theme/tokens';
 import { useReducedMotion } from '../../src/hooks/use-reduced-motion';
@@ -16,7 +16,8 @@ export default function TabLayout() {
       safeAreaInsets={{ bottom: 0 }}
       screenOptions={{
         headerShown: false,
-        animation: reducedMotion ? 'none' : 'fade',
+        // Native iOS screen detachment can interrupt a fade and leave the selected tab blank.
+        animation: Platform.OS === 'ios' || reducedMotion ? 'none' : 'fade',
         tabBarActiveTintColor: colors.accent,
         tabBarInactiveTintColor: colors.textMuted,
         tabBarStyle: {

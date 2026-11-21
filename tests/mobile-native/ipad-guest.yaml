@@ -1,0 +1,49 @@
+appId: com.paddletoday.mobile
+name: Native iPad guest navigation and layout evidence
+---
+- launchApp:
+    clearState: false
+- extendedWaitUntil:
+    visible: Today's Calls
+    timeout: 60000
+- takeScreenshot: 01-today
+- tapOn:
+    text: Explore
+    index: 0
+- extendedWaitUntil:
+    visible: Filters
+    timeout: 30000
+- takeScreenshot: 03-explore
+- tapOn: Weekend
+- extendedWaitUntil:
+    visible: Plan the weekend
+    timeout: 30000
+- takeScreenshot: 05-weekend
+- tapOn: Saved routes
+- assertVisible: Saved routes
+- assertVisible: .*(Cannon|Minnesota) River.*
+- takeScreenshot: 06-saved
+- tapOn: Trips, tab, 5 of 6
+- assertVisible: Sign in
+- takeScreenshot: 07-trips
+- tapOn: More
+- assertVisible: Safety and app help
+- takeScreenshot: 08-more
+- tapOn: Saved routes
+- scrollUntilVisible:
+    element:
+      text: 'Open route: Minnesota River, Le Sueur to Henderson'
+    direction: DOWN
+- tapOn:
+    text: 'Open route: Minnesota River, Le Sueur to Henderson'
+    waitToSettleTimeoutMs: 1000
+- extendedWaitUntil:
+    visible: '(?i).*why this call.*'
+    timeout: 30000
+- takeScreenshot: 02-conditions
+- scrollUntilVisible:
+    element: Show Access section
+    direction: DOWN
+- tapOn: Show Access section
+- assertVisible: Route logistics
+- takeScreenshot: 04-access

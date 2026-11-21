@@ -8,6 +8,9 @@ for (const path of ['/', '/explore']) {
     page.on('pageerror', (error) => errors.push(error.message));
     await page.addInitScript(() => {
       localStorage.setItem('paddletoday:welcome-completed:v1', '1');
+      localStorage.setItem('paddletoday:user-location', JSON.stringify({
+        latitude: 45.08, longitude: -93.2, label: 'Test city', source: 'search',
+      }));
       const original = Storage.prototype.setItem;
       Storage.prototype.setItem = function (key, value) {
         if (key.includes('board-preferences') || key.includes('explore-preferences')) {

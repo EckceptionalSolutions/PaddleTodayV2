@@ -1,0 +1,165 @@
+{
+  "observedAt": "2026-10-27T16:56:44.650449+00:00",
+  "version": "1.1.6",
+  "build": "43",
+  "sourceCommit": "c4e803d043805a3644a5263f14b10b47a758066e",
+  "workflowRun": 40540813767,
+  "workflowConclusion": "success",
+  "suitePassed": true,
+  "visuallyReviewed": true,
+  "storeCaptureApproved": true,
+  "nativeSimulator": true,
+  "physicalDevice": false,
+  "testFlightBinary": false,
+  "xcode": "26.3",
+  "maestro": "2.12.0",
+  "publicDemoPreferencesOnly": true,
+  "ownerAccountDataUsed": false,
+  "cloudAccountUsed": false,
+  "appSourceChangedForCaptures": false,
+  "devices": [
+    {
+      "kind": "ipad",
+      "device": "iPad Pro 13-inch (M4)",
+      "runtime": "iOS 26.2",
+      "completedCommands": 30,
+      "guestNavigationChecks": "Today, Explore, Weekend, Saved, Trips, More, route conditions and route access"
+    },
+    {
+      "kind": "iphone",
+      "device": "iPhone 17 Pro Max",
+      "runtime": "iOS 26.2",
+      "completedCommands": 30,
+      "guestNavigationChecks": "Today, Explore, Weekend, Saved, Trips, More, route conditions and route access"
+    }
+  ],
+  "originalCaptures": [
+    {
+      "device": "ipad",
+      "screen": "01-today",
+      "width": 2064,
+      "height": 2752,
+      "sha256": "0a35c3fc150dfe2d93ae8009b1e6fff582c45cb2539df43d6db62fe6de8f9e58"
+    },
+    {
+      "device": "ipad",
+      "screen": "02-conditions",
+      "width": 2064,
+      "height": 2752,
+      "sha256": "4607217a0def5ee199cdd83bb4335165de690216c7745127ddeded4ddb44c24f"
+    },
+    {
+      "device": "ipad",
+      "screen": "03-explore",
+      "width": 2064,
+      "height": 2752,
+      "sha256": "6869de70eb40db24fe6df09871d78e4fc3b0c2963537674416c5e4eda4186e52"
+    },
+    {
+      "device": "ipad",
+      "screen": "04-access",
+      "width": 2064,
+      "height": 2752,
+      "sha256": "e647d776328918093ae333b8a85b239316f6c34613dc3404090e8b7dcd3e771d"
+    },
+    {
+      "device": "ipad",
+      "screen": "05-weekend",
+      "width": 2064,
+      "height": 2752,
+      "sha256": "c266de5a3407bb6d2bff975183e98a93947fb0001e2a174731600422dfef6ae8"
+    },
+    {
+      "device": "ipad",
+      "screen": "06-saved",
+      "width": 2064,
+      "height": 2752,
+      "sha256": "89285c94563daaf6e00456fd73f3fba9bf75e6ba17a16a1390d2156052074bfc"
+    },
+    {
+      "device": "ipad",
+      "screen": "07-trips",
+      "width": 2064,
+      "height": 2752,
+      "sha256": "e3a458f04608783e69cc3cb70664ab23c4e2cfee73f6505fabe1f8154b623f6e"
+    },
+    {
+      "device": "ipad",
+      "screen": "08-more",
+      "width": 2064,
+      "height": 2752,
+      "sha256": "e81e266a0ffbd5310978b89f1e66c23fffccd6a6a8dd5717b6b1607855b0ee81"
+    },
+    {
+      "device": "iphone",
+      "screen": "01-today",
+      "width": 1320,
+      "height": 2868,
+      "sha256": "8d094b01ead556c36e66d6cc23d4c285c68f847ca09fd50ab475b3834ce67adc"
+    },
+    {
+      "device": "iphone",
+      "screen": "02-conditions",
+      "width": 1320,
+      "height": 2868,
+      "sha256": "0891902af74afbbd2db9557d691400b06a953136faaba220b94e47b610a7fa8d"
+    },
+    {
+      "device": "iphone",
+      "screen": "03-explore",
+      "width": 1320,
+      "height": 2868,
+      "sha256": "3e63394b114c7e2bf949b0c67111aa6250478880c263d43e825e5ff5e06d0817"
+    },
+    {
+      "device": "iphone",
+      "screen": "04-access",
+      "width": 1320,
+      "height": 2868,
+      "sha256": "221c267d7f3c856dad1393232c9aa07dcb41fa112941db95853144e15ba027ac"
+    },
+    {
+      "device": "iphone",
+      "screen": "05-weekend",
+      "width": 1320,
+      "height": 2868,
+      "sha256": "7efb922c4d8fce2f1ef3717c96e8edd9b7b20f5a84f18e3316de37311ec23da8"
+    },
+    {
+      "device": "iphone",
+      "screen": "06-saved",
+      "width": 1320,
+      "height": 2868,
+      "sha256": "0ea805b7edc6f8db5c326ce5279dd0c651f7a65207626eed14414402ca60db2b"
+    },
+    {
+      "device": "iphone",
+      "screen": "07-trips",
+      "width": 1320,
+      "height": 2868,
+      "sha256": "a350a9db40c540e6bea0ff39c3d6a63f7cb16627edd0bad06b925dc57d0a975c"
+    },
+    {
+      "device": "iphone",
+      "screen": "08-more",
+      "width": 1320,
+      "height": 2868,
+      "sha256": "d5088496b203d43d3c8a97f5c53660716fc99c5a2442a17c52513e46519aa4e7"
+    }
+  ],
+  "approvedCaptureOverride": {
+    "device": "iphone",
+    "screen": "03-explore",
+    "workflowRun": 40544566512,
+    "nativeView": "Explore list",
+    "sha256": "c1bb5cc986cb287acd4d893c244c0726f48c18b652bda878d675539747a1da9d",
+    "width": 1320,
+    "height": 2868,
+    "reason": "Initial Explore map capture showed markers before basemap tiles loaded. Replaced with an authentic populated native Explore list capture; no image retouching."
+  },
+  "reviewedUniqueNativeScreens": 17,
+  "screenshotsUseCompleteNativeFrames": true,
+  "uiRetouched": false,
+  "limits": "Guest layout/navigation checks on two simulators. Signed-in functional behavior is covered by the separately attributed physical iPhone reports; no physical iPad is available.",
+  "appReviewSubmitted": false
+}
