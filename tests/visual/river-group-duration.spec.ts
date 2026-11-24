@@ -1,5 +1,7 @@
 import { test, expect } from '@playwright/test';
 import { installMapLibreHarness } from './maplibre-harness';
+import { getRiverGroupById } from '../../src/lib/rivers';
+import { serializeRiverGroupResult } from '../../src/lib/api-contract';
 import fixture from '../mobile-web/fixtures/route-detail.json' with { type: 'json' };
 
 test('river-line activation runs once after its source is rebuilt', async ({ page }) => {
@@ -140,28 +142,38 @@ test('river line details stay in map view and close with Escape', async ({ page 
   await expect(page.locator('[data-group-map] canvas')).toBeFocused();
 });
 
-test('geometry arriving during initial loading still fits the first river viewport', async ({ page }) => {
+test('early geometry keeps the linked White River trip and both landings in view', async ({ page }) => {
+  const riverId = 'white-river-indiana';
+  const slug = 'west-fork-white-river-henderson-ford-paragon';
+  const { routes } = getRiverGroupById(riverId)!;
+  const trip = routes.find(route => route.slug === slug)!;
   await installMapLibreHarness(page, { mapReady: false });
-  await page.route('**/api/river-groups/rum-river.json*', route => route.fulfill({ json: {
-    result: { group: { riverId: 'rum-river', name: 'Rum River', routeCount: 1 }, routes: [fixture.result] },
+  await page.route(`**/api/river-groups/${riverId}.json*`, route => route.fulfill({ json: {
+    result: serializeRiverGroupResult({ riverId, routes: [], planningRoutes: routes }),
   } }));
-  let geometryFinished = false;
+  let geometryResponses = 0;
   await page.route('**/data/canonical-river-geometries/routes/*.json', async route => {
-    await route.fulfill({ status: 404, body: '' });
-    geometryFinished = true;
+    await route.fulfill({ path: `public${new URL(route.request().url()).pathname}` });
+    geometryResponses++;
   });
-  await page.goto('/rivers/by-river/rum-river/');
+  await page.goto(`/rivers/by-river/${riverId}/#trip-${slug}`);
   await expect(page.locator('[data-group-map] canvas')).toHaveCount(1);
-  await expect.poll(() => geometryFinished).toBe(true);
-  // Let the geometry response supersede the still-pending initial map render.
-  await page.waitForTimeout(100);
+  await expect.poll(() => geometryResponses).toBe(routes.length);
   await page.evaluate(() => {
     (window as any).maplibregl.Map.prototype.loaded = () => true;
     (window as any).maplibregl.Map.prototype.isStyleLoaded = () => true;
     for (const map of (window as any).__paddleMapInstances) map.emit('idle');
   });
   await expect(page.locator('[data-group-map-status]')).toHaveAttribute('data-map-state', 'ready');
-  expect(await page.evaluate(() => (window as any).__paddleMapHarness.fitCalls.length)).toBeGreaterThan(0);
+  const [sw, ne] = await page.evaluate(() => (window as any).__paddleMapHarness.fitCalls.at(-1).bounds);
+  for (const access of [trip.putIn!, trip.takeOut!]) {
+    expect(access.longitude).toBeGreaterThanOrEqual(sw[0]);
+    expect(access.longitude).toBeLessThanOrEqual(ne[0]);
+    expect(access.latitude).toBeGreaterThanOrEqual(sw[1]);
+    expect(access.latitude).toBeLessThanOrEqual(ne[1]);
+  }
+  const muncie = routes.find(route => route.slug === 'west-fork-white-river-barlow-mcculloch')!;
+  expect(ne[1]).toBeLessThan(muncie.putIn!.latitude);
 });
 
 test('late river geometry preserves an open score popup and its marker', async ({ page }) => {
@@ -254,7 +266,7 @@ test('a stalled river trip map can retry while route details remain available', 
       routes: [{ ...fixture.result, river: { ...fixture.result.river, distanceLabel: '3 mi' } }],
     },
   } }));
-  await page.goto('/rivers/by-river/rum-river/');
+  await page.goto(`/rivers/by-river/rum-river/#trip-${fixture.result.river.slug}`);
   await expect(page.locator('[data-group-map-status]')).toHaveAttribute('data-map-state', 'unavailable', { timeout: 12000 });
   const mapTab = page.locator('[data-group-mobile-view="map"]');
   if (await mapTab.isVisible()) await mapTab.click();
@@ -274,6 +286,7 @@ test('a stalled river trip map can retry while route details remain available', 
   await expect(page.locator('[data-group-map-status]')).toBeFocused();
   await expect(page.locator('[data-group-map] canvas')).toHaveCount(1);
   await expect(page.locator('[data-group-map] .river-route-endpoint')).toHaveCount(2);
+  expect(await page.evaluate(() => (window as any).__paddleMapHarness.fitCalls.at(-1).options.maxZoom)).toBe(11.2);
 });
 
 test('failed river comparisons retain static routes without loading or recommendation claims', async ({ page }) => {
