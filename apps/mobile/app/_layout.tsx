@@ -12,8 +12,10 @@ import {
   addNotificationResponseListener,
   configureNativeNotifications,
   getLastNotificationResponse,
+  clearNotificationResponse,
 } from '../src/lib/native-notifications';
-import { initObservability, trackAppEvent, withObservability } from '../src/lib/observability';
+import { captureAppException, initObservability, trackAppEvent, withObservability } from '../src/lib/observability';
+import { createNotificationRouter } from '../src/lib/notification-routing';
 import { AppProviders } from '../src/providers/app-providers';
 import { colors } from '../src/theme/tokens';
 import {
@@ -60,9 +62,20 @@ function RootLayout() {
   const [authSessionReady, setAuthSessionReady] = useState(!authEnabled);
   const [hasSignedInUser, setHasSignedInUser] = useState(false);
   const [onboardingChecked, setOnboardingChecked] = useState(entryRoute);
-  const routingState = useRef({ onboardingChecked, pathname });
+  const routingState = useRef({ ready: authSessionReady && onboardingChecked, pathname });
+  const notificationRouter = useRef<ReturnType<typeof createNotificationRouter> | null>(null);
+  if (!notificationRouter.current) notificationRouter.current = createNotificationRouter({
+    getState: () => routingState.current,
+    navigate: url => router.push(url as never),
+    savePending: savePendingLaunchTarget,
+    clearResponse: clearNotificationResponse,
+    trackOpen: type => trackAppEvent('area_notification_opened', { notification_type: type }),
+  });
 
-  useEffect(() => { routingState.current = { onboardingChecked, pathname }; }, [onboardingChecked, pathname]);
+  useEffect(() => {
+    routingState.current = { ready: authSessionReady && onboardingChecked, pathname };
+    void notificationRouter.current?.flush().catch(reportNotificationRoutingError);
+  }, [authSessionReady, onboardingChecked, pathname]);
 
   useEffect(() => {
     if (!authEnabled) return;
@@ -137,15 +150,17 @@ function RootLayout() {
   }, [pathname]);
 
   useEffect(() => {
-    void getLastNotificationResponse().then((response) => {
-      redirectFromNotification(response?.notification.request.content.data, routingState.current.onboardingChecked, routingState.current.pathname);
-    });
-
+    let active = true;
+    let receivedLiveResponse = false;
     const subscription = addNotificationResponseListener((response) => {
-      redirectFromNotification(response.notification.request.content.data, routingState.current.onboardingChecked, routingState.current.pathname);
+      receivedLiveResponse = true;
+      void notificationRouter.current?.receive(response).catch(reportNotificationRoutingError);
     });
+    void getLastNotificationResponse().then(response => {
+      if (active && !receivedLiveResponse) return notificationRouter.current?.receive(response);
+    }).catch(reportNotificationRoutingError);
 
-    return () => subscription.remove();
+    return () => { active = false; subscription.remove(); };
   }, []);
 
   return (
@@ -206,30 +221,8 @@ const styles = StyleSheet.create({
   },
 });
 
-function redirectFromNotification(data: unknown, onboardingChecked: boolean, pathname: string) {
-  const url = notificationUrl(data);
-  if (url) {
-    if (data && typeof data === 'object' && 'notificationType' in data) {
-      const notificationType = (data as { notificationType?: unknown }).notificationType;
-      if (notificationType === 'nearby_today' || notificationType === 'weekend_outlook') {
-        trackAppEvent('area_notification_opened', { notification_type: notificationType });
-      }
-    }
-    if (!onboardingChecked || pathname === '/welcome' || pathname === '/tour' || pathname === '/sign-in') {
-      void savePendingLaunchTarget(url).catch(() => {});
-    } else {
-      router.push(url as never);
-    }
-  }
-}
-
-function notificationUrl(data: unknown) {
-  if (!data || typeof data !== 'object' || !('url' in data)) {
-    return null;
-  }
-
-  const url = (data as { url?: unknown }).url;
-  return typeof url === 'string' && url.startsWith('/') ? url : null;
+function reportNotificationRoutingError(error: unknown) {
+  captureAppException(error, { name: 'notification_routing_failed' });
 }
 
 export default withObservability(RootLayout);

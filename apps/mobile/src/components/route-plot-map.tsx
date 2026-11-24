@@ -328,12 +328,18 @@ export const RoutePlotMap = forwardRef<RoutePlotMapHandle, {
     const Polyline = nativeMaps.Polyline;
 
     return (
-      <View style={[styles.shell, fullBleed ? styles.fullBleedShell : null]} onLayout={(event) => setMapWidth(event.nativeEvent.layout.width)}>
+      <View
+        style={[styles.shell, fullBleed ? styles.fullBleedShell : null]}
+        // MKMapView is a UIView, not RCTView. React Native 0.81's legacy
+        // pointerEvents="auto" setter falls through to disabling that view.
+        // Keep hit testing on the React Native wrapper so iOS map gestures work.
+        pointerEvents={interactive ? 'auto' : 'none'}
+        accessibilityElementsHidden={!interactive}
+        importantForAccessibility={interactive ? 'auto' : 'no-hide-descendants'}
+        onLayout={(event) => setMapWidth(event.nativeEvent.layout.width)}
+      >
         <MapView
           ref={mapRef}
-          pointerEvents={interactive ? 'auto' : 'none'}
-          accessibilityElementsHidden={!interactive}
-          importantForAccessibility={interactive ? 'auto' : 'no-hide-descendants'}
           scrollEnabled={interactive}
           zoomEnabled={interactive}
           style={[styles.nativeMap, { height }]}
