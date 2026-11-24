@@ -69,7 +69,162 @@ html body.page-route-detail [data-river-detail] .planning-status-card__summary {
   html body.page-river-hub .river-group-page__hero-facts .river-group-page__hero-fact:nth-child(n + 3) { display: grid; }
   html body.page-river-hub .river-group-page__hero-facts { display: flex; flex-wrap: wrap; }
   html body.page-river-hub .river-group-page__hero-fact { flex: 1 1 8rem; }
-  html body.page-river-hub .river-group-page__title { font-size: clamp(2rem, 9vw, 3rem); }
+  html body.page-river-hub .river-group-page__title { font-size: var(--page-title-size); }
   html body.page-river-hub .river-hub-context__grid,
   html body.page-river-hub .planning-guide__decisions { grid-template-columns: minmax(0, 1fr); }
+}
+
+/* Each trip keeps its map selection, save action and detail link in one row. */
+html body.page-river-hub .river-route-picker .trip-ledger {
+  container: trip-list / inline-size;
+  grid-template-columns: minmax(0, 1fr);
+  gap: 0;
+  padding: 0;
+  border-block: 1px solid #c7d5dc;
+}
+
+html body.page-river-hub .trip-ledger .route-choice {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  align-items: center;
+  border: 0;
+  border-bottom: 1px solid #d5e0e5;
+  border-radius: 0;
+  background: #fff;
+  box-shadow: none;
+}
+html body.page-river-hub .trip-ledger .route-choice:hover { background: #f6f9fb; box-shadow: none; }
+html body.page-river-hub .trip-ledger .route-choice--active {
+  background: #eef5f8;
+  box-shadow: inset 3px 0 #33677c;
+}
+
+html body.page-river-hub .trip-ledger .route-choice .route-choice__select {
+  grid-column: 1 / -1;
+  grid-row: 1;
+  grid-template-columns: minmax(0, 1fr) 4.5rem;
+  align-items: start;
+  min-height: 44px;
+  padding: .8rem .9rem .25rem;
+  gap: .65rem;
+}
+html body.page-river-hub .trip-ledger .route-choice__copy { gap: .3rem; }
+html body.page-river-hub .trip-ledger .route-choice__eyebrow {
+  padding: 0;
+  font-size: .8rem;
+  font-weight: 500;
+  letter-spacing: normal;
+  text-transform: none;
+}
+html body.page-river-hub .trip-ledger .route-choice__facts {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  column-gap: .7rem;
+  align-items: baseline;
+  font-variant-numeric: tabular-nums;
+}
+html body.page-river-hub .trip-ledger .route-choice__fact {
+  display: block;
+  min-height: 0;
+  padding: 0;
+  border: 0;
+  background: none;
+  color: var(--ink-soft);
+  font-size: .85rem;
+  font-weight: 500;
+}
+.trip-ledger .route-choice__fact--distance { grid-column: 1; }
+.trip-ledger .route-choice__fact--time { grid-column: 2; }
+.trip-ledger .route-choice__fact--difficulty { grid-column: 3; }
+html body.page-river-hub .trip-ledger .route-choice__score-compact {
+  min-width: 0;
+  min-height: 0;
+  padding: .35rem;
+  border-radius: 5px;
+  box-shadow: none;
+}
+html body.page-river-hub .trip-ledger .route-choice__score-compact strong { font-size: 1.2rem; }
+html body.page-river-hub .trip-ledger .route-choice__score-compact span { font-size: .8rem; }
+html body.page-river-hub .trip-ledger .route-choice__details-button {
+  grid-area: 2 / 1;
+  justify-self: start;
+  margin: 0 .9rem;
+}
+html body.page-river-hub .trip-ledger .route-choice__save {
+  grid-area: 2 / 2;
+  position: static;
+  min-height: 44px;
+  margin-inline-end: .7rem;
+  box-shadow: none;
+}
+@container trip-list (min-width: 39rem) {
+  .trip-ledger .route-choice__copy {
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  }
+  .trip-ledger .route-choice__copy > :not(.route-choice__facts) { grid-column: 1; }
+  .trip-ledger .route-choice__facts { grid-column: 2; grid-row: 1 / span 4; align-self: center; }
+}
+@container trip-list (max-width: 23rem) {
+  html body.page-river-hub .trip-ledger .route-choice__facts {
+    display: flex;
+    flex-wrap: wrap;
+    gap: .15rem .65rem;
+  }
+}
+@container trip-list (max-width: 30rem) {
+  .trip-ledger .route-choice__copy { display: contents; }
+  .trip-ledger .route-choice__copy > * { grid-column: 1; }
+  .trip-ledger .route-choice__copy > .route-choice__facts { grid-column: 1 / -1; }
+  .trip-ledger .route-choice__score-compact { grid-area: 1 / 2 / span 2; }
+}
+
+@media (min-width: 90em) {
+  html body.page-river-hub .river-group-page { gap: .65rem; }
+  html body.page-river-hub .river-group-page__hero--photo {
+    min-height: 0;
+    grid-template-columns: 3fr 2fr;
+    padding: .7rem;
+    gap: 1rem;
+  }
+  html body.page-river-hub .river-group-page__hero--photo .river-group-page__hero-main {
+    padding: .35rem .55rem;
+    gap: .4rem;
+  }
+  html body.page-river-hub .river-group-page__hero--photo .river-group-page__lede { max-width: 66ch; }
+  .river-group-page__jump-links { margin-block: 0; }
+  .river-group-page__hero-facts { max-width: none; }
+  html body.page-river-hub .river-group-page__hero-media { min-height: 10rem; }
+  .river-group-page__hero-media img { position: absolute; inset: 0; min-height: 0; }
+
+  html body.page-river-hub .river-route-picker { padding: .8rem 1rem; }
+  html body.page-river-hub .river-route-picker > .river-group-page__section-head {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: baseline;
+    margin-bottom: .5rem;
+  }
+  html body.page-river-hub .river-route-picker__toolbar {
+    padding: .45rem .65rem;
+    margin-bottom: .5rem;
+  }
+  .river-route-picker__filter-stack { display: flex; flex-wrap: wrap; align-items: baseline; }
+  .river-route-picker__filter-stack:has(details[open]) .river-route-picker__filter-actions { flex-basis: 100%; }
+
+  @container trip-list (min-width: 47rem) {
+    html body.page-river-hub .trip-ledger .route-choice {
+      grid-template-columns: minmax(0, 1fr) auto auto;
+      column-gap: .65rem;
+    }
+    html body.page-river-hub .trip-ledger .route-choice .route-choice__select {
+      grid-column: 1;
+      align-items: center;
+      padding: .55rem .65rem;
+    }
+    html body.page-river-hub .trip-ledger .route-choice__details-button {
+      grid-area: 1 / 2;
+      align-self: center;
+      margin: 0;
+    }
+    html body.page-river-hub .trip-ledger .route-choice__save { grid-area: 1 / 3; }
+  }
 }

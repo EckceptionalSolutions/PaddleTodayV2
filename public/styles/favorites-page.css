@@ -117,6 +117,22 @@ html body.page-favorites [data-favorites-map-retry] {
 .favorites-page__empty .favorites-page__empty-icon { width: 44px; height: 44px; border-radius: 13px; }
 .favorites-page__empty .favorites-page__empty-copy { max-width: 38rem; }
 .favorites-page__empty-actions { margin-top: 0.35rem; }
+@media (min-width: 60em) {
+  .favorites-page:has([data-favorites-empty]:not([hidden])) {
+    width: min(100%, 64rem);
+    margin-inline: auto;
+  }
+  .favorites-page .favorites-page__empty {
+    grid-template-columns: auto minmax(0, 1fr) auto;
+    gap: .3rem 1rem;
+    align-items: center;
+    min-height: 0;
+  }
+  .favorites-page__empty-icon { grid-area: 1 / 1 / span 2; }
+  .favorites-page__empty-title { grid-area: 1 / 2; }
+  .favorites-page__empty-copy { grid-area: 2 / 2; }
+  .favorites-page__empty-actions { grid-area: 1 / 3 / span 2; margin: 0; }
+}
 
 .favorites-card__saved-at {
   margin: 0;

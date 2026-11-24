@@ -1,3 +1,5 @@
+@import url("/styles/site-type.css");
+
 :root {
   color-scheme:light;
   --embed-ink:#183c35; --embed-muted:#66766e; --embed-bg:#fffefa;
@@ -28,7 +30,7 @@
 .embed-hero-shade { z-index:-1; background:linear-gradient(180deg,#08291f66,#08291f18 20%,#08291fe8); }
 .embed-eyebrow { display:none; }
 .embed-location { margin:0 0 5px; text-transform:uppercase; font-size:9px; letter-spacing:.16em; font-weight:650; color:#e0eddb; }
-.embed-route-heading h1 { font-family:Georgia,"Times New Roman",serif; font-size:29px; font-weight:400; line-height:1.08; letter-spacing:-.035em; margin:0 0 6px; text-wrap:balance; }
+.embed-route-heading h1 { font-family:Georgia,"Times New Roman",serif; font-size:1.5rem; font-weight:400; line-height:1.08; letter-spacing:-.035em; margin:0 0 6px; text-wrap:balance; }
 .embed-reach { margin:0; font-size:12px; line-height:1.55; color:#e8eee7; max-width:42ch; }
 .embed-route-facts { display:flex; flex-wrap:wrap; gap:7px 10px; margin-top:9px; font-size:10px; color:#ecf1e8; }
 .embed-route-facts span { display:flex; align-items:center; gap:5px; }
@@ -152,7 +154,7 @@
 :root[data-layout="compact"] .embed-hero { min-height:0; padding:7px 20px 12px; background:var(--embed-bg); color:var(--embed-ink); border-bottom:1px solid var(--embed-line); }
 :root[data-layout="compact"] .embed-photo,:root[data-layout="compact"] .embed-hero-shade,:root[data-layout="compact"] .embed-eyebrow,:root[data-layout="compact"] .embed-photo-credit { display:none; }
 :root[data-layout="compact"] .embed-location { color:var(--embed-accent); margin:0 0 4px; }
-:root[data-layout="compact"] .embed-route-heading h1 { font-size:25px; }
+:root[data-layout="compact"] .embed-route-heading h1 { font-size:1.375rem; }
 :root[data-layout="compact"] .embed-reach,:root[data-layout="compact"] .embed-route-facts { color:var(--embed-muted); }
 :root[data-layout="compact"] .embed-route-facts { margin-top:10px; }
 :root[data-layout="compact"] .embed-route-facts { display:none; }
@@ -161,7 +163,7 @@
 :root[data-layout="compact"] .embed-chart-labels { display:none; }
 @media(max-width:380px) {
   .embed-hero { padding:14px 16px; }.embed-content { padding:0 16px; }
-  .embed-route-heading h1 { font-size:27px; }
+  .embed-route-heading h1 { font-size:1.375rem; }
   .embed-conditions-grid { grid-template-columns:78px minmax(0,1fr); gap:12px; }
   .embed-water { padding-left:12px; }
   .embed-score-copy h2 { font-size:13px; }

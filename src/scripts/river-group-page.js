@@ -366,7 +366,11 @@ function difficultyLabel(value) {
 }
 
 function pickerFacts(route) {
-  return [route.distanceLabel, shortTimeLabel(route.estimatedPaddleTime), !isAccessPlanningHub && difficultyLabel(route.difficulty)].filter(Boolean);
+  return [
+    { kind: 'distance', value: route.distanceLabel },
+    { kind: 'time', value: shortTimeLabel(route.estimatedPaddleTime) },
+    { kind: 'difficulty', value: !isAccessPlanningHub && difficultyLabel(route.difficulty) },
+  ].filter(fact => fact.value);
 }
 
 function hasStrongerRouteOnRiver(route) {
@@ -594,7 +598,7 @@ function routeSpanCoordinates(route) {
 }
 
 function routePopupMarkup(route) {
-  const facts = pickerFacts(route).join(BULLET);
+  const facts = pickerFacts(route).map(fact => fact.value).join(BULLET);
   return `
     <article class="score-map-popup">
       <h3>${escapeHtml(route.name)}</h3>
@@ -1237,8 +1241,7 @@ function renderRouteList(routes) {
     .map((route) => {
       const active = route.slug === selectedSlug;
       const facts = pickerFacts(route)
-        .filter(Boolean)
-        .map((fact, factIndex) => `<span class="route-choice__fact${factIndex === 0 ? ' route-choice__fact--distance' : ''}">${escapeHtml(fact)}</span>`)
+        .map(({ kind, value }) => `<span class="route-choice__fact route-choice__fact--${kind}">${escapeHtml(value)}</span>`)
         .join('');
       const bestMatch = isRecommendableRiverHubRoute(route) && sortMode === 'recommended'
         && distanceFilter === 'all'
@@ -1357,7 +1360,7 @@ function renderSelectedSummary(route) {
     <div class="river-route-picker__selected-copy">
       <span class="eyebrow">${isAccessPlanningHub ? 'Selected plan' : 'Your trip'}</span>
       <strong>${escapeHtml(route.reach)}</strong>
-      <span>${escapeHtml(pickerFacts(route).join(BULLET))}</span>
+      <span>${escapeHtml(pickerFacts(route).map(fact => fact.value).join(BULLET))}</span>
     ${!isAccessPlanningHub ? `<small>${escapeHtml(isPlanningRoute(route) ? 'Planning route · verify local conditions before launching' : isCurrentCallUnavailable(route) ? 'Current readings unavailable' : conditionsLine(route))}</small>` : ''}
     </div>
     ${favoriteButtonMarkup(route).replace('favorite-toggle--inline', 'favorite-toggle--inline river-route-picker__selected-save')}

@@ -138,7 +138,7 @@
 @media (max-width: 760px) {
 
 
-  .route-choice__select {
+  :where(:not(.trip-ledger) > .route-choice) > .route-choice__select {
     padding: 0.66rem 5rem 0.66rem 0.66rem !important;
   }
 

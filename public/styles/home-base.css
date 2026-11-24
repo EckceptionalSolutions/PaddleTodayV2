@@ -991,10 +991,22 @@
   border-color: var(--river-deep);
 }
 @media (min-width: 761px) {
-  .home-featured__gallery-image { height: 180px; aspect-ratio: auto; }
-  .home-featured .home-featured__map { min-height: 180px; height: 180px; }
-  .home-featured__actions { grid-template-columns: 1fr; align-items: center; }
-  .home-featured__actions .home-featured__jump-link { grid-column: 1 / -1; }
+  .home-featured__gallery-image,
+  .home-featured .home-featured__map {
+    height: auto;
+    min-height: 180px;
+    aspect-ratio: 5 / 2;
+  }
+  .home-featured__actions {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: stretch;
+  }
+  .home-featured__actions > a {
+    width: auto;
+    min-height: 44px;
+    align-content: center;
+  }
   .home-featured__actions .home-featured__link { font-size: 0.9rem; }
 }
 .home-featured__rationale {

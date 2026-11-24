@@ -1,0 +1,14 @@
+/* Shared by the website, the embed builder, and standalone route cards. */
+:root {
+  font-size: 93.75%;
+  --page-title-size: clamp(1.5rem, 1.2rem + 1vw, 2rem);
+  --section-title-size: clamp(1.2rem, 1.05rem + 0.5vw, 1.45rem);
+}
+
+@media (min-width: 90em) {
+  :root {
+    font-size: 87.5%;
+    --page-title-size: 1.85rem;
+    --section-title-size: 1.35rem;
+  }
+}

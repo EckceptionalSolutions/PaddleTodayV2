@@ -1,3 +1,4 @@
+@import url("/styles/site-type.css");
 @import url("/styles/warnings.css");
 @import url("/styles/semantic-tokens.css");
 @import url("/styles/app-download-prompt.css?v=20261002-route-app-download");
@@ -12,11 +13,11 @@
 
 :root {
   color-scheme: light;
-  --bg: #f6f1e8;
-  --bg-strong: #ece3d5;
-  --panel: rgba(255, 252, 248, 0.92);
+  --bg: #f6f9fb;
+  --bg-strong: #eaf0f4;
+  --panel: rgba(250, 252, 253, 0.96);
   --panel-strong: rgba(255, 255, 255, 0.97);
-  --panel-muted: rgba(245, 238, 229, 0.88);
+  --panel-muted: #edf3f6;
   --border: rgba(22, 45, 57, 0.12);
   --border-strong: rgba(22, 45, 57, 0.18);
   --ink: #10232d;
@@ -33,7 +34,7 @@
   --radius: var(--radius-panel);
   --radius-sm: var(--radius-card);
   --max-width: 1280px;
-  --sans: "Avenir Next", "Trebuchet MS", "Gill Sans", sans-serif;
+  --sans: "Segoe UI", system-ui, sans-serif;
   --serif: "Iowan Old Style", "Palatino Linotype", "Book Antiqua", Georgia, serif;
 }
 
@@ -94,18 +95,7 @@ body {
 body {
   font-family: var(--sans);
   color: var(--ink);
-  background:
-    radial-gradient(circle at top left, rgba(30, 115, 151, 0.12), transparent 28%),
-    radial-gradient(circle at top right, rgba(168, 113, 47, 0.1), transparent 22%),
-    linear-gradient(180deg, rgba(255, 255, 255, 0.55), rgba(255, 255, 255, 0) 16%),
-    repeating-linear-gradient(
-      -12deg,
-      rgba(16, 74, 104, 0.03) 0,
-      rgba(16, 74, 104, 0.03) 1px,
-      transparent 1px,
-      transparent 34px
-    ),
-    linear-gradient(180deg, var(--bg) 0%, var(--bg-strong) 100%);
+  background: linear-gradient(var(--bg), var(--bg-strong));
 }
 
 a {
@@ -1560,14 +1550,14 @@ body.site-search-open {
 .section-title,
 .river-card__title,
 .hero-call__title {
-  font-family: var(--serif);
+  font-family: var(--sans);
 }
 
 .hero h1 {
   margin: 0;
-  max-width: 15ch;
-  font-size: clamp(2rem, 4.2vw, 3.6rem);
-  line-height: 0.94;
+  max-width: 28ch;
+  font-size: var(--page-title-size);
+  line-height: 1.15;
   color: var(--ink);
 }
 
@@ -2831,7 +2821,7 @@ body.site-search-open {
 
 .section-title {
   margin: 0.25rem 0 0;
-  font-size: 1.85rem;
+  font-size: var(--section-title-size);
   color: var(--ink);
 }
 
@@ -3628,10 +3618,10 @@ body.site-search-open {
 
 .guide-hero h1 {
   margin: 0;
-  max-width: 14ch;
-  font-family: var(--serif);
-  font-size: clamp(2.25rem, 5vw, 4.8rem);
-  line-height: 0.96;
+  max-width: 30ch;
+  font-family: var(--sans);
+  font-size: var(--page-title-size);
+  line-height: 1.15;
   letter-spacing: 0;
   color: var(--ink);
 }
@@ -3780,7 +3770,7 @@ body.site-search-open {
 }
 
 .guide-hero--flagship h1 {
-  max-width: 11ch;
+  max-width: 28ch;
 }
 
 .minnesota-guide-section {
@@ -3789,7 +3779,6 @@ body.site-search-open {
 
 .guide-hero--index h1 {
   max-width: none;
-  font-size: clamp(2rem, 4vw, 3.5rem);
   text-wrap: balance;
 }
 .guide-hero--index .guide-hero__lede { max-width: 60ch; font-weight: 400; }
@@ -4011,14 +4000,15 @@ body.site-search-open {
 
   .guide-hero h1 {
     max-width: none;
-    font-size: 2.2rem;
-    line-height: 1;
+    font-size: var(--page-title-size);
+    line-height: 1.15;
   }
 }
 
 
 .route-gallery {
   display: grid;
+  grid-template-columns: minmax(0, 1fr);
   gap: 1rem;
 }
 
@@ -4065,12 +4055,14 @@ body.site-search-open {
 .route-gallery__viewer,
 .route-gallery__submit {
   display: grid;
+  grid-template-columns: minmax(0, 1fr);
   gap: 0.75rem;
 }
 
 .route-gallery__figure {
   margin: 0;
   display: grid;
+  grid-template-columns: minmax(0, 1fr);
   gap: 0.72rem;
 }
 
@@ -6972,7 +6964,7 @@ html body .river-group-page__map-shell button.river-group-page__map-retry {
   }
 
   .route-gallery__layout {
-    grid-template-columns: 1fr;
+    grid-template-columns: minmax(0, 1fr);
   }
 
   .route-contribute {
@@ -7149,8 +7141,8 @@ html body .river-group-page__map-shell button.river-group-page__map-retry {
 
 .river-group-page__title {
   margin: 0;
-  font-size: clamp(2rem, 3.7vw, 3.1rem);
-  line-height: 0.95;
+  font-size: var(--page-title-size);
+  line-height: 1.15;
 }
 
 .river-group-page__lede {
@@ -9030,7 +9022,7 @@ html body .river-group-page__map-shell button.river-group-page__map-retry {
 
   .hero h1 {
     max-width: 13ch;
-    font-size: clamp(2.05rem, 7.6vw, 2.55rem);
+    font-size: var(--page-title-size);
     line-height: 0.98;
   }
 
@@ -9398,7 +9390,7 @@ html body .river-group-page__map-shell button.river-group-page__map-retry {
   }
 
   .info-hero h1 {
-    font-size: clamp(1.9rem, 7vw, 2.35rem);
+    font-size: var(--page-title-size);
     line-height: 0.98;
   }
 
@@ -9581,7 +9573,7 @@ html body .river-group-page__map-shell button.river-group-page__map-retry {
 
   .hero h1 {
     max-width: 13ch;
-    font-size: clamp(1.82rem, 8.9vw, 2.25rem);
+    font-size: var(--page-title-size);
     line-height: 0.99;
   }
 
@@ -9959,7 +9951,7 @@ html body .river-group-page__map-shell button.river-group-page__map-retry {
   }
 
   .info-hero h1 {
-    font-size: clamp(1.62rem, 8vw, 2rem);
+    font-size: var(--page-title-size);
     line-height: 1.01;
   }
 
@@ -11265,10 +11257,6 @@ html body .river-group-page__map-shell button.river-group-page__map-retry {
   padding-top: 1.15rem;
 }
 
-.main-shell:has(.decision-section--explore) {
-  width: min(100% - 2rem, 1520px);
-}
-
 .decision-section--explore::before {
   content: "";
   position: absolute;
@@ -11753,7 +11741,7 @@ html body .river-group-page__map-shell button.river-group-page__map-retry {
   }
 
   .hero h1 {
-    font-size: clamp(1.9rem, 3.35vw, 3.1rem);
+    font-size: var(--page-title-size);
   }
 
   .hero__lede,
@@ -11763,7 +11751,7 @@ html body .river-group-page__map-shell button.river-group-page__map-retry {
   }
 
   .section-title {
-    font-size: 1.68rem;
+    font-size: var(--section-title-size);
   }
 
   .hero-call__title {
@@ -12903,8 +12891,8 @@ html body .site-header__action {
 }
 
 .river-group-page__hero--photo .river-group-page__title {
-  font-size: clamp(2.4rem, 4.5vw, 4rem);
-  letter-spacing: -0.035em;
+  font-size: var(--page-title-size);
+  letter-spacing: -0.015em;
 }
 
 .river-group-page__hero--photo .river-group-page__lede {
@@ -13252,6 +13240,42 @@ html body .site-header a[aria-current="page"] {
   html body .site-header__nav { flex-wrap: nowrap; }
   html body .site-header :is(.site-header__nav-link, .site-header__search, .site-header__action) { min-height: 44px; }
   html body .site-header__nav-link { gap: 0.2rem; }
+}
+
+@media (min-width: 90em) {
+  body:is(.page-river-hub, .page-home, .page-explore, .page-weekend, .page-favorites,
+          .page-route-detail, .page-states, [class^="page-states-"], .page-guides) {
+    --max-width: min(90vw, 1360px);
+  }
+  .page-guides .state-link-grid--compact,
+  .page-guides .guide-explainer__grid--links {
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 19rem), 1fr));
+  }
+
+  .site-header__meta {
+    grid-template-columns: auto auto;
+    align-items: center;
+    gap: .25rem .8rem;
+  }
+  .site-header__blurb,
+  .site-header__freshness { grid-column: 1 / -1; }
+  body .site-header .brand__logo { width: 76px; }
+}
+
+@media (min-width: 60em) {
+  .info-hero > h1,
+  .operations-hero h1,
+  .main-shell > [data-guest-trip-plans] h1 {
+    margin-block: .35rem;
+    font: 650 var(--page-title-size)/1.16 var(--sans);
+  }
+  .info-hero > .eyebrow,
+  .info-hero > p:last-child { margin-block: 0; }
+  .info-panel > :is(h2, h3):first-of-type,
+  .request-card > h2 { margin-block: .45rem; }
+  body:is(.page-terms, .page-privacy, .page-account-delete, .page-alerts-unsubscribe, .page-request-river, .page-contribute) .main-shell {
+    max-width: 58rem;
+  }
 }
 .action-feedback {
   position: fixed; z-index: 10000; left: 50%; bottom: max(24px, env(safe-area-inset-bottom));
