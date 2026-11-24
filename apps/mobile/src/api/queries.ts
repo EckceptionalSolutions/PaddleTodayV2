@@ -1,4 +1,5 @@
 import { PaddleTodayApiError } from '@paddletoday/api-client';
+import { distanceMiles } from '@paddletoday/api-contract';
 import type {
   AreaNotificationSubscriptionInput,
   AreaNotificationSubscriptionPatch,
@@ -22,6 +23,7 @@ import { apiClient } from './client';
 import { requireConfirmedAreaSubscription, requireSavedAlert, requireStoredSubmission } from '../lib/submission-results';
 import { loadMobileExplore, loadMobileSummary, loadMobileWeekend, mobileScopeKey } from './mobile-discovery';
 import { useStoredLocation } from '../hooks/use-stored-location';
+import { HOME_NEARBY_DISTANCE_MILES } from '../lib/ranking';
 
 export const riverQueryKeys = {
   explore: ['river-explore-catalog'] as const,
@@ -46,14 +48,29 @@ export function useRiverCatalogQuery() {
 export function useRiverSummaryQuery(enabled = true, requestedScope?: MobileRouteScope) {
   const client = useQueryClient();
   const { location, status } = useStoredLocation();
-  const scope = requestedScope ?? (location ? { latitude: location.latitude, longitude: location.longitude, radiusMiles: 300 } : {});
+  const scope = requestedScope ?? (location ? { latitude: location.latitude, longitude: location.longitude, radiusMiles: HOME_NEARBY_DISTANCE_MILES } : {});
   enabled = enabled && status !== 'loading';
   const now = useFreshnessClock(enabled);
   const online = useOnlineStatus(enabled);
+  // Reuse a persisted pre-upgrade Today board, including on the first
+  // offline launch. Retain its original age so refresh timing stays accurate.
+  const previousKey = !requestedScope && location
+    ? [...riverQueryKeys.summary, { latitude: location.latitude, longitude: location.longitude, radiusMiles: 300 }]
+    : undefined;
   return useQuery({
     queryKey: [...riverQueryKeys.summary, mobileScopeKey(scope)],
     enabled,
     subscribed: enabled,
+    initialData: () => {
+      const previous = previousKey && client.getQueryData<RiverSummaryResponse>(previousKey);
+      if (!previous?.scope || !location) return undefined;
+      const rivers = previous.rivers.filter(({ river }) => distanceMiles(
+        location.latitude, location.longitude, river.latitude, river.longitude,
+      ) <= HOME_NEARBY_DISTANCE_MILES);
+      return { ...previous, rivers, riverCount: rivers.length,
+        scope: { ...previous.scope, radiusMiles: HOME_NEARBY_DISTANCE_MILES, returnedRoutes: rivers.length } };
+    },
+    initialDataUpdatedAt: () => previousKey && client.getQueryState(previousKey)?.dataUpdatedAt,
     queryFn: ({ signal }) => loadMobileSummary(client, scope, signal),
     select: useCallback((response: RiverSummaryResponse) => currentSummarySnapshot(dedupeRiverSummaryResponse(response), now, online), [now, online]),
     retry: false,

@@ -3,6 +3,7 @@ import type { MobileRouteCatalogResponse, MobileSummaryResponse, MobileExploreRe
 import { afterEach, describe, expect, it, vi } from 'vitest';
 import { apiClient } from './client';
 import { loadMobileExplore, loadMobileSummary, loadMobileWeekend } from './mobile-discovery';
+import { desktopWeekendFixture } from '../../../../tests/visual/desktop-board-fixtures';
 
 vi.mock('./client', () => ({ apiClient: {
   getMobileCatalog: vi.fn(), getMobileSummary: vi.fn(), getMobileExplore: vi.fn(), getMobileWeekend: vi.fn(),
@@ -17,6 +18,13 @@ function catalog(revision = 'current', slugs = ['a']) {
 function conditions(revision = 'current', slugs = ['a']) {
   return { catalogRevision: revision, generatedAt: '2026-10-06T12:00:00Z', scope: { kind: 'nearby', totalRoutes: 1000 },
     rivers: slugs.map(slug => ({ slug, summary: { shortExplanation: 'Check current access.' }, readiness: { status: 'withheld' } })) } as MobileSummaryResponse;
+}
+
+function weekendConditions(): MobileWeekendResponse {
+  const forecast = desktopWeekendFixture('fresh');
+  const { river: _river, ...condition } = forecast.rivers[0];
+  return { ...forecast, scope: conditions().scope, catalogRevision: 'current',
+    rivers: [{ ...condition, slug: 'a' }], alternatives: [{ ...condition, slug: 'far-away' }] };
 }
 
 describe('mobile metadata reuse', () => {
@@ -48,10 +56,21 @@ describe('mobile metadata reuse', () => {
   });
   it('loads only the metadata needed for out-of-range Weekend alternatives', async () => {
     vi.mocked(apiClient.getMobileCatalog).mockResolvedValueOnce(catalog()).mockResolvedValueOnce(catalog('current', ['far-away']));
-    vi.mocked(apiClient.getMobileWeekend).mockResolvedValue({ ...conditions(), rivers: [{ slug: 'a' }], alternatives: [{ slug: 'far-away' }] } as MobileWeekendResponse);
+    vi.mocked(apiClient.getMobileWeekend).mockResolvedValue(weekendConditions());
     const result = await loadMobileWeekend(client(), scope);
     expect(result.rivers.map(item => item.river.slug)).toEqual(['a', 'far-away']);
     expect(apiClient.getMobileCatalog).toHaveBeenLastCalledWith({ slugs: ['far-away'] }, expect.anything());
+  });
+  it('uses the Weekend response metadata without a second catalog request', async () => {
+    vi.mocked(apiClient.getMobileCatalog).mockResolvedValue(catalog());
+    vi.mocked(apiClient.getMobileWeekend).mockResolvedValue({
+      ...weekendConditions(),
+      alternativeCatalog: { rivers: catalog('current', ['far-away']).rivers, groupCounts: { 'far-away': 3 } },
+    });
+    const result = await loadMobileWeekend(client(), scope);
+    expect(result.rivers.map(item => item.river.slug)).toEqual(['a', 'far-away']);
+    expect(result.groupCounts?.['far-away']).toBe(3);
+    expect(apiClient.getMobileCatalog).toHaveBeenCalledTimes(1);
   });
   it('batches saved collections without losing routes beyond the request limit', async () => {
     const slugs = Array.from({ length: 205 }, (_, index) => `route-${index}`);

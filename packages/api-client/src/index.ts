@@ -69,7 +69,7 @@ export interface PaddleTodayApiClient {
   getMobileWeekend(scope?: MobileRouteScope, options?: RequestOptions): Promise<MobileWeekendResponse>;
   getExplore(options?: RequestOptions): Promise<ExploreCatalogResponse>;
   getCatalog(options?: RequestOptions): Promise<RiverCatalogResponse>;
-  getSummary(options?: RequestOptions): Promise<RiverSummaryResponse>;
+  getSummary(options?: RequestOptions & { nearby?: Pick<MobileRouteScope, 'latitude' | 'longitude' | 'radiusMiles'> }): Promise<RiverSummaryResponse>;
   getWeekendSummary(options?: RequestOptions): Promise<WeekendSummaryResponse>;
   getRiverDetail(slug: string, options?: RequestOptions): Promise<RiverDetailResponse>;
   getRiverGroup(riverId: string, options?: RequestOptions): Promise<RiverGroupResponse>;
@@ -190,7 +190,9 @@ export function createPaddleTodayApiClient(args: {
       return requestJson<MobileExploreResponse>(mobileDiscoveryPath('explore', scope), options);
     },
     getMobileWeekend(scope, options) {
-      return requestJson<MobileWeekendResponse>(mobileDiscoveryPath('weekend', scope), options);
+      const path = mobileDiscoveryPath('weekend', scope);
+      return requestJson<MobileWeekendResponse>(scope?.latitude === undefined ? path :
+        `${path}&includeAlternativeCatalog=1`, options);
     },
     getCatalog(options) {
       return requestJson<RiverCatalogResponse>('/api/rivers/catalog.json', options);
@@ -198,8 +200,8 @@ export function createPaddleTodayApiClient(args: {
     getExplore(options) {
       return requestJson<ExploreCatalogResponse>('/api/rivers/explore.json', options);
     },
-    getSummary(options) {
-      return requestJson<RiverSummaryResponse>('/api/rivers/summary.json', options);
+    getSummary({ nearby, ...options } = {}) {
+      return requestJson<RiverSummaryResponse>(discoveryPath('/api/rivers/summary.json', nearby), options);
     },
     getWeekendSummary(options) {
       return requestJson<WeekendSummaryResponse>('/api/weekend/summary.json', options);
@@ -312,6 +314,10 @@ export function createPaddleTodayApiClient(args: {
 }
 
 function mobileDiscoveryPath(kind: string, scope: MobileRouteScope = {}) {
+  return discoveryPath(`/api/mobile/${kind}.json`, scope);
+}
+
+function discoveryPath(path: string, scope: MobileRouteScope = {}) {
   const params = new URLSearchParams();
   if (scope.latitude !== undefined) params.set('latitude', String(scope.latitude));
   if (scope.longitude !== undefined) params.set('longitude', String(scope.longitude));
@@ -321,7 +327,7 @@ function mobileDiscoveryPath(kind: string, scope: MobileRouteScope = {}) {
   // React Native's URLSearchParams does not implement the newer size getter.
   // Test the serialized query so native nearby and empty saved scopes survive.
   const query = params.toString();
-  return `/api/mobile/${kind}.json${query ? `?${query}` : ''}`;
+  return query ? `${path}?${query}` : path;
 }
 
 function createRequestTimeout(timeoutMs: number | undefined, externalSignal: AbortSignal | undefined) {

@@ -1,6 +1,41 @@
 import { expect, test } from '@playwright/test';
 import { desktopBoardFixture, FIXTURE_NOW } from './desktop-board-fixtures';
 
+test('Today restores an oversized nearby snapshot on a failed reload and isolates a different area', async ({ page }) => {
+  const board = desktopBoardFixture('fresh');
+  await page.clock.install({ time: FIXTURE_NOW });
+  await page.addInitScript(() => {
+    localStorage.setItem('paddleTodayAppPromptDismissedAt', String(Date.now()));
+    if (!localStorage.getItem('paddletoday:user-location')) localStorage.setItem('paddletoday:user-location',
+      JSON.stringify({ latitude: 45.15, longitude: -93.15, label: 'Circle Pines, MN' }));
+  });
+  let offline = false;
+  const scopes: URLSearchParams[] = [];
+  await page.route('**/api/rivers/summary.json*', route => {
+    const query = new URL(route.request().url()).searchParams;
+    scopes.push(query);
+    if (offline) return route.fulfill({ status: 503, json: {} });
+    return route.fulfill({ json: { ...board, padding: 'x'.repeat(5_500_000), scope: {
+      kind: 'nearby', latitude: Number(query.get('latitude')), longitude: Number(query.get('longitude')),
+      radiusMiles: Number(query.get('radiusMiles')), returnedRoutes: board.rivers.length, totalRoutes: 2000,
+    } } });
+  });
+  await page.goto('/');
+  const pick = page.locator('[data-home-featured]').getByRole('link', { name: 'View best route' });
+  await expect(pick).toBeVisible();
+  expect(scopes[0].get('latitude')).toBe('45');
+  await expect.poll(() => page.evaluate(async () => Boolean(await caches.match('/__home-cache/nearby')))).toBe(true);
+  offline = true;
+  await page.reload();
+  await expect(pick).toBeVisible();
+  await expect(page.locator('[data-home-freshness]').first()).toContainText('Showing latest available data');
+  await page.evaluate(() => localStorage.setItem('paddletoday:user-location',
+    JSON.stringify({ latitude: 33.45, longitude: -112.07, label: 'Phoenix, AZ' })));
+  await page.reload();
+  await expect(page.getByText('Live board could not load.', { exact: false }).first()).toBeVisible();
+  await expect(pick).toHaveCount(0);
+});
+
 test('Home explains stale calls and lets paddlers reveal hidden skip routes', async ({ page }) => {
   await page.clock.install({ time: FIXTURE_NOW });
   await page.addInitScript(() => {

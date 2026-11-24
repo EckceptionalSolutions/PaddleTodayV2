@@ -44,7 +44,7 @@ export function readCachedPayload(key) {
 export function writeCachedPayload(key, payload) {
   const store = storage();
   if (!store) {
-    return;
+    return false;
   }
 
   try {
@@ -56,8 +56,9 @@ export function writeCachedPayload(key, payload) {
         payload,
       })
     );
+    return true;
   } catch {
-    // Ignore quota and serialization failures.
+    return false;
   }
 }
 

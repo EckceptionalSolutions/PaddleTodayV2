@@ -3,6 +3,11 @@ import { test, expect } from '@playwright/test';
 import fixture from './fixtures/route-detail.json' with { type: 'json' };
 
 test('Today retains sorting after Nearest is denied GPS', async ({ page }) => {
+  const discoveryRequests: URL[] = [];
+  page.on('request', req => {
+    const url = new URL(req.url());
+    if (/\/api\/mobile\/(summary|catalog)\.json$/.test(url.pathname)) discoveryRequests.push(url);
+  });
   await page.addInitScript(() => {
     localStorage.setItem('paddletoday:welcome-completed:v1', '1');
     (window as any).__locationPermissionCalls = 0;
@@ -23,6 +28,7 @@ test('Today retains sorting after Nearest is denied GPS', async ({ page }) => {
   await page.getByRole('button', { name: 'Nearest', exact: true }).dispatchEvent('click');
   expect(await page.evaluate(() => (window as any).__locationPermissionCalls)).toBe(1);
   await page.evaluate(() => (window as any).__denyLocation());
+  expect(discoveryRequests).toHaveLength(0);
   const recommended = page.getByRole('button', { name: 'Recommended', exact: true });
   await expect(recommended).toBeVisible();
   await expect(page.getByRole('button', { name: 'Nearest', exact: true })).toHaveAttribute('aria-pressed', 'true');

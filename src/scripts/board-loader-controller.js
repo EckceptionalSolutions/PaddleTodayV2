@@ -20,6 +20,7 @@ export function createBoardLoaderController({
   showInitialFailure,
   requestGuard = createRequestGuard(),
   apiClient = getBrowserApiClient(),
+  getSummaryOptions = () => ({}),
   loadingFeedback = createLoadingFeedback('board'),
   writeCache = writeCachedPayload,
   readCache = readCachedPayload,
@@ -27,12 +28,11 @@ export function createBoardLoaderController({
   now = () => Date.now(),
   logError = (error) => console.error('Failed to load river scores on summary page.', error),
 }) {
-  function hydrateBoardFromCache() {
-    const cached = readCache(cacheKey);
+  function hydrateBoardFromCache(cached = readCache(cacheKey)) {
     const rivers = Array.isArray(cached?.payload?.rivers)
       ? cached.payload.rivers
       : null;
-    if (!rivers || rivers.length === 0) {
+    if (!rivers || (rivers.length === 0 && cached.payload.scope?.kind !== 'nearby')) {
       return false;
     }
 
@@ -62,10 +62,17 @@ export function createBoardLoaderController({
   async function loadBoard({
     silent = false,
     preserveMapViewport = getState().hasLoadedBoardOnce,
+    readAdditionalCache,
   } = {}) {
     const { requestId, controller } = requestGuard.begin();
     const stateAtStart = getState();
     const finishFeedback = loadingFeedback.start({ refreshing: stateAtStart.hasLoadedBoardOnce, silent });
+    let received = false;
+    const restoring = readAdditionalCache?.().then(entry => {
+      if (!received && requestGuard.isCurrent(requestId) && entry && entry.fetchedAt > (getState().lastBoardSuccessAt ?? 0)) {
+        hydrateBoardFromCache(entry);
+      }
+    });
 
     if (!silent) {
       setRefreshState('loading');
@@ -80,12 +87,14 @@ export function createBoardLoaderController({
       }
 
       const payload = await apiClient[includeCatalog ? 'getExplore' : 'getSummary']({
+        ...getSummaryOptions(),
         cache: 'no-store',
         signal: controller.signal,
       });
       if (!requestGuard.isCurrent(requestId)) {
         return;
       }
+      received = true;
 
       const results = Array.isArray(payload?.rivers) ? payload.rivers : [];
       const generatedAt = typeof payload?.generatedAt === 'string'
@@ -116,6 +125,7 @@ export function createBoardLoaderController({
         ...(staleSnapshot ? { fallback: true } : {}),
       });
     } catch (error) {
+      await restoring;
       if (isAbortError(error) || !requestGuard.isCurrent(requestId)) {
         return;
       }

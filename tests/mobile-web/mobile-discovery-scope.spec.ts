@@ -2,6 +2,28 @@ import { test, expect } from '@playwright/test';
 import fixture from './fixtures/route-detail.json' with { type: 'json' };
 import { installMobileBoardFixtures } from './mobile-board-fixtures';
 
+test('a saved 50-mile Explore filter makes a 50-mile request on first load', async ({ page }) => {
+  const { latitude, longitude } = fixture.result.river;
+  await page.addInitScript(({ latitude, longitude }) => {
+    localStorage.setItem('paddletoday:welcome-completed:v1', '1');
+    localStorage.setItem('paddletoday:user-location', JSON.stringify({ latitude, longitude, label: 'Test city', source: 'search' }));
+    localStorage.setItem('paddletoday:explore-preferences:v4', JSON.stringify({ viewMode: 'list', filters: {
+      sort: 'best', query: '', state: '', difficulty: 'any', routeType: 'all', status: 'any',
+      rating: 'any', distance: '50', paddleTime: 'any', paddleLength: 'any', camping: 'any',
+    } }));
+  }, { latitude, longitude });
+  const fulfillMobile = await installMobileBoardFixtures(page);
+  const scopes: string[] = [];
+  await page.route('**/api/mobile/explore.json**', route => {
+    scopes.push(new URL(route.request().url()).searchParams.get('radiusMiles') ?? '');
+    return fulfillMobile(route, { json: { rivers: [{ ...fixture.result,
+      summary: { shortExplanation: 'Local route' }, liveData: { overall: 'stale' } }] } });
+  });
+  await page.goto('/explore');
+  await expect(page.getByRole('button', { name: 'Within 50 mi · Search nationwide' })).toBeVisible();
+  expect(scopes).toEqual(['50']);
+});
+
 test('nearby discovery crosses state borders and nationwide search finds distant routes', async ({ page }) => {
   await page.addInitScript(() => {
     localStorage.setItem('paddletoday:welcome-completed:v1', '1');

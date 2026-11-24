@@ -37,7 +37,9 @@ function createMobileCatalog() {
   const rivers = createExploreCatalogBuilder(routes)(EMPTY_SCORES).rivers.map(item => ({
     ...item.river, safetyProfile: safety.get(item.river.slug),
   }));
-  return { rivers, ...mobileCatalogMetadata(rivers) };
+  return { rivers, bySlug: new Map(rivers.map(river => [river.slug, river])),
+    scoredSlugs: new Set(rivers.filter(river => river.scoreEligibility !== 'planning').map(river => river.slug)),
+    ...mobileCatalogMetadata(rivers) };
 }
 
 export async function handleMobileDiscovery(response: ServerResponse, requestId: string, includeBody: boolean, url: URL) {
@@ -64,7 +66,7 @@ export async function handleMobileDiscovery(response: ServerResponse, requestId:
     }, includeBody, 'public, max-age=300, s-maxage=600, stale-while-revalidate=1800');
   }
   const selectedSlugs = new Set(selected.map(river => river.slug));
-  const scoredSlugs = new Set(metadata.rivers.filter(river => river.scoreEligibility !== 'planning').map(river => river.slug));
+  const { scoredSlugs } = metadata;
   if (kind === 'weekend') {
     const stored = await getStoredWeekendSummarySnapshot({ allowStale: true }).catch(() => null);
     const snapshot = stored ?? await liveWeekendFallback().catch(() => null);
@@ -73,15 +75,23 @@ export async function handleMobileDiscovery(response: ServerResponse, requestId:
     const forecastRoutes = snapshot.rivers.filter(item => scoredSlugs.has(item.river.slug));
     const rivers = forecastRoutes.filter(item => selectedSlugs.has(item.river.slug)).map(({ river, ...condition }) => ({ slug: river.slug, ...condition }));
     // Keep the existing out-of-range recovery without including the entire country.
-    // These alternatives are explicit and have separately requested metadata.
+    // Only the closest four qualifying routes need extra metadata.
     const alternatives = scope.latitude !== undefined ? forecastRoutes
       .filter(item => !selectedSlugs.has(item.river.slug) && (item.weekend.rating === 'Good' || item.weekend.rating === 'Strong'))
       .sort((a, b) => mobileDistanceMiles(scope, a.river) - mobileDistanceMiles(scope, b.river)).slice(0, 4)
       .map(({ river, ...condition }) => ({ slug: river.slug, ...condition })) : [];
+    const alternativeRivers = url.searchParams.get('includeAlternativeCatalog') === '1'
+      ? alternatives.map(item => metadata.bySlug.get(item.slug)!) : undefined;
     return sendJson(response, 200, {
       ...common, generatedAt: snapshot.generatedAt, snapshotStatus: snapshot.snapshotStatus,
       snapshotAgeSeconds: snapshot.snapshotAgeSeconds, label: snapshot.label, withheldCount: snapshot.withheldCount,
       riverCount: rivers.length, rivers, alternatives,
+      ...(alternativeRivers?.length ? { alternativeCatalog: {
+        rivers: alternativeRivers, groupCounts: Object.fromEntries(alternativeRivers.map(river => {
+          const key = river.riverId || river.slug;
+          return [key, metadata.groupCounts[key]];
+        })),
+      } } : {}),
       scope: mobileScopeMetadata(scope, rivers.length, forecastRoutes.length),
     }, includeBody, CONDITIONS_CACHE);
   }

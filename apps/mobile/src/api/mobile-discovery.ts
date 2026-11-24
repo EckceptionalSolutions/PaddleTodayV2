@@ -67,8 +67,9 @@ export async function loadMobileWeekend(client: QueryClient, scope: MobileRouteS
   let catalog = await matchingCatalog(client, scope, initialCatalog, response.catalogRevision);
   if (response.alternatives.length) {
     const extraScope = { slugs: response.alternatives.map(item => item.slug) };
-    const extras = await client.fetchQuery(catalogOptions(extraScope));
-    const matchingExtras = await matchingCatalog(client, extraScope, extras, response.catalogRevision);
+    // Older servers provide only alternative slugs.
+    const matchingExtras = response.alternativeCatalog ?? await matchingCatalog(client, extraScope,
+      await client.fetchQuery(catalogOptions(extraScope)), response.catalogRevision);
     catalog = { ...catalog, groupCounts: { ...catalog.groupCounts, ...matchingExtras.groupCounts },
       rivers: [...catalog.rivers, ...matchingExtras.rivers] };
   }

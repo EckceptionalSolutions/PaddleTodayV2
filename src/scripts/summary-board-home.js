@@ -31,6 +31,7 @@ import {
 import { createBoardLocationService } from './board-location-service.js';
 import { createBoardLocationController } from './board-location-controller.js';
 import { createBoardGeolocationController } from './board-geolocation-controller.js';
+import { areaCovers, homeRequestArea, readHomeSnapshot, readLargeHomeSnapshot, writeHomeSnapshot } from './home-board-cache.js';
 import { createBoardLoaderController } from './board-loader-controller.js';
 import { createBoardStatusController } from './board-status-controller.js';
 import { createBoardPreferenceController } from './board-preference-controller.js';
@@ -500,6 +501,7 @@ const {
     normalize: normalizeRadiusMiles,
     setValue: (value) => {
       selectedRadiusMiles = value;
+      refreshHomeArea();
     },
     saveValue: saveRadiusMiles,
   },
@@ -555,6 +557,7 @@ const {
     userLocation = location;
     userLocationState = state;
     locationEditing = false;
+    refreshHomeArea();
   },
   setSortMode: (mode) => {
     activeFilters.sort = mode;
@@ -654,6 +657,31 @@ const summaryMapController = createBoardMapController({
 });
 const EXPLORE_PAGE_SIZE = 12;
 const SUMMARY_CACHE_KEY = 'river-summary:v2';
+let requestedArea;
+let homeStarted = false;
+
+function refreshHomeArea() {
+  if (!homeStarted) return;
+  const next = homeRequestArea(userLocation, selectedRadiusMiles);
+  if (Boolean(next) === Boolean(requestedArea) && areaCovers(requestedArea, next)) return;
+  startHomeBoard(next);
+}
+
+function startHomeBoard(area) {
+  requestedArea = area;
+  const cached = readHomeSnapshot(area);
+  // Clear an incompatible result before changing the location label.
+  if (hasLoadedBoardOnce && !cached) {
+    latestResults = [];
+    renderHomepage([]);
+    hasLoadedBoardOnce = false;
+    lastBoardGeneratedAt = null;
+    lastBoardSuccessAt = null;
+  }
+  const hydrated = hydrateBoardFromCache(cached);
+  void loadBoard({ silent: hydrated, preserveMapViewport: hydrated,
+    readAdditionalCache: () => readLargeHomeSnapshot(area) });
+}
 const {
   setBoardFetchBannerState,
   setBoardRefreshState,
@@ -680,6 +708,8 @@ const {
 });
 const { hydrateBoardFromCache, loadBoard } = createBoardLoaderController({
   cacheKey: SUMMARY_CACHE_KEY,
+  getSummaryOptions: () => requestedArea ? { nearby: requestedArea } : {},
+  writeCache: (_key, payload) => { void writeHomeSnapshot(payload); },
   getState: () => ({
     hasLoadedBoardOnce,
     lastBoardGeneratedAt,
@@ -2600,7 +2630,7 @@ function renderHomepage(results, { preserveMapViewport = false, animateResults =
   // initial loading/error presentation until there is an actual board to filter.
   if (!hasLoadedBoardOnce) return;
   const locationReady = userLocationState === 'ready' && Boolean(userLocation);
-  const overallItems = sortBoardItems(
+  const overallItems = locationReady ? [] : sortBoardItems(
     buildDisplayItems(results, results, 'best-now'),
     'best-now'
   );
@@ -3169,14 +3199,11 @@ export function initSummaryBoard() {
     });
   }
 
-  const hydratedBoard = hydrateBoardFromCache();
   bindFavoriteButtons(document);
   setupLazySummaryMap();
   summaryMapController.updateView();
-  loadBoard({
-    silent: hydratedBoard,
-    preserveMapViewport: hydratedBoard,
-  });
+  homeStarted = true;
+  startHomeBoard(homeRequestArea(userLocation, selectedRadiusMiles));
   window.setInterval(() => {
     loadBoard({
       silent: true,

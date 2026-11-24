@@ -32,6 +32,8 @@ import { AppButton } from '../components/app-button';
 import { decisionColors } from '../components/rating-pill';
 import { SaveToggleButton } from '../components/save-toggle-button';
 import { useStoredLocation, type LocationRequestResult } from '../hooks/use-stored-location';
+import { trackAppEvent } from '../lib/observability';
+import { PaddleTodayApiError } from '@paddletoday/api-client';
 import { requestFailureMessage } from '../lib/request-failure';
 import { normalizeApiText } from '../lib/format';
 import { routeDecisionPresentation } from '../lib/map-decision';
@@ -75,7 +77,8 @@ const modeLabels: Record<BoardMode, string> = {
 export default function HomeScreen() {
   const isFocused = useIsFocused();
   const [searchOpen, setSearchOpen] = useState(false);
-  const summaryQuery = useRiverSummaryQuery(isFocused);
+  const { location } = useStoredLocation();
+  const summaryQuery = useRiverSummaryQuery(isFocused && Boolean(location));
   const searchCatalog = useExploreCatalogQuery(isFocused && searchOpen);
   const board = useBoardQueryState(summaryQuery);
   const catalog = useBoardQueryState(searchCatalog);
@@ -148,8 +151,32 @@ const HomeContent = memo(function HomeContent({ summaryQuery, searchCatalog, sea
     () => [...new Set(searchableRivers.map((river) => river.river.state))].sort((left, right) => left.localeCompare(right)),
     [searchableRivers]
   );
-  const locationOutOfRange = Boolean(location && rivers.length > 0 && nearbyPicks.length === 0);
+  const locationOutOfRange = Boolean(location && summaryQuery.data && nearbyPicks.length === 0);
   const zeroReady = !locationOutOfRange && scopedRoutes.length > 0 && snapshot.paddleable === 0;
+
+  const focused = useIsFocused();
+  const timing = useRef<{ scope: string; start: number; reported: boolean } | null>(null);
+  useEffect(() => {
+    if (!focused || !location) {
+      timing.current = null;
+      return;
+    }
+    const scope = `${location.latitude},${location.longitude}`;
+    if (timing.current?.scope !== scope) timing.current = { scope, start: Date.now(), reported: false };
+    const attempt = timing.current;
+    if (attempt.reported || status === 'loading' || (!summaryQuery.data && !summaryQuery.isError)) return;
+    const outcome = summaryQuery.data ? (data.length ? 'routes' : 'empty')
+      : summaryQuery.error instanceof PaddleTodayApiError && summaryQuery.error.code === 'request_timeout' ? 'timeout' : 'error';
+    const frame = requestAnimationFrame(() => {
+      attempt.reported = true;
+      trackAppEvent('today_board_load', {
+        elapsed_ms: Date.now() - attempt.start,
+        cached: Boolean(summaryQuery.data && summaryQuery.dataUpdatedAt <= attempt.start),
+        outcome,
+      });
+    });
+    return () => cancelAnimationFrame(frame);
+  }, [focused, location, status, summaryQuery, data.length]);
 
   useEffect(() => {
     let active = true;
@@ -211,13 +238,12 @@ const HomeContent = memo(function HomeContent({ summaryQuery, searchCatalog, sea
       ]}
       keyboardDismissMode={Platform.OS === 'web' ? 'none' : 'on-drag'}
       keyboardShouldPersistTaps="handled"
-      refreshControl={
+      refreshControl={location ?
         <RefreshControl
           tintColor={colors.accent}
           refreshing={summaryQuery.isRefetching}
           onRefresh={() => summaryQuery.refetch()}
-        />
-      }
+        /> : undefined}
     >
       <View style={styles.headerStack}>
         <LocationStorageNotice />

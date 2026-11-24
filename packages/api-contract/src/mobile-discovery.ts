@@ -51,6 +51,7 @@ export interface MobileExploreResponse extends Omit<ExploreCatalogResponse, 'riv
 export interface MobileWeekendResponse extends Omit<WeekendSummaryResponse, 'rivers' | keyof MobileConditionsMetadata>, MobileConditionsMetadata {
   rivers: MobileWeekendCondition[];
   alternatives: MobileWeekendCondition[];
+  alternativeCatalog?: Pick<MobileRouteCatalogResponse, 'rivers' | 'groupCounts'>;
 }
 
 /** Reject catalog mismatches rather than attaching scores to obsolete access metadata. */

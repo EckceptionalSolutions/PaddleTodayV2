@@ -10,6 +10,8 @@ import {
   selectRouteSegment,
   type RouteSegment,
   type RiverSummaryApiItem,
+  type MobileRouteScope,
+  type ExploreCatalogResponse,
 } from '@paddletoday/api-contract';
 import MaterialCommunityIcons from '@expo/vector-icons/MaterialCommunityIcons';
 import AsyncStorage from '@react-native-async-storage/async-storage';
@@ -19,7 +21,7 @@ import { useQueryClient } from '@tanstack/react-query';
 import { useCallback, useEffect, useMemo, useRef, useState, type SetStateAction, type ReactNode } from 'react';
 import { FlatList, Pressable, ScrollView, StyleSheet, Text, View, useWindowDimensions } from 'react-native';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
-import { riverDetailQueryOptions, riverGroupQueryOptions, useRiverGeometryQuery, useExploreCatalogQuery } from '../api/queries';
+import { riverDetailQueryOptions, riverGroupQueryOptions, riverQueryKeys, useRiverGeometryQuery, useExploreCatalogQuery } from '../api/queries';
 import { AppErrorState, AppLoadingState, AppRefreshNotice } from '../components/app-state';
 import { AppButton } from '../components/app-button';
 import { ExploreSearchBar } from '../components/explore-controls';
@@ -127,16 +129,34 @@ export default function ExploreScreen() {
   const requestedIntentKey = requestedIntent ? `${requestedIntent}:${params.intentKey ?? 'initial'}:${locationReady ? 'location' : 'no-location'}` : null;
   const requestedResetKey = requestedReset ? `reset:${params.intentKey ?? 'initial'}` : null;
   const requestedStateKey = requestedState ? `state:${requestedState}:${params.intentKey ?? 'initial'}` : null;
-  const scopeForFilters = (value: ExploreFilters) => value.query.trim() || nationwide ? {}
+  const scopeForFilters = (value: ExploreFilters): MobileRouteScope => value.query.trim() || nationwide ? {}
     : value.state ? { state: value.state }
-    : location ? { latitude: location.latitude, longitude: location.longitude, radiusMiles: 300 }
+    : location ? { latitude: location.latitude, longitude: location.longitude,
+      radiusMiles: value.distance === 'any' ? 300 : Number(value.distance) }
     : {};
-  const discoveryScope = scopeForFilters(filters);
+  const requestedScope = scopeForFilters(filters);
+  // Narrow an already loaded map immediately. Keep the server request small
+  // when the selected range is the first one opened on this device.
+  let discoveryScope = requestedScope;
+  if (requestedScope.radiusMiles !== undefined) {
+    let smallest = Infinity;
+    for (const [, response] of queryClient.getQueriesData<ExploreCatalogResponse>({ queryKey: riverQueryKeys.explore })) {
+      const area = response?.scope;
+      if (area?.kind !== 'nearby' || area.latitude !== requestedScope.latitude || area.longitude !== requestedScope.longitude) continue;
+      if (area.radiusMiles !== undefined && area.radiusMiles >= requestedScope.radiusMiles && area.radiusMiles < smallest) {
+        smallest = area.radiusMiles;
+        discoveryScope = { ...requestedScope, radiusMiles: smallest };
+      }
+    }
+  }
   const navigationFiltersApplied = requestedIntent ? appliedIntentRef.current === requestedIntentKey
     : requestedReset ? appliedResetRef.current === requestedResetKey
     : requestedState ? appliedStateRef.current === requestedStateKey : true;
   const summaryQuery = useExploreCatalogQuery(isFocused && status !== 'loading' && preferencesHydrated && navigationFiltersApplied, discoveryScope);
-  const draftMatchesLoadedScope = JSON.stringify(scopeForFilters(draftFilters)) === JSON.stringify(discoveryScope);
+  const draftScope = scopeForFilters(draftFilters);
+  const draftMatchesLoadedScope = draftScope.radiusMiles !== undefined && discoveryScope.radiusMiles !== undefined
+    ? draftScope.radiusMiles <= discoveryScope.radiusMiles
+    : JSON.stringify(draftScope) === JSON.stringify(discoveryScope);
 
   const rivers = summaryQuery.data?.rivers ?? [];
   const routeCounts = useMemo(() => summaryQuery.data?.groupCounts
@@ -331,7 +351,7 @@ export default function ExploreScreen() {
     <>
       <FullScreenExploreMap
         preferenceNotice={<>
-          {summaryQuery.data?.scope?.kind === 'nearby' ? <AppButton label="Within 300 mi · Search nationwide" variant="secondary"
+          {summaryQuery.data?.scope?.kind === 'nearby' ? <AppButton label={`Within ${requestedScope.radiusMiles} mi · Search nationwide`} variant="secondary"
             onPress={() => { setNationwide(true); setFilters(current => ({ ...current, state: '' })); }} /> : nationwide && location ? <AppButton label="Show nearby routes" variant="secondary"
               onPress={() => { setNationwide(false); setFilters(current => ({ ...current, state: '', query: '' })); }} /> : null}
           {preferenceSaveError ? <AppButton label="Filters not saved · Retry" accessibilityLabel="Retry saving Explore filters"

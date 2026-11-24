@@ -25,6 +25,7 @@ import { resolveStaticFile } from '../static-route';
 import { createExploreCatalogBuilder } from '../../lib/explore-catalog';
 import { getJsonResponseStats } from '../json-response';
 import { getGeometryCacheStats } from './river-geometry';
+import { mobileRouteMatches, mobileScopeMetadata, parseMobileScope } from '../../lib/mobile-discovery';
 import { apiBuildRevision } from '../build-revision';
 import { DETAIL_BATCH_FORMAT } from '../../lib/snapshot-detail-batches';
 import { HISTORY_BUCKET_LAYOUT } from '../../lib/history-buckets';
@@ -104,32 +105,29 @@ export async function handleExploreCatalog(response: ServerResponse, requestId: 
   }, includeBody, LIVE_SUMMARY_CACHE_CONTROL, {}, { immutableFields: ['rivers', 'coverage'] });
 }
 
-export async function handleRiverSummary(response: ServerResponse, requestId: string, includeBody: boolean) {
-  const snapshot = await getStoredRiverSummarySnapshot({ allowStale: true }).catch(() => null);
-  if (snapshot) {
-    return sendJson(response, 200, {
-      requestId,
-      generatedAt: snapshot.generatedAt,
-      snapshotStatus: snapshot.snapshotStatus,
-      snapshotAgeSeconds: snapshot.snapshotAgeSeconds,
-      riverCount: snapshot.riverCount,
-      rivers: snapshot.rivers,
-    }, includeBody, LIVE_SUMMARY_CACHE_CONTROL, {}, { immutableFields: ['rivers'] });
+export async function handleRiverSummary(response: ServerResponse, requestId: string, includeBody: boolean, params = new URLSearchParams()) {
+  let nearby;
+  if (params.has('latitude') || params.has('longitude') || params.has('radiusMiles')) {
+    try { nearby = parseMobileScope(params); }
+    catch { return sendJson(response, 400, { requestId, error: 'invalid_scope' }, includeBody, 'no-store'); }
   }
-
-  const generatedAt = new Date().toISOString();
-  const rivers = (await withTimeout(getAllRiverScores(), LIVE_SCORE_TIMEOUT_MS, 'river summary scoring')).map((result) => serializeSummaryResult({
+  const snapshot = await getStoredRiverSummarySnapshot({ allowStale: true }).catch(() => null);
+  const generatedAt = snapshot?.generatedAt ?? new Date().toISOString();
+  const allRivers = snapshot?.rivers ?? (await withTimeout(getAllRiverScores(), LIVE_SCORE_TIMEOUT_MS, 'river summary scoring')).map((result) => serializeSummaryResult({
     ...result,
     generatedAt,
   }));
+  const rivers = nearby ? allRivers.filter(item => mobileRouteMatches(item.river, nearby)) : allRivers;
   return sendJson(response, 200, {
     requestId,
     generatedAt,
-    snapshotStatus: 'live',
-    snapshotAgeSeconds: 0,
+    snapshotStatus: snapshot?.snapshotStatus ?? 'live',
+    snapshotAgeSeconds: snapshot?.snapshotAgeSeconds ?? 0,
+    ...(nearby ? { scope: mobileScopeMetadata(nearby, rivers.length, allRivers.length) } : {}),
     riverCount: rivers.length,
     rivers,
-  }, includeBody, LIVE_SUMMARY_CACHE_CONTROL);
+  }, includeBody, nearby ? 'private, max-age=60' : LIVE_SUMMARY_CACHE_CONTROL, {},
+  snapshot && !nearby ? { immutableFields: ['rivers'] } : {});
 }
 
 export async function handleWeekendSummary(response: ServerResponse, requestId: string, includeBody: boolean) {

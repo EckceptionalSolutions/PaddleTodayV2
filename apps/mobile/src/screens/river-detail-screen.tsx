@@ -237,8 +237,10 @@ export default function RiverDetailScreen() {
   );
   const summarySiblingCount = useMemo(() => {
     if (!summaryRoute?.river.riverId) return null;
+    const catalogCount = summaryQuery.data?.groupCounts?.[summaryRoute.river.riverId];
+    if (catalogCount !== undefined) return catalogCount;
     return summaryQuery.data!.rivers.filter((route) => route.river.riverId === summaryRoute.river.riverId).length;
-  }, [summaryQuery.data?.rivers, summaryRoute]);
+  }, [summaryQuery.data, summaryRoute]);
 
   const detail = detailQuery.data?.result ?? null;
   useRecentRoute(detail?.river);

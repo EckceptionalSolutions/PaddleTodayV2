@@ -131,7 +131,7 @@ const server = createServer(async (request, response) => {
     }
 
     if (requestUrl.pathname === '/api/rivers/summary.json') {
-      return await handleRiverSummary(response, requestId, includeBody);
+      return await handleRiverSummary(response, requestId, includeBody, requestUrl.searchParams);
     }
 
     if (requestUrl.pathname === '/api/weekend/summary.json') {
