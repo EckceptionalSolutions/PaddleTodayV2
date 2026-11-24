@@ -999,3 +999,14 @@ html body.page-explore .explore-distance-hint {
     padding: 1rem 1.25rem;
   }
 }
+
+@media (min-width: 80em) {
+  html body.page-explore .board-filters__workspace {
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1.25fr);
+    align-items: start;
+  }
+  html body.page-explore .explore-area-fields {
+    grid-template-columns: minmax(0, 1fr);
+  }
+  html body.page-explore .board-filters__group { min-width: 0; }
+}

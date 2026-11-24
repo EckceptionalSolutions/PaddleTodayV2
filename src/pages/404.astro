@@ -16,8 +16,8 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 </BaseLayout>
 
 <style>
-  .not-found { max-width: 48rem; margin: 3rem auto; padding: 1.5rem; }
-  h1 { font-size: clamp(2rem, 5vw, 3.25rem); line-height: 1.15; }
+  .not-found { width: min(100%, 48rem); margin: 1.5rem auto; padding: 1rem; }
+  h1 { font-size: var(--page-title-size); line-height: 1.15; margin-block: .4rem; }
   p { max-width: 38rem; line-height: 1.6; }
   nav { display: flex; flex-wrap: wrap; gap: 1rem; margin-top: 1.5rem; }
   nav a { min-height: 44px; display: inline-flex; align-items: center; }

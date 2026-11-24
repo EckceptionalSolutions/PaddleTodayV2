@@ -1204,7 +1204,7 @@ const groupStructuredData = [
           <p class="river-route-picker__results-summary" data-group-results-summary aria-live="polite">
             {isAccessPlanningHub ? `${group.routeCount} access ${group.routeCount === 1 ? 'plan' : 'plans'}` : `Showing all ${group.routeCount} trips.`}
           </p>
-          <div class="river-group-page__route-list" data-group-route-list>
+          <div class:list={['river-group-page__route-list', { 'trip-ledger': !isAccessPlanningHub }]} data-group-route-list>
             {staticRoutes.map((route, index) => {
               const active = index === 0;
               return (
@@ -1242,7 +1242,7 @@ const groupStructuredData = [
                       <span class="route-choice__facts">
                         {route.logistics?.distanceLabel ? <span class="route-choice__fact route-choice__fact--distance">{route.logistics.distanceLabel}</span> : null}
                         {route.logistics?.estimatedPaddleTime ? <span class="route-choice__fact route-choice__fact--time">{shortTimeLabel(route.logistics.estimatedPaddleTime)}</span> : null}
-                        {!isAccessPlanningHub && <span class="route-choice__fact">{route.profile.difficulty} difficulty</span>}
+                        {!isAccessPlanningHub && <span class="route-choice__fact route-choice__fact--difficulty">{route.profile.difficulty} difficulty</span>}
                       </span>
                     </span>
                     {!isAccessPlanningHub && <span class="route-choice__score-compact">

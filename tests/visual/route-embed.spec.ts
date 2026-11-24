@@ -58,8 +58,10 @@ test('card retains the main site artwork and wordmark in a compact centered mast
 
 test('builder configures a real iframe, copies portable code, and fits wide and narrow layouts', async ({ page, context }) => {
   await context.grantPermissions(['clipboard-read', 'clipboard-write']);
+  const readingTime = Date.parse('2026-07-15T16:00:00Z');
+  await page.clock.setFixedTime(readingTime);
   let readingRequests = 0;
-  await page.route(`**/api/rivers/${slug}.json`, route => { readingRequests++; return route.fulfill({ json: payload() }); });
+  await page.route(`**/api/rivers/${slug}.json`, route => { readingRequests++; return route.fulfill({ json: payload(readingTime) }); });
   await page.goto('/embed/');
   const card = page.frameLocator('#route-preview');
   await expect(card.locator('[data-reading-value]')).toHaveText('5.18');

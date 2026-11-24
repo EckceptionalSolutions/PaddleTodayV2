@@ -43,11 +43,11 @@
 
 .trips-page h1 {
   margin: 0 0 0.625rem;
-  font-size: clamp(1.75rem, 4vw, 2.75rem);
+  font-size: var(--page-title-size);
   line-height: 1.12;
 }
 
-.trips-page h2 { margin: 0 0 0.8rem; font-size: clamp(1.2rem, 2vw, 1.45rem); line-height: 1.25; }
+.trips-page h2 { margin: 0 0 0.65rem; font-size: var(--section-title-size); line-height: 1.25; }
 .trips-page h3 { margin: 0; font-size: 1.1rem; line-height: 1.3; }
 .trips-page p { line-height: 1.55; }
 .trips-page p:last-child { margin-bottom: 0; }

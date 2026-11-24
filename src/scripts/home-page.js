@@ -116,7 +116,7 @@ if ('requestIdleCallback' in window) {
 
 const preferences = document.querySelector('[data-home-preferences]');
 if (preferences instanceof HTMLDetailsElement) {
-  preferences.open = true;
+  if (window.matchMedia('(min-width: 761px)').matches) preferences.open = true;
   preferences.addEventListener('toggle', () => {
     if (preferences.open) void hydrateHomepage();
   });

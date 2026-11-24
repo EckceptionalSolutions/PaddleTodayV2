@@ -434,6 +434,23 @@ html body.page-weekend[data-weekend-unavailable="true"] .decision-hero__intro {
   grid-column: 1 / -1;
   max-width: 72ch;
 }
+@media (min-width: 75em) {
+  html body.page-weekend[data-weekend-unavailable="true"] .weekend-hero {
+    grid-template-areas: none;
+    min-height: 0;
+  }
+  html body.page-weekend[data-weekend-unavailable="true"] .decision-hero__intro {
+    display: grid;
+    gap: .45rem 2rem;
+    align-items: start;
+    max-width: none;
+  }
+  .page-weekend[data-weekend-unavailable="true"] .decision-hero__intro > * {
+    grid-column: 1;
+    margin-block: 0;
+  }
+  .page-weekend[data-weekend-unavailable="true"] .decision-hero__intro :is([data-weekend-retry], [data-weekend-browse]) { justify-self: start; }
+}
 html body.page-weekend[data-weekend-unavailable="true"] .weekend-hero h1 {
   max-width: none;
 }
