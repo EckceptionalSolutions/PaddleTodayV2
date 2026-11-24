@@ -116,6 +116,7 @@ let riverHubViewTracked = false;
 let selectedSlug = initialSelectedSlug || null;
 let mapRuntime = null;
 let mapHasFittedResults = false;
+let retryFocusSelected = false;
 let maplibreRuntime = null;
 let mapReadyPromise = null;
 const mapsWithRouteLayerEvents = new WeakSet();
@@ -687,7 +688,7 @@ function boundsForRouteFeatures(maplibregl, routes) {
   for (const route of routes) {
     const feature = routeLineFeature(route);
     const lineCoordinates = flattenRouteGeometry(feature?.geometry).flat();
-    const coordinates = lineCoordinates.length ? lineCoordinates : routeSpanCoordinates(route).map(point => [point.longitude, point.latitude]);
+    const coordinates = lineCoordinates.concat(routeSpanCoordinates(route).map(point => [point.longitude, point.latitude]));
     for (const coordinate of coordinates) {
       if (!Array.isArray(coordinate) || coordinate.length < 2) continue;
       bounds.extend(coordinate);
@@ -1028,7 +1029,9 @@ async function hydrateRouteGeometries(routes) {
     );
 
     if (version !== routeGeometryLoadVersion || !currentResult) return;
-    if (index === 0 || index + batchSize >= pending.length) {
+    // A render waiting on the style will read the latest geometry when it resumes.
+    // Starting another render here would cancel its requested camera fit.
+    if (groupMapStatus?.dataset.mapState === 'ready' && (index === 0 || index + batchSize >= pending.length)) {
       renderGroupMap(visiblePickerRoutes(currentResult.routes), { preserveViewport: true });
     }
   }
@@ -1040,6 +1043,7 @@ async function renderGroupMap(routes, { preserveViewport = false, focusSelected 
     return;
   }
 
+  if (!preserveViewport) retryFocusSelected = focusSelected;
   const retryHadFocus = document.activeElement === groupMapRetry;
   groupMapShell?.removeAttribute('data-map-unavailable');
   if (groupMapRetry instanceof HTMLButtonElement) {
@@ -1097,11 +1101,13 @@ async function renderGroupMap(routes, { preserveViewport = false, focusSelected 
       return;
     }
 
+    const selectedRoute = routes.find((route) => route.slug === selectedSlug) ?? routes[0];
     if (!mapRuntime) {
       mapHasFittedResults = false;
+      const center = midpointForRoute(selectedRoute);
       mapRuntime = createPaddleMap(maplibregl, {
         container: groupMap,
-        center: [-92.5, 44.2],
+        ...(center ? { center: [center.longitude, center.latitude] } : {}),
         zoom: 8,
         minZoom: 5,
         maxZoom: 12,
@@ -1112,7 +1118,6 @@ async function renderGroupMap(routes, { preserveViewport = false, focusSelected 
     if (renderVersion !== mapRenderVersion) return;
 
     maplibreRuntime = maplibregl;
-    const selectedRoute = routes.find((route) => route.slug === selectedSlug) ?? routes[0] ?? null;
     syncActualRiverLayer(mapRuntime, 'river-group-actual-river-line', selectedRoute ? [selectedRoute.name] : [], {
       lineColor: '#4f8795',
       lineWidth: 3,
@@ -1130,7 +1135,7 @@ async function renderGroupMap(routes, { preserveViewport = false, focusSelected 
       const fitted = fitMapBounds(mapRuntime, bounds, {
         profile: focusSelected ? 'riverGroupSelected' : 'riverGroupResults',
         compact,
-        preserveViewport: preserveViewport && !focusSelected && mapHasFittedResults,
+        preserveViewport: preserveViewport && mapHasFittedResults,
         ...(!mapHasFittedResults ? { duration: 0 } : {}),
       });
       if (fitted) mapHasFittedResults = true;
@@ -1166,7 +1171,7 @@ async function renderGroupMap(routes, { preserveViewport = false, focusSelected 
 }
 
 groupMapRetry?.addEventListener('click', () => {
-  if (currentResult) renderGroupMap(visiblePickerRoutes(currentResult.routes));
+  if (currentResult) renderGroupMap(visiblePickerRoutes(currentResult.routes), { focusSelected: retryFocusSelected });
 });
 
 function setBanner(kind, title, detail) {
