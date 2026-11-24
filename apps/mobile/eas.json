@@ -42,10 +42,6 @@
       }
     },
     "production": {
-      "buildArtifactPaths": [
-        "ios/build/**/*.dSYM",
-        "ios/build/**/*.dSYM.zip"
-      ],
       "env": {
         "EXPO_PUBLIC_API_BASE_URL": "https://paddletoday.com",
         "EXPO_PUBLIC_APP_ENV": "production",
@@ -56,6 +52,10 @@
         "EXPO_PUBLIC_APPLE_SIGN_IN_ENABLED": "1"
       },
       "ios": {
+        "buildArtifactPaths": [
+          "ios/build/**/*.dSYM",
+          "ios/build/**/*.dSYM.zip"
+        ],
         "resourceClass": "m-medium"
       },
       "android": {
