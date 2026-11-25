@@ -14,7 +14,7 @@ on:
       - 'package-lock.json'
       - 'scripts/deployment-config.mjs'
       - 'scripts/lib/deployment-config.mjs'
-      - 'scripts/snapshot-worker-validate.sh'
+      - 'scripts/snapshot-worker-deployment.sh'
       - 'scripts/wait-for-snapshot-execution.mjs'
       - 'scripts/lib/snapshot-execution.mjs'
       - 'scripts/wait-for-snapshot-reader.mjs'
@@ -29,6 +29,10 @@ on:
         description: 'Exact source commit (defaults to this workflow run revision)'
         type: string
         default: ''
+      reuse_image:
+        description: 'Require an existing GHCR commit tag, for rollback without rebuilding'
+        type: boolean
+        default: false
       provision_monitoring:
         description: 'Also provision monitoring (requires an identity with monitoring write permissions)'
         type: boolean
@@ -51,11 +55,11 @@ concurrency:
 env:
   SOURCE_REVISION: ${{ inputs.source_revision || github.sha }}
   AZURE_RESOURCE_GROUP: paddletoday
-  AZURE_CONTAINER_REGISTRY: ${{ vars.AZURE_CONTAINER_REGISTRY || 'ahmqiry64didw24' }}
-  AZURE_CONTAINER_REGISTRY_RESOURCE_GROUP: ${{ vars.AZURE_CONTAINER_REGISTRY_RESOURCE_GROUP || 'assumable-homes' }}
   AZURE_CONTAINER_APPS_ENVIRONMENT: paddletoday-jobs
   AZURE_CONTAINER_APPS_JOB: paddletoday-river-snapshots
-  IMAGE_NAME: paddletoday/snapshot-worker
+  SNAPSHOT_IMAGE_REPOSITORY: ghcr.io/eckceptionalsolutions/paddletoday-worker
+  GHCR_PULL_USERNAME: ${{ github.repository_owner }}
+  REQUIRE_EXISTING_IMAGE: ${{ inputs.reuse_image && 'true' || 'false' }}
   PROVISION_SNAPSHOT_MONITORING: ${{ inputs.provision_monitoring && 'true' || 'false' }}
   SNAPSHOT_DETAIL_LAYOUT: ${{ inputs.detail_layout || 'detail-buckets-v1' }}
   SNAPSHOT_API_ORIGIN: ${{ vars.API_ORIGIN || 'https://paddletodayapi-h7efgxcfg9h7gne9.centralus-01.azurewebsites.net' }}
@@ -68,10 +72,25 @@ jobs:
     steps:
       - name: Validate pinned source revision
         run: '[[ "$SOURCE_REVISION" =~ ^[a-f0-9]{40}$ ]] || { echo "Expected a full source commit SHA"; exit 1; }'
-      - name: Checkout repository
+      - name: Checkout deployment controls
+        uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+
+      - name: Checkout pinned worker source
+        if: '!inputs.reuse_image'
         uses: actions/checkout@v4
         with:
           ref: ${{ env.SOURCE_REVISION }}
+          path: snapshot-source
+          persist-credentials: false
+          sparse-checkout-cone-mode: false
+          sparse-checkout: |
+            /.dockerignore
+            /infra/azure/snapshot-worker/
+            /packages/api-contract/
+            /packages/geo/
+            /src/
 
       - name: Setup Node
         uses: actions/setup-node@v4
@@ -82,7 +101,14 @@ jobs:
         env:
           AZURE_CREDENTIALS: ${{ secrets.AZURE_CREDENTIALS }}
           SNAPSHOT_SAS_URL: ${{ secrets.RIVER_SNAPSHOT_CONTAINER_SAS_URL }}
-        run: node scripts/deployment-config.mjs snapshot
+          GHCR_PULL_TOKEN: ${{ secrets.GHCR_PULL_TOKEN }}
+          GHCR_PUSH_TOKEN: ${{ secrets.GHCR_PUSH_TOKEN }}
+        run: |
+          node scripts/deployment-config.mjs snapshot
+          if [ "$REQUIRE_EXISTING_IMAGE" != true ] && [ -z "$GHCR_PUSH_TOKEN" ]; then
+            echo 'Missing GHCR_PUSH_TOKEN for publishing worker images.'
+            exit 1
+          fi
 
       - name: Azure login
         uses: azure/login@v2
@@ -94,50 +120,48 @@ jobs:
           az deployment group create \
             --resource-group "$AZURE_RESOURCE_GROUP" \
             --template-file infra/azure/container-apps-platform.bicep \
-            --parameters \
-              containerRegistryName="$AZURE_CONTAINER_REGISTRY" \
-              containerRegistryResourceGroup="$AZURE_CONTAINER_REGISTRY_RESOURCE_GROUP" \
-              containerAppsEnvironmentName="$AZURE_CONTAINER_APPS_ENVIRONMENT" \
+            --parameters containerAppsEnvironmentName="$AZURE_CONTAINER_APPS_ENVIRONMENT" \
             --output none
-
-      - name: Validate worker deployment permissions before building
-        env:
-          SNAPSHOT_SAS_URL: ${{ secrets.RIVER_SNAPSHOT_CONTAINER_SAS_URL }}
-          SNAPSHOT_ALERT_EMAIL: ${{ vars.SNAPSHOT_ALERT_EMAIL || 'hello@paddletoday.com' }}
-        run: bash scripts/snapshot-worker-validate.sh
 
       - name: Wait for a compatible API reader before enabling batched writes
         run: node scripts/wait-for-snapshot-reader.mjs
 
-      - name: Build worker image in Azure Container Registry
+      - name: Publish or resolve a pinned worker image in GHCR
+        env:
+          GHCR_REGISTRY_TOKEN: ${{ inputs.reuse_image && secrets.GHCR_PULL_TOKEN || secrets.GHCR_PUSH_TOKEN }}
         run: |
-          az acr build \
-            --registry "$AZURE_CONTAINER_REGISTRY" \
-            --image "$IMAGE_NAME:$SOURCE_REVISION" \
-            --file infra/azure/snapshot-worker/Dockerfile \
-            --build-arg SOURCE_REVISION="$SOURCE_REVISION" \
-            .
+          set -euo pipefail
+          export DOCKER_CONFIG
+          DOCKER_CONFIG="$(mktemp -d)"
+          trap 'rm -rf -- "$DOCKER_CONFIG"' EXIT
+          printf '%s' "$GHCR_REGISTRY_TOKEN" | docker login ghcr.io --username "$GHCR_PULL_USERNAME" --password-stdin
+          unset GHCR_REGISTRY_TOKEN
+          tag="$SNAPSHOT_IMAGE_REPOSITORY:$SOURCE_REVISION"
+          manifest="$RUNNER_TEMP/snapshot-image-manifest.txt"
+          if ! docker buildx imagetools inspect "$tag" > "$manifest"; then
+            if [ "$REQUIRE_EXISTING_IMAGE" = true ]; then
+              echo 'The requested rollback image must already exist in GHCR.'
+              exit 1
+            fi
+            docker buildx build --push --platform linux/amd64 --provenance=false \
+              --file snapshot-source/infra/azure/snapshot-worker/Dockerfile \
+              --build-arg SOURCE_REVISION="$SOURCE_REVISION" \
+              --label "org.opencontainers.image.revision=$SOURCE_REVISION" \
+              --tag "$tag" snapshot-source
+            docker buildx imagetools inspect "$tag" > "$manifest"
+          fi
+          digest="$(awk '$1 == "Digest:" && !seen++ { print $2 }' "$manifest")"
+          [[ "$digest" =~ ^sha256:[a-f0-9]{64}$ ]] || { echo 'GHCR did not return a valid image digest.'; exit 1; }
+          echo "SNAPSHOT_IMAGE=$SNAPSHOT_IMAGE_REPOSITORY@$digest" >> "$GITHUB_ENV"
 
       - name: Deploy scheduled Container Apps Job
         env:
           SNAPSHOT_SAS_URL: ${{ secrets.RIVER_SNAPSHOT_CONTAINER_SAS_URL }}
           SNAPSHOT_ALERT_EMAIL: ${{ vars.SNAPSHOT_ALERT_EMAIL || 'hello@paddletoday.com' }}
+          GHCR_PULL_TOKEN: ${{ secrets.GHCR_PULL_TOKEN }}
         run: |
-          az deployment group create \
-            --mode Incremental \
-            --resource-group "$AZURE_RESOURCE_GROUP" \
-            --template-file infra/azure/container-apps-job.bicep \
-            --parameters \
-              containerRegistryName="$AZURE_CONTAINER_REGISTRY" \
-              containerRegistryResourceGroup="$AZURE_CONTAINER_REGISTRY_RESOURCE_GROUP" \
-              containerAppsEnvironmentName="$AZURE_CONTAINER_APPS_ENVIRONMENT" \
-              jobName="$AZURE_CONTAINER_APPS_JOB" \
-              snapshotAlertEmail="$SNAPSHOT_ALERT_EMAIL" \
-              provisionMonitoring="$PROVISION_SNAPSHOT_MONITORING" \
-              snapshotDetailLayout="$SNAPSHOT_DETAIL_LAYOUT" \
-              snapshotContainerSasUrl="$SNAPSHOT_SAS_URL" \
-              image="$AZURE_CONTAINER_REGISTRY.azurecr.io/$IMAGE_NAME:$SOURCE_REVISION" \
-            --output none
+          bash scripts/snapshot-worker-deployment.sh validate
+          bash scripts/snapshot-worker-deployment.sh create
 
       - name: Start one verification execution
         id: verification

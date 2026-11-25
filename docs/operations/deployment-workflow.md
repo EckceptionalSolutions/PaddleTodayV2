@@ -22,20 +22,27 @@ matching environment variables through your normal secret mechanism.
 
 - API: `AZURE_WEBAPP_NAME`, `AZUREAPPSERVICE_PUBLISHPROFILE`.
 - Frontend: `AZURE_STATIC_WEB_APPS_API_TOKEN`.
-- Snapshot: `AZURE_CREDENTIALS`, `SNAPSHOT_SAS_URL` (the workflow maps this from
+- Snapshot: `AZURE_CREDENTIALS`, `GHCR_PULL_TOKEN`, and `SNAPSHOT_SAS_URL` (the workflow maps the SAS from
   `RIVER_SNAPSHOT_CONTAINER_SAS_URL`). Credentials must contain the four service
   principal fields expected by the existing Azure login. SAS must use HTTPS, have
   a signature, and not have an invalid or expired explicit expiry. Stored-policy
   SAS without an explicit expiry is allowed.
 
-These checks establish presence and basic structure, not credential validity.
-The snapshot workflow additionally runs `scripts/snapshot-worker-validate.sh`
-after platform provisioning and before ACR builds the image. Azure CLI 2.76+
-is required for explicit `--validation-level Provider`. This validates the actual
-job template, including its alerts and role assignment, with the deployment
-identity's write permissions. It does not create the job or build the image.
-Platform provisioning still precedes this check because the job references that
-platform. Validation is not a guarantee against later runtime or deployment errors.
+The snapshot workflow publishes to the private package
+`ghcr.io/eckceptionalsolutions/paddletoday-worker`. It uses the
+`GHCR_PUSH_TOKEN` repository secret with `write:packages` access for builds.
+Azure pulls the image using the separate `GHCR_PULL_TOKEN` classic token with
+`read:packages` access. The package is linked to the private
+`azure-workload-images` repository. Keep both repository secrets and the
+deployed job's pull credential current when rotating the tokens.
+Deployment resolves the source commit tag to an image digest, then
+uses `scripts/snapshot-worker-deployment.sh` to validate and deploy the same
+job parameters. Azure CLI 2.76+ supports explicit `--validation-level Provider`.
+
+For rollback, dispatch the snapshot workflow from `main` with the previously
+verified full commit SHA as `source_revision` and enable `reuse_image`. The
+workflow requires that image to already exist in GHCR, deploys it by digest,
+and verifies that a real execution succeeded on the selected image.
 
 The validation script passes secure parameters through a temporary file, removes
 it on success or failure, and suppresses normal Azure result output. Do not enable

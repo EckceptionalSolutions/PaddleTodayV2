@@ -3,11 +3,12 @@ targetScope = 'resourceGroup'
 @description('Azure region for the worker resources.')
 param location string = resourceGroup().location
 
-@description('Globally unique Azure Container Registry name.')
-param containerRegistryName string = 'ahmqiry64didw24'
+@description('GitHub account authorized to pull the private worker image.')
+param registryUsername string
 
-@description('Resource group of the shared registry. AcrPull is provisioned on that registry before deployment.')
-param containerRegistryResourceGroup string = 'assumable-homes'
+@secure()
+@description('GitHub classic token with read:packages access.')
+param registryPullToken string
 
 @description('Container Apps environment that hosts the scheduled worker job.')
 param containerAppsEnvironmentName string = 'paddletoday-jobs'
@@ -18,7 +19,7 @@ param logAnalyticsWorkspaceName string = '${containerAppsEnvironmentName}-logs'
 @description('Scheduled river snapshot job name.')
 param jobName string = 'paddletoday-river-snapshots'
 
-@description('Commit-pinned worker image in the existing registry.')
+@description('Digest-pinned worker image in GitHub Container Registry.')
 param image string
 
 @secure()
@@ -46,11 +47,6 @@ param cpu int = 1
 
 @description('Memory allocated to the worker replica.')
 param memory string = '2Gi'
-
-resource containerRegistry 'Microsoft.ContainerRegistry/registries@2023-07-01' existing = {
-  name: containerRegistryName
-  scope: resourceGroup(containerRegistryResourceGroup)
-}
 
 resource containerAppsEnvironment 'Microsoft.App/managedEnvironments@2025-01-01' existing = {
   name: containerAppsEnvironmentName
@@ -82,11 +78,16 @@ resource job 'Microsoft.App/jobs@2025-01-01' = {
           name: 'snapshot-container-sas-url'
           value: snapshotContainerSasUrl
         }
+        {
+          name: 'ghcr-pull-token'
+          value: registryPullToken
+        }
       ]
       registries: [
         {
-          server: containerRegistry.properties.loginServer
-          identity: 'system'
+          server: 'ghcr.io'
+          username: registryUsername
+          passwordSecretRef: 'ghcr-pull-token'
         }
       ]
     }

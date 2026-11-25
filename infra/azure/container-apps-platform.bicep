@@ -3,19 +3,8 @@ targetScope = 'resourceGroup'
 @description('Azure region for the worker resources.')
 param location string = resourceGroup().location
 
-@description('Globally unique Azure Container Registry name.')
-param containerRegistryName string = 'ahmqiry64didw24'
-
-@description('Resource group of the existing shared registry. This template never creates a registry.')
-param containerRegistryResourceGroup string = 'assumable-homes'
-
 @description('Container Apps environment that hosts the scheduled worker job.')
 param containerAppsEnvironmentName string = 'paddletoday-jobs'
-
-resource containerRegistry 'Microsoft.ContainerRegistry/registries@2023-07-01' existing = {
-  name: containerRegistryName
-  scope: resourceGroup(containerRegistryResourceGroup)
-}
 
 resource logAnalytics 'Microsoft.OperationalInsights/workspaces@2022-10-01' = {
   name: '${containerAppsEnvironmentName}-logs'
@@ -45,5 +34,4 @@ resource containerAppsEnvironment 'Microsoft.App/managedEnvironments@2025-01-01'
   }
 }
 
-output registryLoginServer string = containerRegistry.properties.loginServer
 output environmentId string = containerAppsEnvironment.id
