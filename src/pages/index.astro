@@ -47,6 +47,11 @@ const homepageStructuredData = [
   description="Find the best paddle near you today. Compare the latest available river levels, weather, and route details, then enter a city or ZIP to find nearby options."
   structuredData={homepageStructuredData}
 >
+  <Fragment slot="head">
+    <script>
+      import "../scripts/home-page.js";
+    </script>
+  </Fragment>
   <section class="home-hero hero">
     <div class="home-hero__intro">
       <div class="home-hero__copy">
@@ -802,8 +807,4 @@ const homepageStructuredData = [
   </section>
 
   <RouteBoardCardTemplate />
-
-  <script>
-    import "../scripts/home-page.js";
-  </script>
 </BaseLayout>
