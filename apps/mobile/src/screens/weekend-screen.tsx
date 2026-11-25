@@ -227,6 +227,8 @@ const WeekendContent = memo(function WeekendContent({ weekendQuery, distanceLimi
       refreshControl={
         <RefreshControl
           tintColor={colors.accent}
+          colors={[colors.accent]}
+          progressBackgroundColor={colors.surfaceStrong}
           refreshing={weekendQuery.isRefetching}
           onRefresh={() => weekendQuery.refetch()}
         />

@@ -40,7 +40,7 @@ export function RoutePhotoCard({
       style={[styles.photo, showFallback ? { minHeight: height } : { height }, compact ? styles.photoCompact : null, showFallback ? styles.photoFallback : null]}
       imageStyle={styles.photoImage}
     >
-      {showFallback ? <RoutePhotoFallback compact={compact} label={unavailable ? 'Photo unavailable' : 'No photo yet'} /> : <View style={styles.scrim} />}
+      {showFallback ? <RoutePhotoFallback compact={compact} label={unavailable ? 'Photo unavailable' : 'No photo yet'} /> : <View style={showCaption && !compact ? styles.captionScrim : styles.scrim} />}
       {!showFallback && photo.sourceKind !== 'route' ? (
         <View style={[styles.placeholderBadge, compact ? styles.placeholderBadgeCompact : null]}>
           <MaterialCommunityIcons
@@ -67,7 +67,7 @@ export function RoutePhotoCard({
         accessibilityRole="button"
         accessibilityLabel={`Add a photo of ${river.reach ?? river.name ?? 'this route'}`}
       >
-        <MaterialCommunityIcons name="camera-plus" color={showFallback ? colors.accentDeep : colors.surfaceStrong} size={compact ? 17 : 18} />
+        <MaterialCommunityIcons name="camera-plus" color={showFallback ? colors.accentDeep : colors.onImage} size={compact ? 17 : 18} />
         <Text style={[styles.contributeText, compact ? styles.contributeTextCompact : null, showFallback ? styles.contributeTextPlaceholder : null]}>
           Add a photo
         </Text>
@@ -94,6 +94,7 @@ const createStyles = (colors: AppColors) => StyleSheet.create({
     ...StyleSheet.absoluteFillObject,
     backgroundColor: 'rgba(10, 24, 29, 0.18)',
   },
+  captionScrim: { ...StyleSheet.absoluteFillObject, backgroundColor: colors.photoScrim },
   caption: {
     padding: spacing.md,
     paddingRight: 126,

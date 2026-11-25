@@ -199,7 +199,7 @@ export default function SavedScreen() {
     style={styles.screen}
     sections={routeSections}
     keyExtractor={river => river.river.slug}
-    refreshControl={<RefreshControl refreshing={summaryQuery.isFetching} onRefresh={() => void summaryQuery.refetch()} tintColor={colors.accent} />}
+    refreshControl={<RefreshControl refreshing={summaryQuery.isFetching} onRefresh={() => void summaryQuery.refetch()} tintColor={colors.accent} colors={[colors.accent]} progressBackgroundColor={colors.surfaceStrong} />}
     contentContainerStyle={[
       styles.content,
       { paddingTop: spacing.md + insets.top, paddingBottom: spacing.xl + bottomContentInset + (showComparisonBar ? comparisonBarHeight : 0) },
@@ -267,7 +267,7 @@ export default function SavedScreen() {
     {activeTab === 'routes' ? routesList : <ScrollView
       keyboardShouldPersistTaps="handled"
       style={styles.screen}
-      refreshControl={<RefreshControl refreshing={summaryQuery.isFetching} onRefresh={() => void summaryQuery.refetch()} tintColor={colors.accent} />}
+      refreshControl={<RefreshControl refreshing={summaryQuery.isFetching} onRefresh={() => void summaryQuery.refetch()} tintColor={colors.accent} colors={[colors.accent]} progressBackgroundColor={colors.surfaceStrong} />}
       contentContainerStyle={[
         styles.content,
         {

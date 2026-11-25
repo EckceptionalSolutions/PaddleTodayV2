@@ -1,6 +1,6 @@
 import MaterialCommunityIcons from '@expo/vector-icons/MaterialCommunityIcons';
 import { Tabs } from 'expo-router';
-import { useWindowDimensions } from 'react-native';
+import { Platform, View, useWindowDimensions } from 'react-native';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import { useAppTheme } from '../../src/theme/theme-provider';
 import { useReducedMotion } from '../../src/hooks/use-reduced-motion';
@@ -12,7 +12,7 @@ export default function TabLayout() {
   const bottomInset = insets.bottom;
   const { fontScale } = useWindowDimensions();
 
-  return (
+  return <View style={{ flex: 1 }}>
     <Tabs
       safeAreaInsets={{ bottom: 0 }}
       screenOptions={{
@@ -87,5 +87,7 @@ export default function TabLayout() {
         }}
       />
     </Tabs>
-  );
+    {Platform.OS === 'android' && <View pointerEvents="none" importantForAccessibility="no-hide-descendants"
+      style={{ position: 'absolute', top: 0, left: 0, right: 0, height: insets.top, backgroundColor: colors.canvas }} />}
+  </View>;
 }

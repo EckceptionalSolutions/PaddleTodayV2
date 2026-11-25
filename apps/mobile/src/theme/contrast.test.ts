@@ -17,6 +17,7 @@ describe('theme readability', () => {
         ...[colors.canvas, colors.canvasMuted, colors.surface, colors.surfaceStrong].flatMap(background =>
           [colors.text, colors.textMuted, colors.accentDeep].map(foreground => [foreground, background])),
         [colors.onAccent, colors.accent], [colors.onAccent, colors.accentDeep],
+        ...[colors.strong, colors.fair, colors.noGo, colors.textMuted].map(marker => [colors.onAccent, marker]),
         [colors.strong, colors.strongSoft], [colors.good, colors.goodSoft],
         [colors.fair, colors.fairSoft], [colors.noGo, colors.noGoSoft],
       ];
@@ -24,6 +25,13 @@ describe('theme readability', () => {
         const a = luminance(foreground), b = luminance(background);
         expect((Math.max(a, b) + 0.05) / (Math.min(a, b) + 0.05), `${foreground} on ${background}`).toBeGreaterThanOrEqual(4.5);
       }
+    });
+
+    it(`${name} captions stay readable over a white photograph`, () => {
+      const [red, green, blue, opacity] = colors.photoScrim.match(/[\d.]+/g)!.map(Number);
+      const background = '#' + [red, green, blue].map(channel =>
+        Math.round(channel * opacity + 255 * (1 - opacity)).toString(16).padStart(2, '0')).join('');
+      expect((luminance(colors.onImage) + 0.05) / (luminance(background) + 0.05)).toBeGreaterThanOrEqual(4.5);
     });
   }
 });
