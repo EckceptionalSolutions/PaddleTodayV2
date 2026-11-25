@@ -5170,7 +5170,7 @@ export const riverOutfitterReviews: Record<string, RiverReview> = {
       name: 'Suwannee River Outpost',
       url: 'https://www.suwanneeoutpost.com/overnight-trips',
       service: 'Rent boats for overnight trips from White Springs through Woods Ferry to the Music Park or downstream to Suwannee River State Park. Its longer itinerary includes Dowling Park, Lafayette Blue Springs, Peacock Slough and Adams Tract. Arrange shuttle stops separately.',
-      routes: ['suwannee-river-woods-ferry-spirit', 'suwannee-river-spirit-suwannee-state-park', 'suwannee-river-suwannee-state-park-dowling-park', 'suwannee-river-dowling-lafayette-blue', 'suwannee-river-lafayette-blue-peacock-slough', 'suwannee-river-peacock-slough-adams-tract', 'suwannee-river-spirit-dowling-park', 'suwannee-river-spirit-lafayette-blue', 'suwannee-river-spirit-adams-tract', 'suwannee-river-state-park-lafayette-blue', 'suwannee-river-state-park-adams-tract', 'suwannee-river-dowling-peacock-slough', 'suwannee-river-dowling-adams-tract'],
+      routes: ['suwannee-river-wayside-woods-ferry', 'suwannee-river-woods-ferry-spirit', 'suwannee-river-spirit-suwannee-state-park', 'suwannee-river-suwannee-state-park-dowling-park', 'suwannee-river-dowling-lafayette-blue', 'suwannee-river-lafayette-blue-peacock-slough', 'suwannee-river-peacock-slough-adams-tract', 'suwannee-river-spirit-dowling-park', 'suwannee-river-spirit-lafayette-blue', 'suwannee-river-spirit-adams-tract', 'suwannee-river-state-park-lafayette-blue', 'suwannee-river-state-park-adams-tract', 'suwannee-river-dowling-peacock-slough', 'suwannee-river-dowling-adams-tract'],
       sources: ['https://www.suwanneeoutpost.com/rentals-and-shuttles'],
     }],
   },

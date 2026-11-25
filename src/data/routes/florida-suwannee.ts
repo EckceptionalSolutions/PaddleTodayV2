@@ -65,9 +65,51 @@ function makeExpeditionRoute(spec: { id: string; reach: string; putIn: River['pu
   return expedition;
 }
 
+const waysideLaunch = { name: 'Suwannee River Wayside Park boat ramp (US 41)', latitude: 30.3258, longitude: -82.7388 };
+const woodsFerryLanding = { name: 'Woods Ferry River Camp landing', latitude: 30.3539, longitude: -82.8554 };
+const stephenFosterLaunch = { name: 'Stephen Foster Folk Culture Center State Park canoe launch', latitude: 30.3271, longitude: -82.7695 };
+const outpostOvernight = { label: 'Suwannee River Outpost overnight trips and shuttles', url: 'https://www.suwanneeoutpost.com/overnight-trips', provider: 'local' as const };
+const waysideId = 'suwannee-river-wayside-woods-ferry';
+const waysideSummary = 'Start in White Springs at the US 41 bridge and paddle past Stephen Foster State Park to the river-left landing at Woods Ferry River Camp. After a reserved overnight stay, the next leg runs 10.8 miles to Spirit of the Suwannee Music Park.';
+const waysideToWoodsFerry: River = {
+  ...common,
+  id: waysideId,
+  slug: waysideId,
+  reach: 'Suwannee River Wayside Park to Woods Ferry River Camp',
+  putIn: waysideLaunch,
+  takeOut: woodsFerryLanding,
+  latitude: waysideLaunch.latitude,
+  longitude: waysideLaunch.longitude,
+  summary: waysideSummary,
+  statusText: 'Check the White Springs gauge, river trend and forecast before launch. Florida DEP warns that levels above 62 ft can be dangerous and parks or camps may close. Confirm camp access and reservations with Florida State Parks.',
+  accessPoints: [
+    { ...waysideLaunch, id: `${waysideId}-put-in`, mileFromStart: 0, segmentKind: 'transition', note: 'Launch at the public ramp on the northeast side of the US 41 bridge. Arrange overnight parking and transport in advance.' },
+    { ...stephenFosterLaunch, id: `${waysideId}-stephen-foster`, mileFromStart: 2.7, segmentKind: 'transition', note: 'The state park canoe launch is 2.7 miles downstream from Wayside. Starting here shortens the first day.' },
+    { ...woodsFerryLanding, id: `${waysideId}-take-out`, mileFromStart: 13, segmentKind: 'transition', note: 'Land on river left at the designated camp landing. The nearby Woods Ferry Tract boat ramp is a separate facility.' },
+  ],
+  logistics: {
+    summary: waysideSummary,
+    distanceLabel: 'About 12–13 river miles',
+    estimatedPaddleTime: 'Allow a full paddling day with time for stops and unloading at camp.',
+    shuttle: 'For the White Springs to Outpost overnight, arrange the shuttle from the Outpost to Wayside before launching. Woods Ferry River Camp has no guest vehicle access. Arrange pickup at your final downstream landing.',
+    camping: 'Reserve a campsite or sleeping platform at Woods Ferry River Camp before departure.',
+    campingClassification: 'endpoint_campground',
+    permits: 'Confirm your Woods Ferry reservation and the access arrangements for your final landing.',
+    accessCaveats: ['The DEP trail guide discourages overnight parking at Wayside.', 'Water level affects the climb from the river to the camp.'],
+    watchFor: ['Strainers and changing current', 'Steep banks at low water', 'Fast rises after rain'],
+  },
+  sourceLinks: [depDataBook, stateTrailCamps, stateTrailPage, outpostOvernight, trailGuide, { label: 'USGS White Springs gauge', url: gauge.detailUrl, provider: 'usgs' }],
+  evidenceNotes: [
+    { label: 'Access and mileage', value: 'About 12–13 river miles', note: 'DEP lists Wayside at river mile 171, Stephen Foster at 168.3 and the camp at 158. Florida State Parks places the camp at mile 159.3. The access-point mileages here follow the DEP data book.', sourceUrl: depDataBook.url },
+    { label: 'Overnight itinerary', value: 'White Springs to Outpost', note: 'The Outpost identifies Wayside as the launch and Woods Ferry as the reserved camp option on its 22.5-mile overnight trip.', sourceUrl: outpostOvernight.url },
+    { label: 'Scoring band', value: '51–58 ft preferred at White Springs', note: 'The district describes portaging below 50 ft, swift current at 59–63 ft and recommends against paddling at 64 ft or above.', sourceUrl: trailGuide.url },
+  ],
+};
+
 export const floridaSuwanneeRoutes: River[] = [
-  makeRoute({ id: 'suwannee-river-stephen-foster-woods-ferry', reach: 'Stephen Foster Folk Culture Center State Park to Woods Ferry River Camp', putIn: { name: 'Stephen Foster Folk Culture Center State Park canoe launch', latitude: 30.3271, longitude: -82.7695 }, takeOut: { name: 'Woods Ferry River Camp landing', latitude: 30.3539, longitude: -82.8554 }, miles: 10.3, summary: 'A source-mapped upper Suwannee reach from the managed Stephen Foster launch to Woods Ferry River Camp.', time: 'Allow 5–7 hours with current, stops and shuttle timing', note: 'Stephen Foster is a state-park launch with road access. Woods Ferry is a designated Suwannee River Wilderness Trail river camp; confirm the landing and road access before staging.' }),
-  makeRoute({ id: 'suwannee-river-woods-ferry-spirit', reach: 'Woods Ferry River Camp to Spirit of the Suwannee Music Park', putIn: { name: 'Woods Ferry River Camp landing', latitude: 30.3539, longitude: -82.8554 }, takeOut: { name: 'Spirit of the Suwannee Music Park launch/take-out', latitude: 30.406, longitude: -82.9491 }, miles: 10.8, summary: 'A second access-bounded Suwannee wilderness reach linking Woods Ferry River Camp with the Spirit of the Suwannee managed landing.', time: 'Allow 5–7 hours with current, stops and shuttle timing', note: 'Florida State Parks lists this river-camp leg as 10.8 river miles. Use the designated Woods Ferry camp landing and confirm Spirit of the Suwannee access, fees and operating status before departure.' }),
+  waysideToWoodsFerry,
+  makeRoute({ id: 'suwannee-river-stephen-foster-woods-ferry', reach: 'Stephen Foster Folk Culture Center State Park to Woods Ferry River Camp', putIn: stephenFosterLaunch, takeOut: woodsFerryLanding, miles: 10.3, summary: 'A source-mapped upper Suwannee reach from the managed Stephen Foster launch to Woods Ferry River Camp.', time: 'Allow 5–7 hours with current, stops and shuttle timing', note: 'Stephen Foster is a state-park launch with road access. Woods Ferry is a designated Suwannee River Wilderness Trail river camp; confirm the landing and road access before staging.' }),
+  makeRoute({ id: 'suwannee-river-woods-ferry-spirit', reach: 'Woods Ferry River Camp to Spirit of the Suwannee Music Park', putIn: woodsFerryLanding, takeOut: { name: 'Spirit of the Suwannee Music Park launch/take-out', latitude: 30.406, longitude: -82.9491 }, miles: 10.8, summary: 'A second access-bounded Suwannee wilderness reach linking Woods Ferry River Camp with the Spirit of the Suwannee managed landing.', time: 'Allow 5–7 hours with current, stops and shuttle timing', note: 'Florida State Parks lists this river-camp leg as 10.8 river miles. Use the designated Woods Ferry camp landing and confirm Spirit of the Suwannee access, fees and operating status before departure.' }),
   makeRoute({ id: 'suwannee-river-stephen-foster-spirit', reach: 'Stephen Foster Folk Culture Center State Park to Spirit of the Suwannee Music Park', putIn: { name: 'Stephen Foster Folk Culture Center State Park canoe launch', latitude: 30.3271, longitude: -82.7695 }, takeOut: { name: 'Spirit of the Suwannee Music Park launch/take-out', latitude: 30.406, longitude: -82.9491 }, miles: 20.2, summary: 'The published Stephen Foster-to-Spirit of the Suwannee Wilderness Trail day, combining the two access-bounded reaches for an advanced long paddle.', time: 'Allow a full 8–12 hour day only with an early start, reliable shuttle and daylight margin', note: 'Florida Paddling Trails publishes this approximately 20-mile advanced itinerary. Woods Ferry is an intermediate river-camp bail-out, but do not rely on it without confirming landing and road logistics.', difficulty: 'hard', watch: ['Long distance and remote shoreline', 'Strainers, steep banks and fast rises', 'Limited daylight and bailout options'] }),
   makeRoute({ id: 'suwannee-river-gibson-suwannee-state-park', reach: 'Gibson County Park to Suwannee River State Park', putIn: { name: 'Gibson County Park river landing', latitude: 30.4376, longitude: -83.0934 }, takeOut: { name: 'Suwannee River State Park boat ramp', latitude: 30.3877, longitude: -83.1689 }, miles: 7.7, summary: 'A mid-Suwannee Wilderness Trail day reach from the Gibson County Park landing to Suwannee River State Park.', time: 'Allow 4–6 hours with current, stops and shuttle timing', note: 'The Florida DEP data book places Gibson County Park at river mile 135.4 and Suwannee River State Park at mile 127.7, both on the river’s public access chain. Confirm current county-park landing, state-park hours, parking and shuttle logistics before launch.', watch: ['Steep limestone banks and strainers', 'High water after rain and thunderstorms', 'State-park landing, hours and parking'] }),
   makeRoute({ id: 'suwannee-river-suwannee-state-park-dowling-park', reach: 'Suwannee River State Park to Dowling Park River Camp', putIn: { name: 'Suwannee River State Park boat ramp', latitude: 30.3877, longitude: -83.1689 }, takeOut: { name: 'Dowling Park River Camp landing', latitude: 30.2463, longitude: -83.2461 }, miles: 14.7, summary: 'A longer access-bounded Suwannee day linking the state park campground and the Dowling Park river camp.', time: 'Allow 7–10 hours with current, stops and shuttle timing', note: 'The DEP data book publishes the Suwannee River State Park and Dowling Park mileposts and river-bank facilities. Plan for a full day, reserve the river camp if staying overnight, and confirm the river-only landing before departure.', difficulty: 'hard', watch: ['Long distance and remote shoreline', 'Strainers, steep banks and fast rises', 'Dowling Park river-only landing and reservations'] }),

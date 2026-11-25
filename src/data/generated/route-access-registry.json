@@ -1,8 +1,8 @@
 {
-  "generatedAt": "2026-10-20T20:25:04.578Z",
+  "generatedAt": "2026-11-25T13:50:10.554Z",
   "auditGeneratedAt": "2026-09-22T14:58:34.632Z",
   "summary": {
-    "entryCount": 4076,
+    "entryCount": 4077,
     "repeatedEntryCount": 1195,
     "conflictCount": 0,
     "distinctLocationNameCount": 3,
@@ -36616,14 +36616,15 @@
         "suwannee-river-stephen-foster-peacock-slough-put-in",
         "suwannee-river-stephen-foster-spirit-put-in",
         "suwannee-river-stephen-foster-suwannee-state-park-put-in",
-        "suwannee-river-stephen-foster-woods-ferry-put-in"
+        "suwannee-river-stephen-foster-woods-ferry-put-in",
+        "suwannee-river-wayside-woods-ferry-stephen-foster"
       ],
       "storedAccessCoordinate": {
-        "latitude": 30.327099999999987,
+        "latitude": 30.327099999999984,
         "longitude": -82.76949999999995
       },
       "accessCoordinate": {
-        "latitude": 30.327099999999987,
+        "latitude": 30.327099999999984,
         "longitude": -82.76949999999995
       },
       "accessCoordinateSource": "stored-route-consensus",
@@ -36644,17 +36645,17 @@
       "coordinateStatus": "consistent",
       "verificationStatus": "derived-consensus",
       "maximumSeparationFeet": 0,
-      "occurrenceCount": 18,
-      "routeCount": 9,
+      "occurrenceCount": 19,
+      "routeCount": 10,
       "coordinateVariants": [
         {
           "key": "30.32710,-82.76950",
           "coordinate": {
-            "latitude": 30.327099999999987,
+            "latitude": 30.327099999999984,
             "longitude": -82.76949999999995
           },
-          "occurrenceCount": 18,
-          "routeCount": 9,
+          "occurrenceCount": 19,
+          "routeCount": 10,
           "routes": [
             "suwannee-river-stephen-foster-adams-tract",
             "suwannee-river-stephen-foster-dowling-park",
@@ -36664,7 +36665,8 @@
             "suwannee-river-stephen-foster-peacock-slough",
             "suwannee-river-stephen-foster-spirit",
             "suwannee-river-stephen-foster-suwannee-state-park",
-            "suwannee-river-stephen-foster-woods-ferry"
+            "suwannee-river-stephen-foster-woods-ferry",
+            "suwannee-river-wayside-woods-ferry"
           ]
         }
       ],
@@ -36919,6 +36921,20 @@
           "auditSeverity": "ok",
           "distanceFeetToMatchedRiver": 54.65311205976016,
           "endpointOnWaterbody": true,
+          "coordinateEvidenceRole": null
+        },
+        {
+          "routeId": "suwannee-river-wayside-woods-ferry",
+          "routeName": "Suwannee River",
+          "state": "Florida",
+          "endpoint": "accessPoint",
+          "sourceId": "suwannee-river-wayside-woods-ferry-stephen-foster",
+          "name": "Stephen Foster Folk Culture Center State Park canoe launch",
+          "latitude": 30.3271,
+          "longitude": -82.7695,
+          "auditSeverity": null,
+          "distanceFeetToMatchedRiver": null,
+          "endpointOnWaterbody": null,
           "coordinateEvidenceRole": null
         }
       ]
@@ -37247,6 +37263,86 @@
       ]
     },
     {
+      "id": "florida--suwannee-river-wayside-park-boat-ramp-us-41",
+      "state": "Florida",
+      "name": "Suwannee River Wayside Park boat ramp (US 41)",
+      "aliases": [
+        "Suwannee River Wayside Park boat ramp (US 41)"
+      ],
+      "sourceIds": [
+        "suwannee-river-wayside-woods-ferry-put-in"
+      ],
+      "storedAccessCoordinate": {
+        "latitude": 30.3258,
+        "longitude": -82.7388
+      },
+      "accessCoordinate": {
+        "latitude": 30.3258,
+        "longitude": -82.7388
+      },
+      "accessCoordinateSource": "stored-route-consensus",
+      "authoritativeAccess": null,
+      "authoritativeFacilityAnchor": null,
+      "authoritativeAreaAnchor": null,
+      "storedCoordinateIsAreaAnchor": false,
+      "authoritativeAccessIdentityMismatch": false,
+      "authoritativeAccessMismatchFeet": null,
+      "waterEntryCoordinate": null,
+      "waterEntryConsensusRouteCount": 0,
+      "waterEntryExactOnRiver": false,
+      "waterEntryWaterbodyConfirmed": false,
+      "authoritativeResolvesDistinctLocation": false,
+      "coordinateStatus": "consistent",
+      "verificationStatus": "unverified",
+      "maximumSeparationFeet": 0,
+      "occurrenceCount": 2,
+      "routeCount": 1,
+      "coordinateVariants": [
+        {
+          "key": "30.32580,-82.73880",
+          "coordinate": {
+            "latitude": 30.3258,
+            "longitude": -82.7388
+          },
+          "occurrenceCount": 2,
+          "routeCount": 1,
+          "routes": [
+            "suwannee-river-wayside-woods-ferry"
+          ]
+        }
+      ],
+      "occurrences": [
+        {
+          "routeId": "suwannee-river-wayside-woods-ferry",
+          "routeName": "Suwannee River",
+          "state": "Florida",
+          "endpoint": "accessPoint",
+          "sourceId": "suwannee-river-wayside-woods-ferry-put-in",
+          "name": "Suwannee River Wayside Park boat ramp (US 41)",
+          "latitude": 30.3258,
+          "longitude": -82.7388,
+          "auditSeverity": null,
+          "distanceFeetToMatchedRiver": null,
+          "endpointOnWaterbody": null,
+          "coordinateEvidenceRole": null
+        },
+        {
+          "routeId": "suwannee-river-wayside-woods-ferry",
+          "routeName": "Suwannee River",
+          "state": "Florida",
+          "endpoint": "putIn",
+          "sourceId": null,
+          "name": "Suwannee River Wayside Park boat ramp (US 41)",
+          "latitude": 30.3258,
+          "longitude": -82.7388,
+          "auditSeverity": null,
+          "distanceFeetToMatchedRiver": null,
+          "endpointOnWaterbody": null,
+          "coordinateEvidenceRole": null
+        }
+      ]
+    },
+    {
       "id": "florida--us-27-public-boat-ramp",
       "state": "Florida",
       "name": "US 27 public boat ramp",
@@ -37338,6 +37434,7 @@
       ],
       "sourceIds": [
         "suwannee-river-stephen-foster-woods-ferry-take-out",
+        "suwannee-river-wayside-woods-ferry-take-out",
         "suwannee-river-woods-ferry-adams-tract-put-in",
         "suwannee-river-woods-ferry-dowling-park-put-in",
         "suwannee-river-woods-ferry-gibson-put-in",
@@ -37348,11 +37445,11 @@
         "suwannee-river-woods-ferry-suwannee-state-park-put-in"
       ],
       "storedAccessCoordinate": {
-        "latitude": 30.353900000000003,
+        "latitude": 30.3539,
         "longitude": -82.85539999999999
       },
       "accessCoordinate": {
-        "latitude": 30.353900000000003,
+        "latitude": 30.3539,
         "longitude": -82.85539999999999
       },
       "accessCoordinateSource": "stored-route-consensus",
@@ -37373,19 +37470,20 @@
       "coordinateStatus": "consistent",
       "verificationStatus": "derived-consensus",
       "maximumSeparationFeet": 0,
-      "occurrenceCount": 18,
-      "routeCount": 9,
+      "occurrenceCount": 20,
+      "routeCount": 10,
       "coordinateVariants": [
         {
           "key": "30.35390,-82.85540",
           "coordinate": {
-            "latitude": 30.353900000000003,
+            "latitude": 30.3539,
             "longitude": -82.85539999999999
           },
-          "occurrenceCount": 18,
-          "routeCount": 9,
+          "occurrenceCount": 20,
+          "routeCount": 10,
           "routes": [
             "suwannee-river-stephen-foster-woods-ferry",
+            "suwannee-river-wayside-woods-ferry",
             "suwannee-river-woods-ferry-adams-tract",
             "suwannee-river-woods-ferry-dowling-park",
             "suwannee-river-woods-ferry-gibson",
@@ -37424,6 +37522,34 @@
           "auditSeverity": "ok",
           "distanceFeetToMatchedRiver": 70.5227796560035,
           "endpointOnWaterbody": true,
+          "coordinateEvidenceRole": null
+        },
+        {
+          "routeId": "suwannee-river-wayside-woods-ferry",
+          "routeName": "Suwannee River",
+          "state": "Florida",
+          "endpoint": "accessPoint",
+          "sourceId": "suwannee-river-wayside-woods-ferry-take-out",
+          "name": "Woods Ferry River Camp landing",
+          "latitude": 30.3539,
+          "longitude": -82.8554,
+          "auditSeverity": null,
+          "distanceFeetToMatchedRiver": null,
+          "endpointOnWaterbody": null,
+          "coordinateEvidenceRole": null
+        },
+        {
+          "routeId": "suwannee-river-wayside-woods-ferry",
+          "routeName": "Suwannee River",
+          "state": "Florida",
+          "endpoint": "takeOut",
+          "sourceId": null,
+          "name": "Woods Ferry River Camp landing",
+          "latitude": 30.3539,
+          "longitude": -82.8554,
+          "auditSeverity": null,
+          "distanceFeetToMatchedRiver": null,
+          "endpointOnWaterbody": null,
           "coordinateEvidenceRole": null
         },
         {
