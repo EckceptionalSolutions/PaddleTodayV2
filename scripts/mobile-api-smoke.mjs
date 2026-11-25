@@ -14,6 +14,19 @@ if (firstSlug) {
   record('river-dependent endpoints', false, 'summary board did not include a route slug');
 }
 
+await checkOptions('planner guest endpoint accepts preflight', '/api/mobile/planner-guest');
+// Exercise the deployed write route with a deterministic turn that never calls the AI provider.
+await checkJson('day trip planner accepts a Saturday request', '/api/mobile/day-trip-agent',
+  payload => payload?.action?.settings?.day === 'Saturday' && payload.action.settings.hours === 2 && payload.action.question === null
+    ? pass('Saturday, 2 hours') : fail('unexpected planner action'), {
+    method: 'POST',
+    headers: { 'content-type': 'application/json' },
+    body: JSON.stringify({
+      message: 'Saturday, two hours', settings: { day: 'Today', hours: 5, driveMinutes: 60, noShuttle: false, easyOnly: false },
+      question: null, weekday: 3, originalRequest: null, shownMatches: [],
+    }),
+  });
+
 await checkOptions('alerts endpoint accepts preflight', '/api/alerts');
 await checkOptions('route reports endpoint accepts preflight', '/api/route-photo-submissions');
 await checkOptions('river request endpoint accepts preflight', '/api/river-request');
@@ -31,9 +44,9 @@ if (failed.length > 0) {
 
 console.log(`\n${checks.length} mobile API smoke checks passed for ${baseUrl}.`);
 
-async function checkJson(name, path, validate) {
+async function checkJson(name, path, validate, options) {
   try {
-    const response = await fetchWithTimeout(new URL(path, baseUrl));
+    const response = await fetchWithTimeout(new URL(path, baseUrl), options);
     const text = await response.text();
     const payload = parseJson(text);
 

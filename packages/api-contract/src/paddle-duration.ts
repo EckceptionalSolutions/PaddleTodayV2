@@ -50,3 +50,10 @@ function orderedRange(first: number, second: number) {
     ? { min: Math.min(first, second), max: Math.max(first, second) }
     : null;
 }
+
+/** Match a hard time limit only when the published duration has an upper bound. */
+export function fitsPaddleTimeLimit(label: string, max: number) {
+  if (/\b(?:overnight|multi[- ]?day|days|at least|more than|minimum|or more|over)\b|\d\s*\+/i.test(label)) return false;
+  const hours = parsePaddleTimeHours(label);
+  return !!hours && hours.max <= max;
+}

@@ -195,6 +195,7 @@ export {
 
 export {
   buildRiverDetailLogisticsViewModel,
+  hasDocumentedShuttleFreeReturn,
   compactLogisticsValue,
   type RiverDetailLogisticsViewModel,
 } from './river-detail-logistics-view-model';
@@ -647,6 +648,7 @@ export interface WeekendSummaryApiItem {
 }
 
 export * from './route-planning';
+export * from './day-trip-agent';
 
 export interface RiverDetailApiResult {
   river: {
@@ -1046,7 +1048,7 @@ export interface CreateRouteContributionResponse {
 
 export * from './saved-route-changes';
 
-export { parsePaddleTimeHours, formatPaddleTimeLabel } from './paddle-duration';
+export { parsePaddleTimeHours, formatPaddleTimeLabel, fitsPaddleTimeLimit } from './paddle-duration';
 export { normalizeSearchText } from './search-text';
 
 /** Public route metadata, independent of live scoring and snapshot coverage. */

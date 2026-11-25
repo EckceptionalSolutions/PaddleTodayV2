@@ -5,7 +5,7 @@ const DEFAULT_WINDOW_MS = 10 * 60 * 1000;
 const DEFAULT_MAX_REQUESTS = 5;
 const DEFAULT_MAX_BUCKETS = 10_000;
 
-export type RateLimitScope = 'alerts' | 'feedback' | 'route_contributions' | 'route_requests' | 'admin_login';
+export type RateLimitScope = 'alerts' | 'feedback' | 'route_contributions' | 'route_requests' | 'admin_login' | 'day_trip_agent' | 'planner_guest';
 
 export interface RateLimitDecision {
   limited: boolean;

@@ -47,6 +47,7 @@ import { handleHistorySnapshot, handleRiverSnapshotRefresh } from './routes/snap
 import { decodeRouteRequestStorageKeyParam } from '../lib/route-request-storage-key';
 import { accountMethodOptions, accountSyncMethod, handleAccountRoute } from './routes/accounts';
 import { handleTrips, isTripsPath } from './routes/trips';
+import { handleDayTripAgent, handlePlannerGuest } from './routes/day-trip-agent';
 import { handleMobileDiscovery } from './routes/mobile-discovery';
 import { handleRiverCameras } from './routes/river-cameras';
 import { handleRiverGaugeContext } from './routes/river-gauge-context';
@@ -261,6 +262,10 @@ function handleOptions(pathname: string, response: Parameters<typeof sendEmpty>[
     return sendCorsOptions(response, 'POST, OPTIONS', 'content-type, accept');
   }
 
+  if (pathname === '/api/mobile/day-trip-agent' || pathname === '/api/mobile/planner-guest') {
+    return sendCorsOptions(response, 'POST, OPTIONS', 'content-type, accept, cache-control, authorization, x-planner-guest');
+  }
+
   if (pathname === '/api/feedback') {
     return sendCorsOptions(response, 'POST, OPTIONS', 'content-type, accept');
   }
@@ -303,6 +308,13 @@ async function handleWriteRoutes(
 
   if ((pathname === '/api/river-request' || pathname === '/api/route-request') && request.method === 'POST') {
     return handleRiverRequest(request, response, requestId, includeBody);
+  }
+
+  if (pathname === '/api/mobile/day-trip-agent' && request.method === 'POST') {
+    return handleDayTripAgent(request, response, requestId, includeBody);
+  }
+  if (pathname === '/api/mobile/planner-guest' && request.method === 'POST') {
+    return handlePlannerGuest(request, response, requestId, includeBody);
   }
 
   if (pathname === '/api/feedback' && request.method === 'POST') {
