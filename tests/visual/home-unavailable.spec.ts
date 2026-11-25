@@ -1,6 +1,19 @@
 import { expect, test } from '@playwright/test';
 import { desktopBoardFixture, FIXTURE_NOW } from './desktop-board-fixtures';
 
+test('Today shows its first route without waiting for browser idle time', async ({ page }) => {
+  await page.clock.install({ time: FIXTURE_NOW });
+  await page.addInitScript(() => {
+    window.requestIdleCallback = () => 1;
+    localStorage.setItem('paddletoday:user-location', JSON.stringify({
+      latitude: 45.08, longitude: -93.2, label: 'Test city', source: 'manual',
+    }));
+  });
+  await page.route('**/api/rivers/summary.json*', route => route.fulfill({ json: desktopBoardFixture('fresh') }));
+  await page.goto('/');
+  await expect(page.locator('[data-featured-link][href^="/rivers/"]')).toBeVisible();
+});
+
 test('Today restores an oversized nearby snapshot on a failed reload and isolates a different area', async ({ page }) => {
   const board = desktopBoardFixture('fresh');
   await page.clock.install({ time: FIXTURE_NOW });

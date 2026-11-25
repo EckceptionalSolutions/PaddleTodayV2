@@ -1,6 +1,3 @@
-// Keep the initial homepage module tiny so the browser can paint the static
-// hero and location UI before loading the recommendation board and map code.
-// Hydration still starts immediately when a user focuses or touches a control.
 import { focusLocationControls } from './interaction-feedback.js';
 
 let hydrationPromise;
@@ -108,11 +105,7 @@ function showLocationInitializationError() {
   }
 }
 
-if ('requestIdleCallback' in window) {
-  window.requestIdleCallback(hydrateHomepage, { timeout: 1200 });
-} else {
-  window.setTimeout(hydrateHomepage, 0);
-}
+void hydrateHomepage();
 
 const preferences = document.querySelector('[data-home-preferences]');
 if (preferences instanceof HTMLDetailsElement) {
