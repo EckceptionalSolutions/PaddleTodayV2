@@ -13,6 +13,17 @@ export interface RiverDetailLogisticsViewModel {
   secondaryAccessCaveat: string;
 }
 
+function shuttleStatus(value: string | undefined) {
+  const shuttle = normalizeLogisticsText(value);
+  if (!shuttle) return 'unknown';
+  if (!/^no\s+(?:(?:vehicle|car|road)\s+)?shuttle\s+(?:is\s+)?(?:required|needed|necessary)\b/i.test(shuttle)) return 'arrange';
+  return /\b(?:if|unless|when|provided|assuming)\b/i.test(shuttle.split(/[.!?]/, 1)[0]) ? 'unknown' : 'unnecessary';
+}
+
+export function hasDocumentedShuttleFreeReturn(value: string | undefined) {
+  return shuttleStatus(value) === 'unnecessary';
+}
+
 export function buildRiverDetailLogisticsViewModel(
   logistics: RiverRouteLogistics | null | undefined,
 ): RiverDetailLogisticsViewModel {
@@ -23,11 +34,10 @@ export function buildRiverDetailLogisticsViewModel(
     .map(normalizeLogisticsText)
     .filter(Boolean);
   const primaryAccessCaveat = accessCaveats[0] || DEFAULT_ACCESS_CAVEAT;
-  const noShuttleRequired = /^no\s+(?:(?:vehicle|car|road)\s+)?shuttle\s+(?:is\s+)?(?:required|needed|necessary)\b/i.test(shuttle);
-  const conditionalReturn = noShuttleRequired && /\b(?:if|unless)\b/i.test(shuttle.split(/[.!?]/, 1)[0]);
-  const shuttleHeadline = !shuttle || conditionalReturn
+  const status = shuttleStatus(shuttle);
+  const shuttleHeadline = status === 'unknown'
     ? 'Check shuttle'
-    : noShuttleRequired ? 'No shuttle'
+    : status === 'unnecessary' ? 'No shuttle'
       : shuttle.toLowerCase().includes('bike') ? 'Car or bike' : 'Car shuttle';
 
   return {

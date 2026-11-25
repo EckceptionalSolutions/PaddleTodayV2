@@ -91,7 +91,12 @@ export function routeAccessPoints(river: RoutePlanningRiver): RiverRouteAccessPo
     points.set(accessPointKey(point), point);
   }
 
-  if (river.putIn && !points.has(accessPointKey(river.putIn))) {
+  // Older catalog endpoints omit the ID even when the identical named point is in the verified chain.
+  const containsEndpoint = (endpoint: NonNullable<typeof river.putIn>) => points.has(accessPointKey(endpoint))
+    || (!endpoint.id && [...points.values()].some(point => point.name === endpoint.name
+      && Number.isFinite(endpoint.latitude) && point.latitude === endpoint.latitude
+      && Number.isFinite(endpoint.longitude) && point.longitude === endpoint.longitude));
+  if (river.putIn && !containsEndpoint(river.putIn)) {
     points.set(accessPointKey(river.putIn), asRouteAccessPoint(river.putIn, 0, 'transition'));
   }
 
@@ -100,7 +105,7 @@ export function routeAccessPoints(river: RoutePlanningRiver): RiverRouteAccessPo
     .filter(Number.isFinite)
     .reduce((max, value) => Math.max(max, value), 0);
 
-  if (river.takeOut && !points.has(accessPointKey(river.takeOut))) {
+  if (river.takeOut && !containsEndpoint(river.takeOut)) {
     points.set(accessPointKey(river.takeOut), asRouteAccessPoint(river.takeOut, lastKnownMile, 'transition'));
   }
 
@@ -304,4 +309,17 @@ export function buildRoutePlannerParams(selectedSegment: RouteSegment | null) {
     putin: selectedSegment.putIn.id,
     takeout: selectedSegment.takeOut.id,
   };
+}
+
+// Only use the published reach and its own duration and shuttle evidence.
+export function dayTripEndpoints(river: RoutePlanningRiver) {
+  if (river.continuityStatus === 'condition-family' || (river.continuityStatus === 'partial' && !river.segmentEdges)) return null;
+  const points = routeAccessPoints(river);
+  const indexOf = (point: typeof river.putIn) => point ? points.findIndex(p =>
+    point.id ? p.id === point.id : p.name === point.name && p.latitude === point.latitude && p.longitude === point.longitude) : -1;
+  const start = indexOf(river.putIn), end = indexOf(river.takeOut);
+  if (start < 0 || end <= start || points[end].mileFromStart <= points[start].mileFromStart) return null;
+  if (river.segmentEdges && !points.slice(start, end).every((p, i) => river.segmentEdges!.some(edge =>
+    edge.fromId === p.id && edge.toId === points[start + i + 1].id && edge.status === 'verified'))) return null;
+  return { putIn: points[start], takeOut: points[end] };
 }
