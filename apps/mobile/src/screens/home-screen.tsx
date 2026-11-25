@@ -640,12 +640,12 @@ function RiverImageCard({
       </ImageBackground>
       <View style={styles.imageCardBody}>
         <View style={styles.imageCardCopy}>
-          <Text style={styles.imageCardTitle} numberOfLines={1}>{river.river.name}</Text>
-          <Text style={styles.imageCardMeta} numberOfLines={1}>
+          <Text style={styles.imageCardTitle}>{river.river.name}</Text>
+          <Text style={styles.imageCardMeta}>
             {[routeReachWithState(river), distanceLabelForRiver(river), routeCount > 1 ? `${routeCount} routes` : null].filter(Boolean).join(' - ')}
           </Text>
           {routeSegmentSummary(river.river) ? (
-            <Text style={styles.imageCardSegment} numberOfLines={1}>
+            <Text style={styles.imageCardSegment}>
               {formatRouteSegmentLabel(routeSegmentSummary(river.river), null)}
             </Text>
           ) : null}
