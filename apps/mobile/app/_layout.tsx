@@ -6,7 +6,8 @@ import { Stack, router } from 'expo-router';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import { usePathname } from 'expo-router';
 import { useEffect, useRef, useState } from 'react';
-import { ActivityIndicator, Platform, StyleSheet, View } from 'react-native';
+import { ActivityIndicator, Keyboard, Platform, StyleSheet, View } from 'react-native';
+import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import 'react-native-reanimated';
 import {
   addNotificationResponseListener,
@@ -191,6 +192,7 @@ function ThemedRootLayout() {
           <Stack.Screen name="privacy" options={{ title: 'Privacy' }} />
           <Stack.Screen name="terms" options={{ title: 'Terms' }} />
         </Stack>
+          {Platform.OS === 'android' && <AndroidSystemBarBackgrounds color={colors.canvas} />}
         </View>
         <FeedbackExperience pathname={pathname} />
         {!ready || (!onboardingChecked && !entryRoute) ? (
@@ -201,6 +203,21 @@ function ThemedRootLayout() {
       </ThemeProvider>
     </AppProviders>
   );
+}
+
+// Scrolling content can pass behind Android's transparent system bars.
+function AndroidSystemBarBackgrounds({ color }: { color: string }) {
+  const insets = useSafeAreaInsets();
+  const [keyboardVisible, setKeyboardVisible] = useState(() => Keyboard.isVisible());
+  useEffect(() => {
+    const show = Keyboard.addListener('keyboardDidShow', () => setKeyboardVisible(true));
+    const hide = Keyboard.addListener('keyboardDidHide', () => setKeyboardVisible(false));
+    return () => { show.remove(); hide.remove(); };
+  }, []);
+  return <View pointerEvents="none" importantForAccessibility="no-hide-descendants" style={StyleSheet.absoluteFill}>
+    <View style={{ height: insets.top, backgroundColor: color }} />
+    {!keyboardVisible && <View style={{ position: 'absolute', bottom: 0, left: 0, right: 0, height: insets.bottom, backgroundColor: color }} />}
+  </View>;
 }
 
 const createStyles = (colors: AppColors) => StyleSheet.create({
