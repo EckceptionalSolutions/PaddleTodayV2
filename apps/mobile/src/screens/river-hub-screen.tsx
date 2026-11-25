@@ -349,6 +349,8 @@ function RiverHubContent({ riverId }: { riverId: string }) {
         refreshControl={
           <RefreshControl
             tintColor={colors.accent}
+            colors={[colors.accent]}
+            progressBackgroundColor={colors.surfaceStrong}
             refreshing={groupQuery.isRefetching}
             onRefresh={() => void refreshRouteConditions()}
           />

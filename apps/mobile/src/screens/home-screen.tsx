@@ -227,6 +227,8 @@ const HomeContent = memo(function HomeContent({ summaryQuery, searchCatalog, sea
       refreshControl={
         <RefreshControl
           tintColor={colors.accent}
+          colors={[colors.accent]}
+          progressBackgroundColor={colors.surfaceStrong}
           refreshing={summaryQuery.isRefetching}
           onRefresh={() => summaryQuery.refetch()}
         />
@@ -634,20 +636,20 @@ function RiverImageCard({
             </View>
             <SaveToggleButton routeSlug={river.river.slug} routeLabel={`${river.river.name}: ${river.river.reach}`} compact saved={saved} onPress={onToggleSaved} />
           </View>
-          <View style={styles.imageCardCopy}>
-            <Text style={styles.imageCardTitle} numberOfLines={1}>{river.river.name}</Text>
-            <Text style={styles.imageCardMeta} numberOfLines={1}>
-              {[routeReachWithState(river), distanceLabelForRiver(river), routeCount > 1 ? `${routeCount} routes` : null].filter(Boolean).join(' - ')}
-            </Text>
-            {routeSegmentSummary(river.river) ? (
-              <Text style={styles.imageCardSegment} numberOfLines={1}>
-                {formatRouteSegmentLabel(routeSegmentSummary(river.river), null)}
-              </Text>
-            ) : null}
-          </View>
         </View>
       </ImageBackground>
       <View style={styles.imageCardBody}>
+        <View style={styles.imageCardCopy}>
+          <Text style={styles.imageCardTitle}>{river.river.name}</Text>
+          <Text style={styles.imageCardMeta}>
+            {[routeReachWithState(river), distanceLabelForRiver(river), routeCount > 1 ? `${routeCount} routes` : null].filter(Boolean).join(' - ')}
+          </Text>
+          {routeSegmentSummary(river.river) ? (
+            <Text style={styles.imageCardSegment}>
+              {formatRouteSegmentLabel(routeSegmentSummary(river.river), null)}
+            </Text>
+          ) : null}
+        </View>
         <Text style={styles.imageCardReason} numberOfLines={2}>
           {routeDecisionPresentation(river).call === 'unavailable' ? 'A current call is unavailable. Review the route evidence before choosing it.' : normalizeApiText(river.summary.shortExplanation)}
         </Text>
@@ -1180,7 +1182,7 @@ const createStyles = (colors: AppColors) => StyleSheet.create({
   },
   heroImage: {
     minHeight: 310,
-    backgroundColor: colors.accentDeep,
+    backgroundColor: colors.canvasMuted,
   },
   heroImageEmpty: {
     minHeight: 110,
@@ -1195,7 +1197,7 @@ const createStyles = (colors: AppColors) => StyleSheet.create({
     justifyContent: 'space-between',
     padding: spacing.md,
     // Keeps the faintest hero text above 5:1 even over a white photo.
-    backgroundColor: 'rgba(15, 25, 22, 0.72)',
+    backgroundColor: colors.photoScrim,
   },
   heroOverlayEmpty: {
     minHeight: 110,
@@ -1515,8 +1517,8 @@ const createStyles = (colors: AppColors) => StyleSheet.create({
     overflow: 'hidden',
   },
   imageCardMedia: {
-    height: 190,
-    backgroundColor: colors.accentDeep,
+    height: 120,
+    backgroundColor: colors.canvasMuted,
   },
   imageCardImage: {
     borderTopLeftRadius: radius.lg,
@@ -1560,18 +1562,18 @@ const createStyles = (colors: AppColors) => StyleSheet.create({
     gap: 4,
   },
   imageCardTitle: {
-    color: colors.onImage,
+    color: colors.text,
     fontSize: 21,
     lineHeight: 25,
     fontWeight: '900',
   },
   imageCardMeta: {
-    color: 'rgba(255, 255, 255, 0.86)',
+    color: colors.textMuted,
     fontSize: 12,
     fontWeight: '700',
   },
   imageCardSegment: {
-    color: colors.accentSoft,
+    color: colors.accentDeep,
     fontSize: 11,
     fontWeight: '900',
   },

@@ -28,6 +28,9 @@
         "ITSAppUsesNonExemptEncryption": false
       }
     },
+    "androidNavigationBar": {
+      "enforceContrast": false
+    },
     "android": {
       "adaptiveIcon": {
         "foregroundImage": "./assets/images/adaptive-icon.png",

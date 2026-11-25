@@ -712,7 +712,7 @@ function TripsHero({ compact, showTitle = true, lastSync, pendingCount }: { comp
 
   return <View style={[styles.hero, compact && styles.heroCompact]}>
     {!compact ? <View style={styles.heroKickerRow}>
-      <View style={styles.heroIcon}><MaterialCommunityIcons name="kayaking" size={23} color="#EAF3ED" /></View>
+      <View style={styles.heroIcon}><MaterialCommunityIcons name="kayaking" size={23} color={colors.onAccent} /></View>
       <Text style={styles.heroKicker}>PLAN · PADDLE · REMEMBER</Text>
     </View> : null}
     <View style={styles.heroHeading}>{showTitle ? <Text accessibilityRole="header" style={[styles.heroTitle, compact && styles.heroCompactTitle]}>My trips</Text> : null}

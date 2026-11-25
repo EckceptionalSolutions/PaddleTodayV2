@@ -728,6 +728,8 @@ export default function RiverDetailScreen() {
         refreshControl={
           <RefreshControl
             tintColor={colors.accent}
+            colors={[colors.accent]}
+            progressBackgroundColor={colors.surfaceStrong}
             refreshing={detailQuery.isRefetching || historyQuery.isRefetching || communityQuery.isRefetching}
             onRefresh={() => Promise.all([
               refreshRouteConditions(),

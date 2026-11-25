@@ -42,6 +42,10 @@ export function AppThemeProvider({ children }: PropsWithChildren) {
   }, [preference]);
 
   useEffect(() => {
+    if (Platform.OS === 'android') {
+      const navigationBar: typeof import('expo-navigation-bar') = require('expo-navigation-bar');
+      navigationBar.setStyle(colorScheme);
+    }
     void import('expo-system-ui').then(SystemUI => SystemUI.setBackgroundColorAsync(colors.canvas)).catch(() => {});
     if (Platform.OS === 'web' && typeof document !== 'undefined') {
       document.documentElement.style.colorScheme = colorScheme;

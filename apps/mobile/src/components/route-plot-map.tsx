@@ -635,7 +635,7 @@ const NativeScoreMarker = memo(function NativeScoreMarker({
           selected ? styles.nativeMarkerSelectedTone : null,
           isMapCluster(point) ? styles.nativeClusterMarker : null,
         ]} collapsable={false}>
-          {showScore ? <Text style={[styles.nativeMarkerText, selected ? { color: colors.onImage } : null]} allowFontScaling={false} numberOfLines={1} adjustsFontSizeToFit>{markerTextForPoint(point)}</Text> : null}
+          {showScore ? <Text style={styles.nativeMarkerText} allowFontScaling={false} numberOfLines={1} adjustsFontSizeToFit>{markerTextForPoint(point)}</Text> : null}
         </View>
       </View>
     </Marker>
