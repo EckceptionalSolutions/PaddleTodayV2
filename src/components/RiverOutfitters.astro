@@ -1,0 +1,34 @@
+---
+import { riverOutfitterReviews } from '../data/river-outfitters';
+import { routePageHref } from '../data/route-page-consolidations';
+
+interface Props {
+  riverId?: string;
+  routeSlug?: string;
+  trips?: { slug: string; reach: string }[];
+}
+
+const { riverId, routeSlug, trips = [] } = Astro.props;
+const review = riverId ? riverOutfitterReviews[riverId] : undefined;
+const outfitters = review && 'outfitters' in review
+  ? review.outfitters.filter(operator => !routeSlug || operator.routes.includes(routeSlug))
+  : [];
+const Heading = routeSlug ? 'h3' : 'h2';
+---
+{outfitters.length > 0 && (
+  <section class={routeSlug ? undefined : 'river-group-page__panel'} aria-labelledby="local-outfitters">
+    <Heading id="local-outfitters" class="river-subtitle">Local outfitters</Heading>
+    <ul>
+      {outfitters.map(operator => {
+        const servedTrips = trips.filter(trip => operator.routes.includes(trip.slug));
+        return <li>
+          <a href={operator.url}>{operator.name}</a>
+          <p>{operator.service}</p>
+          {servedTrips.length > 0 && <ul>
+            {servedTrips.map(trip => <li><a href={routePageHref(trip.slug)}>{trip.reach}</a></li>)}
+          </ul>}
+        </li>;
+      })}
+    </ul>
+  </section>
+)}

@@ -1,5 +1,6 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
+import RiverOutfitters from '../../components/RiverOutfitters.astro';
 import RouteTripPlan from '../../components/RouteTripPlan.astro';
 import PaddlePlanningGuide from '../../components/PaddlePlanningGuide.astro';
 import { priorityRouteGuides } from '../../data/priority-paddle-guides';
@@ -928,6 +929,7 @@ const routeStructuredData = {
 
 
 
+      <RiverOutfitters riverId={river.riverId} routeSlug={river.slug} />
       <div class="river-launch-plan__body">
         <div class="river-launch-plan__map-shell" id="route-access-map" tabindex="-1" data-detail-map-shell>
           <p class="river-launch-plan__map-label">Access map</p>
