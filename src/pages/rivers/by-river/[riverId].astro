@@ -1,5 +1,6 @@
 ---
 import BaseLayout from '../../../layouts/BaseLayout.astro';
+import RiverOutfitters from '../../../components/RiverOutfitters.astro';
 import PaddlePlanningGuide from '../../../components/PaddlePlanningGuide.astro';
 import AccessPlanningContext from '../../../components/AccessPlanningContext.astro';
 import { riverTripDetailsHref } from '../../../lib/trip-actions';
@@ -1322,6 +1323,8 @@ const groupStructuredData = [
         <ul>{sourceGroup.routes.map(route => <li><a href={routeDetailHref(route)}>{route.reach}</a></li>)}</ul>
       </details>}
     </section>
+
+    <RiverOutfitters riverId={group.riverId} trips={sourceGroup.routes} />
 
     {isWinooskiHub ? (
       <section class="river-group-page__panel" aria-labelledby="winooski-river-sections-title">
