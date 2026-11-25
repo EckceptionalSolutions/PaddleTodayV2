@@ -32,9 +32,12 @@ const routeLabel = stateRouteCount === 1 ? 'route' : 'routes';
 const riverLabel = stateRiverCount === 1 ? 'river' : 'rivers';
 const regionLabel = stateGroup.regions.length === 1 ? 'region' : 'regions';
 const stateRouteNames = stateRoutes.map((route) => `${route.name}: ${route.reach}`);
-const stateTitle = scoredRoutes.length
+const defaultStateTitle = scoredRoutes.length
   ? `Best ${stateGroup.name} Rivers to Paddle Today | Paddle Today`
   : `${stateGroup.name} Paddle Routes & Trip Planning | Paddle Today`;
+const stateTitle = stateGroup.slug === 'indiana'
+  ? 'Indiana River Map for Kayaking & Canoeing | Paddle Today'
+  : defaultStateTitle;
 const stateDescription = `Explore ${stateRouteCount} ${stateGroup.name} paddle ${routeLabel} with access details, trip planning, and source links. ${scoredRoutes.length} support live scores; ${reviewedPlanningCount} are planning-only.`;
 const routePageHref = (route: River) => tripPageHref(route.slug);
 const routePageLinkLabel = (_route: River) => 'View trip details';
